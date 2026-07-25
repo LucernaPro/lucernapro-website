@@ -160,12 +160,14 @@
 
   /* ---------- HOW TO USE ---------- */
   .howto{padding:46px 0 10px}
-  .steps{margin-top:20px;display:grid;grid-template-columns:1fr;gap:12px}
-  @media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
-  .step{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:17px 18px}
-  .step .n{font-family:var(--mono);font-size:12px;color:var(--wproof);letter-spacing:.12em}
-  .step h4{font-family:var(--disp);font-size:16px;margin:7px 0 5px}
-  .step p{font-size:14px;color:var(--muted)}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
   .docbtns{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
   .howvid{margin-top:22px;max-width:720px}
   .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
@@ -337,13 +339,14 @@
 <section class="howto">
   <div class="wrap">
     <h2 class="sec-h">วิธีใช้งาน</h2>
-    <p class="sec-sub">งานนี้ทำเองได้จริง — อ่านคู่มือฉบับเต็มและข้อมูลเทคนิคก่อนเริ่มงานทุกครั้ง</p>
-    <div class="steps">
-      <div class="step"><div class="n">STEP 1</div><h4>เตรียมพื้นผิว</h4><p>ล้างคราบสบู่ คราบไขมัน และตะไคร่ให้สะอาด แล้วปล่อยให้พื้นผิวแห้งสนิทก่อนเริ่มงาน</p></div>
-      <div class="step"><div class="n">STEP 2</div><h4>ทารองพื้น (แถมมาในชุด)</h4><p>ผสมรองพื้นอัตราส่วน 2:1 แล้วทาให้ทั่ว — นี่คือหัวใจของการยึดเกาะบนกระเบื้องเคลือบ ทิ้งไว้ 4–6 ชั่วโมง</p></div>
-      <div class="step"><div class="n">STEP 3</div><h4>ทาสี TileCoat 2 รอบ</h4><p>ผสมสี Part A : Part B อัตราส่วน 2:1 ทารอบแรกให้ทั่ว รอตามคู่มือแล้วทาทับรอบที่สอง</p></div>
-      <div class="step"><div class="n">STEP 4</div><h4>รอเซ็ตตัวก่อนใช้งาน</h4><p>ปล่อยให้ฟิล์มสีเซ็ตตัวเต็มที่ตามระยะเวลาในคู่มือ ก่อนกลับมาใช้ห้องน้ำตามปกติ</p></div>
-    </div>
+    <p class="sec-sub">งานนี้ทำเองได้จริง — 5 ขั้น จบในวันเดียว ดูคลิปประกอบก่อนเริ่มยิ่งชัวร์</p>
+    <ol class="flow">
+      <li class="fstep"><h4>เตรียมพื้นผิว</h4><p>ล้างคราบสบู่ คราบไขมัน และตะไคร่ให้เกลี้ยง แล้วปล่อยให้แห้งสนิท — พื้นผิวสะอาดคือครึ่งทางของงานที่ไม่ลอก</p></li>
+      <li class="fstep"><h4>ทารองพื้น (แถมมาในชุด)</h4><p>ผสมรองพื้นสองส่วนตามอัตรา แล้วทาให้ทั่วพื้นที่ — ขั้นนี้คือหัวใจของการยึดเกาะบนกระเบื้องเคลือบ เสร็จแล้วพักผิวก่อนขั้นถัดไป</p><span class="fchip">ผสม 2 : 1</span><span class="fchip">พัก 4–6 ชั่วโมง</span></li>
+      <li class="fstep"><h4>ทาสีรอบแรก</h4><p>ผสมสี Part A กับ Part B แล้วทาให้ทั่วถึงทุกซอกทุกร่องยาแนว ฟิล์มบางสม่ำเสมอดีกว่าหนาเป็นหย่อม</p><span class="fchip">Part A : Part B = 2 : 1</span></li>
+      <li class="fstep"><h4>ทาสีรอบที่สอง</h4><p>รอชั้นแรกแห้งตามระยะเวลาบนฉลาก แล้วทาทับอีกรอบ — สองชั้นคือความหนาที่ระบบกันซึมต้องการ</p></li>
+      <li class="fstep"><h4>รอเซ็ตตัว แล้วใช้งานได้เลย</h4><p>ปล่อยให้ฟิล์มเซ็ตตัวเต็มที่ก่อนกลับมาใช้ห้องน้ำตามปกติ — จบงานโดยไม่ได้รื้อกระเบื้องแม้แต่แผ่นเดียว</p></li>
+    </ol>
     <figure class="howvid">
       <div class="yt" data-id="WdYrUDD-U8U" tabindex="0" role="button" aria-label="เล่นวิดีโอวิธีใช้ TileCoat Polyurea">
         <img src="https://i.ytimg.com/vi/WdYrUDD-U8U/hqdefault.jpg" alt="วิดีโอสาธิตวิธีใช้ TileCoat Polyurea" loading="lazy" decoding="async">
@@ -353,7 +356,6 @@
     </figure>
     <div class="warn"><b>⚠ ข้อควรระวัง:</b> ไม่เหมาะกับผู้ที่แพ้ทินเนอร์หรือสารเคมี/เคมีภัณฑ์ — หากมีอาการแพ้ ไม่ควรทาด้วยตัวเอง แนะนำให้ช่างเป็นผู้ดำเนินการ และทำงานในที่อากาศถ่ายเทเสมอ</div>
     <div class="docbtns">
-      <a class="btn btn-ghost" href="/files/tilecoatpoly-manual.png" target="_blank" rel="noopener">📄 คู่มือการใช้งาน</a>
       <a class="btn btn-ghost" href="/files/tilecoatpoly-tds.pdf" target="_blank" rel="noopener">📑 TDS ข้อมูลเทคนิค</a>
     </div>
   </div>
