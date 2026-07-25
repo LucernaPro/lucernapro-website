@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.lucernapro.com/">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"LucernaPro","legalName":"บริษัท ลูเซอน่า จำกัด","url":"https://www.lucernapro.com","email":"Lucernapro@yahoo.com","telephone":"+66-97-079-9547","sameAs":["https://www.facebook.com/lucernapro","https://instagram.com/lucerna_pro","https://www.youtube.com/channel/UC8xkRcjo_5RZoNm_jV7kg7g","https://shopee.co.th/lucernapro","https://www.lazada.co.th/shop/lucernapro/"]}
+{"@context":"https://schema.org","@type":"Organization","name":"LucernaPro","legalName":"บริษัท ลูเซอน่า จำกัด","slogan":"Leave the Ordinary Behind","url":"https://www.lucernapro.com","email":"Lucernapro@yahoo.com","telephone":"+66-97-079-9547","address":{"@type":"PostalAddress","streetAddress":"23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง","addressLocality":"อ.เมือง","addressRegion":"อุบลราชธานี","postalCode":"34000","addressCountry":"TH"},"sameAs":["https://www.facebook.com/lucernapro","https://instagram.com/lucerna_pro","https://www.youtube.com/channel/UC8xkRcjo_5RZoNm_jV7kg7g","https://shopee.co.th/lucernapro","https://www.lazada.co.th/shop/lucernapro/"]}
 </script>
 <link rel="icon" type="image/png" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,9 +48,11 @@
   .nav{display:none;gap:20px;margin-left:auto;font-size:14.5px;color:var(--muted)}
   .nav a:hover{color:var(--ink)}
   @media(min-width:861px){.nav{display:flex}}
-  .cta-line{background:#06C755;color:#fff;font-weight:600;font-size:14px;padding:8px 14px;border-radius:8px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;margin-left:auto}
-  @media(min-width:861px){.cta-line{margin-left:0}}
-  .cta-line:hover{filter:brightness(1.08)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:#fff;font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;margin-left:auto}
+  .cta-chat:hover{border-color:#4E9BFF}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+  @media(min-width:861px){.cta-chat{margin-left:0}}
+  .cta-chat:hover{filter:brightness(1.08)}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;padding:56px 0 0;overflow:hidden;background:
@@ -151,6 +153,17 @@
   .why-card h4{font-family:var(--disp);font-size:17px;margin:9px 0 7px}
   .why-card p{font-size:14px;color:var(--muted)}
 
+  /* ---------- Facebook band ---------- */
+  .fb-band{border-top:1px solid var(--line);background:linear-gradient(120deg, rgba(24,119,242,.07), transparent 55%), var(--panel);padding:36px 0}
+  .fb-inner{display:flex;flex-direction:column;gap:18px}
+  @media(min-width:861px){.fb-inner{flex-direction:row;align-items:center;justify-content:space-between}}
+  .fb-big{font-family:var(--disp);font-size:22px;font-weight:700}
+  .fb-big b{color:var(--orange)}
+  .fb-sub{color:var(--muted);margin-top:5px;font-size:14.5px;max-width:520px}
+  .fb-actions{display:flex;gap:11px;flex-wrap:wrap}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:#fff}
+  .btn-fb:hover{border-color:#4E9BFF}
+
   /* ---------- Contact ---------- */
   .contact{padding:56px 0 64px}
   .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 22px;display:grid;grid-template-columns:1fr;gap:30px}
@@ -166,6 +179,8 @@
   .shoplinks{margin-top:16px;display:flex;gap:9px;flex-wrap:wrap}
   .shop{border:1px solid var(--line);border-radius:8px;padding:8px 13px;font-weight:600;font-size:13.5px;background:var(--panel-2)}
   .shop:hover{border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
 
   /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--line);color:var(--muted);padding:30px 0 96px;font-size:13.5px}
@@ -178,7 +193,7 @@
   .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(11,11,13,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
   @media(min-width:861px){.mob-bar{display:none}}
   .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
-  .mob-line{background:#06C755;color:#fff}
+  .mob-fb{background:var(--panel-2);border:1.5px solid #3A3F45;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:8px}
   .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
 </style>
 </head>
@@ -195,13 +210,13 @@
       <a href="https://www.lucernapro.com/blog">ตัวอย่างงาน</a>
       <a href="#contact">ติดต่อเรา</a>
     </nav>
-    <a class="cta-line" href="https://lin.ee/LpUR3Ld">💬 @lucerna</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
   </div>
 </header>
 
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="kicker">Advanced Materials · Engineering the Future of Surfaces</div>
+    <div class="kicker">Leave the Ordinary Behind</div>
     <h1>อาวุธลับงานก่อสร้าง<br>สำหรับ<span class="o">มืออาชีพ</span>โดยเฉพาะ</h1>
     <p class="lede">เราไม่ได้แค่ขายสินค้า — เราคือผู้เชี่ยวชาญด้านวัสดุขั้นสูงที่ออกแบบมาเพื่อแก้ปัญหาที่ระบบเดิมทำไม่ได้ ตั้งแต่กันซึม Polyurea เกรดอุตสาหกรรม ไปจนถึง Coating นวัตกรรมสำหรับยานยนต์และที่พักอาศัย จบทุก Pain Point ด้วยเคมีเกรดสูงสุด</p>
     <div class="hero-cta">
@@ -260,7 +275,7 @@
 <section class="cat-section" id="waterproof">
   <div class="cat-head"><span class="cat-dot" style="background:#4FA3D1"></span><span class="code">W</span>
     <h3>กันซึม Waterproofing</h3><span class="count" data-count></span></div>
-  <div class="ladder"><div class="ltitle">เลือกกันซึมรุ่นไหนดี? ไล่จากจัดเต็ม → ประหยัด</div><div class="lsteps"><a class="lstep" href="https://www.lucernapro.com/pmma"><b>PMMA</b><span>State of the art</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/polypro"><b>Polyurea Gen3</b><span>ตัว Top ทุกพื้นผิว</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/siliconepro"><b>SiliconePro</b><span>มาใหม่ แช่น้ำได้เป็นปี</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/polyurea"><b>Polyurea</b><span>คุณภาพ Top ราคาคุ้ม</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/exotic"><b>Exotic</b><span>เปิดฝาใช้ได้เลย</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/heatshield"><b>HeatShield</b><span>ประหยัด + ลดร้อน</span></a></div></div>
+  <div class="ladder"><div class="ltitle">เลือกกันซึมรุ่นไหนดี? ไล่จากจัดเต็ม → ประหยัด</div><div class="lsteps"><a class="lstep" href="https://www.lucernapro.com/pmma"><b>PMMA</b><span>State of the art</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/polypro"><b>Polyurea Gen3</b><span>ตัว Top ทุกพื้นผิว</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/exotic"><b>Exotic</b><span>เทียบเท่า Gen3 ไม่ต้องผสม</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/polyurea"><b>Polyurea</b><span>สาย Poly รุ่นประหยัด</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/siliconepro"><b>SiliconePro</b><span>มาใหม่ แช่น้ำได้เป็นปี</span></a><span class="larrow">›</span><a class="lstep" href="https://www.lucernapro.com/heatshield"><b>HeatShield</b><span>ประหยัด + ลดร้อน</span></a></div></div>
   <div class="grid">
 <a class="card" style="--cat-color:#4FA3D1" href="https://www.lucernapro.com/tilecoatpoly" data-search="tilecoat polyurea สีทากระเบื้องกันซึม — จบปัญหาห้องน้ำรั่วโดยไม่ต้องรื้อกระเบื้อง ห้องน้ำ กระเบื้อง รั่ว ซึม น้ำรั่ว เคลือบ"><div class="thumb"><img src="img/tilecoatpoly.webp" alt="TileCoat Polyurea" loading="lazy" decoding="async"></div><div class="cbody"><div class="pname">TileCoat Polyurea</div><div class="pdesc">สีทากระเบื้องกันซึม — จบปัญหาห้องน้ำรั่วโดยไม่ต้องรื้อกระเบื้อง</div><div class="go">ดูรายละเอียด →</div></div></a>
 <a class="card" style="--cat-color:#4FA3D1" href="https://www.lucernapro.com/polypro" data-search="กันซึม polyurea gen3 ตัว top สุดของงานกันซึม ใช้ได้ทุกพื้นผิว ทั้งงานทั่วไปและงานยาก ดาดฟ้า หลังคา รั่ว ซึม น้ำรั่ว"><div class="thumb"><img src="img/polypro.webp" alt="กันซึม Polyurea Gen3" loading="lazy" decoding="async"></div><div class="cbody"><div class="pname">กันซึม Polyurea Gen3</div><div class="pdesc">ตัว Top สุดของงานกันซึม ใช้ได้ทุกพื้นผิว ทั้งงานทั่วไปและงานยาก</div><div class="go">ดูรายละเอียด →</div></div></a>
@@ -352,7 +367,7 @@
   </div>
 </section>
 </main>
-<div class="wrap"><div class="empty hidden" id="empty">ไม่พบสินค้าที่ตรงกับคำค้น — ลองคำอื่น หรือทัก Line @lucerna ให้เราช่วยแนะนำได้เลยครับ</div></div>
+<div class="wrap"><div class="empty hidden" id="empty">ไม่พบสินค้าที่ตรงกับคำค้น — ลองคำอื่น หรือทักแชทเพจ Facebook ให้เราช่วยแนะนำได้เลยครับ</div></div>
 
 <section class="why">
   <div class="wrap">
@@ -360,8 +375,21 @@
     <div class="why-grid">
       <div class="why-card"><div class="n">SPEC</div><h4>เคมีเกรดอุตสาหกรรมจริง</h4><p>Polyurea, Polyaspartic, PMMA, FRP — เทคโนโลยีระดับ Industrial ที่ร้านวัสดุทั่วไปไม่มี คัดสรรมาเพื่อแก้ปัญหาที่วัสดุทั่วไปเอาไม่อยู่</p></div>
       <div class="why-card"><div class="n">SOLVE</div><h4>แก้ที่ต้นเหตุ ไม่ใช่ทาทับ</h4><p>ซ่อมเท่าไหร่ก็ไม่จบ เพราะใช้ของผิดประเภท — เราจับคู่สินค้ากับปัญหาให้ตรงจุด ทั้งกันซึม Positive/Negative, รอยร้าวโครงสร้าง, งานใต้น้ำ</p></div>
-      <div class="why-card"><div class="n">SUPPORT</div><h4>ปรึกษาหน้างานได้จริง</h4><p>ไม่แน่ใจว่าเคสของคุณต้องใช้ตัวไหน ส่งรูปหน้างานมาทาง Line ทีมงานช่วยวิเคราะห์และแนะนำระบบที่เหมาะสมให้ก่อนซื้อ</p></div>
+      <div class="why-card"><div class="n">SUPPORT</div><h4>ปรึกษาหน้างานได้จริง</h4><p>ไม่แน่ใจว่าเคสของคุณต้องใช้ตัวไหน ส่งรูปหน้างานมาทางแชทเพจ ทีมงานช่วยวิเคราะห์และแนะนำระบบที่เหมาะสมให้ก่อนซื้อ</p></div>
       <div class="why-card"><div class="n">PROOF</div><h4>ตัวอย่างงานจริงให้ดู</h4><p>ทุกระบบมีเคสหน้างานจริงประกอบ — ดูขั้นตอน ผลลัพธ์ และรีวิวการใช้งานได้ที่หน้าตัวอย่างงานของเรา</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fb-band">
+  <div class="wrap fb-inner">
+    <div>
+      <div class="fb-big">คนกว่า <b>100,000 คน</b> ติดตามเราบน Facebook</div>
+      <div class="fb-sub">รีวิวหน้างานจริง เทคนิคช่าง และสินค้าใหม่ก่อนใคร — ทักแชทได้เลย ทีมงานตอบไว</div>
+    </div>
+    <div class="fb-actions">
+      <a class="btn btn-fb" href="https://www.facebook.com/lucernapro"><span class="fbadge">f</span>ติดตามเพจ LucernaPro</a>
+      <a class="btn btn-ghost" href="https://m.me/lucernapro">💬 ทักแชทเพจ</a>
     </div>
   </div>
 </section>
@@ -373,7 +401,7 @@
         <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
         <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
         <div class="contact-actions">
-          <a class="btn btn-orange" href="https://lin.ee/LpUR3Ld">💬 ปรึกษาฟรีทาง Line</a>
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
           <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
         </div>
         <div class="shoplinks">
@@ -382,13 +410,16 @@
           <a class="shop" href="https://www.youtube.com/channel/UC8xkRcjo_5RZoNm_jV7kg7g">▶ YouTube</a>
           <a class="shop" href="https://www.facebook.com/lucernapro">Facebook</a>
           <a class="shop" href="https://instagram.com/lucerna_pro">Instagram</a>
+          <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
         </div>
       </div>
       <div class="contact-list">
+        <div class="row"><span class="lbl">แชทเพจ</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
         <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
         <div class="row"><span class="lbl">โทร</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
         <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
         <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">ที่อยู่</span><span>บริษัท ลูเซอน่า จำกัด — 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000</span></div>
         <div class="row"><span class="lbl">เวลา</span><span>08.00–19.00 จันทร์–เสาร์</span></div>
       </div>
     </div>
@@ -397,13 +428,16 @@
 
 <footer>
   <div class="wrap">
-    <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — เพื่อบ้านที่ดีขึ้น</div>
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
     <div>© 2026 บริษัท ลูเซอน่า จำกัด · <a href="https://www.lucernapro.com/blog">ตัวอย่างงาน</a></div>
   </div>
 </footer>
 
 <div class="mob-bar">
-  <a class="mob-line" href="https://lin.ee/LpUR3Ld">💬 แชท Line</a>
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
   <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
 </div>
 
