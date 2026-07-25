@@ -52,6 +52,7 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 - [x] หน้า Home ไทย (index.html) — ขึ้น production แล้ว
 - [x] หน้า Home อังกฤษ (en/index.html) — สองภาษาครบ
 - [x] หน้าสินค้า pilot: TileCoat Polyurea (`/tilecoatpoly`) — เสร็จ + เจ้าของตรวจผ่าน 25 ก.ค. 2026 (ราคาจริง, pack shot, timeline วิธีใช้, TDS ในบ้านตัวเอง — ตัดขาดจาก Wix สมบูรณ์)
+- [x] หน้า EN pilot: `/en/tilecoatpoly` (มติแก้ไข 25 ก.ค. 2026: pilot ทำคู่สองภาษาเพื่อเป็น template EN ด้วย — hreflang ผูกครบทั้งคู่) / **สินค้าที่เหลือยังยึดมติเดิม: ไทยครบก่อน แล้วค่อย batch แปล EN**
 - [ ] ปั๊มหน้าสินค้าไทยที่เหลือตามหมวด (หนึ่งเซสชัน = หนึ่งชุด)
 - [ ] Phase แปล EN หน้าสินค้าทั้งหมด (หลังไทยครบ + เจ้าของตรวจแล้ว)
 - [ ] Blog / Case study
