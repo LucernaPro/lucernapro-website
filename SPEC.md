@@ -11,10 +11,12 @@
 
 ## กฎเหล็ก (ห้ามละเมิด)
 1. **URL สินค้าต้องตรงกับ Wix เดิมทุกเส้น** เช่น `/tilecoatpoly`, `/polypro` — สร้างเป็น `{slug}/index.html`
-2. เว็บนี้ยังไม่ cutover — domain จริงยังชี้ Wix / ลิงก์ระหว่างหน้าใช้ relative path เพื่อให้ทำงานทั้ง sandbox และ domain จริง
-3. ห้าม hardcode domain ในลิงก์ภายใน (ยกเว้น canonical/OG ใน meta ที่ชี้ lucernapro.com)
-4. รูปทุกรูปผ่าน pipeline: กว้างสูงสุด 480px (หน้าสินค้าใช้ 900px สำหรับรูปหลัก), WebP quality 74, ชื่อไฟล์ = slug
-5. มือถือมาก่อนเสมอ — ลูกค้าส่วนใหญ่คือมือถือ
+2. **เว็บเป็นสองภาษาเสมอ**: ไทยที่ราก `/` (ตลาดหลัก), อังกฤษที่ `/en/` โครงเดียวกันเป๊ะ — หน้าสินค้าใหม่ทุกหน้าต้องส่งมอบเป็นคู่ `/{slug}/` + `/en/{slug}/` พร้อม hreflang โยงถึงกันทั้งสองฝั่ง (th, en, x-default=th) และปุ่มสลับภาษา (.lang-switch) บน topbar
+3. เว็บนี้ยังไม่ cutover — domain จริงยังชี้ Wix / ลิงก์ระหว่างหน้าใช้ relative หรือ root-relative path (`/img/...`, `/en/`) เพื่อให้ทำงานทั้ง sandbox และ domain จริง
+4. ห้าม hardcode domain ในลิงก์ภายใน (ยกเว้น canonical/OG/hreflang ใน meta ที่ชี้ lucernapro.com)
+5. รูปทุกรูปผ่าน pipeline: กว้างสูงสุด 480px (หน้าสินค้าใช้ 900px สำหรับรูปหลัก), WebP quality 74, ชื่อไฟล์ = slug — รูปใช้ร่วมกันทั้งสองภาษาจากโฟลเดอร์ `/img/` เดียว
+6. มือถือมาก่อนเสมอ — ลูกค้าส่วนใหญ่คือมือถือ
+7. ภาษาอังกฤษ: โทนเดียวกับไทย (มั่นใจ กวนนิดๆ) ไม่ใช่แปลตรงตัวแข็งทื่อ / tag ค้นหาไทยฝังใน data-search ของหน้า EN ด้วยเพื่อให้ปุ่มปัญหากรองได้ทั้งสองภาษา
 
 ## Design Tokens (ธีมดำ-ส้ม Lucerna)
 - --bg: #0B0B0D (ดำหลัก) / --panel: #151518 / --panel-2: #1B1B1F / --line: #28282E
@@ -42,7 +44,8 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 - สินค้าใหม่ยังไม่มีหน้า: hydroglide, epoxyputty, ecobind, Liquid Membrane, flake set (รอเจ้าของ confirm)
 
 ## Campaign Roadmap
-- [x] หน้า Home (index.html) — ขึ้น production แล้ว
+- [x] หน้า Home ไทย (index.html) — ขึ้น production แล้ว
+- [x] หน้า Home อังกฤษ (en/index.html) — สองภาษาครบ
 - [ ] หน้าสินค้า pilot: TileCoat Polyurea (`/tilecoatpoly`) — เนื้อหาดึงจาก Wix เดิม แล้วเจ้าของตรวจแก้
 - [ ] ปั๊มหน้าสินค้าที่เหลือตามหมวด (หนึ่งเซสชัน = หนึ่งชุด)
 - [ ] Blog / Case study

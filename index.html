@@ -12,7 +12,11 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"LucernaPro","legalName":"บริษัท ลูเซอน่า จำกัด","slogan":"Leave the Ordinary Behind","url":"https://www.lucernapro.com","email":"Lucernapro@yahoo.com","telephone":"+66-97-079-9547","address":{"@type":"PostalAddress","streetAddress":"23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง","addressLocality":"อ.เมือง","addressRegion":"อุบลราชธานี","postalCode":"34000","addressCountry":"TH"},"sameAs":["https://www.facebook.com/lucernapro","https://instagram.com/lucerna_pro","https://www.youtube.com/channel/UC8xkRcjo_5RZoNm_jV7kg7g","https://shopee.co.th/lucernapro","https://www.lazada.co.th/shop/lucernapro/"]}
 </script>
-<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="canonical" href="https://www.lucernapro.com/">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/">
+<link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -48,7 +52,10 @@
   .nav{display:none;gap:20px;margin-left:auto;font-size:14.5px;color:var(--muted)}
   .nav a:hover{color:var(--ink)}
   @media(min-width:861px){.nav{display:flex}}
-  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:#fff;font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;margin-left:auto}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted);margin-left:auto}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  @media(min-width:861px){.lang-switch{margin-left:0}}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:#fff;font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
   .cta-chat:hover{border-color:#4E9BFF}
   .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
   @media(min-width:861px){.cta-chat{margin-left:0}}
@@ -201,7 +208,7 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top"><img class="logo" src="img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="brand" href="#top"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
     <nav class="nav">
       <a href="#finder">ค้นหาสินค้า</a>
       <a href="#waterproof">กันซึม</a>
@@ -210,6 +217,7 @@
       <a href="https://www.lucernapro.com/blog">ตัวอย่างงาน</a>
       <a href="#contact">ติดต่อเรา</a>
     </nav>
+    <a class="lang-switch" href="/en/">EN</a>
     <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
   </div>
 </header>
