@@ -179,6 +179,13 @@
   .fibermode li b{color:var(--ink)}
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (Reels 9:16): จอใหญ่ 3 แถบตั้ง / มือถือเลื่อนข้าง */
+  .vidgrid.vert{max-width:780px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:
       radial-gradient(340px 200px at 20% 0%, rgba(79,163,209,.25), transparent 60%),
@@ -380,21 +387,21 @@
     </div>
     <div class="warn"><b>⚠ กฎเหล็กโหมดผ้า:</b> จุดสีขาวที่มองเห็น = <b>รูเล็กๆ ที่น้ำลอดลงไปขังใต้ผ้าได้</b> แล้วจะพังหนักกว่าตอนยังไม่ทำกันซึมเสียอีก — ทาทับจนขาวหายเกลี้ยง <b>ห้ามมีเด็ดขาด</b></div>
 
-    <div class="vidgrid">
+    <div class="vidgrid vert">
       <figure style="margin:0">
-        <div class="fbv" data-href="https://www.facebook.com/lucernapro/videos/713148574509456/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 1">
+        <div class="fbv v916" data-href="https://www.facebook.com/lucernapro/videos/713148574509456/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 1">
           <span class="playbtn">▶</span><span class="fbv-lbl">FACEBOOK VIDEO · 01</span>
         </div>
         <figcaption>คลิปการใช้งานจริงจากเพจ — กดเพื่อเล่น</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv" data-href="https://www.facebook.com/lucernapro/videos/4156005507978651/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 2">
+        <div class="fbv v916" data-href="https://www.facebook.com/lucernapro/videos/4156005507978651/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 2">
           <span class="playbtn">▶</span><span class="fbv-lbl">FACEBOOK VIDEO · 02</span>
         </div>
         <figcaption>งานหน้างานจริงจากเพจ — กดเพื่อเล่น</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv" data-href="https://www.facebook.com/lucernapro/videos/1781383772777592/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 3">
+        <div class="fbv v916" data-href="https://www.facebook.com/lucernapro/videos/1781383772777592/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 3">
           <span class="playbtn">▶</span><span class="fbv-lbl">FACEBOOK VIDEO · 03</span>
         </div>
         <figcaption>รีวิวเพิ่มเติมจากเพจ — กดเพื่อเล่น</figcaption>
