@@ -191,8 +191,16 @@
   @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
   .fbv.v916{aspect-ratio:9/16}
 
-  /* ---------- Showcase / ภาพอธิบาย (แยกจากขั้นตอนงาน) ---------- */
+  /* ---------- Showcase (ภาพโชว์ แยกจากขั้นตอนงาน) ---------- */
   .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(79,163,209,.25), transparent 60%),
@@ -364,32 +372,19 @@
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
-    <p class="sec-sub">ทุกสีราคาเดียวกัน แต่<b>พื้นที่ที่ทาได้ต่างกัน</b> — สีขาวกำลังกลบต่ำกว่า ต้องลงเนื้อหนากว่าถึงจะกลบพื้นผิวเดิมมิด เราเลยแจ้งตัวเลขแยกกันตรงๆ ไม่เหมารวม</p>
-    <div class="pricegrid">
-      <div class="pricecard">
-        <div class="ph">สีฟ้า &amp; สีเทา<small>1 kg ≈ 3 ตร.ม.</small></div>
-        <table>
-          <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
-          <tbody>
-            <tr><td class="sz">1 kg</td><td>≈ 3 ตร.ม.</td><td class="pr">470.-</td></tr>
-            <tr><td class="sz">5 kg</td><td>≈ 15 ตร.ม.</td><td class="pr">1,910.-</td></tr>
-            <tr><td class="sz">18 kg</td><td>≈ 54 ตร.ม.</td><td class="pr">5,890.-</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pricecard">
-        <div class="ph">สีขาว<small>ใช้เนื้อสีเยอะกว่า — 1 kg ≈ 1 ตร.ม.</small></div>
-        <table>
-          <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
-          <tbody>
-            <tr><td class="sz">1 kg</td><td>≈ 1 ตร.ม.</td><td class="pr">470.-</td></tr>
-            <tr><td class="sz">5 kg</td><td>≈ 5 ตร.ม.</td><td class="pr">1,910.-</td></tr>
-            <tr><td class="sz">18 kg</td><td>≈ 18 ตร.ม.</td><td class="pr">5,890.-</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <p class="sec-sub">สูตรปรับใหม่ล่าสุด — <b>ทุกสีทาได้เท่ากันหมด</b> ไม่ต้องคิดเผื่อรายเฉดอีกต่อไป ตัวเลขในตารางคิดที่<b>ทาครบ 2 รอบแล้ว</b></p>
+    <div class="pricecard">
+      <div class="ph">ทุกสี — ขาว ฟ้า เทา<small>1 kg ≈ 5 ตร.ม. (ครบ 2 รอบ)</small></div>
+      <table>
+        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr">470.-</td></tr>
+          <tr><td class="sz">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr">1,910.-</td></tr>
+          <tr><td class="sz">18 kg</td><td>≈ 90 ตร.ม.</td><td class="pr">5,890.-</td></tr>
+        </tbody>
+      </table>
     </div>
-    <p class="pricenote">ไม่แน่ใจว่าสระของคุณต้องใช้กี่กิโล — ส่งขนาดสระมาทางแชทเพจ <b>เราคำนวณให้ฟรีก่อนสั่งซื้อ</b> (อย่าลืมเผื่อทา 2 รอบ)</p>
+    <p class="pricenote">ตัวเลขนี้ได้จริงถ้า<b>ทาเป็น</b> — ไล่แนวไปข้างหน้าให้ฟิล์มสม่ำเสมอ ไม่ย้ำวนอยู่ที่เดิมจนเนื้อกองเป็นหย่อม / ไม่แน่ใจว่าสระของคุณต้องใช้กี่กิโล ส่งขนาดสระมาทางแชทเพจ <b>เราคำนวณให้ฟรีก่อนสั่งซื้อ</b></p>
 
     <div class="colors">
       <h3 class="colors-h">สีมาตรฐาน — 3 เฉด</h3>
@@ -398,7 +393,7 @@
         <div class="swx"><span class="sw" style="background:#4FB7E8"></span>ฟ้า</div>
         <div class="swx"><span class="sw" style="background:#8E959B"></span>เทา</div>
       </div>
-      <p class="colornote"><b>ฟ้า</b> = สียอดฮิตของสระน้ำ ทาที่ไหนก็ดูสวยน่าลงเล่น / <b>ขาว</b> = พอเติมน้ำแล้วจะออกโทนฟ้าอ่อนสว่างสดใส (แต่ใช้เนื้อสีเยอะกว่าเพื่อกลบผิวเดิม) / <b>เทา</b> = น้ำจะสะท้อนออกมาเป็นโทนเขียวอมฟ้ามรกต หรูไปอีกแบบ — เฉดบนหน้าจอเป็นค่าโดยประมาณ ดูภาพจริงในแถบ "รู้ก่อนเลือกสี" ด้านล่าง</p>
+      <p class="colornote"><b>ฟ้า</b> = สียอดฮิตของสระน้ำ ทาที่ไหนก็ดูสวยน่าลงเล่น / <b>ขาว</b> = พอเติมน้ำแล้วจะออกโทนฟ้าอ่อนสว่างสดใส / <b>เทา</b> = น้ำจะสะท้อนออกมาเป็นโทนเขียวอมฟ้ามรกต หรูไปอีกแบบ — เฉดบนหน้าจอเป็นค่าโดยประมาณ ภาพน้ำจริงของแต่ละเฉดอยู่ด้านล่าง</p>
     </div>
   </div>
 </section>
@@ -409,10 +404,10 @@
     <p class="sec-sub">จบบนหน้านี้ครบทุกตัวเลข — หัวใจของงานสระคือ<b>การเตรียมผิวปูน</b>กับ<b>ความใจเย็นตอนรอเซ็ตตัว</b> สองอย่างนี้ทำครบ ฟิล์มอยู่ยาว</p>
     <ol class="flow">
       <li class="fstep"><h4>ล้างและเตรียมพื้นผิว</h4><p>พื้นผิวต้อง<b>สะอาด แห้ง ปราศจากฝุ่น คราบตะไคร่ คราบน้ำมัน</b> — สีเก่าที่พองหรือลอกต้องขูดออกให้หมด ฟิล์มใหม่จะเกาะดีเท่าที่ผิวข้างใต้สะอาด</p></li>
-      <li class="fstep"><h4>ซ่อมยาแนวและรอยแตกให้เต็มก่อนเสมอ</h4><p>กติกาตายตัวของงานเคลือบทุกระบบ: <b>อุดรอยแตกร้าว รู และร่องยาแนวให้เต็มเรียบก่อน</b>แล้วค่อยทาทับ — ข้ามขั้นนี้ไป ต่อให้สีดีแค่ไหนระบบกันซึมก็ไม่ได้ผล</p></li>
+      <li class="fstep"><h4>ซ่อมรอยแตกร้าวให้เต็มก่อนเสมอ</h4><p>กติกาตายตัวของงานเคลือบทุกระบบ: <b>อุดรอยแตกร้าวและรูให้เต็มเรียบก่อน</b>แล้วค่อยทาทับ — ข้ามขั้นนี้ไป ต่อให้สีดีแค่ไหนระบบกันซึมก็ไม่ได้ผล</p></li>
       <li class="fstep"><h4>ประเมินผิวปูน — รองพื้นเมื่อจำเป็น</h4><p>ปูนแน่นแข็งแรงดี: ทา PoolArmour <b>ลงบนคอนกรีตโดยตรงได้เลย</b> / ปูนเก่าเสื่อมสภาพหรือสระใช้งานหนัก: รองพื้นด้วย <b>Pool Primer</b> (ประหยัด) หรือ <b>Core Primer</b> (ทนชื้น เหนียวแน่น) ก่อน — <b>ห้ามใช้รองพื้นหรือน้ำยานอกระบบเด็ดขาด</b></p><span class="fchip">ทาบนคอนกรีตโดยตรง</span><span class="fchip">รองพื้นเฉพาะในระบบเรา</span></li>
       <li class="fstep"><h4>กวนให้เข้ากันจริงๆ</h4><p>ส่วนผสมเดียว ไม่ต้องผสม ไม่ต้องตวง — แต่ก่อนทา<b>กวนเนื้อสีในถังให้ทั่วจนเป็นเนื้อเดียวจริงๆ</b> อย่ามักง่ายตรงนี้ เนื้อที่นอนก้นถังคือส่วนสำคัญของสูตร</p><span class="fchip">ไม่ต้องผสม A:B</span><span class="fchip">ไม่มีเวลาบีบ</span></li>
-      <li class="fstep"><h4>ทารอบแรก</h4><p>ใช้<b>ลูกกลิ้ง แปรง หรือเครื่องพ่น</b>ได้ตามถนัด ทาให้เต็มพื้นที่สม่ำเสมอ <b>ฟิล์มต้องต่อเนื่องไม่ขาดตอน</b> เก็บมุมและแนวรอยต่อให้ครบ</p><span class="fchip">ฟ้า-เทา: 1 kg ≈ 3 ตร.ม.</span><span class="fchip">ขาว: 1 kg ≈ 1 ตร.ม.</span></li>
+      <li class="fstep"><h4>ทารอบแรก — บางๆ ก่อน</h4><p>ใช้<b>ลูกกลิ้ง แปรง หรือเครื่องพ่น</b>ได้ตามถนัด — และเคล็ดสำคัญ: <b>ปูนดูดสีมาก รอบแรกให้ทาบางๆ</b> ปล่อยให้ชั้นแรกทำหน้าที่ซีลผิวปูนไว้ก่อน แล้วไปลงเนื้อเต็มในรอบสอง ฟิล์มต้องต่อเนื่องไม่ขาดตอน เก็บมุมและแนวรอยต่อให้ครบ</p><span class="fchip">รอบแรก: ทาบางๆ</span><span class="fchip">ทุกสี: 1 kg ≈ 5 ตร.ม. (2 รอบ)</span></li>
       <li class="fstep"><h4>เว้น 2–3 ชม. แล้วทารอบสอง</h4><p>ปล่อยชั้นแรกแห้งประมาณ <b>2–3 ชั่วโมง</b> แล้วทาทับรอบที่สอง — <b>แนะนำอย่างน้อย 2 รอบ</b>เพื่อประสิทธิภาพกันซึมสูงสุด</p><span class="fchip">เว้นรอบ 2–3 ชม.</span><span class="fchip">ขั้นต่ำ 2 รอบ</span></li>
       <li class="fstep"><h4>รอเซ็ตตัว — แล้วค่อยเติมน้ำ</h4><p>แห้งผิวหน้า <b>1–2 ชั่วโมง</b> / เซ็ตตัวเต็มที่ <b>24–48 ชั่วโมง</b> / และกฎที่ห้ามใจร้อนที่สุด: <b>ห้ามเติมน้ำลงสระก่อน 3–5 วัน</b> — ให้ฟิล์มยึดเกาะและกันซึมเต็มกำลังก่อน แลกความใจเย็นไม่กี่วันกับสระที่อยู่กันเป็นปีๆ</p><span class="fchip">แห้งผิว 1–2 ชม.</span><span class="fchip">เซ็ตเต็ม 24–48 ชม.</span><span class="fchip">เติมน้ำได้หลัง 3–5 วัน</span></li>
     </ol>
@@ -425,7 +420,7 @@
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F691855920304198&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป PoolArmour จากเพจ LucernaPro"></iframe>
         </div>
-        <figcaption>ดูของจริงเคลื่อนไหว — คลิปสดจากเพจ</figcaption>
+        <figcaption>พิสูจน์การยึดเกาะกันจะๆ — กระเบื้อง<b>ผิวด้าน</b>เกาะอยู่ กระเบื้อง<b>เคลือบเงา</b>ลอก โชว์ให้ดูตรงๆ ไม่มีกั๊ก: ระบบนี้เกิดมาเพื่อสระปูน</figcaption>
       </figure>
     </div>
     <!-- TDS: ยังไม่มีไฟล์ /files/poolarmour-tds.pdf — เพิ่มปุ่มเมื่อเจ้าของอัปไฟล์ -->
@@ -456,14 +451,11 @@
 
 <section class="showcase">
   <div class="wrap">
-    <h2 class="sec-h">รู้ก่อนเลือกสี <em>ภาพอธิบาย</em></h2>
-    <p class="sec-sub">แถบนี้คือภาพความรู้ล้วนๆ — สีแต่ละเฉดให้โทนน้ำต่างกันยังไง แยกไว้ต่างหากจากภาพหน้างานจริงด้านล่าง</p>
-    <div class="ggrid k3">
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="PoolArmour สีทาสระว่ายน้ำกันซึม" src="/img/poolarmour-g01.webp"></div><figcaption><b>PoolArmour</b> — สีทาสระว่ายน้ำกันซึม</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="นวัตกรรมสีทาสระส่วนผสมเดียว ไม่ต้องผสม ไม่ต้องตวง" src="/img/poolarmour-g02.webp"></div><figcaption>ส่วนผสมเดียว ไม่ต้องผสม ไม่ต้องตวง — หมดปัญหาสีไม่แห้งเพราะผสมผิด</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="สีฟ้าและสีขาว สียอดฮิตของสระน้ำ" src="/img/poolarmour-g03.webp"></div><figcaption><b>ฟ้า/ขาว</b> คือคู่ยอดฮิต — ทาพื้นที่ไหนก็ดูสวย หรู น่าใช้งาน</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีขาว เติมน้ำแล้วออกโทนฟ้าอ่อนสว่าง" src="/img/poolarmour-g04.webp"></div><figcaption><b>สีขาว</b>พอเติมน้ำจะดูเป็นฟ้าอ่อนสว่างสดใส — แต่ใช้เนื้อสีเยอะกว่าสีฟ้าหน่อยถึงจะกลบผิวเดิมมิด</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีเทา น้ำสะท้อนโทนเขียวอมฟ้ามรกต" src="/img/poolarmour-g05.webp"></div><figcaption><b>สีเทา</b> — น้ำจะสะท้อนออกมาเป็นโทนเขียวอมฟ้ามรกต ลุคหรูสายมินิมอล</figcaption></figure>
+    <h2 class="sec-h">สีลงน้ำแล้ว <em>หน้าตาเป็นแบบนี้</em></h2>
+    <p class="sec-sub">น้ำคือฟิลเตอร์ชั้นสุดท้ายของสีสระ — เฉดเดียวกัน ก่อนกับหลังเติมน้ำคนละเรื่องเลย ดูของจริงก่อนตัดสินใจ</p>
+    <div class="showgrid">
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีขาว เติมน้ำแล้วออกโทนฟ้าอ่อนสว่าง" src="/img/poolarmour-g04.webp"></div><figcaption>สีขาว — เติมน้ำแล้วออกโทนฟ้าอ่อนสว่างสดใส<small>สระดูโปร่ง สะอาดตา สายรีสอร์ตชอบเฉดนี้</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีเทา น้ำสะท้อนโทนเขียวอมฟ้ามรกต" src="/img/poolarmour-g05.webp"></div><figcaption>สีเทา — น้ำสะท้อนเป็นโทนเขียวอมฟ้ามรกต<small>ลุคหรูสายมินิมอล เข้ากับบ้านโมเดิร์นสุดๆ</small></figcaption></figure>
     </div>
   </div>
 </section>
