@@ -179,13 +179,24 @@
   .fibermode li b{color:var(--ink)}
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
-  /* คลิปแนวตั้ง (Reels 9:16): จอใหญ่ 3 แถบตั้ง / มือถือเลื่อนข้าง */
-  .vidgrid.vert{max-width:780px}
+  /* คลิปแนวตั้ง (Reels 9:16): จอใหญ่ 3 แถบตั้ง / มือถือเลื่อนข้าง — กว้าง 720 ให้ตรงแนวคอลัมน์วิธีใช้ */
+  .vidgrid.vert{max-width:720px}
   @media(max-width:759px){
     .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
     .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
   }
   .fbv.v916{aspect-ratio:9/16}
+
+  /* ---------- Showcase (ภาพโชว์ แยกจากขั้นตอนงาน) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(79,163,209,.25), transparent 60%),
@@ -389,19 +400,19 @@
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F713148574509456%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปการใช้งานจริง SiliconePro จากเพจ"></iframe>
         </div>
-        <figcaption>คลิปการใช้งานจริงจากเพจ</figcaption>
+        <figcaption>น้องวีโชว์ฟิล์มบนแผ่นทดสอบ — เนื้อเดียวเรียบเนียน ไร้รอยต่อ</figcaption>
       </figure>
       <figure style="margin:0">
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F4156005507978651%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="งานหน้างานจริง SiliconePro จากเพจ"></iframe>
         </div>
-        <figcaption>งานหน้างานจริงจากเพจ</figcaption>
+        <figcaption>เทสดๆ ให้เห็นกันจะๆ — เนื้อข้นหนาแน่นขนาดไหน ดูเอง</figcaption>
       </figure>
       <figure style="margin:0">
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1781383772777592%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="รีวิว SiliconePro เพิ่มเติมจากเพจ"></iframe>
         </div>
-        <figcaption>รีวิวเพิ่มเติมจากเพจ</figcaption>
+        <figcaption>เปิดฝาแล้วลงแปรงได้เลย — น้องวีสาธิตว่าง่ายจริงแค่ไหน</figcaption>
       </figure>
     </div>
     <div class="warn"><b>⚠ วินัยเรื่องฝากระปุก:</b> เปิดแล้วควรใช้ให้หมดในครั้งเดียว หรือรีบแบ่งเทออกมาแค่พอใช้แล้ว<b>ปิดฝาให้สนิททันที</b> — ระหว่างการใช้งานห้ามเปิดฝาทิ้งไว้โดยเด็ดขาด ไม่งั้นเนื้อในกระปุกจะเริ่มเซ็ตตัว เสียของทั้งถัง</div>
@@ -428,9 +439,18 @@
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="เสริมแนวขอบผนังดาดฟ้าด้วยไฟเบอร์กลาส" src="/img/siliconepro-g10.webp"></div><figcaption><span class="no">10</span>เสริมแนวขอบผนังกันน้ำย้อนตามรอยต่อ</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ลูกกลิ้งทา SiliconePro รอบแรกเต็มผืน" src="/img/siliconepro-g11.webp"></div><figcaption><span class="no">11</span>ลูกกลิ้งลงรอบแรกเต็มผืน</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ทา SiliconePro รอบสอง เก็บขอบและพื้น" src="/img/siliconepro-g12.webp"></div><figcaption><span class="no">12</span>รอบที่สอง — เก็บขอบและพื้นให้หนาสม่ำเสมอ</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="เนื้อฟิล์ม SiliconePro หนาแน่น" src="/img/siliconepro-g13.webp"></div><figcaption><span class="no">13</span>เนื้อหนาแน่น เก็บเต็มทุกตารางนิ้ว</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="งานเสริมผ้าไฟเบอร์กลาสเต็มผืนหน้างานไทย" src="/img/siliconepro-g14.webp"></div><figcaption><span class="no">14</span>งานเสริมผ้าไฟเบอร์เต็มผืน — สูตรอายุงาน 8–10 ปี</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ดาดฟ้าเคลือบ SiliconePro เสร็จสมบูรณ์" src="/img/siliconepro-g15.webp"></div><figcaption><span class="no">15</span>จบงาน — ฟิล์มต่อเนื่องไร้รอยต่อทั้งดาดฟ้า</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ดาดฟ้าเคลือบ SiliconePro เสร็จสมบูรณ์" src="/img/siliconepro-g15.webp"></div><figcaption><span class="no">13</span>จบงาน — ฟิล์มต่อเนื่องไร้รอยต่อทั้งดาดฟ้า</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">ชอตโชว์ <em>SiliconePro</em></h2>
+    <p class="sec-sub">ภาพชุดโปรโมทจากทีมเรา — ไม่ใช่ขั้นตอนงาน แต่สรุปนิสัยของสินค้าได้ในภาพเดียว</p>
+    <div class="showgrid">
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="เนื้อฟิล์ม SiliconePro หนาแน่น" src="/img/siliconepro-g13.webp"></div><figcaption>เนื้อหนาแน่น เก็บเต็มทุกตารางนิ้ว<small>ฟิล์มต่อเนื่องไร้รอยต่อ — จุดแข็งของกันซึมชนิดทาเหนือแบบแผ่นทุกกรณี</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="งานเสริมผ้าไฟเบอร์กลาสเต็มผืน" src="/img/siliconepro-g14.webp"></div><figcaption>งานเสริมผ้าไฟเบอร์เต็มผืน — สูตรอายุงาน 8–10 ปี<small>โหมดทนขั้นเทพ: ทาบาง วางผ้า ทาทับจนขาวหายเกลี้ยง</small></figcaption></figure>
     </div>
   </div>
 </section>
