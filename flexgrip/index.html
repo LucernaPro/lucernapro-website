@@ -196,6 +196,9 @@
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .morebtn{margin-top:16px;cursor:pointer;background:var(--panel)}
+  .vidmore{display:none}
+  .vidmore.open{display:grid}
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
   .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--chem);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
@@ -503,6 +506,87 @@
         <figcaption>ทดสอบซ่อมกระเบื้อง แบบไม่เตรียมผิว</figcaption>
       </figure>
     </div>
+    <button class="btn btn-ghost morebtn" id="vidMoreBtn" aria-expanded="false" aria-controls="vidmore">▼ ดูคลิปรีวิวและทดสอบเพิ่มเติม (13 คลิป)</button>
+    <div class="vidgrid vidmore" id="vidmore">
+      <figure style="margin:0">
+        <div class="yt" data-id="YtcJtB_bZOY" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/YtcJtB_bZOY/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="dVK2myT8qBQ" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/dVK2myT8qBQ/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="nAKSXCsknaw" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/nAKSXCsknaw/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="krTalBVJ3OI" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/krTalBVJ3OI/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="wqwCOCMRJZo" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/wqwCOCMRJZo/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="Fl_iJ1VdzXE" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/Fl_iJ1VdzXE/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="KUQrSw_ndaE" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/KUQrSw_ndaE/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="Ail6h0CDaMo" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/Ail6h0CDaMo/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="CnYRrSEXzQY" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/CnYRrSEXzQY/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="pQSrpGXqQ_U" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/pQSrpGXqQ_U/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="uUdc1tPJyy0" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/uUdc1tPJyy0/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="RefuTxCvg60" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/RefuTxCvg60/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+      <figure style="margin:0">
+        <div class="yt" data-id="Smfq-dCYVeY" tabindex="0" role="button" aria-label="เล่นคลิปรีวิว FlexGrip">
+          <img src="https://i.ytimg.com/vi/Smfq-dCYVeY/hqdefault.jpg" alt="คลิปรีวิวและทดสอบ FlexGrip" loading="lazy" decoding="async">
+          <span class="playbtn">▶</span>
+        </div>
+      </figure>
+    </div>
     <div class="warn"><b>⚠ ข้อควรระวัง:</b> ทำงานในที่อากาศถ่ายเท สวมถุงมือ หลีกเลี่ยงกาวสัมผัสผิวหนังและดวงตา — เข้าตาให้ล้างน้ำสะอาดมากๆ แล้วพบแพทย์ เก็บให้พ้นมือเด็ก / <b>กาวติดมือ วิธีที่ดีที่สุด:</b> เทผงซักฟอกแบบแห้งๆ ขัดถูมือ<b>โดยยังไม่ต้องใส่น้ำ</b> ขัดจนหายเหนียวแล้วค่อยล้างน้ำออก (น้ำยาล้างจานถูซ้ำหลายรอบเป็นตัวสำรอง) / <b>ห้ามใช้ทินเนอร์หรือกรดแรงล้างมือเด็ดขาด</b> — อันตรายต่อผิวหนัง แถมกาวตัวนี้ทนทินเนอร์ ล้างยังไงก็ไม่ออก</div>
     <div class="note"><b>เก็บรักษาให้อยู่ยาว — ศัตรูของกาวตัวนี้คือความชื้น:</b> FlexGrip เซ็ตตัวโดยทำปฏิกิริยากับความชื้นในอากาศ ดังนั้นอากาศชื้นที่เล็ดลอดเข้าขวดคือสิ่งที่ทำให้กาวเสียก่อนเวลา — ใช้เสร็จเช็ดคราบกาวที่ปากขวดและฝาให้สะอาด (ไม่งั้นรอบหน้าเปิดฝาไม่ออก) ปิดเทปที่ปากขวดกันอากาศเข้าอีกชั้นแล้วค่อยปิดฝาให้สนิท เก็บใน<b>ที่แห้ง</b> พ้นแสงแดด อุณหภูมิห้องปกติ — <b>ห้ามแช่ตู้เย็น</b> เพราะความชื้นและหยดน้ำที่ควบแน่นตอนเอาเข้าเอาออกคือตัวทำลายกาวชั้นดี อายุการเก็บมาตรฐาน 6 เดือน</div>
     <div class="docbtns">
@@ -655,6 +739,13 @@ document.querySelectorAll('.yt').forEach(el=>{
   }
   el.addEventListener('click', play);
   el.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); } });
+});
+const vmb = document.getElementById('vidMoreBtn');
+const vm = document.getElementById('vidmore');
+vmb.addEventListener('click', ()=>{
+  const open = vm.classList.toggle('open');
+  vmb.setAttribute('aria-expanded', open);
+  vmb.textContent = open ? '▲ ซ่อนคลิปเพิ่มเติม' : '▼ ดูคลิปรีวิวและทดสอบเพิ่มเติม (13 คลิป)';
 });
 const tgl = document.getElementById('themeToggle');
 function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
