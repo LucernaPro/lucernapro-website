@@ -161,12 +161,12 @@
 
   /* ---------- ขนาดและราคา ---------- */
   .buybox{padding:46px 0 10px}
-  .buygrid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:20px}
-  @media(min-width:861px){.buygrid{grid-template-columns:1fr .85fr;gap:34px;align-items:start}}
+  .packs{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:760px}
+  @media(min-width:640px){.packs{gap:16px}}
   .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
   .packshot img{width:100%;height:auto;border-radius:9px;display:block}
   .packshot figcaption{padding:10px 6px 3px;font-size:13.5px;color:var(--muted);text-align:center}
-  .pricecard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard{margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);max-width:760px}
   .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
   .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
   .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
@@ -404,24 +404,26 @@
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
-    <div class="buygrid">
-      <div>
-        <div class="pricecard">
-          <table>
-            <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th></tr></thead>
-            <tbody>
-              <tr><td class="sz">หลอด 200 กรัม</td><td>ขวดเดียวซ่อมได้ทั้งบ้าน — คุ้มสุดถ้าใช้บ่อย</td><td class="pr">230.-</td></tr>
-              <tr><td class="sz">ซอง 20 มล.</td><td>ทดลองใช้ / ซ่อมจุดเดียวจบ</td><td class="pr">50.-</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="pricenote">ค่าจัดส่ง 40 บาท <b>ไม่จำกัดจำนวน</b> — สั่งกี่ชิ้นก็ค่าส่งเท่าเดิม สั่งเผื่อไว้ซ่อมทั้งบ้านคือทางที่คุ้ม</p>
-      </div>
+    <div class="packs">
+      <figure class="packshot">
+        <img src="/img/flexgrip-bottle.webp" alt="FlexGrip แบบขวด 200 กรัม" width="900" height="900" loading="lazy" decoding="async">
+        <figcaption>แบบขวด 200 กรัม — ขวดเดียวซ่อมได้ทั้งบ้าน</figcaption>
+      </figure>
       <figure class="packshot">
         <img src="/img/flexgrip-pack.webp" alt="FlexGrip แบบซอง 20 มล." width="900" height="900" loading="lazy" decoding="async">
-        <figcaption>แบบซอง 20 มล. — พกง่าย ลองก่อนได้ในราคา 50 บาท</figcaption>
+        <figcaption>แบบซอง 20 มล. — ลองก่อนได้ในราคา 50 บาท</figcaption>
       </figure>
     </div>
+    <div class="pricecard">
+      <table>
+        <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">ขวด 200 กรัม</td><td>ขวดเดียวซ่อมได้ทั้งบ้าน — คุ้มสุดถ้าใช้บ่อย</td><td class="pr">230.-</td></tr>
+          <tr><td class="sz">ซอง 20 มล.</td><td>ทดลองใช้ / ซ่อมจุดเดียวจบ</td><td class="pr">50.-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">ค่าจัดส่ง 40 บาท <b>ไม่จำกัดจำนวน</b> — สั่งกี่ชิ้นก็ค่าส่งเท่าเดิม สั่งเผื่อไว้ซ่อมทั้งบ้านคือทางที่คุ้ม</p>
   </div>
 </section>
 
