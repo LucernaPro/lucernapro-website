@@ -187,13 +187,10 @@
   }
   .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
-  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(79,163,209,.25), transparent 60%),
       radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
-  .fbv .fbv-lbl{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted)}
   .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--orange);color:#16130F;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.5);transition:transform .15s}
-  .fbv:hover .playbtn{transform:translate(-50%,-50%) scale(1.08)}
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
   .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
@@ -389,22 +386,22 @@
 
     <div class="vidgrid vert">
       <figure style="margin:0">
-        <div class="fbv v916" data-href="https://www.facebook.com/lucernapro/videos/713148574509456/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 1">
-          <span class="playbtn">▶</span><span class="fbv-lbl">FACEBOOK VIDEO · 01</span>
+        <div class="fbv v916">
+          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F713148574509456%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปการใช้งานจริง SiliconePro จากเพจ"></iframe>
         </div>
-        <figcaption>คลิปการใช้งานจริงจากเพจ — กดเพื่อเล่น</figcaption>
+        <figcaption>คลิปการใช้งานจริงจากเพจ</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916" data-href="https://www.facebook.com/lucernapro/videos/4156005507978651/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 2">
-          <span class="playbtn">▶</span><span class="fbv-lbl">FACEBOOK VIDEO · 02</span>
+        <div class="fbv v916">
+          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F4156005507978651%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="งานหน้างานจริง SiliconePro จากเพจ"></iframe>
         </div>
-        <figcaption>งานหน้างานจริงจากเพจ — กดเพื่อเล่น</figcaption>
+        <figcaption>งานหน้างานจริงจากเพจ</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916" data-href="https://www.facebook.com/lucernapro/videos/1781383772777592/" tabindex="0" role="button" aria-label="เล่นคลิปการใช้งาน SiliconePro 3">
-          <span class="playbtn">▶</span><span class="fbv-lbl">FACEBOOK VIDEO · 03</span>
+        <div class="fbv v916">
+          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1781383772777592%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="รีวิว SiliconePro เพิ่มเติมจากเพจ"></iframe>
         </div>
-        <figcaption>รีวิวเพิ่มเติมจากเพจ — กดเพื่อเล่น</figcaption>
+        <figcaption>รีวิวเพิ่มเติมจากเพจ</figcaption>
       </figure>
     </div>
     <div class="warn"><b>⚠ วินัยเรื่องฝากระปุก:</b> เปิดแล้วควรใช้ให้หมดในครั้งเดียว หรือรีบแบ่งเทออกมาแค่พอใช้แล้ว<b>ปิดฝาให้สนิททันที</b> — ระหว่างการใช้งานห้ามเปิดฝาทิ้งไว้โดยเด็ดขาด ไม่งั้นเนื้อในกระปุกจะเริ่มเซ็ตตัว เสียของทั้งถัง</div>
@@ -532,18 +529,6 @@
 </div>
 
 <script>
-document.querySelectorAll('.fbv').forEach(el=>{
-  function play(){
-    if(el.querySelector('iframe')) return;
-    const href = encodeURIComponent(el.dataset.href);
-    const f = document.createElement('iframe');
-    f.src = `https://www.facebook.com/plugins/video.php?href=${href}&show_text=false&autoplay=true`;
-    f.allow = "autoplay; encrypted-media; picture-in-picture; web-share";
-    f.allowFullscreen = true;
-    el.appendChild(f);
-  }
-  el.addEventListener('click', play);
-  el.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); } });
 });
 const tgl = document.getElementById('themeToggle');
 function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
