@@ -82,3 +82,21 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 
 ## วิธีเปิดเซสชันใหม่กับ Claude
 วางลิงก์ repo นี้ + บอกว่าจะทำด่านไหน — Claude อ่าน SPEC.md + index.html แล้วทำงานต่อได้ทันที
+
+---
+
+## Launch prep — 27 ก.ค. 2026 (pre-Cloudflare Pages)
+
+**ลบ cruft (ทั้งหมดกู้จาก git history ได้):**
+- `polyaspartic/index-TH.html`, `siliconepro/siliconepro-index.html`, `en/polyaspartic/index-EN.html` — ไฟล์ชื่อชั่วคราวรุ่นเก่า (ตรวจ diff + git date แล้ว: index.html ปัจจุบันใหม่กว่าทุกคู่)
+- `img/polyaspartic-tds.pdf` — duplicate ของ `files/polyaspartic-tds.pdf` (md5 ตรงกัน)
+- `tilecoatpoly/tilecoatpoly-hero.webp` — รูปหลงโฟลเดอร์ ไม่ถูกอ้างถึง
+- `img/solarpaneldefender-g03.webp` — เวอร์ชัน crop ที่ถูกแทนด้วย g03w แล้ว
+- `tools/gitignore` → ย้ายเป็น `.gitignore` ที่ root
+
+**เพิ่ม `_redirects` (Cloudflare Pages):** ลิงก์ related-product 14 เส้นทางที่หน้าจริงยังไม่ถูกสร้าง → 302 ไป `/#catalog` ชั่วคราว กันผู้ใช้เจอ 404 — **เมื่อสร้างหน้าสินค้าตัวไหนเสร็จ ให้ลบบรรทัดนั้นออกจาก _redirects**
+
+**ค้างรอเจ้าของ (ยังไม่แก้ในรอบนี้):**
+1. `files/flexgrip-tds.pdf` ไม่มีอยู่จริง — ปุ่ม TDS บนหน้า flexgrip (TH+EN) ตายทั้งคู่ → เจ้าของอัปไฟล์ TDS ขึ้น `files/`
+2. `en/index.html` เป็นสำเนาหน้า Polyaspartic ไม่ใช่ catalog EN — nav ของหน้า EN ทุกหน้าชี้มาที่นี่ → ต้องสร้าง EN homepage จริง (session แยก ตามกติกาทีละหน้า)
+3. `files/deepstick-sds.pdf`, `files/tilecoatpoly-manual.png` ไม่ถูกอ้างถึงจากหน้าไหน — เก็บไว้ (เอกสารจริงของเจ้าของ) รอตัดสินใจ
