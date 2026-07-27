@@ -182,9 +182,9 @@
     .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
     .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
   }
-  /* คลิปแนวตั้งคู่: จำกัดกว้างให้พอดีสองแถบ */
-  .vidgrid.vert.duo{max-width:480px;grid-template-columns:1fr 1fr}
-  @media(max-width:759px){.vidgrid.vert.duo{display:flex}}
+  /* คลิปแนวตั้งคู่: สองแถบจัดกึ่งกลาง แยกบรรทัดจากคลิปแนวนอนชัดๆ */
+  .vidgrid.vert.duo{max-width:496px;grid-template-columns:1fr 1fr;margin:26px auto 0}
+  @media(max-width:759px){.vidgrid.vert.duo{display:flex;margin-left:0;margin-right:0}}
   .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .vidgrid figcaption b{color:var(--ink)}
@@ -368,7 +368,7 @@
       <li class="fstep"><h4>โป๊ว FillerAce ลงร่อง</h4><p>พร้อมใช้ ไม่ต้องผสม — ใช้เกรียง<b>อัดเนื้อโป๊วลงร่องให้เต็มถึงก้นแผล</b>แล้วปาดเก็บแนว จำกติกาไว้: <b>อย่าปาดบางจนไม่มีเนื้อ</b> ความหนาไม่ต่ำกว่าการโป๊วปกติ แผลใหญ่โพรงกว้างอัดได้เลย เนื้อเหนียวหนืดไม่ไหลย้อย</p><span class="fchip">ไม่ต้องผสม</span><span class="fchip">อัดเต็มร่อง</span></li>
       <li class="fstep"><h4>ลูบแต่งผิวด้วยน้ำเปล่า</h4><p>ทริคจากหน้างานจริง: ตอนเนื้อยังหมาด <b>ใช้น้ำเปล่าลูบแต่งผิวให้เรียบ</b> — ผิวที่ลูบไว้ดีจะ<b>ลดงานขัดไปได้เยอะมาก</b> / งานที่ต้องการความเนี๊ยบเป็นพิเศษ โป๊วแล้วสกิมผิวเก็บอีกชั้นได้</p><span class="fchip">ลดงานขัด</span></li>
       <li class="fstep"><h4>รอ 2 ชม. แล้วขัดแต่ง</h4><p>แห้งเร็ว — <b>2 ชั่วโมงก็พร้อมขัดแล้ว</b> แนะนำใช้<b>เครื่องขัด หรือลูกหนูติดใบขัดกระดาษทราย</b> เริ่มจาก<b>ใบหยาบก่อนแล้วค่อยตามด้วยใบละเอียด</b> จะได้ผิวเรียบเนียนไวสุด</p><span class="fchip">แห้งพร้อมขัด 2 ชม.</span><span class="fchip">ใบหยาบ → ใบละเอียด</span></li>
-      <li class="fstep"><h4>ทาสีทับได้ตามปกติ</h4><p>ขัดเสร็จผิวเรียบเนียนแล้ว<b>ทาสีทับได้เหมือนผนังปกติ</b> — งานจบสวยเหมือนไม่เคยมีรอยร้าว</p></li>
+      <li class="fstep"><h4>เก็บงานขั้นสุดท้าย — ทาสีทับ</h4><p><b>งานภายใน:</b> ขัดเสร็จทาสีทับได้เลย จบ / <b>งานภายนอก:</b> แนะนำ<b>ทากันซึมทับก่อนแล้วค่อยทาสี</b> จะได้อยู่ยาวสุดๆ — สายประหยัดใช้ <a href="/siliconepro" style="color:var(--orange);text-decoration:underline"><b>SiliconePro</b></a> สายจัดเต็มใช้ <a href="/exotic" style="color:var(--orange);text-decoration:underline"><b>Exotic</b></a></p><span class="fchip">ภายใน: ทาสีเลย</span><span class="fchip">ภายนอก: กันซึมทับก่อน</span></li>
     </ol>
 
     <div class="warn"><b>⚠ ใช้กับผนังเท่านั้น — ไม่แนะนำงานพื้น:</b> เนื้อโป๊วเก็บคราบสกปรกได้ ใช้กับพื้นเดินผ่านไปนานๆ จะ<b>ดำ</b> — ยกเว้นกรณีเดียว: ทาสีพื้น<b>ระดับ PU</b> ทับ (ต้องยืดหยุ่นตามเนื้อโป๊วได้) ไม่แน่ใจทักแชทมาถามก่อน</div>
@@ -378,11 +378,11 @@
     <div class="vidgrid">
       <figure style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/70NCf4M50E8" title="วิธีใช้ FillerAce" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-        <figcaption><b>วิธีใช้งาน</b> — ครบทุกขั้นตั้งแต่เปิดแผลยันขัดจบ</figcaption>
+        <figcaption><b>โป๊วให้ดูสดๆ</b> — ใช้ง่ายแค่ไหน ดูเอาเลย</figcaption>
       </figure>
       <figure style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/PoyS5_dMjZc" title="ทดสอบความแข็งแรง FillerAce" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-        <figcaption><b>ทดสอบความแข็งแรง</b> — ยืดหยุ่นจริงแค่ไหน ดูกันจะๆ</figcaption>
+        <figcaption><b>ทดสอบความแข็งแรง</b> — หยุ่นพอตัว ไม่ถึงขั้นสาย PU แต่งานผนังนี่เหลือเฟือ</figcaption>
       </figure>
       <figure style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/cE5JmDcn7po" title="การขัดแต่ง FillerAce" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
@@ -395,13 +395,13 @@
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F611519001931151&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากเพจ LucernaPro"></iframe>
         </div>
-        <figcaption>โชว์พลัง FillerAce จากเพจ — คลิปสั้นดูจบไว</figcaption>
+        <figcaption>โชว์พลัง FillerAce</figcaption>
       </figure>
       <figure style="margin:0">
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022296206068802&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากเพจ LucernaPro"></iframe>
         </div>
-        <figcaption>เนื้อโป๊วทำงานจริงหน้างาน — ตามต่อได้ที่เพจ</figcaption>
+        <figcaption>เนื้อหลังโป๊ว ซูมให้ดูชัดๆ</figcaption>
       </figure>
     </div>
     <!-- TDS: ยังไม่มีไฟล์ /files/fillerace-tds.pdf — เพิ่มปุ่มเมื่อเจ้าของอัปไฟล์ -->
@@ -413,7 +413,7 @@
     <h2 class="sec-h">งานจริง <em>ทีละขั้น</em></h2>
     <p class="sec-sub">ไล่ตามลำดับเดียวกับวิธีใช้ด้านบน — เห็นภาพแล้วลงมือตามได้เลย</p>
     <div class="ggrid">
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="รอยแตกร้าวผนังที่โป๊วแล้วกลับมาร้าวซ้ำ" src="/img/fillerace-g01.webp"></div><figcaption><span class="no">01</span><b>ร้าวแล้ว... โป๊วแล้ว... ก็ยังร้าวอีก</b> — อาการคลาสสิกของการป้ายทับผิวโดยไม่เปิดแผล</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="รอยแตกร้าวผนังที่โป๊วแล้วกลับมาร้าวซ้ำ" src="/img/fillerace-g01.webp"></div><figcaption><span class="no">01</span><b>ร้าวแล้ว... โป๊วแล้ว... ก็ยังร้าวอีก</b> — ส่วนหนึ่งเพราะไม่ได้เปิดแผล อีกส่วนเพราะโป๊วทั่วไปเนื้อมักแข็งและแรงยึดเกาะไม่สูงนัก พอผนังขยับก็ไปต่อไม่ไหว</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ใช้เครื่องเจียรกรีดร่องรอยร้าวให้กว้างขึ้น" src="/img/fillerace-g02.webp"></div><figcaption><span class="no">02</span><b>ใช้เครื่องเจียรกรีดร่องให้กว้างขึ้น</b> — เปิดทางให้เนื้อโป๊วลงถึงก้นแผล</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="โป๊ว FillerAce ลงร่องที่กรีดใหม่" src="/img/fillerace-g03.webp"></div><figcaption><span class="no">03</span><b>ใช้ FillerAce โป๊วร่องที่กรีดใหม่</b> — อัดเนื้อให้เต็ม อย่าปาดบางจนไม่มีเนื้อ</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ใช้กระดาษทรายขัดแต่งผิวโป๊วให้เรียบเนียน" src="/img/fillerace-g04.webp"></div><figcaption><span class="no">04</span><b>ขัดแต่งให้เรียบเนียน</b> — แห้งแค่ 2 ชม. ก็ขัดได้ เก็บจบแล้วทาสีทับได้เลย</figcaption></figure>
@@ -426,16 +426,16 @@
     <h2 class="sec-h">แผลโหดกว่านี้ <em>มีรุ่นพี่รออยู่</em></h2>
     <p class="sec-sub">FillerAce เอาอยู่เกือบทุกงานผนัง — แต่ถ้าเจองานระดับ Heavy Duty เรามีของแรงกว่า</p>
     <div class="altgrid">
-      <a class="altcard" href="https://m.me/lucernapro">
+      <a class="altcard" href="/deepstick">
         <div class="k">Heavy Duty — งานโหดเฉพาะทาง</div>
         <h4>DeepStick</h4>
-        <p>เทพงานโป๊วของบริษัท — ซ่อมรอยต่อสารพัดงานระดับ Heavy Duty <b>รวมถึงงานใต้น้ำและงานกันซึม</b> เจอแผลที่ FillerAce ยังไม่พอ ทักมาเล่าหน้างาน เราจัดรุ่นที่ใช่ให้</p>
-        <div class="go">สั่ง/สอบถามทางแชทเพจ →</div>
+        <p>เทพงานโป๊วของบริษัท — ซ่อมรอยต่อสารพัดงานระดับ Heavy Duty <b>รวมถึงงานใต้น้ำและงานกันซึม</b> เจอแผลที่ FillerAce ยังไม่พอ รุ่นพี่คนนี้รับต่อ</p>
+        <div class="go">ดูรายละเอียด DeepStick →</div>
       </a>
       <a class="altcard" href="https://m.me/lucernapro">
         <div class="k">ไม่แน่ใจว่าแผลระดับไหน?</div>
         <h4>ส่งรูปมาให้เราดูก่อน</h4>
-        <p>ถ่ายรูปรอยร้าวพร้อมไม้บรรทัดหรือเหรียญเทียบขนาด ส่งมาทางแชทเพจ — <b>เราวิเคราะห์ให้ฟรี</b>ว่างานนี้ FillerAce จบ หรือต้องขยับไปรุ่นไหน ไม่ขายเกินความจำเป็น</p>
+        <p>ถ่ายรูปรอยร้าวกับตำแหน่งที่เกิด ส่งมาทางแชทเพจแค่นั้นพอ — <b>เราวิเคราะห์ให้ฟรี</b>ว่างานนี้ FillerAce จบ หรือต้องขยับไปรุ่นไหน ไม่ขายเกินความจำเป็น</p>
         <div class="go">ทักแชทเพจ ปรึกษาฟรี →</div>
       </a>
     </div>
