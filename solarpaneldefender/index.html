@@ -202,7 +202,8 @@
   /* ---------- Showcase ---------- */
   .showcase{padding:46px 0 12px}
   .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
-  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:760px){.showgrid{grid-template-columns:1.84fr 1fr;align-items:stretch}}
+  .showcard.wide .im{aspect-ratio:720/392}
   .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
   .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
   .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
@@ -448,7 +449,7 @@
     <h2 class="sec-h">ของจริง <em>ก่อน-หลัง</em></h2>
     <p class="sec-sub">ตัวอย่างผลต่างของแผงก่อนกับหลังเคลือบ และตัวขวดผลิตภัณฑ์จริง</p>
     <div class="showgrid">
-      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="ตัวอย่างผลต่างก่อน-หลังเคลือบ Solar Panel Defender บนแผงโซลาร์เซลล์" src="/img/solarpaneldefender-g03.webp"></div><figcaption>ก่อน-หลังเคลือบ<small>ตัวอย่างผลลัพธ์ — ฝุ่นและคราบสกปรกที่เคยเกาะแน่นหลุดล้างง่ายขึ้นมาก</small></figcaption></figure>
+      <figure class="showcard wide"><div class="im"><img loading="lazy" decoding="async" alt="ตัวอย่างผลต่างก่อน-หลังเคลือบ Solar Panel Defender บนแผงโซลาร์เซลล์" src="/img/solarpaneldefender-g03w.webp"></div><figcaption>ก่อน-หลังเคลือบ<small>ตัวอย่างผลลัพธ์ — ฝุ่นและคราบสกปรกที่เคยเกาะแน่นหลุดล้างง่ายขึ้นมาก</small></figcaption></figure>
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="ขวด Solar Panel Defender บนโต๊ะแล็บ" src="/img/solarpaneldefender-g01.webp"></div><figcaption>ตัวผลิตภัณฑ์จริง<small>บรรจุขวดพร้อมใช้ พกพาขึ้นหลังคาหรือฟาร์มโซลาร์ได้สะดวก</small></figcaption></figure>
     </div>
   </div>
