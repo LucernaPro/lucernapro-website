@@ -133,3 +133,5 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 **ระวัง:** ห้ามแก้ contact info โดเมนช่วงนี้ (ICANN lock 60 วัน) / MX eforward (email forwarding) อาจตายหลัง transfer — ถ้าเจ้าของใช้อีเมล @lucernapro.com ให้ตั้ง Cloudflare Email Routing แทนตอน zone active / **ห้ามยกเลิก Wix Premium จนกว่า launch + เฝ้าดู 1–2 สัปดาห์ตาม roadmap เดิม**
 
 **สถานะ Cloudflare ฝั่งเรา: พร้อมรอเสียบ** — zone lucernapro.com สร้างแล้ว (pending NS), DNS records ลอกจาก Wix ครบ (A×3, CNAME www, MX, TXT), Worker + EN home + _redirects พร้อมทั้งหมด
+
+**อัปเดต 27 ก.ค. 2026 (ค่ำ): transfer ยิงแล้ว** — Wix ปลดล็อก + ออก auth code สำเร็จ / Namecheap order `209459543` (Jul 27, 07:07 AM UTC, $11.48 รวมต่ออายุ +1 ปี → หมดอายุ Feb 2028) / สถานะ: **รอ transfer สำเร็จ สูงสุด 7 วัน** (เจ้าของเฝ้าอีเมล yahoo + Namecheap หาปุ่ม approve เพื่อร่นเวลา) / เมื่อสำเร็จ: ตั้ง NS ที่ Namecheap → david/kelly.ns.cloudflare.com → zone active → Add custom domain (lucernapro.com + www) เข้า Worker = launch / หมายเหตุ: เว็บ Wix ที่โดเมนอาจมืดระหว่างรอ (เจ้าของรับความเสี่ยงแล้ว — "วัดดวงเลยเพื่อน") ช่วงมืดให้ส่งลูกค้าด้วยลิงก์ workers.dev ไปพลาง
