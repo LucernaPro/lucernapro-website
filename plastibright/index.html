@@ -170,6 +170,13 @@
   .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (9:16): จอใหญ่ 3 แถบตั้ง / มือถือเลื่อนข้าง — กว้าง 720 ให้ตรงแนวคอลัมน์วิธีใช้ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(180,143,209,.25), transparent 60%),
@@ -376,21 +383,21 @@
     <div style="margin-top:20px"><a class="btn btn-ghost" href="/files/plastibright-tds.pdf" target="_blank" rel="noopener">📄 เอกสารข้อมูลทางเทคนิค (TDS)</a></div>
 
     <h3 class="sec-h" style="margin-top:38px;font-size:20px">ดูของจริงก่อน — <em>คลิปการใช้งานจากเพจ</em></h3>
-    <div class="vidgrid">
+    <div class="vidgrid vert">
       <figure style="margin:0">
-        <div class="fbv">
+        <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1388640729149751%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปการใช้งาน PlastiBright จากเพจ LucernaPro"></iframe>
         </div>
         <figcaption>สาธิตการใช้งานจริง — ทาบางๆ เช็ด จบ</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv">
+        <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F2038379783569453%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป PlastiBright เพิ่มเติมจากเพจ LucernaPro"></iframe>
         </div>
         <figcaption>พลาสติกซีดกลับมาดำสนิท — เห็นผลตั้งแต่ปาดแรก</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv">
+        <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1316470949836460%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปผลลัพธ์ PlastiBright จากเพจ LucernaPro"></iframe>
         </div>
         <figcaption>ผลลัพธ์บนหน้างานหลากหลายชิ้นส่วน</figcaption>
@@ -414,13 +421,11 @@
 
 <section class="showcase">
   <div class="wrap">
-    <h2 class="sec-h">ทาครึ่งเดียวให้ดู <em>ไม่ต้องเชื่อคำโฆษณา</em></h2>
-    <p class="sec-sub">วิธีพิสูจน์ที่ตรงไปตรงมาที่สุด — ชิ้นเดียวกัน แสงเดียวกัน ทาแค่ครึ่ง แล้วให้ตาคุณตัดสินเอง</p>
-    <div class="showgrid">
-      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="กระจังกันชนทา PlastiBright ครึ่งเดียว เทียบฝั่งซีดกับฝั่งดำสนิท" src="/img/plastibright-g07.webp"></div><figcaption>กระจังกันชน — ฝั่งขวาทาแล้ว ฝั่งซ้ายยังซีด<small>เส้นแบ่งชัดขนาดนี้ ไม่ต้องบรรยายอะไรเพิ่ม</small></figcaption></figure>
-      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="แผงพลาสติกทา PlastiBright ครึ่งซ้าย เทียบกับครึ่งขวาที่ยังซีด" src="/img/plastibright-g08.webp"></div><figcaption>แผงคิ้วเดียวกัน — ครึ่งทาแล้ว ครึ่งยังไม่ทา<small>สีดำที่ได้คือดำจากเนื้อพลาสติก ไม่ใช่ดำเงาลอยๆ แบบซิลิโคน</small></figcaption></figure>
+    <h2 class="sec-h">ทาไปบางส่วนให้ดู <em>ไม่ต้องเชื่อคำโฆษณา</em></h2>
+    <p class="sec-sub">วิธีพิสูจน์ที่ตรงไปตรงมาที่สุด — ชิ้นเดียวกัน แสงเดียวกัน โซนที่ผ่านน้ำยาแล้วกับโซนที่ยังไม่ผ่าน ให้ตาคุณตัดสินเอง</p>
+    <div class="showgrid" style="max-width:480px">
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="กันชนหลังทา PlastiBright ไปบางส่วน โซนที่ทาแล้วดำชัดตัดกับโซนที่ยังซีด" src="/img/plastibright-g10.webp"></div><figcaption>กันชนหลัง — ทาไปบางส่วน<small>โซนที่ผ่านน้ำยาดำลึกชัด ตัดกับโซนที่ยังซีด เส้นแบ่งขนาดนี้ไม่ต้องบรรยายเพิ่ม</small></figcaption></figure>
     </div>
-    <figure class="widecard"><img loading="lazy" decoding="async" alt="ภาพเทียบก่อนและหลังใช้ PlastiBright บนกรอบกระจกมองข้าง" src="/img/plastibright-g09w.webp"><figcaption>ก่อน–หลัง เฟรมต่อเฟรม<small>ชิ้นเดิม มุมเดิม — ต่างแค่ผ่าน PlastiBright มาแล้วหนึ่งรอบบางๆ</small></figcaption></figure>
   </div>
 </section>
 
@@ -431,7 +436,9 @@
     <div class="ggrid k3">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ขอบไฟท้ายและคิ้วพลาสติกหลังใช้ PlastiBright" src="/img/plastibright-g04.webp"></div><figcaption><span class="no">01</span>แผงคิ้วรอบไฟท้าย — ดำสนิทตัดกับโครเมียมสวยคม</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="เบ้าไฟตัดหมอกพลาสติกดำหลังใช้ PlastiBright" src="/img/plastibright-g05.webp"></div><figcaption><span class="no">02</span>เบ้าไฟตัดหมอก — จากสีโทรมๆ กลับมาดำสนิทเรียบเนียน</figcaption></figure>
-      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="กรอบกระจกมองข้างพลาสติกดำเงาหลังใช้ PlastiBright" src="/img/plastibright-g06.webp"></div><figcaption><span class="no">03</span>เบ้ากระจกมองข้าง — ชิ้นเล็กแต่เปลี่ยนลุครถทั้งคัน</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="คิ้วซุ้มล้อพลาสติก เทียบก่อนซีดกับหลังดำสนิทด้วย PlastiBright" src="/img/plastibright-g06.webp"></div><figcaption><span class="no">03</span>คิ้วซุ้มล้อ — ซ้ายสภาพซีดเป็นคราบ ขวาหลังทากลับมาดำสนิท</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="กันชนหลังพลาสติกดำลึกสม่ำเสมอหลังใช้ PlastiBright" src="/img/plastibright-g11.webp"></div><figcaption><span class="no">04</span>กันชนหลัง — ดำลึกสม่ำเสมอทั้งแผง ตัวอย่างผลลัพธ์บนพลาสติกดำดิบ</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="แผงท้ายรถบริเวณไฟท้ายหลังใช้ PlastiBright" src="/img/plastibright-g12.webp"></div><figcaption><span class="no">05</span>แผงท้ายโซนไฟท้าย — เก็บครบทุกซอกมุม สีดำขึ้นเนียนเท่ากันหมด</figcaption></figure>
     </div>
   </div>
 </section>
@@ -442,13 +449,10 @@
     <p class="sec-sub">ภาพแชทจริงจากลูกค้าที่ใช้แล้วส่งกลับมา — เลื่อนดูได้เลย ของแบบนี้ให้ลูกค้าพูดแทนเราดีกว่า</p>
     <div class="revrail">
       <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright — เบ้าไฟตัดหมอกกลับมาดำสนิท" src="/img/plastibright-r01.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r02.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r03.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r04.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r05.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r06.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r07.webp"></figure>
-      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright จากแชทเพจ" src="/img/plastibright-r08.webp"></figure>
+      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright — Mazda CX-3 พลาสติกรอบคันกลับมาใหม่" src="/img/plastibright-r10.webp"></figure>
+      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright — ล้างรถแล้วยังสดใส ไม่ใช่แค่เคลือบเฉยๆ" src="/img/plastibright-r11.webp"></figure>
+      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright — กันชนหลังดำขึ้นชัดเจน" src="/img/plastibright-r12.webp"></figure>
+      <figure><img loading="lazy" decoding="async" alt="รีวิวลูกค้า PlastiBright — เทียบก่อนหลังในชิ้นเดียวกัน" src="/img/plastibright-r13.webp"></figure>
     </div>
   </div>
 </section>
@@ -465,9 +469,9 @@
         <div class="go">ดูรายละเอียด →</div>
       </a>
       <a class="altcard" href="/americaniron">
-        <div class="k">ห้องเครื่อง</div>
+        <div class="k">เครื่องยนต์ — สายมอเตอร์ไซค์</div>
         <h4>American Iron</h4>
-        <p>เคลือบเครื่องยนต์ให้<b>ดำสวยดูใหม่ทั้งห้องเครื่อง</b> — เปิดฝากระโปรงแล้วสวยไม่แพ้ภายนอก สายรักรถจัดครบทั้งสามโซนคือจบ</p>
+        <p>เคลือบเครื่องยนต์ให้<b>กลับมาดำสวย</b> — เกิดมาเพื่อสาย Harley และเครื่องโชว์โดยเฉพาะ <b>ช่วยกันน้ำ</b> และ<b>เคลือบชิ้นโครเมียมได้ด้วย</b> เงาวับทั้งเครื่อง</p>
         <div class="go">ดูรายละเอียด →</div>
       </a>
     </div>
