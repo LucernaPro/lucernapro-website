@@ -182,9 +182,9 @@
     .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
     .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
   }
-  /* คลิปแนวตั้งคู่: สองแถบจัดกึ่งกลาง แยกบรรทัดจากคลิปแนวนอนชัดๆ */
-  .vidgrid.vert.duo{max-width:496px;grid-template-columns:1fr 1fr;margin:26px auto 0}
-  @media(max-width:759px){.vidgrid.vert.duo{display:flex;margin-left:0;margin-right:0}}
+  /* คลิปแนวตั้งเดี่ยว: จัดกึ่งกลาง จำกัดกว้างไม่ให้เป็นแถบยักษ์ */
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin:26px auto 0}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid;margin-left:auto;margin-right:auto}.vidgrid.vert.solo figure{flex:none}}
   .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .vidgrid figcaption b{color:var(--ink)}
@@ -377,7 +377,7 @@
     <h3 class="sec-h" style="margin-top:34px;font-size:19px">ดูของจริงก่อนตัดสินใจ</h3>
     <div class="vidgrid">
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/70NCf4M50E8" title="วิธีใช้ FillerAce" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/70NCf4M50E8" title="โป๊ว FillerAce ให้ดูสดๆ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
         <figcaption><b>โป๊วให้ดูสดๆ</b> — ใช้ง่ายแค่ไหน ดูเอาเลย</figcaption>
       </figure>
       <figure style="margin:0">
@@ -385,18 +385,12 @@
         <figcaption><b>ทดสอบความแข็งแรง</b> — หยุ่นพอตัว ไม่ถึงขั้นสาย PU แต่งานผนังนี่เหลือเฟือ</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/cE5JmDcn7po" title="การขัดแต่ง FillerAce" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-        <figcaption><b>การขัดแต่ง</b> — ขัดเก็บผิวให้เนียนสวยทำยังไง</figcaption>
+        <div class="fbv"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F611519001931151&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากเพจ LucernaPro"></iframe></div>
+        <figcaption>โชว์พลัง FillerAce</figcaption>
       </figure>
     </div>
 
-    <div class="vidgrid vert duo">
-      <figure style="margin:0">
-        <div class="fbv v916">
-          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F611519001931151&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากเพจ LucernaPro"></iframe>
-        </div>
-        <figcaption>โชว์พลัง FillerAce</figcaption>
-      </figure>
+    <div class="vidgrid vert solo">
       <figure style="margin:0">
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022296206068802&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากเพจ LucernaPro"></iframe>
