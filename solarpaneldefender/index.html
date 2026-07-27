@@ -190,10 +190,6 @@
   .vidgrid.vert{max-width:280px}
   .vidgrid.vert.solo{grid-template-columns:1fr}
   .fbv.v916{aspect-ratio:9/16}
-  .vidgrid.mixed{grid-template-columns:1fr;max-width:980px}
-  @media(min-width:760px){.vidgrid.mixed{grid-template-columns:210px 1fr 1fr;align-items:start}}
-  .vidgrid.mixed .vcol{margin:0 auto;width:100%}
-  @media(min-width:760px){.vidgrid.mixed .vcol{max-width:210px}}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(143,166,184,.25), transparent 60%),
       radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
@@ -354,6 +350,15 @@
           <div class="beat"><div class="k">ปลอดภัยกับหน้าแผงแน่นอน</div><p>สารเคมีที่ใช้ล้างทำความสะอาดแผงโดยทั่วไปยังรุนแรงกว่าน้ำยาเคลือบตัวนี้เสียอีก — ผิวนอกสุดของแผงถ้าไม่โดน solvent แรงมากเช็ดกัด ก็ไม่มีทางหลุดออกง่ายๆ / พูดตรงๆ: <b>ถ้าแค่แอลกอฮอล์เช็ดแล้วกัดผิวหน้าแผงจนลอกได้</b> นั่นแปลว่าตัวแผงเองมีปัญหาคุณภาพตั้งแต่ต้นแล้ว ไม่เกี่ยวกับน้ำยาเคลือบของเราเลย</p></div>
         </div>
 
+        <div class="vidgrid vert solo" style="margin:20px 0 0">
+          <figure style="margin:0">
+            <div class="fbv v916">
+              <iframe loading="lazy" src="https://www.youtube.com/embed/vjvjvXmv_6w" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปทดสอบความทนทาน Solar Panel Defender"></iframe>
+            </div>
+            <figcaption><b>คลิปทดสอบความทน</b> — พิสูจน์ว่าทำไมคราบสีรุ้งถึงเช็ดออกยากขนาดนี้</figcaption>
+          </figure>
+        </div>
+
         <div class="chartcard">
           <div class="chart-h">อัตราการส่งผ่านแสง (Transmittance Rate) — ไม่เคลือบ vs เคลือบ<small>ข้อมูลหลังผ่านการใช้งานกลางแจ้งจริง 4 เดือน · แกน X = ความยาวคลื่นแสง (nm)</small></div>
           <svg viewBox="0 0 640 260" role="img" aria-label="กราฟเปรียบเทียบอัตราส่งผ่านแสงระหว่างกระจกไม่เคลือบและกระจกเคลือบ Solar Panel Defender">
@@ -421,13 +426,7 @@
     <div class="warn"><b>⚠ ห้ามทาซ้ำวนไปวนมา:</b> ทาซ้ำไปมาจะทำให้ฟิล์มหนาไม่สม่ำเสมอ เปลืองน้ำยาโดยใช่เหตุ และเสี่ยงคราบเป็นทาง — <b>บางที่สุด รอบเดียวพอ</b></div>
     <div class="note"><b>ประหยัดค่าจ้างขึ้นล้างแผง:</b> ตัวนี้ช่วยลดความถี่ในการขึ้นล้างแผงได้ชัดเจน แต่ในช่วงที่ยังไม่ได้ล้าง ฝุ่นก็ยังลดประสิทธิภาพได้บ้างตามธรรมชาติ — ไม่ใช่เกราะกันฝุ่น 100% ตลอดเวลา</div>
 
-    <div class="vidgrid mixed">
-      <figure class="vcol" style="margin:0">
-        <div class="fbv v916">
-          <iframe loading="lazy" src="https://www.youtube.com/embed/vjvjvXmv_6w" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปทดสอบความทนทาน Solar Panel Defender"></iframe>
-        </div>
-        <figcaption><b>คลิปทดสอบความทน</b> — พิสูจน์ว่าทำไมคราบสีรุ้งถึงเช็ดออกยากขนาดนี้</figcaption>
-      </figure>
+    <div class="vidgrid">
       <figure style="margin:0">
         <div class="fbv">
           <iframe loading="lazy" src="https://www.youtube.com/embed/XZUhhF2gLpY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสาธิตวิธีใช้งาน Solar Panel Defender"></iframe>
