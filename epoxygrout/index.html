@@ -184,6 +184,8 @@
     .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
   }
   .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr}
+  /* 5 คลิปตั้งบล็อกเดียว: จอใหญ่ flex กึ่งกลาง 3 บน + 2 ล่าง / มือถือใช้ rail ของ vert ตามปกติ */
+  @media(min-width:760px){.vidgrid.vert.c5{display:flex;flex-wrap:wrap;justify-content:center;max-width:746px}.vidgrid.vert.c5 figure{width:230px}}
   @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
   .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
@@ -397,7 +399,7 @@
     </div>
 
     <h3 class="colors-h" style="margin-top:34px">คลิปสาธิตและรีวิว</h3>
-    <div class="vidgrid vert" style="grid-template-columns:repeat(2,1fr);max-width:480px">
+    <div class="vidgrid vert c5">
       <figure style="margin:0">
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/MPgjcU7sRVw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสาธิตยาแนว Epoxy TileGrout"></iframe></div>
         <figcaption>ยาแนวทับของเดิมจะไหวไหม — ดูคำตอบสดๆ</figcaption>
@@ -406,8 +408,6 @@
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/lC-NNG1fvJg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปยาแนว Epoxy TileGrout"></iframe></div>
         <figcaption>ขั้นตอนใช้งานจริงก่อนลงมือ — ทำตามได้เลย</figcaption>
       </figure>
-    </div>
-    <div class="vidgrid vert">
       <figure style="margin:0">
         <div class="fbv v916"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1955360491682617&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปยาแนว Epoxy จากเพจ LucernaPro"></iframe></div>
         <figcaption>คลิปหน้างานจากเพจ LucernaPro</figcaption>
