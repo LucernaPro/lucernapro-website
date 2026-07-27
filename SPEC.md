@@ -117,3 +117,19 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 **คณิตศาสตร์ launch (ตัวเลข ณ 27 ก.ค.):** การ์ดหน้าแรก 52 / สร้างแล้วสองภาษา 16 / ยังไม่สร้าง 36 — cutover ตอนนี้ = หน้า Wix ของ 36 ตัวที่เหลือจะเข้าไม่ได้ผ่านโดเมน (โดนย้ายมาเว็บใหม่) ลูกค้าเจอ redirect ไป catalog แทน 404 — **เจ้าของรับทราบและเลือก launch ก่อนครบตามมติในแชท** (ต่างจากแผนเดิม roadmap ข้อสุดท้ายที่ให้ครบก่อนค่อย cutover)
 
 **QA ที่เจ้าของต้องเช็คบน workers.dev รอบนี้:** (1) `/en/` เป็น catalog แล้ว สองโหมดสี+มือถือ (2) จิ้มการ์ดที่มีหน้าจริง เช่น `/en/tilecoatpoly` (3) จิ้มการ์ดที่ยังไม่มีหน้า เช่น `/en/deepseal` ต้องเด้งกลับ catalog ไม่ใช่ 404 — ข้อนี้เป็นการพิสูจน์ว่า `_redirects` ทำงานบน Workers ของเราจริง (ยังไม่เคยถูกทดสอบ) ถ้าไม่เด้ง = ไฟล์ _redirects ไม่ถูกอ่าน ให้แจ้ง Claude เปลี่ยนวิธี
+
+---
+
+## Launch — มติเส้นทางโดเมน 27 ก.ค. 2026 (ค่ำ)
+
+**ข้อเท็จจริงที่ยืนยันจากเอกสาร Wix + Cloudflare:** โดเมนที่จดกับ Wix เปลี่ยน nameservers ไม่ได้ (Wix ไม่มีฟีเจอร์นี้) และ Cloudflare Registrar รับ transfer ตรงไม่ได้เพราะต้องการ zone active ก่อน (catch-22) — เส้น "เปลี่ยน NS ที่ Wix" ที่วางไว้เดิมจึงตกไป
+
+**เส้นทางจริง (ตาม doc ทางการ Cloudflare):**
+1. Wix → Transfer away from Wix → รับ auth code ทางอีเมล ✅(เจ้าของกำลังทำ)
+2. Transfer ไป registrar ตัวกลาง (Namecheap/Porkbun ~350–450฿ ได้ +1 ปีอายุโดเมน: Feb 2027 → Feb 2028) — ใช้เวลา 3–7 วัน / **ระหว่างรอ: เว็บ Wix ทำงานปกติ 100% ไม่มี downtime**
+3. Transfer เสร็จ → ตั้ง NS ที่ registrar ใหม่เป็น david/kelly.ns.cloudflare.com ทันที → zone active → Add custom domain (www + apex) เข้า Worker = **launch**
+4. (ทางเลือก ไม่บังคับ) หลัง 60 วัน transfer ต่อเข้า Cloudflare Registrar เพื่อค่าต่ออายุราคาทุน
+
+**ระวัง:** ห้ามแก้ contact info โดเมนช่วงนี้ (ICANN lock 60 วัน) / MX eforward (email forwarding) อาจตายหลัง transfer — ถ้าเจ้าของใช้อีเมล @lucernapro.com ให้ตั้ง Cloudflare Email Routing แทนตอน zone active / **ห้ามยกเลิก Wix Premium จนกว่า launch + เฝ้าดู 1–2 สัปดาห์ตาม roadmap เดิม**
+
+**สถานะ Cloudflare ฝั่งเรา: พร้อมรอเสียบ** — zone lucernapro.com สร้างแล้ว (pending NS), DNS records ลอกจาก Wix ครบ (A×3, CNAME www, MX, TXT), Worker + EN home + _redirects พร้อมทั้งหมด
