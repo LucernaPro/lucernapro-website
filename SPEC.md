@@ -98,5 +98,22 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 
 **ค้างรอเจ้าของ (ยังไม่แก้ในรอบนี้):**
 1. `files/flexgrip-tds.pdf` ไม่มีอยู่จริง — ปุ่ม TDS บนหน้า flexgrip (TH+EN) ตายทั้งคู่ → เจ้าของอัปไฟล์ TDS ขึ้น `files/`
-2. `en/index.html` เป็นสำเนาหน้า Polyaspartic ไม่ใช่ catalog EN — nav ของหน้า EN ทุกหน้าชี้มาที่นี่ → ต้องสร้าง EN homepage จริง (session แยก ตามกติกาทีละหน้า)
+2. ~~`en/index.html` เป็นสำเนาหน้า Polyaspartic~~ **ปิดแล้ว 27 ก.ค. (เย็น) — ดู section EN Home Recovery ด้านล่าง**
 3. `files/deepstick-sds.pdf`, `files/tilecoatpoly-manual.png` ไม่ถูกอ้างถึงจากหน้าไหน — เก็บไว้ (เอกสารจริงของเจ้าของ) รอตัดสินใจ
+
+---
+
+## EN Home Recovery + Launch prep รอบสอง — 27 ก.ค. 2026 (เย็น)
+
+**สาเหตุที่ en/index.html พัง (ชันสูตรจาก git history):** EN homepage ตัวจริง (catalog เต็ม 52 การ์ด, โครงแฝดหน้าไทยเป๊ะ) มีอยู่จริงถึง commit `c3d9c5b` 25 ก.ค. 20:05 — แล้วโดน "Add files via upload" เวลา 23:36 คืนเดียวกันทับด้วยหน้า Polyaspartic EN (อุบัติเหตุอัปไฟล์ผิดตำแหน่ง ไม่ใช่บั๊กระบบ) / Roadmap ที่ติ๊ก "สองภาษาครบ" จึงถูกต้อง ณ ตอนติ๊ก
+
+**การกู้:** restore จาก `c3d9c5b` + ปรับตามกติกาที่ ratify หลังจากนั้น:
+- ลิงก์การ์ดสินค้า 52 ใบ: `https://www.lucernapro.com/{slug}` → `/en/{slug}` ทุกใบ (กฎเหล็ก 4 + มติลิงก์ข้ามสินค้า 27 ก.ค. — 16 หน้ามีจริง ที่เหลือลิงก์ตายชั่วคราวโดย _redirects รับไว้)
+- ลิงก์ภายในอื่น (lang-switch, nav, blog) → root-relative / **meta canonical/OG/hreflang คง absolute ตามข้อยกเว้นกฎ 4**
+- **หมายเหตุ:** หน้า Home ไทย production ยังใช้ลิงก์การ์ดแบบ absolute (`lucernapro.com/{slug}`) อยู่ — ใช้งานได้ทั้งก่อน/หลัง cutover (path เดียวกัน) จึงไม่แตะในรอบนี้ / จะแปลงเป็น relative ให้เข้ากฎ 4 เต็มตัวได้ในรอบเก็บงาน
+
+**_redirects regenerate ใหม่ทั้งไฟล์ (73 กติกา):** ทุก slug บนหน้าแรกที่ยังไม่มีหน้าจริง 36 ตัว × สองภาษา — `/{slug}` → `/#catalog` และ `/en/{slug}` → `/en/#catalog` + `/blog` → `/` — กติกาเดิมคงอยู่: **ship หน้าไหนเสร็จ ลบบรรทัดนั้นออก**
+
+**คณิตศาสตร์ launch (ตัวเลข ณ 27 ก.ค.):** การ์ดหน้าแรก 52 / สร้างแล้วสองภาษา 16 / ยังไม่สร้าง 36 — cutover ตอนนี้ = หน้า Wix ของ 36 ตัวที่เหลือจะเข้าไม่ได้ผ่านโดเมน (โดนย้ายมาเว็บใหม่) ลูกค้าเจอ redirect ไป catalog แทน 404 — **เจ้าของรับทราบและเลือก launch ก่อนครบตามมติในแชท** (ต่างจากแผนเดิม roadmap ข้อสุดท้ายที่ให้ครบก่อนค่อย cutover)
+
+**QA ที่เจ้าของต้องเช็คบน workers.dev รอบนี้:** (1) `/en/` เป็น catalog แล้ว สองโหมดสี+มือถือ (2) จิ้มการ์ดที่มีหน้าจริง เช่น `/en/tilecoatpoly` (3) จิ้มการ์ดที่ยังไม่มีหน้า เช่น `/en/deepseal` ต้องเด้งกลับ catalog ไม่ใช่ 404 — ข้อนี้เป็นการพิสูจน์ว่า `_redirects` ทำงานบน Workers ของเราจริง (ยังไม่เคยถูกทดสอบ) ถ้าไม่เด้ง = ไฟล์ _redirects ไม่ถูกอ่าน ให้แจ้ง Claude เปลี่ยนวิธี
