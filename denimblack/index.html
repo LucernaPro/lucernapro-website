@@ -180,7 +180,8 @@
   .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .fbv.v916{aspect-ratio:9/16}
   .vidgrid.vert{max-width:720px}
-  .vidgrid.vert.v6{max-width:980px}
+  @media(min-width:760px){.vidgrid.vert.c5{display:flex;flex-wrap:wrap;justify-content:center;max-width:746px}.vidgrid.vert.c5 figure{width:230px}}
+  .vidgrid.k1{grid-template-columns:1fr;max-width:560px}
   @media(max-width:759px){
     .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
     .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
@@ -382,7 +383,7 @@
   <div class="wrap">
     <h2 class="sec-h">ดูของจริง <em>คาคลิป</em></h2>
     <p class="sec-sub">ฉีดสด โชว์ผลกันจะๆ ทั้งยีนส์ หมวก และผ้าอีกหลายแบบ — ดูจบแล้วจะเข้าใจว่าทำไมเราตั้งชื่อมันว่า DenimBlack</p>
-    <div class="vidgrid vert v6">
+    <div class="vidgrid vert c5">
       <figure>
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/02WQMOIXxSY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสาธิต DenimBlack"></iframe></div>
         <figcaption>สาธิตการใช้งานจริง — ฉีดสดตั้งแต่ต้นจนจบ</figcaption>
@@ -403,9 +404,11 @@
         <div class="fbv v916"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F685443954217275&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป DenimBlack จากเพจ LucernaPro"></iframe></div>
         <figcaption>เคสจากเพจ — ของซีดหนักก็เอาอยู่</figcaption>
       </figure>
+    </div>
+    <div class="vidgrid k1">
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F594638366512350&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป DenimBlack จากเพจ LucernaPro"></iframe></div>
-        <figcaption>ก่อนกับหลัง — ชัดไม่ต้องบรรยาย</figcaption>
+        <div class="fbv"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F594638366512350&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป DenimBlack จากเพจ LucernaPro"></iframe></div>
+        <figcaption>ผ้าไม่ใช่ขอบเขตเดียวของมัน — รองเท้าบูทผ้าซีดก็คืนดำได้ ก่อนกับหลังชัดไม่ต้องบรรยาย</figcaption>
       </figure>
     </div>
     <div style="margin-top:20px"><a class="btn btn-fb" href="https://www.facebook.com/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>ติดตามเราต่อได้ทาง Facebook</a></div>
