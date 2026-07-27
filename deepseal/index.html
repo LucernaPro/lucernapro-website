@@ -187,6 +187,17 @@
   .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
   .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .note b{color:var(--ink)}
 
@@ -360,6 +371,17 @@
         </div>
         <figcaption><b>การทดสอบที่โหดเกินเบอร์</b> — เราเจาะรูก้นถัง แล้วทา DeepSeal ที่<b>ด้านนอก</b>ของก้นถัง: กันซึมทั่วไปต้องทา<b>ด้านใน</b>ให้แรงดันน้ำช่วยกดฟิล์มแนบผิวถึงจะรอด แต่แบบนี้น้ำเต็มถังจะ<b>ดันฟิล์มออกจากผิวตลอดเวลา</b> = จำลอง Negative Hydrostatic Pressure แบบไม่มีตัวช่วยสักอย่าง แถมทาบน<b>พลาสติกผิวลื่น</b>ที่ขึ้นชื่อว่าอะไรก็ไม่ยอมเกาะ — รอดสนามนี้ได้ ผนังปูนบ้านคุณคืองานเบา</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">เนื้อน้ำยาตัวจริง <em>หน้าตาแบบนี้</em></h2>
+    <p class="sec-sub">ให้เห็นกันชัดๆ ก่อนซื้อ — ตัวนี้ไม่ใช่สีขาวทึบ แต่เป็นน้ำยาใสอมเหลืองที่ออกแบบมาให้<b>ซึมลงเนื้อปูน</b> ไม่ใช่แค่เคลือบผิว</p>
+    <div class="showgrid">
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="เนื้อน้ำยา DeepSeal สีใสอมเหลืองในถาดลูกกลิ้ง พร้อมกระป๋อง 1 kg" src="/img/deepseal-g01.webp"></div><figcaption>เนื้อน้ำยาใสอมเหลือง — เทลงถาดใช้ได้ทันที ไม่ต้องผสมอะไรทั้งนั้น<small>สีฟิล์มจริงตามนี้ แห้งสนิทแล้วฉาบแต่งหรือทาสีทับได้ตามปกติ (ภาพประกอบการใช้งาน)</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="ใช้แปรงทา DeepSeal ให้ชุ่มบนผนังคอนกรีตบล็อก" src="/img/deepseal-g02.webp"></div><figcaption>ทาให้ชุ่มจนน้ำยาซึมลงเนื้อปูน — เน้นแนวรอยต่อและโซนที่น้ำเคยซึม<small>น้ำยาต้องลงถึงรูพรุนของคอนกรีตเปลือย ถึงจะฝังตัวในโครงสร้างได้จริง (ภาพประกอบการใช้งาน)</small></figcaption></figure>
     </div>
   </div>
 </section>
