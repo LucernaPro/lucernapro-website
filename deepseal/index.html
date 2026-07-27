@@ -170,9 +170,16 @@
   .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
-  /* คลิปเดี่ยวแนวนอน 16:9 */
-  .vidgrid.k1{grid-template-columns:1fr;max-width:640px}
-  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
+  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(79,163,209,.25), transparent 60%),
@@ -346,12 +353,12 @@
 
     <div style="margin-top:22px"><a class="btn btn-ghost" href="/files/deepseal-tds.pdf" target="_blank" rel="noopener">📑 TDS ข้อมูลเทคนิค</a></div>
 
-    <div class="vidgrid k1">
+    <div class="vidgrid vert solo">
       <figure style="margin:0">
-        <div class="fbv">
-          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1571507290978174%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปการใช้งาน DeepSeal จากเพจ LucernaPro"></iframe>
+        <div class="fbv v916">
+          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F1571507290978174%2F&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปทดสอบ DeepSeal จากเพจ LucernaPro"></iframe>
         </div>
-        <figcaption>ดูของจริงก่อน — การใช้งาน DeepSeal จากเพจ LucernaPro</figcaption>
+        <figcaption><b>การทดสอบที่โหดเกินเบอร์</b> — เราเจาะรูก้นถัง แล้วทา DeepSeal ที่<b>ด้านนอก</b>ของก้นถัง: กันซึมทั่วไปต้องทา<b>ด้านใน</b>ให้แรงดันน้ำช่วยกดฟิล์มแนบผิวถึงจะรอด แต่แบบนี้น้ำเต็มถังจะ<b>ดันฟิล์มออกจากผิวตลอดเวลา</b> = จำลอง Negative Hydrostatic Pressure แบบไม่มีตัวช่วยสักอย่าง แถมทาบน<b>พลาสติกผิวลื่น</b>ที่ขึ้นชื่อว่าอะไรก็ไม่ยอมเกาะ — รอดสนามนี้ได้ ผนังปูนบ้านคุณคืองานเบา</figcaption>
       </figure>
     </div>
   </div>
