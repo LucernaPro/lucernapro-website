@@ -177,6 +177,10 @@
     .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
   }
   .fbv.v916{aspect-ratio:9/16}
+  /* คลิปเดี่ยว: จำกัดกว้างไม่ให้จอใหญ่กลายเป็นแถบยักษ์ */
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(180,143,209,.25), transparent 60%),
@@ -382,7 +386,19 @@
 
     <div style="margin-top:20px"><a class="btn btn-ghost" href="/files/plastibright-tds.pdf" target="_blank" rel="noopener">📄 เอกสารข้อมูลทางเทคนิค (TDS)</a></div>
 
-    <h3 class="sec-h" style="margin-top:38px;font-size:20px">ดูของจริงก่อน — <em>คลิปการใช้งานจากเพจ</em></h3>
+    <h3 class="sec-h" style="margin-top:38px;font-size:20px">คลิปเด็ดประจำหน้า — <em>ดูจบใน 14 วินาที</em></h3>
+    <div class="vidgrid vert solo">
+      <figure style="margin:0">
+        <div class="fbv v916">
+          <video controls playsinline preload="metadata" poster="/img/plastibright-v01-poster.webp" title="คลิปเด็ด PlastiBright จากหน้างานจริง">
+            <source src="/img/plastibright-v01.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>ของจริง เสียงจริง จากหน้างาน — ดูจบแล้วจะเข้าใจว่าทำไมเราเรียกอันนี้ว่า<b>คลิปเด็ด</b></figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sec-h" style="margin-top:38px;font-size:20px">ดูของจริงเพิ่ม — <em>คลิปการใช้งานจากเพจ</em></h3>
     <div class="vidgrid vert">
       <figure style="margin:0">
         <div class="fbv v916">
