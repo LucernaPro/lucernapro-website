@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — ผลงานจริงจากหน้างานจริง | LucernaPro</title>
+<meta name="description" content="รวมผลงานจริงของ LucernaPro — รีโนเวทสระว่ายน้ำ Polyurea, ซ่อมห้องน้ำรั่วไม่ต้องรื้อกระเบื้อง, งานรอยต่อ DeepStick, ซ่อมหลังคา พร้อมสินค้าที่ใช้ในแต่ละงาน">
+<link rel="canonical" href="https://www.lucernapro.com/casestudy/">
+<meta property="og:title" content="Case Study — ผลงานจริงจากหน้างานจริง | LucernaPro">
+<meta property="og:description" content="ดูงานจริงก่อนตัดสินใจ — สระว่ายน้ำ ห้องน้ำ หลังคา รอยต่อ พร้อมสินค้าที่ใช้ในแต่ละเคส">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F4F1;
+  --card:#FFFFFF;
+  --ink:#171A1F;
+  --steel:#5A6472;
+  --line:#E3E1DB;
+  --signal:#E4591B;
+  --signal-dark:#C44A12;
+  --tag-bg:#F0EEE8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans Thai',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ---------- header ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,244,241,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1200px;margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:20px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:1.05rem}
+.brand img{width:34px;height:34px}
+.brand em{font-style:normal;color:var(--signal)}
+.topnav{margin-left:auto;display:flex;gap:22px;font-size:.92rem;font-weight:500;color:var(--steel)}
+.topnav a:hover{color:var(--ink)}
+.topnav .active{color:var(--signal);font-weight:600}
+@media(max-width:720px){.topnav{display:none}}
+.btn-chat{
+  margin-left:auto;display:none;
+  background:var(--signal);color:#fff;font-weight:600;font-size:.88rem;
+  padding:8px 14px;border-radius:8px;
+}
+@media(max-width:720px){.btn-chat{display:inline-block}}
+
+/* ---------- hero ---------- */
+.hero{max-width:1200px;margin:0 auto;padding:56px 20px 8px}
+.eyebrow{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.18em;
+  color:var(--signal);text-transform:uppercase;margin-bottom:14px;
+}
+.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;line-height:1.25;letter-spacing:-.01em}
+.hero p{max-width:640px;margin-top:14px;color:var(--steel);font-size:1.02rem}
+.hero p b{color:var(--ink)}
+
+/* ---------- filter ---------- */
+.filters{
+  max-width:1200px;margin:0 auto;padding:26px 20px 6px;
+  display:flex;flex-wrap:wrap;gap:10px;
+  position:sticky;top:59px;z-index:40;
+  background:var(--paper);
+}
+.chip{
+  border:1.5px solid var(--line);background:var(--card);
+  padding:8px 16px;border-radius:999px;
+  font-family:inherit;font-size:.9rem;font-weight:500;color:var(--steel);
+  cursor:pointer;transition:all .18s;
+}
+.chip:hover{border-color:var(--signal);color:var(--signal)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip .n{opacity:.55;font-size:.8rem;margin-left:4px}
+
+/* ---------- grid ---------- */
+.grid{
+  max-width:1200px;margin:0 auto;padding:26px 20px 60px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;
+}
+.case{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s;
+}
+.case:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(23,26,31,.09)}
+.case.hide{display:none}
+.thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#E9E7E1}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.case:hover .thumb img{transform:scale(1.04)}
+.cat{
+  position:absolute;left:12px;top:12px;
+  background:rgba(23,26,31,.82);color:#fff;
+  font-size:.74rem;font-weight:600;letter-spacing:.04em;
+  padding:5px 11px;border-radius:6px;backdrop-filter:blur(4px);
+}
+.cat.tips{background:rgba(90,100,114,.85)}
+.play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:2.6rem;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.body{padding:18px 18px 16px;display:flex;flex-direction:column;flex:1;gap:10px}
+.body h2{font-size:1.08rem;font-weight:700;line-height:1.4}
+.body p{font-size:.9rem;color:var(--steel);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.prods{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.prods span.lbl{font-size:.76rem;color:var(--steel);align-self:center;font-weight:500}
+.prods a{
+  background:var(--tag-bg);border:1px solid var(--line);
+  font-size:.78rem;font-weight:600;color:var(--ink);
+  padding:4px 10px;border-radius:6px;transition:all .15s;
+}
+.prods a:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+.more{
+  margin-top:4px;font-size:.88rem;font-weight:600;color:var(--signal);
+}
+.more:hover{color:var(--signal-dark)}
+.noimg{
+  aspect-ratio:4/3;display:flex;align-items:flex-end;padding:18px;
+  background:linear-gradient(135deg,#22262E 0%,#3A4250 100%);
+  color:#fff;font-weight:700;font-size:1.2rem;line-height:1.4;
+}
+.empty{
+  grid-column:1/-1;text-align:center;color:var(--steel);padding:60px 0;display:none;
+}
+
+/* ---------- cta + footer ---------- */
+.cta{
+  background:var(--ink);color:#fff;
+}
+.cta-inner{max-width:1200px;margin:0 auto;padding:52px 20px;text-align:center}
+.cta h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700}
+.cta p{color:#B9BFC9;margin:12px auto 24px;max-width:560px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.98rem;
+  transition:all .18s;
+}
+.btn-primary{background:var(--signal);color:#fff}
+.btn-primary:hover{background:var(--signal-dark)}
+.btn-ghost{border:1.5px solid #444B57;color:#fff}
+.btn-ghost:hover{border-color:#fff}
+footer{background:var(--ink);border-top:1px solid #2A2F38;color:#8A93A1;font-size:.85rem}
+.foot-inner{max-width:1200px;margin:0 auto;padding:26px 20px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+footer a{color:#B9BFC9}
+footer a:hover{color:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
+      LUCERNA<em>PRO</em>
+    </a>
+    <nav class="topnav">
+      <a href="/#finder">ค้นหาสินค้า</a>
+      <a href="/#waterproof">กันซึม</a>
+      <a href="/#flooring">งานพื้น</a>
+      <a href="/#coating">เคลือบปกป้อง</a>
+      <a class="active" href="/casestudy/">Case Study</a>
+      <a href="/#contact">ติดต่อเรา</a>
+    </nav>
+    <a class="btn-chat" href="https://m.me/lucernapro">แชทเพจ</a>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">Lucernapro · Case Study</span>
+  <h1>ผลงานจริง จากหน้างานจริง</h1>
+  <p>เราไม่ได้ให้คุณเชื่อจากคำโฆษณา — ทุกระบบของเรามีเคสหน้างานจริงประกอบ ตั้งแต่สระว่ายน้ำ ห้องน้ำ ไปจนถึงไซโลโรงงาน <b>ดูงานจริง ดูสินค้าที่ใช้ แล้วค่อยตัดสินใจ</b></p>
+</section>
+
+<div class="filters" id="filters">
+  <button class="chip on" data-f="all">ทั้งหมด <span class="n">24</span></button>
+  <button class="chip" data-f="pool">🏊 สระ / บ่อน้ำ</button>
+  <button class="chip" data-f="bath">🚿 ห้องน้ำ</button>
+  <button class="chip" data-f="roof">🏠 หลังคา / ดาดฟ้า</button>
+  <button class="chip" data-f="joint">🧱 รอยต่อ / รอยร้าว</button>
+  <button class="chip" data-f="coat">🛡️ เคลือบปกป้อง / กาว</button>
+  <button class="chip" data-f="tips">📖 เทคนิค / ความรู้</button>
+</div>
+
+<main class="grid" id="grid">
+
+  <!-- ===== สระ / บ่อน้ำ ===== -->
+  <article class="case" data-cat="pool">
+    <a class="thumb" href="https://www.lucernapro.com/post/รีโนเวทสระว่ายน้ำด้วย-polyurea-gen3-แทนการใช้-liner">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_2cc5bd3372d346909fadc402d90be3b0~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_2cc5bd3372d346909fadc402d90be3b0~mv2.webp" alt="รีโนเวทสระว่ายน้ำด้วย Polyurea Gen3 แทนการใช้ Liner">
+      <span class="cat">สระว่ายน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>รีโนเวทสระว่ายน้ำด้วย Polyurea Gen3 แทนการใช้ Liner</h2>
+      <p>เปลี่ยนสระเก่าโครงสร้าง ABS ที่มีรอยต่อตลอดสระ ให้กลับมาใหม่สวยงามน่าใช้ได้อย่างรวดเร็ว โดยไม่ต้องพึ่ง Liner</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/polypro">Polyurea Gen3</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/รีโนเวทสระว่ายน้ำด้วย-polyurea-gen3-แทนการใช้-liner">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="pool">
+    <a class="thumb" href="https://www.lucernapro.com/post/ผลงานสระว่ายน้ำคอนกรีตทาด้วย-polyurea-gen3-แทนการปูกระเบื้อง">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_b6a8151326084c4a82b2f6ee03ed5ad2~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_b6a8151326084c4a82b2f6ee03ed5ad2~mv2.webp" alt="สระว่ายน้ำคอนกรีตทาด้วย Polyurea Gen3 แทนการปูกระเบื้อง">
+      <span class="cat">สระว่ายน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>สระคอนกรีตทาด้วย Polyurea Gen3 แทนการปูกระเบื้อง</h2>
+      <p>รีโนเวทสระว่ายน้ำใหม่ได้ด้วยตัวเองในราคาประหยัด พร้อมป้องกันปัญหารั่วซึมในตัว ออกแบบมาสำหรับงานแช่น้ำนานโดยเฉพาะ</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/polypro">Polyurea Gen3</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ผลงานสระว่ายน้ำคอนกรีตทาด้วย-polyurea-gen3-แทนการปูกระเบื้อง">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="pool joint">
+    <a class="thumb" href="https://www.lucernapro.com/post/deepstick-เกิดมาเพื่องานรอยต่อยากๆ-โดยเฉพาะ">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_9021b49aab3742479ae113bb03909aa0~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_9021b49aab3742479ae113bb03909aa0~mv2.webp" alt="แปลงโฉมสระ Liner ด้วย DeepStick และ PolyPro">
+      <span class="cat">สระว่ายน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>DeepStick เกิดมาเพื่องานรอยต่อยากๆ โดยเฉพาะ</h2>
+      <p>แปลงโฉมสระ Liner ผนัง ABS ที่มีรอยต่อทั่วทั้งสระ — จุดอันตรายที่สุดที่น้ำจะรั่ว — ด้วย DeepStick และ PolyPro เต็มระบบ</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/deepstick">DeepStick</a><a href="/polypro">Polyurea Gen3</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/deepstick-เกิดมาเพื่องานรอยต่อยากๆ-โดยเฉพาะ">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="pool">
+    <a class="thumb" href="https://www.lucernapro.com/post/ซ่อมสระว่ายน้ำด้วย-polypro">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_967c2d8cef7d41b281a1c7907245669b~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_967c2d8cef7d41b281a1c7907245669b~mv2.webp" alt="ซ่อมสระว่ายน้ำด้วย PolyPro">
+      <span class="cat">สระว่ายน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>ซ่อมสระว่ายน้ำด้วย PolyPro</h2>
+      <p>สระรั่วแค่ช่วงบน ไม่ต้องรื้อทั้งสระอีกแล้ว — ทาเฉพาะบริเวณที่เกิดปัญหาก็แก้ได้ ประหยัดกว่า เห็นผลทันที ทำเองได้</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/polypro">Polyurea Gen3</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ซ่อมสระว่ายน้ำด้วย-polypro">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="pool tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/วิธีซ่อมสระว่ายน้ำรั่วด้วยตัวเอง">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_2ca76b35f3b64be0b24d9177f7d8c0f6~mv2.png/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_2ca76b35f3b64be0b24d9177f7d8c0f6~mv2.webp" alt="วิธีซ่อมสระว่ายน้ำรั่วด้วยตัวเอง">
+      <span class="cat tips">เทคนิค</span>
+    </a>
+    <div class="body">
+      <h2>วิธีซ่อมสระว่ายน้ำรั่วด้วยตัวเอง</h2>
+      <p>ก่อนหน้านี้ช่างมีทางเลือกเดียวคือรื้อกระเบื้องแล้วปูใหม่ — แต่ถ้าโครงสร้างมีปัญหา ทำแบบนั้นก็เสียเงินเปล่า มาดูวิธีที่ถูกต้อง</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/polypro">Polyurea Gen3</a><a href="/deepstick">DeepStick</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/วิธีซ่อมสระว่ายน้ำรั่วด้วยตัวเอง">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <!-- ===== ห้องน้ำ ===== -->
+  <article class="case" data-cat="bath">
+    <a class="thumb" href="https://www.lucernapro.com/post/ชุบชีวิตห้องน้ำใหม่อีกครั้ง">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_bdb867f0e8dc41c98a593fd1722fe7ff~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_bdb867f0e8dc41c98a593fd1722fe7ff~mv2.webp" alt="รีโนเวทห้องน้ำด้วย TileCoat Polyurea">
+      <span class="cat">ห้องน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>ชุบชีวิตห้องน้ำใหม่อีกครั้ง</h2>
+      <p>รีโนเวทห้องน้ำเก่าด้วย TileCoat Polyurea พร้อมโรย Flake เพิ่มลูกเล่นและช่วยกันลื่น — เปลี่ยนห้องน้ำใหม่ได้โดยไม่ต้องรื้อถอน</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/tilecoatpoly">TileCoat Polyurea</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ชุบชีวิตห้องน้ำใหม่อีกครั้ง">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="bath">
+    <a class="thumb" href="https://www.lucernapro.com/post/ปัญหารั่วซึมจบได้ไม่ต้องรื้อกระเบื้อง">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_fbe02223a0d743c7bfa3af0af07df577~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_fbe02223a0d743c7bfa3af0af07df577~mv2.webp" alt="แก้รั่วซึมโดยไม่ต้องรื้อกระเบื้อง">
+      <span class="cat">ห้องน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>ปัญหารั่วซึมจบได้ ไม่ต้องรื้อกระเบื้อง</h2>
+      <p>กระเบื้องเป็นวัสดุกันน้ำที่ยอดเยี่ยมอยู่แล้ว — น้ำเข้าทางยาแนวที่เสื่อมสภาพ ฉะนั้นไม่จำเป็นต้องรื้อถอนก็แก้ได้</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/tilecoatpoly">TileCoat Polyurea</a><a href="/epoxygrout">ยาแนว Epoxy</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ปัญหารั่วซึมจบได้ไม่ต้องรื้อกระเบื้อง">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="bath">
+    <a class="thumb" href="https://www.lucernapro.com/post/รีโนเวทอาบอาบน้ำได้อย่างง่ายดาย">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_1b5a9b7c5a6742a0a36773dcc230e4dd~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_1b5a9b7c5a6742a0a36773dcc230e4dd~mv2.webp" alt="รีโนเวทอ่างอาบน้ำด้วย Polyurea Gen3">
+      <span class="cat">ห้องน้ำ</span>
+    </a>
+    <div class="body">
+      <h2>รีโนเวทอ่างอาบน้ำได้อย่างง่ายดาย</h2>
+      <p>เนรมิตอ่างอาบน้ำให้กลับมามีชีวิตอีกครั้งด้วย Polyurea Gen3 — ไม่ต้องขัดเปิดผิว แค่ทำความสะอาดให้ดีก่อนใช้งาน ดีกว่า Epoxy</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/polypro">Polyurea Gen3</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/รีโนเวทอาบอาบน้ำได้อย่างง่ายดาย">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="bath tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/คิดให้ดีก่อนจะรื้อ">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_bb6ab1a9745547f7ba734a4ddc6fc0fe~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_bb6ab1a9745547f7ba734a4ddc6fc0fe~mv2.webp" alt="คิดให้ดีก่อนจะรื้อกระเบื้อง">
+      <span class="cat tips">ความรู้</span>
+    </a>
+    <div class="body">
+      <h2>คิดให้ดีก่อนจะรื้อ</h2>
+      <p>อยากให้อ่านก่อนตัดสินใจรื้อกระเบื้องแล้วปูใหม่ — อย่างน้อยเวลาคุยกับช่างจะเข้าใจง่าย และจบงานได้ในรอบเดียว</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/tilecoatpoly">TileCoat Polyurea</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/คิดให้ดีก่อนจะรื้อ">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="bath tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/เปลี่ยนความคิดเดิมๆ-ไปได้เลย">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_8c7aa8949fa24b4fbfe386d0265e0ce3~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_8c7aa8949fa24b4fbfe386d0265e0ce3~mv2.webp" alt="แนวคิดใหม่เรื่องพื้นห้องน้ำ">
+      <span class="cat tips">ความรู้</span>
+    </a>
+    <div class="body">
+      <h2>เปลี่ยนความคิดเดิมๆ ไปได้เลย</h2>
+      <p>ลองปรับวิธีคิดใหม่เรื่องการทำความสะอาดห้องน้ำ — เราแก้ปัญหาทุกอย่างให้แล้วในเรื่องงานพื้นห้องน้ำ แม้แต่เรื่องความสะอาด</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/tilecoatpoly">TileCoat Polyurea</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/เปลี่ยนความคิดเดิมๆ-ไปได้เลย">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <!-- ===== หลังคา / ดาดฟ้า / ใต้ดิน ===== -->
+  <article class="case" data-cat="roof">
+    <a class="thumb" href="https://www.lucernapro.com/post/ซ่อมรอยต่อหลังคาแบบทีเดียวจบ">
+      <img loading="lazy" src="https://i.ytimg.com/vi/nBorf8k5uiw/sddefault.jpg" alt="ซ่อมรอยต่อหลังคาแบบทีเดียวจบ — วิดีโอ">
+      <span class="cat">หลังคา</span>
+      <span class="play">▶</span>
+    </a>
+    <div class="body">
+      <h2>ซ่อมรอยต่อหลังคาแบบทีเดียวจบ</h2>
+      <p>จุดชนหลังคาที่ครอบไว้ก็ไม่จบ เพราะหลังคาเอียงน้อย น้ำรั่วทุกครั้งที่ฝนตกหนัก — อาการแบบนี้ต้อง DryGard บวกไฟเบอร์กลาส</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/drygard">DryGard</a><a href="/modernfiberglass">Modern Fiberglass</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ซ่อมรอยต่อหลังคาแบบทีเดียวจบ">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="roof tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/basement-solution-center">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_7cbf31cd08d94ee0901d079f6227fc59~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_7cbf31cd08d94ee0901d079f6227fc59~mv2.webp" alt="Basement Solution Center — กันซึมห้องใต้ดิน">
+      <span class="cat">ห้องใต้ดิน</span>
+    </a>
+    <div class="body">
+      <h2>Basement Solution Center</h2>
+      <p>ห้องที่อยู่ต่ำกว่าระดับพื้นดิน ควรทำระบบกันซึมด้านนอกให้ดีตั้งแต่ก่อนถมดิน — ประหยัดกว่ามาแก้ทีหลังมาก</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/deepseal">DeepSeal</a><a href="/polypro">Polyurea Gen3</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/basement-solution-center">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <!-- ===== รอยต่อ / รอยร้าว ===== -->
+  <article class="case" data-cat="joint">
+    <a class="thumb" href="https://www.lucernapro.com/post/ชมพลังของ-deepstick-กันชัดๆ">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_65ca1f944fe648f9b283d17d835d5a4d~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_65ca1f944fe648f9b283d17d835d5a4d~mv2.webp" alt="งานรอยต่อไซโลโรงงานด้วย DeepStick">
+      <span class="cat">งานอุตสาหกรรม</span>
+    </a>
+    <div class="body">
+      <h2>ชมพลังของ DeepStick กันชัดๆ</h2>
+      <p>งานรอยต่อที่ยากที่สุดของเรา — ไซโลในโรงงานที่ใหญ่อันดับต้นๆ ของไทย ตั้งอยู่บนดาดฟ้า เจาะทะลุขึ้นมาจากพื้น</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/deepstick">DeepStick</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ชมพลังของ-deepstick-กันชัดๆ">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="joint">
+    <a class="thumb" href="https://www.lucernapro.com/post/seamless-house">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_7f2c2109fff8483c909ffb3a4adc8f6af000.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_7f2c2109fff8483c909ffb3a4adc8f6af000.webp" alt="Seamless House — บ้านไร้รอยต่อ">
+      <span class="cat">งานผนัง</span>
+    </a>
+    <div class="body">
+      <h2>Seamless House — บ้านไร้รอยต่อ</h2>
+      <p>ตัวอย่างการใช้ DeepStick และ FillerAce กับงานบ้านไร้รอยต่อ จบปัญหาแตกร้าว ขัดแต่งทำสีได้ตามปกติ</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/deepstick">DeepStick</a><a href="/fillerace">FillerAce</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/seamless-house">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="joint">
+    <a class="thumb" href="https://www.lucernapro.com/post/ทางเลือกใหม่สำหรับงานรอยต่อ-smartboard">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_4286250de0174ab59a5c12a1bb9f7f58~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_4286250de0174ab59a5c12a1bb9f7f58~mv2.webp" alt="งานรอยต่อ Smartboard ด้วย DeepStick">
+      <span class="cat">รอยต่อ</span>
+    </a>
+    <div class="body">
+      <h2>ทางเลือกใหม่สำหรับงานรอยต่อ Smartboard</h2>
+      <p>รอยต่อ Smartboard ถ้าใช้ซิลิโคนธรรมดา เห็นอนาคตเลยว่าปวดหัวแน่ — DeepStick จบยาว ไม่ร้าว ยึดเกาะสูง ยืดหยุ่น ทนแดด</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/deepstick">DeepStick</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ทางเลือกใหม่สำหรับงานรอยต่อ-smartboard">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="joint">
+    <a class="thumb" href="https://www.lucernapro.com/post/การใช้งาน-deepstick-และ-drywallpro-สำหรับงานรอยต่อ">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_50a2d51cd5b84c2c9b58ee4ff5e8b9f4~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_50a2d51cd5b84c2c9b58ee4ff5e8b9f4~mv2.webp" alt="DeepStick และ DrywallPro สำหรับงานรอยต่อ">
+      <span class="cat">รอยต่อ</span>
+    </a>
+    <div class="body">
+      <h2>DeepStick + DrywallPro สำหรับงานรอยต่อ</h2>
+      <p>งานโครงเหล็กและไม้อัดล้วนๆ — และคำเตือนจากหน้างานจริง: อย่าใช้ HMR กับภายนอกที่ต้องสู้อากาศหนักๆ</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/deepstick">DeepStick</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/การใช้งาน-deepstick-และ-drywallpro-สำหรับงานรอยต่อ">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="joint tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/เทคโนโลยีซ่อมรอยร้าวระดับโลก">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_1c296e623d0e4b81a410596da15b4dde~mv2.png/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_1c296e623d0e4b81a410596da15b4dde~mv2.webp" alt="เทคโนโลยีซ่อมรอยร้าวระดับโลก">
+      <span class="cat tips">ความรู้</span>
+    </a>
+    <div class="body">
+      <h2>เทคโนโลยีซ่อมรอยร้าวระดับโลก</h2>
+      <p>เบื่อจ่ายค่าแรงซ้ำซากกับงานซ่อมเล็กๆ ที่ต้องทำหลายขั้นตอนแถมอายุงานสั้น? ไม่ต้องซ่อมแบบยุ่งยากอีกแล้ว</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/fillerace">FillerAce</a><a href="/deepstick">DeepStick</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/เทคโนโลยีซ่อมรอยร้าวระดับโลก">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <!-- ===== เคลือบปกป้อง / กาว ===== -->
+  <article class="case" data-cat="coat">
+    <a class="thumb" href="https://www.lucernapro.com/post/การใช้งานเคลือบปกป้องไม้ด้วย-lucerna-offshore">
+      <span class="noimg">การใช้งานเคลือบปกป้องไม้<br>ด้วย Lucerna OffShore</span>
+    </a>
+    <div class="body">
+      <h2>เคลือบปกป้องไม้ด้วย Lucerna OffShore</h2>
+      <p>งานเคลือบปกป้องไม้ด้วย Raw material จากบริษัทเคมียักษ์ใหญ่แห่งเนเธอร์แลนด์ งานนี้เลือกสูตร Green</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/offshore">OffShore Coating</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/การใช้งานเคลือบปกป้องไม้ด้วย-lucerna-offshore">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="coat">
+    <a class="thumb" href="https://www.lucernapro.com/post/ผลงานกาวบ้าพลังที่ไม่ได้มีดีเพียงแค่ซ่อมรองเท้า">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_119dbdf2047b4ead81cf8fb4d2c97a21~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_119dbdf2047b4ead81cf8fb4d2c97a21~mv2.webp" alt="ผลงานกาวบ้าพลัง FlexGrip">
+      <span class="cat">กาว</span>
+    </a>
+    <div class="body">
+      <h2>กาวบ้าพลัง — ไม่ได้มีดีแค่ซ่อมรองเท้า</h2>
+      <p>รวมผลงานการใช้กาวบ้าพลัง FlexGrip กับงานยึดติดหลากหลายรูปแบบ ที่พิสูจน์ว่าแรงยึดสูงและยืดหยุ่นจริง</p>
+      <div class="prods"><span class="lbl">สินค้าที่ใช้:</span><a href="/flexgrip">FlexGrip</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ผลงานกาวบ้าพลังที่ไม่ได้มีดีเพียงแค่ซ่อมรองเท้า">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <!-- ===== เทคนิค / ความรู้ ===== -->
+  <article class="case" data-cat="tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/เทคนิคการใช้งานกันซึมให้ได้ผลดี">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_e67986541dcf407bb12eeaf3b6f75da2~mv2.png/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_e67986541dcf407bb12eeaf3b6f75da2~mv2.webp" alt="เทคนิคการใช้งานกันซึมให้ได้ผลดี">
+      <span class="cat tips">เทคนิค</span>
+    </a>
+    <div class="body">
+      <h2>เทคนิคการใช้งานกันซึมให้ได้ผลดี</h2>
+      <p>กันซึมไม่ใช่ยาวิเศษ — ถ้าคิดว่าซื้อไปแล้วแค่ทาให้ทั่วก็จบ อาจเสียเงินทิ้ง นี่คือขั้นตอนการลงกันซึมแบบละเอียดที่ควรศึกษาก่อนซ่อม</p>
+      <div class="prods"><span class="lbl">หมวด:</span><a href="/#waterproof">กันซึมทั้งหมด</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/เทคนิคการใช้งานกันซึมให้ได้ผลดี">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/ทำไมทาสีแล้วชอบไม่แห้ง">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_4ace6e43fd3245b69e18609624bc1ac7~mv2.png/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_4ace6e43fd3245b69e18609624bc1ac7~mv2.webp" alt="ทำไมทาสีแล้วชอบไม่แห้ง">
+      <span class="cat tips">เทคนิค</span>
+    </a>
+    <div class="body">
+      <h2>ทำไมทาสีแล้วชอบไม่แห้ง</h2>
+      <p>คำถามยอดฮิตของสีสองส่วนผสม — ชั่งน้ำหนักให้ตรงคู่มือ ผสมเยอะต้องมีสว่านปั่น กวาดน้ำยาข้างถังลงมา คนให้เข้ากันอย่างน้อย 1 นาที</p>
+      <div class="prods"><span class="lbl">หมวด:</span><a href="/#waterproof">สีสองส่วนผสม</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ทำไมทาสีแล้วชอบไม่แห้ง">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/วิธีทากันซึมให้ประหยัด">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_39fd002cf11d489ba8b31e2e17594e55~mv2.png/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_39fd002cf11d489ba8b31e2e17594e55~mv2.webp" alt="วิธีทากันซึมให้ประหยัด">
+      <span class="cat tips">เทคนิค</span>
+    </a>
+    <div class="body">
+      <h2>วิธีทากันซึมให้ประหยัด</h2>
+      <p>"ทำไมทาได้น้อยกว่าที่แจ้งไว้มาก" — คำถามที่เราเจอตลอด มาดูขั้นตอนการทาสีกลุ่ม Specialty แล้วลืมวิธีทาสีบ้านไปก่อนได้เลย</p>
+      <div class="prods"><span class="lbl">หมวด:</span><a href="/#waterproof">กันซึมทั้งหมด</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/วิธีทากันซึมให้ประหยัด">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/ทำไมทากันซึมแล้วยังไม่หาย">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_9d117e73c44542ef98e7e824eb0b565e~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_9d117e73c44542ef98e7e824eb0b565e~mv2.webp" alt="ทำไมทากันซึมแล้วยังไม่หาย">
+      <span class="cat tips">กรณีศึกษา</span>
+    </a>
+    <div class="body">
+      <h2>ทำไมทากันซึมแล้วยังไม่หาย</h2>
+      <p>กรณีศึกษาที่เราเจอบ่อยที่สุด — ลูกค้าหลายรายทากันซึมแล้วไม่ได้ผล หรืออาการแค่ลดลงแต่ยังซึมอยู่ มาดูสาเหตุที่แท้จริง</p>
+      <div class="prods"><span class="lbl">หมวด:</span><a href="/#waterproof">กันซึมทั้งหมด</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/ทำไมทากันซึมแล้วยังไม่หาย">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <article class="case" data-cat="tips">
+    <a class="thumb" href="https://www.lucernapro.com/post/กันซึมไม่ได้เหมือนกันหมด">
+      <img loading="lazy" src="https://static.wixstatic.com/media/00cbb9_03c2fc2b8b1d405a867c7b4871f6ca40~mv2.jpg/v1/fill/w_640,h_480,al_c,q_90,enc_avif,quality_auto/00cbb9_03c2fc2b8b1d405a867c7b4871f6ca40~mv2.webp" alt="กันซึมไม่ได้เหมือนกันหมด">
+      <span class="cat tips">ความรู้</span>
+    </a>
+    <div class="body">
+      <h2>กันซึมไม่ได้เหมือนกันหมด</h2>
+      <p>คนไทยเริ่มรู้แล้วว่ากันซึมยังมีระดับคุณภาพที่สูงกว่าท้องตลาดอีกมาก โดยเฉพาะกันซึม Polyurea แบบ Rollable</p>
+      <div class="prods"><span class="lbl">หมวด:</span><a href="/polypro">Polyurea Gen3</a><a href="/polyurea">Polyurea Standard</a></div>
+      <a class="more" href="https://www.lucernapro.com/post/กันซึมไม่ได้เหมือนกันหมด">อ่านเคสเต็ม →</a>
+    </div>
+  </article>
+
+  <p class="empty" id="empty">ไม่พบเคสในหมวดนี้ — ลองเลือกหมวดอื่น หรือทักแชทเพจให้เราแนะนำได้เลยครับ</p>
+</main>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>หน้างานของคุณคล้ายเคสไหน?</h2>
+    <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary" href="https://m.me/lucernapro">💬 ทักแชทเพจ ปรึกษาฟรี</a>
+      <a class="btn btn-ghost" href="/#finder">🔎 ค้นหาสินค้าตามปัญหา</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0620057933">062-005-7933</a></span>
+    <span><a href="/">หน้าแรก</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('.chip');
+  var cards=document.querySelectorAll('.case');
+  var empty=document.getElementById('empty');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('on')});
+      c.classList.add('on');
+      var f=c.getAttribute('data-f'),shown=0;
+      cards.forEach(function(card){
+        var ok=(f==='all')||card.getAttribute('data-cat').split(' ').indexOf(f)>-1;
+        card.classList.toggle('hide',!ok);
+        if(ok)shown++;
+      });
+      empty.style.display=shown?'none':'block';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
