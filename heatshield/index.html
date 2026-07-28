@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>HeatShield กันซึมพร้อมลดความร้อน — สะท้อนแดด TSR เกิน 95% ลดอุณหภูมิผิวหลังคา 5°C ขึ้นไป สูตรน้ำ | LucernaPro</title>
+<meta name="description" content="HeatShield กันซึมพร้อมลดความร้อน สูตรน้ำ (waterbase) เนื้อฟิล์มอัดเม็ดเซรามิกกลวง สะท้อนคลื่นแดดกลับออกไป ค่า TSR เกิน 95% ทดสอบโดยสำนักวิจัย มจธ. ลดอุณหภูมิผิวหลังคาได้ 5°C ขึ้นไป กันซึมและลดร้อนจบในรอบเดียว ทาได้ทั้งเมทัลชีท กระเบื้อง คอนกรีต กลิ่นไม่ฉุน VOC ต่ำกว่า 10 g/L เริ่มต้น 1,480 บาท">
+<meta property="og:title" content="HeatShield — กันซึมพร้อมลดความร้อน สะท้อนแดดด้วยเม็ดเซรามิก">
+<meta property="og:description" content="กันซึมรุ่นประหยัดสุดของ Lucerna ที่แถมความสามารถลดความร้อนมาให้ในกระป๋องเดียว — สูตรน้ำ ทาง่าย กลิ่นไม่ฉุน สะท้อนคลื่นแดด TSR เกิน 95% ลดอุณหภูมิผิวหลังคา 5°C ขึ้นไป">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/heatshield">
+<meta property="og:image" content="https://www.lucernapro.com/img/heatshield-hero.webp">
+<link rel="canonical" href="https://www.lucernapro.com/heatshield">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/heatshield">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/heatshield">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"HeatShield กันซึมพร้อมลดความร้อน","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยากันซึมสูตรน้ำชนิดส่วนผสมเดียว เนื้อฟิล์มอัดแน่นด้วยเม็ดเซรามิกกลวง (hollow ceramic microspheres) สะท้อนคลื่นความร้อนจากแสงแดดกลับออกจากพื้นผิวแทนการดูดซับ ค่าสะท้อนความร้อนรวม (TSR) มากกว่า 95% ทดสอบโดยสำนักวิจัย มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ลดอุณหภูมิผิวหลังคาได้ตั้งแต่ 5 องศาเซลเซียสขึ้นไป ฟิล์มยืดหยุ่นข้ามรอยแตกได้ถึงราว 2 มม. ใช้ได้กับหลังคาเมทัลชีท หลังคากระเบื้อง ดาดฟ้าคอนกรีต และแผ่นโพลีคาร์บอเนต","image":"https://www.lucernapro.com/img/heatshield-hero.webp","url":"https://www.lucernapro.com/heatshield","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"990","highPrice":"3600","offerCount":"4","availability":"https://schema.org/InStock"}}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --wproof:#4FA3D1; /* สีหมวด waterproof ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(79,163,209,.13), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
+  .crumb b{color:var(--wproof);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--wproof);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard + .pricecard{margin-top:14px}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Gallery (มี caption กำกับภาพ) ---------- */
+  .gallery{padding:46px 0 12px}
+  .ggrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+  @media(min-width:640px){.ggrid{grid-template-columns:repeat(3,1fr);gap:14px}}
+  @media(min-width:1000px){.ggrid{grid-template-columns:repeat(4,1fr)}}
+  .gph{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--panel);padding:7px;margin:0;display:flex;flex-direction:column}
+  .gph .im{aspect-ratio:1/1;overflow:hidden;border-radius:7px}
+  .gph img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .gph:hover img{transform:scale(1.04)}
+  .gph figcaption{font-size:12.5px;color:var(--muted);padding:8px 4px 2px;line-height:1.45}
+  .gph figcaption .no{font-family:var(--mono);font-size:11px;color:var(--orange);margin-right:5px}
+  .gph figcaption b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--wproof);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+  /* แถบราคาโครงการ / ผู้รับเหมา */
+  .probox{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:13px;background:linear-gradient(120deg,rgba(237,106,47,.09),transparent 60%),var(--panel);padding:20px 20px 18px}
+  .probox .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+  .probox h3{font-family:var(--disp);font-size:19px;font-weight:700;margin:7px 0 6px}
+  .probox p{font-size:14.5px;color:var(--muted);max-width:640px}
+  .probox p b{color:var(--ink)}
+  .probox .acts{margin-top:15px;display:flex;gap:11px;flex-wrap:wrap}
+
+  /* แถบตัวเลขผลทดสอบ */
+  .labrow{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+  @media(min-width:760px){.labrow{grid-template-columns:repeat(4,1fr)}}
+  .labcell{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 14px;text-align:center}
+  .labcell .v{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3.4vw,27px);color:var(--orange);line-height:1.15}
+  .labcell .l{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+  .labcell .l b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/">← สินค้าทั้งหมด</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    <a class="lang-switch" href="/en/">EN</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>Waterproof <b>· กันซึม</b></div>
+      <div class="flagtag">☀️ กันซึมรุ่นประหยัดสุด — แถมลดความร้อนมาในกระป๋องเดียว</div>
+      <h1>HeatShield <span class="o">กันซึม + ลดความร้อน</span></h1>
+      <p class="lede">หลังคาบ้านเราไม่ได้แค่รั่ว — มัน<b>ร้อน</b>ด้วย HeatShield จัดการทั้งสองเรื่องในรอบเดียว เนื้อฟิล์มอัดแน่นด้วย<b>เม็ดเซรามิกกลวง</b> ที่สะท้อนคลื่นแดดกลับออกไปแทนที่จะให้หลังคาดูดซับไว้ — ค่าสะท้อนความร้อนรวม <b>TSR เกิน 95%</b> (ทดสอบโดยสำนักวิจัย มจธ.) และ<b>ลดอุณหภูมิผิวหลังคาได้ตั้งแต่ 5°C ขึ้นไป</b> เป็น<b>สูตรน้ำ (waterbase)</b> กลิ่นไม่ฉุน ทาง่ายด้วยแปรง ลูกกลิ้ง หรือพ่น เริ่มต้น <b>1,480 บาท</b></p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#order">สั่งซื้อ / ดูราคา</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ปรึกษาหน้างานฟรี</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="/img/heatshield-hero.webp" alt="HeatShield กันซึมพร้อมลดความร้อน สูตรน้ำ จาก LucernaPro ขนาด 4.5 กก." width="900" height="900">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">ทำไมต้อง <em>HeatShield</em></h2>
+    <p class="sec-sub">ตัวนี้ไม่ได้เกิดมาเป็นกันซึมที่ทนที่สุดในบ้านเรา — มันเกิดมาเป็นตัวที่<b>คุ้มที่สุดต่อตารางเมตร</b> และเป็นตัวเดียวในสายที่<b>ลดความร้อนให้ด้วย</b></p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>กันซึมกับลดร้อน จบในรอบเดียว</h4><p>ปกติจะกันซึมก็ทาชุดหนึ่ง จะกันร้อนก็ต้องหาของอีกชุด — ตัวนี้ทารอบเดียวได้ทั้งสองอย่าง <b>ฟิล์มยืดหยุ่นกันน้ำ + ผิวขาวสะท้อนแดด</b> ค่าแรงกับเวลาที่ประหยัดไปคือส่วนที่คนมักลืมคิด</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>ตัวเลขมีที่มา ไม่ใช่คำโฆษณา</h4><p>ค่าสะท้อนความร้อนรวม <b>TSR เกิน 95%</b> และค่าคายความร้อน <b>emissivity 0.75</b> — ทดสอบตามมาตรฐาน ASTM โดย<b>สำนักวิจัย มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี</b> ไม่ใช่ตัวเลขที่เราคิดเอาเอง</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>สูตรน้ำ — คนขึ้นหลังคาจะรู้ว่านี่สำคัญ</h4><p>ทำงานบนหลังคาตอนแดดเปรี้ยงอยู่แล้ว ไม่ต้องมาสูดกลิ่นทินเนอร์เพิ่ม <b>VOC ต่ำกว่า 10 g/L · ไม่พบจุดวาบไฟ · ล้างเครื่องมือด้วยน้ำเปล่า</b> ไม่ต้องผสมอะไร เปิดฝาทาได้เลย</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ลงได้แทบทุกหลังคา</h4><p><b>เมทัลชีท · หลังคากระเบื้อง · ดาดฟ้าคอนกรีต · แผ่นโพลีคาร์บอเนต</b> — และหน้างานหลักของมันคือ<b>หลังคาเก่า</b> ที่อยากยืดอายุออกไปอีกหลายปีโดยไม่ต้องรื้อเปลี่ยนทั้งผืน</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sellpts" id="how">
+  <div class="wrap">
+    <h2 class="sec-h">มันสะท้อนความร้อน <em>ได้ยังไง</em></h2>
+    <p class="sec-sub">อธิบายแบบไม่ต้องมีปริญญา — พระเอกของเรื่องนี้คือ<b>เม็ดเซรามิกกลวง (hollow ceramic microspheres)</b> ที่อัดอยู่ในเนื้อฟิล์ม</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>ปัญหา: หลังคาสีเข้ม = ที่เก็บความร้อน</h4><p>แดดที่ตกลงหลังคาคือ<b>คลื่นรังสี</b> ผิวเข้มๆ ผิวเมทัลชีทเก่าๆ จะ<b>ดูดซับ (absorb)</b> คลื่นนั้นไว้แล้วเปลี่ยนเป็นความร้อนสะสม — แผ่ลงมาอบห้องข้างล่างทั้งวัน แอร์ก็ทำงานหนักตามไป</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>ด่านที่ 1: สะท้อนกลับก่อนจะเข้ามา</h4><p>ผิวฟิล์มขาวด้านที่อัดเม็ดเซรามิกไว้แน่นๆ ทำหน้าที่เหมือน<b>กระจกจิ๋วหลายล้านเม็ด</b> — สะท้อนคลื่นแดดกลับออกไปแทนที่จะปล่อยให้ซึมเข้าเนื้อหลังคา วัดได้เป็นค่า <b>TSR เกิน 95%</b></p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>ด่านที่ 2: ข้างในเม็ดเป็นอากาศ = ฉนวนบางๆ</h4><p>คำว่า "กลวง" คือหัวใจ — ในเม็ดเซรามิกแต่ละเม็ด<b>มีอากาศขังอยู่</b> และอากาศเป็นตัวนำความร้อนที่แย่มาก ความร้อนส่วนที่เล็ดลอดผ่านการสะท้อนมาได้ จึง<b>เดินทางลงไปช้ากว่าเดิม</b></p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ด่านที่ 3: คายทิ้ง ไม่อมไว้</h4><p>ค่า <b>emissivity 0.75</b> คือความสามารถ<b>คายความร้อนที่ค้างอยู่ทิ้งกลับท้องฟ้า</b> — ผิวที่สะท้อนเก่งแต่คายไม่เก่งจะยังอมความร้อนไว้ตอนเย็น ตัวนี้ปล่อยทิ้งได้ ผลรวมคือ<b>ผิวหลังคาเย็นลง 5°C ขึ้นไป</b></p></div></div>
+    </div>
+    <div class="labrow">
+      <div class="labcell"><div class="v">&gt; 95%</div><div class="l"><b>TSR</b> ค่าสะท้อนความร้อนรวม<br>ASTM C1549 / E903-96</div></div>
+      <div class="labcell"><div class="v">0.75</div><div class="l"><b>Emissivity</b> ค่าคายความร้อน<br>ASTM C1371-04a / E408</div></div>
+      <div class="labcell"><div class="v">5°C+</div><div class="l"><b>อุณหภูมิผิวหลังคา</b><br>ที่ลดได้จากหน้างานจริง</div></div>
+      <div class="labcell"><div class="v">&lt; 10</div><div class="l"><b>VOC (g/L)</b> สูตรน้ำ<br>ASTM D3960 · ไม่พบจุดวาบไฟ</div></div>
+    </div>
+    <div class="note"><b>ใครทดสอบ:</b> ค่าสะท้อนความร้อนของ HeatShield ทดสอบโดย<b>สำนักวิจัย มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี</b> ตัวเลขทั้งชุดพร้อมมาตรฐานที่ใช้อยู่ในเอกสารเทคนิค (TDS) ท้ายหัวข้อวิธีใช้งาน</div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">STRAIGHT TALK — ความจริงที่ต้องพูดก่อนจ่ายเงิน</div>
+    <h2>ตัวนี้คุ้มที่สุดในสายกันซึมของเรา<br><b>แต่มันมีขอบเขตที่ต้องรู้ 6 ข้อ</b></h2>
+    <div class="story-grid">
+      <div class="bignum">5°C+<small>คือ "ผิวหลังคา" ไม่ใช่อุณหภูมิห้อง</small></div>
+      <div class="story-body">
+        <p><b>ข้อแรก — ตัวเลข 5°C คืออุณหภูมิที่ผิวหลังคา</b> ไม่ใช่คำมั่นว่าห้องข้างล่างจะเย็นลง 5 องศาเป๊ะๆ ในบ้านจะรู้สึกต่างแค่ไหน<b>ขึ้นกับฉนวน ฝ้า และการระบายอากาศใต้หลังคา</b>ของแต่ละหลัง บ้านที่ใต้หลังคาอับไม่มีช่องระบาย จะได้ผลน้อยกว่าบ้านที่ระบายอากาศดี — เราขายน้ำยา ไม่ได้ขายเครื่องปรับอากาศ</p>
+        <p><b>ข้อสอง — นี่คือชั้นล่างสุดของสายกันซึมเรา</b> มันกันฝน กันน้ำสาด กันซึมจากหลังคาได้จริง แต่<b>ไม่ใช่ตัวสำหรับน้ำขังถาวรหรือแช่น้ำ</b> ดาดฟ้าที่มีน้ำขังไม่ระบายเป็นเดือนๆ หรือบ่อ/สระ — ตัวนี้ไม่ใช่คำตอบ ให้ขึ้นไปที่ SiliconePro หรือสูงกว่า</p>
+        <p><b>ข้อสาม — สีขาวคือฟังก์ชัน ไม่ใช่แค่ความสวย</b> ความสามารถสะท้อนความร้อนทั้งหมดมาจาก<b>ผิวที่ขาวและด้าน</b> ถ้าเอาสีเข้มทาทับ หรือทาทับด้วยสีทึบสีอื่น = ทิ้งค่า TSR ที่จ่ายเงินมาซื้อไปทั้งก้อน เหลือแต่คุณสมบัติกันซึม</p>
+        <p><b>ข้อสี่ — ฝุ่นเกาะแล้วสะท้อนลดลง</b> เรื่องนี้จริงกับ<b>ทุกยี่ห้อ ทุกสูตร</b>ในโลกที่เป็น cool roof ไม่ใช่ข้อเสียของเราคนเดียว ผิวขาวที่โดนฝุ่น เขม่า ตะไคร่มาสะสมเป็นปีจะสะท้อนน้อยลงตามธรรมชาติ — <b>ฉีดน้ำล้างเป็นระยะ</b> คือการดูแลที่ต้องทำ ทำแล้วค่าก็กลับมา</p>
+        <p><b>ข้อห้า — ข้ามรอยแตกได้แค่ราว 2 มม.</b> ฟิล์มยืดหยุ่นพอจะคร่อมรอยแตกลายงาและรอยขยับเล็กๆ ได้ แต่<b>รอยที่กว้างกว่านั้นต้องอุดซ่อมให้เต็มก่อน</b> ทาทับรอยที่ยังโหวงคือรอวันแตกตามแนวเดิม — กติกาเดิมของงานเคลือบทุกตัวในบ้านนี้</p>
+        <p><b>ข้อหก — ปูนเปลือยที่ไม่เคยทาสี ต้องลงรองพื้นก่อน</b> ไม่ใช่การขายเพิ่ม แต่เพราะปูนดิบดูดน้ำยาและผิวยังไม่เรียบพอ ให้คิดงบ <b>HeatShield Primer</b> เผื่อไว้ตั้งแต่ต้น (ราคาอยู่ในตารางข้างล่าง) / <b>ผิวที่ทาสีมาแล้วหรือเมทัลชีท ข้ามขั้นนี้ได้</b></p>
+
+        <div class="beats">
+          <div class="beat"><div class="k">ตำแหน่งในสาย</div><p>ลำดับศักดิ์สายกันซึมเรา: <a href="/pmma" style="text-decoration:underline">PMMA</a> → <a href="/polypro" style="text-decoration:underline">PolyPro (Gen3)</a> → <a href="/exotic" style="text-decoration:underline">Exotic</a> → <a href="/polyurea" style="text-decoration:underline">Polyurea</a> → <a href="/siliconepro" style="text-decoration:underline">SiliconePro</a> → <b>HeatShield (คุณอยู่ที่นี่ — ประหยัด + ลดร้อน)</b></p></div>
+          <div class="beat"><div class="k">รองพื้นในระบบ</div><p>ใช้ <b>HeatShield Primer</b> เท่านั้น สำหรับ<b>ปูน/คอนกรีตเปลือยที่ไม่เคยทาสี</b> — ทารองพื้นแล้วรอราว <b>30 นาที หรือจนไม่เหนียวมือ</b> จึงลงรอบแรก</p></div>
+          <div class="beat"><div class="k">ห้ามผสมน้ำเพื่อยืดปริมาณ</div><p>อยากได้พื้นที่มากขึ้นแล้วเติมน้ำ = ฟิล์มบางลง เม็ดเซรามิกเจือจาง <b>ทั้งค่าสะท้อนและความทนหายไปพร้อมกัน</b> — เปิดฝาทาตามที่มาเลย</p></div>
+          <div class="beat"><div class="k">ไม่ตีตัวเลขพื้นที่มั่วๆ</div><p>หลังคาลอนลึกกับดาดฟ้าเรียบกินน้ำยา<b>ไม่เท่ากันเลย</b> เราจึงไม่ประกาศเลข ตร.ม./กก. ลอยๆ บนหน้าเว็บ — <b>ส่งรูปหลังคากับขนาดพื้นที่มาทางแชทเพจ เราคำนวณให้ฟรี</b></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">ขนาดและราคา</h2>
+    <div class="pricecard">
+      <div class="ph">HeatShield — ตัวหลัก<small>สูตรน้ำ ส่วนผสมเดียว เปิดฝาทาได้เลย · ราคารวม VAT แล้ว</small></div>
+      <table>
+        <thead><tr><th>ขนาด</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">4.5 kg</td><td class="pr">1,480.-</td><td>130.-</td></tr>
+          <tr><td class="sz">18 kg</td><td class="pr">3,600.-</td><td>300.-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pricecard">
+      <div class="ph">HeatShield Primer — รองพื้น<small>ใช้เฉพาะปูน/คอนกรีตเปลือยที่ไม่เคยทาสี · ผิวที่ทาสีมาแล้วหรือเมทัลชีท ไม่ต้องใช้</small></div>
+      <table>
+        <thead><tr><th>ขนาด</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">4.5 kg</td><td class="pr">990.-</td><td>แจ้งตอนสั่ง</td></tr>
+          <tr><td class="sz">18 kg</td><td class="pr">2,900.-</td><td>แจ้งตอนสั่ง</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote"><b>เรื่องปริมาณที่ต้องใช้:</b> เราไม่ประกาศเลข ตร.ม. ต่อกิโลลอยๆ เพราะ<b>หลังคาลอนลึก ผิวหยาบ และปูนพรุน กินน้ำยาไม่เท่ากันเลย</b> ตัวเลขที่ให้ไปแบบไม่เห็นหน้างานคือตัวเลขที่ทำให้คุณสั่งขาดหรือสั่งเกิน — <b>ส่งรูปหลังคากับขนาดพื้นที่มาทางแชทเพจ เราคำนวณให้ฟรีก่อนสั่งซื้อ</b> พร้อมบอกด้วยว่าต้องใช้รองพื้นหรือไม่ / ค่าส่งของรองพื้นแจ้งตอนสั่ง สั่งพร้อมตัวหลักได้</p>
+
+    <div class="probox">
+      <div class="k">งานโรงงาน / โกดัง / ดาดฟ้าทั้งผืน</div>
+      <h3>พื้นที่เยอะ — ขอใบเสนอราคาได้</h3>
+      <p>หลังคาเมทัลชีทโรงงาน โกดังสินค้า ดาดฟ้าอาคารทั้งผืน หรืองานที่ผู้รับเหมาสั่งต่อเนื่องเป็นรอบ — <b>แจ้งขนาดพื้นที่และลักษณะหลังคามาทางแชทเพจ เราทำใบเสนอราคาให้</b> พร้อมคำนวณปริมาณและบอกตรงๆ ว่าหน้างานแบบนั้นควรใช้ตัวนี้หรือควรขยับขึ้นไปรุ่นบน</p>
+      <div class="acts">
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ขอใบเสนอราคา</a>
+        <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">วิธีใช้งาน</h2>
+    <p class="sec-sub">จบบนหน้านี้ครบทุกตัวเลข ไม่ต้องเปิดคู่มือที่ไหน — ตัวนี้ทาง่ายที่สุดตัวหนึ่งในบ้านเรา <b>ไม่ต้องผสม ไม่ต้องจับเวลา</b> แต่ขั้นเตรียมผิวยังต้องทำให้ครบเหมือนกันทุกตัว</p>
+    <ol class="flow">
+      <li class="fstep"><h4>ล้างผิวให้สะอาด แห้ง</h4><p>ผิวต้อง<b>ปลอดฝุ่น น้ำมัน คราบไขมัน และขี้เกลือปูน</b> / หลังคาที่เคยทาสีมาแล้ว ให้<b>ลอกสีที่ร่อน พอง หรือเป็นฝุ่นชอล์กออกให้หมด</b> จนถึงชั้นที่ยึดแน่น — เคลือบทับสีที่กำลังจะหลุด คือเคลือบทับปัญหา</p><span class="fchip">สะอาด · แห้ง · ไม่มีสีร่อน</span></li>
+      <li class="fstep"><h4>ซ่อมรอยแตกและรอยต่อให้เต็มก่อน</h4><p>ฟิล์มตัวนี้<b>ข้ามรอยได้ราว 2 มม.</b> — กว้างกว่านั้นต้องอุดซ่อมก่อนเสมอ<br><b>หลังคาเมทัลชีท:</b> รอยซ้อนแผ่น หัวสกรู และรอยต่อสันหลังคา ใช้ <a href="/spackleflex" style="text-decoration:underline"><b>SpackleFlex</b></a> โป๊วปิดให้เรียบร้อยก่อน<br><b>ดาดฟ้าคอนกรีต / รอยต่อโหดๆ:</b> ใช้ <a href="/deepstick" style="text-decoration:underline"><b>DeepStick</b></a> อุดให้เต็ม แล้วรอแห้งตามที่หน้านั้นระบุ</p><span class="fchip">ข้ามรอยได้ ~2 มม.</span><span class="fchip">เมทัลชีท → SpackleFlex</span><span class="fchip">ดาดฟ้าปูน → DeepStick</span></li>
+      <li class="fstep"><h4>ปูนเปลือยไม่เคยทาสี → ลงรองพื้นก่อน</h4><p>คอนกรีตหรือปูนฉาบที่<b>ยังไม่เคยผ่านการทาสีมาก่อน</b> ให้ลง <b>HeatShield Primer</b> หนึ่งรอบ เพื่อเพิ่มแรงยึดเกาะและปรับผิวให้เรียบขึ้น จากนั้น<b>รอราว 30 นาที หรือจนกว่าจับดูแล้วไม่เหนียวมือ</b> จึงลงรอบแรก / <b>ผิวที่ทาสีมาแล้ว เมทัลชีท กระเบื้อง โพลีคาร์บอเนต — ข้ามขั้นนี้ได้</b></p><span class="fchip">รองพื้น = ปูนดิบเท่านั้น</span><span class="fchip">รอ ~30 นาที / จนไม่เหนียวมือ</span></li>
+      <li class="fstep"><h4>ทารอบที่ 1</h4><p>ทาได้ทั้ง<b>แปรง ลูกกลิ้ง หรือเครื่องพ่นแบบ Airless</b> — เปิดฝาใช้ได้เลย ไม่ต้องผสมอะไร กวนให้เนื้อเข้ากันก่อนใช้ / <b>ห้ามผสมน้ำเพื่อยืดปริมาณเด็ดขาด</b> ฟิล์มบางลง = ทั้งค่าสะท้อนความร้อนและความทนหายไปพร้อมกัน</p><span class="fchip">แปรง · ลูกกลิ้ง · พ่น airless</span><span class="fchip">ห้ามเติมน้ำ</span></li>
+      <li class="fstep"><h4>รอ 1–2 ชั่วโมง</h4><p>ผิวจะ<b>แห้งแตะได้ในไม่กี่นาที</b> (แห้งผิวใน 15 นาที · แห้งแข็งใน 40 นาที) แต่รอบสองให้รอ <b>1–2 ชั่วโมง</b> ตามอากาศหน้างาน — แดดจัดลมโปร่งเร็วกว่า วันครึ้มชื้นช้ากว่า</p><span class="fchip">แห้งผิว &lt; 15 นาที</span><span class="fchip">รอบสองที่ 1–2 ชม.</span></li>
+      <li class="fstep"><h4>ทารอบที่ 2 — ตัดขวางรอบแรก</h4><p>รอบสองให้<b>ทาตัดขวางทิศทางของรอบแรก</b> (รอบแรกทาตามลอน รอบสองทาขวางลอน) เพื่อกลบรอยแปรงและจุดที่บางไป — <b>สองรอบคือมาตรฐานของตัวนี้ ไม่ใช่ทางเลือก</b> เพราะทั้งการกันซึมและค่าสะท้อนขึ้นอยู่กับความหนาของฟิล์ม</p><span class="fchip">2 รอบเสมอ</span><span class="fchip">รอบสองตัดขวาง</span></li>
+      <li class="fstep"><h4>ราว 4 ชั่วโมง พร้อมใช้งาน</h4><p>หลังรอบสุดท้าย ให้เวลาราว <b>4 ชั่วโมง</b> ก่อนถือว่าพร้อมใช้งานเต็มที่ / ระหว่างนี้<b>อย่าให้โดนน้ำ</b> และ<b>อย่าเดินเหยียบ</b> — ฟิล์มที่ยังเปียกลื่นมาก อันตรายบนหลังคา</p><span class="fchip">พร้อมใช้ ~4 ชม.</span></li>
+      <li class="fstep"><h4>ล้างเครื่องมือด้วยน้ำ ทันที</h4><p>ข้อดีของสูตรน้ำ — <b>ล้างแปรง ลูกกลิ้ง ถังด้วยน้ำเปล่าได้เลย ตอนที่น้ำยายังไม่แห้ง</b> ไม่ต้องหาทินเนอร์ / แต่ถ้าปล่อยให้แห้งคาแปรงแล้วจะล้างยากขึ้นมาก — ล้างทันทีที่วางมือ</p><span class="fchip">น้ำเปล่า · ล้างตอนยังไม่แห้ง</span></li>
+    </ol>
+
+    <div class="warn"><b>⚠ เช็คฟ้าก่อนเปิดฝา:</b> <b>ห้ามทาถ้าฝนมีสิทธิ์มาใน 4 ชั่วโมง</b> · ห้ามทาบน<b>น้ำขังหรือผิวที่ยังเปียก</b> · เลี่ยงการทาเมื่ออุณหภูมิ<b>ต่ำกว่า 10°C</b><br><b>⚠ อันตรายจริงของงานนี้คือความสูง ไม่ใช่เคมี:</b> ตัวนี้สูตรน้ำ กลิ่นเบา ไม่พบจุดวาบไฟ — แต่งานอยู่บนหลังคา <b>ต้องมีจุดยึดกันตกและคนช่วยดูข้างล่างเสมอ</b> / <b>ผิวที่ทาแล้วยังไม่แห้งลื่นมาก ห้ามเดินเหยียบ</b> วางทางเดินไว้ก่อนเริ่ม อย่าให้ต้องเดินย้อนกลับบนงานที่เพิ่งทา / ใส่ถุงมือและแว่นตา ถ้ากระเด็นเข้าตาให้ล้างด้วยน้ำสะอาด</div>
+
+    <div class="note"><b>การดูแลระยะยาว (เรื่องที่คนขายมักไม่บอก):</b> ผิวสะท้อนความร้อนทำงานได้ก็เพราะมันขาว — พอฝุ่น เขม่า และตะไคร่มาสะสม ค่าสะท้อนจะค่อยๆ ลดลงตามธรรมชาติ (จริงกับ cool roof ทุกยี่ห้อ) <b>ฉีดน้ำล้างฝุ่นเป็นระยะ</b> คือการดูแลที่ควรทำ ทำแล้วประสิทธิภาพก็กลับมา<br><b>การเก็บรักษา:</b> ปิดฝาแน่นในที่ร่ม แห้ง อุณหภูมิ 10–30°C เลี่ยงแดดและความร้อนโดยตรง</div>
+
+    <div style="margin-top:22px"><a class="btn btn-ghost" href="/files/heatshield-tds.pdf" target="_blank" rel="noopener">📄 Technical Data Sheet (TDS)</a></div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <h2 class="sec-h">หน้างานจริง <em>ที่ทา HeatShield</em></h2>
+    <p class="sec-sub">ตั้งแต่หลังคาเมทัลชีทบ้านพักไปจนถึงดาดฟ้าคอนกรีตทั้งผืน — ผิวขาวที่เห็นในภาพคือตัวที่ทำหน้าที่สะท้อนแดด</p>
+    <div class="ggrid">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ทา HeatShield บนหลังคาเมทัลชีทด้วยแปรง ผิวขาวเต็มผืน" src="/img/heatshield-g01.webp"></div><figcaption><span class="no">01</span>หลังคาเมทัลชีทบ้านพัก — ไล่เก็บช่วงท้ายของงาน ผิวขาวเต็มผืนแล้ว</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="งานทา HeatShield บนหลังคาเมทัลชีท มุมมองจากปลายหลังคา" src="/img/heatshield-g02.webp"></div><figcaption><span class="no">02</span>งานเดียวกัน อีกมุม — เห็นความต่างระหว่างโซนที่ทาแล้วกับขอบที่กำลังเก็บ</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ทา HeatShield ด้วยลูกกลิ้งบนหลังคาลอนลูกฟูกและช่องสกายไลท์" src="/img/heatshield-g03.webp"></div><figcaption><span class="no">03</span>ลูกกลิ้งบนหลังคาลอน — งานที่มีช่องสกายไลท์และรอยต่อเยอะ ทาเก็บได้ทั่ว</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="หลังคาเอียงเคลือบ HeatShield ผิวขาวเรียบทั้งผืน" src="/img/heatshield-g04.webp"></div><figcaption><span class="no">04</span>หลังคาลาดเอียงหลังเคลือบเสร็จ — ผิวขาวเรียบต่อเนื่องไม่มีรอยต่อ</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ดาดฟ้าคอนกรีตเคลือบ HeatShield ข้างหลังคากระเบื้องสีเข้ม" src="/img/heatshield-g05.webp"></div><figcaption><span class="no">05</span>ดาดฟ้าคอนกรีตที่เคลือบแล้ว เทียบกับหลังคากระเบื้องสีเข้มข้างๆ — เห็นความต่างของผิวชัด</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ดาดฟ้าคอนกรีตพร้อมผนังกันตกเคลือบ HeatShield ต่อเนื่องขึ้นผนัง" src="/img/heatshield-g06.webp"></div><figcaption><span class="no">06</span>ดาดฟ้าทั้งผืน — ทาต่อเนื่องขึ้นไปถึงผนังกันตก ไม่ทิ้งรอยต่อไว้ให้น้ำเข้า</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" alt="ดาดฟ้าคอนกรีตเคลือบ HeatShield เสร็จเรียบร้อย" src="/img/heatshield-g07.webp"></div><figcaption><span class="no">07</span>อีกหลังที่จบงานแล้ว — ผิวขาวด้าน คือหน้าตาปกติของฟิล์มตัวนี้เมื่อแห้งสนิท</figcaption></figure>
+    </div>
+    <div style="margin-top:18px"><a class="btn btn-fb" href="https://www.facebook.com/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>ติดตามเราต่อได้ทาง Facebook</a></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">คู่หูและทางเลือกของ <em>HeatShield</em></h2>
+    <p class="sec-sub">งานหลังคาแทบไม่มีงานไหนจบด้วยของชิ้นเดียว — ซ่อมให้เต็มก่อน แล้วค่อยเคลือบ คือลำดับที่ถูก</p>
+    <div class="altgrid">
+      <a class="altcard" href="/spackleflex">
+        <div class="k">ซ่อมก่อนเคลือบ — หลังคา/เมทัลชีท</div>
+        <h4>SpackleFlex</h4>
+        <p>รอยซ้อนแผ่น หัวสกรู รอยต่อสันหลังคา — โป๊วปิดด้วยตัวนี้ก่อนลง HeatShield <b>เนื้อครีมยืดหยุ่นสูงสำหรับงานหลังคาและเมทัลชีทโดยเฉพาะ</b> (ไม่ใช่สำหรับดาดฟ้าคอนกรีต)</p>
+        <div class="go">ดูหน้า SpackleFlex →</div>
+      </a>
+      <a class="altcard" href="/deepstick">
+        <div class="k">ซ่อมก่อนเคลือบ — รอยโหด</div>
+        <h4>DeepStick</h4>
+        <p>รอยแตกลึก รอยต่อดาดฟ้าคอนกรีต จุดที่ขยับตัวและเปียกตลอด — <b>โป๊วสารพัดงานที่เกาะได้แทบทุกพื้นผิว</b> อุดให้เต็มแล้วรอแห้ง ก่อนเคลือบ HeatShield ทับ</p>
+        <div class="go">ดูหน้า DeepStick →</div>
+      </a>
+      <a class="altcard" href="/siliconepro">
+        <div class="k">ขั้นถัดขึ้นไปในสาย</div>
+        <h4>SiliconePro</h4>
+        <p>ดาดฟ้าที่<b>น้ำขังไม่ระบาย</b> หรืองานที่ต้องแช่น้ำเป็นปี — ตรงนั้น HeatShield ไม่ใช่คำตอบ ให้ขยับขึ้นมาที่ตัวนี้ เปิดฝาทาได้เลยเหมือนกัน ทาหนายิ่งทน</p>
+        <div class="go">ดูหน้า SiliconePro →</div>
+      </a>
+      <a class="altcard" href="/exotic">
+        <div class="k">อยากจัดเต็มบนหลังคาเดิม</div>
+        <h4>Exotic Polyurea</h4>
+        <p>งบไม่ใช่ข้อจำกัดและอยากได้ความทนระดับ Gen3 โดย<b>ไม่ต้องผสมอะไรเลย</b> — Exotic คือคำตอบ แลกกับการที่ไม่มีคุณสมบัติสะท้อนความร้อนแบบ HeatShield</p>
+        <div class="go">ดูหน้า Exotic →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">สั่งซื้อ <em>HeatShield</em></h2>
+    <div class="ordercard">
+      <h3>เลือกช่องทางที่สะดวก — ทีมงานตอบไว</h3>
+      <div class="sub">ไม่รู้ว่าหลังคาขนาดนี้ต้องใช้กี่กิโล หรือต้องใช้รองพื้นไหม — ส่งรูปหลังคากับขนาดพื้นที่มาก่อนได้เลย เราคำนวณให้ฟรี และถ้าหน้างานของคุณควรใช้รุ่นอื่นมากกว่า เราจะบอกตรงๆ</div>
+      <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/product/392415703/16712270925/" target="_blank" rel="noopener">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/products/i3506321916.html" target="_blank" rel="noopener">🛒 Lazada</a>
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>นี่แค่ <em>1 ใน 50+</em> — LucernaPro ไม่ได้มีแค่ตัวนี้</h3>
+      <p class="xsub">เราทำน้ำยาเคลือบผิวและกันซึมครบทั้งระบบ ตั้งแต่พื้น ผนัง หลังคา ยันรถของคุณ</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/#flooring">FLOORING</a><a class="cchip" href="/#wall">WALL</a><a class="cchip" href="/#waterproof">WATERPROOF</a><a class="cchip" href="/#coating">PROTECTION</a><a class="cchip" href="/#chem">เคมีภัณฑ์</a><a class="cchip" href="/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/#catalog">ดูสินค้าทั้งหมด →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
+        <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">แชทเพจ</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">โทร</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">เวลา</span><span>08.00–19.00 จันทร์–เสาร์</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
+    <div>© 2026 บริษัท ลูเซอน่า จำกัด</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
+  <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+</body>
+</html>
