@@ -38,18 +38,21 @@ notes/wix-archive/{slug}.md
 
 ---
 
-## สถานะปัจจุบัน (29 ก.ค. 2026)
+## สถานะปัจจุบัน (29 ก.ค. 2026 — หลังปิดด่าน ProLatex)
 
 | | |
 |---|---|
 | สินค้าบนเมนู Wix เดิม | 55 |
-| สร้างหน้าใหม่แล้ว (TH+EN) | 40 |
+| สร้างหน้าใหม่แล้ว (TH+EN) | 41 |
 | เลิกขาย (มติเจ้าของ) | 6 → 301 ใน `_redirects` |
-| **เหลือต้องทำ** | **9** |
+| **เหลือต้องทำ** | **8** |
 
-**9 ตัวที่เหลือ** เรียงตามความพร้อมของข้อมูล:
-`prolatex` ← **ทำตัวนี้ต่อ** · `blast` · `splatter` · `swiftset` · `compositecore` ·
+**8 ตัวที่เหลือ** เรียงตามความพร้อมของข้อมูล:
+`swiftset` ← **ทำตัวนี้ต่อ** · `blast` · `splatter` · `compositecore` ·
 `nanoceramic` · `americaniron` · `schutznano9h` · `polyasparticadhesive`
+
+> 🔴 **sandbox ของ Claude ดึง `static.wixstatic.com` ไม่ได้แล้ว** — URL รูปต้นฉบับในโพยใช้โหลดอัตโนมัติไม่ได้
+> ใช้รูปเท่าที่มีใน `img/` ไปก่อนตาม D3 **ห้าม block ด่านเพราะรอรูป** (ดู SPEC ด่าน ProLatex)
 
 **ยังไม่ cutover** — `lucernapro.com` ยังชี้ Wix อยู่ domain กำลังย้ายผ่าน Namecheap
 
