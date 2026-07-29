@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
 <title>Solid Floor ซ่อมผิวหน้าคอนกรีต — ซีเมนต์โพลิเมอร์ ฉาบบาง 1 มม. ผิวแข็ง ไร้ฝุ่น | LucernaPro</title>
-<meta name="description" content="Solid Floor ซีเมนต์โพลิเมอร์สำหรับซ่อมผิวหน้าคอนกรีตที่เสื่อมสภาพ ฉาบบางได้ตั้งแต่ 1 ถึง 5 มม. โดยไม่ร่อน ผิวที่ได้แข็ง ไม่เป็นฝุ่น ยึดเกาะได้ทั้งพื้นแห้งและพื้นที่มีความชื้น ไม่มีกลิ่น ชุด 20 กก. 3,480 บาท ฉาบบาง 1 มม. ได้ราว 15 ตร.ม. — และเราบอกตรงๆ ว่ามันฉาบยาก">
+<meta name="description" content="Solid Floor ซีเมนต์โพลิเมอร์สำหรับซ่อมผิวหน้าคอนกรีตที่เสื่อมสภาพ ฉาบบางได้ตั้งแต่ 1 ถึง 5 มม. โดยไม่ร่อน ผิวที่ได้แข็ง ไม่เป็นฝุ่น ยึดเกาะได้ทั้งพื้นแห้งและพื้นที่มีความชื้น ไม่มีกลิ่น มี 6 เฉดสีให้เลือก ชุด 24.5 กก. 3,480 บาท ฉาบบาง 1 มม. ได้ราว 15 ตร.ม. — และเราบอกตรงๆ ว่ามันฉาบยาก">
 <meta property="og:title" content="Solid Floor ซ่อมผิวหน้าคอนกรีต — ฉาบบาง 1 มม. แล้วไม่ร่อน">
 <meta property="og:description" content="ซีเมนต์โพลิเมอร์สำหรับงานฉาบบางโดยเฉพาะ 1–5 มม. ผิวแข็ง ไม่เป็นฝุ่น เกาะได้ทั้งพื้นแห้งและพื้นหมาด ไม่มีกลิ่น — พร้อมบอกตรงๆ ว่างานนี้ต้องใช้ฝีมือเกรียง และผสมแล้วมีเวลา 40 นาที">
 <meta property="og:type" content="product">
@@ -267,6 +267,17 @@
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 
   /* ---------- เลือกแบบไหนดี ---------- */
+  /* ---- ชาร์ตสี: สร้างจาก HTML ล้วน แก้เฉดในอนาคต = แก้ hex บรรทัดเดียว (ยกจาก /drygard)
+     หมายเหตุ: hex ของเฉดสีเป็น "ข้อมูลสินค้า" ไม่ใช่สีธีม จึงฝังตรงได้
+     (สีจริงต้องเท่ากันทั้งโหมดสว่างและมืด) — carve-out จากกฎเหล็กข้อ 7 ---- */
+  .swgrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:560px){.swgrid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:880px){.swgrid.s6{grid-template-columns:repeat(3,1fr);max-width:780px}}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);min-height:152px}
+  .sw .chip{display:block;height:86px;border-bottom:1px solid var(--line)}
+  .sw .nm{font-family:var(--disp);font-weight:600;font-size:14.5px;padding:10px 11px 0;line-height:1.3}
+  .sw .hx{font-size:12px;color:var(--muted);padding:3px 11px 11px;line-height:1.45}
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
   .pick{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px;max-width:900px}
   @media(min-width:760px){.pick{grid-template-columns:1fr 1fr}}
   .pickrow{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:10px;background:var(--panel);padding:13px 15px;font-size:14.5px;color:var(--muted)}
@@ -387,14 +398,35 @@
       <table>
         <thead><tr><th>รายการ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">ชุด 20 กก. <small>ครบทั้ง Part A · B · C</small></td><td class="pr">3,480.-</td></tr>
+          <tr><td class="sz">ชุด 24.5 กก. <small>ผง Part C 20 กก. + น้ำยา Part A 3 กก. + น้ำยา Part B 1.5 กก.</small></td><td class="pr">3,480.-</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note"><b>ฉาบได้เท่าไหร่ — ขึ้นอยู่กับความหนาที่คุณฉาบล้วนๆ</b><br><br>ที่ความหนา <b>1 มม. (บางที่สุดที่ทำได้) หนึ่งชุดฉาบได้ราว 15 ตร.ม.</b> · ความหนา <b>2 มม. เหลือราว 7–8 ตร.ม.</b> · ความหนา <b>3 มม. เหลือราว 5 ตร.ม.</b><br><br>พื้นที่ผิวหน้าพรุนและเป็นหลุมเป็นบ่อจะกินเนื้อมากกว่าตัวเลขนี้เสมอ เพราะเนื้อปูนต้องลงไปเติมหลุมก่อนถึงจะเริ่มนับความหนาจริง — เอาไว้<b>ตั้งงบ ไม่ใช่สั่งให้พอดีเป๊ะ</b> เผื่อไว้ดีกว่าต้องหยุดงานกลางพื้นเพื่อรอของรอบสอง</div>
-    <p class="pricenote"><b>เรื่องสี</b> — Solid Floor ทำเฉดสีได้ตามที่ต้องการ ไม่ได้มีแค่สีเทาปูน แจ้งเฉดที่อยากได้มาทางแชทก่อนสั่งได้เลย เราจะบอกว่าทำได้หรือไม่ได้และใช้เวลาเท่าไหร่</p>
+    <p class="pricenote"><b>เรื่องสี</b> — มี <b>6 เฉดให้เลือก</b> ไม่ได้มีแค่สีเทาปูน <a href="#colour" style="color:var(--orange)">ดูชาร์ตสีข้างล่าง</a> และอ่านหมายเหตุเรื่องสีขาวให้จบก่อนสั่ง</p>
     <p class="pricenote"><b>สั่งหลายอย่างในออเดอร์เดียว ค่าส่งคิดเหมาให้ตามเหมาะสม ไม่บวกทุกชิ้น</b> — ทักมาถามค่าส่งก่อนโอนได้เลย</p>
     <div class="warn"><b>งานพื้นที่ใหญ่ งานโรงงาน โกดัง และงานผู้รับเหมา</b> — ทักมาขอใบเสนอราคาได้ คิดกันเป็นงาน ไม่ต้องคิดจากตารางนี้ · และถ้าไม่มีทีมฉาบ บอกเรามาด้วย</div>
+  </div>
+</section>
+
+<section class="sellpts" id="colour">
+  <div class="wrap">
+    <h2 class="sec-h">เฉดสีที่<em>มีขาย</em></h2>
+    <p class="sec-sub">ผงสี (Part C) มาเป็นเฉดสำเร็จ 6 เฉดนี้ — เลือกตอนสั่ง ไม่ใช่มาผสมสีเองหน้างาน</p>
+    <div class="swgrid s6">
+        <div class="sw"><span class="chip" style="background:#D9D9D9"></span><div class="nm">ขาว</div><div class="hx">ทาแล้วออกเทาหม่น ไม่ขาวจั๊ว</div></div>
+        <div class="sw"><span class="chip" style="background:#3B665B"></span><div class="nm">เขียว</div><div class="hx">เขียวเข้มอมเทา</div></div>
+        <div class="sw"><span class="chip" style="background:#3390B6"></span><div class="nm">ฟ้า</div><div class="hx">ฟ้ากลาง</div></div>
+        <div class="sw"><span class="chip" style="background:#D0A668"></span><div class="nm">เหลือง</div><div class="hx">เหลืองอมน้ำตาล</div></div>
+        <div class="sw"><span class="chip" style="background:#85313A"></span><div class="nm">แดง</div><div class="hx">แดงอิฐเข้ม</div></div>
+        <div class="sw"><span class="chip" style="background:#4F606E"></span><div class="nm">เทาเข้ม</div><div class="hx">เทาอมน้ำเงิน</div></div>
+    </div>
+    <div class="warn"><b>เรื่องสีขาว — อ่านก่อนสั่ง</b> สีขาวของเรา<b>ทาออกมาแล้วจะออกเทาหม่น ไม่ใช่ขาวจั๊วแบบสีทาบ้าน</b> เพราะเนื้อพื้นเป็นระบบซีเมนต์ที่มีสีของตัวมันเองอยู่ ไม่ใช่ฟิล์มสีที่ปิดทับ — ถ้าคุณต้องการพื้นขาวสะอาดจริงๆ ตัวนี้ตอบไม่ได้ บอกไว้ก่อนดีกว่ามาผิดหวังตอนปาดไปครึ่งห้องแล้ว</div>
+    <figure class="wideshot" style="margin-top:22px">
+      <img src="/img/solidfloor-w01.webp" alt="ผงสี Part C ของ Solid Floor ทั้ง 6 เฉด ใส่จานใสวางเรียงกัน — ขาว เขียว ฟ้า เหลือง แดง และเทาเข้ม" width="1100" height="726" loading="lazy">
+      <figcaption>ผงสี Part C ทั้ง 6 เฉดที่มีให้เลือก</figcaption>
+    </figure>
+    <div class="note"><b>สีบนจอไม่ใช่สีจริง</b> — จอแต่ละเครื่องให้สีไม่เหมือนกัน และ<b>สีของพื้นที่ฉาบเสร็จจะหม่นกว่าผงสีในจานเสมอ</b> เพราะผงถูกผสมกับน้ำยาและน้ำอีกที ถ้าเฉดสีเป็นเรื่องสำคัญกับงานของคุณ <b>ขอตัวอย่างฉาบจริงก่อนสั่งทั้งงาน</b> ทักมาทางแชทได้เลย · เฉดอื่นนอกจาก 6 เฉดนี้ ถามก่อนสั่งเสมอ</div>
   </div>
 </section>
 
@@ -523,7 +555,7 @@
     <h2 class="sec-h">สั่งซื้อ <em>Solid Floor</em></h2>
     <div class="ordercard">
       <h3>สั่งผ่านแชท — เพราะมันไม่ใช่ของที่ควรกดซื้อเอง</h3>
-      <div class="sub">ตัวนี้<b>ทำเฉดสีตามสั่ง</b> และปริมาณที่ต้องใช้<b>ขึ้นกับความหนาที่จะฉาบและสภาพหลุมของพื้นเดิม</b> — กดสั่งเองโดยไม่คุยกันก่อนมีแต่จะได้ของขาดหรือได้สีที่ไม่ใช่ · <b>ส่งรูปพื้นมาสองสามมุม บอกขนาดพื้นที่ (กว้าง × ยาว) และเฉดสีที่อยากได้</b> เราคำนวณให้ฟรี และถ้างานของคุณไม่ควรใช้ตัวนี้ เราจะบอกตรงๆ</div>
+      <div class="sub">ตัวนี้เป็น<b>สินค้าสั่งผลิตพิเศษ ไม่มีขายบน Shopee และ Lazada</b> — เพราะผงสีต้องเลือกเฉดตอนสั่ง และปริมาณที่ต้องใช้<b>ขึ้นกับความหนาที่จะฉาบและสภาพหลุมของพื้นเดิม</b> กดสั่งเองในมาร์เกตเพลสมีแต่จะได้ของขาดหรือได้สีที่ไม่ใช่ · <b>ส่งรูปพื้นมาสองสามมุม บอกขนาดพื้นที่ (กว้าง × ยาว) และเฉดสีที่อยากได้</b> เราคำนวณให้ฟรี และถ้างานของคุณไม่ควรใช้ตัวนี้ เราจะบอกตรงๆ</div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>

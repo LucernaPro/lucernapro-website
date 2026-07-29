@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
 <title>Solid Floor Concrete Resurfacer — Polymer Cement, Trowelled as Thin as 1 mm | LucernaPro</title>
-<meta name="description" content="Solid Floor is a polymer cement made for thin-layer concrete resurfacing. Trowel it from 1 to 5 mm without it lifting. The finished surface is hard and dust-free, bonds to both dry and damp concrete, and has no smell. 20 kg set, 3,480 THB, around 15 sq.m. at 1 mm — and we will tell you straight that it is a difficult material to trowel.">
+<meta name="description" content="Solid Floor is a polymer cement made for thin-layer concrete resurfacing. Trowel it from 1 to 5 mm without it lifting. The finished surface is hard and dust-free, bonds to both dry and damp concrete, and has no smell. Six shades available. 24.5 kg set, 3,480 THB, around 15 sq.m. at 1 mm — and we will tell you straight that it is a difficult material to trowel.">
 <meta property="og:title" content="Solid Floor Concrete Resurfacer — 1 mm thin, and it stays put">
 <meta property="og:description" content="Polymer cement built for thin-layer resurfacing, 1–5 mm. Hard, dust-free finish, bonds to damp concrete, no smell — and an honest warning that this one takes a real trowel hand and gives you 40 minutes.">
 <meta property="og:type" content="product">
@@ -267,6 +267,17 @@
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 
   /* ---------- Which one to choose ---------- */
+  /* ---- colour chart: built from plain HTML, so changing a shade later is a one-line hex edit (lifted from /drygard)
+     note: shade hex values are "product data", not theme colours, so they are hard-coded here
+     (the real colour has to look the same in light and dark mode) - carve-out from iron rule 7 ---- */
+  .swgrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:560px){.swgrid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:880px){.swgrid.s6{grid-template-columns:repeat(3,1fr);max-width:780px}}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);min-height:152px}
+  .sw .chip{display:block;height:86px;border-bottom:1px solid var(--line)}
+  .sw .nm{font-family:var(--disp);font-weight:600;font-size:14.5px;padding:10px 11px 0;line-height:1.3}
+  .sw .hx{font-size:12px;color:var(--muted);padding:3px 11px 11px;line-height:1.45}
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
   .pick{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px;max-width:900px}
   @media(min-width:760px){.pick{grid-template-columns:1fr 1fr}}
   .pickrow{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:10px;background:var(--panel);padding:13px 15px;font-size:14.5px;color:var(--muted)}
@@ -387,14 +398,35 @@
       <table>
         <thead><tr><th>Item</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">20 kg set <small>Parts A, B and C included</small></td><td class="pr">3,480.-</td></tr>
+          <tr><td class="sz">24.5 kg set <small>Part C powder 20 kg + Part A 3 kg + Part B 1.5 kg</small></td><td class="pr">3,480.-</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note"><b>How far it goes depends entirely on how thick you lay it</b><br><br>At <b>1 mm &mdash; the thinnest it will go &mdash; one set covers roughly 15 sq.m.</b> &middot; at <b>2 mm, roughly 7&ndash;8 sq.m.</b> &middot; at <b>3 mm, roughly 5 sq.m.</b><br><br>A pitted, porous floor will always eat more than these figures, because the material has to fill the holes before it starts counting as thickness at all. Use these numbers to <b>set a budget, not to order down to the last kilo</b>. Over-ordering is cheaper than stopping work in the middle of a floor to wait for a second delivery.</div>
-    <p class="pricenote"><b>On colour</b> &mdash; Solid Floor is not limited to concrete grey; shades can be made to order. Tell us the shade you want in chat before ordering and we will tell you whether it can be done and how long it takes.</p>
+    <p class="pricenote"><b>On colour</b> &mdash; there are <b>six shades to choose from</b>, not just concrete grey. <a href="#colour" style="color:var(--orange)">See the chart below</a>, and read the note about the white before you order.</p>
     <p class="pricenote"><b>Order several things together and we work the shipping out sensibly rather than charging per item</b> &mdash; just ask us for the shipping cost before you transfer anything.</p>
     <div class="warn"><b>Large floors, factories, warehouses and contract work</b> &mdash; ask us for a quotation. That gets priced as a job, not off this table. And if you don't have a rendering crew, tell us that too.</div>
+  </div>
+</section>
+
+<section class="sellpts" id="colour">
+  <div class="wrap">
+    <h2 class="sec-h">The shades <em>we sell</em></h2>
+    <p class="sec-sub">The pigmented powder (Part C) comes ready in these six shades &mdash; you choose when you order, rather than mixing colour on site.</p>
+    <div class="swgrid s6">
+        <div class="sw"><span class="chip" style="background:#D9D9D9"></span><div class="nm">White</div><div class="hx">comes out a dull grey, not a bright white</div></div>
+        <div class="sw"><span class="chip" style="background:#3B665B"></span><div class="nm">Green</div><div class="hx">deep, slightly greyed green</div></div>
+        <div class="sw"><span class="chip" style="background:#3390B6"></span><div class="nm">Blue</div><div class="hx">mid blue</div></div>
+        <div class="sw"><span class="chip" style="background:#D0A668"></span><div class="nm">Yellow</div><div class="hx">warm, earthy yellow</div></div>
+        <div class="sw"><span class="chip" style="background:#85313A"></span><div class="nm">Red</div><div class="hx">deep brick red</div></div>
+        <div class="sw"><span class="chip" style="background:#4F606E"></span><div class="nm">Dark grey</div><div class="hx">slate grey with a blue cast</div></div>
+    </div>
+    <div class="warn"><b>About the white &mdash; read this before ordering</b> Our white <b>finishes as a dull grey, not the bright white you get from house paint</b>, because this is a cement body with a colour of its own rather than a film of paint laid over the top. If what you actually need is a clean white floor, this product cannot give you that. Better you hear it now than halfway across the room.</div>
+    <figure class="wideshot" style="margin-top:22px">
+      <img src="/img/solidfloor-w01.webp" alt="The six Solid Floor Part C pigmented powders laid out in clear dishes - white, green, blue, yellow, red and dark grey" width="1100" height="726" loading="lazy">
+      <figcaption>The six Part C powder shades available</figcaption>
+    </figure>
+    <div class="note"><b>Screen colour is not real colour</b> &mdash; every display renders differently, and <b>a finished floor always comes out more muted than the powder in the dish</b>, because the powder gets mixed with the liquids and water first. If the exact shade matters on your job, <b>ask us for a real sample panel before you commit to the whole floor</b>. And for anything outside these six, always ask before ordering.</div>
   </div>
 </section>
 
@@ -523,7 +555,7 @@
     <h2 class="sec-h">Order <em>Solid Floor</em></h2>
     <div class="ordercard">
       <h3>Order through chat &mdash; because this isn't a product you should be adding to a cart</h3>
-      <div class="sub">Shades are <b>made to order</b>, and how much you need depends on <b>the thickness you are laying and how badly pitted the existing floor is</b>. Ordering blind gets you either short or the wrong colour. <b>Send a few photos of the floor, the area in metres, and the shade you want</b> &mdash; we will work it out for you free of charge, and if your job should be using something else, we will say so.</div>
+      <div class="sub">This is a <b>special-order product and it is not listed on Shopee or Lazada</b> &mdash; the pigmented powder has to be chosen at order time, and how much you need depends on <b>the thickness you are laying and how badly pitted the existing floor is</b>. Ordering blind through a marketplace gets you either short or the wrong colour. <b>Send a few photos of the floor, the area in metres, and the shade you want</b> &mdash; we will work it out for you free of charge, and if your job should be using something else, we will say so.</div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook Messenger</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">&#128172; Line @lucerna</a>
