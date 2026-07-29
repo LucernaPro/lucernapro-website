@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>Revival Rust Converter — turns rust into a stable dark film, primer built in, paint straight over | LucernaPro</title>
+<meta name="description" content="Revival is a waterborne rust converter that reacts with the rust itself instead of covering it, turning active rust into a stable dark film with the primer built in — so the finish paint goes straight on. Built for structural steel and industrial jobs where sanding the rust off is not realistic.">
+<meta property="og:title" content="Revival Rust Converter — it doesn't hide rust, it changes it">
+<meta property="og:description" content="Waterborne rust converter with the primer built in. Goes straight onto rusted steel, no sanding it all back first, and takes a finish paint once dry. Made for industrial-scale steelwork.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/en/revival">
+<meta property="og:image" content="https://www.lucernapro.com/img/revival-hero.webp">
+<link rel="canonical" href="https://www.lucernapro.com/en/revival">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/revival">
+<link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/revival">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/revival">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Revival Rust Converter","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Single-component waterborne rust converter and primer for ferrous metal. Reacts with existing rust and converts it into a stable dark film bonded to the steel, and functions as a primer so a finish paint can be applied without a separate primer coat. For structural steelwork, plant pipework, roof structures, tanks, fences and vehicle chassis.","category":"Chemicals / Rust converter","image":"https://www.lucernapro.com/img/revival-hero.webp"}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --wproof:#7FBF8E; /* chem category colour per SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (same as Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(127,191,142,.14), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
+  .crumb b{color:var(--wproof);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- Selling points ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--wproof);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- Sizes and pricing ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* Vertical clips (Reels 9:16): solo clip centred, width capped so it does not become a giant strip on large screens */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(340px 200px at 20% 0%, rgba(127,191,142,.25), transparent 60%),
+      radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase (illustrative photos, kept separate from the process steps) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--wproof);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- Order ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (same as Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  /* project / contractor pricing band */
+  .probox{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:13px;background:linear-gradient(120deg,rgba(237,106,47,.09),transparent 60%),var(--panel);padding:20px 20px 18px}
+  .probox .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+  .probox h3{font-family:var(--disp);font-size:19px;font-weight:700;margin:7px 0 6px}
+  .probox p{font-size:14.5px;color:var(--muted);max-width:640px}
+  .probox p b{color:var(--ink)}
+  .probox .acts{margin-top:15px;display:flex;gap:11px;flex-wrap:wrap}
+
+  /* Single landscape 16:9 clip — width capped so it does not span the full page */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
+
+  /* ---------- Showcase / Gallery (lifted from aquashell + explainer-image grid) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
+  @media(min-width:1000px){.showgrid{grid-template-columns:repeat(3,1fr)}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard.wide .im{aspect-ratio:720/576}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .xgrid{margin-top:18px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.xgrid{grid-template-columns:repeat(3,1fr)}}
+  .xcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:7px;margin:0}
+  .xcard img{width:100%;height:auto;border-radius:9px;display:block}
+  .vidgrid.k2{max-width:720px}
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
+  @media(min-width:760px){.vidgrid.k2{grid-template-columns:repeat(2,1fr)}}
+  /* Full-width landscape image, aspect preserved, no crop (lifted from the flooring-category page) */
+  .wideshot{margin-top:16px;border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:8px;margin-bottom:0}
+  .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
+  .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+</style></head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/en/">← All products</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour mode">🌙</button>
+    <a class="lang-switch" href="/revival">TH</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>Chat with us</a>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>Chemicals <b>· Rust</b></div>
+      <div class="flagtag">Waterborne · goes straight onto rust · primer built in</div>
+      <h1>Revival <span class="o">Rust Converter</span><br>It doesn't hide rust. It changes it.</h1>
+      <p class="lede">An ordinary anti-rust paint <b>covers the rust and hopes for the best</b> — the rust underneath carries on doing what rust does, until it lifts the paint off from below / Revival does something different. It is a <b>waterborne liquid that reacts with the rust itself</b>, turning active, spreading rust into a <b>stable dark film</b> that stays bonded to the steel. Once dry, <b>that film is the primer</b> — the finish paint goes straight over it, no separate primer to buy. / Built for <b>industrial-scale work: structural steel, plant pipework, roof structures, tanks, fences, chassis</b> — jobs measured in hundreds of square metres, where sanding every bit of rust off is a fantasy in both hours and labour cost.</p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#order">Buy / see pricing</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Send us photos — advice is free</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="/img/revival-hero.webp" alt="Revival rust converter by LucernaPro" width="900" height="900">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">How it <em>actually works</em></h2>
+    <p class="sec-sub">The odd thing about this product compared with an anti-rust paint: it <b>needs the rust</b>. No rust, nothing to convert.</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>It converts the rust, it doesn't cover it</h4><p>The product carries a <b>mildly acidic system</b> that reacts directly with the iron oxide, turning rust that is still <b>chemically active</b> into a <b>stable compound that can't carry on spreading</b>. The polymer in the formula then films over the top and shuts out moisture and oxygen. What you see with your own eyes is <b>the orange-brown going dark</b> — that colour change is the reaction happening.</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>Primer built in — one step out of the process</h4><p>Once dry, the film <b>is your primer</b> — <b>the finish paint goes straight over it, no separate primer to buy or apply</b>. The usual job is sand the rust → prime → paint, three steps. This collapses it to <b>Revival → paint</b>. / To be clear though: it's a <b>primer</b>, not a <b>finish</b> — <b>you still have to paint over it</b>. The straight talk section below explains why.</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>Waterborne, low odour, very low VOC</h4><p>This is a <b>waterborne system</b>, not a solvent one — <b>under 1% VOC by weight</b>, low odour, far more civilised to work with in an enclosed space, and <b>no lead and no heavy metals in the formula</b>. / <b>Wash your tools in plain water</b> while it's still wet. No thinner required.</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>Made for the jobs you can't sand</h4><p><b>Structural steel, plant pipework, columns, tanks, fences, gates, chassis, vehicle underbodies</b> — work where you'd be sanding tens or hundreds of square metres, or where the <b>tight corners, deep channels and bolt heads</b> are places a wire brush and a grinder simply cannot reach. That's where this earns its money.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" style="padding-top:34px;padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sec-h">Industrial grade — <em>why contractors pick this one</em></h2>
+    <p class="sec-sub">Any working contractor knows <b>de-rusting on site is nobody's idea of a good day</b> — and the tighter the corner, the more hours and labour cost it eats. Then, if the preparation wasn't good enough, the paint goes on and <b>fails from underneath</b> a few months later anyway.</p>
+    <figure class="wideshot">
+      <img src="/img/revival-w01.webp" alt="Structural steelwork and plant pipework on an industrial construction site — the kind of job Revival rust converter is made for" width="1100" height="725" loading="lazy" decoding="async">
+      <figcaption>Columns, beams, bracing, pipe runs, bolted connections<small>Hundreds of square metres, plus every tight corner a wire brush and grinder can't get into — removing all of that rust simply doesn't add up as labour. That's the problem this product was built to solve. (Illustrative photo)</small></figcaption>
+    </figure>
+    <div class="pts" style="margin-top:18px">
+      <div class="pt"><span class="ic">01</span><div><h4>No sanding needed</h4><p>Take off <b>only what's loose</b>. The rust that is still firmly attached stays where it is and lets Revival do the work — <b>the bigger the structure and the tighter the access, the more you gain</b>. The places tools can't reach are exactly the places a liquid can.</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>Save time &amp; cost</h4><p>It removes the de-rusting step and the priming step at the same time, leaving <b>Revival → paint</b>. / On a job costed in days of labour, <b>the days you don't spend are the part that never shows up on the invoice for the product</b>.</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>Primer in one</h4><p>The reaction turns the existing rust into a <b>stable film anchored to the steel</b> that also does the priming job. <b>Apply the finish paint directly once it's fully dry</b> — and do apply it, because this isn't where the job ends.</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>Built for heavy duty</h4><p>Structural steel, plant pipework, tanks, warehouse roof structures, annual maintenance shutdowns — <b>the 15 kg size exists for whole-site work</b>, and volume jobs get project pricing. Just ask.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">STRAIGHT TALK — READ THIS BEFORE YOU PAY</div>
+    <h2>It really does take a lot of grinding out of the job<br><b>but there are 5 things we'll tell you first</b></h2>
+    <div class="story-grid">
+      <div class="bignum">1 step<small>rust converter + primer in a single product</small></div>
+      <div class="story-body">
+        <p><b>One — it's a primer, not a finish. You always paint over it.</b> First line, because people get this wrong: Revival is <b>not designed to stand out in the sun and rain on its own</b>. Its job is to <b>stop the rust that's already there and leave a surface ready to take paint</b>. / Leave it bare and <b>it doesn't protect you well</b>, and the rust will find its way back to you. <b>Put the finish coat on and be done with it</b> — the paint is the layer that takes the weather.</p>
+        <p><b>Two — never put it on painted parts.</b> There's a mild acid in it. It was made to have a conversation with rust, not with paint — <b>go over existing paint and you'll ruin the paint and get nothing you wanted</b>, because there's no rust there for it to react with. Apply it to <b>rusted or bare steel only</b>, mask the edges where it meets sound paintwork, and if it splashes, <b>wipe it off immediately while it's still wet</b>.</p>
+        <p><b>Three — really heavy rust still has to be knocked back first.</b> The whole mechanism depends on the liquid <b>getting down into the rust and reaching all of it</b>. If the rust has blistered into plates, is flaking loose, or has built into a thick crust, the liquid won't reach the bottom layer and that layer will carry on rusting under a surface that has apparently changed colour. <b>Knock off and brush away everything that's loose, leave the rust that's still gripping the steel</b>, then apply. / This is not a limitation of our brand. It's a limitation of every rust converter on earth.</p>
+        <p><b>Four — it may not go jet black, and that's fine.</b> Different rust — different age, different exposure — gives a different result. Some areas go black, some dark brown, some grey, and one plate often isn't even across itself. / <b>The test is "clearly darker than it was", not "uniformly black".</b> If anywhere is still bright orange, the liquid hasn't reached it. Note it and go back over it.</p>
+        <p><b>Five — for small jobs it may not be worth buying.</b> Plainly: a small part you can sand in ten minutes doesn't need a chemical. This pays off when <b>the area is large</b> or <b>the shape genuinely can't be sanded</b> — though if you just can't face the sanding, it'll do that job too. We won't judge.</p>
+
+        <div class="beats">
+          <div class="beat"><div class="k">"Paints you can apply straight over rust" — true or not?</div><p>Straight answer: products that genuinely do this <b>exist</b>. But almost every one of them carries <b>the same line of small print</b> — the rust must be tightly adhered and the loose scale has to come off first. <b>Nothing on earth pours onto blistered, flaking rust and calls it finished.</b> Anyone telling you otherwise is selling hope. / Revival plays by the same rule. The difference is that it doesn't merely <b>cover</b> the rust, it goes in and <b>changes</b> it.</p></div>
+          <div class="beat"><div class="k">Apply it wet — don't spread it thin like paint</div><p>This isn't paint, so don't feather it out for a nice even look — <b>put enough on that it can actually soak into the rust</b>, especially in channels, bolt heads and tight corners. / On heavy rust, <b>go over it again once the first coat has dried</b>. The aim is to reach the bottom of the rust, not to look tidy.</p></div>
+          <div class="beat"><div class="k">You must topcoat — and it must be properly dry first</div><p>The film <b>has already done the priming for you, so there's no second primer</b> — but <b>there does have to be a finish coat</b>. Don't stop at Revival. / And because it's waterborne, the water has to <b>evaporate away completely</b> before you seal it in with paint. Paint over a film that isn't fully dry and you trap moisture underneath — the problem comes back within months.</p></div>
+          <div class="beat"><div class="k">Tools wash out in water</div><p>The upside of waterborne: brushes, rollers and trays <b>rinse out in plain water while still wet</b>. No thinner. / Let it dry in a brush, though, and it's a genuine nuisance to get out — wash them the moment you stop.</p></div>
+          <div class="beat"><div class="k">Storage</div><p>Waterborne, so — <b>seal the lid properly, keep it in the shade, out of direct sun, and don't let it freeze</b>. Stir it back together before every use.</p></div>
+          <div class="beat"><div class="k">Safety</div><p>There's a mild acid in it and it is <b>not flammable</b> (waterborne), but treat it as an irritant — <b>wear rubber gloves and eye protection</b>, keep it out of your eyes, and wash skin with clean water straight away if it makes contact. / Low odour and low VOC, but still work with ventilation, and <b>keep it away from children</b>.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">Sizes and pricing</h2>
+    <div class="pricecard">
+      <div class="ph">Revival — 4 sizes<small>Ready to use, nothing to mix, nothing to dilute · stir before applying</small></div>
+      <table>
+        <thead><tr><th>Size</th><th>Suits</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">500 g</td><td>Spot repairs, vehicle parts <small style="color:var(--muted)">try it before committing to a big job</small></td><td class="pr">฿470</td></tr>
+          <tr><td class="sz">1 kg</td><td>Fences, steel gates, tanks, one whole component</td><td class="pr">฿710</td></tr>
+          <tr><td class="sz">5 kg</td><td>Roof structures, columns, contract work</td><td class="pr">฿1,910</td></tr>
+          <tr><td class="sz">15 kg</td><td>Structural steel, plant pipework, whole-site work</td><td class="pr">฿5,800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote"><b>Delivery ฿70–250</b> depending on size and destination / <b>order several products together and we work the shipping out sensibly rather than charging per item</b> / <b>How far it goes depends heavily on how rough the rust is</b> — a rough, pitted corroded surface drinks several times what smooth bare steel does, which is why we don't publish a fixed coverage figure that would only mislead you. Send us photos of the job and the area, and <b>we'll work out how many kilos you need, free</b>, so you're not buying to throw away.</p>
+
+    <div class="probox">
+      <div class="k">Projects / contractors / plants</div>
+      <h3>Buying volume — there's a price for that</h3>
+      <p>Structural steel across a whole site, factory roof structures, tanks and pipework, annual maintenance rounds, or repeat orders — <b>send us the quantity and what the job looks like and we'll quote you a project price</b>. / Contractors ordering regularly, come and talk properly.</p>
+      <div class="acts">
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Ask for a project price</a>
+        <a class="btn btn-tel" href="tel:0970799547">📞 +66 97-079-9547</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">How to use it</h2>
+    <p class="sec-sub">Every number you need is on this page — and there are really only two things that matter: <b>get all the loose material off</b>, and <b>put enough on that the liquid can get down to the rust</b>.</p>
+    <ol class="flow">
+      <li class="fstep"><h4>Check it's steel, then knock off everything loose</h4><p><b>Rusted or bare ferrous metal only</b> — <b>never</b> galvanised, zinc-coated, aluminium or stainless (the acid strips the sacrificial zinc that is currently protecting the metal). / Then take off what's loose: blistered plates, flaking scale, powdery rust that falls away when you brush it. Hammer, wire brush or a power tool is fine. <b>You do not need to go back to bright metal</b> — rust that is still gripping the steel is what Revival is here to convert.</p><span class="fchip">Ferrous metal only</span><span class="fchip">Only remove what's loose</span><span class="fchip">Tight rust stays</span></li>
+      <li class="fstep"><h4>Get the surface clean, dry and free of oil</h4><p>Dust, dirt, grease and engine oil are all barriers between the liquid and the rust — <b>degrease first, always</b>, then let the surface <b>dry completely</b> before you start (a wet surface simply dilutes the product where it lands).</p><span class="fchip">Surface must be dry</span><span class="fchip">No oil or grease</span></li>
+      <li class="fstep"><h4>Mask anything painted</h4><p>The hard rule for this product — <b>keep it off existing paint</b>. Run masking tape along the joins, or sheet off whatever isn't part of the job. / <b>If it splashes, wipe it off straight away with a damp cloth while it's still wet.</b> Don't let it dry there.</p><span class="fchip">Always mask paintwork</span><span class="fchip">Splash = wipe now</span></li>
+      <li class="fstep"><h4>Stir it back together</h4><p><b>Ready to use — nothing to mix, nothing to dilute</b> — but stir or shake it properly every time, because it can separate on standing. / <b>Don't add water to make it go further.</b> Dilute it and you dilute the reaction with it.</p><span class="fchip">Ready to use</span><span class="fchip">Never add water</span></li>
+      <li class="fstep"><h4>First coat — apply it wet, brush or roller</h4><p>Apply it <b>generously, not spread thin</b> — the point is to get the liquid down into the rust, not to leave a smooth finish. / Work the brush hard into <b>channels, bolt heads, weld seams and tight corners</b>, because that is where the rust is deepest and why you bought this in the first place.</p><span class="fchip">Wet, not thin</span><span class="fchip">Work the corners</span></li>
+      <li class="fstep"><h4>Let it react — watch the colour</h4><p>Within about <b>15–30 minutes</b> the rusted surface starts to <b>go dark</b>. / Again: <b>it doesn't have to be jet black and it doesn't have to match across the piece</b> — different rust, different result. Clearly darker = working. / <b>Anywhere still bright orange hasn't been reached. Remember it and go back over it.</b></p><span class="fchip">Colour shifts in 15–30 min</span><span class="fchip">Darker = working</span></li>
+      <li class="fstep"><h4>Heavy rust — go over it a second time</h4><p>Wait until the first coat is <b>dry to the touch, roughly 2–4 hours</b>, then apply again, concentrating on anywhere the colour change was weak. / Light rust is a one-coat job. <b>Heavy rust, or old steel that has been outside for years, is a two-coat job</b> — allow for that when you order.</p><span class="fchip">2–4 hours between coats</span><span class="fchip">Heavy rust = 2 coats</span></li>
+      <li class="fstep"><h4>Let it dry properly before the finish paint</h4><p>It's waterborne, so <b>the water has to be gone before you seal it in</b> — allow <b>at least 24 hours</b>, and stretch that to <b>48 hours</b> in humid weather or on an important job. / Then <b>paint straight over it — no separate primer needed</b>. The film has already done that part.</p><span class="fchip">24 hours minimum</span><span class="fchip">No second primer</span></li>
+      <li class="fstep"><h4>Wash your tools in water, immediately</h4><p>Brushes, rollers, trays — <b>plain water while the product is still wet</b>. No thinner needed. / Let it dry on them and it becomes very hard to remove.</p><span class="fchip">Water</span><span class="fchip">Do it straight away</span></li>
+    </ol>
+
+    <div class="warn"><b>⚠ Never apply it over paint:</b> the product is acidic — it will <b>attack the coating</b> and <b>give you nothing in return</b>, because there's no rust for it to convert. Rusted or bare steel only.<br><b>⚠ Not for galvanised, zinc, aluminium or stainless:</b> this is an acidic system and it <b>strips out the sacrificial zinc layer that is currently doing the protecting</b> — that makes things worse, not better. For galvanised and metal-sheet work go to <a href="/en/ironlock" style="text-decoration:underline"><b>IronLock</b></a> instead.<br><b>⚠ Blistered, plated rust has to come off first:</b> the liquid has to physically reach the rust — loose scale blocking the way means the rust underneath keeps going while the surface has apparently changed colour.<br><b>⚠ Never thin it to make it go further:</b> dilute it and the reaction weakens in proportion. You save on product today and redo the whole job later.<br><b>⚠ Gloves and eye protection:</b> mild acid — avoid eye contact and prolonged skin contact.</div>
+    <div class="note"><b>Weather and temperature:</b> waterborne, so it depends on evaporation — apply in <b>dry conditions above 10 °C</b> and <b>don't start if rain is due within 4–6 hours</b>. Rain landing before the film has set will wash it straight off the job. / Outdoors, avoid applying in fierce direct sun onto hot steel: it dries faster than it can soak in and do its work.</div>
+    <div class="warn"><b>⚠ Applying it and leaving it bare — we don't recommend it:</b> you can, but we'll say it plainly: <b>it doesn't protect you well</b> on its own, because the film is designed as a <b>primer</b>, not as a <b>finish that has to stand up to sun and rain by itself</b>. <b>Always put the finish paint on</b>, especially outdoors and on structural work. The paint is the layer that takes the weather, and it's what makes the job last.</div>
+
+    <div style="margin-top:18px"><a class="btn btn-orange" href="/files/revival-tds.pdf" target="_blank" rel="noopener">📄 Download the technical &amp; safety data sheet (TDS)</a></div>
+
+    <h3 class="sec-h" style="margin-top:38px;font-size:20px">See it happen — <em>rust changing colour on the spot</em></h3>
+    <div class="vidgrid vert solo">
+      <figure style="margin:0">
+        <div class="fbv v916">
+          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F919471136920982&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="Revival rust converter clip from the LucernaPro page"></iframe>
+        </div>
+        <figcaption>Applied onto rust, changing colour where it lands — the test is “clearly darker”, not “jet black all over” (Thai audio)</figcaption>
+      </figure>
+    </div>
+    <div style="margin-top:18px"><a class="btn btn-fb" href="https://www.facebook.com/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>Follow the rest of our work on Facebook</a></div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">The real thing — <em>from orange rust to a surface ready for paint</em></h2>
+    <p class="sec-sub">This set is a rusted wheel hub — something that is <b>awkward to take off and sand, and awkward to sand in place without hitting the paint around it</b>. A neat example of exactly the situation Revival is for.</p>
+    <div class="showgrid">
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g01.webp" alt="Wheel hub with orange rust before applying Revival rust converter" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>Before — rust that's still moving<small>Bright orange-brown means rust that's still reacting / note the channels, bolt heads and disc edge — the places a wire brush never reaches</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g02.webp" alt="Revival being applied to a wheel hub, milky white while still wet" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>Going on — the liquid is milky white<small>Applied wet, not spread thin / on a job like this you mask the painted rim first, and wipe any splashes off the moment they land</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g03.webp" alt="Close-up of Revival on a wheel hub while still wet, reaction just beginning" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>Just applied — still white<small>The reaction has only started; don't judge the result yet / give the liquid time to work its way down to the rust underneath</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g04.webp" alt="Wheel hub after Revival has reacted, rust converted to a dark film" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>After the reaction — rust converted to a dark film<small>Compare it with the first photo and the orange has gone / the test is “clearly darker”, not uniformly black across the whole piece</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g05.webp" alt="Converted wheel hub ready to take a finish paint" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>A surface ready to take paint<small>The film has done the priming, so there's no second primer / leave it at least 24 hours to dry fully before painting</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g06.webp" alt="Revival applied to chassis steelwork and suspension mounting points underneath a vehicle" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>Chassis steel and underbody work<small>Large area, awkward corners, no chance of sanding it lying on your back — this is where it pays / apply and let it run down into the seams and mounting points</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">What usually goes with <em>Revival</em></h2>
+    <p class="sec-sub">Revival deals with <b>the rust that's already there</b> — the rest of what a steel job needs is a different product each time.</p>
+    <div class="altgrid">
+      <a class="altcard" href="/en/ironlock">
+        <div class="k">The natural pairing — after the rust is dealt with</div>
+        <h4>IronLock</h4>
+        <p>A waterborne anti-rust paint that's at home on <b>zinc, galvanised steel and metal sheet</b> — but which is <b>not meant to go over rust</b>. Which makes the pair work: Revival deals with the existing rust, IronLock closes the job out.</p>
+        <div class="go">See IronLock →</div>
+      </a>
+      <a class="altcard" href="/en/modernfiberglass">
+        <div class="k">Rust has eaten right through</div>
+        <h4>Modern Fiberglass</h4>
+        <p>If corrosion has left <b>holes, or steel thin enough to give under your thumb</b>, converting the rust isn't enough on its own — the section has to be built back with <b>cloth and resin</b> before anyone talks about paint.</p>
+        <div class="go">See Modern Fiberglass →</div>
+      </a>
+      <a class="altcard" href="/en/spackleflex">
+        <div class="k">Metal roofs, rusting screw heads</div>
+        <h4>SpackleFlex</h4>
+        <p>Roof work where the rust starts at <b>the screw heads and the sheet overlaps</b> — convert it with Revival first, then close the laps and fastener heads properly with SpackleFlex.</p>
+        <div class="go">See SpackleFlex →</div>
+      </a>
+      <a class="altcard" href="/en/siliconepro">
+        <div class="k">Coating the whole roof next</div>
+        <h4>SiliconePro</h4>
+        <p>Once the rust on a metal roof is under control, the next move is <b>coating the whole sheet</b>. Open the tin and roll it on, survives standing water for years, and it's the best value in our waterproofing range.</p>
+        <div class="go">See SiliconePro →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">Order <em>Revival</em></h2>
+    <div class="ordercard">
+      <h3>Pick whichever channel suits you — we answer quickly</h3>
+      <div class="sub">Send photos of the job and the area, and we'll tell you how many kilos to buy and how much of the rust you actually need to knock back first. No guessing.</div>
+      <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/product/392415703/15398116359/" target="_blank" rel="noopener">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/products/i4867174646.html" target="_blank" rel="noopener">🛍️ Lazada</a>
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>This is <em>1 of 50+</em> — LucernaPro is a lot more than this one product</h3>
+      <p class="xsub">We make surface coatings and waterproofing across the whole system — floors, walls, roofs, right through to your car</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/en/#flooring">FLOORING</a><a class="cchip" href="/en/#wall">WALL</a><a class="cchip" href="/en/#waterproof">WATERPROOF</a><a class="cchip" href="/en/#coating">PROTECTION</a><a class="cchip" href="/en/#chem">CHEMICALS</a><a class="cchip" href="/en/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/en/#catalog">See all products →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>Not sure which product you need?<br>Let us help you choose</h2>
+        <p>Send us photos of the job or just describe the symptoms. Our team will work through it with you and recommend the system that fits your budget and your site — before you spend anything.</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Message us — advice is free</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 +66 97-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">Facebook</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">Phone</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">Hours</span><span>08.00–19.00, Mon–Sat</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">Lucerna Co., Ltd. · 23 Suriyat Rd. Soi 4, Nai Mueang, Mueang, Ubon Ratchathani 34000, Thailand · Tel <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
+    <div>© 2026 Lucerna Co., Ltd.</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Facebook chat</a>
+  <a class="mob-tel" href="tel:0970799547">📞 Call now</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+</body>
+</html>
