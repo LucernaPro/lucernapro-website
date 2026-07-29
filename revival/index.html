@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>Revival น้ำยาแปลงสนิม — แปลงสนิมเป็นฟิล์มปกป้อง + รองพื้นในตัว ทาสีทับได้เลย สูตรน้ำ | LucernaPro</title>
+<meta name="description" content="Revival คือน้ำยาแปลงสนิมสูตรน้ำที่เข้าไปทำปฏิกิริยากับสนิมโดยตรง เปลี่ยนสนิมที่ยังลามได้ให้กลายเป็นฟิล์มสีเข้มที่เสถียร แห้งแล้วเป็นรองพื้นในตัว ทาสีจริงทับได้ทันที เกิดมาเพื่อเหล็กโครงสร้างและงานพื้นที่เยอะที่การขัดสนิมออกทั้งหมดคือฝันร้าย">
+<meta property="og:title" content="Revival น้ำยาแปลงสนิม — ไม่ได้กลบสนิม แต่เปลี่ยนสนิม">
+<meta property="og:description" content="น้ำยาแปลงสนิมสูตรน้ำ + รองพื้นในตัว ทาลงบนสนิมได้เลย แห้งแล้วทาสีทับต่อได้ทันที ไม่ต้องขัดสนิมออกให้หมดก่อน">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/revival">
+<meta property="og:image" content="https://www.lucernapro.com/img/revival-hero.webp">
+<link rel="canonical" href="https://www.lucernapro.com/revival">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/revival">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/revival">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Revival น้ำยาแปลงสนิม","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาแปลงสนิมสูตรน้ำชนิดทา ทำปฏิกิริยากับสนิมบนผิวเหล็กแล้วเปลี่ยนเป็นฟิล์มสีเข้มที่เสถียร ทำหน้าที่เป็นรองพื้นในตัว ทาสีทับต่อได้โดยไม่ต้องลงรองพื้นเพิ่ม สำหรับงานเหล็กโครงสร้าง โครงหลังคา ถังเหล็ก รั้ว และแชสซี","category":"เคมีภัณฑ์ / น้ำยาแปลงสนิม","image":"https://www.lucernapro.com/img/revival-hero.webp"}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --wproof:#7FBF8E; /* สีหมวด chem (เคมีภัณฑ์) ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(127,191,142,.14), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
+  .crumb b{color:var(--wproof);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--wproof);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(340px 200px at 20% 0%, rgba(127,191,142,.25), transparent 60%),
+      radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--wproof);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  /* แถบราคาโครงการ / ผู้รับเหมา */
+  .probox{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:13px;background:linear-gradient(120deg,rgba(237,106,47,.09),transparent 60%),var(--panel);padding:20px 20px 18px}
+  .probox .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+  .probox h3{font-family:var(--disp);font-size:19px;font-weight:700;margin:7px 0 6px}
+  .probox p{font-size:14.5px;color:var(--muted);max-width:640px}
+  .probox p b{color:var(--ink)}
+  .probox .acts{margin-top:15px;display:flex;gap:11px;flex-wrap:wrap}
+
+  /* คลิปเดี่ยวแนวนอน 16:9 — จำกัดกว้างไม่ให้เต็มหน้า */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
+
+  /* ---------- Showcase / Gallery (ยกจาก aquashell + rail ภาพอธิบาย) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
+  @media(min-width:1000px){.showgrid{grid-template-columns:repeat(3,1fr)}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard.wide .im{aspect-ratio:720/576}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .xgrid{margin-top:18px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.xgrid{grid-template-columns:repeat(3,1fr)}}
+  .xcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:7px;margin:0}
+  .xcard img{width:100%;height:auto;border-radius:9px;display:block}
+  .vidgrid.k2{max-width:720px}
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
+  @media(min-width:760px){.vidgrid.k2{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/">← สินค้าทั้งหมด</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    <a class="lang-switch" href="/en/">EN</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>เคมีภัณฑ์ <b>· งานสนิม</b></div>
+      <div class="flagtag">สูตรน้ำ · ทาทับสนิมได้เลย · เป็นรองพื้นในตัว</div>
+      <h1>Revival <span class="o">น้ำยาแปลงสนิม</span><br>ไม่ได้กลบสนิม แต่เปลี่ยนสนิม</h1>
+      <p class="lede">สีกันสนิมทั่วไปคือการ<b>เอาสีไปคลุมสนิมไว้</b> — สนิมข้างล่างก็เดินต่อของมันไปเรื่อยๆ จนดันสีพองแล้วหลุด / Revival ทำคนละอย่าง มันเป็น<b>น้ำยาสูตรน้ำที่เข้าไปทำปฏิกิริยากับสนิมโดยตรง</b> เปลี่ยนสนิมที่ยังลามได้ให้กลายเป็น<b>ฟิล์มสีเข้มที่นิ่งแล้ว</b> เกาะติดอยู่กับเนื้อเหล็ก และเมื่อแห้งตัว<b>ฟิล์มนั้นทำหน้าที่เป็นรองพื้นในตัว ทาสีจริงทับต่อได้ทันที</b> / เกิดมาเพื่อ<b>เหล็กโครงสร้าง โครงหลังคา ถังเหล็ก รั้ว แชสซี</b> — งานที่พื้นที่เยอะจนการขัดสนิมออกให้หมดคือฝันร้าย</p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#order">สั่งซื้อ / สอบถามราคา</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ส่งรูปหน้างานให้เราดูฟรี</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="/img/revival-hero.webp" alt="Revival น้ำยาแปลงสนิม จาก LucernaPro" width="900" height="900">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">มันทำงาน <em>ยังไง</em></h2>
+    <p class="sec-sub">ต่างจากสีกันสนิมตรงที่มัน<b>ต้องการสนิม</b>เพื่อทำงาน — ไม่มีสนิม มันก็ไม่มีอะไรให้เปลี่ยน</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>เปลี่ยนสนิม ไม่ใช่ปิดทับสนิม</h4><p>ในน้ำยามี<b>กรดอ่อน</b>ที่เข้าไปทำปฏิกิริยากับเนื้อสนิมโดยตรง เปลี่ยนสนิมที่ยัง<b>ทำปฏิกิริยาต่อได้</b> ให้กลายเป็น<b>สารประกอบที่เสถียร ไม่ลามต่อ</b> แล้วเนื้อโพลิเมอร์ในสูตรก็ปิดทับเป็นฟิล์มกันความชื้นคลุมไว้อีกชั้น / ผลที่เห็นด้วยตาคือ<b>ผิวสนิมสีส้ม–น้ำตาลเปลี่ยนเป็นสีเข้ม</b> นั่นคือสัญญาณว่าปฏิกิริยาเกิดแล้ว</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>เป็นรองพื้นในตัว — ตัดออกไปหนึ่งขั้น</h4><p>พอแห้งตัว ฟิล์มที่ได้ทำหน้าที่<b>รองพื้นให้เสร็จในตัวแล้ว</b> — <b>ทาสีจริงทับต่อได้เลย ไม่ต้องซื้อรองพื้นมาลงอีกชั้น</b> / งานปกติคือ ขัดสนิม → ลงรองพื้น → ทาสี สามขั้น ตัวนี้ยุบเหลือ <b>ทา Revival → ทาสี</b></p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>สูตรน้ำ กลิ่นอ่อน VOC ต่ำมาก</h4><p>เป็น<b>ระบบสูตรน้ำ (waterbase)</b> ไม่ใช่สูตรทินเนอร์ — <b>VOC ต่ำกว่า 1% โดยน้ำหนัก</b> กลิ่นอ่อน ทำงานในที่อากาศถ่ายเทได้สบายกว่ามาก และ<b>ไม่มีตะกั่วหรือโลหะหนักในสูตร</b> / <b>ล้างเครื่องมือด้วยน้ำเปล่า</b>ตอนน้ำยายังไม่แห้ง ไม่ต้องเสียทินเนอร์</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>เกิดมาเพื่องานใหญ่ที่ขัดไม่ไหว</h4><p><b>เหล็กโครงสร้าง โครงหลังคา เสาเหล็ก ถังเหล็ก รั้ว ประตูเหล็ก แชสซีรถ ใต้ท้องรถ</b> — งานที่ต้องขัดสนิมเป็นสิบเป็นร้อยตารางเมตร หรือมี<b>มุมอับ ร่องลึก หัวน็อต</b> ที่กระดาษทรายกับแปรงลวดเข้าไม่ถึง นี่คือสนามที่มันคุ้มที่สุด</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">STRAIGHT TALK — อ่านก่อนจ่ายเงิน</div>
+    <h2>ตัวนี้ตัดงานขัดออกไปได้เยอะจริง<br><b>แต่มี 4 ข้อที่เราจะบอกก่อนขาย</b></h2>
+    <div class="story-grid">
+      <div class="bignum">1 ขั้น<small>แปลงสนิม + รองพื้น จบในน้ำยาเดียว</small></div>
+      <div class="story-body">
+        <p><b>ข้อแรก — ห้ามทาลงบนชิ้นส่วนที่มีสี</b> ย้ำให้ชัดตั้งแต่ต้น เพราะเป็นข้อที่พลาดแล้วเสียของแพงกว่าค่าน้ำยา: ในสูตรมี<b>กรดอ่อน</b> มันเกิดมาเพื่อคุยกับสนิม ไม่ได้เกิดมาเพื่อคุยกับสี — <b>ทาทับสีเดิม สีจะเสีย และผลที่ต้องการก็ไม่เกิด</b> เพราะไม่มีสนิมให้มันทำปฏิกิริยา / ทาลงบน<b>ผิวที่เป็นสนิมหรือเหล็กเปลือยเท่านั้น</b> ขอบที่ติดกับสีเดิมให้ปิดเทปกันไว้ และถ้าหยดโดนสี <b>เช็ดออกทันทีตอนยังเปียก</b></p>
+        <p><b>ข้อสอง — สนิมหนามากๆ ยังไงก็ต้องขัดก่อน</b> หลักการทำงานของมันคือ<b>ต้องแทรกซึมลงไปหาเนื้อสนิมให้ถึงและให้ทั่ว</b> ถ้าสนิมพองเป็นแผ่น เป็นสะเก็ดร่วน หรือหนาเป็นเปลือก น้ำยาจะลงไปไม่ถึงชั้นล่างสุด แล้วสนิมข้างใต้ก็เดินต่อของมันไป — <b>เคาะและขัดสะเก็ดที่ร่อนออกให้หมดก่อน เหลือไว้แต่สนิมที่ยังเกาะแน่นกับเนื้อเหล็ก</b> แล้วค่อยทา / ข้อนี้ไม่ใช่ข้อจำกัดของยี่ห้อเรายี่ห้อเดียว มันคือข้อจำกัดของน้ำยาแปลงสนิมทุกตัวในโลก</p>
+        <p><b>ข้อสาม — ทาแล้วอาจไม่ดำสนิท และไม่ต้องตกใจ</b> สนิมแต่ละแบบ แต่ละอายุ แต่ละสภาพแวดล้อม ให้ผลสีไม่เหมือนกัน — บางจุดออกดำ บางจุดออกน้ำตาลเข้ม บางจุดออกเทา บางแผ่นก็ไม่เท่ากันในตัวมันเอง / <b>เกณฑ์ตัดสินว่ามันทำงานคือ "สีเข้มขึ้นชัดเจนกว่าเดิม" ไม่ใช่ "ต้องดำเท่ากันทั้งแผ่น"</b> ถ้ายังเห็นสีส้มสดเหมือนเดิมอยู่ตรงไหน แปลว่าตรงนั้นน้ำยายังไปไม่ถึง ให้ทาซ้ำ</p>
+        <p><b>ข้อสี่ — งานชิ้นเล็กๆ อาจไม่คุ้มที่จะซื้อ</b> พูดกันตรงๆ ชิ้นเล็กๆ ที่หยิบกระดาษทรายขัดสิบนาทีก็จบ ไม่ต้องมาซื้อน้ำยา / ตัวนี้คุ้มตอนที่<b>พื้นที่เยอะ</b> หรือ<b>รูปทรงมันขัดไม่ได้จริงๆ</b> — แต่ถ้าขี้เกียจขัดล่ะก็ ตัวนี้จบให้ได้เหมือนกัน เราไม่ว่าอะไร</p>
+
+        <div class="beats">
+          <div class="beat"><div class="k">"สีกันสนิมทาทับสนิมได้เลย" จริงแค่ไหน</div><p>ตอบตรงๆ: ของที่ทำได้จริง<b>มีอยู่</b> แต่แทบทุกตัวที่เคลมแบบนั้น<b>มีเงื่อนไขตัวเล็กเหมือนกันหมด</b> คือ "สนิมต้องเกาะแน่น เอาสะเก็ดร่อนออกก่อน" — <b>ไม่มีอะไรในโลกที่ราดลงบนสนิมพองๆ แล้วจบ</b> ใครบอกว่าได้ คนนั้นกำลังขายความหวัง / Revival ก็ยึดกติกาเดียวกัน ต่างกันตรงที่มันไม่ได้แค่<b>คลุม</b>สนิมไว้ มันเข้าไป<b>เปลี่ยน</b>สนิม</p></div>
+          <div class="beat"><div class="k">ทาให้ชุ่ม อย่าทาบางเหมือนทาสี</div><p>นี่ไม่ใช่สี อย่าเกลี่ยให้บางเรียบ — <b>ทาให้ชุ่มพอที่น้ำยาจะซึมลงไปในเนื้อสนิมได้จริง</b> โดยเฉพาะร่อง หัวน็อต และมุมอับ / ถ้าสนิมหนา ให้<b>ทาซ้ำอีกรอบหลังรอบแรกแห้ง</b> เป้าหมายคือกัดให้ถึงชั้นล่างสุด ไม่ใช่ทาให้สวย</p></div>
+          <div class="beat"><div class="k">ทาสีทับได้ แต่ต้องแห้งจริงก่อน</div><p>ฟิล์มที่ได้<b>เป็นรองพื้นให้เรียบร้อยแล้ว ไม่ต้องลงรองพื้นซ้ำ</b> — แต่เพราะเป็นสูตรน้ำ ต้องปล่อยให้<b>น้ำระเหยออกไปหมดจริงๆ</b> ก่อนปิดทับด้วยสี ทาสีทับตอนยังไม่แห้งสนิท = ขังความชื้นไว้ใต้ฟิล์ม แล้วปัญหาจะกลับมาในอีกไม่กี่เดือน</p></div>
+          <div class="beat"><div class="k">ล้างเครื่องมือด้วยน้ำ</div><p>ข้อดีของสูตรน้ำ — แปรง ลูกกลิ้ง ถาด <b>ล้างด้วยน้ำเปล่าได้เลยตอนยังไม่แห้ง</b> ไม่ต้องเสียทินเนอร์ / แต่ถ้าปล่อยแห้งคาแปรงแล้วล้างยากมาก ล้างทันทีที่เลิกงาน</p></div>
+          <div class="beat"><div class="k">เก็บให้ถูก</div><p>เป็นสูตรน้ำ — <b>ปิดฝาให้สนิท เก็บในที่ร่ม อย่าให้โดนแดดตรงๆ และอย่าให้แช่เย็นจัดจนเป็นน้ำแข็ง</b> เขย่าหรือกวนให้เข้ากันก่อนใช้ทุกครั้ง</p></div>
+          <div class="beat"><div class="k">ความปลอดภัย</div><p>มีกรดอ่อนในสูตร — <b>ใส่ถุงมือยางและแว่นตานิรภัย</b> เลี่ยงการเข้าตา โดนผิวหนังล้างด้วยน้ำสะอาดทันที / กลิ่นอ่อนและ VOC ต่ำก็จริง แต่ยังควรทำงานในที่อากาศถ่ายเท และ<b>เก็บให้พ้นมือเด็ก</b></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">ขนาดที่มี</h2>
+    <div class="pricecard">
+      <div class="ph">Revival — 3 ขนาด<small>พร้อมใช้ ไม่ต้องผสม ไม่ต้องเจือน้ำ · เขย่าให้เข้ากันก่อนทา</small></div>
+      <table>
+        <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">0.5 กก.</td><td>งานซ่อมจุด รั้ว ประตูเหล็ก ชิ้นส่วนรถ <small style="color:var(--muted)">ลองของก่อนสั่งงานใหญ่</small></td><td class="pr">สอบถาม</td></tr>
+          <tr><td class="sz">1 กก.</td><td>โครงหลังคา เสาเหล็ก ถังเหล็ก งานทั้งชิ้น</td><td class="pr">สอบถาม</td></tr>
+          <tr><td class="sz">5 กก.</td><td>เหล็กโครงสร้าง งานโรงงาน งานรับเหมา</td><td class="pr">สอบถาม</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote"><b>ราคาและค่าส่งกำลังอัปเดต</b> — ทักแชทเพจหรือ Line มาถามได้เลย ตอบไว / <b>ปริมาณที่ทาได้ขึ้นกับความหยาบของผิวสนิมมาก</b> ผิวสนิมหยาบและพรุนกินน้ำยามากกว่าผิวเหล็กเรียบหลายเท่า — ส่งรูปหน้างานกับขนาดพื้นที่มา <b>เราประเมินให้ฟรีว่าควรสั่งกี่กิโล</b> ไม่ต้องซื้อเผื่อจนเหลือทิ้ง</p>
+
+    <div class="probox">
+      <div class="k">งานโครงการ / ผู้รับเหมา / โรงงาน</div>
+      <h3>ใช้เยอะ — มีราคาพิเศษ</h3>
+      <p>งานเหล็กโครงสร้างทั้งไซต์ โครงหลังคาโรงงาน ถังและท่อ งานซ่อมบำรุงประจำปี หรือสั่งต่อเนื่องเป็นรอบ — <b>แจ้งปริมาณและลักษณะงานมาทางแชทเพจ เราเสนอราคาโครงการให้</b> / ผู้รับเหมาที่สั่งประจำคุยกันยาวๆ ได้เลย</p>
+      <div class="acts">
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ขอราคาโครงการ</a>
+        <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">วิธีใช้งาน</h2>
+    <p class="sec-sub">จบบนหน้านี้ครบทุกตัวเลข — หัวใจของงานนี้มีอยู่สองเรื่องเท่านั้น: <b>เอาสะเก็ดที่ร่อนออกให้หมด</b> และ<b>ทาให้ชุ่มพอที่น้ำยาจะซึมลงไปถึงได้</b></p>
+    <ol class="flow">
+      <li class="fstep"><h4>เคาะและขัดเฉพาะสนิมที่ร่อน ออกให้หมด</h4><p>ไม่ต้องขัดจนเห็นเนื้อเหล็ก — <b>เอาออกแค่ส่วนที่ร่อน</b> คือสะเก็ดที่พองเป็นแผ่น ขุยสนิมที่ปัดแล้วร่วง และสนิมที่หนาเป็นเปลือก ใช้ค้อนเคาะ แปรงลวด หรือใบขัดก็ได้ / <b>สนิมที่ยังเกาะแน่นกับเนื้อเหล็ก ปล่อยไว้ได้เลย</b> นั่นคือส่วนที่ Revival จะเข้าไปเปลี่ยน</p><span class="fchip">เอาออกแค่ส่วนที่ร่อน</span><span class="fchip">สนิมเกาะแน่น = ปล่อยไว้</span></li>
+      <li class="fstep"><h4>เช็ดผิวให้แห้ง สะอาด ปราศจากคราบน้ำมัน</h4><p>ฝุ่น ดิน คราบจาระบีและน้ำมันเครื่อง เป็นตัวกั้นไม่ให้น้ำยาสัมผัสสนิม — <b>ล้างหรือเช็ดคราบน้ำมันออกก่อนเสมอ</b> แล้วปล่อยให้<b>ผิวแห้งสนิท</b> ก่อนลงน้ำยา (ผิวเปียกน้ำ = น้ำยาถูกเจือจางตรงจุดนั้น)</p><span class="fchip">ผิวต้องแห้ง</span><span class="fchip">ไม่มีคราบน้ำมัน</span></li>
+      <li class="fstep"><h4>ปิดเทปกันชิ้นส่วนที่มีสีไว้ก่อน</h4><p>กติกาเหล็กของตัวนี้ — <b>ห้ามให้น้ำยาโดนสีเดิม</b> ปิดเทปกระดาษกาวตามแนวรอยต่อ หรือใช้แผ่นพลาสติกคลุมส่วนที่ไม่เกี่ยวไว้ / <b>ถ้าหยดโดน เช็ดออกทันทีตอนยังเปียกด้วยผ้าชุบน้ำ</b> อย่าปล่อยให้แห้งคา</p><span class="fchip">กันสีเดิมไว้เสมอ</span><span class="fchip">หยดโดน = เช็ดทันที</span></li>
+      <li class="fstep"><h4>เขย่าหรือกวนน้ำยาให้เข้ากัน</h4><p><b>พร้อมใช้ ไม่ต้องผสมอะไร ไม่ต้องเจือน้ำ</b> — แต่ต้องเขย่าขวดหรือกวนในถังให้เนื้อเข้ากันดีก่อนทุกครั้ง เพราะเนื้อน้ำยาแยกชั้นได้เมื่อตั้งทิ้งไว้นาน / <b>ห้ามเติมน้ำเพื่อยืดปริมาณ</b> เจือแล้วปฏิกิริยาก็เจือตามไปด้วย</p><span class="fchip">พร้อมใช้ ไม่ต้องผสม</span><span class="fchip">ห้ามเติมน้ำ</span></li>
+      <li class="fstep"><h4>ทารอบแรกให้ชุ่ม ด้วยแปรงหรือลูกกลิ้ง</h4><p>ทาแบบ<b>ให้ชุ่ม ไม่ใช่เกลี่ยให้บาง</b> — เป้าหมายคือให้น้ำยาแทรกลงไปในเนื้อสนิมให้ลึกที่สุด ไม่ใช่ให้ผิวเรียบสวย / จี้แปรงลงไปใน<b>ร่อง หัวน็อต รอยเชื่อม และมุมอับ</b> เป็นพิเศษ เพราะนั่นคือจุดที่สนิมหนาที่สุดและเป็นเหตุผลที่คุณซื้อตัวนี้แต่แรก</p><span class="fchip">ทาชุ่ม ไม่ทาบาง</span><span class="fchip">เน้นร่องและมุมอับ</span></li>
+      <li class="fstep"><h4>รอปฏิกิริยา — ดูสีเปลี่ยน</h4><p>ภายในราว <b>15–30 นาที</b> ผิวที่เป็นสนิมจะเริ่ม<b>เปลี่ยนเป็นสีเข้มขึ้น</b> / ย้ำอีกครั้งว่า<b>ไม่จำเป็นต้องดำสนิทและไม่จำเป็นต้องเท่ากันทั้งแผ่น</b> สนิมคนละแบบให้สีคนละอย่าง — เข้มขึ้นชัดเจน = ใช้ได้ / <b>จุดไหนยังส้มสดเหมือนเดิม แปลว่าน้ำยายังไปไม่ถึง จำไว้แล้วกลับมาทาซ้ำตรงนั้น</b></p><span class="fchip">เห็นสีเปลี่ยนใน 15–30 นาที</span><span class="fchip">เข้มขึ้น = ใช้ได้</span></li>
+      <li class="fstep"><h4>สนิมหนา ให้ทาซ้ำรอบสอง</h4><p>รอรอบแรก<b>แห้งพอสัมผัสได้ ราว 2–4 ชั่วโมง</b> แล้วทาซ้ำอีกรอบ โดยเฉพาะจุดที่สีเปลี่ยนไม่ชัด / งานสนิมบางๆ รอบเดียวจบ <b>งานสนิมหนาหรือเหล็กเก่ากลางแจ้ง เตรียมใจว่าต้องสองรอบ</b> — คิดค่าน้ำยาเผื่อไว้ตั้งแต่ตอนสั่ง</p><span class="fchip">เว้น 2–4 ชม.</span><span class="fchip">สนิมหนา = 2 รอบ</span></li>
+      <li class="fstep"><h4>ปล่อยให้แห้งสนิทก่อนทาสีทับ</h4><p>เพราะเป็นสูตรน้ำ <b>ต้องให้น้ำระเหยออกหมดจริงๆ ก่อนปิดทับด้วยสี</b> — เว้นไว้<b>อย่างน้อย 24 ชั่วโมง</b> งานสำคัญหรืออากาศชื้นจัดให้เผื่อถึง <b>48 ชั่วโมง</b> / จากนั้น<b>ทาสีจริงทับได้เลย ไม่ต้องลงรองพื้นอีกชั้น</b> ฟิล์มนี้ทำหน้าที่รองพื้นให้แล้ว</p><span class="fchip">อย่างน้อย 24 ชม.</span><span class="fchip">ไม่ต้องลงรองพื้นซ้ำ</span></li>
+      <li class="fstep"><h4>ล้างเครื่องมือด้วยน้ำ ทันทีที่เลิกงาน</h4><p>แปรง ลูกกลิ้ง ถาด — <b>ล้างด้วยน้ำเปล่าตอนน้ำยายังไม่แห้ง</b> ไม่ต้องใช้ทินเนอร์ / ปล่อยแห้งคาแปรงเมื่อไหร่ ล้างออกยากมาก</p><span class="fchip">ล้างด้วยน้ำ</span><span class="fchip">ล้างทันที</span></li>
+    </ol>
+
+    <div class="warn"><b>⚠ ห้ามทาลงบนสีเดิม:</b> ในสูตรมีกรดอ่อน — ทาทับสีจะ<b>ทำให้สีเสีย</b> และ<b>ไม่เกิดผลที่ต้องการ</b> เพราะไม่มีสนิมให้ทำปฏิกิริยา ทาลงบนสนิมหรือเหล็กเปลือยเท่านั้น<br><b>⚠ สนิมพองเป็นแผ่นต้องเอาออกก่อน:</b> น้ำยาต้องแทรกลงไปให้ถึงเนื้อสนิมจริง — สะเก็ดร่อนที่ปิดทางไว้ ทำให้สนิมข้างใต้เดินต่อทั้งที่ผิวหน้าดูเปลี่ยนสีแล้ว<br><b>⚠ ห้ามเจือน้ำเพื่อยืดปริมาณ:</b> เจือแล้วปฏิกิริยาอ่อนลงตามสัดส่วน ประหยัดค่าน้ำยาวันนี้ แล้วต้องกลับมาทำใหม่ทั้งงาน<br><b>⚠ ใส่ถุงมือและแว่นตา:</b> มีกรดอ่อน เลี่ยงการเข้าตาและการสัมผัสผิวหนังเป็นเวลานาน</div>
+    <div class="note"><b>อากาศและอุณหภูมิ:</b> เป็นสูตรน้ำ ต้องอาศัยการระเหย — ทาใน<b>อากาศแห้ง อุณหภูมิสูงกว่า 10°C</b> และ<b>อย่าทาถ้าฝนจะมาภายใน 4–6 ชั่วโมง</b> ฝนที่ลงมาก่อนฟิล์มเซ็ตตัวจะชะน้ำยาออกไปทั้งแถบ / งานกลางแจ้งเลี่ยงการทาตอนแดดเปรี้ยงจัดบนเหล็กร้อนจัด น้ำยาจะแห้งเร็วเกินกว่าจะซึมลงไปทำงาน</div>
+    <div class="note"><b>ทาแล้วปล่อยไว้เฉยๆ ไม่ทาสีทับได้ไหม:</b> ฟิล์มที่ได้ปกป้องผิวได้ในตัวระดับหนึ่ง — แต่<b>งานกลางแจ้งที่อยากได้อายุยาวๆ เราแนะนำให้ทาสีทับเสมอ</b> เพราะชั้นสีคือชั้นที่รับแดดรับฝนแทน / งานที่ซ่อนอยู่ในร่มหรือใต้โครงสร้าง ปล่อยไว้แบบนั้นได้</div>
+
+    <div style="margin-top:18px"><a class="btn btn-fb" href="https://www.facebook.com/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>ติดตามเราต่อได้ทาง Facebook</a></div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">ของจริง <em>ตั้งแต่สนิมส้ม ถึงผิวที่ทาสีทับได้</em></h2>
+    <p class="sec-sub">ชุดนี้เป็นดุมล้อที่ขึ้นสนิม — จุดที่<b>ถอดไปขัดก็ลำบาก จะขัดคาที่ก็ติดล้อติดสีรอบข้าง</b> เป็นตัวอย่างที่ตรงกับสนามถนัดของ Revival พอดี</p>
+    <div class="showgrid">
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g01.webp" alt="ดุมล้อที่ขึ้นสนิมสีส้ม ก่อนทา Revival น้ำยาแปลงสนิม" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>ก่อนทา — สนิมที่ยังเดินอยู่<small>สีส้ม–น้ำตาลสดคือสนิมที่ยังทำปฏิกิริยาต่อได้ / สังเกตร่อง หัวน็อต และขอบจาน — จุดที่แปรงลวดเข้าไม่ถึง</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g02.webp" alt="ทา Revival ลงบนดุมล้อ เนื้อน้ำยาสีขาวขุ่นขณะยังเปียก" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>ระหว่างทา — เนื้อน้ำยาเป็นสีขาวขุ่น<small>ทาให้ชุ่ม ไม่ใช่เกลี่ยให้บาง / งานแบบนี้ต้องกันขอบล้อที่มีสีไว้ก่อนเสมอ และเช็ดจุดที่หยดออกทันทีตอนยังเปียก</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g03.webp" alt="ระยะใกล้ของ Revival บนดุมล้อขณะยังเปียก ปฏิกิริยาเพิ่งเริ่ม" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>ตอนเพิ่งทาเสร็จ — ยังเป็นสีขาว<small>ปฏิกิริยาเพิ่งเริ่ม ยังไม่ต้องตัดสินผลตอนนี้ / ให้เวลาน้ำยาซึมลงไปหาสนิมข้างล่างก่อน</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g04.webp" alt="ดุมล้อหลังทา Revival สนิมเปลี่ยนเป็นฟิล์มสีเข้ม" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>หลังทำปฏิกิริยา — สนิมกลายเป็นฟิล์มสีเข้ม<small>เทียบกับภาพแรกจะเห็นว่าสีส้มหายไป / เกณฑ์คือ “เข้มขึ้นชัดเจน” ไม่ใช่ต้องดำสนิทเท่ากันทั้งชิ้น</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g05.webp" alt="ดุมล้อที่ผ่านการแปลงสนิมด้วย Revival พร้อมทาสีทับ" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>ผิวที่พร้อมทาสีทับได้เลย<small>ฟิล์มนี้ทำหน้าที่รองพื้นให้แล้ว ไม่ต้องลงรองพื้นซ้ำอีกชั้น / รอให้แห้งสนิทอย่างน้อย 24 ชม. ก่อนทาสี</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/revival-g06.webp" alt="การทา Revival บนโครงเหล็กใต้ท้องรถและจุดยึดช่วงล่าง" width="720" height="720" loading="lazy" decoding="async"></div>
+        <figcaption>โครงเหล็กและงานใต้ท้อง<small>พื้นที่เยอะ มุมอับ นอนขัดไม่ไหว — สนามที่ตัวนี้คุ้มที่สุด / ทาแล้วปล่อยให้ซึมลงไปตามรอยเชื่อมและจุดยึด</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">ตัวที่มักใช้คู่กับ <em>Revival</em></h2>
+    <p class="sec-sub">Revival จบเรื่อง<b>สนิมที่มีอยู่</b> — ส่วนงานที่เหลือของหน้างานเหล็กแต่ละแบบคือคนละตัว</p>
+    <div class="altgrid">
+      <a class="altcard" href="/ironlock">
+        <div class="k">อยากได้ชั้นกันสนิมเต็มระบบต่อ</div>
+        <h4>IronLock</h4>
+        <p>Revival หยุดสนิมที่มีอยู่และเป็นรองพื้นให้ — ถ้าอยากได้<b>ชั้นกันสนิมสูตรน้ำเต็มๆ ทับต่อ</b> ก่อนจะลงสีจริง IronLock คือตัวที่รับไม้ต่อ</p>
+        <div class="go">ดูหน้า IronLock →</div>
+      </a>
+      <a class="altcard" href="/modernfiberglass">
+        <div class="k">เหล็กผุจนเป็นรูทะลุแล้ว</div>
+        <h4>Modern Fiberglass</h4>
+        <p>ถ้าสนิมกินจน<b>เป็นรูหรือบางจนแตะแล้วยุบ</b> การแปลงสนิมอย่างเดียวไม่พอ — ต้องปะเนื้อกลับด้วย<b>ผ้าไฟเบอร์ + น้ำยา</b> ก่อนแล้วค่อยว่ากันเรื่องสี</p>
+        <div class="go">ดูหน้า Modern Fiberglass →</div>
+      </a>
+      <a class="altcard" href="/spackleflex">
+        <div class="k">หลังคาเมทัลชีท หัวสกรูขึ้นสนิม</div>
+        <h4>SpackleFlex</h4>
+        <p>งานหลังคาที่สนิมเริ่มที่<b>หัวสกรูกับรอยซ้อนแผ่น</b> — แปลงสนิมด้วย Revival ก่อน แล้วปิดรอยต่อและหัวสกรูด้วย SpackleFlex ให้จบ</p>
+        <div class="go">ดูหน้า SpackleFlex →</div>
+      </a>
+      <a class="altcard" href="/siliconepro">
+        <div class="k">อยากเคลือบหลังคาทั้งผืนต่อเลย</div>
+        <h4>SiliconePro</h4>
+        <p>หลังคาเมทัลชีทที่เอาสนิมอยู่แล้ว ขั้นต่อไปคือ<b>เคลือบกันซึมทั้งผืน</b> เปิดฝาทาได้เลย แช่น้ำได้เป็นปี คุ้มที่สุดในสายกันซึมของเรา</p>
+        <div class="go">ดูหน้า SiliconePro →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">สั่งซื้อ <em>Revival</em></h2>
+    <div class="ordercard">
+      <h3>เลือกช่องทางที่สะดวก — ทีมงานตอบไว</h3>
+      <div class="sub">ส่งรูปหน้างานกับขนาดพื้นที่มาได้เลย เราประเมินให้ฟรีว่าควรสั่งกี่กิโล และงานของคุณควรขัดก่อนแค่ไหน ไม่ต้องเดาเอง</div>
+      <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/product/392415703/15398116359/" target="_blank" rel="noopener">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/products/i4867174646.html" target="_blank" rel="noopener">🛍️ Lazada</a>
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>นี่แค่ <em>1 ใน 50+</em> — LucernaPro ไม่ได้มีแค่ตัวนี้</h3>
+      <p class="xsub">เราทำน้ำยาเคลือบผิวและกันซึมครบทั้งระบบ ตั้งแต่พื้น ผนัง หลังคา ยันรถของคุณ</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/#flooring">FLOORING</a><a class="cchip" href="/#wall">WALL</a><a class="cchip" href="/#waterproof">WATERPROOF</a><a class="cchip" href="/#coating">PROTECTION</a><a class="cchip" href="/#chem">เคมีภัณฑ์</a><a class="cchip" href="/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/#catalog">ดูสินค้าทั้งหมด →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
+        <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">แชทเพจ</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">โทร</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">เวลา</span><span>08.00–19.00 จันทร์–เสาร์</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
+    <div>© 2026 บริษัท ลูเซอน่า จำกัด</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
+  <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+</body>
+</html>
