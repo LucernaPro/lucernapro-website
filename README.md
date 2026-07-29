@@ -44,12 +44,15 @@ notes/wix-archive/{slug}.md
 |---|---|
 | สินค้าบนเมนู Wix เดิม | 55 |
 | สร้างหน้าใหม่แล้ว (TH+EN) | 41 |
-| เลิกขาย (มติเจ้าของ) | 6 → 301 ใน `_redirects` |
-| **เหลือต้องทำ** | **8** |
+| เลิกขาย (มติเจ้าของ) | 8 → 301 ใน `_redirects` |
+| **เหลือต้องทำ** | **6** |
 
-**8 ตัวที่เหลือ** เรียงตามความพร้อมของข้อมูล:
-`swiftset` ← **ทำตัวนี้ต่อ** · `blast` · `splatter` · `compositecore` ·
-`nanoceramic` · `americaniron` · `schutznano9h` · `polyasparticadhesive`
+**6 ตัวที่เหลือ** เรียงตามความพร้อมของข้อมูล:
+`schutznano9h` ← **ทำตัวนี้ต่อ** · `americaniron` · `blast` · `nanoceramic` ·
+`swiftset` · `polyasparticadhesive`
+
+> ⛔ **`swiftset` และ `polyasparticadhesive` ห้ามเปิดด่านจนกว่า D7 จะได้ข้อสรุป**
+> (ค่ารับน้ำหนัก — Claude ไม่ประมาณให้ ต้องได้ตัวเลขจากเจ้าของหรือเลือกเขียนแบบไม่ใส่ตัวเลข)
 
 > 🔴 **sandbox ของ Claude ดึง `static.wixstatic.com` ไม่ได้แล้ว** — URL รูปต้นฉบับในโพยใช้โหลดอัตโนมัติไม่ได้
 > ใช้รูปเท่าที่มีใน `img/` ไปก่อนตาม D3 **ห้าม block ด่านเพราะรอรูป** (ดู SPEC ด่าน ProLatex)

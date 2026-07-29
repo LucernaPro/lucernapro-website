@@ -18,19 +18,19 @@
 # 302 ชั่วคราว — หน้ายังไม่ถูกสร้าง (ลบบรรทัดออกเมื่อหน้าจริง ship)
 /americaniron /#catalog 302
 /blast /#catalog 302
-/compositecore /#catalog 302
+/compositecore /modernfiberglass 301
 /nanoceramic /#catalog 302
 /polyasparticadhesive /#catalog 302
 /schutznano9h /#catalog 302
-/splatter /#catalog 302
+/splatter /#catalog 301
 /swiftset /#catalog 302
 /en/americaniron /en/#catalog 302
 /en/blast /en/#catalog 302
-/en/compositecore /en/#catalog 302
+/en/compositecore /en/modernfiberglass 301
 /en/epoxycoating /en/#catalog 302
 /en/levelpro /en/#catalog 302
 /en/nanoceramic /en/#catalog 302
 /en/polyasparticadhesive /en/#catalog 302
 /en/schutznano9h /en/#catalog 302
-/en/splatter /en/#catalog 302
+/en/splatter /en/#catalog 301
 /en/swiftset /en/#catalog 302
