@@ -1,34 +1,38 @@
-# Interim 302s for not-yet-built pages (ลบบรรทัดออกเมื่อหน้าจริง ship — กติกาใน SPEC)
+# กติกาเต็มอยู่ใน SPEC.md — 301 = เลิกขายถาวร / 302 = หน้ายังไม่ถูกสร้าง
 /blog / 302
+
+# 301 ถาวร — สินค้าเลิกขาย (มติเจ้าของ 29 ก.ค. 2026) ห้ามลบบรรทัดพวกนี้
+/anchoringepoxy /#catalog 301
+/en/anchoringepoxy /en/#catalog 301
+/drypro /aquashell 301
+/en/drypro /en/aquashell 301
+/epoxycatridge /carbontilegrout 301
+/en/epoxycatridge /en/carbontilegrout 301
+/goldmine /#catalog 301
+/en/goldmine /en/#catalog 301
+/schutznano /schutznano9h 301
+/en/schutznano /en/schutznano9h 301
+/sightsaver /#catalog 301
+/en/sightsaver /en/#catalog 301
+
+# 302 ชั่วคราว — หน้ายังไม่ถูกสร้าง (ลบบรรทัดออกเมื่อหน้าจริง ship)
 /americaniron /#catalog 302
-/anchoringepoxy /#catalog 302
 /blast /#catalog 302
 /compositecore /#catalog 302
-/drypro /#catalog 302
-/epoxycatridge /#catalog 302
-/goldmine /#catalog 302
 /nanoceramic /#catalog 302
 /polyasparticadhesive /#catalog 302
 /prolatex /#catalog 302
-/schutznano /#catalog 302
 /schutznano9h /#catalog 302
-/sightsaver /#catalog 302
 /splatter /#catalog 302
 /swiftset /#catalog 302
 /en/americaniron /en/#catalog 302
-/en/anchoringepoxy /en/#catalog 302
 /en/blast /en/#catalog 302
 /en/compositecore /en/#catalog 302
-/en/drypro /en/#catalog 302
-/en/epoxycatridge /en/#catalog 302
 /en/epoxycoating /en/#catalog 302
-/en/goldmine /en/#catalog 302
 /en/levelpro /en/#catalog 302
 /en/nanoceramic /en/#catalog 302
 /en/polyasparticadhesive /en/#catalog 302
 /en/prolatex /en/#catalog 302
-/en/schutznano /en/#catalog 302
 /en/schutznano9h /en/#catalog 302
-/en/sightsaver /en/#catalog 302
 /en/splatter /en/#catalog 302
 /en/swiftset /en/#catalog 302
