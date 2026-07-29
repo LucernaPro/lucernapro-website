@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>PatchPro ซ่อมรอยร้าวพื้น — เนื้อโป๊วสองส่วนผสม แข็งแรงสูง ใช้ก่อนทาสีและลงกันซึม | LucernaPro</title>
+<meta name="description" content="PatchPro เนื้อโป๊ว Polymer Modified สองส่วนผสม ผสม 2:1 ออกแบบมาเพื่อซ่อมรอยแตกร้าวของพื้นปูนโดยเฉพาะ ใช้ก่อนทาสีพื้นหรือลงกันซึม โดยเฉพาะงานดาดฟ้า แข็งแรงสูง ซ่อมแล้วไม่ร้าวซ้ำง่ายๆ ขนาด 1 กก. 360 บาท · 2 กก. 520 บาท พร้อมบอกตรงๆ ว่ามันแข็ง ไม่ยืดหยุ่น และขัดแต่งยากมาก">
+<meta property="og:title" content="PatchPro ซ่อมรอยร้าวพื้น — ปิดรอยให้จบก่อนทาสี">
+<meta property="og:description" content="เนื้อโป๊วสองส่วนผสมที่ทำมาเพื่อรอยร้าวพื้นปูนโดยเฉพาะ แข็งแรงสูง ใช้ง่าย ราคาประหยัด เหมาะกับงานเตรียมพื้นก่อนทาสีและลงกันซึมดาดฟ้า">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/patchpro">
+<meta property="og:image" content="https://www.lucernapro.com/img/patchpro-hero.webp">
+<link rel="canonical" href="https://www.lucernapro.com/patchpro">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/patchpro">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/patchpro">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"PatchPro ซ่อมรอยร้าวพื้น (LucernaPro PatchPro Concrete Patch and Repair)","brand":{"@type":"Brand","name":"LucernaPro"},"description":"เนื้อโป๊วสองส่วนผสมชนิด Polymer Modified สำหรับซ่อมรอยแตกร้าวและหลุมบ่อบนพื้นคอนกรีต ใช้เตรียมพื้นก่อนทาสีพื้นหรือลงระบบกันซึม แข็งแรงสูง อัตราผสม 2:1 โดยน้ำหนัก","image":"https://www.lucernapro.com/img/patchpro-hero.webp","url":"https://www.lucernapro.com/patchpro","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"360","highPrice":"520","offerCount":"2","availability":"https://schema.org/InStock"}}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --cat:#E0A458;    /* สีหมวด flooring ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block}   /* height:auto = กันภาพยืดถาวร */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(224,164,88,.16), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--cat);flex:none}
+  .crumb b{color:var(--cat);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--cat);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(340px 200px at 20% 0%, rgba(224,164,88,.25), transparent 60%),
+      radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--cat);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--cat);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+  /* ---------- เลือกแบบไหนดี ---------- */
+  .pick{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px;max-width:900px}
+  @media(min-width:760px){.pick{grid-template-columns:1fr 1fr}}
+  .pickrow{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:10px;background:var(--panel);padding:13px 15px;font-size:14.5px;color:var(--muted)}
+  .pickrow b{color:var(--ink)}
+  .pickrow .ans{display:block;font-family:var(--disp);font-weight:700;color:var(--orange);margin-top:6px;font-size:15px}
+
+  /* ---------- เพิ่มสำหรับหน้า IronLock ---------- */
+  /* คลิปตั้ง 4 ตัวบล็อกเดียว: จอใหญ่ flex กึ่งกลาง 2x2 / มือถือใช้ rail ของ .vert ตามปกติ (ยก pattern จากหน้าที่มีคลิปตั้งหลายตัว) */
+  @media(min-width:760px){.vidgrid.vert.c4{display:flex;flex-wrap:wrap;justify-content:center;max-width:490px}.vidgrid.vert.c4 figure{width:230px}}
+  /* คลิปแนวนอนเดี่ยว 16:9 */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  /* ภาพหน้างานคู่กับข้อเขียน (บล็อกรางน้ำ) */
+  .wideshot{margin-top:14px;border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:8px;margin-bottom:0;max-width:820px}
+  .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .gwrap{margin-top:24px;display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+  @media(min-width:861px){.gwrap{grid-template-columns:1.02fr 1fr;gap:36px}}
+  .gwrap .wideshot{margin-top:0;max-width:none}
+  .gwrap h3{font-family:var(--disp);font-size:21px;font-weight:700;line-height:1.35}
+  .gwrap h3 em{color:var(--orange);font-style:normal}
+  .gwrap > div > p{color:var(--muted);font-size:15px;margin-top:11px}
+  .gwrap > div > p b{color:var(--ink)}
+  .gwrap .beats{margin-top:18px}
+  /* แกลเลอรีจัตุรัส — ขนาดเท่ากันทุกใบ แถวไม่เบี้ยว (ยกจาก heatshield) */
+  .ggrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+  @media(min-width:640px){.ggrid{grid-template-columns:repeat(4,1fr);gap:14px}}
+  .gph{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--panel);padding:7px;margin:0;display:flex;flex-direction:column}
+  .gph .im{aspect-ratio:1/1;overflow:hidden;border-radius:7px}
+  .gph img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .gph:hover img{transform:scale(1.04)}
+  .gph figcaption{font-size:13px;color:var(--muted);padding:9px 4px 2px;line-height:1.4;text-align:center}
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/">← สินค้าทั้งหมด</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    <a class="lang-switch" href="/en/">EN</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>Flooring <b>· งานพื้น</b></div>
+      <div class="flagtag">🪣 สองส่วนผสม 2:1 · ปาดด้วยเกรียง · เริ่มต้น 360 บาท</div>
+      <h1><span class="o">PatchPro</span><br>ซ่อมรอยร้าวพื้น ให้จบตั้งแต่รอบแรก</h1>
+      <p class="lede">รอยร้าวบนพื้นปูน<b>ไม่ได้หายไปเพราะทาสีทับ</b> — มันแค่โดนกลบไว้ แล้ววันหนึ่งก็โผล่กลับขึ้นมาตามแนวเดิม ที่แย่กว่านั้นคือมันเป็นทางให้น้ำเดินเข้าไปข้างใน · PatchPro คือ<b>เนื้อโป๊ว Polymer Modified สองส่วนผสม</b> ที่ออกแบบมาเพื่อ<b>รอยแตกร้าวของพื้นปูนโดยเฉพาะ</b> แข็งแรงสูง ซ่อมแล้วถ้าพื้นไม่ขยับตัวรุนแรง <b>ก็ไม่ร้าวซ้ำง่ายๆ</b><br><br>และจะบอกตรงๆ ตั้งแต่ตรงนี้ก่อนคุณจ่ายเงิน: <b>มันแข็ง มันไม่ยืดหยุ่น และขัดแต่งยากมาก</b> — ตัวนี้ต้องปาดให้สวยตั้งแต่ตอนโป๊ว ไม่ใช่ไปแก้เอาทีหลัง</p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#price">ดูราคาและขนาด</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ส่งรูปรอยร้าวมา ดูให้ฟรี</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="/img/patchpro-hero.webp" alt="PatchPro ซ่อมรอยร้าวพื้น LucernaPro กระปุกสีขาวฉลากน้ำเงิน Concrete Patch and Repair วางบนโต๊ะไม้คู่กับเกรียงฉาบ" width="900" height="900">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">ทำไมต้อง <em>PatchPro</em></h2>
+    <p class="sec-sub">ตัวนี้ไม่ได้ทำมาให้เป็นพระเอกของงาน — มันคือ<b>ด่านที่ต้องผ่านก่อน</b>ที่พระเอกจะทำงานได้จริง งานทาสีพื้นและงานกันซึมที่พังเร็ว ส่วนใหญ่ไม่ได้พังที่สีหรือน้ำยา แต่พังที่รอยร้าวที่ไม่เคยถูกปิดให้จบ</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>ทำมาเพื่อรอยร้าวพื้นปูนโดยเฉพาะ</h4><p>ไม่ใช่โป๊วอเนกประสงค์ที่เอาไปใช้กับพื้นด้วยก็ได้ — <b>แรงยึดเกาะสูงและเนื้อแข็งแรงมาก</b> ซ่อมแล้วถ้าพื้นข้างใต้ไม่ขยับตัวรุนแรง จะ<b>ไม่แตกร้าวซ้ำง่ายๆ</b> ต่างจากการซ่อมด้วยปูนที่มักกลับมาแตกตามแนวเดิมภายในไม่กี่ฤดู</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>ด่านเตรียมพื้นก่อนทาสีและลงกันซึม</h4><p>สีทาพื้นและน้ำยากันซึมเป็น<b>ฟิล์มบางๆ ไม่ใช่วัสดุอุดร่อง</b> — ทาข้ามรอยร้าวไป น้ำยาจะย้อยลงร่องแล้วบางตรงจุดที่ควรจะหนาที่สุดพอดี <b>ปิดรอยให้เต็มและเสมอผิวก่อน แล้วค่อยลงระบบทับ</b> คือลำดับที่ถูก</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>ใช้ง่าย ราคาไม่แพง</h4><p>ชั่ง <b>2:1</b> กวนให้เข้ากัน ปาดด้วยเกรียงหรือมีดโป๊ว — <b>ไม่ต้องมีอุปกรณ์พิเศษ ไม่ต้องมีเครื่องมือราคาแพง</b> · ขนาด 1 กก. เริ่มที่ <b>360 บาท</b> ซึ่งสำหรับงานซ่อมรอยร้าวบ้านหลังหนึ่งมักจบในกระปุกเดียว</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>งานดาดฟ้าคือสนามที่ถนัดที่สุด</h4><p>ดาดฟ้าคอนกรีตคือที่ที่<b>รอยร้าวแปลว่าน้ำรั่วลงห้องข้างล่างเสมอ</b> และเป็นงานที่ต้องลงกันซึมทับอยู่แล้ว — <b>ปิดรอยด้วยตัวนี้ก่อน แล้วค่อยลงกันซึมทั้งผืน</b> เป็นคู่ที่เข้ากันที่สุดของสินค้าทั้งฟลีตเรา</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">STRAIGHT TALK — อ่านก่อนจ่ายเงิน</div>
+    <h2>ซ่อมพื้นร้าวด้วยปูน<b>มันไม่จบ</b><br>ทำบางไปก็ร่อน ทำหนาไปก็<b>ไม่สวย</b></h2>
+    <div class="story-grid">
+      <div class="bignum">2:1<small>อัตราผสมโดยน้ำหนัก — ชั่งให้ตรง ไม่ใช่กะเอา</small></div>
+      <div class="story-body">
+        <p>เราขายเนื้อโป๊ว แต่เราจะไม่บอกว่ามันซ่อมได้ทุกรอยร้าวในโลก — <b>รอยร้าวมีหลายชนิด และแต่ละชนิดต้องการวัสดุคนละแบบ</b> อ่านห้าข้อนี้ให้จบ แล้วคุณจะรู้เองว่างานของคุณควรใช้ตัวนี้ หรือควรใช้ตัวอื่นของเรา</p>
+        <div class="beats">
+          <div class="beat"><div class="k">ปูนซ่อมปูน คือวงจรที่ไม่มีวันจบ</div><p>คนส่วนใหญ่เริ่มจากปูนเพราะมันถูกและหาง่าย ปัญหาคือ<b>ปูนใหม่ไม่ได้ยึดกับปูนเก่าจริงๆ</b> มันแค่ไปนั่งทับ — <b>ฉาบบางไปก็แตกและร่อนออกในเวลาไม่นาน ฉาบหนาไปงานก็ออกมาไม่สวยและเป็นเนินขึ้นมา</b> สุดท้ายคือกลับไปซ่อมจุดเดิมทุกปี ถ้าคุณเคยซ่อมรอยเดิมมาแล้วเกินสองรอบ ปัญหาไม่ได้อยู่ที่ฝีมือ แต่อยู่ที่วัสดุ</p></div>
+          <div class="beat"><div class="k">มันแข็ง — ไม่ใช่ตัวยืดหยุ่น</div><p>จุดแข็งของมันคือความแข็งแรง ซึ่งแปลว่า<b>มันไม่ได้ทำมาเพื่อรอยที่ขยับตัวไปมาตลอดเวลา</b> · รอยต่อโครงสร้าง (expansion joint) พื้นที่ทรุดตัวอยู่ พื้นไม้ที่ยืดหดตามอากาศ หรือ<b>หลังคาเมทัลชีทที่ขยับทุกวัน</b> — พวกนี้ไม่ใช่งานของมัน งานหลังคาและรอยซ้อนแผ่นไปที่ <a href="/spackleflex" style="color:var(--orange)">SpackleFlex</a> ส่วนรอยต่อยากๆ บนแผ่นสมาร์ทบอร์ดหรือผิวลื่นไปที่ <a href="/deepstick" style="color:var(--orange)">DeepStick</a></p></div>
+          <div class="beat"><div class="k">ขัดแต่งยากมาก — โป๊วให้สวยตั้งแต่แรก</div><p>พอมันแข็งเต็มที่แล้ว <b>การขัดแต่งให้เรียบทีหลังเป็นงานที่ทรมานมาก</b> กระดาษทรายเอาไม่ค่อยอยู่ ต้องใช้เครื่องเจียร และเสี่ยงกินเนื้อพื้นรอบข้างเสียหายไปด้วย · เพราะฉะนั้น<b>เวลาที่มีค่าที่สุดคือ 30 นาทีตอนที่เนื้อยังนิ่ม</b> — ปาดให้เสมอผิว เก็บขอบให้เรียบตอนนั้นเลย อย่าคิดว่าเดี๋ยวค่อยไปขัดเอา</p></div>
+          <div class="beat"><div class="k">ใช้กับผนังได้ แต่ไม่ใช่ตัวที่เหมาะที่สุด</div><p>ถ้าจะเอาไปโป๊วผนังก็<b>ไม่มีปัญหาเรื่องความแข็งแรง</b> แต่ผนังต้องการตัวที่<b>ยืดหยุ่นได้บ้าง และขัดแต่งทำสีทับได้ง่าย</b> ซึ่งไม่ใช่จุดแข็งของตัวนี้ — งานผนังตัวที่ทำมาตรงงานคือ <a href="/fillerace" style="color:var(--orange)">FillerAce</a> เลือกตามหน้างาน อย่าเลือกตามกระปุกที่มีอยู่ในบ้าน</p></div>
+          <div class="beat"><div class="k">งานอุตสาหกรรมหนักจริงๆ มีตัวที่แรงกว่านี้</div><p>พื้นโรงงานที่มีโฟล์คลิฟท์วิ่งทั้งวัน พื้นถนน หรือจุดที่รับแรงกระแทกซ้ำๆ ตลอดเวลา — <b>ขยับขึ้นไปอีกระดับที่</b> <a href="/pmma" style="color:var(--orange)">PMMA</a> ซึ่งออกแบบมาสำหรับงาน Heavy Duty โดยตรงและเซ็ตตัวเร็วจนเปิดใช้พื้นได้ในไม่กี่ชั่วโมง แลกกับราคาต่อกิโลที่สูงกว่ากันมาก</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">ขนาดและ<em>ราคา</em></h2>
+    <div class="pricecard">
+      <div class="ph">PatchPro ซ่อมรอยร้าวพื้น<small>ชุด A+B ครบในกล่องเดียว · ราคารวม VAT แล้ว</small></div>
+      <table>
+        <thead><tr><th>ขนาด</th><th>ราคา</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">1 กก.</td><td class="pr">360.-</td></tr>
+          <tr><td class="sz">2 กก.</td><td class="pr">520.-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote"><b>ค่าส่ง 70–130 บาท</b> ตามขนาดและปลายทาง · <b>สั่งหลายอย่างในออเดอร์เดียว ค่าส่งคิดเหมาให้ตามเหมาะสม ไม่บวกทุกชิ้น</b> — ทักมาถามค่าส่งก่อนโอนได้เลย โดยเฉพาะถ้าสั่งกันซึมหรือสีทาพื้นไปด้วยในคราวเดียว</p>
+    <div>
+      <span class="fchip">เนื้อสีขาว</span><span class="fchip">ชุด A + B</span><span class="fchip">ผสม 2:1 โดยน้ำหนัก</span>
+    </div>
+    <div class="note"><b>ต้องใช้กี่กิโล — คำนวณจากร่อง ไม่ใช่จากตารางเมตร</b> เพราะของแบบนี้กินตามปริมาตรของรอยที่ต้องเติม ไม่ใช่ตามพื้นที่พื้น · สูตรประมาณการง่ายๆ:<br><br><b>ปริมาณ (กรัม) ≈ กว้าง (มม.) × ลึก (มม.) × ยาว (เมตร) × 1.7</b><br><br>เช่น ร่องกว้าง 10 มม. ลึก 10 มม. ยาว 5 เมตร ≈ 10 × 10 × 5 × 1.7 = <b>850 กรัม</b> · ตัวเลขนี้ไว้<b>ตั้งงบ ไม่ใช่สั่งให้พอดีเป๊ะ</b> — รอยร้าวจริงมักลึกและกว้างกว่าที่ตาเห็นเสมอตอนกรีดเปิดร่องออกมา เผื่อไว้ดีกว่างานค้างกลางดาดฟ้า</div>
+    <div class="warn"><b>ไม่แน่ใจว่าร้าวแบบนี้ใช้ตัวไหน?</b> ถ่ายรูปรอยร้าวมาให้ดูก่อนได้ ดูให้ฟรี ไม่คิดเงิน — เราจะบอกตรงๆ ถ้ามันควรใช้ตัวอื่นหรือควรแก้ที่โครงสร้างก่อน</div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">วิธีใช้งาน — <em>จบบนหน้านี้</em></h2>
+    <p class="sec-sub">ไม่ต้องเปิดคู่มือที่ไหนอีก ตัวเลขจริงอยู่ในนี้ครบ</p>
+    <ol class="flow">
+      <li class="fstep"><h4>ดูก่อนว่ารอยร้าวเป็นชนิดไหน</h4><p>รอยร้าวจากการหดตัวของปูน รอยแตกลายงา และหลุมบ่อจากผิวหน้ากะเทาะ — <b>พวกนี้คืองานของมัน</b> · แต่ถ้าเป็น<b>รอยต่อโครงสร้าง รอยที่กว้างขึ้นเรื่อยๆ หรือพื้นที่ทรุดจนต่างระดับ</b> อย่าเพิ่งโป๊ว ให้แก้ที่ต้นเหตุก่อน ไม่งั้นโป๊วไปเท่าไหร่ก็แตกซ้ำที่เดิม
+      <span class="fchip">ร้าวจากการหดตัว = ใช่</span><span class="fchip">รอยต่อที่ขยับตลอด = ไม่ใช่</span></p></li>
+      <li class="fstep"><h4>กรีดเปิดร่องก่อนเสมอ</h4><p>ข้อนี้สำคัญที่สุดในหน้านี้ — <b>รอยร้าวเส้นผมที่ป้ายทับเฉยๆ จะหลุดออกมาเป็นเส้นในเวลาไม่นาน</b> เพราะเนื้อโป๊วที่บางเป็นกระดาษไม่มีทางเกาะอยู่ได้ · ใช้เครื่องเจียรหรือใบตัดกรีดตามแนวรอยให้เป็น<b>ร่องกว้างและลึกอย่างน้อยด้านละ 5 มม.</b> เปิดหน้าเป็นตัว V หรือ U ให้เนื้อโป๊วมีที่เกาะจริงๆ · หลุมที่ขอบร่อนๆ ก็ต้องเคาะเอาส่วนที่ไม่แน่นออกให้หมดจนถึงเนื้อปูนที่แข็ง
+      <span class="fchip">ร้าวเส้นผมต้องกรีดก่อน</span><span class="fchip">ร่อง ≥ 5 มม.</span><span class="fchip">เคาะส่วนร่อนออกให้หมด</span></p></li>
+      <li class="fstep"><h4>ทำความสะอาดร่องให้เกลี้ยง</h4><p>ใช้<b>แปรงลวด</b>ขัดในร่องเอาเศษปูนและฝุ่นออก แล้ว<b>ดูดฝุ่นหรือเป่าลมให้เกลี้ยง</b> — ฝุ่นที่ค้างอยู่ก้นร่องคือชั้นกันไม่ให้โป๊วเกาะพื้น · ล้างคราบน้ำมันและจาระบีออกให้หมด · และ<b>ร่องต้องแห้งสนิทก่อนโป๊ว</b> ห้ามมีน้ำขังอยู่ก้นร่อง
+      <span class="fchip">แปรงลวด + ดูดฝุ่น</span><span class="fchip">ต้องแห้งสนิท</span><span class="fchip">ไม่มีน้ำมัน</span></p></li>
+      <li class="fstep"><h4>ชั่งผสม A : B = 2 : 1 โดยน้ำหนัก</h4><p><b>ชั่งจริง อย่ากะด้วยสายตา</b> — อัตราส่วนที่เพี้ยนไปคือเนื้อที่ไม่แข็งเต็มที่ ซึ่งจะไม่แสดงอาการวันนี้ แต่จะแสดงในอีกหกเดือน · <b>กวนให้เข้ากันจริงๆ 2–3 นาที กวาดก้นและข้างภาชนะด้วย</b> จนเนื้อเป็นสีเดียวสม่ำเสมอไม่มีริ้ว (จะใช้หัวกวนติดสว่านรอบต่ำก็ได้ เร็วและทั่วกว่า) · <b>ผสมทีละพอใช้ในราว 30 นาที</b> ผสมทีเดียวทั้งกระปุกแล้วทำไม่ทัน คือทิ้งทั้งกระปุก
+      <span class="fchip">2:1 โดยน้ำหนัก</span><span class="fchip">กวน 2–3 นาที</span><span class="fchip">ผสมทีละพอใช้ ~30 นาที</span></p></li>
+      <li class="fstep"><h4>อัดลงร่องให้เต็ม — ไม่ใช่ป้ายผิว</h4><p>ใช้มีดโป๊วหรือเกรียงเล็ก <b>กดอัดเนื้อลงไปในร่องให้แน่นจนถึงก้น</b> ไม่ให้เหลือโพรงอากาศข้างใน โพรงที่เหลือไว้คือจุดที่จะยุบและแตกทีหลัง · โป๊วให้<b>เต็มเสมอผิวหรือนูนขึ้นมานิดเดียว</b> อย่าให้เว้าลงไปเป็นร่องตื้นๆ เพราะสีหรือกันซึมที่ลงทับจะไปกองตรงนั้นแล้วเห็นเป็นเส้นชัดกว่าเดิม</p></li>
+      <li class="fstep"><h4>ปาดเรียบให้จบตอนที่เนื้อยังนิ่ม</h4><p>อย่างที่บอกไว้ข้างบน — <b>ตัวนี้ขัดแต่งทีหลังยากมาก</b> ปาดหน้าให้เรียบเสมอพื้น เก็บขอบให้สะอาด และเช็ดเนื้อที่เลอะออกนอกแนวออกให้หมด<b>ตอนที่ยังนิ่มอยู่</b> · ถ้าอยากได้แนวคมและไม่เลอะพื้นรอบข้าง <b>ติดเทปกระดาษขนาบสองข้างร่องก่อนโป๊ว แล้วลอกออกตอนเนื้อยังไม่แข็ง</b> — เสียเวลาสิบนาที ประหยัดการนั่งเจียรทีหลังเป็นชั่วโมง
+      <span class="fchip">ปาดให้จบตอนนิ่ม</span><span class="fchip">ติดเทปช่วยได้มาก</span></p></li>
+      <li class="fstep"><h4>รอให้แข็งก่อนทำงานต่อ</h4><p>แห้งจนจับได้ประมาณ <b>6–8 ชั่วโมง</b> · <b>รอครบ 24 ชั่วโมงก่อนทาสีพื้นหรือลงระบบกันซึมทับ</b> และก่อนเปิดใช้พื้นตามปกติ · อากาศเย็นหรือชื้นจัดให้รอนานกว่านั้น ของแบบนี้ไม่มีใครเคยเสียหายเพราะรอนานเกินไป
+      <span class="fchip">จับได้ 6–8 ชม.</span><span class="fchip">ลงระบบทับ 24 ชม.</span></p></li>
+      <li class="fstep"><h4>ล้างเครื่องมือด้วยทินเนอร์ทันที</h4><p>ตอนยังไม่แข็ง ล้างด้วย<b>ทินเนอร์</b>ออกได้ไม่ยาก — แต่<b>ปล่อยให้แข็งคาเกรียงเมื่อไหร่ คือจบ</b> ล้างไม่ออกแล้ว วางเครื่องมือทิ้งไว้แล้วค่อยไปล้างตอนเย็นไม่ได้กับตัวนี้</p></li>
+    </ol>
+
+    <div class="warn"><b>ข้อห้ามที่ทำให้เสียของบ่อยที่สุด</b> — <b>ห้ามป้ายบางๆ ทับรอยร้าวที่ไม่ได้กรีดเปิดร่อง</b> (สาเหตุอันดับหนึ่งที่โป๊วแล้วหลุด) / <b>ห้ามชั่งด้วยสายตา</b> / <b>ห้ามผสมทีละเยอะเกินกว่าที่จะปาดจบใน 30 นาที</b> / <b>ห้ามโป๊วลงร่องที่ยังเปียกหรือมีฝุ่นค้าง</b> / <b>ห้ามเจือทินเนอร์ลงในเนื้อเพื่อให้ปาดง่ายขึ้น</b> — ความแข็งแรงที่คุณจ่ายเงินซื้อมาจะหายไปพร้อมกับมัน</div>
+
+    <h3 class="sec-h" style="margin-top:44px">ดูของจริง — <em>ปาดสดให้ดูคาที่</em></h3>
+    <div class="vidgrid k1">
+      <figure>
+        <div class="fbv">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flucernapro%2Fvideos%2F710221701670711%2F&show_text=false" loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="วิธีใช้งาน PatchPro ซ่อมรอยร้าวพื้น"></iframe>
+        </div>
+        <figcaption>วิธีใช้งาน PatchPro — ผสม ปาดลงร่อง และเก็บหน้าให้เรียบ</figcaption>
+      </figure>
+    </div>
+
+    <div class="hero-cta" style="margin-top:26px">
+      <a class="btn btn-fb" href="https://www.facebook.com/lucernapro"><span class="fbadge">f</span>ติดตามเราต่อได้ทาง Facebook</a>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" id="where">
+  <div class="wrap">
+    <h2 class="sec-h">ทำไมต้องปิดรอยร้าว<em>ก่อนทำสี</em></h2>
+    <p class="sec-sub">คำถามที่เจอบ่อยที่สุดคือ "ทาสีทับไปเลยไม่ได้เหรอ" — ได้ครับ แต่ไม่ถึงปีคุณจะเห็นแนวรอยเดิมกลับมาโผล่บนสีใหม่ และตอนนั้นคือต้องรื้อทำใหม่ทั้งผืน ไม่ใช่ซ่อมแค่เส้นเดียว</p>
+
+    <div class="gwrap">
+      <figure class="wideshot">
+        <img src="/img/patchpro-w01.webp" alt="รอยแตกร้าวยาวบนพื้นคอนกรีตภายในโรงงาน มีเศษปูนกะเทาะตามแนวรอย" width="1100" height="656" loading="lazy">
+      </figure>
+      <div>
+        <h3>รอยร้าวไม่ได้แค่<em>ดูไม่สวย</em></h3>
+        <p>รอยร้าวคือ<b>ทางเข้าของน้ำ</b> น้ำที่ลงไปข้างในพาเกลือและความชื้นไปด้วย ทำให้เหล็กเสริมข้างในเริ่มเป็นสนิม และสนิมกินปริมาตรมากกว่าเนื้อเหล็กเดิมหลายเท่า — <b>ผลคือรอยร้าวเดิมค่อยๆ กว้างขึ้นเอง</b> ไม่ต้องมีใครไปทำอะไรกับมันเลย</p>
+        <p>สำหรับพื้นที่กำลังจะทำสีหรือกันซึม รอยร้าวยังเป็น<b>จุดที่ระบบเคลือบจะเสียก่อนที่อื่นเสมอ</b> เพราะฟิล์มตรงนั้นบางที่สุดและถูกดึงมากที่สุด</p>
+        <div class="beats">
+          <div class="beat"><div class="k">ปิดรอยเสร็จแล้ว ค่อยเลือกว่าจะจบด้วยอะไร</div><p>งาน<b>ดาดฟ้าและหลังคาคอนกรีต</b>ที่ต้องกันน้ำ ไปต่อที่ <a href="/siliconepro" style="color:var(--orange)">SiliconePro</a> (คุมงบ แช่น้ำขังได้) หรือขยับขึ้นไปที่ <a href="/exotic" style="color:var(--orange)">Exotic</a> ถ้าจัดเต็ม · ส่วน<b>พื้นในบ้าน โรงรถ ลานจอดรถ</b>ที่แค่อยากให้ดูดีและเลิกเป็นฝุ่น ไปที่ <a href="/thermaglaze" style="color:var(--orange)">ThermaGlaze</a></p></div>
+          <div class="beat"><div class="k">ซ่อมพื้นเมื่อไหร่ ให้นึกถึงตัวนี้ก่อนเสมอ</div><p>ในบรรดาสินค้าของเรา <b>งานซ่อมรอยร้าวและหลุมบ่อบนพื้น เราชี้มาที่ PatchPro ตัวเดียว</b> ไม่ใช่เพราะตัวอื่นไม่ดี แต่เพราะตัวนี้ทำมาตรงงานที่สุด ใช้ง่ายที่สุด และถูกที่สุดในบรรดาตัวที่แข็งแรงพอ</p></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sec-h" style="margin-top:48px">งานดาดฟ้า — <em>ปิดรอยทั้งผืนก่อนลงกันซึม</em></h3>
+    <p class="sec-sub">ดาดฟ้าเก่าที่แตกลายงาทั้งผืนแบบนี้คือหน้างานที่เจอบ่อยที่สุด — วิธีทำคือ<b>ไล่ปิดทุกเส้นให้จบก่อน</b> แล้วค่อยลงระบบกันซึมทับทั้งผืน ไม่ใช่ราดกันซึมลงไปบนรอยร้าวเปล่าๆ</p>
+    <div class="showgrid">
+      <figure class="showcard">
+        <div class="im"><img src="/img/patchpro-g05.webp" alt="ดาดฟ้าคอนกรีตที่มีรอยแตกลายงาทั่วพื้น ถูกโป๊วปิดเป็นแนวสีขาวไล่ไปทั้งผืน" width="720" height="720" loading="lazy"></div>
+        <figcaption>ดาดฟ้าอาคาร — ไล่ปิดรอยทีละเส้น<small>เห็นแนวขาวคือรอยที่ปิดแล้ว ขั้นต่อไปคือลงกันซึมทับทั้งผืน</small></figcaption>
+      </figure>
+      <figure class="showcard">
+        <div class="im"><img src="/img/patchpro-g06.webp" alt="ดาดฟ้าคอนกรีตผืนใหญ่ รอยแตกลายงาถูกโป๊วปิดเป็นแนวสีขาวเต็มพื้นที่" width="720" height="720" loading="lazy"></div>
+        <figcaption>ดาดฟ้าผืนใหญ่ — ปิดครบทุกเส้นแล้ว<small>รอยยิ่งเยอะ ยิ่งต้องปิดให้ครบ เพราะเส้นที่ลืมไว้คือเส้นที่จะรั่ว</small></figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sec-h" style="margin-top:48px">ขั้นตอนแบบ<em>เห็นภาพ</em></h3>
+    <div class="ggrid">
+      <figure class="gph">
+        <div class="im"><img src="/img/patchpro-g01.webp" alt="ใช้แปรงลวดขัดทำความสะอาดร่องรอยแตกบนพื้นคอนกรีต ข้างกระปุก PatchPro" width="687" height="687" loading="lazy"></div>
+        <figcaption>1 · ขัดร่องด้วยแปรงลวดแล้วดูดฝุ่นให้เกลี้ยง <small>(ภาพประกอบ)</small></figcaption>
+      </figure>
+      <figure class="gph">
+        <div class="im"><img src="/img/patchpro-g02.webp" alt="กวนผสม PatchPro Part A กับ Part B ด้วยหัวกวนติดสว่านจนเนื้อเป็นสีเดียว" width="687" height="687" loading="lazy"></div>
+        <figcaption>2 · ชั่ง 2:1 แล้วกวนจนเนื้อเป็นสีเดียว <small>(ภาพประกอบ)</small></figcaption>
+      </figure>
+      <figure class="gph">
+        <div class="im"><img src="/img/patchpro-g03.webp" alt="ใช้มีดโป๊วอัดเนื้อ PatchPro ลงในร่องรอยแตกบนพื้นคอนกรีต" width="687" height="687" loading="lazy"></div>
+        <figcaption>3 · กดอัดลงร่องให้เต็มถึงก้น <small>(ภาพประกอบ)</small></figcaption>
+      </figure>
+      <figure class="gph">
+        <div class="im"><img src="/img/patchpro-g04.webp" alt="ปาดหน้าเนื้อ PatchPro ให้เรียบเสมอผิวพื้นคอนกรีตด้วยมีดโป๊ว" width="687" height="687" loading="lazy"></div>
+        <figcaption>4 · ปาดเรียบเสมอผิวตอนเนื้อยังนิ่ม <small>(ภาพประกอบ)</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">ใช้คู่กัน หรือ<em>ใช้แทน</em></h2>
+    <div class="altgrid">
+      <a class="altcard" href="/siliconepro">
+        <div class="k">ขั้นต่อไปของงานดาดฟ้า</div>
+        <h4>SiliconePro กันซึม</h4>
+        <p>ปิดรอยเสร็จแล้ว<b>ต้องลงกันซึมทับทั้งผืน</b> ไม่งั้นน้ำก็หาทางเข้าที่อื่นอยู่ดี — ตัวนี้คุมงบได้ ทนน้ำขังต่อเนื่อง เป็นคู่หูของ PatchPro บนดาดฟ้า</p>
+        <div class="go">ดูรายละเอียด →</div>
+      </a>
+      <a class="altcard" href="/fillerace">
+        <div class="k">งานผนัง</div>
+        <h4>FillerAce ซ่อมรอยร้าวผนัง</h4>
+        <p>ผนังต้องการตัวที่<b>ยืดหยุ่นได้บ้าง และขัดแต่งทาสีทับได้</b> ซึ่งไม่ใช่จุดแข็งของ PatchPro — งานผนังใช้ตัวนี้จะจบสวยกว่าและทำงานง่ายกว่ามาก</p>
+        <div class="go">ดูรายละเอียด →</div>
+      </a>
+      <a class="altcard" href="/spackleflex">
+        <div class="k">รอยที่ขยับตัว</div>
+        <h4>SpackleFlex ซ่อมรอยต่อหลังคา</h4>
+        <p><b>หลังคาเมทัลชีท รอยซ้อนแผ่น และหัวสกรู</b> ขยับทุกวันตามอุณหภูมิ — ต้องใช้ตัวที่ยืดหยุ่นสูงเท่านั้น ตัวแข็งอย่าง PatchPro จะแตกตามรอยเดิม</p>
+        <div class="go">ดูรายละเอียด →</div>
+      </a>
+      <a class="altcard" href="/pmma">
+        <div class="k">หนักกว่านี้</div>
+        <h4>PMMA ซ่อมและกันซึมงานหนัก</h4>
+        <p>งานระดับ<b>อุตสาหกรรม ถนน และพื้นที่รับแรงกระแทกตลอดเวลา</b> — ทนขึ้นไปอีกระดับและเซ็ตตัวเร็วมาก เปิดใช้พื้นได้ในไม่กี่ชั่วโมง แลกกับราคาที่สูงกว่ากันมาก</p>
+        <div class="go">ดูรายละเอียด →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">สั่งซื้อ <em>PatchPro</em></h2>
+    <div class="ordercard">
+      <h3>เลือกช่องทางที่คุณสะดวก</h3>
+      <div class="sub">สั่งผ่านมาร์เกตเพลสได้เลย หรือถ้าไม่แน่ใจว่า<b>รอยร้าวแบบที่บ้านคุณควรใช้ตัวนี้หรือตัวอื่น</b> ถ่ายรูปรอยมาทางแชทได้ ดูให้ฟรี ไม่คิดเงิน — ถ่ายให้เห็นทั้งภาพกว้างและภาพใกล้จะช่วยได้มาก</div>
+      <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/product/392415703/17267829343/">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/products/i4006189485.html">🛍️ Lazada</a>
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>นี่แค่ <em>1 ใน 50+</em> — LucernaPro ไม่ได้มีแค่ตัวนี้</h3>
+      <p class="xsub">เราทำน้ำยาเคลือบผิวและกันซึมครบทั้งระบบ ตั้งแต่พื้น ผนัง หลังคา ยันรถของคุณ</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/#flooring">FLOORING</a><a class="cchip" href="/#wall">WALL</a><a class="cchip" href="/#waterproof">WATERPROOF</a><a class="cchip" href="/#coating">PROTECTION</a><a class="cchip" href="/#chem">เคมีภัณฑ์</a><a class="cchip" href="/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/#catalog">ดูสินค้าทั้งหมด →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
+        <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">แชทเพจ</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">โทร</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">เวลา</span><span>08.00–19.00 จันทร์–เสาร์</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
+    <div>© 2026 บริษัท ลูเซอน่า จำกัด</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
+  <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+</body>
+</html>
