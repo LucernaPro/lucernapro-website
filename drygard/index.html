@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>DryGard สีทาบ้านกันซึม — สีทาบ้านฟิล์มหนา สำหรับผนังที่ชื้นจัด เปิดฝาทาได้เลย ไม่ต้องรองพื้น | LucernaPro</title>
+<meta name="description" content="DryGard คือสีทาบ้านที่กันซึมอยู่ในเนื้อสี ฟิล์มยืดหยุ่นหนากว่าสีทาบ้านทั่วไปหลายเท่า ปิดรอยแตกเส้นผม กันเชื้อรา มีสารสะท้อนความร้อนในเนื้อ เปิดฝาทาได้เลยไม่ต้องผสม ไม่ต้องรองพื้น เกิดมาเพื่อผนังบ้านที่โดนฝนสาดและความชื้นตลอดปี">
+<meta property="og:title" content="DryGard สีทาบ้านกันซึม — จบปัญหาสีพองสีร่อนตั้งแต่ชั้นเดียว">
+<meta property="og:description" content="สีทาบ้านฟิล์มหนาที่กันซึมในตัว ทาทับสีเดิมได้ ไม่ต้องรองพื้น มี 10 เฉดให้เลือก สำหรับผนังบ้านที่ชื้นจัดและโดนฝนสาดตลอดปี">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/drygard">
+<meta property="og:image" content="https://www.lucernapro.com/img/drygard-hero.webp">
+<link rel="canonical" href="https://www.lucernapro.com/drygard">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/drygard">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/drygard">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"DryGard สีทาบ้านกันซึม","brand":{"@type":"Brand","name":"LucernaPro"},"description":"สีทาบ้านชนิดฟิล์มยืดหยุ่นที่กันซึมอยู่ในเนื้อสี ใช้กับผนังปูน ผนังฉาบ ผนังก่ออิฐ และหลังคาเมทัลชีท เปิดฝาทาได้เลยไม่ต้องผสมและไม่ต้องลงรองพื้น ปิดรอยแตกระดับเส้นผม กันเชื้อรา และมีสารสะท้อนความร้อนผสมอยู่ในเนื้อสี","category":"กันซึม / สีทาบ้าน","image":"https://www.lucernapro.com/img/drygard-hero.webp","offers":[{"@type":"Offer","name":"DryGard 4.5 กก.","price":"1730","priceCurrency":"THB"},{"@type":"Offer","name":"DryGard 18 กก.","price":"5390","priceCurrency":"THB"}]}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --wproof:#4FA3D1; /* สีหมวด waterproof (กันซึม) ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(79,163,209,.14), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
+  .crumb b{color:var(--wproof);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--wproof);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(340px 200px at 20% 0%, rgba(79,163,209,.25), transparent 60%),
+      radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--wproof);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  /* แถบราคาโครงการ / ผู้รับเหมา */
+  .probox{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:13px;background:linear-gradient(120deg,rgba(237,106,47,.09),transparent 60%),var(--panel);padding:20px 20px 18px}
+  .probox .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+  .probox h3{font-family:var(--disp);font-size:19px;font-weight:700;margin:7px 0 6px}
+  .probox p{font-size:14.5px;color:var(--muted);max-width:640px}
+  .probox p b{color:var(--ink)}
+  .probox .acts{margin-top:15px;display:flex;gap:11px;flex-wrap:wrap}
+
+  /* คลิปเดี่ยวแนวนอน 16:9 — จำกัดกว้างไม่ให้เต็มหน้า */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
+
+  /* ---------- Showcase / Gallery (ยกจาก aquashell + rail ภาพอธิบาย) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
+  @media(min-width:1000px){.showgrid{grid-template-columns:repeat(3,1fr)}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard.wide .im{aspect-ratio:720/576}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .xgrid{margin-top:18px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.xgrid{grid-template-columns:repeat(3,1fr)}}
+  .xcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:7px;margin:0}
+  .xcard img{width:100%;height:auto;border-radius:9px;display:block}
+  .vidgrid.k2{max-width:720px}
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
+  @media(min-width:760px){.vidgrid.k2{grid-template-columns:repeat(2,1fr)}}
+  /* ภาพแนวนอนเต็มความกว้าง คงสัดส่วน ไม่ crop (ยกจากด่านสีทาพื้น หมวด flooring) */
+  .wideshot{margin-top:16px;border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:8px;margin-bottom:0}
+  .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
+  .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+
+  /* ---- ชาร์ตสี: สร้างจาก HTML ล้วน แก้เฉดในอนาคต = แก้ hex บรรทัดเดียว ----
+     หมายเหตุ: hex ของเฉดสีเป็น "ข้อมูลสินค้า" ไม่ใช่สีธีม จึงฝังตรงได้
+     (สีจริงต้องเท่ากันทั้งโหมดสว่างและมืด) — carve-out จากกฎเหล็กข้อ 7 */
+  .swgrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:560px){.swgrid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:880px){.swgrid{grid-template-columns:repeat(5,1fr)}}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);min-height:152px}
+  .sw .chip{display:block;height:86px;border-bottom:1px solid var(--line)}
+  .sw .nm{font-family:var(--disp);font-weight:600;font-size:14.5px;padding:10px 11px 0;line-height:1.3}
+  .sw .hx{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:3px 11px 11px;letter-spacing:.05em}
+  .sw.ask{border-style:dashed;display:flex;flex-direction:column;justify-content:center;align-items:center;
+          text-align:center;padding:16px;text-decoration:none;color:inherit;transition:border-color .18s ease}
+  .sw.ask:hover{border-color:var(--orange)}
+  .sw.ask b{font-family:var(--disp);font-size:15px}
+  .sw.ask span{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+  /* ตารางไม่เกิน 3 คอลัมน์ — รายละเอียดขนาดยุบเป็นบรรทัดรอง (doctrine ด่าน epoxycoating) */
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+  /* ---- กล่องคำนวณปริมาณ ---- */
+  .calc{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--wproof);
+        border-radius:13px;background:var(--panel);padding:17px 18px 18px}
+  .calc .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--wproof);text-transform:uppercase}
+  .calc h3{font-family:var(--disp);font-size:18px;font-weight:700;margin:7px 0 3px}
+  .calc .crow{margin-top:13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .calc label{font-size:14.5px;color:var(--muted)}
+  .calc input{width:118px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;
+              background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:15px}
+  .calc .out{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted);line-height:1.65}
+  .calc .out b{color:var(--ink)}
+  .calc .big{display:block;font-family:var(--disp);font-weight:700;font-size:19px;color:var(--orange);margin-bottom:4px}
+</style></head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/">← สินค้าทั้งหมด</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    <a class="lang-switch" href="/en/">EN</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>กันซึม <b>· สีทาบ้าน</b></div>
+      <div class="flagtag">เปิดฝาทาได้เลย · ไม่ต้องรองพื้น · ทาทับสีเดิมได้ · 10 เฉด</div>
+      <h1>DryGard <span class="o">สีทาบ้านกันซึม</span><br>สำหรับผนังที่ชื้นจนสีทั่วไปอยู่ไม่ได้</h1>
+      <p class="lede">สีทาบ้านทั่วไปเกิดมาเพื่อ<b>ความสวย</b> — ฟิล์มบาง แห้งไว ราคาถูก แล้วพอเจอผนังที่<b>ชื้นจริง</b> มันก็ทำในสิ่งที่มันทำได้ คือ<b>พอง ลอก แล้วร่อนออกมาเป็นแผ่น</b> ทาใหม่ปีหน้าก็ร่อนอีก / DryGard เป็น<b>สีทาบ้านที่กันซึมอยู่ในเนื้อสี</b> ฟิล์มยืดหยุ่นหนากว่าสีทาบ้านทั่วไป<b>หลายเท่า</b> — หนาพอจะ<b>ปิดรอยแตกระดับเส้นผม</b> เหนียวพอจะ<b>ยืดหดตามผนังโดยไม่แตก</b> และแน่นพอจะ<b>กันฝนสาดไม่ให้ซึมเข้าเนื้อผนัง</b> / <b>เปิดฝาทาได้เลย ไม่ต้องผสมอะไร ไม่ต้องลงรองพื้น</b> สีเดิมที่ยังแน่นอยู่ก็ทาทับได้ทันที</p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#price">ดูราคาและเฉดสี</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ส่งรูปผนังให้เราดูฟรี</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="/img/drygard-hero.webp" alt="DryGard สีทาบ้านกันซึม จาก LucernaPro" width="900" height="900">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">ทำไมมัน<em>ไม่ใช่สีทาบ้านธรรมดา</em></h2>
+    <p class="sec-sub">จุดต่างทั้งหมดของตัวนี้มาจากเรื่องเดียว — <b>ความหนาและความยืดหยุ่นของฟิล์ม</b> ที่เหลือคือผลที่ตามมาจากตรงนั้น</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>กันซึมอยู่ในเนื้อสี ไม่ใช่คำโฆษณาต่อท้าย</h4><p>ตัวเลขที่บอกทุกอย่าง: DryGard <b>1 กิโลกรัมทาได้ประมาณ 2.4 ตารางเมตร (ครบ 2 รอบ)</b> ในขณะที่สีทาบ้านทั่วไปได้ราว 8–10 ตารางเมตร / แปลว่าเนื้อสีที่ค้างอยู่บนผนังต่อตารางเมตร<b>หนากว่ากันหลายเท่า</b> — นั่นคือทั้งเหตุผลที่มันกันน้ำได้ และเหตุผลที่มันแพงกว่า เราบอกตรงๆ ทั้งสองด้าน</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>ยืดหยุ่น เลยไม่แตกตามผนัง</h4><p>ผนังบ้านขยับตลอดเวลา — ร้อนขยาย เย็นหด ฟิล์มสีที่แข็งกรอบจึงแตกตามในที่สุด / เนื้อ DryGard เป็นแบบ<b>ยืดหยุ่น (elastomeric)</b> ยืดหดตามผนังได้ และ<b>ปิดคลุมรอยแตกระดับเส้นผมไว้ได้</b> ไม่ให้น้ำหาทางเข้าตรงนั้น</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>เปิดฝาทาได้เลย — ไม่ผสม ไม่รองพื้น</h4><p>ไม่มีตัวเร่ง ไม่มีส่วน A ส่วน B ไม่ต้องเจือน้ำ <b>คนให้ทั่วถังแล้วทาได้ทันที</b> / และ<b>ไม่ต้องลงรองพื้นในงานปกติ</b> — ตัวมันเองเกาะผนังปูน ผนังฉาบ ผนังก่ออิฐ ไปจนถึงหลังคาเมทัลชีทได้ / <b>สีเดิมที่ยังแน่นดี ทาทับได้เลย</b> ไม่ต้องขูดออกทั้งบ้าน</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>กันเชื้อรา เช็ดคราบง่าย และสะท้อนความร้อนในตัว</h4><p>ผิวฟิล์มแน่นทำให้<b>คราบเกาะยากและเช็ดออกง่ายกว่าสีด้าน</b> พร้อม<b>สารกันเชื้อรา</b>ในสูตรสำหรับบ้านเมืองร้อนชื้น / ในเนื้อสียัง<b>ผสมสารสะท้อนความร้อน</b>อยู่ด้วย ช่วยลดความร้อนที่ผิวผนังได้ระดับหนึ่ง — แต่ถ้าเป้าหมายหลักของคุณคือ<b>ลดความร้อนโดยตรง</b> อ่านหัวข้อ STRAIGHT TALK ข้อ 06 ก่อน เราจะบอกตรงๆ ว่าควรใช้ตัวไหน</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" style="padding-top:34px;padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sec-h">เฉดสี <em>ที่มีให้เลือก</em></h2>
+    <p class="sec-sub">แจ้ง<b>เลขเฉด</b>ตอนสั่งได้เลย — จะทักมาขอดูตัวอย่างสีจริงก่อนตัดสินใจก็ได้เหมือนกัน</p>
+    <div class="swgrid">
+      <div class="sw"><span class="chip" style="background:#E1C9C6"></span><div class="nm">เฉด 01 · โรสเทา</div><div class="hx">#E1C9C6</div></div>
+      <div class="sw"><span class="chip" style="background:#D89D81"></span><div class="nm">เฉด 02 · ส้มอิฐอ่อน</div><div class="hx">#D89D81</div></div>
+      <div class="sw"><span class="chip" style="background:#E6C7A4"></span><div class="nm">เฉด 03 · เบจทราย</div><div class="hx">#E6C7A4</div></div>
+      <div class="sw"><span class="chip" style="background:#F6C094"></span><div class="nm">เฉด 04 · พีชอ่อน</div><div class="hx">#F6C094</div></div>
+      <div class="sw"><span class="chip" style="background:#E8DBB1"></span><div class="nm">เฉด 05 · ครีมทราย</div><div class="hx">#E8DBB1</div></div>
+      <div class="sw"><span class="chip" style="background:#EFE467"></span><div class="nm">เฉด 06 · เหลืองสด</div><div class="hx">#EFE467</div></div>
+      <div class="sw"><span class="chip" style="background:#F4E86E"></span><div class="nm">เฉด 07 · เหลืองมะนาว</div><div class="hx">#F4E86E</div></div>
+      <div class="sw"><span class="chip" style="background:#9DD6C5"></span><div class="nm">เฉด 08 · เขียวมิ้นต์</div><div class="hx">#9DD6C5</div></div>
+      <div class="sw"><span class="chip" style="background:#FDFAAE"></span><div class="nm">เฉด 09 · ครีมเหลืองอ่อน</div><div class="hx">#FDFAAE</div></div>
+      <div class="sw"><span class="chip" style="background:#7FDBC8"></span><div class="nm">เฉด 10 · เทอร์ควอยซ์</div><div class="hx">#7FDBC8</div></div>
+      <a class="sw ask" href="https://m.me/lucernapro"><b>ไม่เจอเฉดที่ใช่?</b><span>ทักมาถามได้ว่าเฉดที่คุณอยากได้ทำให้ได้ไหม<br>เราตอบตรงๆ ว่าได้หรือไม่ได้</span></a>
+    </div>
+    <div class="warn"><b>สีบนจอไม่ใช่สีจริง</b> — จอแต่ละเครื่องให้สีไม่เหมือนกัน และสีที่ทาบนผนังจริงยัง<b>เปลี่ยนไปตามแสงและพื้นผิว</b>อีก ช่องสีข้างบนใช้ดู<b>โทน</b>ให้ถูกเท่านั้น ห้ามใช้เทียบเฉดแบบเป๊ะๆ / <b>งานที่ซีเรียสเรื่องสี ทักมาขอตัวอย่างก่อนเสมอ</b></div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">ขนาดและ<em>ราคา</em></h2>
+    <div class="pricecard">
+      <div class="ph">DryGard สีทาบ้านกันซึม <small>ราคาต่อถัง · รวม VAT แล้ว</small></div>
+      <table>
+        <tr><th>ขนาด</th><th>ทาได้ประมาณ</th><th>ราคา</th></tr>
+        <tr><td class="sz">4.5 กก.<small>ถังเล็ก · งานซ่อมจุด ผนังห้องเดียว</small></td><td>≈ 11 ตร.ม.</td><td class="pr">1,730 ฿</td></tr>
+        <tr><td class="sz">18 กก.<small>ถังใหญ่ · ทาทั้งบ้าน คุ้มต่อกิโลกว่า</small></td><td>≈ 45 ตร.ม.</td><td class="pr">5,390 ฿</td></tr>
+      </table>
+    </div>
+    <p class="pricenote">ตัวเลข "ทาได้ประมาณ" คิดจากการ<b>ทาครบ 2 รอบตามที่แนะนำ</b> บนผนังฉาบเรียบสภาพปกติ — <b>ผนังฉาบหยาบ ผิวพรุน ผนังก่ออิฐโชว์แนว หรือหลังคาลอนลึก กินมากกว่านี้</b> ตัวเลขนี้มีไว้<b>ตั้งงบ ไม่ใช่สั่งให้พอดีเป๊ะ</b> / ค่าส่งแจ้งตอนสั่ง — <b>สั่งหลายอย่างในออเดอร์เดียว เราคิดค่าส่งเหมาให้ตามเหมาะสม ไม่บวกทุกชิ้น</b></p>
+
+    <div class="calc">
+      <div class="k">คำนวณคร่าวๆ</div>
+      <h3>ผนังคุณกี่ตารางเมตร?</h3>
+      <p style="font-size:14.5px;color:var(--muted)">กรอกพื้นที่ผนังที่จะทา แล้วเราคำนวณให้ว่าควรสั่งประมาณกี่ถัง (คิดครบ 2 รอบ + เผื่อเนื้อสีอีก 10%)</p>
+      <div class="crow">
+        <label for="dgArea">พื้นที่ผนัง</label>
+        <input id="dgArea" type="number" min="1" step="1" inputmode="numeric" placeholder="เช่น 60">
+        <span style="font-size:14.5px;color:var(--muted)">ตารางเมตร</span>
+      </div>
+      <div class="out" id="dgOut"><b>กรอกตัวเลขแล้วผลจะขึ้นตรงนี้</b> — ผลลัพธ์เป็นการประมาณเพื่อตั้งงบเท่านั้น หน้างานจริงยังขึ้นกับความหยาบของผนัง ถ้าอยากได้ตัวเลขที่แม่นกว่านี้ ส่งรูปผนังมาทางแชทเพจ เราประเมินให้ฟรี</div>
+    </div>
+
+    <div class="probox">
+      <div class="k">งานโครงการ / ผู้รับเหมา</div>
+      <h3>ทาทั้งโครงการ ราคาคุยกันได้</h3>
+      <p>บ้านจัดสรร อาคารพาณิชย์ โกดัง หรืองานที่ใช้เป็นร้อยกิโล — <b>ราคาบนตารางนี้ไม่ใช่ราคาสุดท้ายของคุณ</b> ทักมาบอกปริมาณกับเฉดที่ต้องใช้ เราทำใบเสนอราคาให้</p>
+      <div class="acts">
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ขอใบเสนอราคา</a>
+        <a class="btn btn-tel" href="tel:0620057933">📞 062-005-7933</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="story-body">
+      <h2 class="sec-h">STRAIGHT TALK — <em>สิ่งที่คนขายสีไม่ค่อยบอก</em></h2>
+      <p class="sec-sub">ตัวนี้เก่งจริงในสนามของมัน แต่มันมีสนามที่<b>ไม่ใช่ของมัน</b> อยู่หลายอัน อ่านให้จบก่อนกดสั่ง จะได้ไม่เสียเงินฟรี</p>
+      <div class="beats">
+        <div class="beat"><div class="k">01 · มันคือสีทาบ้าน ไม่ใช่สีทาพื้น</div><p>DryGard เกิดมาเพื่อ<b>ผนังและหลังคา</b> — พื้นผิวที่ไม่มีใครเดินย่ำ / ฟิล์มยืดหยุ่นแบบนี้<b>ไม่ทนการเสียดสี</b> เอาไปทาพื้นที่คนเดินหรือรถวิ่ง เดี๋ยวก็ถลอกเป็นทางแล้วดำเก็บคราบ / <b>งานพื้นคือคนละสินค้ากันเลย</b> ดู <a href="/epoxycoating">สีทาพื้น Epoxy-PU</a></p></div>
+        <div class="beat"><div class="k">02 · มันกินเนื้อ และมันแพงกว่า</div><p>อย่างที่บอกไปข้างบน <b>1 กก. ได้ราว 2.4 ตร.ม. ครบ 2 รอบ</b> — ประมาณหนึ่งในสี่ของสีทาบ้านทั่วไป / ถ้าคุณกำลังเทียบราคาต่อถังกับสีในร้านวัสดุ<b>คุณกำลังเทียบผิดหน่วย</b> ต้องเทียบเป็น<b>ราคาต่อตารางเมตร ต่อจำนวนปีที่ไม่ต้องกลับมาทาใหม่</b> / ผนังที่ไม่ได้มีปัญหาความชื้นอะไรเลย <b>สีทาบ้านธรรมดาก็พอ</b> เราบอกตามตรง</p></div>
+        <div class="beat"><div class="k">03 · ปิดได้แค่รอยแตกเส้นผม</div><p>รอยแตกลายงาบางๆ ที่<b>เอาเล็บสะกิดไม่เข้า</b> — อันนั้นฟิล์มปิดคลุมให้ได้ / แต่<b>รอยร้าวที่เห็นเป็นเส้นชัดหรือแยงเล็บเข้าไปได้ ต้องซ่อมให้เต็มก่อนเสมอ</b> ทาสีทับรอยร้าวเปล่าๆ = รอยเดิมโผล่กลับมาภายในไม่กี่เดือน / รอยร้าวผนังใช้ <a href="/fillerace">FillerAce</a> และรอย hairline <b>ต้องเจียรกรีดร่องให้เปิดก่อน</b> ป้ายทับผิวเฉยๆ ไม่อยู่</p></div>
+        <div class="beat"><div class="k">04 · สีเดิมที่กำลังจะร่อน ทาทับไปก็ร่อนตาม</div><p>DryGard เกาะแน่นกว่าสีเดิมของคุณ — แต่มัน<b>เกาะได้แค่กับสิ่งที่มันไปเกาะ</b> / ถ้าข้างล่างเป็นสีเก่าที่กำลังจะหลุดอยู่แล้ว วันหนึ่งมันก็หลุดออกมาพร้อมกันทั้งแผ่น / <b>ตรงไหนที่เคาะแล้วกลวง ขูดแล้วออก ต้องขัดออกให้หมดก่อน</b> ตรงไหนที่ยังแน่นดี ทาทับได้เลย</p></div>
+        <div class="beat"><div class="k">05 · ถ้าน้ำดันมาจากด้านหลังผนัง ทาด้านนอกไม่จบ</div><p>ผนังติดดิน ผนังห้องใต้ดิน ผนังที่<b>ชื้นขึ้นมาจากพื้น</b> หรือน้ำในดินดันเข้ามาจากอีกฝั่ง — นั่นคือ<b>แรงดันน้ำจากด้านตรงข้าม (negative side)</b> ซึ่งจะดันสีทุกยี่ห้อให้พองออกจากผนังในที่สุด ไม่เว้นตัวนี้ / งานแบบนั้นต้องแก้ที่<b>เนื้อผนัง</b>ก่อนด้วย <a href="/deepseal">DeepSeal</a> แล้วค่อยทาสีทับ</p></div>
+        <div class="beat"><div class="k">06 · สะท้อนความร้อนได้ แต่ไม่ใช่ตัวชูโรงเรื่องนี้</div><p>ในเนื้อสีมีสารสะท้อนความร้อนอยู่จริง และช่วยได้ระดับหนึ่ง — แต่<b>เฉดสีที่คุณเลือกมีผลมหาศาลกับเรื่องนี้</b> ยิ่งเฉดเข้ม ค่าสะท้อนยิ่งหายไป / ถ้าโจทย์หลักของคุณคือ<b>ลดความร้อนใต้หลังคาให้ได้จริงจัง</b> ตัวที่ทำงานนั้นโดยตรงคือ <a href="/heatshield">HeatShield</a> (สีขาว มีผลทดสอบค่าสะท้อนจากสถาบันจริง) — DryGard คือ<b>สีทาบ้านที่กันซึม แล้วได้เรื่องความร้อนแถมมา</b> ไม่ใช่กลับกัน</p></div>
+      </div>
+      <div class="note"><b>อยากกันซึมแต่ไม่อยากเปลี่ยนสีผนัง?</b> ถ้าผนังคุณสีสวยอยู่แล้วและแค่อยากได้ชั้นกันน้ำคลุมทับ ตัวที่ตอบโจทย์คือ <a href="/aquashell">AquaShell</a> — ใสไม่มีสี ทาทับสีเดิมได้ ไม่เปลี่ยนหน้าตาบ้าน</div>
+    </div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">วิธีใช้งาน</h2>
+    <p class="sec-sub">ตัวเลขจริงครบทุกขั้นอยู่ตรงนี้ ไม่ต้องไปเปิดคู่มือที่ไหนอีก</p>
+    <div class="flow">
+      <div class="fstep"><h4>เช็คผนังก่อน — แห้ง สะอาด แน่น</h4><p>ผนังต้อง<b>แห้งสนิท ไม่มีฝุ่น ไม่มีคราบเกลือขาว ไม่มีตะไคร่</b> / ผนังใหม่ที่เพิ่งฉาบเสร็จ<b>ต้องปล่อยให้ปูนบ่มตัวก่อน</b> อย่ารีบทาทับปูนที่ยังชื้นอยู่ / ผนังเก่าที่มีสีเดิม: <b>เคาะและขูดหาจุดที่กลวงหรือร่อน ขัดออกให้หมด</b> ส่วนที่ยังแน่นดีปล่อยไว้ ทาทับได้</p></div>
+      <div class="fstep"><h4>ซ่อมรอยร้าวให้เต็มก่อน</h4><p>รอยร้าวที่<b>เห็นเป็นเส้นชัดหรือแยงเล็บเข้าได้</b> ต้องซ่อมก่อนทาสีเสมอ — ใช้ <a href="/fillerace">FillerAce</a> / <b>รอย hairline ต้องใช้ใบเจียรกรีดร่องให้เปิดก่อนแล้วค่อยอุด</b> ป้ายทับบนผิวเฉยๆ เดี๋ยวก็หลุด / รอยต่อยากๆ อย่างแผ่นสมาร์ทบอร์ดหรือผิวลื่นใช้ <a href="/deepstick">DeepStick</a></p></div>
+      <div class="fstep"><h4>ผนังที่ชื้นหนักตลอดเวลา — ลงรองพื้นก่อน</h4><p>งานปกติ<b>ไม่ต้องรองพื้น</b> ทา DryGard ลงไปได้เลย / แต่ถ้าเป็นผนังที่<b>โดนความชื้นหนักแทบตลอดเวลา</b> เช่น ด้านที่ฝนสาดประจำ ผนังใกล้พื้นดิน หรือมุมที่ไม่เคยแห้งเลย — ให้ลง <a href="/marineguard">Marine Guard</a> เป็นรองพื้นก่อนหนึ่งชั้น แล้วค่อยทา DryGard ทับ จะจบปัญหาได้สมบูรณ์กว่ามาก</p></div>
+      <div class="fstep"><h4>เปิดฝา คนให้ทั่วถัง — แล้วทาได้เลย</h4><p><b>ไม่ต้องผสมอะไรทั้งนั้น ไม่มีส่วน A ส่วน B ไม่ต้องเจือน้ำ</b> / คนให้เนื้อสีเข้ากันทั่วถังจริงๆ ก่อนใช้ (เนื้อหนักจะนอนก้นถังตอนตั้งทิ้งไว้) / <b>ห้ามผสมน้ำเพื่อยืดปริมาณเด็ดขาด</b> — เจือน้ำ = ฟิล์มบางลง = ทิ้งความสามารถในการกันซึมที่คุณจ่ายเงินซื้อมาไปทั้งดุ้น / ทาด้วย<b>แปรงหรือลูกกลิ้ง</b>ได้ทั้งคู่</p></div>
+      <div class="fstep"><h4>รอบที่ 1 — ทาให้เต็มเนื้อ</h4><p>อย่าทาบางแบบสีทาบ้านทั่วไป — <b>ความหนาคือตัวสินค้า</b> ทาให้เนื้อสีเต็มและสม่ำเสมอ / ทาไล่ไปทีละแปลง อย่าปล่อยให้ขอบสีแห้งคาไว้แล้วค่อยกลับมาต่อ จะเห็นรอยต่อ</p></div>
+      <div class="fstep"><h4>เว้น 2 ชั่วโมง แล้วทารอบที่ 2</h4><p><b>เว้นระหว่างรอบ 2 ชั่วโมง</b> / รอบสองให้<b>ทาตัดขวางทิศทางของรอบแรก</b> (รอบแรกกลิ้งขึ้น-ลง รอบสองกลิ้งซ้าย-ขวา) จะปิดจุดบางที่ตามองไม่เห็นได้หมด / <b>ต้องทาให้ครบ 2 รอบ</b> รอบเดียวไม่ใช่ระบบกันซึม เป็นแค่สีทาบ้านแพงๆ</p></div>
+      <div class="fstep"><h4>หลังรอบสุดท้าย ทิ้งไว้ 8–12 ชั่วโมง</h4><p>ครบ <b>8–12 ชั่วโมง</b> ถือว่า<b>พร้อมใช้งาน</b> / ช่วงนี้อย่าให้โดนน้ำและอย่าเอาอะไรไปพิงหรือขูด / <b>ห้ามทาถ้าฝนกำลังจะมา</b> — ฟิล์มที่ยังไม่เซ็ตตัวเจอฝนสาดคือเสียของทั้งรอบ</p></div>
+      <div class="fstep"><h4>ล้างเครื่องมือทันทีตอนสียังไม่แห้ง</h4><p>ล้าง<b>แปรง ลูกกลิ้ง ถาดสี ด้วยน้ำทันทีขณะที่สียังเปียก</b> / ปล่อยให้แห้งคาเครื่องมือเมื่อไหร่ ฟิล์มยืดหยุ่นแบบนี้<b>ล้างออกยากมาก</b> — อย่าลองดี</p></div>
+    </div>
+    <div class="warn"><b>สรุปเวลาแบบสั้นๆ:</b> ทา 2 รอบ · <b>เว้นต่อรอบ 2 ชม.</b> · หลังรอบสุดท้าย <b>8–12 ชม. พร้อมใช้งาน</b> · ไม่ต้องผสม · ไม่ต้องรองพื้น (ยกเว้นผนังชื้นหนักตลอดเวลา)</div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">งานจริง <em>ที่ทาด้วย DryGard</em></h2>
+    <p class="sec-sub">ตั้งแต่ผนังบ้านสร้างใหม่ ผนังรั้ว ชายคา ไปจนถึงบ้านไม้</p>
+    <div class="showgrid">
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g02.webp" alt="ผนังภายในบ้านสร้างใหม่ทาด้วย DryGard" loading="lazy" width="720" height="720"></div><figcaption>ผนังห้องในบ้านสร้างใหม่<small>เนื้อสีลงเต็มผืนเรียบเสมอกันตั้งแต่มุมจนถึงชนฝ้า ไม่มีรอยต่อของแปลงที่ทาคนละช่วงเวลา — เป็นผลจากการไล่ทาทีละแปลงโดยไม่ปล่อยให้ขอบสีแห้งคา</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g04.webp" alt="ผนังสูงชนฝ้าทาด้วย DryGard" loading="lazy" width="720" height="720"></div><figcaption>ผนังสูงเต็มความสูงห้อง<small>ผนังสูงแบบนี้คือจุดที่ต้องวางแผนทิศทางการกลิ้งก่อนเริ่ม เพราะกลับมาต่อทีหลังตรงกลางผืนแล้วจะเห็นรอย</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g03.webp" alt="ผนังภายในและช่องประตูทาด้วย DryGard" loading="lazy" width="720" height="720"></div><figcaption>งานผนังต่อเนื่องหลายผืน<small>ช่องประตูและมุมเสาคือจุดที่ลูกกลิ้งเข้าไม่ถึง ต้องเก็บด้วยแปรงก่อนแล้วค่อยกลิ้งไล่มาชนขณะสียังเปียก</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g05.webp" alt="ผนังบ้านสร้างใหม่ที่เปิดโล่งสู่ภายนอก" loading="lazy" width="720" height="720"></div><figcaption>ผนังด้านที่เปิดรับฝนโดยตรง<small>ด้านที่ยังไม่มีวงกบและเปิดโล่งแบบนี้คือด้านที่ฝนสาดถึงตัวผนังตรงๆ — ด้านแบบนี้คือเหตุผลที่ต้องใช้สีที่กันซึม ไม่ใช่สีทาบ้านทั่วไป</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g07.webp" alt="ผนังภายนอกสีขาวและขอบวงกบหลังทา DryGard" loading="lazy" width="720" height="720"></div><figcaption>ผนังภายนอกและการเก็บขอบวงกบ<small>ดูที่แนวชนระหว่างผนังกับกรอบอะลูมิเนียม — แนวคมและไม่มีสีเลอะกรอบ มาจากการเก็บขอบด้วยแปรงเล็กก่อนกลิ้งผืนใหญ่</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g01.webp" alt="ช่างทาชายคาและขอบหน้าต่างด้วย DryGard" loading="lazy" width="720" height="720"></div><figcaption>ชายคาและขอบหน้าต่างชั้นสอง<small>ใต้ชายคาเป็นจุดที่คนมักข้าม ทั้งที่เป็นจุดที่น้ำฝนไหลย้อนเข้าไปเกาะและทำให้สีพองจากด้านในบ่อยที่สุด</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/drygard-g06.webp" alt="บ้านไม้สองชั้นทาสีเขียวอ่อนด้วย DryGard" loading="lazy" width="720" height="720"></div><figcaption>บ้านไม้สองชั้น<small>งานผนังไม้ตีซ้อนเกล็ดแบบนี้กินเนื้อสีมากกว่าผนังปูนเรียบพอสมควร เพราะต้องเก็บทั้งหน้าแผ่นและใต้แนวเกล็ดทุกแถว ตั้งงบเผื่อไว้ด้วย</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" style="padding-top:10px">
+  <div class="wrap">
+    <h2 class="sec-h">สรุปสั้นๆ <em>ว่ามันดียังไง</em></h2>
+    <p class="sec-sub">(ภาพประกอบชุดอธิบายสินค้า — ตัวหนังสืออยู่ในภาพ)</p>
+    <figure class="wideshot">
+      <img src="/img/drygard-w01.webp" alt="DryGard สีกันน้ำไม่ลอกไม่พอง บนผนังรั้วบ้าน" loading="lazy" width="1100" height="825">
+      <figcaption>สีกันน้ำ ไม่ลอก ไม่พอง<small>(ภาพประกอบ)</small></figcaption>
+    </figure>
+    <div class="xgrid">
+      <figure class="xcard"><img src="/img/drygard-i01.webp" alt="ไม่ใช่แค่สีทาบ้าน แต่ยังช่วยป้องกันปัญหาน้ำซึมเข้าบ้าน" loading="lazy" width="720" height="720"></figure>
+      <figure class="xcard"><img src="/img/drygard-i02.webp" alt="กันน้ำไปจนถึงสะท้อนความร้อน ใช้ได้โดยไม่ต้องมีรองพื้น" loading="lazy" width="720" height="720"></figure>
+      <figure class="xcard"><img src="/img/drygard-i03.webp" alt="ทำความสะอาดคราบได้ง่าย กันเชื้อรา หนากว่าสีทั่วไปมาก" loading="lazy" width="720" height="720"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">ตัวที่มักใช้คู่กับ <em>DryGard</em></h2>
+    <p class="sec-sub">DryGard จบเรื่อง<b>ผิวหน้าของผนัง</b> — ส่วนงานที่อยู่ใต้ผิวนั้นลงไปคือคนละตัว</p>
+    <div class="altgrid">
+      <a class="altcard" href="/fillerace">
+        <div class="k">มีรอยร้าวต้องซ่อมก่อนทา</div>
+        <h4>FillerAce</h4>
+        <p>โป๊วซ่อมรอยแตกร้าวผนังที่<b>ยืดหยุ่นพอตัวและเกาะแน่น</b> — รอยที่เห็นเป็นเส้นชัดต้องอุดให้เต็มก่อนเสมอ และรอย hairline <b>ต้องเจียรกรีดร่องเปิดก่อน</b>แล้วค่อยอุด ป้ายทับผิวเฉยๆ ไม่อยู่</p>
+        <div class="go">ดูหน้า FillerAce →</div>
+      </a>
+      <a class="altcard" href="/marineguard">
+        <div class="k">ผนังที่ชื้นหนักแทบตลอดเวลา</div>
+        <h4>Marine Guard</h4>
+        <p>รองพื้นยึดเกาะที่<b>ลงบนปูนหมาดได้</b> สำหรับด้านที่ฝนสาดประจำหรือมุมที่ไม่เคยแห้งเลย — ลงหนึ่งชั้นก่อนทา DryGard ทับ จะจบปัญหาได้สมบูรณ์กว่าทาสีลงไปตรงๆ</p>
+        <div class="go">ดูหน้า Marine Guard →</div>
+      </a>
+      <a class="altcard" href="/deepseal">
+        <div class="k">น้ำดันมาจากด้านหลังผนัง</div>
+        <h4>DeepSeal</h4>
+        <p>ผนังติดดิน ผนังที่ชื้นขึ้นมาจากพื้น หรือน้ำในดินดันเข้ามาจากอีกฝั่ง — งานแบบนี้<b>สีทาด้านนอกแก้ไม่จบ</b> ต้องซึมเข้าไปปิดในเนื้อปูนก่อน แล้วค่อยทาสีทับ</p>
+        <div class="go">ดูหน้า DeepSeal →</div>
+      </a>
+      <a class="altcard" href="/heatshield">
+        <div class="k">โจทย์หลักคือลดความร้อน ไม่ใช่สีสวย</div>
+        <h4>HeatShield</h4>
+        <p>ถ้าเป้าหมายคือ<b>ลดความร้อนใต้หลังคาให้ได้จริงจัง</b> ตัวที่ทำงานนั้นโดยตรงคือ HeatShield — สีขาวสูตรน้ำที่มี<b>ผลทดสอบค่าสะท้อนจากสถาบันจริง</b> กันซึมได้ในตัวด้วย</p>
+        <div class="go">ดูหน้า HeatShield →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">สั่งซื้อ <em>DryGard</em></h2>
+    <div class="ordercard">
+      <h3>เลือกช่องทางที่สะดวก — ทีมงานตอบไว</h3>
+      <div class="sub">ส่งรูปผนังกับขนาดพื้นที่มาได้เลย เราประเมินให้ฟรีว่าควรสั่งกี่กิโล ต้องซ่อมรอยร้าวก่อนแค่ไหน และผนังของคุณควรลงรองพื้นก่อนหรือเปล่า — ถ้าจะสั่งเฉดสีเจาะจง แจ้งเลขเฉดมาได้เลย</div>
+      <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/product/392415703/19334147291/" target="_blank" rel="noopener">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/products/i3785087798.html" target="_blank" rel="noopener">🛍️ Lazada</a>
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>นี่แค่ <em>1 ใน 50+</em> — LucernaPro ไม่ได้มีแค่ตัวนี้</h3>
+      <p class="xsub">เราทำน้ำยาเคลือบผิวและกันซึมครบทั้งระบบ ตั้งแต่พื้น ผนัง หลังคา ยันรถของคุณ</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/#flooring">FLOORING</a><a class="cchip" href="/#wall">WALL</a><a class="cchip" href="/#waterproof">WATERPROOF</a><a class="cchip" href="/#coating">PROTECTION</a><a class="cchip" href="/#chem">เคมีภัณฑ์</a><a class="cchip" href="/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/#catalog">ดูสินค้าทั้งหมด →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
+        <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">แชทเพจ</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">โทร</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">เวลา</span><span>08.00–19.00 จันทร์–เสาร์</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
+    <div>© 2026 บริษัท ลูเซอน่า จำกัด</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
+  <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+
+/* ---- คำนวณปริมาณ DryGard ----
+   coverage 2.44 ตร.ม./กก. (ครบ 2 รอบ) มาจากตารางราคา 4.5 กก. = 11 ตร.ม.
+   แก้ค่าในอนาคต = แก้ตัวเลข RATE บรรทัดเดียว */
+(function(){
+  var RATE = 2.44, WASTE = 1.10;
+  var SIZES = [{kg:18, price:5390, label:'18 กก.'},{kg:4.5, price:1730, label:'4.5 กก.'}];
+  var area = document.getElementById('dgArea'), out = document.getElementById('dgOut');
+  if(!area || !out) return;
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  function calc(){
+    var a = parseFloat(area.value);
+    if(!(a > 0)){
+      out.innerHTML = '<b>กรอกตัวเลขแล้วผลจะขึ้นตรงนี้</b> \u2014 ผลลัพธ์เป็นการประมาณเพื่อตั้งงบเท่านั้น หน้างานจริงยังขึ้นกับความหยาบของผนัง ถ้าอยากได้ตัวเลขที่แม่นกว่านี้ ส่งรูปผนังมาทางแชทเพจ เราประเมินให้ฟรี';
+      return;
+    }
+    if(a > 100000){ a = 100000; area.value = a; }
+    var needKg = a / RATE * WASTE;
+    var left = needKg, parts = [], total = 0;
+    SIZES.forEach(function(s, i){
+      var n = (i === SIZES.length - 1) ? Math.ceil(left / s.kg) : Math.floor(left / s.kg);
+      if(n > 0){ parts.push(n + ' \u00D7 ' + s.label); total += n * s.price; left -= n * s.kg; }
+    });
+    if(!parts.length){ parts.push('1 \u00D7 4.5 กก.'); total = 1730; }
+    out.innerHTML = '<span class="big">' + parts.join(' + ') + ' \u2014 ประมาณ ' + fmt(total) + ' \u0E3F</span>' +
+      'พื้นที่ <b>' + fmt(a) + ' ตร.ม.</b> ทาครบ 2 รอบต้องใช้เนื้อสีราว <b>' + needKg.toFixed(1) + ' กก.</b> (เผื่อเนื้อสีแล้ว 10%) ' +
+      '\u2014 ตัวเลขนี้<b>ยังไม่รวมค่าส่ง</b> และคิดจากผนังฉาบเรียบสภาพปกติ ผนังหยาบหรือผิวพรุนจะกินมากกว่านี้ ' +
+      'อยากได้ตัวเลขที่แม่นกว่านี้ ส่งรูปผนังมาทางแชทเพจ เราประเมินให้ฟรี';
+  }
+  area.addEventListener('input', calc);
+})();
+</script>
+</body>
+</html>
