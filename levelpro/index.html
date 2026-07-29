@@ -133,7 +133,8 @@
   .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
   @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
   .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
-  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px;
+                white-space:normal;max-width:26ch;line-height:1.55}  /* normal = กัน nowrap ของ .bignum ไหลลงมาแล้วดันคอลัมน์บาน */
   .story-body{max-width:620px}
   .story-body p{color:var(--muted);font-size:15.5px}
   .story-body p + p{margin-top:14px}
@@ -361,7 +362,7 @@
     <div class="rdtag">STRAIGHT TALK — อ่านก่อนจ่ายเงิน</div>
     <h2>ตัวนี้เกิดมาเพื่อ<b>หลุมกับบ่อ</b><br>ไม่ได้เกิดมาเพื่อ<b>ปูทั้งพื้น</b></h2>
     <div class="story-grid">
-      <div class="bignum">0.15<small>ตารางเมตร คือพื้นที่ที่น้ำยา 1 กก. เติมได้ ถ้าหลุมลึก 10 มม. — ของแบบนี้กินตามปริมาตร ไม่ใช่ตามพื้นที่</small></div>
+      <div class="bignum">0.15<small>ตร.ม. คือพื้นที่ที่น้ำยา 1 กก. เติมได้ ถ้าหลุมลึก 10 มม.</small></div>
       <div class="story-body">
         <p>เราขายตัวนี้อยู่ และเราเชื่อว่ามันดี — แต่เราไม่อยากให้คุณสั่งมาแล้วมาโกรธทีหลังว่าทำไมของหมดเร็วจัง <b>อ่านห้าข้อนี้ให้จบ แล้วคุณจะรู้เองว่างานของคุณควรใช้ตัวนี้ หรือควรใช้ตัวอื่นของเรา</b></p>
         <div class="beats">
@@ -495,7 +496,7 @@
     </div>
 
     <h3 class="sec-h" style="margin-top:48px">หน้างาน<em>จริง</em></h3>
-    <p class="sec-sub">งานปรับระดับและเก็บผิวพื้นดาดฟ้าคอนกรีตของทีมงานเรา</p>
+    <p class="sec-sub">งานปรับระดับและเก็บผิวพื้นดาดฟ้าคอนกรีตของลูกค้า</p>
     <div class="ggrid">
       <figure class="gph">
         <div class="im"><img src="/img/levelpro-g01.webp" alt="พื้นดาดฟ้าคอนกรีตที่ถูกปาดเนื้อซ่อมสีน้ำตาลเป็นบริเวณกว้าง มีช่างยืนอยู่ข้างๆ" width="720" height="720" loading="lazy"></div>
