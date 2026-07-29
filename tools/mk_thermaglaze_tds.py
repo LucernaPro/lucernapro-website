@@ -48,7 +48,7 @@ def header(page):
     c.drawRightString(R, base(48.0, 13), 'ThermaGlaze')
     c.setFont('Helvetica', 8.0)
     c.drawString(L, base(58.0, 8.0),
-                 'TECHNICAL DATA SHEET  \u00b7  Issue 1.0  \u00b7  July 2026  \u00b7  Page %d of %d' % (page, TOTAL))
+                 'TECHNICAL DATA SHEET  \u00b7  Issue 1.1  \u00b7  July 2026  \u00b7  Page %d of %d' % (page, TOTAL))
     c.setFont('Helvetica', 8.5)
     c.drawRightString(R, base(58.1, 8.5), 'Single-Component Thermoplastic Floor Coating')
     c.setStrokeColorRGB(*ORANGE); c.setLineWidth(1.6)
@@ -176,7 +176,9 @@ para('Coverage and drying figures are typical guidance only, not a specification
      'sound concrete substrate at normal film build; rough, porous and previously untreated floors consume '
      'substantially more on the first coat. Drying and overcoating intervals shorten in warm, dry, well-ventilated '
      'conditions and lengthen markedly in cool or humid conditions and in enclosed areas with poor air movement. '
-     'Verify by touch before overcoating rather than by the clock.')
+     'Verify by touch before overcoating rather than by the clock. Consumption also rises sharply where the first '
+     'coat is applied too heavily, or re-worked to build colour, on an absorbent substrate \u2014 see '
+     'Application Notes.')
 
 newpage()
 section('THERMOPLASTIC FILM \u2014 WHAT THIS MEANS IN SERVICE')
@@ -201,8 +203,12 @@ bullets([
     'Do not use in enclosed spaces that cannot be ventilated.',
     'Stir thoroughly from the bottom of the pack until colour and consistency are uniform. Do not add thinner to '
     'extend coverage \u2014 a thinner film discards the durability the product was bought for.',
-    'Apply the first coat thin and even. On absorbent concrete the first coat will appear to disappear into the '
-    'floor; this is normal and expected, and the finished appearance is developed by the second coat.',
+    'On absorbent substrates apply the first coat as thinly as possible. The function of the first coat is to '
+    'seal the surface against absorption, not to develop colour or appearance.',
+    'Do not re-work the same area to build full colour on the first coat. On an absorbent floor the first coat '
+    'will look thin and incomplete, which is normal and expected; continuing to apply material to the same area '
+    'simply raises consumption sharply for no gain in the finished result. Full appearance is developed by the '
+    'second coat, once the surface has been sealed.',
     'Plan the working direction and divide the area into bays before starting, so that the applicator is never '
     'required to walk back across wet coating.',
     'Do not apply to damp substrates, to floors subject to rising moisture, or in the open where rain is expected '
