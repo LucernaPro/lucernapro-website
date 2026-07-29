@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
 <title>Polyaspartic Adhesive — Dual-Cartridge Glue That Locks In A Minute | LucernaPro</title>
-<meta name="description" content="Polyaspartic Adhesive is a two-part dual-cartridge glue with two set speeds: the red cartridge locks in 1 minute, the blue gives you 3 minutes of working time. Full cure in 4 hours. A pure 100% formula with zero filler, so it does not shrink or sink into the joint. Very low odour for occupied interiors, and it holds up outdoors. 50 ml cartridge, 230 THB, flat 40 THB shipping on any quantity.">
+<meta name="description" content="Polyaspartic Adhesive is a two-part dual-cartridge glue with two set speeds: the red cartridge locks in 1 minute, the blue gives you 3 minutes of working time. Full cure in 4 hours. Made in two versions: mixed 1:1 it locks in one minute, mixed 2:1 you get three (we recommend the three-minute one). Mix small batches — no need to use the whole cartridge. Very low odour for occupied interiors, and it holds up outdoors. 50 ml cartridge, 230 THB, flat 40 THB shipping on any quantity.">
 <meta property="og:title" content="Polyaspartic Adhesive — The Dual-Cartridge Glue That Locks In A Minute">
 <meta property="og:description" content="Stop standing there holding the piece while the glue dries. Pick your window — 1 minute or 3 — then let go. Full cure in 4 hours. Rated for outdoor use.">
 <meta property="og:type" content="product">
@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/polyasparticadhesive">
 <link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/polyasparticadhesive">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Polyaspartic Adhesive Dual-Cartridge","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Two-part adhesive in a sealed dual cartridge, available in two set speeds. The red cartridge gives one minute of working time, the blue gives three. Full cure in four hours. A pure formula with no filler, so it does not shrink or sink along the joint. Very low odour and suitable for exterior use thanks to Polyaspartic chemistry.","image":"https://www.lucernapro.com/img/polyasparticadhesive.webp","url":"https://www.lucernapro.com/en/polyasparticadhesive","offers":{"@type":"Offer","priceCurrency":"THB","price":"230","availability":"https://schema.org/InStock"}}
+{"@context":"https://schema.org","@type":"Product","name":"Polyaspartic Adhesive Dual-Cartridge","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Two-part adhesive in a sealed dual cartridge, available in two set speeds. The red cartridge gives one minute of working time, the blue gives three. Full cure in four hours. Mix small batches as needed rather than the whole cartridge at once. Very low odour and suitable for exterior use thanks to Polyaspartic chemistry.","image":"https://www.lucernapro.com/img/polyasparticadhesive.webp","url":"https://www.lucernapro.com/en/polyasparticadhesive","offers":{"@type":"Offer","priceCurrency":"THB","price":"230","availability":"https://schema.org/InStock"}}
 </script>
 <link rel="icon" type="image/png" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +34,8 @@
     --orange-hi:#ED6A2F;
     --bar-bg:rgba(247,247,244,.92);
     --chem:#7FBF8E;
-    --tube-red:#C8462F;
-    --tube-blue:#2F6FC8; /* สีหมวดเคมีภัณฑ์ ตาม SPEC */
+    --v-fast:#C8462F;
+    --v-safe:#2F6FC8; /* สีหมวดเคมีภัณฑ์ ตาม SPEC */
     --warn-line:#C05A4C;
     --warn-ink:#A8433A;
     --radius:12px;
@@ -55,8 +55,8 @@
     --orange-hi:#FF8A4C;
     --bar-bg:rgba(11,11,13,.9);
     --warn-line:#D1766B;
-    --tube-red:#E8705A;
-    --tube-blue:#6A9CE8;
+    --v-fast:#E8705A;
+    --v-safe:#6A9CE8;
     --warn-ink:#E39A91;
     color-scheme:dark;
   }
@@ -284,8 +284,8 @@
   .tubes{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
   @media(min-width:700px){.tubes{grid-template-columns:repeat(2,1fr)}}
   .tube{border:1px solid var(--line);border-left:3px solid var(--tc);border-radius:12px;background:var(--panel);padding:18px}
-  .tube-r{--tc:var(--tube-red)}
-  .tube-b{--tc:var(--tube-blue)}
+  .v-fast{--tc:var(--v-fast)}
+  .v-safe{--tc:var(--v-safe)}
   .tube .cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tc);display:flex;align-items:center;gap:9px}
   .tube .cap::before{content:"";width:11px;height:11px;border-radius:3px;background:var(--tc);flex:none}
   .tube h4{font-family:var(--disp);font-size:19px;margin:8px 0 2px}
@@ -314,7 +314,7 @@
       <div class="crumb"><span class="dot"></span>General Chemical <b>· Adhesives</b></div>
       <div class="flagtag">⏱ Press it on and let go — no propping, no taping, no waiting</div>
       <h1>Polyaspartic <span class="o">Adhesive</span><br>Dual-cartridge glue that sets in minutes</h1>
-      <p class="lede">The problem with vertical work — wall tile, trim, anything that has to stay put while it cures — was never that the glue wasn't strong enough. It was <b>the time you spend standing there holding it</b>. This one deletes that part of the job. <b>Choose your own window: 1 minute or 3</b>, then let go. <b>Full cure in 4 hours.</b> A pure formula with <b>no filler</b>, so nothing shrinks or sinks along the joint — and it's <b>rated to go outdoors</b>.</p>
+      <p class="lede">The problem with vertical work — wall tile, trim, anything that has to stay put while it cures — was never that the glue wasn't strong enough. It was <b>the time you spend standing there holding it</b>. This one deletes that part of the job. <b>Choose your own window: 1 minute or 3</b>, then let go. <b>Full cure in 4 hours.</b> <b>Mix only what you need</b> — no obligation to use the whole cartridge at once — and it's <b>rated to go outdoors</b>.</p>
       <div class="hero-cta">
         <a class="btn btn-orange" href="#order">Order / see prices</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Ask before you buy</a>
@@ -329,32 +329,32 @@
 <section class="sellpts">
   <div class="wrap">
     <h2 class="sec-h">Why <em>Polyaspartic</em></h2>
-    <p class="sec-sub">There is no shortage of fast-setting glue on the market. The catch is that most of it buys speed with something else — <b>a brittle glue line, shrinkage along the joint, a smell that rules out working in a closed room, and a finish that goes chalky the moment it sees sunlight.</b> This chemistry was picked so you don't pay any of those four.</p>
+    <p class="sec-sub">There is no shortage of fast-setting glue on the market. The catch is that most of it buys speed with something else — <b>a smell that rules out working in a closed room, a cartridge you have to race through once it's open, and a finish that goes chalky the moment it sees sunlight.</b> This chemistry was picked so you don't pay any of those.</p>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>Fast, but you choose how fast</h4><p>You're not stuck with one speed and told to live with it — <b>the red cartridge locks in 1 minute, the blue gives you 3</b>. Single spot, in and out: go red. Several spots in one round, or a piece that has to be lined up straight: go blue. <b>Pick wrong and you throw away everything you just mixed</b>, so this choice matters more than it looks.</p></div></div>
-      <div class="pt"><span class="ic">02</span><div><h4>100% pure, zero filler</h4><p>Cheap adhesives are bulked out with <b>filler powder</b> — it adds volume and cuts cost, and it makes the glue <b>shrink as it dries</b>. The joint dips into a visible groove, then cracks. This one has the filler stripped out completely: <b>what you mix is what stays there. No shrinking, no sinking along the line.</b></p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>Fast, but you choose how fast</h4><p>We make it in <b>two versions</b> so you can match the job — a <b>1-minute</b> version for single spots where the position is already certain, and a <b>3-minute</b> version for work that needs lining up. <b>We recommend the 3-minute one as the default</b>; it is by far the safer choice on a real site.</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>Mix small batches — no need to use the whole cartridge</h4><p>With a fast-setting adhesive this matters enormously: <b>you never have to mix the whole cartridge at once</b>. Dispense what that one spot needs, mix only that, and <b>the rest stays in the cartridge for next time</b>. / One cartridge covers several jobs across several days. It isn't something you open and then have to race through.</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>Barely any smell — work indoors</h4><p>Ordinary two-part adhesives carry a sharp odour that makes an enclosed space almost unworkable. This one is <b>very low odour</b>, which puts <b>occupied interiors, hotels, hospitals and lived-in homes</b> back on the table — repairs during business hours, nobody has to move out. <b>(Low odour is not the same as no ventilation needed — keep the air moving anyway.)</b></p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>It can go outside</h4><p>This is where <b>Polyaspartic</b> chemistry earns its place. It's a family known for <b>standing up to sunlight and UV without yellowing or going brittle</b>. Plenty of fast-set adhesives are perfectly good indoors and then turn chalky and crumbly after a few months in the open. <b>This one goes outdoors</b> — pergolas, balcony work, signage, repairs beyond the eaves. / <b>We haven't printed a service-life figure in years on this page</b>, because we don't yet hold test data we'd stand behind. The property is real; the number is what we won't claim yet.</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>It can go outside</h4><p>This is where <b>Polyaspartic</b> chemistry earns its place. It's a family known for <b>standing up to sunlight and UV without yellowing or going brittle</b>. Plenty of fast-set adhesives are perfectly good indoors and then turn chalky and crumbly after a few months in the open. <b>This one goes outdoors</b> — pergolas, balcony work, signage, repairs beyond the eaves.</p></div></div>
     </div>
   </div>
 </section>
 
 <section class="buybox" id="version">
   <div class="wrap">
-    <h2 class="sec-h">Pick the right one — <em>go by cartridge colour</em></h2>
-    <p class="sec-sub">The two versions are the <b>same glue at the same price</b>. The only difference is <b>how much time you get after mixing</b> — and on the actual cartridge it's colour-coded, so the colour is the only thing you need to remember.</p>
+    <h2 class="sec-h">Pick the right one — <em>we make two</em></h2>
+    <p class="sec-sub">Both versions cost the <b>same</b>. What differs is the <b>mix ratio</b>, and that is what sets <b>how much time you get after mixing</b>. <b>If you're unsure, take the three-minute one</b> — that's the one we recommend as standard, because it is the safer choice on a real site.</p>
     <div class="tubes">
-      <div class="tube tube-r">
-        <div class="cap">Red cartridge · Rapid Cure</div>
+      <div class="tube v-fast">
+        <div class="cap">Mixed 1 : 1 · Rapid Cure</div>
         <h4>The fast one</h4>
         <div class="clock">1 minute<small>WORKING TIME FROM FIRST MIX</small></div>
-        <p>For <b>one spot, done in one go</b> — you already know exactly where it lands, so press it on and it's locked. No clamp, no tape, no offcut wedged underneath. <b>Best in hands that have done this before.</b> The trade-off: <b>there is no room to change your mind.</b> Mixed means committed.</p>
+        <p>Mixed at <b>1 : 1</b>. For <b>one spot, done in one go</b> — you already know exactly where it lands, so press it on and it's locked. No clamp, no tape, no offcut wedged underneath. <b>Best in hands that have done this before.</b> The trade-off: <b>there is no room to change your mind.</b> Mixed means committed.</p>
       </div>
-      <div class="tube tube-b">
-        <div class="cap">Blue cartridge · Extended</div>
+      <div class="tube v-safe">
+        <div class="cap">Mixed 2 : 1 · Extended <b>— recommended</b></div>
         <h4>The one that lets you breathe</h4>
         <div class="clock">3 minutes<small>WORKING TIME FROM FIRST MIX</small></div>
-        <p>For work that <b>needs positioning</b> — a larger piece, several spots in one round, or anything that has to sit true to a line. <b>You get time to nudge it before it grabs.</b> / <b>First time using this product? Start with blue.</b> Two extra minutes costs you nothing next to a batch of wasted glue.</p>
+        <p>Mixed at <b>2 : 1</b>. For work that <b>needs positioning</b> — a larger piece, several spots in one round, or anything that has to sit true to a line. <b>You get time to nudge it before it grabs.</b> / <b>This is the one we recommend as standard</b> — not just for beginners. Those two extra minutes are what keep real jobs from going wrong.</p>
       </div>
     </div>
     <p class="pricenote">Both versions reach <b>full cure at the same point: 4 hours</b>. The 1-minute and 3-minute figures are <b>how long you have to spread, join and position</b> — not how long until the glue is at full strength. Don't mix those two numbers up.</p>
@@ -370,11 +370,10 @@
       <div class="story-body">
         <p><b>One — this dual cartridge has no mixing nozzle. You dispense and mix it yourself.</b> We'd rather say that in the first line than have you find out on site. Dual cartridges come both ways, with a static mixer and without, and <b>ours is without</b>. You squeeze part A and part B onto a mixing board or a small cup and <b>stir it yourself for 15–20 seconds</b> before use. The upside is real: <b>you control the batch size, you mix exactly what the job needs, and you're not throwing away a nozzle full of set glue every time you stop.</b> The downside is equally real: <b>it has to be mixed thoroughly.</b> A poorly mixed patch turns into a soft spot you won't discover until it lets go.</p>
         <p><b>Two — one minute means one minute. That isn't marketing copy.</b> The clock starts the moment A meets B, not when you start spreading — and the 15–20 second stir has already eaten a quarter of it. <b>So everything gets laid out before you dispense</b>: surface prepped, piece waiting, stirrer in hand, rag beside you. <b>Nine out of ten people who have a bad time with this glue lost it right here</b>, not to the product.</p>
-        <p><b>Three — small batches. That's a rule, not a suggestion.</b> Mixing a generous pile and working through it slowly is just setting money on fire, because the remainder will go off before you get to it. <b>Mix only what that one spot actually needs</b>, then mix again for the next. Used that way, a 50 ml cartridge covers far more ground than people expect.</p>
+        <p><b>Three — you can mix in small batches. You are not committed to the whole cartridge.</b> This one gets misunderstood a lot, and it stops people buying: <b>opening the cartridge does not start a race.</b> Dispense what that spot needs, mix only that, and the rest sits in the cartridge for next time. / The flip side still holds: <b>don't mix a generous pile and work through it slowly</b>, because the remainder will go off before you get to it. Used in small batches, a 50 ml cartridge covers far more ground than people expect.</p>
         <p><b>Four — wipe the cartridge tips the second you finish. Every time.</b> This sounds fussy and it's purely about money: glue left sitting at the nozzle hardens and plugs it, and next time you reach for it <b>nothing comes out while half a cartridge sits trapped inside</b>. Two passes with a dry rag, cap on firmly, done.</p>
 
         <div class="beats">
-          <div class="beat"><div class="k">Numbers we haven't published</div><p>We <b>haven't printed a bond-strength figure on this page</b>, because we don't yet hold test data we're prepared to stand behind — and <b>we'd rather publish nothing than a number we can't back up</b>. If your job genuinely turns on a certified figure, talk to us directly instead.</p></div>
           <div class="beat"><div class="k">Ask us first</div><p><b>Permanently submerged joints · anything in direct food contact · structural bonds that carry a person's weight</b> — for these three, <b>message us before you order</b>. We'll tell you straight whether it fits. We don't sell blind.</p></div>
           <div class="beat"><div class="k">If you need flex and pulling power</div><p>This one is hard and fast, which is a different job from <b>bonds that need to flex and take real pull</b>. That's <a href="/en/flexgrip" style="text-decoration:underline"><b>FlexGrip</b></a>'s territory. Matching the glue to the job beats forcing the wrong one.</p></div>
           <div class="beat"><div class="k">Not the same product as our floor coating</div><p>We also sell a product called <a href="/en/polyaspartic" style="text-decoration:underline"><b>Polyaspartic</b></a>, which is a <b>floor coating</b> — different product, different job, nothing to do with this cartridge. If you're coating a whole floor, that's the page you want.</p></div>
@@ -388,12 +387,12 @@
   <div class="wrap">
     <h2 class="sec-h">Price</h2>
     <div class="pricecard">
-      <div class="ph">Polyaspartic Adhesive — 50 ml dual cartridge<small>Same price both versions · choose by colour</small></div>
+      <div class="ph">Polyaspartic Adhesive — 50 ml dual cartridge<small>Same price both versions · they differ by mix ratio</small></div>
       <table>
         <thead><tr><th>Version</th><th>Size</th><th>Price</th><th>Shipping</th></tr></thead>
         <tbody>
-          <tr><td class="sz">Rapid Cure · red<br><small style="color:var(--muted);font-family:var(--body);font-weight:400">1 minute working time</small></td><td>50 ml</td><td class="pr">230.-</td><td>40.-</td></tr>
-          <tr><td class="sz">Extended · blue<br><small style="color:var(--muted);font-family:var(--body);font-weight:400">3 minutes working time</small></td><td>50 ml</td><td class="pr">230.-</td><td>40.-</td></tr>
+          <tr><td class="sz">Rapid Cure · mixed 1 : 1<br><small style="color:var(--muted);font-family:var(--body);font-weight:400">1 minute working time</small></td><td>50 ml</td><td class="pr">230.-</td><td>40.-</td></tr>
+          <tr><td class="sz">Extended · mixed 2 : 1 <b>— recommended</b><br><small style="color:var(--muted);font-family:var(--body);font-weight:400">3 minutes working time</small></td><td>50 ml</td><td class="pr">230.-</td><td>40.-</td></tr>
         </tbody>
       </table>
     </div>
@@ -416,13 +415,13 @@
     <h2 class="sec-h">How to use it</h2>
     <p class="sec-sub">Every number you need is on this page — <b>read it through before you squeeze the first cartridge</b>. It isn't difficult, but it moves fast enough that there's no coming back to read the next step halfway through.</p>
     <ol class="flow">
-      <li class="fstep"><h4>Choose the version first</h4><p><b>Single spot, position already certain → red (1 minute).</b> / <b>Several spots, larger piece, needs lining up → blue (3 minutes).</b> / First time you've ever used it: take the blue.</p><span class="fchip">red = 1 min</span><span class="fchip">blue = 3 min</span></li>
+      <li class="fstep"><h4>Choose the version first</h4><p><b>Single spot, position already certain → the 1-minute version (mixed 1:1).</b> / <b>Several spots, larger piece, needs lining up → the 3-minute version (mixed 2:1).</b> / <b>Can't decide? Take the 3-minute one</b> — it's the one we recommend as standard.</p><span class="fchip">1:1 = 1 min</span><span class="fchip">2:1 = 3 min (recommended)</span></li>
       <li class="fstep"><h4>Get the surface dry, clean and oil-free</h4><p>Both faces must be <b>properly dry and free of dust, oil, grease and wax</b> — brush it down, then wipe it again. Every adhesive on earth fails on a dirty surface, and this one moves too fast to give you a second chance at it.</p><span class="fchip">dry · clean · oil-free</span></li>
       <li class="fstep"><h4>Glossy surface? Key it first</h4><p>Anything <b>smooth enough that there's nothing for the glue to bite into</b> — glazed tile, shiny plastic, an already-lacquered face — wants <b>a rub with 120–180 grit until the shine is gone</b>, then a thorough dust-off.</p><span class="fchip">120–180 grit until dull</span></li>
       <li class="fstep"><h4>Lay everything out — before you dispense</h4><p>This is the step people skip and then lose a batch over: <b>mixing board or small cup · stirrer · dry rag for the nozzle tips · the piece you're bonding · a clamp if you're using one</b>. All of it within reach. <b>Don't dispense until it is</b>, because the clock starts the instant A meets B.</p><span class="fchip">everything within reach first</span></li>
-      <li class="fstep"><h4>Dispense A and B — equal amounts</h4><p>Squeeze <b>both barrels together</b> so A and B come out in <b>equal amounts (1:1 by volume)</b> onto the board — and <b>only the amount that spot actually needs</b>. Don't dispense spare. / The sealed dual cartridge exists to <b>keep A and B apart until you want them together, and to keep moisture out</b>, so cap it properly the moment you're done.</p><span class="fchip">A : B = 1 : 1</span><span class="fchip">small batches</span></li>
+      <li class="fstep"><h4>Dispense A and B — equal amounts</h4><p>Squeeze <b>both barrels together</b> onto the board <b>at the ratio for your version</b> — <b>the 1-minute version is 1 : 1</b>, <b>the 3-minute version is 2 : 1</b> (by volume). / <b>Dispense only what that spot needs — there is no need to mix the whole cartridge.</b> The rest stays in the cartridge for next time. / The sealed dual cartridge <b>keeps A and B apart until you want them together and keeps moisture out</b>, so cap it properly the moment you're done.</p><span class="fchip">1 min = 1 : 1</span><span class="fchip">3 min = 2 : 1</span><span class="fchip">small batches fine</span></li>
       <li class="fstep"><h4>Stir for 15–20 seconds</h4><p>Work quickly but <b>work it through</b> — fold from the edge into the centre, turn the stirrer over, scrape the bottom of the cup. <b>Keep going until it's one even colour with no streaks.</b> / An under-mixed patch becomes a spot that never properly hardens, and you won't find out until it releases.</p><span class="fchip">15–20 seconds</span><span class="fchip">scrape the bottom too</span></li>
-      <li class="fstep"><h4>Spread and join immediately — clock runs from the mix</h4><p>A thin layer <b>across the whole contact face</b> beats a thick blob every time. Then bring the parts together — <b>red must be finished inside 1 minute, blue inside 3</b>, counted from when you started mixing, not from when you started spreading. / <b>Past that window, don't push your luck.</b> Glue that has begun to skin won't bond properly. Bin it and mix fresh; it's cheaper than doing the job twice.</p><span class="fchip">red ≤ 1 min</span><span class="fchip">blue ≤ 3 min</span></li>
+      <li class="fstep"><h4>Spread and join immediately — clock runs from the mix</h4><p>A thin layer <b>across the whole contact face</b> beats a thick blob every time. Then bring the parts together — <b>the 1:1 version must be finished inside 1 minute, the 2:1 inside 3</b>, counted from when you started mixing, not from when you started spreading. / <b>Past that window, don't push your luck.</b> Glue that has begun to skin won't bond properly. Bin it and mix fresh; it's cheaper than doing the job twice.</p><span class="fchip">1:1 ≤ 1 min</span><span class="fchip">2:1 ≤ 3 min</span></li>
       <li class="fstep"><h4>Press it home, then let go</h4><p>Once joined, <b>press firmly to squeeze out any trapped air</b> between the faces and hold until you feel it grab. <b>That's the whole point of this product — you don't stand there any longer.</b> Vertical work needs no tape and no propping stick.</p><span class="fchip">press out trapped air</span><span class="fchip">then let go</span></li>
       <li class="fstep"><h4>Wipe the tips and clear up — right now</h4><p><b>Wipe both cartridge tips with a dry rag the moment you finish dispensing</b>, then cap firmly, or next time nothing comes out. / The stirrer and mixing board with glue on them: <b>bin them.</b> Don't save them for reuse. / <b>Cured glue is extremely difficult to remove</b>, so keep it off anything you'd regret in the first place.</p><span class="fchip">wipe the tips every time</span></li>
       <li class="fstep"><h4>Wait 4 hours before real use</h4><p>Being able to let go after a minute means <b>it's holding position — not that it's at full strength</b>. Give it the full <b>4 hours</b> before it takes real load, before you sand or paint over it, and before you let it meet water or direct sun. / Bonding something and putting it straight to work is the most common failure we hear about, and the glue isn't what went wrong.</p><span class="fchip">4 hours = full cure</span></li>
@@ -432,7 +431,28 @@
     <div class="warn"><b>⚠ Don't use it to hold heavy things — we'll say this plainly:</b> this adhesive was built for <b>small bonds, repairs and fast assembly work</b>. <b>It is not a glue for hanging or holding heavy items</b> — loaded shelving, wall cabinets, grab rails, anything a person leans or pulls on, or anything that <b>hurts someone if it falls</b>. <b>Always use mechanical fixings — plugs and screws.</b> Use the adhesive alongside them if you like, but never let it carry the weight on its own. / We haven't published a bond-strength figure because we don't yet have test results we'd stand behind — <b>while there is no number, treat it as unable to carry load</b>. That's the safest assumption for you.<br><b>⚠ Three jobs to ask us about before ordering:</b> <b>permanently submerged joints</b> · <b>anything in direct contact with food</b> · <b>structural bonds carrying a person's weight</b>. We don't sell blind on these three — describe the job first and we'll tell you honestly whether it fits, and point you elsewhere if something else suits it better.<br><b>⚠ Basic precautions:</b> wear <b>gloves</b> while working, work somewhere with <b>decent airflow</b> (low odour doesn't mean ventilation is optional), and avoid eye contact. If it does reach the eyes, rinse immediately with plenty of clean water and seek medical attention. <b>Keep out of reach of children</b> and don't use it for anything it wasn't made for.</div>
     <div class="note"><b>Site temperature changes the numbers:</b> on a <b>very hot day</b> the reaction runs faster and your working window will be <b>shorter than the figures on this page</b> — mix smaller batches than usual and move quicker. On a <b>cool day</b> it slows slightly, so allow more than 4 hours before putting it under load. <b>If you're unsure, mix one small test batch and time it once.</b> That costs a great deal less than losing the real job.</div>
 
-    <div style="margin-top:22px"><a class="btn btn-fb" href="https://www.facebook.com/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>See it on real jobs — follow LucernaPro on Facebook</a></div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">See it working <em>before you decide</em></h2>
+    <p class="sec-sub">We're not fond of claims you can't check — watch and judge for yourself. <b>Pay attention to the timing</b>: it moves considerably faster than it reads on the page.</p>
+    <div class="vidgrid" style="grid-template-columns:1fr;max-width:720px">
+      <figure style="margin:0">
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/oNSnXoW6ZOM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Polyaspartic Adhesive by LucernaPro"></iframe>
+        </div>
+        <figcaption><b>Watch it in use</b> — dispensing, mixing, spreading and joining. Worth a look before your first go.</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D905361242111694&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="Polyaspartic Adhesive from the LucernaPro page"></iframe>
+        </div>
+        <figcaption><b>From the LucernaPro page</b> — Polyaspartic Adhesive on a real job</figcaption>
+      </figure>
+    </div>
+    <div style="margin-top:18px"><a class="btn btn-fb" href="https://www.facebook.com/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>Follow us on Facebook</a></div>
   </div>
 </section>
 
@@ -474,7 +494,7 @@
     <h2 class="sec-h">Order <em>Polyaspartic Adhesive</em></h2>
     <div class="ordercard">
       <h3>Pick whichever channel suits you — we reply quickly</h3>
-      <div class="sub">Not sure whether you want the red or the blue, or whether this glue suits your job at all? Describe the work or send a photo first. We'll answer straight, and if something else in the range fits better we'll say so. / <b>Do state the cartridge colour when you order.</b></div>
+      <div class="sub">Not sure whether you want the 1-minute or the 3-minute version, or whether this glue suits your job at all? Describe the work or send a photo first. We'll answer straight, and if something else in the range fits better we'll say so. / <b>Do state which version you want when you order — 1-minute or 3-minute.</b></div>
       <div class="shoprow">
         <a class="shop" href="https://shopee.co.th/product/392415703/49856018496/" target="_blank" rel="noopener">🛒 Shopee</a>
         <a class="shop" href="https://www.lazada.co.th/products/i16043922558.html" target="_blank" rel="noopener">🛒 Lazada</a>
