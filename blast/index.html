@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>Blast สเปรย์ทำความสะอาดพลังสูง — แรงกับคราบ ไม่ทำลายพื้นผิว ไร้กลิ่นฉุน | LucernaPro</title>
+<meta name="description" content="Blast คือสเปรย์ทำความสะอาดพลังสูงจาก Lucerna แรงกับคราบสกปรกแต่ไม่ทำลายพื้นผิว สูตรไร้กลิ่นฉุน ไม่มีกรดเป็นส่วนผสม ใช้ได้ตั้งแต่คราบฝังแน่นที่ล้อรถไปจนถึงงานสุขภัณฑ์ เคมีจากยุโรป">
+<meta property="og:title" content="Blast สเปรย์ทำความสะอาด — แรงกับคราบ ไม่แรงกับพื้นผิว">
+<meta property="og:description" content="Blast คือสเปรย์ทำความสะอาดพลังสูงจาก Lucerna แรงกับคราบสกปรกแต่ไม่ทำลายพื้นผิว สูตรไร้กลิ่นฉุน ไม่มีกรดเป็นส่วนผสม ใช้ได้ตั้งแต่คราบฝังแน่นที่ล้อรถไปจนถึงงานสุขภัณฑ์ เคมีจากยุโรป">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/blast">
+<link rel="canonical" href="https://www.lucernapro.com/blast">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/blast">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/blast">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Blast สเปรย์ทำความสะอาด","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Blast คือสเปรย์ทำความสะอาดพลังสูงจาก Lucerna แรงกับคราบสกปรกแต่ไม่ทำลายพื้นผิว สูตรไร้กลิ่นฉุน ไม่มีกรดเป็นส่วนผสม ใช้ได้ตั้งแต่คราบฝังแน่นที่ล้อรถไปจนถึงงานสุขภัณฑ์ เคมีจากยุโรป","category":"เคมีภัณฑ์ / ทำความสะอาด"}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --wproof:#7FBF8E; /* สีหมวด chem (เคมีภัณฑ์) ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(127,191,142,.14), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
+  .crumb b{color:var(--wproof);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--wproof);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(340px 200px at 20% 0%, rgba(127,191,142,.25), transparent 60%),
+      radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--wproof);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--wproof);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  /* แถบราคาโครงการ / ผู้รับเหมา */
+  .probox{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:13px;background:linear-gradient(120deg,rgba(237,106,47,.09),transparent 60%),var(--panel);padding:20px 20px 18px}
+  .probox .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+  .probox h3{font-family:var(--disp);font-size:19px;font-weight:700;margin:7px 0 6px}
+  .probox p{font-size:14.5px;color:var(--muted);max-width:640px}
+  .probox p b{color:var(--ink)}
+  .probox .acts{margin-top:15px;display:flex;gap:11px;flex-wrap:wrap}
+
+  /* คลิปเดี่ยวแนวนอน 16:9 — จำกัดกว้างไม่ให้เต็มหน้า */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
+
+  /* ---------- Showcase / Gallery (ยกจาก aquashell + rail ภาพอธิบาย) ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
+  @media(min-width:1000px){.showgrid{grid-template-columns:repeat(3,1fr)}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard.wide .im{aspect-ratio:720/576}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .xgrid{margin-top:18px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.xgrid{grid-template-columns:repeat(3,1fr)}}
+  .xcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:7px;margin:0}
+  .xcard img{width:100%;height:auto;border-radius:9px;display:block}
+  .vidgrid.k2{max-width:720px}
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
+  @media(min-width:760px){.vidgrid.k2{grid-template-columns:repeat(2,1fr)}}
+  /* ภาพแนวนอนเต็มความกว้าง คงสัดส่วน ไม่ crop (ยกจากด่านสีทาพื้น หมวด flooring) */
+  .wideshot{margin-top:16px;border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:8px;margin-bottom:0}
+  .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
+  .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+</style>
+<style>
+  /* หมวดสีของหน้านี้ */
+  :root{--wproof:#7FBF8E}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/">← สินค้าทั้งหมด</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    <a class="lang-switch" href="/en/">EN</a>
+    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>เคมีภัณฑ์ <b>· ทำความสะอาด</b></div>
+      <div class="flagtag">พลังสูง · ไร้กลิ่นฉุน · ไม่มีกรด</div>
+      <h1>Blast สเปรย์ทำความสะอาด<br><span class="o">แรงกับคราบ</span> ไม่แรงกับพื้นผิว</h1>
+      <p class="lede">น้ำยาทำความสะอาดแรงๆ ส่วนใหญ่<b>แลกความแรงมากับกลิ่นฉุนและการกัดพื้นผิว</b> / Blast ทำอีกทาง — <b>พลังรุนแรงกับคราบสกปรก แต่ไม่ทำลายพื้นผิว</b> สูตรพิเศษ<b>ไร้กลิ่นฉุน</b>ใช้งานได้สบายใจ และ<b>ไม่มีกรดเป็นส่วนผสม</b> / ขวดเดียวเก่งเกินตัว ตั้งแต่<b>คราบฝังแน่นที่ล้อรถ</b>ไปจนถึง<b>งานสุขภัณฑ์ในห้องน้ำ</b> — เคมีจากยุโรปเพื่องานทำความสะอาดโดยเฉพาะ</p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#order">สั่งซื้อ / สอบถาม</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ถามได้ก่อนซื้อ</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="https://static.wixstatic.com/media/00cbb9_71084afde1a045d5936dee89f1053cbd~mv2.png" alt="Blast สเปรย์ทำความสะอาดพลังสูง จาก LucernaPro">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">ทำไมต้อง <em>Blast</em></h2>
+    <p class="sec-sub">ขวดเดียวใช้ทั้งบ้านทั้งรถ — และเราจะบอกข้อจำกัดของมันตรงๆ ด้วย</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>แรงกับคราบ อ่อนโยนกับพื้นผิว</h4><p>สูตรถูกออกแบบให้<b>กัดคราบสกปรก ไม่ใช่กัดพื้นผิว</b> — คราบฝังแน่น คราบมัน คราบเขม่า จัดการได้โดยไม่ทิ้งรอยด้านหรือรอยกัดไว้แทน</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>ไร้กลิ่นฉุน — ทำงานในที่ปิดได้สบาย</h4><p>ล้างห้องน้ำ ล้างครัว โดยไม่ต้องกลั้นหายใจ — <b>สูตรพิเศษไร้กลิ่นฉุน</b> ใช้งานได้อย่างสบายใจ</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>ไม่มีกรดเป็นส่วนผสม</h4><p><b>ไม่มีกรดในสูตร</b> จึงไม่เสี่ยงกัดผิวแบบน้ำยาล้างห้องน้ำสายกรด — แต่<b>พื้นผิวพิเศษหรือราคาแพง ให้ทดสอบในบริเวณเล็กๆ ก่อนเสมอ</b> เป็นวินัยที่ดีกับน้ำยาทุกยี่ห้อ</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ขวดเดียว ใช้ได้ทั้งบ้านทั้งรถ</h4><p><b>ล้อรถและคราบเขม่าเบรก · เครื่องครัวและคราบมัน · สุขภัณฑ์และคราบห้องน้ำ · พื้นผิวทั่วไปในบ้าน</b> — ไม่ต้องซื้อน้ำยาแยกโซนให้รกตู้</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story" style="padding-top:0">
+  <div class="wrap">
+    <div class="warn"><h4>พูดตรงๆ ก่อนซื้อ: คราบที่ "กัดพื้นผิวพังไปแล้ว" เราช่วยไม่ได้</h4><p>Blast เอา<b>คราบที่เกาะอยู่บนพื้นผิว</b>ออกได้ — แต่ถ้าคราบนั้น<b>กัดทำลายเนื้อพื้นผิวไปแล้ว</b> (ผิวด้าน ผิวกร่อน สีซีดเป็นดวง) การทำความสะอาดฟื้นคืนสภาพเดิมไม่ได้ เพราะเนื้อวัสดุเสียหายไปแล้วจริงๆ ไม่ใช่แค่สกปรก — เราขอบอกตรงนี้ก่อน จะได้ไม่คาดหวังผิด</p></div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">ขนาดและราคา</h2>
+    <div class="pricecard">
+      <div class="ph">Blast — ขนาดเดียว สุดคุ้ม<small>พร้อมใช้ ฉีดได้เลยจากขวด</small></div>
+      <table>
+        <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">250 มล.</td><td>ทั้งบ้านทั้งรถ — ล้อรถ ครัว สุขภัณฑ์</td><td class="pr">129.-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote"><b>ค่าส่ง 40 บาท ไม่จำกัดจำนวน</b> — สั่งหลายขวดค่าส่งเท่าเดิม / <b>สั่งหลายอย่างในออเดอร์เดียว เราคิดค่าส่งเหมาให้ตามเหมาะสม ไม่บวกทุกชิ้น</b></p>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">วิธีใช้งาน</h2>
+    <p class="sec-sub">ง่ายที่สุดในบรรดาสินค้าของเรา — <b>เขย่า ฉีด เช็ด</b> คราบหนักแค่เพิ่มเวลาทิ้งไว้</p>
+    <ol class="flow">
+      <li class="fstep"><h4>เขย่าขวดก่อนใช้</h4><p>เขย่าให้เนื้อน้ำยาเข้ากันดีก่อนทุกครั้ง เพื่อประสิทธิภาพเต็มที่</p><span class="fchip">เขย่าก่อน</span></li>
+      <li class="fstep"><h4>ฉีดลงบนคราบ หรือลงบนผ้า</h4><p>ฉีดลงบนพื้นผิวที่สกปรกโดยตรง หรือฉีดลงบน<b>ผ้าสะอาด/ฟองน้ำ</b>แล้วค่อยเช็ด — พื้นผิวพิเศษหรือราคาแพง <b>ทดสอบจุดเล็กๆ ก่อนเสมอ</b></p><span class="fchip">ทดสอบจุดเล็กก่อน</span></li>
+      <li class="fstep"><h4>คราบหนัก — ทิ้งไว้สักครู่</h4><p>คราบทั่วไปเช็ดออกได้เลย / <b>คราบฝังแน่นให้ทิ้งไว้ 2–3 นาที</b> ให้น้ำยาทำงานก่อนแล้วค่อยเช็ด</p><span class="fchip">คราบหนัก รอ 2–3 นาที</span></li>
+      <li class="fstep"><h4>เช็ดออกให้สะอาด</h4><p>เช็ดน้ำยาและคราบออกด้วยผ้าสะอาด — จบงาน</p><span class="fchip">เช็ดออก</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="showcase" style="padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sec-h">ดูของจริง <em>ก่อนตัดสินใจ</em></h2>
+    <div class="vidgrid k2">
+      <figure class="fbv"><iframe src="https://www.youtube.com/embed/zGMeX36n-cc" title="วิธีใช้ Blast สเปรย์ทำความสะอาด" loading="lazy" allowfullscreen></iframe><figcaption>วิธีใช้งาน Blast</figcaption></figure>
+      <figure class="fbv"><iframe src="https://www.youtube.com/embed/X5T9DzWApuI" title="ตัวอย่างการใช้งาน Blast" loading="lazy" allowfullscreen></iframe><figcaption>ตัวอย่างการใช้งานจริง</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">ของจริง <em>คราบจริง</em></h2>
+    <p class="sec-sub">ตัวอย่างการใช้งาน Blast (ภาพประกอบ)</p>
+    <div class="showgrid">
+      <figure class="showcard"><img src="https://static.wixstatic.com/media/00cbb9_e47eb0fbf9d2487b9fed5ceb6ec5656c~mv2.jpg" alt="ตัวอย่างการใช้งาน Blast สเปรย์ทำความสะอาด" loading="lazy" decoding="async"><figcaption>Blast กับคราบฝังแน่น (ภาพประกอบ)</figcaption></figure>
+      <figure class="showcard"><img src="https://static.wixstatic.com/media/00cbb9_618874cadad64dd6b28bb012e66820a1~mv2.jpg" alt="ตัวอย่างการใช้งาน Blast สเปรย์ทำความสะอาด" loading="lazy" decoding="async"><figcaption>ก่อน–หลังทำความสะอาด (ภาพประกอบ)</figcaption></figure>
+      <figure class="showcard"><img src="https://static.wixstatic.com/media/00cbb9_704b610326a349918e3aae2da7dc2250~mv2.jpg" alt="ตัวอย่างการใช้งาน Blast สเปรย์ทำความสะอาด" loading="lazy" decoding="async"><figcaption>งานทำความสะอาดในบ้าน (ภาพประกอบ)</figcaption></figure>
+      <figure class="showcard"><img src="https://static.wixstatic.com/media/00cbb9_8c4c19081c5a48efb1c1cf2c19ce359b~mv2.jpg" alt="ตัวอย่างการใช้งาน Blast สเปรย์ทำความสะอาด" loading="lazy" decoding="async"><figcaption>ตัวอย่างการใช้งาน (ภาพประกอบ)</figcaption></figure>
+      <figure class="showcard"><img src="https://static.wixstatic.com/media/00cbb9_02cf4758745945b7b9a1af51c5aef593~mv2.jpg" alt="ตัวอย่างการใช้งาน Blast สเปรย์ทำความสะอาด" loading="lazy" decoding="async"><figcaption>ตัวอย่างการใช้งาน (ภาพประกอบ)</figcaption></figure>
+      <figure class="showcard"><img src="https://static.wixstatic.com/media/00cbb9_3071c44f6b7440008798ee70d569cc24~mv2.jpg" alt="ตัวอย่างการใช้งาน Blast สเปรย์ทำความสะอาด" loading="lazy" decoding="async"><figcaption>ตัวอย่างการใช้งาน (ภาพประกอบ)</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">ตัวอื่นที่มักดูคู่กัน</h2>
+    <div class="altgrid">
+      <a class="altcard" href="/plastibright"><div class="k">พลาสติกรถซีดขาว</div><h4>PlastiBright คืนสภาพพลาสติก</h4><p>ล้างสะอาดแล้วแต่พลาสติกยังซีด — นั่นไม่ใช่คราบ นั่นคือผิวโทรม ใช้ตัวนี้คืนความดำ</p></a>
+      <a class="altcard" href="/denimblack"><div class="k">ผ้าสีดำที่ซีดแล้ว</div><h4>DenimBlack คืนสภาพผ้าสีดำ</h4><p>ซักยังไงก็ไม่กลับมาดำ เพราะสีผ้าจางไปแล้ว ไม่ใช่สกปรก — ตัวนี้ช่วยได้</p></a>
+      <a class="altcard" href="/revival"><div class="k">เจอสนิมตอนทำความสะอาด</div><h4>Revival น้ำยาแปลงสนิม</h4><p>ล้างแล้วเจอสนิมใต้คราบ — อย่าขัดให้เหนื่อย แปลงสนิมเป็นฟิล์มปกป้องแล้วทาสีทับ</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">สั่งซื้อ <em>Blast</em></h2>
+    <div class="ordercard">
+      <h3>เลือกช่องทางที่สะดวก — ทีมงานตอบไว</h3>
+      <div class="sub">ไม่แน่ใจว่าคราบของคุณ Blast เอาอยู่ไหม ส่งรูปมาถามได้เลย ทีมงานตอบไว</div>
+      <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/product/392415703/12244712227/" target="_blank" rel="noopener">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/products/i3405642937.html" target="_blank" rel="noopener">🛍️ Lazada</a>
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>นี่แค่ <em>1 ใน 50+</em> — LucernaPro ไม่ได้มีแค่ตัวนี้</h3>
+      <p class="xsub">เราทำน้ำยาเคลือบผิวและกันซึมครบทั้งระบบ ตั้งแต่พื้น ผนัง หลังคา ยันรถของคุณ</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/#flooring">FLOORING</a><a class="cchip" href="/#wall">WALL</a><a class="cchip" href="/#waterproof">WATERPROOF</a><a class="cchip" href="/#coating">PROTECTION</a><a class="cchip" href="/#chem">เคมีภัณฑ์</a><a class="cchip" href="/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/#catalog">ดูสินค้าทั้งหมด →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
+        <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">แชทเพจ</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">โทร</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">Office</span><a href="tel:0620057933">062-005-7933</a></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">เวลา</span><span>08.00–19.00 จันทร์–เสาร์</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0620057933">062-005-7933</a></div>
+    </div>
+    <div>© 2026 บริษัท ลูเซอน่า จำกัด</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
+  <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
+</div>
+
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+</body>
+</html>
