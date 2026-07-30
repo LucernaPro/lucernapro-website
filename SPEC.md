@@ -881,3 +881,13 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 - **CSS เพิ่ม breakpoint:** `@media(min-width:1100px)` → `.vgrid` เป็น 4 คอลัมน์แถวเดียว (figcaption ลดเหลือ 13.5px) / 760–1100px คงเดิม 2×2 / มือถือ 1 คอลัมน์
 - **บทเรียน:** YouTube บล็อกการดึงชื่อคลิปจากฝั่ง Claude (429) — เซสชันหน้าให้เจ้าของแนบ caption มาพร้อมลิงก์เลยจะไวกว่า
 - ตรวจแล้ว: HTML parser ผ่านทั้งสองไฟล์ · alt/aria-label ตรงเนื้อหาคลิป · Thai residue scan หน้า EN สะอาด (ที่เหลือเป็น lang-switch/data-tag/schema ซึ่ง legit)
+
+## ด่าน Schutz Nano 9H — QA เจ้าของผ่านแล้ว 30 ก.ค. 2026 (`/schutznano9h` + `/en/schutznano9h` ปิดทั้งคู่ ✅)
+- **หน้าแรกของ SALVAGE BATCH ×5 ที่ผ่าน QA เจ้าของ** (เหลือรอ QA: swiftset, blast, americaniron, nanoceramic)
+- **ล้าง wixstatic hotlink หมดหน้า = 0 ทั้งสองภาษา** — hero + gallery โฮสต์เองใน `img/` แล้ว (`schutznano9h-hero.webp` 900×517 q90 + `schutznano9h-g01..g05.webp` 720² q85, จากไฟล์ AVIF ที่เจ้าของส่ง ผ่าน pipeline มาตรฐาน)
+- **ทิ้งรูป stock 3 รูปถาวร** (ตัวถังรถ Porsche / ภายในรถ / ก๊อกน้ำ) — มติเจ้าของ: รูปภายในรถ "อันตรายขั้นสุด" ห้ามกลับมาอีก
+- **คำว่า "(ภาพประกอบ)" / "(illustrative photo)" ถูกถอนหมดทั้งหน้า** — มติเจ้าของบนหน้านี้ อาจต้องไล่เก็บหน้า salvage ที่เหลือด้วยตอน QA
+- **รูป showcase ไม่มี figcaption** — มติเจ้าของ: "ไม่มีดีกว่าบรรยายมั่ว" / รูปคืองานเคลือบมอเตอร์ไซค์**ทั้งคัน** (ไม่ใช่แค่ถังน้ำมัน) / alt text ใช้กลางๆ "งานเคลือบแก้ว Schutz Nano 9H บนมอเตอร์ไซค์ทั้งคัน"
+- **คลิป ×2:** YouTube แนวนอน `X0XxkYG31-M` ท้าย How-To / FB แนวตั้ง `1201119228339816` (9:16 solo) ใน showcase หัวข้อ **"คลิปการใช้งานจริงโดย Professional Detailer"** — หัวสั้นๆ ไม่มีคำบรรยายต่อท้าย (เจ้าของตัดเอง)
+- **เพิ่ม og:image + image/url ใน ld+json ทั้งสองหน้า** ชี้ hero ใหม่ (เดิมไม่มี — แชร์ FB ไม่มีรูป preview)
+- ค้างเดิมที่ยังไม่แตะในเซสชันนี้: TDS (รอตรวจคำแบน ตามลิสต์ 8.7), ลิงก์ Shopee/Lazada ชุดที่ยังไม่ confirm, ประเด็น Polysilazane บนหน้า (ยังโชว์อยู่ตามเสียง Wix เดิม — เจ้าของยังไม่เคาะถอด)
