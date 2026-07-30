@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
-<title>EpoxyPutty กาวโป๊วซ่อมโครงสร้างสองส่วนผสม (ฉบับร่าง) | LucernaPro</title>
-<meta name="description" content="EpoxyPutty กาวโป๊วสองส่วนผสม นวดด้วยมือ ปั้นอุดรูและรอยแตกบนโลหะ-ไม้ แข็งตัวเป็นหิน เจาะ-ขัด-ทาสีทับได้ (หน้าฉบับร่าง รอ QA)">
-<meta property="og:title" content="EpoxyPutty กาวโป๊วซ่อมโครงสร้างสองส่วนผสม (ฉบับร่าง)">
-<meta property="og:description" content="EpoxyPutty กาวโป๊วสองส่วนผสม นวดด้วยมือ ปั้นอุดรูและรอยแตกบนโลหะ-ไม้ แข็งตัวเป็นหิน เจาะ-ขัด-ทาสีทับได้ (หน้าฉบับร่าง รอ QA)">
+<title>EpoxyPutty กาวโป๊วมหาอุด สองส่วนผสม 1:1 ปั้นอุดรู ซ่อมไม้ผุ ท่อรั่ว แข็งเป็นหิน | LucernaPro</title>
+<meta name="description" content="EpoxyPutty กาวโป๊วสองส่วนผสม A:B = 1:1 นวดด้วยมือแล้วปั้นอุดได้เลย — ซ่อมไม้ผุ อุดท่อรั่ว โป๊วโลหะ ปั้นคืนรูปชิ้นงาน แข็งตัวเป็นหิน เจาะ ขัด ทาสีทับได้">
+<meta property="og:title" content="EpoxyPutty กาวโป๊วมหาอุด สองส่วนผสม 1:1 — ปั้นอุด ซ่อม เสริม แข็งเป็นหิน">
+<meta property="og:description" content="กาวโป๊วสองส่วนผสม A:B = 1:1 นวดด้วยมือแล้วปั้นอุดได้เลย — ซ่อมไม้ผุ อุดท่อรั่ว โป๊วโลหะ แข็งตัวเป็นหิน เจาะ ขัด ทาสีทับได้">
 <meta property="og:type" content="product">
+<meta property="og:image" content="https://www.lucernapro.com/img/epoxyputty-hero.webp">
 <meta property="og:url" content="https://www.lucernapro.com/epoxyputty">
 <link rel="canonical" href="https://www.lucernapro.com/epoxyputty">
 <link rel="icon" type="image/png" href="/img/logo.png">
@@ -54,7 +55,7 @@
   html{scroll-behavior:smooth}
   body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
+  img{max-width:100%;height:auto;display:block}
   .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
   @media(min-width:861px){.wrap{padding:0 24px}}
 
@@ -183,7 +184,7 @@
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
 
-  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  /* ---------- Showcase ---------- */
   .showcase{padding:46px 0 12px}
   .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
   @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
@@ -296,11 +297,19 @@
   .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
   .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 
-  .packshot-ph{aspect-ratio:1/1;border-radius:14px;border:1px solid var(--line);
-    background:linear-gradient(145deg,var(--panel-2),var(--panel));
-    display:grid;place-items:center;text-align:center;padding:24px}
-  .packshot-ph .pt-label{font-family:var(--disp);font-weight:700;font-size:20px;color:var(--muted)}
-  .packshot-ph .pt-sub{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.08em}
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  /* ---------- ใช้ทำอะไรได้บ้าง ---------- */
+  .uses{padding:46px 0 10px}
+  .usegrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.usegrid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.usegrid{grid-template-columns:repeat(3,1fr)}}
+  .ucase{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:17px 17px 15px}
+  .ucase .uk{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
+  .ucase h4{font-family:var(--disp);font-size:16.5px;margin:6px 0 4px}
+  .ucase p{font-size:14px;color:var(--muted)}
+  .ucase p b{color:var(--ink)}
 </style></head>
 <body>
 
@@ -316,21 +325,18 @@
 <section class="phero">
   <div class="wrap phero-grid">
     <div>
-      <div class="crumb"><span class="dot"></span>ผนัง / งานซ่อม <b>· โป๊วซ่อมโครงสร้าง</b></div>
-      <div class="flagtag">สองส่วนผสม · ปั้นด้วยมือ · แข็งตัวเป็นหิน</div>
-      <h1>EpoxyPutty <span class="o">กาวโป๊วซ่อมโครงสร้าง</span><br>ปั้นด้วยมือ อุดรู ซ่อมรอยแตก แข็งตัวเป็นหิน</h1>
-      <p class="lede">กาวโป๊วสองส่วนผสมเนื้อคล้ายดินน้ำมัน <b>นวดสองก้อนเข้าด้วยกันแล้วปั้นอุดได้ทันที</b> ไม่ต้องใช้เครื่องมือผสมพิเศษ เหมาะกับงานซ่อมด่วนที่ทาแปรงไม่สะดวก เช่น <b>รูรั่วบนท่อ รอยแตกบนโลหะ หรือจุดผุที่ต้องการเนื้อวัสดุมาอุดจริงๆ ไม่ใช่แค่ทาเคลือบผิว</b> — เมื่อแข็งตัวแล้วสามารถเจาะ ขัด และทาสีทับได้ <i>(หน้านี้เป็นฟอร์มร่างเบื้องต้น ตัวเลขและราคายังไม่ยืนยันจากเจ้าของ)</i></p>
+      <div class="crumb"><span class="dot"></span>ผนัง / งานซ่อม <b>· โป๊วซ่อมสารพัดงาน</b></div>
+      <div class="flagtag">ชุดกระปุกคู่ A + B · ผสม 1:1 · แข็งตัวเป็นหิน</div>
+      <h1>EpoxyPutty <span class="o">กาวโป๊วมหาอุด</span><br>ปั้นด้วยมือ อุดรู คืนรูปชิ้นงาน แข็งเป็นหิน</h1>
+      <p class="lede">กาวโป๊วสองส่วนผสมเนื้อคล้ายดินน้ำมัน มาเป็น<b>ชุดกระปุกคู่ A และ B — ตักอย่างละเท่ากัน (1:1) นวดจนเป็นเนื้อสีเดียว แล้วปั้นอุดได้ทันที</b> ไม่ต้องใช้เครื่องมือพิเศษ เหมาะกับงานที่ทาแปรงไม่ตอบโจทย์ เพราะมัน<b>เอาเนื้อวัสดุไปอุด ไปเสริม ไปปั้นคืนรูปได้จริง</b> ไม่ใช่แค่เคลือบผิวบางๆ — แข็งตัวแล้ว เจาะ ขัด ตกแต่ง และทาสีทับได้</p>
       <div class="hero-cta">
         <a class="btn btn-orange" href="#order">สั่งซื้อ / สอบถามราคา</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักถามรายละเอียดก่อนตัดสินใจ</a>
       </div>
     </div>
-    <div class="packshot-ph">
-      <div>
-        <div class="pt-label">EpoxyPutty</div>
-        <div class="pt-sub">รอรูปสินค้าจากเจ้าของ</div>
-      </div>
-    </div>
+    <figure class="packshot">
+      <img src="/img/epoxyputty-hero.webp" alt="ชุด Lucerna EpoxyPutty กระปุก A Component และ B Component ที่หน้างานก่อสร้าง" width="900" height="900">
+    </figure>
   </div>
 </section>
 
@@ -338,10 +344,10 @@
   <div class="wrap">
     <h2 class="sec-h">จุดขายหลัก</h2>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>นวดสองก้อนเข้าด้วยกัน ไม่ต้องตวงสัดส่วน</h4><p>แกะออกมาตัดเท่ากันโดยประมาณแล้ว<b>นวดด้วยมือจนเนื้อเป็นสีเดียวกัน</b> ไม่ต้องใช้เครื่องชั่งหรือถ้วยผสม เหมาะกับงานซ่อมหน้างานที่ต้องการความเร็ว</p></div></div>
-      <div class="pt"><span class="ic">02</span><div><h4>อุดรูได้จริง ไม่ใช่แค่ปิดผิว</h4><p>เนื้อวัสดุแน่น<b>ปั้นอุดรูหรือรอยแตกที่มีความลึกได้</b> ต่างจากน้ำยาทาที่ทำหน้าที่ปิดผิวบางๆ เท่านั้น</p></div></div>
-      <div class="pt"><span class="ic">03</span><div><h4>แข็งตัวเป็นหิน เจาะ-ขัด-ทาสีทับได้</h4><p>เมื่อแห้งสนิทเนื้อจะ<b>แข็งคล้ายหิน</b> สามารถ<b>เจาะ ขัดแต่งรูปทรง และทาสีทับ</b>ได้ตามต้องการ</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>ใช้ได้กับหลายพื้นผิว</h4><p>ยึดเกาะได้ทั้ง<b>โลหะ ไม้ และพื้นผิวแข็งทั่วไป</b> — เหมาะกับงานซ่อมจุดเล็กที่หลากหลายหน้างาน</p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>ผสมง่ายสุดๆ — ตัก A ตัก B เท่ากัน (1:1)</h4><p>ชุดกระปุกคู่ <b>ตักเนื้อ A และเนื้อ B ปริมาณเท่ากัน แล้วนวดด้วยมือจนเป็นเนื้อสีเดียว</b>ก็พร้อมใช้ ไม่ต้องชั่ง ไม่ต้องมีถ้วยผสม กะด้วยตาได้เลย เหมาะกับงานซ่อมหน้างานที่ต้องการความเร็ว</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>อุดได้จริง เสริมเนื้อได้จริง ไม่ใช่แค่ปิดผิว</h4><p>เนื้อแน่นเหมือนดินปั้น <b>อุดรูลึก เติมส่วนที่หายไป หรือปั้นขึ้นรูปใหม่ทั้งชิ้นได้</b> — สิ่งที่สีทาหรือกาวน้ำทำไม่ได้</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>แข็งตัวเป็นหิน — เจาะ ขัด ทาสีทับได้</h4><p>เมื่อแข็งตัวเต็มที่เนื้อจะ<b>แข็งแกร่งคล้ายหิน</b> ขันสกรู <b>เจาะ ขัดแต่งรูปทรง และทาสีทับ</b>ให้กลืนกับของเดิมได้เลย</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ตัวเดียว ซ่อมได้หลายวัสดุ</h4><p>ยึดเกาะได้ทั้ง<b>ไม้ โลหะ คอนกรีต กระเบื้อง และพลาสติกแข็งส่วนใหญ่</b> — มีติดบ้านหรือติดรถไว้กระปุกเดียว จบงานซ่อมจุกจิกได้ทั้งบ้าน</p></div></div>
     </div>
   </div>
 </section>
@@ -351,15 +357,38 @@
     <div class="rdtag">STRAIGHT TALK — อ่านก่อนจ่ายเงิน</div>
     <h2>ตัวนี้ซ่อมได้เร็วจริง <b>แต่มี 3 ข้อที่ต้องอ่านก่อน</b></h2>
     <div class="story-grid">
-      <div class="bignum">DRAFT<small>หน้านี้เป็นฟอร์มร่างเบื้องต้น — รอเจ้าของ QA</small></div>
+      <div class="bignum">1:1<small>ตัก A + B เท่ากัน — กติกาเดียวที่ห้ามพลาด</small></div>
       <div class="story-body">
-        <p><b>หน้านี้เป็นฟอร์มร่างเบื้องต้น</b> ทีมงานยังไม่ได้ยืนยันราคา สัดส่วนผสม และเวลาแข็งตัวที่แน่นอน — เนื้อหาด้านล่างเป็นแนวทางทั่วไปของกาวโป๊วสองส่วนผสมประเภทนี้ รอเจ้าของ QA ก่อนเผยแพร่จริง</p>
+        <p>ตัวนี้ใช้ง่ายจนแทบไม่มีอะไรให้พลาด <b>แต่ 4 ข้อนี้คือเส้นแบ่งระหว่างงานที่แข็งเป็นหิน กับงานที่นิ่มไม่ยอมเซ็ตตัว</b> — อ่านให้จบก่อนเปิดกระปุก</p>
         <div class="beats">
-          <div class="beat"><div class="k">นวดจนเนื้อเป็นสีเดียวกันเท่านั้น</div><p><b>นวดจนไม่เห็นลายทาง 2 สี</b> ผสมไม่ทั่วจุดไหน จุดนั้นจะไม่แข็งตัวเต็มที่</p></div>
-          <div class="beat"><div class="k">มีเวลาทำงานจำกัด ปั้นให้เสร็จในช่วงเวลาสั้นๆ</div><p>หลังนวดเสร็จจะเริ่มแข็งตัวใน<b>ไม่กี่นาทีถึงสิบกว่านาที (ตัวเลขจริงรอยืนยัน)</b> — เตรียมพื้นผิวและตำแหน่งที่จะอุดให้พร้อมก่อนเริ่มนวด</p></div>
-          <div class="beat"><div class="k">พื้นผิวต้องแห้งและไร้คราบมัน</div><p><b>เช็ดทำความสะอาดและเช็ดให้แห้งก่อนอุด</b> คราบน้ำมันหรือฝุ่นทำให้ยึดเกาะไม่ดี</p></div>
+          <div class="beat"><div class="k">ตัก 1:1 แล้วนวดจนเป็นเนื้อสีเดียวเท่านั้น</div><p>ตัก A กับ B <b>ปริมาณเท่ากัน</b> แล้ว<b>นวดจนไม่เห็นลายทางสองสีเหลืออยู่เลย</b> — จุดไหนผสมไม่ทั่ว จุดนั้นจะไม่แข็งตัว ต่อให้รอเป็นวันก็ไม่หาย</p></div>
+          <div class="beat"><div class="k">ผสมทีละพอใช้ — ไม่ใช่ยกกระปุกเทรวม</div><p>หลังนวดเสร็จเนื้อจะเริ่มเซ็ตตัวตามเวลา <b>เตรียมหน้างานให้พร้อมก่อน แล้วค่อยผสมเท่าที่ใช้จริงในรอบนั้น</b> — เหลือทิ้งคือเงินทิ้ง และปิดฝากระปุกให้สนิททุกครั้ง อย่าให้เครื่องมือที่เปื้อน A ไปจุ่มกระปุก B เด็ดขาด</p></div>
+          <div class="beat"><div class="k">พื้นผิวต้องแห้ง สะอาด ไร้คราบมัน</div><p><b>ขัดผิวหลวมๆ สนิม หรือสีลอกออกก่อน เช็ดฝุ่นและคราบน้ำมันให้หมด</b> — ผิวหยาบสะอาดคือเพื่อนที่ดีที่สุดของแรงยึดเกาะ</p></div>
+          <div class="beat"><div class="k">ใส่ถุงมือทุกครั้งที่นวด</div><p>เป็นเคมีสองส่วนผสม <b>ใส่ถุงมือยางกันไว้ก่อนดีที่สุด</b> ถ้าเปื้อนผิวให้ล้างออกด้วยน้ำสบู่ทันที อย่ารอให้แข็งคามือ</p></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="uses">
+  <div class="wrap">
+    <h2 class="sec-h">ใช้ทำอะไรได้บ้าง — <em>ของมันต้องมีติดบ้าน</em></h2>
+    <p class="sec-sub">หลักคิดง่ายๆ: <b>ตรงไหน "เนื้อหาย เป็นรู เป็นโพรง หรือแตกบิ่น" แล้วอยากได้เนื้อวัสดุกลับมาแข็งๆ เหมือนเดิม</b> — นั่นแหละงานของ EpoxyPutty</p>
+    <div class="usegrid">
+      <div class="ucase"><div class="uk">งานไม้</div><h4>ซ่อมไม้ผุ ปั้นคืนรูป</h4><p>วงกบ บานประตู เสาไม้ เฟอร์นิเจอร์ที่<b>ผุ แหว่ง หรือโดนปลวกกิน</b> — ขูดเนื้อผุออก ปั้นเติมเข้าไปแทน แข็งแล้วขัดแต่งทรง ทาสีทับกลืนเป็นเนื้อเดียว</p></div>
+      <div class="ucase"><div class="uk">งานประปา</div><h4>อุดรอยรั่วซึมท่อโลหะ</h4><p>ท่อเหล็ก ท่อทองแดง <b>รั่วซึมตามตะเข็บหรือรูสนิม</b> — ปิดน้ำ เช็ดแห้ง ปั้นพอกทับแล้วกดให้แน่น ซื้อเวลาได้ยาวๆ ก่อนถึงคิวเปลี่ยนท่อจริง</p></div>
+      <div class="ucase"><div class="uk">งานโลหะ</div><h4>โป๊วรอยแตก รูทะลุ บนเหล็ก</h4><p>ถังน้ำ รางน้ำ ตู้เหล็ก อุปกรณ์การเกษตร <b>แตกร้าว เป็นรูสนิม</b> — ขัดสนิมออกแล้วปั้นอุด แข็งแล้วขัดเรียบพ่นสีทับได้</p></div>
+      <div class="ucase"><div class="uk">งานช่าง</div><h4>ซ่อมเกลียวหวาน ยึดสกรูหลวม</h4><p><b>รูสกรูหวาน น็อตหลวม บานพับโยก</b> — อุดเนื้อเข้าไปในรูเดิม รอแข็งเต็มที่แล้วขันสกรูใหม่ได้แน่นเหมือนเนื้อเดิม</p></div>
+      <div class="ucase"><div class="uk">ของใช้</div><h4>ต่อชิ้นส่วนหัก ปั้นส่วนที่หายไป</h4><p>ด้ามเครื่องมือ ขาเก้าอี้ ของตกแต่ง รูปปั้น <b>หักหรือบิ่นหาย</b> — ต่อกลับพร้อมปั้นเสริมส่วนที่หายไปในตัวเดียวกัน</p></div>
+      <div class="ucase"><div class="uk">งานบ้าน</div><h4>อุดรู โพรง รอยต่อ ก่อนทาสี</h4><p>รูพุก โพรงตามมุมงาน รอยต่อวัสดุต่างชนิด <b>ที่ต้องการเนื้ออุดแบบแข็งแรงถาวร</b> — เก็บงานให้เนียนก่อนลงสีจริง</p></div>
+    </div>
+
+    <div class="showgrid" style="margin-top:22px">
+      <figure class="showcard"><div class="im"><img src="/img/epoxyputty-g01.webp" alt="นวดเนื้อ EpoxyPutty สองส่วนเข้าด้วยกันก่อนใช้งาน" width="720" height="720" loading="lazy"></div><figcaption>นวด A + B จนเป็นเนื้อสีเดียว<small>สัดส่วน 1:1 กะด้วยตาได้ นวดจนไม่เห็นลายสองสีคือพร้อมใช้</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/epoxyputty-g02.webp" alt="ปั้น EpoxyPutty อุดเสาไม้ที่ผุแหว่งบริเวณฐาน" width="720" height="720" loading="lazy"></div><figcaption>ปั้นเติมไม้ผุ คืนรูปเดิม<small>ขูดเนื้อผุออกก่อน อัดเนื้อโป๊วเข้าแทน แข็งแล้วขัดแต่ง–ทาสีทับ</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/epoxyputty-g03.webp" alt="กดเนื้อ EpoxyPutty ปิดรอยรั่วบนท่อโลหะ" width="720" height="720" loading="lazy"></div><figcaption>กดพอกปิดจุดรั่วบนโลหะ<small>กดให้เนื้อแนบสนิทเกินขอบรอยรั่วโดยรอบ</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/epoxyputty-g04.webp" alt="เนื้อ EpoxyPutty พอกรอบข้อต่อท่อทองแดงหลังแข็งตัว" width="720" height="720" loading="lazy"></div><figcaption>พอกหุ้มรอบข้อต่อท่อ<small>โอบรอบจุดเสี่ยงทั้งวง รอแข็งตัวเต็มที่ก่อนเปิดน้ำใช้งาน</small></figcaption></figure>
     </div>
   </div>
 </section>
@@ -368,17 +397,15 @@
   <div class="wrap">
     <h2 class="sec-h">ขนาดที่มี</h2>
     <div class="pricecard">
-      <div class="ph">EpoxyPutty<small>ราคาและขนาดยังไม่ยืนยัน — รอเจ้าของ confirm</small></div>
+      <div class="ph">EpoxyPutty ชุดกระปุกคู่ A + B<small>สอบถามราคาปัจจุบันทางแชทได้เลย — ทีมงานตอบไว</small></div>
       <table>
         <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">ขนาดเล็ก</td><td>งานซ่อมจุดเล็ก</td><td class="pr">สอบถาม</td></tr>
-          <tr><td class="sz">ขนาดกลาง</td><td>งานซ่อมทั่วไป</td><td class="pr">สอบถาม</td></tr>
-          <tr><td class="sz">ขนาดใหญ่</td><td>งานผู้รับเหมา</td><td class="pr">สอบถาม</td></tr>
+          <tr><td class="sz">ชุดมาตรฐาน A + B</td><td>งานซ่อมทั่วไป · ติดบ้าน ติดรถ</td><td class="pr">สอบถาม</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote"><b>ราคาและขนาดบรรจุยังไม่ยืนยัน</b> — ทักแชทเพจสอบถามราคาปัจจุบันได้เลย</p>
+    <p class="pricenote"><b>เก็บได้นานเมื่อปิดฝาสนิท</b> — สองส่วนแยกกระปุกกัน ยังไม่ผสมก็ยังไม่เริ่มแข็ง เปิดใช้ทีละนิดได้เรื่อยๆ</p>
     <div class="probox">
       <div class="k">งานโครงการ / ผู้รับเหมา / โรงงาน</div>
       <h3>ใช้เยอะ — มีราคาพิเศษ</h3>
@@ -393,17 +420,16 @@
 
 <section class="howto">
   <div class="wrap">
-    <h2 class="sec-h">วิธีใช้งาน <em>(ฉบับร่าง — ตัวเลขรอยืนยัน)</em></h2>
-    <p class="sec-sub">ขั้นตอนด้านล่างเป็น<b>ฉบับร่างเบื้องต้น</b> ทีมงานจะปรับตัวเลขจริงให้ครบถ้วนอีกครั้งก่อนเผยแพร่จริง</p>
+    <h2 class="sec-h">วิธีใช้งาน — <em>5 ขั้น จบในหน้าเดียว</em></h2>
+    <p class="sec-sub">อ่านจบ ลงมือได้เลย ไม่ต้องเปิดคู่มือที่ไหนอีก — กติกาสำคัญมีข้อเดียว: <b>สัดส่วน 1:1 และนวดให้ทั่ว</b></p>
     <ol class="flow">
-      <li class="fstep"><h4>ทำความสะอาดพื้นผิวที่จะซ่อม</h4><p>เช็ดฝุ่น คราบน้ำมัน และความชื้นออกให้หมดก่อนเริ่มงาน</p><span class='fchip'>ผิวต้องแห้ง</span><span class='fchip'>ไม่มีคราบมัน</span></li>
-      <li class="fstep"><h4>ตัดวัสดุสองส่วนในปริมาณเท่ากันโดยประมาณ</h4><p>ตัดก้อน A และก้อน B ปริมาณใกล้เคียงกัน</p><span class='fchip'>สองส่วนผสม</span></li>
-      <li class="fstep"><h4>นวดด้วยมือจนเนื้อเป็นสีเดียวกัน</h4><p>นวดจนไม่เห็นลายทาง 2 สีอีกต่อไป — นี่คือสัญญาณว่าผสมทั่วแล้ว</p><span class='fchip'>นวดจนสีเดียวกัน</span></li>
-      <li class="fstep"><h4>ปั้นอุดลงจุดที่ต้องการทันที</h4><p>มีเวลาทำงานจำกัดหลังผสม — ปั้นและกดลงจุดที่ต้องการซ่อมให้เสร็จเร็ว</p><span class='fchip'>ปั้นเร็ว</span><span class='fchip'>เวลาจำกัด</span></li>
-      <li class="fstep"><h4>ปล่อยให้แข็งตัวก่อนขัดแต่งหรือทาสีทับ</h4><p>รอจนแข็งตัวเต็มที่ตามเวลาที่กำหนด (ตัวเลขรอยืนยัน) ก่อนเจาะ ขัด หรือทาสีทับ</p><span class='fchip'>รอแข็งตัวเต็มที่</span></li>
+      <li class="fstep"><h4>เตรียมพื้นผิวก่อนเปิดกระปุก</h4><p>ขัดผิวหลวม สนิม หรือสีลอกออก เช็ดฝุ่น คราบน้ำมัน และน้ำให้แห้งสนิท — งานท่อให้<b>ปิดน้ำก่อนทุกครั้ง</b> ผิวเรียบมันขัดด้วยกระดาษทรายให้สากขึ้นนิดนึงจะเกาะแน่นขึ้นมาก</p><span class='fchip'>ผิวแห้ง สะอาด</span><span class='fchip'>งานท่อ = ปิดน้ำก่อน</span></li>
+      <li class="fstep"><h4>ใส่ถุงมือ แล้วตัก A : B = 1 : 1</h4><p>ตักเนื้อจากกระปุก A และกระปุก B <b>ปริมาณเท่ากัน กะด้วยตาได้เลย</b> — ตักเท่าที่ใช้จริงในรอบนั้น ใช้เครื่องมือตักแยกกันคนละกระปุก อย่าให้เนื้อสองฝั่งปนกันในกระปุก</p><span class='fchip'>1 : 1</span><span class='fchip'>ใส่ถุงมือ</span><span class='fchip'>ผสมทีละพอใช้</span></li>
+      <li class="fstep"><h4>นวดจนเป็นเนื้อสีเดียว ไม่เห็นลายทาง</h4><p>นวด บิด พับ ซ้ำไปเรื่อยๆ <b>จนสีสม่ำเสมอเป็นเนื้อเดียวทั้งก้อน</b> — เห็นลายสองสีตรงไหน นวดต่อ จุดที่ผสมไม่ทั่วจะไม่แข็งตัว</p><span class='fchip'>สีเดียวทั้งก้อน = พร้อมใช้</span></li>
+      <li class="fstep"><h4>ปั้น อุด กด ให้เสร็จภายใน 60 นาที</h4><p>อัดเนื้อเข้ารูหรือรอยแตก<b>ให้แน่นและล้นขอบเล็กน้อย</b> กดไล่อากาศออก — งานท่อให้พอกหุ้มเกินขอบจุดรั่วโดยรอบ แต่งผิวหมาดๆ ด้วยนิ้วชุบน้ำได้ก่อนเนื้อเริ่มเซ็ตตัว</p><span class='fchip'>ปั้นเสร็จใน 60 นาที</span><span class='fchip'>กดแน่น ไล่อากาศ</span></li>
+      <li class="fstep"><h4>รอแข็งตัว แล้วค่อยขัด เจาะ ทาสีทับ</h4><p>ทิ้งไว้ <b>3–4 ชั่วโมง</b> เนื้อจะแข็งจับตัวแตะได้ และ<b>แข็งตัวเต็มที่ที่ 24 ชั่วโมง</b> — งานที่ต้องรับแรง ขันสกรู เจาะ หรือเปิดน้ำผ่านจุดซ่อม ให้รอครบ 24 ชั่วโมงก่อนเสมอ อากาศเย็นเซ็ตตัวช้าลง</p><span class='fchip'>จับตัว 3–4 ชม.</span><span class='fchip'>แข็งเต็มที่ 24 ชม.</span></li>
     </ol>
-    <div class="warn"><b>⚠ หน้านี้เป็นฉบับร่าง:</b> ตัวเลขเวลาแข็งตัว สัดส่วนผสม และคำเตือนด้านความปลอดภัยที่แน่นอนยังไม่ได้ยืนยันจากเจ้าของ — ห้ามใช้ข้อมูลหน้านี้อ้างอิงจนกว่าจะผ่าน QA</div>
-    <div class="note"><b>สถานะ:</b> หน้านี้สร้างขึ้นเพื่อให้มีฟอร์มและโครงเนื้อหาเบื้องต้น รอเจ้าของให้ข้อมูลจริง (ราคา สัดส่วนผสม เวลาแข็งตัว ลิงก์ขาย) แล้วจะปรับปรุงในรอบ QA ถัดไป</div>
+    <div class="warn"><b>⚠ ข้อจำกัดที่ต้องรู้:</b> เหมาะกับงานซ่อมเฉพาะจุด ไม่ใช่งานเคลือบพื้นที่กว้าง · จุดรั่วที่มีแรงดันน้ำสูงหรือระบบแรงดัน ให้ถือเป็นการซ่อมชั่วคราวเพื่อซื้อเวลา แล้วให้ช่างแก้ที่ต้นเหตุ · เก็บให้พ้นมือเด็ก และล้างมือหลังใช้งานทุกครั้ง</div>
   </div>
 </section>
 
@@ -417,22 +443,22 @@
         <p>ซ่อมรอยร้าวและโป๊วผนังทั่วไปที่ไม่ต้องการเนื้อวัสดุแข็งระดับหิน</p>
         <div class="go">ดูหน้า FillerAce →</div>
       </a>
+      <a class="altcard" href="/patchpro">
+        <div class="k">งานซ่อมพื้น / ดาดฟ้า</div>
+        <h4>PatchPro</h4>
+        <p>รอยร้าวหรือหลุมบ่อบน<b>พื้นและดาดฟ้าคอนกรีต</b>พื้นที่กว้าง — ใช้ตัวนี้ ไม่ต้องนั่งปั้นทีละจุด</p>
+        <div class="go">ดูหน้า PatchPro →</div>
+      </a>
       <a class="altcard" href="/deepstick">
-        <div class="k">งานยึดติดยาก</div>
+        <div class="k">รอยต่อโหด ผิวลื่น</div>
         <h4>DeepStick</h4>
-        <p>ซ่อมรอยต่อและยึดติดพื้นผิวหลากหลาย รวมถึงงานใต้น้ำ</p>
+        <p>รอยต่อยากๆ อย่างแผ่น Smartboard ผิวลื่น หรืองานรอยต่อที่ต้องยึดใต้น้ำ</p>
         <div class="go">ดูหน้า DeepStick →</div>
       </a>
-      <a class="altcard" href="/flexgrip">
-        <div class="k">งานกาวยึดติด</div>
-        <h4>FlexGrip</h4>
-        <p>กาวยึดติดสำหรับงานที่เน้นความแข็งแรงของแรงยึดเกาะ</p>
-        <div class="go">ดูหน้า FlexGrip →</div>
-      </a>
       <a class="altcard" href="/submarine">
-        <div class="k">งานใต้น้ำ</div>
+        <div class="k">รั่วใต้น้ำ</div>
         <h4>Submarine</h4>
-        <p>ซ่อมรอยรั่วใต้น้ำโดยเฉพาะ</p>
+        <p>จุดรั่วที่<b>จมน้ำอยู่และปิดน้ำไม่ได้</b> เช่น บ่อ สระ แท็งก์ — ตัวนี้เกิดมาเพื่องานนั้นโดยเฉพาะ</p>
         <div class="go">ดูหน้า Submarine →</div>
       </a>
     </div>
@@ -444,7 +470,7 @@
     <h2 class="sec-h">สั่งซื้อ <em>EpoxyPutty</em></h2>
     <div class="ordercard">
       <h3>เลือกช่องทางที่สะดวก — ทีมงานตอบไว</h3>
-      <div class="sub">ทักแชทเพจหรือ Line สอบถามราคาและวิธีใช้ได้เลย — สินค้าตัวนี้อยู่ระหว่างเตรียมข้อมูลก่อนเปิดขายเต็มรูปแบบ</div>
+      <div class="sub">ทักแชทเพจหรือ Line ได้เลย — บอกหน้างานมา ทีมงานช่วยกะปริมาณให้ก่อนจ่ายเงิน</div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
