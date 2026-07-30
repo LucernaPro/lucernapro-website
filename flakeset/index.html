@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
-<title>FlakeSet ชุดเกล็ดสีตกแต่งพื้นเคลือบ (ฉบับร่าง) | LucernaPro</title>
-<meta name="description" content="FlakeSet เกล็ดสีตกแต่งสำหรับโรยทับพื้นเคลือบ Epoxy/PU เพิ่มลวดลายและผิวสัมผัส (หน้าฉบับร่าง รอ QA)">
-<meta property="og:title" content="FlakeSet ชุดเกล็ดสีตกแต่งพื้นเคลือบ (ฉบับร่าง)">
-<meta property="og:description" content="FlakeSet เกล็ดสีตกแต่งสำหรับโรยทับพื้นเคลือบ Epoxy/PU เพิ่มลวดลายและผิวสัมผัส (หน้าฉบับร่าง รอ QA)">
+<title>FlakeFloor พื้นกันลื่นพร้อมกันซึมในตัว เซทราคาประหยัดพร้อมชุดอุปกรณ์ | LucernaPro</title>
+<meta name="description" content="พื้นกันลื่นพร้อมกันซึมในตัว FlakeFloor เซทราคาประหยัดพร้อมชุดอุปกรณ์ — Marine Guard 1kg + CrystalSeal 1kg + ผง Flake 1kg + ชุดอุปกรณ์ ทำเองได้ 5 ตร.ม. ราคาพิเศษ 2,580 บาท ทำทับกระเบื้องห้องน้ำเดิมได้ ไม่ต้องรื้อ">
+<meta property="og:title" content="FlakeFloor พื้นกันลื่นพร้อมกันซึมในตัว เซทราคาประหยัดพร้อมชุดอุปกรณ์">
+<meta property="og:description" content="Marine Guard 1kg + CrystalSeal 1kg + ผง Flake 1kg + ชุดอุปกรณ์ครบ สำหรับพื้นที่ 5 ตร.ม. ราคาพิเศษ 2,580 บาท พร้อมคลิปสอนทำทุกขั้นตอน">
 <meta property="og:type" content="product">
+<meta property="og:image" content="https://www.lucernapro.com/img/flakeset-hero.webp">
 <meta property="og:url" content="https://www.lucernapro.com/flakeset">
 <link rel="canonical" href="https://www.lucernapro.com/flakeset">
 <link rel="icon" type="image/png" href="/img/logo.png">
@@ -27,7 +28,7 @@
     --orange:#D8571C;
     --orange-hi:#ED6A2F;
     --bar-bg:rgba(247,247,244,.92);
-    --wproof:#E0A458; /* สีหมวดตาม SPEC */
+    --wproof:#E0A458; /* สีหมวด Flooring ตาม SPEC */
     --warn-line:#C05A4C;
     --warn-ink:#A8433A;
     --radius:12px;
@@ -82,7 +83,7 @@
 
   /* ---------- Product hero ---------- */
   .phero{padding:40px 0 34px;background:
-      radial-gradient(640px 340px at 88% -15%, rgba(127,191,142,.14), transparent 60%),
+      radial-gradient(640px 340px at 88% -15%, rgba(224,164,88,.16), transparent 60%),
       radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
       border-bottom:1px solid var(--line)}
   .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
@@ -91,7 +92,7 @@
   .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
   .crumb b{color:var(--wproof);font-weight:500}
   .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
-  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.2}
   .phero h1 .o{color:var(--orange)}
   .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
   .phero .lede b{color:var(--ink)}
@@ -165,28 +166,22 @@
   .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
-  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
-  .vidgrid.vert{max-width:720px}
-  @media(max-width:759px){
-    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
-    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
-  }
-  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
-  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
-  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
-  .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
-      radial-gradient(340px 200px at 20% 0%, rgba(127,191,142,.25), transparent 60%),
+      radial-gradient(340px 200px at 20% 0%, rgba(224,164,88,.25), transparent 60%),
       radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
   .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
+  /* คลิปเดี่ยวแนวนอน 16:9 — จำกัดกว้างไม่ให้เต็มหน้า */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
 
-  /* ---------- Showcase (ภาพประกอบ แยกจากขั้นตอนงาน) ---------- */
+  /* ---------- Showcase / Gallery ---------- */
   .showcase{padding:46px 0 12px}
   .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
-  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:760px){.showgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
+  @media(min-width:1000px){.showgrid{grid-template-columns:repeat(3,1fr)}}
   .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
   .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
   .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
@@ -199,7 +194,7 @@
   /* ---------- Cross-sell ---------- */
   .alt{padding:46px 0 14px}
   .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
-  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr 1fr}}
   .altcard{border:1px solid var(--line);border-left:3px solid var(--wproof);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
   .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
   .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--wproof);text-transform:uppercase}
@@ -255,6 +250,7 @@
   /* Pack shot */
   .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
   .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .packshot figcaption{font-size:13px;color:var(--muted);text-align:center;padding:9px 4px 3px}
 
   @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
@@ -265,42 +261,6 @@
   .probox p{font-size:14.5px;color:var(--muted);max-width:640px}
   .probox p b{color:var(--ink)}
   .probox .acts{margin-top:15px;display:flex;gap:11px;flex-wrap:wrap}
-
-  /* คลิปเดี่ยวแนวนอน 16:9 — จำกัดกว้างไม่ให้เต็มหน้า */
-  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
-  @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
-
-  /* ---------- Showcase / Gallery (ยกจาก aquashell + rail ภาพอธิบาย) ---------- */
-  .showcase{padding:46px 0 12px}
-  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
-  @media(min-width:760px){.showgrid{grid-template-columns:repeat(2,1fr);align-items:start}}
-  @media(min-width:1000px){.showgrid{grid-template-columns:repeat(3,1fr)}}
-  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
-  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
-  .showcard.wide .im{aspect-ratio:720/576}
-  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
-  .showcard:hover img{transform:scale(1.03)}
-  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
-  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
-  .xgrid{margin-top:18px;display:grid;grid-template-columns:1fr;gap:14px}
-  @media(min-width:700px){.xgrid{grid-template-columns:repeat(3,1fr)}}
-  .xcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:7px;margin:0}
-  .xcard img{width:100%;height:auto;border-radius:9px;display:block}
-  .vidgrid.k2{max-width:720px}
-  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
-  @media(min-width:760px){.vidgrid.k2{grid-template-columns:repeat(2,1fr)}}
-  /* ภาพแนวนอนเต็มความกว้าง คงสัดส่วน ไม่ crop (ยกจากด่านสีทาพื้น หมวด flooring) */
-  .wideshot{margin-top:16px;border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:8px;margin-bottom:0}
-  .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
-  .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
-  .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
-
-  .packshot-ph{aspect-ratio:1/1;border-radius:14px;border:1px solid var(--line);
-    background:linear-gradient(145deg,var(--panel-2),var(--panel));
-    display:grid;place-items:center;text-align:center;padding:24px}
-  .packshot-ph .pt-label{font-family:var(--disp);font-weight:700;font-size:20px;color:var(--muted)}
-  .packshot-ph .pt-sub{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.08em}
 </style></head>
 <body>
 
@@ -309,6 +269,7 @@
     <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
     <a class="backlink" href="/">← สินค้าทั้งหมด</a>
     <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    <a class="lang-switch" href="/en/flakeset">EN</a>
     <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
   </div>
 </header>
@@ -316,32 +277,30 @@
 <section class="phero">
   <div class="wrap phero-grid">
     <div>
-      <div class="crumb"><span class="dot"></span>พื้น / ตกแต่ง <b>· เกล็ดสีตกแต่งพื้นเคลือบ</b></div>
-      <div class="flagtag">ใช้คู่กับระบบเคลือบพื้น · เพิ่มลวดลายและผิวสัมผัส</div>
-      <h1>FlakeSet <span class="o">ชุดเกล็ดสีตกแต่งพื้นเคลือบ</span><br>โรยทับพื้นเคลือบตอนยังเปียก เพิ่มลาย เพิ่มผิวสัมผัส</h1>
-      <p class="lede">FlakeSet คือ<b>เกล็ดสีตกแต่ง</b> สำหรับโรยทับบนพื้นเคลือบระบบ Epoxy/PU ขณะยังเปียก เพื่อสร้าง<b>ลวดลายหลากสีบนผิวพื้น</b> และช่วยเพิ่ม<b>พื้นผิวสัมผัสกันลื่นเล็กน้อย</b> เหมาะกับงานพื้นโรงรถ โชว์รูม หรือพื้นที่ที่ต้องการความสวยงามมากกว่าพื้นเรียบสีเดียว — ใช้เป็นส่วนเสริมคู่กับระบบเคลือบพื้นหลักของเรา <i>(หน้านี้เป็นฟอร์มร่างเบื้องต้น ตัวเลขและราคายังไม่ยืนยันจากเจ้าของ)</i></p>
+      <div class="crumb"><span class="dot"></span>พื้น / ตกแต่ง <b>· เซทพื้นเกล็ดกันลื่น DIY</b></div>
+      <div class="flagtag">เซทเดียวจบ 5 ตร.ม. · พร้อมอุปกรณ์และคลิปสอน</div>
+      <h1>พื้นกันลื่นพร้อมกันซึมในตัว <span class="o">FlakeFloor</span> เซทราคาประหยัดพร้อมชุดอุปกรณ์</h1>
+      <p class="lede">นี่คือ<b>สุดยอดพื้นกันลื่น</b>แบบทำเองได้ — ในกล่องมี <b>Marine Guard 1 kg</b> เป็นสีรองพื้นยึดเกาะสายโหด <b>ผง Flake 1 kg</b> สร้างลายและผิวสัมผัสกันลื่น ปิดท้ายด้วย <b>CrystalSeal 1 kg</b> เคลือบใสกันคราบกันน้ำ พร้อม<b>ชุดอุปกรณ์ครบ 1 ชุด</b> ทำได้ <b>5 ตร.ม.</b> เหมาะสุดๆ กับพื้นห้องน้ำ ทางเดินเปียก และพื้นรอบบ้าน — <b>ทำทับกระเบื้องห้องน้ำเดิมได้ ไม่ต้องรื้อ</b></p>
       <div class="hero-cta">
-        <a class="btn btn-orange" href="#order">สั่งซื้อ / สอบถามราคา</a>
-        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักถามรายละเอียดก่อนตัดสินใจ</a>
+        <a class="btn btn-orange" href="#order">สั่งซื้อ — 2,580 บาท</a>
+        <a class="btn btn-ghost" href="#howto">ดูวิธีทำ + คลิปสอน</a>
       </div>
     </div>
-    <div class="packshot-ph">
-      <div>
-        <div class="pt-label">FlakeSet</div>
-        <div class="pt-sub">รอรูปสินค้าจากเจ้าของ</div>
-      </div>
-    </div>
+    <figure class="packshot">
+      <img src="/img/flakeset-hero.webp" alt="เซท FlakeFloor — Marine Guard, CrystalSeal, ผง Flake และชุดอุปกรณ์ครบ" width="1200" height="960">
+      <figcaption>ของจริงในกล่อง — สีรองพื้น + เคลือบใส + ผง Flake + อุปกรณ์ครบมือ</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="sellpts">
   <div class="wrap">
-    <h2 class="sec-h">จุดขายหลัก</h2>
+    <h2 class="sec-h">ทำไมเซทนี้ถึงคุ้ม</h2>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>เพิ่มลวดลายให้พื้นเคลือบสีเดียว</h4><p>โรยเกล็ดสีทับตอนพื้นเคลือบยังเปียก สร้าง<b>ลวดลายหินอ่อนหรือลายกระเจิงหลากสี</b> แทนพื้นเรียบสีทึบธรรมดา</p></div></div>
-      <div class="pt"><span class="ic">02</span><div><h4>ช่วยลดความลื่นของผิวพื้นเคลือบ</h4><p>เม็ดเกล็ดที่โผล่พ้นผิวเล็กน้อยช่วยเพิ่ม<b>พื้นผิวสัมผัส (texture)</b> ลดความลื่นเมื่อเทียบกับพื้นเคลือบเรียบล้วน</p></div></div>
-      <div class="pt"><span class="ic">03</span><div><h4>มีหลายเฉดสีให้เลือกผสม</h4><p>เลือกโทนสีเกล็ดผสมกันได้ตามธีมของพื้นที่ — <b>โรงรถ โชว์รูม ร้านค้า</b> ปรับลุคได้หลากหลาย</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>ใช้คู่กับระบบเคลือบพื้นที่มีอยู่แล้ว</h4><p>ออกแบบมาให้<b>โรยทับระหว่างขั้นตอนเคลือบพื้น</b> ไม่ใช่ผลิตภัณฑ์แยกเดี่ยว ใช้ร่วมกับสายเคลือบพื้นของเรา</p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>กันลื่นจริง ด้วยผิวเกล็ดสัมผัสได้</h4><p>เม็ดเกล็ดที่โรยฝังในชั้นสีสร้าง<b>ผิวสัมผัส (texture) กันลื่น</b>ทั่วทั้งผืน เหมาะกับพื้นเปียกอย่างห้องน้ำ ทางเดิน และพื้นรอบสระ</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>กันซึมในตัว ตั้งแต่ชั้นแรกยันชั้นสุดท้าย</h4><p>ชั้นรองพื้น Marine Guard คือระบบเคลือบ<b>เกรดงานทะเล</b> ปิดผิวกันน้ำตั้งแต่ฐาน แล้วปิดทับด้วย CrystalSeal <b>กันน้ำ กันคราบ</b> อีกชั้น</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>เกาะแน่นแม้บนกระเบื้องห้องน้ำเดิม</h4><p>Marine Guard ยึดเกาะแรงระดับ<b>ทาทับกระเบื้องเคลือบมันได้โดยไม่ต้องรื้อ</b> และยังเกาะได้แม้ปูนหมาด — จบปัญหาพื้นลื่นโดยไม่ต้องทุบ</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ครบจบในกล่องเดียว พร้อมคลิปสอน</h4><p>ลูกกลิ้ง แปรง ถุงมือ <b>มาให้ครบ ไม่ต้องซื้อเพิ่ม</b> ทำตามคลิปสอนทีละขั้น ใครไม่เคยทำงานช่างก็ทำได้</p></div></div>
     </div>
   </div>
 </section>
@@ -349,15 +308,15 @@
 <section class="story">
   <div class="wrap">
     <div class="rdtag">STRAIGHT TALK — อ่านก่อนจ่ายเงิน</div>
-    <h2>ตัวช่วยเพิ่มความสวย <b>แต่มี 3 ข้อที่ต้องรู้ก่อนสั่ง</b></h2>
+    <h2>ของดีราคาประหยัด <b>แต่มี 3 ข้อที่ต้องรู้ก่อนสั่ง</b></h2>
     <div class="story-grid">
-      <div class="bignum">DRAFT<small>หน้านี้เป็นฟอร์มร่างเบื้องต้น — รอเจ้าของ QA</small></div>
+      <div class="bignum">5 ตร.ม.<small>ต่อ 1 เซท — คำนวณพื้นที่ก่อนสั่ง</small></div>
       <div class="story-body">
-        <p><b>หน้านี้เป็นฟอร์มร่างเบื้องต้น</b> ทีมงานยังไม่ได้ยืนยันโทนสีที่มีจริง อัตราการโรยต่อพื้นที่ และราคา — รอเจ้าของ QA ก่อนเผยแพร่จริง</p>
+        <p>เซทนี้เราจัดสัดส่วนมาให้<b>พอดีกับพื้นที่ 5 ตร.ม.</b> ทั้งชั้นรองพื้น เกล็ด และเคลือบใส วัดพื้นที่จริงก่อนสั่ง ถ้าเกินให้สั่งเพิ่มเป็นจำนวนเซท หรือทักแชทให้ทีมงานช่วยคำนวณ</p>
         <div class="beats">
-          <div class="beat"><div class="k">ต้องโรยตอนพื้นเคลือบยังเปียกเท่านั้น</div><p>จังหวะโรยเป็นเรื่องสำคัญ — <b>โรยช้าเกินไปเกล็ดจะไม่ยึดติดกับผิวพื้น</b> ต้องวางแผนร่วมกับขั้นตอนเคลือบหลัก</p></div>
-          <div class="beat"><div class="k">ไม่ใช่ผลิตภัณฑ์กันลื่นเต็มรูปแบบ</div><p>ช่วย<b>ลดความลื่นได้เล็กน้อย</b>เท่านั้น ไม่ใช่ระบบกันลื่นสำหรับพื้นที่เปียกหนักหรือพื้นที่ที่ต้องการมาตรฐานกันลื่นระดับสูง</p></div>
-          <div class="beat"><div class="k">ต้องมีชั้นเคลือบใสปิดทับด้านบนเสมอ</div><p>หลังโรยเกล็ดแล้ว<b>ต้องเคลือบใสปิดทับอีกชั้น</b> เพื่อยึดเกล็ดให้แน่นและปกป้องผิวจากการหลุดล่อน</p></div>
+          <div class="beat"><div class="k">โรยเกล็ดตอนสียังเปียกเท่านั้น</div><p>จังหวะสำคัญที่สุดของงานนี้ — ทารองพื้นเสร็จโซนไหน <b>โรยเกล็ดทับทันทีตอนยังเปียก</b> ถ้ารอจนสีเริ่มแห้ง เกล็ดจะไม่ยึด</p></div>
+          <div class="beat"><div class="k">รองพื้นมี pot life 15 นาที</div><p>Marine Guard ผสมแล้ว<b>ต้องทาให้หมดใน 15 นาที</b> พื้นที่ใหญ่ให้แบ่งผสมทีละส่วน อย่าผสมทีเดียวหมดถัง</p></div>
+          <div class="beat"><div class="k">รอให้ครบเวลาก่อนใช้งานจริง</div><p>เดินเบาๆ ได้หลังเคลือบใส <b>24 ชั่วโมง</b> แต่ความแข็งเต็มที่มาที่ <b>5–7 วัน</b> — อย่าเพิ่งขัดถูหนักหรือลากของช่วงแรก</p></div>
         </div>
       </div>
     </div>
@@ -366,23 +325,24 @@
 
 <section class="buybox" id="price">
   <div class="wrap">
-    <h2 class="sec-h">ขนาดที่มี</h2>
+    <h2 class="sec-h">ในเซทมีอะไรบ้าง</h2>
     <div class="pricecard">
-      <div class="ph">FlakeSet<small>ราคาและขนาดยังไม่ยืนยัน — รอเจ้าของ confirm</small></div>
+      <div class="ph">FlakeFloor เซทราคาประหยัด<small>สำหรับพื้นที่ 5 ตร.ม.</small></div>
       <table>
-        <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th></tr></thead>
+        <thead><tr><th>รายการ</th><th>หน้าที่</th><th>ปริมาณ</th></tr></thead>
         <tbody>
-          <tr><td class="sz">ถุงเล็ก</td><td>งานพื้นที่ขนาดเล็ก</td><td class="pr">สอบถาม</td></tr>
-          <tr><td class="sz">ถุงมาตรฐาน</td><td>งานพื้นโรงรถ-โชว์รูม</td><td class="pr">สอบถาม</td></tr>
-          <tr><td class="sz">ชุดโครงการ</td><td>งานพื้นที่ขนาดใหญ่</td><td class="pr">สอบถาม</td></tr>
+          <tr><td class="sz">Marine Guard</td><td>สีรองพื้นยึดเกาะ + กันซึมชั้นฐาน</td><td class="pr">1 kg</td></tr>
+          <tr><td class="sz">ผง Flake</td><td>เกล็ดสีสร้างลายและผิวกันลื่น</td><td class="pr">1 kg</td></tr>
+          <tr><td class="sz">CrystalSeal</td><td>เคลือบใสปิดทับ กันคราบ กันน้ำ</td><td class="pr">1 kg</td></tr>
+          <tr><td class="sz">ชุดอุปกรณ์</td><td>ลูกกลิ้ง แปรง ถุงมือ — ครบมือ</td><td class="pr">1 ชุด</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote"><b>ราคาและอัตราการโรยต่อพื้นที่ยังไม่ยืนยัน</b> — แจ้งพื้นที่และระบบเคลือบที่ใช้ ทีมงานช่วยประเมินปริมาณให้</p>
+    <p class="pricenote"><b>ราคาพิเศษ 2,580 บาท</b> · ค่าส่ง 130 บาท — สั่งครั้งเดียวได้ของครบ ไม่ต้องวิ่งหาซื้ออุปกรณ์เพิ่ม</p>
     <div class="probox">
-      <div class="k">งานโครงการ / ผู้รับเหมา / โรงงาน</div>
-      <h3>ใช้เยอะ — มีราคาพิเศษ</h3>
-      <p>งานโชว์รูมหรือโครงการที่ต้องการดีไซน์เฉพาะ แจ้งพื้นที่และโทนสีที่ต้องการมาทางแชทเพจ ทีมงานช่วยแนะนำได้</p>
+      <div class="k">งานโครงการ / ผู้รับเหมา / พื้นที่ใหญ่</div>
+      <h3>พื้นที่เกิน 5 ตร.ม. — ให้เราคำนวณให้</h3>
+      <p>แจ้งขนาดพื้นที่และสภาพหน้างานมาทางแชทเพจ ทีมงานช่วยคำนวณจำนวนเซทหรือจัดสัดส่วนแบบแยกถังให้คุ้มที่สุด</p>
       <div class="acts">
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ขอราคาโครงการ</a>
         <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
@@ -391,43 +351,63 @@
   </div>
 </section>
 
-<section class="howto">
+<section class="howto" id="howto">
   <div class="wrap">
-    <h2 class="sec-h">วิธีใช้งาน <em>(ฉบับร่าง — ตัวเลขรอยืนยัน)</em></h2>
-    <p class="sec-sub">ขั้นตอนด้านล่างเป็น<b>ฉบับร่างเบื้องต้น</b> ทีมงานจะปรับตัวเลขจริงให้ครบถ้วนอีกครั้งก่อนเผยแพร่จริง</p>
+    <h2 class="sec-h">วิธีทำ <em>ทีละขั้น จบใน 2 วัน</em></h2>
+    <p class="sec-sub">ทุกตัวเลขอยู่ครบในหน้านี้ — ดูคลิปประกอบก่อนลงมือ แล้วทำตามลำดับได้เลย</p>
+    <div class="vidgrid k1">
+      <figure>
+        <div class="fbv"><iframe src="https://www.youtube.com/embed/Ko9DEt3QoW0" title="คลิปสอนทำพื้น FlakeFloor ทีละขั้นตอน" loading="lazy" allowfullscreen></iframe></div>
+        <figcaption>คลิปสอนทำจริงทุกขั้นตอน — ดูจบแล้วทำตามได้เลย</figcaption>
+      </figure>
+    </div>
     <ol class="flow">
-      <li class="fstep"><h4>เคลือบพื้นด้วยระบบเคลือบหลักตามปกติ</h4><p>ทาชั้นเคลือบพื้น (Epoxy/PU) ตามขั้นตอนมาตรฐานของระบบที่เลือกใช้</p><span class='fchip'>ทาชั้นเคลือบหลักก่อน</span></li>
-      <li class="fstep"><h4>โรยเกล็ดสีทันทีขณะพื้นยังเปียก</h4><p>โรยให้กระจายสม่ำเสมอตามความหนาแน่นที่ต้องการ ก่อนชั้นเคลือบเริ่มแห้ง</p><span class='fchip'>โรยตอนยังเปียก</span></li>
-      <li class="fstep"><h4>รอชั้นเคลือบแห้งตัว</h4><p>ปล่อยให้แห้งตามเวลาของระบบเคลือบหลักที่ใช้ (ตัวเลขรอยืนยัน)</p><span class='fchip'>รอแห้งตัว</span></li>
-      <li class="fstep"><h4>กวาดเก็บเกล็ดส่วนเกินที่ไม่ยึดติด</h4><p>เก็บกวาดเกล็ดที่ไม่ติดผิวออกก่อนเคลือบใสทับ</p><span class='fchip'>กวาดเกล็ดส่วนเกิน</span></li>
-      <li class="fstep"><h4>เคลือบใสปิดทับอีกชั้น</h4><p>ทาชั้นเคลือบใสปิดทับเพื่อยึดเกล็ดให้แน่นและปกป้องผิว</p><span class='fchip'>เคลือบใสปิดทับเสมอ</span></li>
+      <li class="fstep"><h4>เตรียมพื้นผิว — สะอาด ฝุ่นน้อยที่สุด</h4><p>ล้างพื้นให้สะอาด ขจัดคราบไขมันและเศษฝุ่น พื้นปูน<b>หมาดได้แต่ต้องไม่มีน้ำขัง</b> กระเบื้องเดิมให้ล้างคราบสบู่ออกให้หมดแล้วเช็ดแห้ง</p><span class='fchip'>ปูนหมาดได้ ห้ามน้ำขัง</span></li>
+      <li class="fstep"><h4>ผสมสีรองพื้น Marine Guard — A 2 ส่วน : B 1 ส่วน (โดยน้ำหนัก)</h4><p>ชั่งด้วยเครื่องชั่งเสมอ กวนให้เข้ากันจริงๆ <b>ไม่ต่ำกว่า 1 นาที</b> — ผสมแล้วมีเวลาทา 15 นาที พื้นที่ใหญ่ให้แบ่งผสมทีละส่วน</p><span class='fchip'>A : B = 2 : 1</span><span class='fchip'>กวน ≥ 1 นาที</span><span class='fchip'>Pot life 15 นาที</span></li>
+      <li class="fstep"><h4>ทารองพื้นด้วยลูกกลิ้งให้ทั่ว</h4><p>ใช้ลูกกลิ้งในชุดอุปกรณ์ ทาให้สม่ำเสมอทีละโซน — เซทนี้จัดปริมาณมาพอดี <b>5 ตร.ม.</b></p><span class='fchip'>ลูกกลิ้งในชุด</span><span class='fchip'>ทาทีละโซน</span></li>
+      <li class="fstep"><h4>โรยผง Flake ทันทีตอนสียังเปียก</h4><p>โรยจากความสูงประมาณเอว ให้เกล็ดกระจายสม่ำเสมอ <b>ทาโซนไหนโรยโซนนั้น</b> — อย่ารอจนสีเริ่มแห้ง เกล็ดจะไม่ยึด</p><span class='fchip'>โรยตอนเปียกเท่านั้น</span></li>
+      <li class="fstep"><h4>รอแห้ง ~6 ชั่วโมง แล้วกวาดเกล็ดส่วนเกิน</h4><p>เมื่อชั้นรองพื้นแห้งแล้ว กวาดหรือดูดเกล็ดที่ไม่ยึดติดออกให้หมด ก่อนลงเคลือบใส</p><span class='fchip'>รอ ~6 ชม.</span><span class='fchip'>กวาดเกล็ดหลุด</span></li>
+      <li class="fstep"><h4>ผสมเคลือบใส CrystalSeal — A 100 : B 14 (โดยน้ำหนัก)</h4><p>ชั่งตามสัดส่วนแล้ว<b>คนช้าๆ 2–3 นาที</b> ตัวนี้ pot life ยาวเป็นชั่วโมง ไม่ต้องรีบ</p><span class='fchip'>A : B = 100 : 14</span><span class='fchip'>คนช้าๆ 2–3 นาที</span></li>
+      <li class="fstep"><h4>เคลือบใสปิดทับทั้งผืน</h4><p>ทา CrystalSeal ทับเกล็ดให้ทั่ว ชั้นนี้คือตัว<b>ล็อกเกล็ดให้แน่น กันคราบ และกันน้ำ</b>ที่ผิวหน้า</p><span class='fchip'>เคลือบใสปิดทับเสมอ</span></li>
+      <li class="fstep"><h4>รอแห้ง แล้วใช้งานได้</h4><p>แห้งสัมผัส 1–2 ชั่วโมง <b>เดิน/ใช้งานเบาๆ หลัง 24 ชั่วโมง</b> แข็งตัวเต็มที่ 5–7 วัน</p><span class='fchip'>ใช้งานเบา 24 ชม.</span><span class='fchip'>แข็งเต็มที่ 5–7 วัน</span></li>
     </ol>
-    <div class="warn"><b>⚠ หน้านี้เป็นฉบับร่าง:</b> จังหวะเวลาการโรย อัตราการใช้ต่อพื้นที่ และสีที่มีจริงยังไม่ได้ยืนยันจากเจ้าของ — ห้ามใช้ข้อมูลหน้านี้อ้างอิงจนกว่าจะผ่าน QA</div>
-    <div class="note"><b>สถานะ:</b> หน้านี้สร้างขึ้นเพื่อให้มีฟอร์มและโครงเนื้อหาเบื้องต้น รอเจ้าของให้ข้อมูลจริง (ราคา สีที่มี อัตราการใช้ ลิงก์ขาย) แล้วจะปรับปรุงในรอบ QA ถัดไป</div>
+    <div class="warn"><b>⚠ จุดพลาดที่เจอบ่อย:</b> ผสมรองพื้นทีเดียวทั้งถังแล้วทาไม่ทันใน 15 นาที กับโรยเกล็ดช้าจนสีเริ่มแห้ง — ทำทีละโซน ทาเสร็จโรยทันที งานจะออกมาสวยแน่นทุกตารางเมตร</div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap">
+    <h2 class="sec-h">หน้างานจริง <em>ผิวเกล็ดที่ได้</em></h2>
+    <div class="showgrid">
+      <figure class="showcard"><div class="im"><img src="/img/flakeset-g01.webp" alt="ผิวพื้นเกล็ดโทนเทาดำ เก็บงานชนขอบผนัง" loading="lazy" width="720" height="720"></div><figcaption>โทนเทา-ดำ<small>ผิวเกล็ดแน่นสม่ำเสมอ เคลือบใสปิดทับเรียบร้อย</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/flakeset-g02.webp" alt="พื้นโรงรถลายเกล็ดโทนฟ้าเทาขาว" loading="lazy" width="720" height="720"></div><figcaption>โทนฟ้า-เทา-ขาว<small>พื้นโรงรถทั้งผืน ลายเกล็ดช่วยพรางฝุ่นและรอย</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img src="/img/flakeset-g03.webp" alt="พื้นเกล็ดโทนเบจน้ำตาลผิวกันลื่น" loading="lazy" width="720" height="720"></div><figcaption>โทนเบจ-น้ำตาล<small>ผิวสัมผัสกันลื่นชัดเจน เงาสวยจากชั้นเคลือบใส</small></figcaption></figure>
+    </div>
+    <div class="note"><b>เรื่องสี:</b> โทนเกล็ดในเซทอาจต่างจากภาพตัวอย่าง — ทักแชทสอบถามโทนสีที่มีตอนสั่งได้เลย ทีมงานส่งรูปเกล็ดจริงให้ดูก่อนตัดสินใจ</div>
   </div>
 </section>
 
 <section class="alt">
   <div class="wrap">
-    <h2 class="sec-h">ตัวที่มักใช้คู่กับ <em>FlakeSet</em></h2>
+    <h2 class="sec-h">อยากรู้จักของในเซทให้ลึกขึ้น?</h2>
     <div class="altgrid">
-      <a class="altcard" href="/epoxycoating">
-        <div class="k">ระบบเคลือบพื้นหลัก</div>
-        <h4>EPOXY-PU Coating</h4>
-        <p>ระบบเคลือบพื้นหลักที่ใช้คู่กับ FlakeSet เพื่อสร้างลวดลาย</p>
-        <div class="go">ดูหน้า EPOXY-PU Coating →</div>
+      <a class="altcard" href="/marineguard">
+        <div class="k">สีรองพื้นในเซทนี้</div>
+        <h4>MarineGuard</h4>
+        <p>ระบบเคลือบเกรดงานทะเล ยึดเกาะสายโหด เกาะได้แม้ปูนหมาด — อ่านสเปกเต็มๆ</p>
+        <div class="go">ดูหน้า MarineGuard →</div>
       </a>
-      <a class="altcard" href="/thermaglaze">
-        <div class="k">พื้นคอนกรีตสีเดียวประหยัด</div>
-        <h4>ThermaGlaze</h4>
-        <p>สีทาพื้นคอนกรีตส่วนผสมเดียว เหมาะกับงานที่ไม่ต้องการลวดลายเพิ่ม</p>
-        <div class="go">ดูหน้า ThermaGlaze →</div>
+      <a class="altcard" href="/crystalseal">
+        <div class="k">เคลือบใสในเซทนี้</div>
+        <h4>CrystalSeal</h4>
+        <p>เคลือบใสกันคราบกันน้ำ ทนแดด ยืดหยุ่นสูง มีเม็ดกันลื่นในตัว — อ่านสเปกเต็มๆ</p>
+        <div class="go">ดูหน้า CrystalSeal →</div>
       </a>
-      <a class="altcard" href="/solidfloor">
-        <div class="k">พื้นคอนกรีตทั่วไป</div>
-        <h4>Solid Floor</h4>
-        <p>ตัวเลือกพื้นคอนกรีตสีเรียบสำหรับงานที่ไม่เน้นเกล็ดตกแต่ง</p>
-        <div class="go">ดูหน้า Solid Floor →</div>
+      <a class="altcard" href="/tilecoatpoly">
+        <div class="k">อยากได้สีทึบไม่เอาลายเกล็ด</div>
+        <h4>TileCoat Polyurea</h4>
+        <p>สีทากระเบื้องกันซึมแบบทึบสี สำหรับงานที่อยากเปลี่ยนสีพื้นทั้งผืน</p>
+        <div class="go">ดูหน้า TileCoat Polyurea →</div>
       </a>
     </div>
   </div>
@@ -435,14 +415,15 @@
 
 <section class="order" id="order">
   <div class="wrap">
-    <h2 class="sec-h">สั่งซื้อ <em>FlakeSet</em></h2>
+    <h2 class="sec-h">สั่งซื้อ <em>FlakeFloor เซทราคาประหยัด</em></h2>
     <div class="ordercard">
-      <h3>เลือกช่องทางที่สะดวก — ทีมงานตอบไว</h3>
-      <div class="sub">แจ้งพื้นที่และระบบเคลือบที่จะใช้คู่กันมาทางแชทเพจหรือ Line — สินค้าตัวนี้อยู่ระหว่างเตรียมข้อมูลก่อนเปิดขายเต็มรูปแบบ</div>
+      <h3>ราคาพิเศษ 2,580 บาท · ค่าส่ง 130 บาท</h3>
+      <div class="sub">เซทเดียวครบสำหรับ 5 ตร.ม. — สั่งผ่านช่องทางที่สะดวก หรือทักแชทให้ทีมงานช่วยเช็กพื้นที่ก่อนสั่ง</div>
       <div class="shoprow">
+        <a class="shop" href="https://shopee.co.th/lucernapro" target="_blank" rel="noopener">🛒 Shopee</a>
+        <a class="shop" href="https://www.lazada.co.th/shop/lucernapro/" target="_blank" rel="noopener">🛒 Lazada</a>
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
-        <a class="shop" href="tel:0970799547">📞 097-079-9547</a>
       </div>
     </div>
   </div>
@@ -465,7 +446,7 @@
   <div class="wrap">
     <div class="contact-card">
       <div>
-        <h2>ไม่แน่ใจว่าต้องใช้ตัวไหน?<br>ให้เราช่วยเลือก</h2>
+        <h2>ไม่แน่ใจว่าพื้นบ้านคุณทำได้ไหม?<br>ให้เราช่วยดู</h2>
         <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานจะช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
         <div class="contact-actions">
           <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ทักแชทเพจ ปรึกษาฟรี</a>
