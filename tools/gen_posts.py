@@ -1,0 +1,274 @@
+# -*- coding: utf-8 -*-
+"""
+gen_posts.py — สร้างหน้า /post/{slug}/index.html สำหรับเคสจากหน้า /casestudy
+เนื้อหา migrate มาจาก Wix (lucernapro.com/post/...) แบบคำต่อคำ
+รูป/วิดีโอ: hotlink wixstatic ชั่วคราว (ดู SPEC หัวข้อ Post Migration — ต้อง salvage ก่อนปิดบัญชี Wix)
+รัน: python3 tools/gen_posts.py (จาก root ของ repo)
+"""
+import os, urllib.parse
+
+WIX_IMG = "https://static.wixstatic.com/media/"
+
+def hero(mid, w=1200, h=900, q=90):
+    return f"{WIX_IMG}{mid}/v1/fill/w_{w},h_{h},al_c,q_{q}/{mid}"
+
+def gal(mid, w=720, q=85):
+    return f"{WIX_IMG}{mid}/v1/fill/w_{w},h_{w},al_c,q_{q}/{mid}"
+
+CAT_LABEL = {"pool":"สระว่ายน้ำ","bath":"ห้องน้ำ","roof":"หลังคา / ดาดฟ้า",
+             "joint":"รอยต่อ / รอยร้าว","coat":"เคลือบปกป้อง / กาว","tips":"เทคนิค / ความรู้"}
+
+POSTS = [
+ {
+  "slug": "basement-solution-center",
+  "title": "Basement Solution Center",
+  "date": "12 ม.ค. 2024", "cat": "roof",
+  "desc": "ห้องใต้ดินและพื้นที่ต่ำกว่าระดับดิน — ทำกันซึมด้านนอกให้ดีตั้งแต่ก่อนถมดิน ประหยัดกว่ามาแก้ทีหลังมาก",
+  "hero": "00cbb9_7cbf31cd08d94ee0901d079f6227fc59~mv2.jpg",
+  "body": [
+   "ห้องที่อยู่ระดับต่ำกว่าพื้นดินแนะนำว่าควรทำระบบกันซึมด้านนอกให้ดีไว้ตั้งแต่ก่อนจะถมดินจะประหยัดกว่ามาแก้ไขทีหลังมาก และควรเลือกกันซึมที่ทนรับงานหนักโดยเฉพาะดีกว่าเพราะงานนี้ต้องรับมือกับความชื้นต่อเนื่องเป็นเวลายาวนาน",
+   "แต่ถ้าทำไปแล้วเกิดปัญหาตามหลังเราก็มีครบทุก Solution การแก้ปัญหายากๆ แบบนี้ และทุกทางเลือกใช้งานง่ายเป็นหลัก ไม่ว่าจะกันซึมจากภายใน ป้องกันความชื้น สีทนน้ำ โป๊วรอยต่องาน Heavy Duty เรามีครบ",
+   "เคมีสำหรับงานพิเศษ นึกถึง Lucerna ได้เลย",
+  ],
+  "prods": [("DeepSeal กันซึม Negative","/deepseal"),("DryGard","/drygard"),("DeepStick","/deepstick")],
+ },
+ {
+  "slug": "คิดให้ดีก่อนจะรื้อ",
+  "title": "คิดให้ดีก่อนจะรื้อ",
+  "date": "9 มิ.ย. 2023", "cat": "bath",
+  "desc": "อ่านก่อนรื้อกระเบื้องแล้วปูใหม่ — เข้าใจธรรมชาติของคอนกรีตและยาแนว จะได้คุยกับช่างรู้เรื่องและจบงานในรอบเดียว",
+  "hero": "00cbb9_bb6ab1a9745547f7ba734a4ddc6fc0fe~mv2.jpg",
+  "body": [
+   "อยากให้อ่านก่อนที่จะรื้อกระเบื้องแล้วปูใหม่ อย่างน้อยเวลาคุยกับช่างจะได้เข้าใจง่ายและจบงานได้ในรอบเดียว",
+   "การปูกระเบื้องใหม่เพื่อป้องกันการรั่วซึมอย่างแรกเลยอย่าไว้ใจคอนกรีต เพราะธรรมชาติของคอนกรีตดูดซึมน้ำได้ดีมากและแตกร้าวได้ง่ายเลยต้องใช้กันซึมผสมคอนกรีตช่วย แต่เราน่าจะเห็นกันมาเป็นเวลายาวนานแล้วว่าใส่ไปยังไงก็ไม่มีใครกล้าการันตีว่าจะไม่รั่วซึม เรื่องนี้ทดลองถามช่างได้เลยว่าการันตีให้ได้หรือไม่ เพราะฉะนั้นเราแนะนำให้ทากันซึมดีๆ อีกหนึ่งชั้นเพื่อป้องกันอีกขั้นจะได้สบายใจ และยิ่งประกอบกับการใช้ยาแนวทั่วๆ ไปที่โดนน้ำไม่นานก็สึกกร่อน น้ำก็ไหลลงไปอยู่ใต้กระเบื้องก็เลยเกิดปัญหาตามกันมาอย่างต่อเนื่อง",
+   "คำแนะนำที่ดีที่สุดจากเราคืออย่าหวังมาซ่อมในอนาคตเพราะมันแพงกว่าการป้องกันตั้งแต่เริ่มต้นมาก พื้นที่สำคัญก็แค่ทากันซึมก่อนเทปูนก็ช่วยได้เยอะมากแล้ว",
+   "ถึงแม้กันซึมที่ทาทับกระเบื้องจะดีแค่ไหนก็ไม่มีทางทนเท่าการทากันซึมด้านใต้พื้นที่ไม่ต้องโดนแดดเพราะอายุจะยาวนานกว่าปกติมาก แต่ก็ต้องเลือกกันซึมที่ทนการแช่น้ำได้ดีไม่เช่นนั้นก็จะเปื่อยหมดสภาพโดยเราแก้ไขอีกครั้งไม่ได้แล้ว",
+  ],
+  "prods": [("TileCoat Polyurea","/tilecoatpoly"),("Polyurea Gen3","/polypro")],
+ },
+ {
+  "slug": "seamless-house",
+  "title": "Seamless House",
+  "date": "3 เม.ย. 2024", "cat": "joint",
+  "desc": "ตัวอย่างการใช้ DeepStick และ FillerAce กับงานบ้านไร้รอยต่อ จบปัญหาแตกร้าว ขัดแต่งทำสีได้ตามปกติ",
+  "video": "https://video.wixstatic.com/video/00cbb9_7f2c2109fff8483c909ffb3a4adc8f6a/1080p/mp4/file.mp4",
+  "body": [
+   "ตัวอย่างการใช้ DeepStick และ FillerAce กับงานบ้านไร้รอยต่อ จบปัญหาแตกร้าว ขัดแต่งทำสีได้ตามปกติ",
+  ],
+  "prods": [("DeepStick","/deepstick"),("FillerAce","/fillerace")],
+ },
+ {
+  "slug": "ชมพลังของ-deepstick-กันชัดๆ",
+  "title": "ชมพลังของ DeepStick กันชัดๆ",
+  "date": "26 ก.พ. 2024", "cat": "joint",
+  "desc": "งานรอยต่อไซโลบนดาดฟ้าโรงงานใหญ่อันดับต้นๆ ของไทย แรงสั่นสะเทือนตลอดเวลา — โป๊วด้วย DeepStick ทับด้วย Polyurea Gen3",
+  "body": [
+   "งานรอยต่อที่ยากมากๆ สำหรับเราคงไม่มีงานไหนเกินงานนี้แล้ว",
+   "เป็นไซโลในโรงงานที่ใหญ่อันดับต้นๆ ของไทย ตั้งอยู่บนดาดฟ้าเจาะทะลุขึ้นมาจากพื้นปูน มีแรงสั่นสะเทือนตลอดเวลา งานนี้มีการทำปูนโอบไว้อย่างดีก็ยังมีรอยรั่วลงไปชั้นล่าง ใช้ตัวโป๊วหรือซิลิโคนทั่วไปไม่ได้เลย",
+   "งานนี้ DeepStick แก้ปัญหาได้เรียบร้อยด้วยคุณสมบัติที่ไม่เหมือนใคร เป็นตัวโป๊วที่ยืดหยุ่นแต่มีความเหนียวแน่นในตัวและแรงยึดเกาะสูงมากแม้บนพื้นผิวแปลกๆ แทบจะเรียกว่าพื้นผิวแบบไหนก็โป๊วได้",
+   "หลังจากโป๊วให้ทั่วแล้วก็ทาทับพื้นที่ด้วยกันซึมตัว Top ของเราด้วย Polyurea Gen3 ปกติทาเพียง 2 รอบก็พอแต่งานนี้ทา 3 รอบไปเลยเพื่อให้ใช้งานได้ยาวนานยิ่งกว่าเดิม",
+  ],
+  "gallery": [
+   "00cbb9_65ca1f944fe648f9b283d17d835d5a4d~mv2.jpg","00cbb9_44a7aa2d692a49b0b753e1bb79ddf234~mv2.jpg",
+   "00cbb9_c16d0d9934f048e79772a195b6641759~mv2.jpg","00cbb9_295478c6800f4c6c9b9dd6a762da88b2~mv2.jpg",
+   "00cbb9_64a18ad5a8184d9a8306e042370c2a03~mv2.jpg","00cbb9_6fdfedab5a25474fb11cb7e2365c343b~mv2.jpg",
+   "00cbb9_7612f67eb9d64d3bb66778e77f895cd8~mv2.jpg","00cbb9_1d49d77d5c5849aabf4b868f9b16a1a6~mv2.jpg",
+   "00cbb9_128a9edf4852455c8bc6b147b223d2dc~mv2.jpg","00cbb9_2e410ba6a5a340209ae348d437d7a441~mv2.jpg",
+   "00cbb9_6d6032e5e7d6460395f75f9e88d77512~mv2.jpg","00cbb9_a286b062a3ee4bb09e7855116f8f61a2~mv2.jpg",
+   "00cbb9_832992b4c91144c69d375735c9106cb1~mv2.jpg","00cbb9_777193f9d3184279940a8db993b76c1a~mv2.jpg",
+   "00cbb9_502b6d4df96f4d60869e8318b13f317f~mv2.jpg","00cbb9_7507e0954c284f21bf16f76ef4cbbdc0~mv2.jpg",
+   "00cbb9_031476a4f2c5416c9c8f6681fb6c81ca~mv2.jpg","00cbb9_5b7a26670bb54a0cb4d8da65dd922de5~mv2.jpg",
+   "00cbb9_478e3fb99c78479d8591f4f8f663d0c5~mv2.jpg","00cbb9_e4178964b78940bf86e2d2da38e37164~mv2.jpg",
+   "00cbb9_2fcf6c54f8eb46cfa6c1352667b66d3e~mv2.jpg","00cbb9_38e08de72e1f4a9c913d0ea51f260389~mv2.jpg",
+   "00cbb9_7661c96754fe4254b09a19a47f5334b1~mv2.jpg","00cbb9_ba4d52d621f74e3bbbef18b06d23380a~mv2.jpg",
+   "00cbb9_4aaa15198939479aac054308f973cf46~mv2.jpg","00cbb9_ea2660d121764dc4946d79e6142c9c66~mv2.jpg",
+   "00cbb9_72ed1fa28aca47258274333be5591d2d~mv2.jpg","00cbb9_1bb8f8f1435f4f01bdc7df37c471acb4~mv2.jpg",
+   "00cbb9_03cac759ac8b4048a7a545fe65e7e78e~mv2.jpg","00cbb9_76eb4231d88c462aad354dc21bde83b5~mv2.jpg",
+   "00cbb9_7246e10e19a2423b9679d5d6781d69ae~mv2.jpg","00cbb9_c35321e6eb344cb79d3b8430b3d1ac97~mv2.jpg",
+   "00cbb9_ae49edd513c44a1d9ac3ab5972e87d58~mv2.jpg","00cbb9_2c86ea9e8c2b4d0387a098be8d838f28~mv2.jpg",
+   "00cbb9_933617812f01477e8ef8d6f378cb2cdc~mv2.jpg","00cbb9_97246794009544bcaba4d4c43b1cea39~mv2.jpg",
+   "00cbb9_43be01ce672d450a82a3dc36dbe24319~mv2.jpg","00cbb9_5dc56f1c695440fdad9282cb23af43ff~mv2.jpg",
+   "00cbb9_af72d92987874154bbaaf2969e6648dd~mv2.jpg","00cbb9_721a3b9b329448dbaa54cd80c68e53da~mv2.jpg",
+   "00cbb9_6cc7ebb32e6f4770ac83c1dbac2d21bb~mv2.jpg",
+  ],
+  "prods": [("DeepStick","/deepstick"),("Polyurea Gen3","/polypro")],
+ },
+ {
+  "slug": "ซ่อมสระว่ายน้ำด้วย-polypro",
+  "title": "ซ่อมสระว่ายน้ำด้วย PolyPro",
+  "date": "22 ก.พ. 2023", "cat": "pool",
+  "desc": "สระรั่วแค่ช่วงบน ไม่ต้องรื้อทั้งสระ — ทาเฉพาะบริเวณที่เกิดปัญหาก็แก้ได้ ประหยัดกว่า เห็นผลทันที ทำเองได้",
+  "hero": "00cbb9_967c2d8cef7d41b281a1c7907245669b~mv2.jpg",
+  "body": [
+   "สระว่ายน้ำรั่วแค่ช่วงบน ไม่ต้องรื้อทั้งสระอีกแล้ว ทาแค่บริเวณที่เกิดปัญหาก็แก้ได้ ประหยัดกว่าและเห็นผลได้ทันที ที่สำคัญทำเองได้เลย",
+  ],
+  "prods": [("Polyurea Gen3","/polypro")],
+ },
+]
+
+TEMPLATE = """<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} | Case Study LucernaPro</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="https://www.lucernapro.com/post/{slug_enc}">
+<meta property="og:title" content="{title} | Case Study LucernaPro">
+<meta property="og:description" content="{desc}">
+<meta property="og:type" content="article">
+{og_image}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{{
+  --paper:#F2F2EF; --card:#FFFFFF; --ink:#191C1F; --steel:#5E646A;
+  --line:#DCDCD6; --signal:#D8571C; --signal-dark:#ED6A2F; --tag-bg:#ECECE9;
+}}
+*{{margin:0;padding:0;box-sizing:border-box}}
+html{{scroll-behavior:smooth}}
+body{{font-family:'Anuphan',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}}
+a{{color:inherit;text-decoration:none}}
+img{{display:block;max-width:100%;height:auto}}
+h1,.brand,.cta h2{{font-family:'Chakra Petch','Anuphan',sans-serif}}
+.eyebrow{{font-family:'IBM Plex Mono',monospace}}
+.topbar{{position:sticky;top:0;z-index:50;background:rgba(245,244,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}}
+.topbar-inner{{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:20px}}
+.brand{{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:1.05rem}}
+.brand img{{width:34px;height:34px}}
+.brand em{{font-style:normal;color:var(--signal)}}
+.topnav{{margin-left:auto;display:flex;gap:22px;font-size:.92rem;font-weight:500;color:var(--steel)}}
+.topnav a:hover{{color:var(--ink)}}
+.topnav .active{{color:var(--signal);font-weight:600}}
+@media(max-width:720px){{.topnav{{display:none}}}}
+.btn-chat{{margin-left:auto;display:none;background:var(--signal);color:#fff;font-weight:600;font-size:.88rem;padding:8px 14px;border-radius:8px}}
+@media(max-width:720px){{.btn-chat{{display:inline-block}}}}
+.wrap{{max-width:820px;margin:0 auto;padding:36px 20px 60px}}
+.crumb{{font-size:.86rem;color:var(--steel);margin-bottom:22px}}
+.crumb a{{color:var(--signal);font-weight:600}}
+.eyebrow{{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.16em;color:var(--signal);text-transform:uppercase;margin-bottom:12px}}
+h1{{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.3;letter-spacing:-.01em}}
+.meta{{margin-top:10px;font-size:.86rem;color:var(--steel)}}
+.hero-img{{margin:26px 0 6px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#E9E7E1}}
+.hero-img img{{width:100%}}
+.postvid{{margin:26px 0 6px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000}}
+.postvid video{{display:block;width:100%;max-height:78vh}}
+article p{{margin-top:20px;font-size:1.02rem}}
+.gal{{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}}
+.gal img{{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#E9E7E1}}
+.prods{{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center}}
+.prods .lbl{{font-size:.84rem;color:var(--steel);font-weight:600;margin-right:4px}}
+.prods a{{background:var(--tag-bg);border:1px solid var(--line);font-size:.86rem;font-weight:600;color:var(--ink);padding:6px 14px;border-radius:8px;transition:all .15s}}
+.prods a:hover{{background:var(--signal);border-color:var(--signal);color:#fff}}
+.back{{display:inline-block;margin-top:30px;font-weight:600;color:var(--signal)}}
+.back:hover{{color:var(--signal-dark)}}
+.cta{{background:var(--ink);color:#fff}}
+.cta-inner{{max-width:1200px;margin:0 auto;padding:52px 20px;text-align:center}}
+.cta h2{{font-size:clamp(1.4rem,3vw,2rem);font-weight:700}}
+.cta p{{color:#B9BFC9;margin:12px auto 24px;max-width:560px}}
+.cta-btns{{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}}
+.btn{{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.98rem;transition:all .18s}}
+.btn-primary{{background:var(--signal);color:#fff}}
+.btn-primary:hover{{background:var(--signal-dark)}}
+.btn-ghost{{border:1.5px solid #444B57;color:#fff}}
+.btn-ghost:hover{{border-color:#fff}}
+footer{{background:var(--ink);border-top:1px solid #2A2F38;color:#8A93A1;font-size:.85rem}}
+.foot-inner{{max-width:1200px;margin:0 auto;padding:26px 20px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}}
+footer a{{color:#B9BFC9}}
+footer a:hover{{color:#fff}}
+@media (prefers-reduced-motion:reduce){{*,*::before,*::after{{transition:none!important;animation:none!important}}}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
+      LUCERNA<em>PRO</em>
+    </a>
+    <nav class="topnav">
+      <a href="/#finder">ค้นหาสินค้า</a>
+      <a href="/#waterproof">กันซึม</a>
+      <a href="/#flooring">งานพื้น</a>
+      <a href="/#coating">เคลือบปกป้อง</a>
+      <a class="active" href="/casestudy/">Case Study</a>
+      <a href="/#contact">ติดต่อเรา</a>
+    </nav>
+    <a class="btn-chat" href="https://m.me/lucernapro">แชทเพจ</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumb"><a href="/casestudy/">← Case Study ทั้งหมด</a></p>
+  <span class="eyebrow">Case Study · {cat_label}</span>
+  <h1>{title}</h1>
+  <p class="meta">เผยแพร่ {date} · โดยทีมงาน LucernaPro</p>
+{media}
+  <article>
+{paragraphs}
+  </article>
+{gallery}
+  <div class="prods"><span class="lbl">สินค้าที่ใช้ในงานนี้:</span>{prod_links}</div>
+  <a class="back" href="/casestudy/">← กลับไปดูเคสอื่นๆ</a>
+</main>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>หน้างานของคุณคล้ายเคสนี้?</h2>
+    <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary" href="https://m.me/lucernapro">💬 ทักแชทเพจ ปรึกษาฟรี</a>
+      <a class="btn btn-ghost" href="/#finder">🔎 ค้นหาสินค้าตามปัญหา</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0620057933">062-005-7933</a></span>
+    <span><a href="/">หน้าแรก</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
+"""
+
+def build(p, root):
+    slug_enc = urllib.parse.quote(p["slug"], safe="-")
+    media = ""
+    og_image = ""
+    if p.get("video"):
+        media = f'  <div class="postvid"><video src="{p["video"]}" controls playsinline preload="metadata"></video></div>'
+    elif p.get("hero"):
+        media = f'  <div class="hero-img"><img src="{hero(p["hero"])}" alt="{p["title"]}" width="1200" height="900" loading="eager"></div>'
+        og_image = f'<meta property="og:image" content="{hero(p["hero"])}">'
+    elif p.get("gallery"):
+        og_image = f'<meta property="og:image" content="{gal(p["gallery"][0])}">'
+
+    paragraphs = "\n".join(f"    <p>{t}</p>" for t in p["body"])
+    gallery = ""
+    if p.get("gallery"):
+        imgs = "\n".join(
+            f'    <img src="{gal(m)}" alt="{p["title"]} — ภาพหน้างานที่ {i+1}" width="720" height="720" loading="lazy">'
+            for i, m in enumerate(p["gallery"]))
+        gallery = f'  <div class="gal">\n{imgs}\n  </div>'
+    prod_links = "".join(f'<a href="{u}">{n}</a>' for n, u in p["prods"])
+
+    html = TEMPLATE.format(
+        title=p["title"], desc=p["desc"], slug_enc=slug_enc, og_image=og_image,
+        cat_label=CAT_LABEL[p["cat"]], date=p["date"], media=media,
+        paragraphs=paragraphs, gallery=gallery, prod_links=prod_links)
+
+    out = os.path.join(root, "post", p["slug"])
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+    print("built:", out)
+
+if __name__ == "__main__":
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for p in POSTS:
+        build(p, root)
