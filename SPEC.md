@@ -931,7 +931,35 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 - **เพิ่ม og:image + image/url ใน ld+json ทั้งสองหน้า** ชี้ hero ใหม่ (เดิมไม่มี — แชร์ FB ไม่มีรูป preview)
 - ค้างเดิมที่ยังไม่แตะในเซสชันนี้: TDS (รอตรวจคำแบน ตามลิสต์ 8.7), ลิงก์ Shopee/Lazada ชุดที่ยังไม่ confirm, ประเด็น Polysilazane บนหน้า (ยังโชว์อยู่ตามเสียง Wix เดิม — เจ้าของยังไม่เคาะถอด)
 
+## 📜 ธรรมนูญ Case Study V2 (มติเจ้าของ 31 ก.ค. 2026) — **อ่านก่อนทำโพสต์ทุกครั้ง**
+**สถานะ: แทนที่สถาปัตยกรรม Post Migration V1 ด้านล่างทั้งหมด** — V1 (slug ไทยตาม Wix, hotlink wixstatic, ไทยภาษาเดียว) เลิกใช้กับโพสต์ใหม่ / โพสต์ V1 เดิม 5 หน้ายังอยู่ใน repo กัน 404 แต่**ถูกถอดจากหน้ารวมแล้ว** (เจ้าของ: การ์ดเก่า outdated เอาออกหมด)
+
+**Workflow ต่อโพสต์ (หนึ่งโพสต์ = หนึ่งแชท เจ้าของ batch QA แก้ทีเดียว):**
+1. เจ้าของส่ง: ชื่อโพสต์ + ลิงก์ Wix เดิม + **อัพโหลดรูปทั้งหมดเข้าแชท** (อย่ารอ salvage — รูปมากับงานเลย)
+2. ดึงเนื้อจาก Wix: `web_fetch` หน้า `/blog` ให้ URL โพสต์โผล่ก่อน → fetch โพสต์ตรง **มักติด URL_TOOL_LONG กับ slug ไทยยาว** → fallback `web_search` ชื่อโพสต์ / intro ที่ได้มา verbatim ใช้ verbatim, ส่วนที่ search ไม่ให้ **ห้ามมโนว่าเป็นของเดิม** — เขียนใหม่ให้ตรงรูปจริง + ตัวเลขอิงจากหน้าสินค้าเราเท่านั้น (เช่น ทา 2 ชั้น เว้น 2 ชม. / กวน 1 นาที / cure 6 ชม. มาจาก /polyurea)
+3. รูปเข้า pipeline → `/img/post/{slug}-NN.webp` เรียงตามลำดับ step: `md5sum` หา duplicate ก่อน → exif_transpose → LANCZOS max ด้าน 1200px คงสัดส่วน (ห้าม crop) → UnsharpMask(1.2,60,2) → WebP q86 (ใบเปิด/ปิดเรื่อง q88, method=6) / รูปแนวตั้งเพิ่มชื่อไฟล์เข้า `V2_TALL` ใน gen_posts.py
+4. เพิ่ม entry ใน `POSTS_V2` (tools/gen_posts.py) — **ห้ามแก้ HTML มือเด็ดขาด** แก้ data แล้ว `python3 tools/gen_posts.py` regenerate / โพสต์ V1 เก่า 5 หน้าต้อง **byte-identical** หลังรัน (git status ห้ามมี M ที่โฟลเดอร์เก่า)
+5. อัพเดตหน้ารวม**ทั้งสองภาษา**: การ์ดใหม่บน `/casestudy` + `/en/casestudy` (thumb จาก `/img/post/`, ลิงก์ `/post/{slug}` และ `/en/post/{slug}`) + ปรับตัวเลข "ทั้งหมด n"/"All n"
+6. QA ก่อน push: HTML parser ทั้ง 4 ไฟล์ที่แตะ · Thai residue scan หน้า EN (ยกเว้นคำ "ภาษาไทย" = ปุ่มสลับภาษา) · banned scan (Epoxy / PU / Polyurethane / ชื่อวัตถุดิบ-ซัพพลายเออร์ทุกตัว)
+7. `git pull --rebase` → push → verify `git fetch && git show origin/main --stat`
+8. SPEC: อัพเดตตารางสถานะ+commit **หลังเจ้าของ QA ผ่าน** ตามธรรมเนียมเดิม
+
+**กติกาเนื้อหา/โครงหน้า:**
+- **slug อังกฤษเท่านั้น** สั้น สื่อความ lowercase คั่น `-` (ตัวอย่าง: `waterproofing-techniques`)
+- **สองภาษาเสมอ**: `/post/{slug}` (TH) + `/en/post/{slug}` (EN) — hreflang th/en/x-default ครบทั้งคู่, canonical absolute, og:image ชี้ thumb ใน `/img/post/`
+- โครงเนื้อหา: intro 1–2 ย่อหน้า → step มีเลขกำกับ (h2 + ย่อหน้า + figure/figcaption ทุกรูป) → prods (ปุ่มสินค้าชี้ `/{slug}` ตรง, EN ชี้ `/en/{slug}`) → CTA/footer มากับ template อยู่แล้ว
+- โทน EN = มั่นใจกวนนิดๆ ตามกฎ 8 / caption ต้องตรงกับรูปจริง (บทเรียน americaniron: caption เดาจากภาพเชื่อไม่ได้ — ถ้าไม่แน่ใจว่ารูปคืออะไร ถามเจ้าของก่อน อย่าแต่ง)
+- ธีมกระดาษสว่างตามโซน casestudy (ไม่มี dark mode — ยังรอ ruling เดิม)
+
+**ตารางสถานะ V2:**
+| # | slug | ต้นฉบับ Wix | สถานะ |
+|---|------|-------------|-------|
+| 1 | waterproofing-techniques | เทคนิคการใช้งานกันซึมให้ได้ผลดี | ✅ TH+EN ขึ้น origin แล้ว 31 ก.ค. — รอ QA เจ้าของ |
+
+**ค้างระดับแคมเปญ:** โพสต์ V1 เดิม 5 หน้า (slug ไทย) orphan อยู่ — รอเจ้าของ ruling ว่าจะทำ V2 ทับ (slug อังกฤษใหม่ + redirect) หรือปล่อยไว้ / โพสต์ Wix ที่เหลือทยอยทำทีละแชทตามคิวที่เจ้าของส่งมา
+
 ## 🏗️ แคมเปญ Post Migration (เปิด 30 ก.ค. 2026) — ย้ายเนื้อหา Case Study 24 โพสต์ออกจาก Wix
+**⛔ สถาปัตยกรรมหัวข้อนี้ = V1 ถูกแทนที่ด้วยธรรมนูญ V2 ด้านบนแล้ว (31 ก.ค.) — เก็บไว้เป็นประวัติ+เทคนิคดึงเนื้อ Wix เท่านั้น**
 
 **ปัญหา:** การ์ดทั้ง 24 ใบบน `/casestudy` เคยลิงก์ไป `lucernapro.com/post/...` ซึ่งวิ่งเข้า Wix — พอ cutover ลิงก์ตายยกแผง มติเจ้าของ: สร้างหน้าเนื้อหาเองทั้งหมด copy เนื้อหา+ภาพมาลงตรงๆ
 
