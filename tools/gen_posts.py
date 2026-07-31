@@ -370,6 +370,68 @@ POSTS_V2 = [
             ("SiliconePro Waterproofing","/en/siliconepro"),("Polyurea Waterproofing","/en/polyurea")],
   },
  },
+ {
+  "slug": "mixing-ratio-matters",
+  "cat": "tips coat",
+  "date_th": "ก.ค. 2026", "date_en": "Jul 2026",
+  "thumb": "mixing-ratio-matters-01.webp",
+  "th": {
+   "title": "ทำไมทาสีแล้วชอบไม่แห้ง",
+   "desc": "นี่คือคำถามที่เราพบบ่อยมากสำหรับสีแบบสองส่วนผสม — ชั่งด้วยเครื่องชั่ง ปั่นด้วยสว่านถ้าปริมาณเยอะ กวาดข้างถัง ตวงด้วยถ้วยถ้าไม่มีเครื่องชั่ง และคนด้วยมือให้ทั่วอย่างน้อย 1 นาที",
+   "cat_label": "เทคนิค / ความรู้",
+   "intro": [
+    "นี่คือคำถามที่เราพบบ่อยมากสำหรับการใช้งานสีแบบสองส่วนผสม",
+    "อยากให้ชมวิธีให้เข้าใจก่อนใช้งานนะครับ",
+   ],
+   "steps": [
+    {"h":"ชั่งด้วยเครื่องชั่งดิจิทัลให้ตรงตามอัตราส่วน",
+     "text":["อัตราส่วนที่แน่นอนต่างกันไปในแต่ละสูตร (ตัวอย่างในภาพคือ Marine Guard ผสม A 2 ส่วน : B 1 ส่วน โดยน้ำหนัก) แต่หลักการเดียวกันคือห้ามกะด้วยสายตาเด็ดขาด วางภาชนะบนเครื่องชั่งดิจิทัล ชั่ง Part A ก่อน แล้วค่อยเติม Part B ตามอัตราส่วนที่คู่มือของรุ่นนั้นกำหนด"],
+     "figs":[("mixing-ratio-matters-01.webp","ชั่ง Part A และ Part B ด้วยเครื่องชั่งดิจิทัลก่อนผสมทุกครั้ง")]},
+    {"h":"ผสมทีละมาก ใช้สว่านปั่นแทนคนด้วยมือ",
+     "text":["ถ้าผสมทีเดียวปริมาณมาก ให้ใช้สว่านพร้อมหัวปั่นแทนการคนด้วยมือ ปั่นด้วยความเร็วต่ำ-กลางต่อเนื่องประมาณ 2-3 นาที จนเนื้อเข้ากันเป็นสีเดียวทั่วทั้งถัง คนด้วยมือเพียงอย่างเดียวมักปั่นไม่ทั่วถึงเมื่อปริมาณเยอะ"],
+     "figs":[("mixing-ratio-matters-02.webp","ผสมปริมาณมากใช้สว่านพร้อมหัวปั่นแทนคนด้วยมือ ปั่นจนเนื้อเข้ากันทั่วถึง")]},
+    {"h":"กวาดข้างถังและก้นถังทุกครั้งก่อนใช้งาน",
+     "text":["จุดที่พลาดบ่อยที่สุดคือน้ำยาที่เกาะข้างถังหรือกองอยู่ก้นถังไม่โดนปั่นเข้าเนื้อ ส่วนนี้แหละที่มักไม่แห้งทั้งที่ภาพรวมดูเข้ากันดีแล้ว ใช้ไม้พายหรือเกรียงกวาดข้างถังและก้นถังลงมาปั่นซ้ำอีกรอบก่อนเทใช้งานทุกครั้ง"],
+     "figs":[("mixing-ratio-matters-03.webp","กวาดน้ำยาที่เกาะข้างถังและก้นถังลงมาปั่นซ้ำ ก่อนเทใช้งาน")]},
+    {"h":"ไม่มีเครื่องชั่ง ใช้ถ้วยตวงแทนได้ (ตามอัตราส่วนโดยปริมาตร)",
+     "text":["ถ้าไม่มีเครื่องชั่งหน้างาน ใช้ถ้วยตวงที่มีขีดบอกปริมาตรแทนได้ แต่ต้องตวงให้ตรงตามอัตราส่วนที่คู่มือของรุ่นนั้นกำหนด (ตัวอย่างในภาพคือ 2:1 โดยปริมาตร) ห้ามกะเอาเองเด็ดขาด — ตวงผิดแม้เพียงเล็กน้อยก็ทำให้น้ำยาไม่แห้งได้เหมือนกัน"],
+     "figs":[("mixing-ratio-matters-04.webp","ไม่มีเครื่องชั่ง ใช้ถ้วยตวงที่มีขีดบอกปริมาตรตวงตามอัตราส่วนแทนได้")]},
+    {"h":"ผสมทีละน้อย คนด้วยมือให้ทั่วอย่างน้อย 1 นาที",
+     "text":["ผสมปริมาณน้อยไม่จำเป็นต้องใช้สว่าน คนด้วยไม้พายหรือแท่งคนก็เพียงพอ แต่ต้องคนต่อเนื่องอย่างน้อย 1 นาทีจนเนื้อเข้ากันจริงๆ ทั้งสี เนื้อ และความหนืด ขั้นนี้สำคัญที่สุดในทุกขั้นตอน เพราะถ้าคนไม่เข้ากันดีพอ น้ำยาจะไม่แห้ง ไม่ว่าจะชั่งอัตราส่วนแม่นแค่ไหนก็ตาม",
+              "ตัวอย่างจาก Marine Guard: ผสมแล้วต้องทาให้หมดภายใน 15 นาที (pot life) และถ้าน้ำยาหนืดเกินไปเจือทินเนอร์เพิ่มได้ไม่เกิน 10% — ตัวเลขที่แน่นอนของแต่ละสูตรให้ยึดตามหน้าเว็บหรือคู่มือของสินค้านั้นๆ เป็นหลัก เพราะแต่ละสูตรไม่เหมือนกัน"],
+     "figs":[("mixing-ratio-matters-05.webp","ผสมปริมาณน้อยคนด้วยมือให้ทั่วต่อเนื่องอย่างน้อย 1 นาที ขั้นตอนที่สำคัญที่สุด")]},
+   ],
+   "prods":[("Marine Guard","/marineguard")],
+  },
+  "en": {
+   "title": "Why Two-Part Coatings Sometimes Never Dry",
+   "desc": "This is one of the most common questions we get about two-part coatings — weigh it, drill-mix large batches, scrape the sides, use measuring cups if you have no scale, and hand-mix small batches for at least a minute.",
+   "cat_label": "Tips / Know-how",
+   "intro": [
+    "This is one of the most common questions we get about using two-part coatings.",
+    "Here is the mixing procedure explained step by step — watch it before you start the job.",
+   ],
+   "steps": [
+    {"h":"Weigh it out on a digital scale to hit the exact ratio",
+     "text":["The exact ratio varies by product (the example shown is Marine Guard, mixed 2 parts A : 1 part B by weight) — but the rule is always the same: never eyeball it. Set the container on a digital scale, weigh out Part A first, then add Part B to hit the ratio in that product's manual."],
+     "figs":[("mixing-ratio-matters-01.webp","Weigh Part A and Part B on a digital scale before every mix")]},
+    {"h":"Large batch? Use a drill mixer, not your arm",
+     "text":["For a large batch, mix with a drill and paddle attachment instead of stirring by hand. Run it at low-to-medium speed for about 2-3 minutes until the color and texture are completely uniform throughout the container. Hand-stirring alone rarely reaches every part of a big batch."],
+     "figs":[("mixing-ratio-matters-02.webp","Large batches get a drill and paddle attachment instead of hand-stirring, mixed until fully uniform")]},
+    {"h":"Scrape the sides and bottom every single time",
+     "text":["The most common mistake: material clinging to the sides or settled at the bottom never gets folded into the mix. That unmixed pocket is usually exactly where it stays wet, even when the rest looks perfectly blended. Use a spatula or scraper to pull everything off the sides and bottom back into the mix before you pour."],
+     "figs":[("mixing-ratio-matters-03.webp","Scrape material clinging to the sides and bottom back into the mix before pouring")]},
+    {"h":"No scale? Measuring cups work too (by volume ratio)",
+     "text":["If there's no scale on site, graduated measuring cups work as a substitute — but you still have to hit the exact ratio in the manual (the example shown is 2:1 by volume). Never estimate by eye. Even a small error in the volume can leave the coating from drying properly."],
+     "figs":[("mixing-ratio-matters-04.webp","No scale on site? Graduated measuring cups can hit the same ratio by volume")]},
+    {"h":"Small batch: hand-mix thoroughly for at least a minute",
+     "text":["Small batches don't need a drill — a stir stick or spatula is enough. But keep stirring continuously for at least a full minute until the color, texture, and consistency are genuinely uniform. This is the single most important step in the whole process: mix it poorly and it won't dry, no matter how precisely you weighed the ratio.",
+              "Marine Guard, as an example: once mixed, you have a 15-minute pot life to use it up, and if it's too thick you can add up to 10% thinner. The exact numbers vary by product — always check that product's own page or manual, since every formula is different."],
+     "figs":[("mixing-ratio-matters-05.webp","Small batches get hand-mixed continuously for at least a minute — the single most important step")]},
+   ],
+   "prods":[("Marine Guard","/en/marineguard")],
+  },
+ },
 ]
 
 V2_CSS = """:root{{
@@ -589,6 +651,7 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
 
 # รูปแนวตั้ง (สูงกว่ากว้าง) — จำกัดความกว้างด้วย class .tall กันภาพล้นจอ
 V2_TALL = {"waterproofing-techniques-07.webp","waterproofing-techniques-08.webp","waterproofing-techniques-11.webp"}
+
 
 def render_v2_body(lang_data, alt_prefix):
     intro = "\n".join(f"    <p>{t}</p>" for t in lang_data["intro"])
