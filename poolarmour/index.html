@@ -198,7 +198,13 @@
   .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
   @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
   .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
-  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px;position:relative;container-type:inline-size}
+  .imcap{position:absolute;left:50%;top:9%;transform:translateX(-50%);width:88%;box-sizing:border-box;
+    background:rgba(10,10,12,.60);border-radius:26px;padding:2.4cqw 3.4cqw;
+    color:#fff;font-family:var(--disp);font-weight:600;font-size:13.5px;font-size:4.05cqw;
+    line-height:1.52;text-align:center;text-wrap:balance;pointer-events:none;
+    text-shadow:0 1px 3px rgba(0,0,0,.45)}
+  @supports (backdrop-filter:blur(2px)){.imcap{backdrop-filter:blur(2px)}}
   .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
   .showcard:hover img{transform:scale(1.03)}
   .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
@@ -485,7 +491,7 @@
     <h2 class="sec-h">สีลงน้ำแล้ว <em>หน้าตาเป็นแบบนี้</em></h2>
     <p class="sec-sub">น้ำคือฟิลเตอร์ชั้นสุดท้ายของสีสระ — เฉดเดียวกัน ก่อนกับหลังเติมน้ำคนละเรื่องเลย ดูของจริงก่อนตัดสินใจ</p>
     <div class="showgrid">
-      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีขาว เติมน้ำแล้วออกโทนฟ้าอ่อนสว่าง" src="/img/poolarmour-g04.webp"></div><figcaption>สีขาว — เติมน้ำแล้วออกโทนฟ้าอ่อนสว่างสดใส<small>สระดูโปร่ง สะอาดตา สายรีสอร์ตชอบเฉดนี้</small></figcaption></figure>
+      <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีขาว เติมน้ำแล้วออกโทนฟ้าอ่อนสว่าง" src="/img/poolarmour-g04.webp"><div class="imcap">สีขาวทาสระน้ำแล้ว พอเติมน้ำจะดูเป็นฟ้าอ่อน สว่างสดใส เพียงแต่สีขาวจะใช้สีเยอะกว่าสีฟ้าสักหน่อย ถึงจะกลบพื้นผิวเดิมได้</div></div><figcaption>สีขาว — เติมน้ำแล้วออกโทนฟ้าอ่อนสว่างสดใส<small>สระดูโปร่ง สะอาดตา สายรีสอร์ตชอบเฉดนี้</small></figcaption></figure>
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="สระทาสีเทา น้ำสะท้อนโทนเขียวอมฟ้ามรกต" src="/img/poolarmour-g05.webp"></div><figcaption>สีเทา — น้ำสะท้อนเป็นโทนเขียวอมฟ้ามรกต<small>ลุคหรูสายมินิมอล เข้ากับบ้านโมเดิร์นสุดๆ</small></figcaption></figure>
     </div>
   </div>
