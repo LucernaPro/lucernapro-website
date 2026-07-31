@@ -287,7 +287,7 @@ img{height:auto}
     </nav>
     <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
     <a class="lang-switch" href="/en/">EN</a>
-    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+    <a class="cta-chat" href="https://m.me/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>แชทเพจ</a>
   </div>
 </header>
 
@@ -298,7 +298,7 @@ img{height:auto}
     <span class="mnav-brand">LUCERNA<em>PRO</em></span>
     <button class="mnav-close" id="mnavClose" aria-label="ปิดเมนู">✕</button>
   </div>
-  <div class="mnav-tag">เคมีเคลือบผิวและกันซึม</div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
   <div class="mnav-k">MENU</div>
   <nav class="mnav-links">
     <a href="#top">หน้าแรก <span>→</span></a>
@@ -316,7 +316,7 @@ img{height:auto}
     <a class="mnav-lang" href="/en/">EN</a>
     <button class="mnav-theme" id="mnavTheme" aria-label="สลับโหมดสี">🌙</button>
   </div>
-  <a class="mnav-chat" href="https://m.me/lucernapro">f&nbsp; แชทเพจ — ตอบไว</a>
+  <a class="mnav-chat" href="https://m.me/lucernapro" target="_blank" rel="noopener">f&nbsp; แชทเพจ — ตอบไว</a>
 </aside>
 <!-- ═══ จบลิ้นชัก MOBILE DRAWER MENU ═══ -->
 
@@ -671,7 +671,8 @@ applyFilter();
   cl.addEventListener('click',function(){set(false)});
   sc.addEventListener('click',function(){set(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
-  mn.querySelectorAll('.mnav-links a,.mnav-chips a').forEach(function(a){
+  window.addEventListener('pageshow',function(){set(false)});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){
     a.addEventListener('click',function(){set(false)});
   });
   function syncT(){tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}
