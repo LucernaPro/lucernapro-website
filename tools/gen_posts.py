@@ -268,7 +268,363 @@ def build(p, root):
         f.write(html)
     print("built:", out)
 
+# ============================================================================
+# V2 (31 ก.ค. 2026 — มติเจ้าของ): ซีรีส์ case study ใหม่
+#   - slug ภาษาอังกฤษเท่านั้น
+#   - สองภาษา: /post/{slug} (TH) + /en/post/{slug} (EN) + hreflang ผูกกัน
+#   - รูป self-host ใน /img/post/ (ไม่ hotlink wixstatic)
+#   - โครงเนื้อหาแบบ step: หัวข้อ + ย่อหน้า + figure พร้อม figcaption
+#   - โพสต์เก่า 5 หน้า (POSTS ด้านบน) ใช้ TEMPLATE เดิม regenerate แล้ว byte-identical
+# ============================================================================
+
+BASE = "https://www.lucernapro.com"
+
+POSTS_V2 = [
+ {
+  "slug": "waterproofing-techniques",
+  "cat": "roof tips",
+  "date_th": "ก.ค. 2026", "date_en": "Jul 2026",
+  "thumb": "waterproofing-techniques-02.webp",
+  "th": {
+   "title": "เทคนิคการใช้งานกันซึมให้ได้ผลดี",
+   "desc": "กันซึมไม่ใช่ยาวิเศษ — ขั้นตอนลงกันซึมแบบละเอียดตั้งแต่ตรวจหน้างาน ซ่อมรอยร้าว เสริมไฟเบอร์กลาส ไปจนถึงเทคนิคทาสองรอบให้ทนจริง",
+   "cat_label": "เทคนิค / ความรู้",
+   "intro": [
+    "กันซึมไม่ใช่ยาวิเศษ ถ้าคิดว่าซื้อไปแล้วแค่ทาให้ทั่วพื้นที่ก็จบปัญหา ถ้าทำแบบนี้อาจจะเสียเงินทิ้งโดยไม่เกิดประโยชน์ นี่คือขั้นตอนการลงกันซึมแบบละเอียด แนะนำให้ศึกษาขั้นตอนให้เข้าใจก่อนการซ่อมแซมครับ",
+    "หลักคิดสั้นๆ คือ กันซึมที่ดีแค่ไหนก็ช่วยไม่ได้ถ้าพื้นผิวด้านล่างไม่พร้อม งานที่ได้ผลจริงคืองานที่เตรียมพื้นผิวดี ซ่อมจุดอ่อนให้ครบ แล้วค่อยลงกันซึมเป็นขั้นตอนสุดท้าย",
+   ],
+   "steps": [
+    {"h":"ตรวจสอบพื้นที่ก่อนเริ่มงาน",
+     "text":["เดินสำรวจให้ทั่วทั้งพื้นที่ก่อน มองหารอยแตกร้าว จุดที่สีหรือปูนหลุดร่อน แนวรอยต่อ และจุดน้ำขัง จดให้ครบว่ามีจุดไหนต้องซ่อมบ้าง เพราะทุกจุดต้องเก็บให้เรียบร้อยก่อนถึงจะลงกันซึมได้"],
+     "figs":[("waterproofing-techniques-01.webp","สภาพหน้างานจริงก่อนเริ่ม — ดาดฟ้าเก่า ผิวหน้าแตกลายงาและมีรอยร้าวหลายแนว แบบนี้ทากันซึมทับทันทีไม่ได้")]},
+    {"h":"ทำความสะอาดพื้นผิวให้ดี",
+     "text":["ล้างด้วยเครื่องฉีดน้ำแรงดันสูงพร้อมขัดคราบฝุ่น ตะไคร่ และสิ่งสกปรกออกให้หมด ส่วนที่หลุดร่อนต้องเอาออกให้เกลี้ยง — กันซึมยึดเกาะได้แค่เท่าที่ผิวสะอาด ถ้าทาทับฝุ่นก็เท่ากับทาอยู่บนฝุ่น เสร็จแล้วปล่อยให้พื้นแห้งก่อนเริ่มขั้นถัดไป"],
+     "figs":[("waterproofing-techniques-02.webp","ฉีดล้างแรงดันสูงและกวาดขัดไปพร้อมกัน จุดหลุดร่อนเก็บออกให้หมดในขั้นนี้")]},
+    {"h":"รอยแตกร้าวต้องซ่อมก่อน — ห้ามมองข้ามเด็ดขาด",
+     "text":["กันซึมชนิดทาไม่ได้ออกแบบมาเพื่ออุดรอยร้าว ถ้าทาทับรอยร้าวตรงๆ พื้นขยับตัวนิดเดียวฟิล์มก็ฉีกตามรอยเดิม โป๊วรอยร้าวให้เต็มและปาดให้เรียบเสมอผิวก่อนเสมอ"],
+     "figs":[("waterproofing-techniques-03.webp","โป๊วรอยร้าวบนพื้นให้เต็มร่อง ปาดให้เรียบเสมอผิวเดิม"),
+             ("waterproofing-techniques-04.webp","แนวรอยต่อขอบผนังกันตกก็ต้องเก็บให้เรียบร้อยเช่นกัน")]},
+    {"h":"รอยต่อพื้น–ผนัง เสริมแรงด้วยไฟเบอร์กลาส",
+     "text":["จุดที่พื้นชนผนังคือจุดที่โครงสร้างขยับตัวมากที่สุดและเป็นจุดรั่วยอดนิยม ทากันซึมเปล่าๆ ไม่พอ ให้วางแผ่นไฟเบอร์กลาสคาดแนวรอยต่อแล้วทาน้ำยาทับให้ชุ่มจนแผ่นใสแนบไปกับผิว ส่วนงานเข้ามุมใช้ตาข่ายเสริมแรงช่วยให้เข้ารูปง่ายขึ้น"],
+     "figs":[("waterproofing-techniques-05.webp","วางแผ่นไฟเบอร์กลาสคาดแนวรอยต่อพื้น–ผนัง"),
+             ("waterproofing-techniques-06.webp","ทาน้ำยาทับจนแผ่นไฟเบอร์อิ่มตัว ใสแนบไปกับพื้นผิว"),
+             ("waterproofing-techniques-07.webp","เก็บแนวรอยต่อรอบขอบผนังให้ต่อเนื่องกันทั้งแนว"),
+             ("waterproofing-techniques-08.webp","งานเข้ามุมใช้ตาข่ายเสริมแรงร่วมด้วย มุมจะแข็งแรงและเข้ารูปสวย")]},
+    {"h":"สีสองส่วนผสม ต้องตวงให้ตรงตามคู่มือ",
+     "text":["ห้ามกะด้วยสายตาเด็ดขาด ใช้เครื่องชั่งหรือถ้วยตวงตามอัตราส่วนในคู่มือของแต่ละรุ่น ผสมแล้วกวนให้เข้ากันจริงๆ อย่างน้อย 1 นาที กวาดเนื้อที่เกาะข้างถังลงมากวนด้วย — เกือบทุกเคส \u201cทาแล้วไม่แห้ง\u201d ที่เราเจอ มาจากตวงผิดหรือกวนไม่เข้ากัน"],
+     "figs":[("waterproofing-techniques-09.webp","ตวงสองส่วนด้วยถ้วยตวงตามอัตราส่วนที่คู่มือกำหนดเป๊ะๆ"),
+             ("waterproofing-techniques-10.webp","ผสมเสร็จเริ่มงานได้ทันที อย่าผสมทิ้งไว้เกินเวลาที่คู่มือกำหนด")]},
+    {"h":"รอบแรกทาให้บางที่สุด",
+     "text":["ใช้ลูกกลิ้งรีดแรงๆ ให้ฟิล์มบางที่สุด รอบนี้ไม่ต้องเน้นสวย หน้าที่ของมันคือยึดเกาะกับพื้นผิวและกันไม่ให้พื้นดูดสีรอบถัดไปมากเกินไป"],
+     "figs":[("waterproofing-techniques-11.webp","รอบแรกรีดลูกกลิ้งให้บางและทั่วถึง")]},
+    {"h":"รอบสองเก็บความหนาให้สม่ำเสมอ",
+     "text":["เว้นระยะจากรอบแรกประมาณ 2 ชั่วโมง (ดูตัวเลขจริงจากคู่มือของรุ่นที่ใช้) รอบนี้เก็บงานให้สีสม่ำเสมอทั่วกันและทาให้ได้ความหนา เพราะความหนาของฟิล์มคือความทนทานของงาน"],
+     "figs":[("waterproofing-techniques-12.webp","รอบสองเก็บเนื้อให้เต็มและสม่ำเสมอทั้งผืน")]},
+    {"h":"เสร็จแล้วอย่าเพิ่งรีบใช้งาน",
+     "text":["ปล่อยให้ฟิล์มเซ็ตตัวเต็มที่ก่อนเดินใช้งานหรือให้โดนน้ำ พื้นทั่วไปเริ่มที่ราว 6 ชั่วโมงหลังทารอบสุดท้าย และยึดตัวเลขจากคู่มือของรุ่นที่ใช้เป็นหลัก ใจเย็นอีกนิดเดียว แลกกับงานที่อยู่ได้อีกหลายปี"],
+     "figs":[("waterproofing-techniques-13.webp","งานเสร็จสมบูรณ์ — ผิวเรียบต่อเนื่องไร้รอยต่อทั้งดาดฟ้า")]},
+   ],
+   "prods":[("PatchPro","/patchpro"),("Modern Fiberglass","/modernfiberglass"),
+            ("กันซึม SiliconePro","/siliconepro"),("กันซึม Polyurea","/polyurea")],
+  },
+  "en": {
+   "title": "Waterproofing Techniques That Actually Work",
+   "desc": "Waterproofing isn't magic in a bucket. The full step-by-step: inspection, crack repair, fiberglass reinforcement, proper mixing, and the two-coat technique.",
+   "cat_label": "Tips / Know-how",
+   "intro": [
+    "Waterproofing is not a magic potion. If you think you can buy a bucket, roll it over the whole area and call the problem solved — that is how money gets wasted. Here is the full, detailed procedure. Study it before you start the repair, not after.",
+    "The short version: the best coating in the world cannot save a badly prepared surface. Jobs that last are jobs where the prep was done properly, every weak spot was fixed first, and the waterproofing went on last.",
+   ],
+   "steps": [
+    {"h":"Inspect the area before you start",
+     "text":["Walk the entire surface first. Look for cracks, flaking paint or render, joint lines and spots where water ponds. Note every problem point — each one has to be dealt with before any coating goes down."],
+     "figs":[("waterproofing-techniques-01.webp","The job as found — an aged deck with alligator cracking across the surface. You do not coat over this as-is.")]},
+    {"h":"Clean the surface properly",
+     "text":["Pressure-wash and scrub off dust, algae and grime. Anything loose or flaking must come off completely — a coating only bonds as well as the surface is clean. Paint over dust and you are standing on dust. Let the surface dry before moving on."],
+     "figs":[("waterproofing-techniques-02.webp","High-pressure washing and brushing in one pass. Loose material gets removed at this stage.")]},
+    {"h":"Repair every crack first — no exceptions",
+     "text":["Roll-on waterproofing is not a crack filler. Coat straight over a crack and the film tears along the same line the moment the slab moves. Fill cracks completely and trowel them flush before anything else."],
+     "figs":[("waterproofing-techniques-03.webp","Floor cracks filled and troweled flush with the original surface"),
+             ("waterproofing-techniques-04.webp","The parapet joint line gets the same treatment before coating")]},
+    {"h":"Reinforce floor-to-wall joints with fiberglass",
+     "text":["Where the floor meets the wall is where the structure moves most — and where leaks love to start. Coating alone is not enough here. Lay fiberglass mat across the joint and saturate it with the liquid until it turns transparent and hugs the surface. For corners, reinforcing mesh makes the shape much easier to form."],
+     "figs":[("waterproofing-techniques-05.webp","Fiberglass mat laid across the floor-to-wall joint"),
+             ("waterproofing-techniques-06.webp","Saturate until the mat turns transparent and sits tight against the surface"),
+             ("waterproofing-techniques-07.webp","Run the reinforcement continuously along the full parapet line"),
+             ("waterproofing-techniques-08.webp","Corners get reinforcing mesh — strong, and much easier to shape")]},
+    {"h":"Two-part products: measure exactly as the manual says",
+     "text":["Never eyeball the ratio. Use a scale or measuring cups, mix for at least a full minute, and scrape the material clinging to the sides of the bucket back into the mix. Nearly every \u201cit never dried\u201d case we see comes down to a wrong ratio or lazy mixing."],
+     "figs":[("waterproofing-techniques-09.webp","Both parts measured out exactly per the manual"),
+             ("waterproofing-techniques-10.webp","Once mixed, start working — do not let it sit past the pot life in the manual")]},
+    {"h":"First coat: as thin as possible",
+     "text":["Press the roller hard and stretch the film as thin as you can. This coat is not supposed to look pretty — its job is to grip the surface and stop it drinking up the next coat."],
+     "figs":[("waterproofing-techniques-11.webp","First coat rolled out thin and even across the whole area")]},
+    {"h":"Second coat: build even thickness",
+     "text":["Wait about 2 hours after the first coat (check your product's manual for the exact figure). This is the coat where you build uniform color and full film thickness — and film thickness is what durability is made of."],
+     "figs":[("waterproofing-techniques-12.webp","Second coat builds the film to full, even thickness")]},
+    {"h":"Done? Don't rush back onto it",
+     "text":["Let the film cure fully before foot traffic or water. For typical floors that starts at around 6 hours after the final coat — follow your product's manual for the real number. A little patience here buys you years of service."],
+     "figs":[("waterproofing-techniques-13.webp","Finished — one continuous, seamless surface across the entire deck")]},
+   ],
+   "prods":[("PatchPro","/en/patchpro"),("Modern Fiberglass","/en/modernfiberglass"),
+            ("SiliconePro Waterproofing","/en/siliconepro"),("Polyurea Waterproofing","/en/polyurea")],
+  },
+ },
+]
+
+V2_CSS = """:root{{
+  --paper:#F2F2EF; --card:#FFFFFF; --ink:#191C1F; --steel:#5E646A;
+  --line:#DCDCD6; --signal:#D8571C; --signal-dark:#ED6A2F; --tag-bg:#ECECE9;
+}}
+*{{margin:0;padding:0;box-sizing:border-box}}
+html{{scroll-behavior:smooth}}
+body{{font-family:'Anuphan',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}}
+a{{color:inherit;text-decoration:none}}
+img{{display:block;max-width:100%;height:auto}}
+h1,h2,.brand,.cta h2{{font-family:'Chakra Petch','Anuphan',sans-serif}}
+.eyebrow{{font-family:'IBM Plex Mono',monospace}}
+.topbar{{position:sticky;top:0;z-index:50;background:rgba(245,244,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}}
+.topbar-inner{{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:20px}}
+.brand{{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em;font-size:1.05rem}}
+.brand img{{width:34px;height:34px}}
+.brand em{{font-style:normal;color:var(--signal)}}
+.topnav{{margin-left:auto;display:flex;gap:22px;font-size:.92rem;font-weight:500;color:var(--steel)}}
+.topnav a:hover{{color:var(--ink)}}
+.topnav .active{{color:var(--signal);font-weight:600}}
+@media(max-width:720px){{.topnav{{display:none}}}}
+.btn-chat{{margin-left:auto;display:none;background:var(--signal);color:#fff;font-weight:600;font-size:.88rem;padding:8px 14px;border-radius:8px}}
+@media(max-width:720px){{.btn-chat{{display:inline-block}}}}
+.wrap{{max-width:820px;margin:0 auto;padding:36px 20px 60px}}
+.crumb{{font-size:.86rem;color:var(--steel);margin-bottom:22px;display:flex;justify-content:space-between;gap:12px}}
+.crumb a{{color:var(--signal);font-weight:600}}
+.crumb .lang{{color:var(--steel);font-weight:500}}
+.crumb .lang:hover{{color:var(--ink)}}
+.eyebrow{{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.16em;color:var(--signal);text-transform:uppercase;margin-bottom:12px}}
+h1{{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.3;letter-spacing:-.01em}}
+.meta{{margin-top:10px;font-size:.86rem;color:var(--steel)}}
+article p{{margin-top:20px;font-size:1.02rem}}
+.step{{margin-top:44px}}
+.step h2{{font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:700;line-height:1.35;display:flex;gap:12px;align-items:baseline}}
+.step .n{{font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:600;color:var(--signal);letter-spacing:.08em;flex:none}}
+.step p{{margin-top:12px}}
+.step figure{{margin-top:18px}}
+.step img{{width:100%;border-radius:12px;border:1px solid var(--line);background:#E9E7E1}}
+.step img.tall{{max-width:560px;margin:0 auto}}
+.step figcaption{{margin-top:8px;font-size:.88rem;color:var(--steel)}}
+.prods{{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center}}
+.prods .lbl{{font-size:.84rem;color:var(--steel);font-weight:600;margin-right:4px}}
+.prods a{{background:var(--tag-bg);border:1px solid var(--line);font-size:.86rem;font-weight:600;color:var(--ink);padding:6px 14px;border-radius:8px;transition:all .15s}}
+.prods a:hover{{background:var(--signal);border-color:var(--signal);color:#fff}}
+.back{{display:inline-block;margin-top:30px;font-weight:600;color:var(--signal)}}
+.back:hover{{color:var(--signal-dark)}}
+.cta{{background:var(--ink);color:#fff}}
+.cta-inner{{max-width:1200px;margin:0 auto;padding:52px 20px;text-align:center}}
+.cta h2{{font-size:clamp(1.4rem,3vw,2rem);font-weight:700}}
+.cta p{{color:#B9BFC9;margin:12px auto 24px;max-width:560px}}
+.cta-btns{{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}}
+.btn{{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.98rem;transition:all .18s}}
+.btn-primary{{background:var(--signal);color:#fff}}
+.btn-primary:hover{{background:var(--signal-dark)}}
+.btn-ghost{{border:1.5px solid #444B57;color:#fff}}
+.btn-ghost:hover{{border-color:#fff}}
+footer{{background:var(--ink);border-top:1px solid #2A2F38;color:#8A93A1;font-size:.85rem}}
+.foot-inner{{max-width:1200px;margin:0 auto;padding:26px 20px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}}
+footer a{{color:#B9BFC9}}
+footer a:hover{{color:#fff}}
+@media (prefers-reduced-motion:reduce){{*,*::before,*::after{{transition:none!important;animation:none!important}}}}"""
+
+TEMPLATE_V2_TH = """<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} | Case Study LucernaPro</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{base}/post/{slug}">
+<link rel="alternate" hreflang="th" href="{base}/post/{slug}">
+<link rel="alternate" hreflang="en" href="{base}/en/post/{slug}">
+<link rel="alternate" hreflang="x-default" href="{base}/post/{slug}">
+<meta property="og:title" content="{title} | Case Study LucernaPro">
+<meta property="og:description" content="{desc}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="{base}/img/post/{thumb}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+""" + V2_CSS + """
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
+      LUCERNA<em>PRO</em>
+    </a>
+    <nav class="topnav">
+      <a href="/#finder">ค้นหาสินค้า</a>
+      <a href="/#waterproof">กันซึม</a>
+      <a href="/#flooring">งานพื้น</a>
+      <a href="/#coating">เคลือบปกป้อง</a>
+      <a class="active" href="/casestudy/">Case Study</a>
+      <a href="/#contact">ติดต่อเรา</a>
+    </nav>
+    <a class="btn-chat" href="https://m.me/lucernapro">แชทเพจ</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumb"><a href="/casestudy/">← Case Study ทั้งหมด</a><a class="lang" href="/en/post/{slug}">English</a></p>
+  <span class="eyebrow">Case Study · {cat_label}</span>
+  <h1>{title}</h1>
+  <p class="meta">เผยแพร่ {date} · โดยทีมงาน LucernaPro</p>
+  <article>
+{intro}
+{steps}
+  </article>
+  <div class="prods"><span class="lbl">สินค้าที่ใช้ในงานนี้:</span>{prod_links}</div>
+  <a class="back" href="/casestudy/">← กลับไปดูเคสอื่นๆ</a>
+</main>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>หน้างานของคุณคล้ายเคสนี้?</h2>
+    <p>ส่งรูปหน้างานหรือเล่าอาการมาได้เลย ทีมงานช่วยวิเคราะห์และแนะนำระบบที่เหมาะกับงบและหน้างานของคุณ ก่อนตัดสินใจซื้อ</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary" href="https://m.me/lucernapro">💬 ทักแชทเพจ ปรึกษาฟรี</a>
+      <a class="btn btn-ghost" href="/#finder">🔎 ค้นหาสินค้าตามปัญหา</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0620057933">062-005-7933</a></span>
+    <span><a href="/">หน้าแรก</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
+"""
+
+TEMPLATE_V2_EN = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} | Case Study LucernaPro</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{base}/en/post/{slug}">
+<link rel="alternate" hreflang="th" href="{base}/post/{slug}">
+<link rel="alternate" hreflang="en" href="{base}/en/post/{slug}">
+<link rel="alternate" hreflang="x-default" href="{base}/post/{slug}">
+<meta property="og:title" content="{title} | Case Study LucernaPro">
+<meta property="og:description" content="{desc}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="{base}/img/post/{thumb}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+""" + V2_CSS + """
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
+      LUCERNA<em>PRO</em>
+    </a>
+    <nav class="topnav">
+      <a href="/#finder">Products</a>
+      <a href="/#waterproof">Waterproofing</a>
+      <a href="/#flooring">Flooring</a>
+      <a href="/#coating">Protection</a>
+      <a class="active" href="/en/casestudy/">Case Study</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <a class="btn-chat" href="https://m.me/lucernapro">Chat</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumb"><a href="/en/casestudy/">← All case studies</a><a class="lang" href="/post/{slug}">ภาษาไทย</a></p>
+  <span class="eyebrow">Case Study · {cat_label}</span>
+  <h1>{title}</h1>
+  <p class="meta">Published {date} · by the LucernaPro team</p>
+  <article>
+{intro}
+{steps}
+  </article>
+  <div class="prods"><span class="lbl">Products used on this job:</span>{prod_links}</div>
+  <a class="back" href="/en/casestudy/">← Back to all case studies</a>
+</main>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Facing something similar?</h2>
+    <p>Send us photos of your site or describe the problem. Our team will analyze it and recommend the right system for your job and budget — before you spend a baht.</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary" href="https://m.me/lucernapro">💬 Chat with us — free advice</a>
+      <a class="btn btn-ghost" href="/#finder">🔎 Find a product by problem</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 Lucerna Co., Ltd. · Tel <a href="tel:+66620057933">+66 62-005-7933</a></span>
+    <span><a href="/">Home</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
+"""
+
+# รูปแนวตั้ง (สูงกว่ากว้าง) — จำกัดความกว้างด้วย class .tall กันภาพล้นจอ
+V2_TALL = {"waterproofing-techniques-07.webp","waterproofing-techniques-08.webp","waterproofing-techniques-11.webp"}
+
+def render_v2_body(lang_data, alt_prefix):
+    intro = "\n".join(f"    <p>{t}</p>" for t in lang_data["intro"])
+    blocks = []
+    for i, s in enumerate(lang_data["steps"], 1):
+        b  = f'    <section class="step">\n'
+        b += f'      <h2><span class="n">{i:02d}</span>{s["h"]}</h2>\n'
+        for t in s.get("text", []):
+            b += f'      <p>{t}</p>\n'
+        for fn, cap in s.get("figs", []):
+            tall = ' class="tall"' if fn in V2_TALL else ""
+            b += (f'      <figure><img{tall} src="/img/post/{fn}" alt="{alt_prefix} — {cap}" loading="lazy">'
+                  f'<figcaption>{cap}</figcaption></figure>\n')
+        b += "    </section>"
+        blocks.append(b)
+    return intro, "\n".join(blocks)
+
+def build_v2(p, root):
+    for lang, tpl, outdir, date in (
+        ("th", TEMPLATE_V2_TH, os.path.join(root, "post", p["slug"]), p["date_th"]),
+        ("en", TEMPLATE_V2_EN, os.path.join(root, "en", "post", p["slug"]), p["date_en"]),
+    ):
+        d = p[lang]
+        intro, steps = render_v2_body(d, d["title"])
+        prod_links = "".join(f'<a href="{u}">{n}</a>' for n, u in d["prods"])
+        html = tpl.format(title=d["title"], desc=d["desc"], slug=p["slug"], base=BASE,
+                          thumb=p["thumb"], cat_label=d["cat_label"], date=date,
+                          intro=intro, steps=steps, prod_links=prod_links)
+        os.makedirs(outdir, exist_ok=True)
+        with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as f:
+            f.write(html)
+        print("built:", outdir)
+
 if __name__ == "__main__":
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     for p in POSTS:
         build(p, root)
+    for p in POSTS_V2:
+        build_v2(p, root)
