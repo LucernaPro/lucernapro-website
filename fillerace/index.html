@@ -186,6 +186,7 @@
   /* คลิปแนวตั้งเดี่ยว: จัดกึ่งกลาง จำกัดกว้างไม่ให้เป็นแถบยักษ์ */
   .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin:26px auto 0}
   @media(max-width:759px){.vidgrid.vert.solo{display:grid;margin-left:auto;margin-right:auto}.vidgrid.vert.solo figure{flex:none}}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px;margin-left:auto;margin-right:auto}.vidgrid.vert.c2 figure{width:250px}}
   .fbv.v916{aspect-ratio:9/16}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
   .vidgrid figcaption b{color:var(--ink)}
@@ -391,12 +392,16 @@
       </figure>
     </div>
 
-    <div class="vidgrid vert solo">
+    <div class="vidgrid vert c2">
       <figure style="margin:0">
         <div class="fbv v916">
           <iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022296206068802&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากเพจ LucernaPro"></iframe>
         </div>
         <figcaption>เนื้อหลังโป๊ว ซูมให้ดูชัดๆ</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/3CRZszX8stg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิป FillerAce จากช่องเรา"></iframe></div>
+        <figcaption>คลิปจากช่อง YouTube ของเรา — FillerAce ในงานจริง</figcaption>
       </figure>
     </div>
     <!-- TDS: ยังไม่มีไฟล์ /files/fillerace-tds.pdf — เพิ่มปุ่มเมื่อเจ้าของอัปไฟล์ -->
