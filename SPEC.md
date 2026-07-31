@@ -977,3 +977,14 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 | 24 | กันซึมไม่ได้เหมือนกันหมด | ⏳ รอดึงเนื้อ (ลอง fetch ได้) |
 
 **Definition of Done ของแคมเปญ:** ครบ 24 หน้า + เจ้าของ QA + รูป salvage เข้า `/img/post/` ครบ (เลิก hotlink wixstatic) — จากนั้นค่อยพิจารณาปิดบัญชี Wix ได้
+
+## Fleet polish + Homepage restructure — 31 ก.ค. 2026 (QA เจ้าของผ่านแล้ว, ปิด ✅)
+งานรอบเดียว 4 เรื่อง (commits `d0d2b6a`, `03600ac`, `1bfa6c0`→revert `dae5ae6`):
+- **ลบ "คลิปที่ N" ทุกหน้า** — เจอ 3 คู่หน้า TH/EN: epdm (figcaption ×8), masterseal (title attr), flexgrip (alt) + คู่ EN "clip N" ตาม parity / residue scan = 0 ⚠️ epdm ตอนนี้ caption ซ้ำกัน 8 อัน ("ผลงานพื้นยาง EPDM") — เจ้าของยังไม่ ruling ว่าจะลบ caption ทิ้ง
+- **ปุ่ม "ดูคลิปทั้งหมดที่เพจ" → "ติดตามเราเพิ่มเติมทางเพจ"** (EN: "Follow our page for more") — เจอที่ deepstick คู่เดียว / ปุ่ม poolarmour ข้อความต่างกัน ไม่แตะ
+- **หน้าแรก TH+EN จัดใหม่:** กลุ่มคุณดุ๊ก (ดารา) ขึ้นนำใต้ "ของจริงต้องพิสูจน์" / 3 คลิป Shorts ย้ายลง section ใหม่ `.shorts-band` ("คลิปสั้นจากทีมงาน") ก่อนแถบ 100,000 followers — แปลงเป็น facade (thumbnail `oar2.jpg` fallback `hqdefault.jpg` + JS click-to-load เดิมของหน้า)
+- **ปุ่ม play กระจกฝ้า (glassmorphism) แทนส้มทึบ** — `rgba(20,17,13,.32)` + `backdrop-filter:blur(6px)` + ขอบขาว — เปลี่ยนครบ 16 ไฟล์ที่มี `.playbtn` (สไตล์เดียวกันหมด)
+
+**⛔ บทเรียน/doctrine ใหม่ — facade fleet-wide ล้มเหลว (revert แล้ว):** แปลง iframe ทั้ง 304 ตัว → facade แล้วเจอ **silent failure**: thumbnail YouTube บางคลิป (`oar2.jpg`/`maxresdefault.jpg`) ตอบ **HTTP 200 พร้อมรูป placeholder เทา** แทน 404 → `onerror` fallback ไม่ trigger → หน้า deepstick ขึ้นเทาทั้งกริด เจ้าของ ruling: "โหลดช้าก็ยังดี" → revert `dae5ae6` กลับ iframe ทั้ง 82 ไฟล์ **ห้ามทำ facade กับคลิปที่ยังไม่ pre-verify thumbnail ด้วยตา** ถ้าจะกลับมาทำ: (ก) เช็ค `naturalWidth===120` หลัง onload แล้วค่อย fallback หรือ (ข) เก็บ thumbnail จริงใน repo เอง / facade ที่รอดอยู่ = หน้าแรก + หน้าที่มี facade แต่เดิม (รูปพิสูจน์แล้ว)
+
+**ค้างจากรอบก่อน:** PAT โผล่ในแชทอีกรอบ — เจ้าของต้อง revoke + ออกใหม่หลังจบเซสชัน (ย้ำแล้ว 2 ครั้ง)
