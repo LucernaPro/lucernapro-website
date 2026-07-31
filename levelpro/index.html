@@ -311,7 +311,14 @@
   .calc .out{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted);line-height:1.65}
   .calc .out b{color:var(--ink)}
   .calc .big{display:block;font-family:var(--disp);font-weight:700;font-size:19px;color:var(--orange);margin-bottom:4px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 
 </head>
 
@@ -446,9 +453,7 @@
     <h3 class="sec-h" style="margin-top:44px">ดูของจริง — <em>ผสมและปาดให้ดูคาที่</em></h3>
     <div class="vidgrid k1">
       <figure style="margin:0">
-        <div class="fbv">
-          <iframe loading="lazy" src="https://www.youtube.com/embed/VIsuFOheibE" title="วิธีใช้ LevelPro ซ่อมพื้นเป็นหลุม โดย LucernaPro" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
+        <div class="yt" data-id="VIsuFOheibE" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/VIsuFOheibE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/VIsuFOheibE/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>วิธีใช้งาน LevelPro — ผสมน้ำยากับทราย อัดลงหลุม และปาดเก็บหน้า</figcaption>
       </figure>
     </div>
@@ -668,6 +673,20 @@ syncIcon();
   area.addEventListener('input', calc);
   dep.addEventListener('input', calc);
 })();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>

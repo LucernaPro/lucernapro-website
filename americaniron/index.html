@@ -301,7 +301,14 @@
   .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
   .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
   .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 <style>
   /* หมวดสีของหน้านี้ */
   :root{--wproof:#B48FD1}
@@ -400,18 +407,18 @@
     <h2 class="sec-h">ดูของจริงก่อน — <em>คลิป American Iron</em></h2>
     <p class="sec-sub">รวมคลิปเกี่ยวกับ American Iron — งานเคลือบจริง การทดสอบ และผลลัพธ์หน้างาน</p>
     <div class="vidgrid k2">
-      <figure style="margin:0"><div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/nCjvP0h_-3g" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิป American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/aZscTmiM34c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิป American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/80Rvdwi53dI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิป American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/3leDfX6xKJk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิป American Iron จาก LucernaPro"></iframe></div></figure>
+      <figure style="margin:0"><div class="yt" data-id="nCjvP0h_-3g" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/nCjvP0h_-3g/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/nCjvP0h_-3g/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt" data-id="aZscTmiM34c" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/aZscTmiM34c/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/aZscTmiM34c/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt" data-id="80Rvdwi53dI" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/80Rvdwi53dI/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/80Rvdwi53dI/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt" data-id="3leDfX6xKJk" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/3leDfX6xKJk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/3leDfX6xKJk/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
     </div>
     <div class="vidgrid vert">
-      <figure style="margin:0"><div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/nu6Inu6RxYU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสั้น American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/YSVIHn5CKTA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสั้น American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/UfaVvDU-khk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสั้น American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/x6Aidhvy3Vs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสั้น American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/N9uwhf0rnfQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสั้น American Iron จาก LucernaPro"></iframe></div></figure>
-      <figure style="margin:0"><div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/I1UmQf7lHbQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="คลิปสั้น American Iron จาก LucernaPro"></iframe></div></figure>
+      <figure style="margin:0"><div class="yt v916" data-id="nu6Inu6RxYU" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/nu6Inu6RxYU/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/nu6Inu6RxYU/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt v916" data-id="YSVIHn5CKTA" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/YSVIHn5CKTA/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/YSVIHn5CKTA/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt v916" data-id="UfaVvDU-khk" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/UfaVvDU-khk/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/UfaVvDU-khk/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt v916" data-id="x6Aidhvy3Vs" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/x6Aidhvy3Vs/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/x6Aidhvy3Vs/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt v916" data-id="N9uwhf0rnfQ" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/N9uwhf0rnfQ/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/N9uwhf0rnfQ/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
+      <figure style="margin:0"><div class="yt v916" data-id="I1UmQf7lHbQ" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/I1UmQf7lHbQ/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/I1UmQf7lHbQ/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div></figure>
     </div>
   </div>
 </section>
@@ -527,6 +534,20 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>

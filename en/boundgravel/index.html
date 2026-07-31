@@ -281,7 +281,14 @@
 
   @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 </head>
 <body>
 
@@ -403,41 +410,41 @@
     <p class="sec-sub">We don't just talk — strength tests on camera, plus full footage from real job sites.</p>
     <div class="vidgrid">
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/gaVPUmFf7Kk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="BoundGravel 1 cm strength test"></iframe></div>
+        <div class="yt" data-id="gaVPUmFf7Kk" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/gaVPUmFf7Kk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/gaVPUmFf7Kk/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>1 cm thin — stronger than cement?!</b> — tested on camera; cement work simply can't do this</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/piawuD6ESXY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to build a gravel floor with BoundGravel"></iframe></div>
+        <div class="yt" data-id="piawuD6ESXY" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/piawuD6ESXY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/piawuD6ESXY/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>Build a stone floor yourself</b> — pebble-wash the new way: clean, quick, DIY-able</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/AQk4dStM538" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Pool deck renovation with BoundGravel"></iframe></div>
+        <div class="yt" data-id="AQk4dStM538" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/AQk4dStM538/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/AQk4dStM538/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>Pool-deck renovation</b> — one installer, one day, none of the cement mess</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/kaEp2qrlmgY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="BoundGravel project clip"></iframe></div>
+        <div class="yt" data-id="kaEp2qrlmgY" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/kaEp2qrlmgY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/kaEp2qrlmgY/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>A good close look at the real finished texture, from our channel</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/VdKRg-ot-8U" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="BoundGravel project clip"></iframe></div>
+        <div class="yt" data-id="VdKRg-ot-8U" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/VdKRg-ot-8U/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/VdKRg-ot-8U/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>One more real BoundGravel job site</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/poYkEyiW5bA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="BoundGravel project clip"></iframe></div>
+        <div class="yt" data-id="poYkEyiW5bA" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/poYkEyiW5bA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/poYkEyiW5bA/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>Nong Wee shows off</b> — see for yourself just how easy it is</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/HOwpX_trPFw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="BoundGravel project clip"></iframe></div>
+        <div class="yt" data-id="HOwpX_trPFw" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/HOwpX_trPFw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/HOwpX_trPFw/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>Nong Wee's review</b> — the finished job, up close</figcaption>
       </figure>
     </div>
     <div class="vidgrid vert c2">
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/fmkehyPHAlo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — BoundGravel"></iframe></div>
+        <div class="yt v916" data-id="fmkehyPHAlo" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/fmkehyPHAlo/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/fmkehyPHAlo/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — BoundGravel</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/D6rCBrRS8OA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — BoundGravel"></iframe></div>
+        <div class="yt v916" data-id="D6rCBrRS8OA" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/D6rCBrRS8OA/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/D6rCBrRS8OA/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — BoundGravel</figcaption>
       </figure>
     </div>
@@ -603,6 +610,20 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>

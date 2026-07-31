@@ -265,7 +265,14 @@
 
   @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 </head>
 <body>
 
@@ -392,11 +399,11 @@
     <p class="sec-sub">Live sprays and full results — jeans, caps and more. Watch one and you'll see why we named it DenimBlack. (Thai audio)</p>
     <div class="vidgrid vert c5">
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/02WQMOIXxSY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="DenimBlack demo clip"></iframe></div>
+        <div class="yt v916" data-id="02WQMOIXxSY" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/02WQMOIXxSY/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/02WQMOIXxSY/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Full live demo — sprayed start to finish (Thai audio)</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/779tZ_ot4Nw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="DenimBlack demo clip 2"></iframe></div>
+        <div class="yt v916" data-id="779tZ_ot4Nw" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/779tZ_ot4Nw/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/779tZ_ot4Nw/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Another real case — faded to black on camera (Thai audio)</figcaption>
       </figure>
       <figure>
@@ -412,27 +419,27 @@
         <figcaption>From our page — even the heavily faded stuff (Thai audio)</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/1bTkkH53Wss" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DenimBlack"></iframe></div>
+        <div class="yt v916" data-id="1bTkkH53Wss" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/1bTkkH53Wss/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/1bTkkH53Wss/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — DenimBlack</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/FsTZghJYx7s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DenimBlack"></iframe></div>
+        <div class="yt v916" data-id="FsTZghJYx7s" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/FsTZghJYx7s/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/FsTZghJYx7s/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — DenimBlack</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/re9-AZBzd_g" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DenimBlack"></iframe></div>
+        <div class="yt v916" data-id="re9-AZBzd_g" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/re9-AZBzd_g/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/re9-AZBzd_g/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — DenimBlack</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/Tz1L1aOUYKc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DenimBlack"></iframe></div>
+        <div class="yt v916" data-id="Tz1L1aOUYKc" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/Tz1L1aOUYKc/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Tz1L1aOUYKc/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — DenimBlack</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/Y9bIgCk0pe8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DenimBlack"></iframe></div>
+        <div class="yt v916" data-id="Y9bIgCk0pe8" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/Y9bIgCk0pe8/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Y9bIgCk0pe8/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — DenimBlack</figcaption>
       </figure>
       <figure>
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/Sk_du4yFHwQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DenimBlack"></iframe></div>
+        <div class="yt v916" data-id="Sk_du4yFHwQ" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/Sk_du4yFHwQ/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Sk_du4yFHwQ/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Usage example — DenimBlack</figcaption>
       </figure>
     </div>
@@ -545,6 +552,20 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>

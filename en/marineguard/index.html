@@ -271,7 +271,14 @@
 
   @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 </head>
 <body>
 
@@ -373,21 +380,17 @@
 
     <div class="vidgrid">
       <figure style="margin:0">
-        <div class="fbv">
-          <iframe loading="lazy" src="https://www.youtube.com/embed/eR2eCPDFoBg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Marine Guard application example"></iframe>
-        </div>
+        <div class="yt" data-id="eR2eCPDFoBg" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/eR2eCPDFoBg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/eR2eCPDFoBg/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>Real application walkthrough</b> — watch the mixing and rolling rhythm before you pick up a roller yourself. (Thai audio)</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv">
-          <iframe loading="lazy" src="https://www.youtube.com/embed/mVVKCV7lhQY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Negative-side waterproofing technique with Marine Guard"></iframe>
-        </div>
+        <div class="yt" data-id="mVVKCV7lhQY" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/mVVKCV7lhQY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/mVVKCV7lhQY/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>A page from this product's legend</b> — the interior-side waterproofing technique we pioneered with Marine Guard, still perfectly valid today. But between friends: we now have a direct heir called <a href="/en/deepseal" style="text-decoration:underline"><b>DeepSeal</b></a>, born for this exact job — <b>single component, open and use</b>, no weighing, no racing the clock. If that's your mission, starting with DeepSeal is the better deal — and if you want the <b>true top tier</b>, go <a href="/en/polypro" style="text-decoration:underline"><b>PolyPro</b></a>, our flagship negative-side waterproofing. (Thai audio)</figcaption>
       </figure>
     </div>
     <div class="vidgrid vert solo">
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/lRWu3EzSynU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to prime with Marine Guard"></iframe></div>
+        <div class="yt v916" data-id="lRWu3EzSynU" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/lRWu3EzSynU/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lRWu3EzSynU/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption><b>How to prime with Marine Guard</b> — the full real-world routine in one clip</figcaption>
       </figure>
     </div>
@@ -537,6 +540,20 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>

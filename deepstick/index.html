@@ -266,7 +266,14 @@
 
   @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 </head>
 <body>
 
@@ -365,9 +372,7 @@
 
     <div class="vidgrid solo169">
       <figure style="margin:0">
-        <div class="fbv">
-          <iframe loading="lazy" src="https://www.youtube.com/embed/TSY1TsO2GyU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="วิธีใช้ DeepStick กับรอยต่อ Smartboard"></iframe>
-        </div>
+        <div class="yt" data-id="TSY1TsO2GyU" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/TSY1TsO2GyU/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/TSY1TsO2GyU/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>คลิปวิธีใช้ฉบับเต็ม — งานรอยต่อ <b>Smartboard ภายนอก</b> สนามที่ Sealant ทั่วไปแพ้มานักต่อนัก ดูให้จบก่อนเริ่มงานจริง</figcaption>
       </figure>
     </div>
@@ -384,81 +389,81 @@
     <p class="sec-sub">เราไม่ได้เล่าเอง มีคลิปให้ดูครบ ตั้งแต่แขวนน้ำหนัก 45 กิโลยันฉาบโฟมทุบโชว์</p>
     <div class="vidgrid k2">
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/7LsW-ioD2gs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ซ่อมบ้านร้าวด้วย DeepStick"></iframe></div>
+        <div class="yt" data-id="7LsW-ioD2gs" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/7LsW-ioD2gs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/7LsW-ioD2gs/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ซ่อมบ้านร้าวด้วย DeepStick — <b>ง่ายเกินไปจนช่างงอน</b> รู้จักจอมพลังตัวนี้แบบละเอียด</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/fT-14BKBvsg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="DeepStick Bonding Test แขวนน้ำหนัก 45 กิโลกรัม"></iframe></div>
+        <div class="yt" data-id="fT-14BKBvsg" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/fT-14BKBvsg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/fT-14BKBvsg/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>Bonding Test — ใช้แทนกาวตะปู <b>แขวน 45 kg ไม่ขยับแม้แต่นิดเดียว</b></figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/GqwgNsQxwYU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ทดสอบความแข็งแรงของ DeepStick"></iframe></div>
+        <div class="yt" data-id="GqwgNsQxwYU" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/GqwgNsQxwYU/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/GqwgNsQxwYU/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ความแข็งแรงหลังแห้ง — <b>ซ่อมทั้งที่น้ำยังไหลก็ได้</b> ทนซะขนาดนี้ ซ่อมทีเดียวจบยาว</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/OS3lkbd_Xr4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="การฉาบโฟมด้วย DeepStick"></iframe></div>
+        <div class="yt" data-id="OS3lkbd_Xr4" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/OS3lkbd_Xr4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/OS3lkbd_Xr4/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>สายงาน Creative — <b>ฉาบโฟมปั้นหุ่น เบากว่าปูนแต่แข็งแรงกว่า</b>ที่ความหนาเท่ากัน</figcaption>
       </figure>
     </div>
     <div class="vidgrid vert">
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/PNCbmoxkIEM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="PNCbmoxkIEM" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/PNCbmoxkIEM/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/PNCbmoxkIEM/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/AhwNBWRaIME" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="AhwNBWRaIME" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/AhwNBWRaIME/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/AhwNBWRaIME/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/HRSbuNLWWPo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="HRSbuNLWWPo" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/HRSbuNLWWPo/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/HRSbuNLWWPo/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/q-nPHz7XiHA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="q-nPHz7XiHA" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/q-nPHz7XiHA/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/q-nPHz7XiHA/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/LjKb5gc-krE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="LjKb5gc-krE" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/LjKb5gc-krE/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/LjKb5gc-krE/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/iStlo2UQOgE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="iStlo2UQOgE" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/iStlo2UQOgE/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/iStlo2UQOgE/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/FM2mVOKFUiQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="FM2mVOKFUiQ" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/FM2mVOKFUiQ/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/FM2mVOKFUiQ/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/M7-IWLSfwEE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="M7-IWLSfwEE" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/M7-IWLSfwEE/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/M7-IWLSfwEE/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/vpfEd-Kicoc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="เปรียบเทียบ FillerAce กับ DeepStick"></iframe></div>
+        <div class="yt v916" data-id="vpfEd-Kicoc" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/vpfEd-Kicoc/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/vpfEd-Kicoc/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>เปรียบเทียบ FillerAce กับ DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/MOmfWPWDEZ4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="MOmfWPWDEZ4" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/MOmfWPWDEZ4/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/MOmfWPWDEZ4/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/xDVxxCL9e04" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="xDVxxCL9e04" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/xDVxxCL9e04/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/xDVxxCL9e04/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/KibKVnK0sYk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="KibKVnK0sYk" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/KibKVnK0sYk/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/KibKVnK0sYk/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/Xd1JJjB31pk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="Xd1JJjB31pk" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/Xd1JJjB31pk/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Xd1JJjB31pk/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/cE5JmDcn7po" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="cE5JmDcn7po" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/cE5JmDcn7po/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/cE5JmDcn7po/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/6HfK5RqmBMY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ตัวอย่างการใช้งาน DeepStick"></iframe></div>
+        <div class="yt v916" data-id="6HfK5RqmBMY" role="button" tabindex="0" aria-label="เล่นคลิป"><img src="https://i.ytimg.com/vi/6HfK5RqmBMY/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/6HfK5RqmBMY/hqdefault.jpg'" alt="เล่นคลิป" loading="lazy"><span class="playbtn">▶</span></div>
         <figcaption>ตัวอย่างการใช้งาน DeepStick</figcaption>
       </figure>
     </div>
@@ -590,6 +595,20 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>

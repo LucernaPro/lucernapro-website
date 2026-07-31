@@ -301,7 +301,14 @@
   .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
   .wideshot figcaption{font-family:var(--disp);font-size:14.5px;font-weight:600;padding:10px 6px 3px;line-height:1.45}
   .wideshot figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
-</style>
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt.v916{aspect-ratio:9/16}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  </style>
 <style>
   /* category colour for this page */
   :root{--wproof:#7FBF8E}
@@ -392,16 +399,16 @@
     <h2 class="sec-h">See it work <em>before you decide</em></h2>
     <p class="sec-sub">Real grime, real jobs — all clips are in Thai audio</p>
     <div class="vidgrid">
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/CozA2RARWcs" title="Blast in action, clip 1 (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/Edo-TUX9NU8" title="Blast in action, clip 2 (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/zGMeX36n-cc" title="How to use Blast cleaning spray (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/WmQQcmvLsk8" title="Blast in action, clip 4 (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/6D1Ekh6AszY" title="Blast in action, clip 5 (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/X5T9DzWApuI" title="Blast cleaning spray in action (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
-      <figure class="fbv"><iframe src="https://www.youtube.com/embed/nWLQswanCBk" title="Blast in action, clip 7 (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
+      <figure class="yt" data-id="CozA2RARWcs" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/CozA2RARWcs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/CozA2RARWcs/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
+      <figure class="yt" data-id="Edo-TUX9NU8" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/Edo-TUX9NU8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Edo-TUX9NU8/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
+      <figure class="yt" data-id="zGMeX36n-cc" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/zGMeX36n-cc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/zGMeX36n-cc/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
+      <figure class="yt" data-id="WmQQcmvLsk8" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/WmQQcmvLsk8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/WmQQcmvLsk8/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
+      <figure class="yt" data-id="6D1Ekh6AszY" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/6D1Ekh6AszY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/6D1Ekh6AszY/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
+      <figure class="yt" data-id="X5T9DzWApuI" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/X5T9DzWApuI/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/X5T9DzWApuI/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
+      <figure class="yt" data-id="nWLQswanCBk" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/nWLQswanCBk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/nWLQswanCBk/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
     </div>
     <div class="vidgrid vert solo" style="margin-top:14px">
-      <figure class="fbv v916"><iframe src="https://www.youtube.com/embed/UKqqozWhHM8" title="Blast in action, vertical clip (Thai audio)" loading="lazy" allowfullscreen></iframe></figure>
+      <figure class="yt v916" data-id="UKqqozWhHM8" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/UKqqozWhHM8/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/UKqqozWhHM8/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></figure>
     </div>
   </div>
 </section>
@@ -517,6 +524,20 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
+</script>
+<script>
+document.querySelectorAll('.yt').forEach(el=>{
+  function play(){
+    if(el.querySelector('iframe')) return;
+    const f=document.createElement('iframe');
+    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+    f.allow="autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen=true;
+    el.appendChild(f);
+  }
+  el.addEventListener('click',play);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
 </script>
 </body>
 </html>
