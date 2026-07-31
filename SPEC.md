@@ -988,3 +988,14 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 **⛔ บทเรียน/doctrine ใหม่ — facade fleet-wide ล้มเหลว (revert แล้ว):** แปลง iframe ทั้ง 304 ตัว → facade แล้วเจอ **silent failure**: thumbnail YouTube บางคลิป (`oar2.jpg`/`maxresdefault.jpg`) ตอบ **HTTP 200 พร้อมรูป placeholder เทา** แทน 404 → `onerror` fallback ไม่ trigger → หน้า deepstick ขึ้นเทาทั้งกริด เจ้าของ ruling: "โหลดช้าก็ยังดี" → revert `dae5ae6` กลับ iframe ทั้ง 82 ไฟล์ **ห้ามทำ facade กับคลิปที่ยังไม่ pre-verify thumbnail ด้วยตา** ถ้าจะกลับมาทำ: (ก) เช็ค `naturalWidth===120` หลัง onload แล้วค่อย fallback หรือ (ข) เก็บ thumbnail จริงใน repo เอง / facade ที่รอดอยู่ = หน้าแรก + หน้าที่มี facade แต่เดิม (รูปพิสูจน์แล้ว)
 
 **ค้างจากรอบก่อน:** PAT โผล่ในแชทอีกรอบ — เจ้าของต้อง revoke + ออกใหม่หลังจบเซสชัน (ย้ำแล้ว 2 ครั้ง)
+
+## ✅ ปิดด่าน Salvage Batch ทั้งหมด — QA เจ้าของผ่าน 31 ก.ค. 2026
+- **`swiftset` · `blast` · `americaniron` · `nanoceramic` ผ่าน QA เจ้าของครบทั้ง 4 หน้า (ทั้ง TH+EN)** — Salvage Batch ×5 ปิดสมบูรณ์ (schutznano9h ผ่านไปก่อนเมื่อ 30 ก.ค.)
+- **swiftset: เงื่อนไข D7 (รับน้ำหนัก) เจ้าของเคาะผ่านแล้ว** — เปิดหน้าได้ ไม่มีข้อค้าง
+
+## สถานะด่าน (อัปเดต 31 ก.ค. 2026 — หลังปิด Salvage Batch)
+สินค้าจริง 55 · เลิกขาย 8 (301) · **TH ครบ 47/47 ✅** · **EN 46/47 — ขาดหน้าเดียว: `/en/epoxycoating`** (302 ใน `_redirects` ยังต้องคงไว้จนกว่าหน้าจะ ship)
+
+**→ ด่านถัดไป (งานสร้างหน้า): `/en/epoxycoating`** — แปลจากหน้า TH ที่มีอยู่แล้ว ตามกฎเหล็ก + Thai residue scan / ⚠️ ตรวจประเด็นคำแบน "Epoxy" ในเนื้อหา customer-facing กับเจ้าของก่อนเริ่ม (ชื่อ slug เป็นมรดกเดิม — ต้องรอ ruling ว่าจัดการยังไงบนหน้า EN)
+
+**งานค้างอื่น:** Post Migration 19/24 โพสต์ (รอดึงเนื้อ — ห้ามปิดบัญชี Wix) · TDS ตรวจคำแบน · ลิงก์ร้านชุดที่ยังไม่ confirm · Polysilazane บนหน้า Schutz รอเจ้าของเคาะ
