@@ -180,6 +180,13 @@
   .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--orange);color:#16130F;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.5);transition:transform .15s}
   .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08)}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+  .fbv.v916{aspect-ratio:9/16}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vidgrid.vert.solo{max-width:300px;grid-template-columns:1fr}
   .howvid figcaption{margin-top:10px;font-size:14px;color:var(--muted)}
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
@@ -353,6 +360,12 @@
       </div>
       <figcaption>Watch the full application, start to finish, in one clip</figcaption>
     </figure>
+    <div class="vidgrid vert solo">
+      <figure style="margin:0">
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/3_n4WHPzgCQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — Clear Polyaspartic"></iframe></div>
+        <figcaption>Usage example — Clear Polyaspartic</figcaption>
+      </figure>
+    </div>
     <div class="warn"><b>⚠ Caution:</b> Not suitable for people allergic to thinner or chemical products — if you have such allergies, don't apply it yourself; have a contractor do it. Always work in a well-ventilated space.</div>
     <div class="docbtns">
       <a class="btn btn-ghost" href="/files/polyaspartic-tds.pdf" target="_blank" rel="noopener">📑 TDS — Technical Data Sheet</a>

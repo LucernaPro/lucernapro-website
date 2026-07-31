@@ -167,6 +167,7 @@
   .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
   @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
   .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(224,164,88,.25), transparent 60%),
       radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
@@ -358,10 +359,14 @@
   <div class="wrap">
     <h2 class="sec-h">How to do it <em>step by step, done in 2 days</em></h2>
     <p class="sec-sub">Every number you need is on this page — watch the video first, then follow the steps in order.</p>
-    <div class="vidgrid vert solo">
+    <div class="vidgrid vert c2">
       <figure style="margin:0">
         <div class="fbv v916"><iframe src="https://www.youtube.com/embed/Ko9DEt3QoW0" title="FlakeFloor step-by-step video guide" loading="lazy" allowfullscreen></iframe></div>
         <figcaption>Full real-job walkthrough — watch once and you’re ready.</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/GPQJd6j0nkA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — FlakeFloor"></iframe></div>
+        <figcaption>Usage example — FlakeFloor</figcaption>
       </figure>
     </div>
     <ol class="flow">
