@@ -233,6 +233,33 @@
   .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
   .altcard:hover .go{text-decoration:underline}
 
+  /* ---------- อ่านต่อ (บทความ + case study) ---------- */
+  .reads{padding:44px 0 10px}
+  .readgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.readgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.readgrid{grid-template-columns:repeat(3,1fr)}}
+  .readcard{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--panel);padding:18px;display:flex;flex-direction:column;transition:transform .14s ease,border-color .14s ease}
+  .readcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .readcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .readcard h4{font-family:var(--disp);font-size:16.5px;margin:7px 0 5px;line-height:1.35}
+  .readcard p{font-size:14px;color:var(--muted);flex:1}
+  .readcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:11px}
+  .readcard:hover .go{text-decoration:underline}
+  .readall{margin-top:16px;display:flex;justify-content:flex-start}
+
+  /* ---------- ทำไมช่างมืออาชีพถึงเลือก LucernaPro ---------- */
+  .why{border-top:1px solid var(--line);background:var(--panel);padding:52px 0}
+  .why h2{font-family:var(--disp);font-size:24px;font-weight:700;max-width:640px}
+  .why .sec-sub{margin-top:6px}
+  .why-grid{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+  .why-card{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--bg)}
+  .why-card .n{font-family:var(--mono);font-size:12px;color:var(--orange);letter-spacing:.12em}
+  .why-card h4{font-family:var(--disp);font-size:17px;margin:9px 0 7px}
+  .why-card p{font-size:14px;color:var(--muted)}
+
+
   /* ---------- สั่งซื้อ ---------- */
   .order{padding:48px 0 14px}
   .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
@@ -472,6 +499,34 @@
   </div>
 </section>
 
+<section class="reads">
+  <div class="wrap">
+    <h2 class="sec-h">ยังไม่รีบ? <em>อ่านต่ออีกหน่อย</em></h2>
+    <p class="sec-sub">สามเรื่องที่คนทำงานกระเบื้องถามเราบ่อยที่สุด — เขียนจากหน้างานจริง ไม่ใช่บทความขายของ</p>
+    <div class="readgrid">
+      <a class="readcard" href="/post/%E0%B8%84%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%94%E0%B8%B5%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%88%E0%B8%B0%E0%B8%A3%E0%B8%B7%E0%B9%89%E0%B8%AD">
+        <div class="k">อ่านก่อนรื้อ</div>
+        <h4>คิดให้ดีก่อนจะรื้อ</h4>
+        <p>ก่อนจะทุบกระเบื้องแล้วปูใหม่ — เข้าใจธรรมชาติของคอนกรีตกับยาแนวก่อน จะได้คุยกับช่างรู้เรื่องและจบงานในรอบเดียว</p>
+        <div class="go">อ่านต่อ →</div>
+      </a>
+      <a class="readcard" href="/post/finding-the-real-leak-point">
+        <div class="k">ก่อนจะทา</div>
+        <h4>หาจุดรั่วให้เจอก่อน แล้วค่อยทากันซึม</h4>
+        <p>ทาไปแล้วสองสามรอบน้ำก็ยังซึมอยู่ดี — ปัญหาส่วนใหญ่<b>ไม่ได้อยู่ที่สินค้า</b> แต่อยู่ที่ยังไม่เคยหาจุดรั่วจริงเจอก่อนลงมือ</p>
+        <div class="go">อ่านต่อ →</div>
+      </a>
+      <a class="readcard" href="/post/waterproofing-techniques">
+        <div class="k">ทำให้ถูกขั้นตอน</div>
+        <h4>เทคนิคการใช้งานกันซึมให้ได้ผลดี</h4>
+        <p>กันซึมไม่ใช่ยาวิเศษ — ไล่ตั้งแต่ตรวจหน้างาน ซ่อมรอยร้าว เสริมไฟเบอร์กลาส จนถึงเทคนิคทาสองรอบให้ฟิล์มต่อเนื่องจริง</p>
+        <div class="go">อ่านต่อ →</div>
+      </a>
+    </div>
+    <div class="readall"><a class="btn btn-orange" href="/casestudy">ดูเคสหน้างานทั้งหมด →</a></div>
+  </div>
+</section>
+
 <section class="explore">
   <div class="wrap">
     <div class="explore-card">
@@ -481,6 +536,19 @@
         <a class="cchip" href="/#flooring">FLOORING</a><a class="cchip" href="/#wall">WALL</a><a class="cchip" href="/#waterproof">WATERPROOF</a><a class="cchip" href="/#coating">PROTECTION</a><a class="cchip" href="/#chem">เคมีภัณฑ์</a><a class="cchip" href="/#auto">AUTOMOTIVE</a>
       </div>
       <a class="btn btn-orange" href="/#catalog">ดูสินค้าทั้งหมด →</a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>ทำไมช่างมืออาชีพถึงเลือก <em>LucernaPro</em></h2>
+    <p class="sec-sub">บริษัท ลูเซอน่า จำกัด — เราทำเคมีเคลือบผิวและกันซึมเป็นงานหลัก ไม่ได้ขายทุกอย่างในโลก</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="n">SPEC</div><h4>เคมีเกรดอุตสาหกรรมจริง</h4><p>Polyurea, Polyaspartic, PMMA, FRP — เทคโนโลยีระดับ Industrial ที่ร้านวัสดุทั่วไปไม่มี คัดมาเพื่อแก้ปัญหาที่วัสดุทั่วไปเอาไม่อยู่</p></div>
+      <div class="why-card"><div class="n">SOLVE</div><h4>แก้ที่ต้นเหตุ ไม่ใช่ทาทับ</h4><p>ซ่อมเท่าไหร่ก็ไม่จบ เพราะใช้ของผิดประเภท — เราจับคู่สินค้ากับปัญหาให้ตรงจุด ทั้งกันซึม Positive/Negative, รอยร้าวโครงสร้าง, งานใต้น้ำ</p></div>
+      <div class="why-card"><div class="n">SUPPORT</div><h4>ปรึกษาหน้างานได้จริง</h4><p>ไม่แน่ใจว่าเคสของคุณต้องใช้ตัวไหน ส่งรูปหน้างานมาทางแชทเพจ ทีมงานช่วยวิเคราะห์และแนะนำระบบที่เหมาะสมให้ก่อนซื้อ</p></div>
+      <div class="why-card"><div class="n">PROOF</div><h4>ตัวอย่างงานจริงให้ดู</h4><p>ทุกระบบมีเคสหน้างานจริงประกอบ — ดูขั้นตอน ผลลัพธ์ และรีวิวการใช้งานได้ที่หน้า <a href="/casestudy" style="color:var(--orange)">Case Study</a> ของเรา</p></div>
     </div>
   </div>
 </section>
