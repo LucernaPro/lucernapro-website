@@ -275,14 +275,7 @@
   /* คลิปเดี่ยวแนวนอน 16:9 — จำกัดกว้างไม่ให้เต็มหน้า */
   .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
   @media(min-width:760px){.vidgrid.k1{grid-template-columns:1fr}}
-  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
-  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
-  .yt:hover img{opacity:1;transform:scale(1.02)}
-  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .yt.v916{aspect-ratio:9/16}
-  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
-  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
-  </style>
+</style>
 </head>
 <body>
 
@@ -398,7 +391,9 @@
 
     <div class="vidgrid k1" style="margin-top:26px">
       <figure style="margin:0">
-        <div class="yt" data-id="asNkU8d3tBc" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/asNkU8d3tBc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/asNkU8d3tBc/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/asNkU8d3tBc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to use ProLatex water-based adhesive by LucernaPro"></iframe>
+        </div>
         <figcaption><b>How-to clip</b> — watch the spreading and clamping happen for real. You'll see it uses far less glue than you'd guess.</figcaption>
       </figure>
     </div>
@@ -414,19 +409,27 @@
     </div>
     <div class="vidgrid" style="margin-top:22px">
       <figure style="margin:0">
-        <div class="yt" data-id="BUSfbBQTJtQ" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/BUSfbBQTJtQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/BUSfbBQTJtQ/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/BUSfbBQTJtQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ProLatex clip from the LucernaPro page"></iframe>
+        </div>
         <figcaption><b>Strength test</b> — see how much the glue line actually takes</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="yt" data-id="bqDztHGLuCs" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/bqDztHGLuCs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/bqDztHGLuCs/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/bqDztHGLuCs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ProLatex clip from the LucernaPro page"></iframe>
+        </div>
         <figcaption><b>Test clip</b> — ProLatex from the LucernaPro page</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="yt" data-id="E1sbMMBgVJQ" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/E1sbMMBgVJQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/E1sbMMBgVJQ/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/E1sbMMBgVJQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ProLatex clip from the LucernaPro page"></iframe>
+        </div>
         <figcaption><b>Test clip</b> — ProLatex from the LucernaPro page</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="yt" data-id="HUS5pBqnCmY" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/HUS5pBqnCmY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/HUS5pBqnCmY/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/HUS5pBqnCmY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ProLatex clip from the LucernaPro page"></iframe>
+        </div>
         <figcaption><b>Test clip</b> — ProLatex from the LucernaPro page</figcaption>
       </figure>
       <figure style="margin:0">
@@ -551,20 +554,6 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
-</script>
-<script>
-document.querySelectorAll('.yt').forEach(el=>{
-  function play(){
-    if(el.querySelector('iframe')) return;
-    const f=document.createElement('iframe');
-    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
-    f.allow="autoplay; encrypted-media; picture-in-picture";
-    f.allowFullscreen=true;
-    el.appendChild(f);
-  }
-  el.addEventListener('click',play);
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-});
 </script>
 </body>
 </html>

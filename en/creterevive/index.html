@@ -316,14 +316,7 @@
   .layer .sw{flex:0 0 54px;height:34px;border-radius:7px;border:1px solid var(--line)}
   .layer .lt{font-family:var(--disp);font-weight:700;font-size:15.5px}
   .layer .lt small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.55}
-  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
-  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
-  .yt:hover img{opacity:1;transform:scale(1.02)}
-  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .yt.v916{aspect-ratio:9/16}
-  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
-  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
-  </style>
+</style>
 </head>
 <body>
 
@@ -460,7 +453,9 @@
     <h3 class="sec-h" style="margin-top:38px;font-size:20px">See it done — <em>mixing through to the finished pour</em></h3>
     <div class="vidgrid k1">
       <figure style="margin:0">
-        <div class="yt" data-id="lCLv-ZS3oDc" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/lCLv-ZS3oDc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lCLv-ZS3oDc/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/lCLv-ZS3oDc" title="How to use CreteRevive concrete crack repair by LucernaPro" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
         <figcaption>The real sequence — mixing, pouring, striking off flush (Thai audio)</figcaption>
       </figure>
     </div>
@@ -577,20 +572,6 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
-</script>
-<script>
-document.querySelectorAll('.yt').forEach(el=>{
-  function play(){
-    if(el.querySelector('iframe')) return;
-    const f=document.createElement('iframe');
-    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
-    f.allow="autoplay; encrypted-media; picture-in-picture";
-    f.allowFullscreen=true;
-    el.appendChild(f);
-  }
-  el.addEventListener('click',play);
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-});
 </script>
 </body>
 </html>

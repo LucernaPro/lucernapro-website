@@ -278,14 +278,7 @@
 
   @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
-  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
-  .yt:hover img{opacity:1;transform:scale(1.02)}
-  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .yt.v916{aspect-ratio:9/16}
-  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
-  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
-  </style>
+</style>
 </head>
 <body data-search="ยาแนว ยาแนวกันซึม อีพ็อกซี่ ห้องน้ำรั่วซึม ราดำ ร่องกระเบื้อง">
 
@@ -411,11 +404,11 @@
     <h3 class="colors-h" style="margin-top:34px">Demo &amp; review clips</h3>
     <div class="vidgrid vert c5">
       <figure style="margin:0">
-        <div class="yt v916" data-id="MPgjcU7sRVw" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/MPgjcU7sRVw/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/MPgjcU7sRVw/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/MPgjcU7sRVw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Epoxy TileGrout demo clip"></iframe></div>
         <figcaption>Can you grout over the old grout? Watch the live answer (Thai audio)</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="yt v916" data-id="lC-NNG1fvJg" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/lC-NNG1fvJg/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lC-NNG1fvJg/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/lC-NNG1fvJg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Epoxy TileGrout how-to clip"></iframe></div>
         <figcaption>The real process, start to finish — follow along (Thai audio)</figcaption>
       </figure>
       <figure style="margin:0">
@@ -431,11 +424,11 @@
         <figcaption>Jobsite clip from the LucernaPro page (Thai audio)</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="yt v916" data-id="VzrC7Q6mGgc" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/VzrC7Q6mGgc/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/VzrC7Q6mGgc/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/VzrC7Q6mGgc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — Epoxy TileGrout"></iframe></div>
         <figcaption>Usage example — Epoxy TileGrout</figcaption>
       </figure>
       <figure style="margin:0">
-        <div class="yt v916" data-id="EH-h0HqyDN0" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/EH-h0HqyDN0/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/EH-h0HqyDN0/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/EH-h0HqyDN0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — Epoxy TileGrout"></iframe></div>
         <figcaption>Usage example — Epoxy TileGrout</figcaption>
       </figure>
     </div>
@@ -561,20 +554,6 @@ tgl.addEventListener('click', ()=>{
   syncIcon();
 });
 syncIcon();
-</script>
-<script>
-document.querySelectorAll('.yt').forEach(el=>{
-  function play(){
-    if(el.querySelector('iframe')) return;
-    const f=document.createElement('iframe');
-    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
-    f.allow="autoplay; encrypted-media; picture-in-picture";
-    f.allowFullscreen=true;
-    el.appendChild(f);
-  }
-  el.addEventListener('click',play);
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-});
 </script>
 </body>
 </html>

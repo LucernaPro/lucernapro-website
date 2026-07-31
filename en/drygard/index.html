@@ -334,14 +334,7 @@
   .calc .out{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted);line-height:1.65}
   .calc .out b{color:var(--ink)}
   .calc .big{display:block;font-family:var(--disp);font-weight:700;font-size:19px;color:var(--orange);margin-bottom:4px}
-  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
-  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
-  .yt:hover img{opacity:1;transform:scale(1.02)}
-  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .yt.v916{aspect-ratio:9/16}
-  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
-  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
-  </style></head>
+</style></head>
 <body>
 
 <header class="topbar">
@@ -478,7 +471,7 @@
     <div class="warn"><b>The timings, short version:</b> two coats · <b>2 hours between coats</b> · <b>ready for service 8–12 hours</b> after the last coat · <b>1 kg ≈ 5 sq.m over two coats</b> · no mixing · no primer (except on permanently damp walls)</div>
     <div class="vidgrid vert solo">
       <figure style="margin:0">
-        <div class="yt v916" data-id="UEv3UhdUeSU" role="button" tabindex="0" aria-label="Play video"><img src="https://i.ytimg.com/vi/UEv3UhdUeSU/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/UEv3UhdUeSU/hqdefault.jpg'" alt="Play video" loading="lazy"><span class="playbtn">▶</span></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/UEv3UhdUeSU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Usage example — DryGard"></iframe></div>
         <figcaption>Usage example — DryGard</figcaption>
       </figure>
     </div>
@@ -651,20 +644,6 @@ syncIcon();
   }
   area.addEventListener('input', calc);
 })();
-</script>
-<script>
-document.querySelectorAll('.yt').forEach(el=>{
-  function play(){
-    if(el.querySelector('iframe')) return;
-    const f=document.createElement('iframe');
-    f.src=`https://www.youtube.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
-    f.allow="autoplay; encrypted-media; picture-in-picture";
-    f.allowFullscreen=true;
-    el.appendChild(f);
-  }
-  el.addEventListener('click',play);
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-});
 </script>
 </body>
 </html>
