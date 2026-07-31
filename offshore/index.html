@@ -323,6 +323,36 @@
   .gph figcaption{font-size:13px;color:var(--muted);padding:9px 4px 2px;line-height:1.4;text-align:center}
   .vidgrid.k2{max-width:760px}
   @media(min-width:760px){.vidgrid.k2{grid-template-columns:repeat(2,1fr)}}
+  /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
+  .mnav-btn,.mnav,.mnav-scrim{display:none}
+  @media(max-width:860px){
+    .theme-toggle,.lang-switch{display:none}
+    .mnav-scrim{display:block}
+    .cta-chat{display:inline-flex;margin-left:auto}
+    .mnav-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:17px;line-height:1;cursor:pointer}
+    .mnav-btn:hover{border-color:var(--orange)}
+    .mnav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:98;opacity:0;pointer-events:none;transition:opacity .22s ease}
+    .mnav-scrim.open{opacity:1;pointer-events:auto}
+    .mnav{position:fixed;top:0;bottom:0;left:0;width:min(280px,82vw);z-index:99;background:var(--panel);border-right:1px solid var(--line);padding:20px 22px 18px;display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .26s ease;overflow-y:auto}
+    .mnav.open{transform:translateX(0)}
+    .mnav-head{display:flex;align-items:center;justify-content:space-between}
+    .mnav-brand{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--ink)}
+    .mnav-brand em{color:var(--orange);font-style:normal}
+    .mnav-close{background:none;border:none;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;padding:4px}
+    .mnav-tag{font-size:11.5px;color:var(--muted);margin-top:3px}
+    .mnav-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);margin:22px 0 4px}
+    .mnav-links{display:flex;flex-direction:column}
+    .mnav-links a{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink)}
+    .mnav-links a:last-child{border-bottom:none}
+    .mnav-links a span{color:var(--orange)}
+    .mnav-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .mnav-chips a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}
+    .mnav-util{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);margin-top:auto}
+    .mnav-util .mnav-lang{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 12px;color:var(--muted)}
+    .mnav-util .mnav-theme{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink)}
+    .mnav-chat{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}
+  }
+  /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 </head>
 
@@ -330,13 +360,44 @@
 
 <header class="topbar">
   <div class="wrap">
+    <button class="mnav-btn" id="mnavBtn" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
     <a class="backlink" href="/">← สินค้าทั้งหมด</a>
     <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
     <a class="lang-switch" href="/en/offshore">EN</a>
-    <a class="cta-chat" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ</a>
+    <a class="cta-chat" href="https://m.me/lucernapro" target="_blank" rel="noopener"><span class="fbadge">f</span>แชทเพจ</a>
   </div>
 </header>
+
+<!-- ═══ MOBILE DRAWER MENU: ลิ้นชัก (ถอนได้) ═══ -->
+<div class="mnav-scrim" id="mnavScrim" aria-hidden="true"></div>
+<aside class="mnav" id="mnav" aria-label="เมนูหลัก">
+  <div class="mnav-head">
+    <span class="mnav-brand"><img src="/img/logo.png" alt="" width="24" height="24" style="object-fit:contain;vertical-align:-6px;margin-right:8px">LUCERNA<em>PRO</em></span>
+    <button class="mnav-close" id="mnavClose" aria-label="ปิดเมนู">✕</button>
+  </div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <div class="mnav-k">MENU</div>
+  <nav class="mnav-links">
+    <a href="/">หน้าแรก <span>→</span></a>
+    <a href="/#finder">สินค้าทั้งหมด <span>→</span></a>
+    <a href="/casestudy/">Case Study <span>→</span></a>
+    <a href="/#contact">ติดต่อเรา <span>→</span></a>
+  </nav>
+  <div class="mnav-k">SHORTCUTS</div>
+  <div class="mnav-chips">
+    <a href="/#waterproof">กันซึม</a>
+    <a href="/#flooring">งานพื้น</a>
+    <a href="/#coating">เคลือบปกป้อง</a>
+  </div>
+  <div class="mnav-util">
+    <a class="mnav-lang" href="/en/offshore">EN</a>
+    <button class="mnav-theme" id="mnavTheme" aria-label="สลับโหมดสี">🌙</button>
+  </div>
+  <a class="mnav-chat" href="https://m.me/lucernapro" target="_blank" rel="noopener">f&nbsp; แชทเพจ — ตอบไว</a>
+</aside>
+<!-- ═══ จบลิ้นชัก MOBILE DRAWER MENU ═══ -->
+
 
 <section class="phero">
   <div class="wrap phero-grid">
@@ -668,5 +729,36 @@ tgl.addEventListener('click', ()=>{
 });
 syncIcon();
 </script>
+<!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
+<script>
+(function(){
+  var mn=document.getElementById('mnav'),sc=document.getElementById('mnavScrim'),
+      bt=document.getElementById('mnavBtn'),cl=document.getElementById('mnavClose'),
+      tb=document.getElementById('mnavTheme'),master=document.getElementById('themeToggle');
+  if(!mn||!bt)return;
+  function set(open){
+    mn.classList.toggle('open',open);sc.classList.toggle('open',open);
+    bt.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  }
+  bt.addEventListener('click',function(){set(true)});
+  cl.addEventListener('click',function(){set(false)});
+  sc.addEventListener('click',function(){set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  window.addEventListener('pageshow',function(){set(false)});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){
+    a.addEventListener('click',function(){set(false)});
+  });
+  if(tb){
+    if(!master){tb.style.display='none';}
+    else{
+      function syncT(){tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}
+      tb.addEventListener('click',function(){master.click();syncT();});
+      syncT();
+    }
+  }
+})();
+</script>
+<!-- ═══ จบ JS MOBILE DRAWER MENU ═══ -->
 </body>
 </html>
