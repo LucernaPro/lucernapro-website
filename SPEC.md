@@ -1074,3 +1074,43 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 2. บทความ 5 ตัวยังไม่มีฉบับ EN (`seamless-house`, `basement-solution-center`, `ชมพลังของ-deepstick`, `คิดให้ดีก่อนจะรื้อ`, `ซ่อมสระว่ายน้ำด้วย-polypro`) → ทำ EN แล้วกลับมาเสริมการ์ดในหน้า EN กลุ่มที่เกี่ยว
 3. **Cross-sell สินค้าตาม basket data ยังไม่ได้ใส่** — รอ ruling เจ้าของทีละคู่ เพราะเป็นการตัดสินใจเชิงการขาย ไม่ใช่งานเทคนิค: `/epoxycoating`→TileCoatPoly (lift 12.9, n=4) · `/pondmax`→DeepStick (lift 1.3 = อ่อน ไม่แนะนำ) · `/siliconepro`→ModernFiberglass **มีอยู่แล้ว ถูกต้องตาม data**
 4. **ยังไม่มี analytics สักตัวใน 104 หน้า** (ไม่มี GA4 / GTM / Google Ads tag / Meta Pixel) และไม่มี `sitemap.xml` / `robots.txt` → **ผลของแคมเปญนี้วัดไม่ได้เลยจนกว่าจะติด** เจ้าของทราบแล้ว จัดลำดับไว้หลังงานเว็บ
+
+### มติเจ้าของปิดท้าย 31 ก.ค. 2026 (ค่ำ) — ต่อจากแคมเปญ Discovery Block
+
+**1. บทความเก่า 5 ชิ้นที่ไม่มี EN — เจ้าของเอาออกเอง จะเขียนใหม่ทั้งหมด**
+ไม่ใช่งานค้างของ Claude ตัดออกจากรายการค้างข้อ 2 ข้างบน **แต่ฝั่งไทยยังลิงก์อยู่ 14 หน้า** — เซสชันที่เขียนบทความใหม่ต้องกลับมาอัปเดตการ์ด `.reads` ตามแผนที่นี้:
+
+| บทความเก่า | หน้าไทยที่ลิงก์อยู่ |
+|---|---|
+| `/post/seamless-house` | deepstick, epoxyputty, fillerace, modernfiberglass, patchpro, swiftset |
+| `/post/ชมพลังของ-deepstick-กันชัดๆ` | deepstick, epoxyputty, fillerace, swiftset |
+| `/post/คิดให้ดีก่อนจะรื้อ` | carbontilegrout, epoxygrout, tilecoatpoly |
+| `/post/ซ่อมสระว่ายน้ำด้วย-polypro` | pondmax, poolarmour, submarine |
+| `/post/basement-solution-center` | drygard, masterseal |
+
+**ถ้าเขียนใหม่แล้วใช้ slug เดิม ไม่ต้องแก้อะไรเลย** ถ้าเปลี่ยน slug ต้องไล่แก้ 14 หน้านี้ (ฝั่ง EN ไม่กระทบ เพราะใช้แค่ 4 ตัวเอเวอร์กรีน)
+บทความเอเวอร์กรีนที่ใช้ทั้งสองภาษา: `finding-the-real-leak-point` (67 จุด) · `waterproofing-coverage-tips` (60) · `waterproofing-techniques` (53) · `mixing-ratio-matters` (17)
+
+**2. `/flexgrip` TDS ตาย** → เจ้าของสั่งให้เซสชันอื่นทำ **ห้ามเซสชันนี้แตะ กันงานชนกัน**
+
+**3. Cross-sell ตาม basket — มติ: ไม่ใส่ (เจ้าของให้ Claude ตัดสิน)**
+- `/epoxycoating` → TileCoatPoly: lift 12.9 ก็จริง **แต่ n = 4 ราย** ต่ำกว่าเกณฑ์ที่เราตั้งกันเอง และที่สำคัญกว่าคือ**ความสัมพันธ์ผิดประเภทกับช่องที่จะใส่** — `.alt` คือ "ทีมเวิร์คของ X" = ของที่ใช้ร่วมกันในงานเดียวกัน แต่พื้นโรงงานกับกันซึมห้องน้ำเป็นคนละงาน มันคือ "ลูกค้ากลุ่มเดียวกัน" (ผู้รับเหมารับทั้งสองงาน) ซึ่ง `.explore` catalog รับหน้าที่นี้อยู่แล้ว → **ทริกเกอร์กลับมาทบทวนเมื่อ n ≥ 15 ราย**
+- `/pondmax` → DeepStick: lift 1.3 = noise **ไม่ใส่**
+- `/siliconepro` → ModernFiberglass: **มีอยู่แล้ว ตรงกับ data (20.5%, lift 12.8) ไม่ต้องแตะ**
+- **หลักการที่ตกผลึก: basket data บอกว่า "ใครซื้ออะไรต่อ" ไม่ได้บอกว่า "ของสองอย่างนี้ใช้ด้วยกัน" — การ์ด cross-sell ต้องตอบคำถามว่า "งานนี้ต้องใช้อะไรอีก" ไม่ใช่ "คนนี้เคยซื้ออะไรอีก"**
+
+**4. `figcaption` ซ้ำ "ตัวอย่างการใช้งาน X" (55 ไฟล์)** → เจ้าของสั่ง **พักไว้ก่อน** ไม่คุ้มเวลาที่ต้องเขียนกำกับทีละภาพ ยังไม่ต้องทำ
+
+### 🔴 ค้างที่ต้องทวงเจ้าของ — ปุ่มสั่งซื้อยังไม่ครบ 4 ช่องตามกฎ 8.6 (15 หน้า)
+| หน้า | ขาด |
+|---|---|
+| `creterevive` + EN | Shopee, Lazada |
+| `epdm` + EN | Shopee, Lazada |
+| `levelpro` + EN | Shopee, Lazada |
+| `solidfloor` + EN | Shopee, Lazada |
+| `epoxycoating` (ไทยอย่างเดียว — EN ยังไม่มีหน้า) | Shopee, Lazada |
+| `ghostshield` + EN | Lazada |
+| `masterseal` + EN | Lazada |
+| `polyurea` + EN | Lazada |
+
+**`/epoxycoating` เร่งด่วนที่สุด** — เป็น 1 ใน 4 ตัวที่เลือกไว้ยิง Google Ads (กำไรต่อคนทัก 365 บาท ปิดการขาย 28.9% สูงสุดในกลุ่มบน) แต่หน้าขาดปุ่มร้านทั้งสองช่อง **และยังไม่มีหน้า EN** (`_redirects` รับเป็น 302 ไป `/en/#catalog`)
