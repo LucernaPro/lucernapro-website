@@ -518,7 +518,7 @@ POSTS_V2 = [
      "figs":[("finding-the-real-leak-point-03.webp","ภาพตัดขวางจุดต่อผนัง-พื้น แสดงรอยแตกจากการขยับตัวต่างกัน จุดที่น้ำซึมลอดเข้าไปได้แม้ผิวบนดูเรียบร้อย")]},
     {"h":"หลักฐานจากหน้างานจริง",
      "text":["ภาพนี้คือดินน้ำมันที่ใช้กั้นแบ่งโซนตามแนวร่องยืดตัวของพื้นกระเบื้อง หลังแกะออกจากการทดสอบขังน้ำแต่ละโซน เพื่อยืนยันให้แน่ใจก่อนว่าจุดรั่วอยู่ตรงไหนจริงๆ ก่อนตัดสินใจซ่อม"],
-     "figs":[("finding-the-real-leak-point-01.webp","ดินน้ำมันที่ใช้กั้นแบ่งโซนตามร่องยืดตัว หลังแกะออกจากการทดสอบขังน้ำหาจุดรั่วจริง")]},
+     "figs":[("finding-the-real-leak-point-01.webp","แบ่งแนวทดสอบเป็นโซน T1 T2 T3 ริมผนัง ใช้หลอดหยดน้ำไล่ทีละจุดจนเห็นรอยน้ำซึมชัดบนพื้น")]},
     {"h":"เจอจุดจริงแล้วค่อยเลือกวิธีซ่อมให้ตรงจุด",
      "text":["พอยืนยันจุดรั่วจริงแล้ว ถ้าเป็นรอยต่อหรือรอยแตกที่ต้องโป๊วก่อน จะใช้ PatchPro หรือ DeepStick ก็ได้ แล้วแต่ลักษณะรอยต่อหน้างานจริง ปล่อยให้เซ็ตตัวเต็มที่ก่อน แล้วค่อยเคลือบทับด้วยกันซึมที่เหมาะกับหน้างานนั้นๆ อีกชั้น ถ้าไม่แน่ใจว่าหน้างานแบบนี้ควรใช้ตัวไหน ทักแชทให้ทีมงานช่วยเลือกให้ตรงกับหน้างานได้ หลักการคือหาให้เจอก่อนทา ไม่ใช่ทาสุ่มทั้งพื้นที่แล้วหวังว่าจะหาย"],
      "figs":[]},
@@ -543,7 +543,7 @@ POSTS_V2 = [
      "figs":[("finding-the-real-leak-point-03.webp","Cross-section of a wall-floor joint showing the crack caused by differential movement — where water seeps through even when the top surface looks fine")]},
     {"h":"Evidence from an actual job",
      "text":["This is the putty used to dam off zones along the floor's expansion joint, pulled off after the ponding test on each section — confirming exactly where the leak was before deciding how to fix it."],
-     "figs":[("finding-the-real-leak-point-01.webp","Putty dams along the expansion joint, removed after the water-ponding test confirmed the real leak point")]},
+     "figs":[("finding-the-real-leak-point-01.webp","Test zones T1, T2, T3 marked along the wall, water dripped one zone at a time until the seep marks show clearly on the floor")]},
     {"h":"Found the real spot? Now fix that spot specifically",
      "text":["Once the leak point is confirmed, fill the joint or crack with either PatchPro or DeepStick, depending on what that particular joint needs. Let it fully set, then coat over it with whichever waterproofing product actually fits that job site. Not sure which one fits your case? Message the team and we'll help you pick. The whole principle: find it before you coat it — don't coat the whole area and hope."],
      "figs":[]},
@@ -855,6 +855,72 @@ POSTS_V2 = [
             ("TileCoat Polyurea","/en/tilecoatpoly"),("SiliconePro","/en/siliconepro"),("Marine Guard","/en/marineguard")],
   },
  },
+ {
+  "slug": "why-test-on-tile-back",
+  "cat": "pool tips",
+  "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
+  "thumb": "why-test-on-tile-back-00.webp",
+  "th": {
+   "title": "ทำไมเราถึงชวนให้ “ลองสีบนหลังกระเบื้อง” ก่อนทาจริงทุกครั้ง",
+   "desc": "สีที่ดีที่สุดก็ลอกได้ ถ้าพื้นผิวข้างใต้มีปัญหาที่มองไม่เห็น — หลังกระเบื้องด้านหยาบคือสนามทดสอบที่เสถียรและแฟร์ที่สุดเท่าที่หาได้: ผ่านตรงนี้ = เนื้อสีทำงานจริง แล้วถ้าหน้างานเกิดปัญหาภายหลัง คุณจะรู้ทันทีว่าต้นเหตุคือพื้นผิว ไม่ใช่สี",
+   "cat_label": "สระ / บ่อน้ำ · เทคนิค / ความรู้",
+   "hero_html": ['<figure class="vidhero"><div class="fbv"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F691855920304198&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="คลิปทดสอบแกะสีบนกระเบื้องจากเพจ LucernaPro"></iframe></div>'
+                '<figcaption>คลิปจริงจากเพจ — แกะให้ดูคาตา: เนื้อสีเดียวกันเป๊ะ บนผิวด้านหยาบแกะยังไงก็ไม่หลุด ส่วนบนผิวเคลือบเงาลอกออกมาได้เป็นแผ่น ต่างกันแค่พื้นผิวอย่างเดียว</figcaption></figure>'],
+   "intro": [
+    "เวลาสีลอกจากพื้นปูน คนส่วนใหญ่โทษสีก่อนเป็นอย่างแรก — แต่ในงานเคลือบจริง สีจะเกาะหรือลอก พื้นผิวเป็นคนตัดสินครึ่งหนึ่งเสมอ และตัวแปรที่ทำให้สีลอกส่วนใหญ่มองไม่เห็นด้วยตาเปล่าเลยสักตัว",
+    "เราเลยชวนลูกค้าทุกคนให้ทำการทดสอบเล็กๆ ที่ต้นทุนแทบเป็นศูนย์ก่อนซื้อล็อตใหญ่: ทาสีลงบน “หลังกระเบื้อง” ด้านหยาบ รอเซ็ตตัว แล้วแช่น้ำดูกับตาตัวเอง — บทความนี้อธิบายว่าทำไมพื้นผิวธรรมดาๆ แผ่นนี้ถึงเป็นห้องทดลองที่แฟร์ที่สุด ทั้งกับคุณและกับเรา",
+   ],
+   "steps": [
+    {"h":"สีดีแค่ไหน ก็แพ้พื้นผิวที่มีปัญหาได้",
+     "text":["ปูนหน้างานแต่ละที่มีตัวแปรซ่อนอยู่ 3 ตัวหลัก และต่างกันทุกไซต์ — <b>ความชื้นสะสม</b>ใต้ผิวหรือแรงดันน้ำใต้ดินที่ดันฟิล์มจากข้างล่างขึ้นมา, <b>ความด่างของปูน</b>ที่อาจทำปฏิกิริยากับสารเคลือบจนรบกวนการยึดเกาะระดับเคมี และ<b>ฝุ่นผงปูนผิวหน้า (Laitance)</b> ชั้นผงบางๆ ที่ลอยเคลือบหน้าไว้ ทำให้สีเกาะติดฝุ่นแทนที่จะกัดลงเนื้อคอนกรีตจริง",
+             "สามตัวนี้มองด้วยตาเปล่าไม่เห็นสักตัว และไม่มีใครการันตีได้ล่วงหน้าว่าหน้างานของคุณมีหรือไม่มี — การเทสีลงหน้างานเลยโดยไม่ทดสอบก่อน จึงเท่ากับเดิมพันทั้งโปรเจกต์กับสิ่งที่มองไม่เห็น"],
+     "figs":[]},
+    {"h":"หลังกระเบื้อง — ห้องทดลองที่เสถียรที่สุดเท่าที่หาได้ข้างบ้าน",
+     "text":["พลิกกระเบื้องเซรามิกดูด้านหลัง จะเจอผิวหยาบด้านที่ไม่ได้เคลือบ — ผิวนี้พรุนใกล้เคียงคอนกรีตดิบที่สุด แต่ต่างกันตรงที่เนื้อเซรามิกผ่านการเผามาแล้ว จึงนิ่ง แห้ง และเสถียร: ไม่มีความชื้นแฝง ไม่มีความด่างมากวน ไม่มีฝุ่นผงปูน",
+             "แปลว่าตัวแปรกวนทั้งสามข้อจากขั้นก่อนหน้าถูกตัดออกจากสมการหมดเกลี้ยง เหลือแค่เนื้อสีล้วนๆ ปะทะผิวพรุนตรงๆ — ผลทดสอบที่ได้จึงเป็นการวัดคุณภาพเนื้อสีแบบไม่มีข้ออ้าง ทั้งฝั่งเราและฝั่งคุณ"],
+     "figs":[("why-test-on-tile-back-info-th.svg","เทียบให้เห็นภาพ: หลังกระเบื้องตัวแปรกวนเป็นศูนย์ ผลทดสอบวัดเนื้อสีล้วนๆ — ส่วนปูนหน้างานมีตัวแปรซ่อน 3 ตัวที่มองไม่เห็นและต่างกันทุกไซต์ ผ่านฝั่งซ้ายแล้วมีปัญหาหน้างานเมื่อไหร่ ชี้ตัวจำเลยได้ทันทีว่าคือพื้นผิว")]},
+    {"h":"วิธีทดสอบ — ต้นทุนเศษกระเบื้องหนึ่งแผ่น กับความใจเย็นสองวัน",
+     "text":["หาเศษกระเบื้องมาหนึ่งแผ่น เช็ดหลังกระเบื้องให้สะอาด ไร้ฝุ่น แห้งสนิท แล้วทาสีลงไปตามขั้นตอนปกติของสีตัวนั้นทุกประการ — เช่นระบบสีสระของเราคือทา 2 รอบ เว้นระหว่างรอบ 2–3 ชั่วโมง (ใช้สีตัวไหนให้ยึดตัวเลขตามหน้าสินค้าตัวนั้น)",
+             "จากนั้นถึงขั้นที่ห้ามใจร้อนเด็ดขาด: ปล่อยให้เซ็ตตัวเต็มที่ 24–48 ชั่วโมง แล้วค่อยจุ่มทั้งแผ่นแช่น้ำทิ้งไว้ สังเกตผล — สีต้องเกาะแน่น ไม่พอง ไม่ลอกร่อน และเชิญเต็มที่เลย ลองเอาเล็บแกะ ลองขูดดู จะได้รู้กับตาตัวเองว่าเนื้อสีจริงๆ มันทนแค่ไหน เหมือนในคลิปข้างบนเป๊ะ"],
+     "figs":[]},
+    {"h":"อ่านผลแบบช่างอ่าน — ทดสอบครั้งเดียว ตัดข้อสงสัยได้ตลอดชีวิตงาน",
+     "text":["ถ้าผ่านบนหลังกระเบื้อง = เคมีภัณฑ์และสูตรเคลือบทำงานได้จริง 100% เพราะสนามนี้ไม่มีตัวแปรให้อ้าง — แล้วถ้าทาหน้างานจริงเกิดพองหรือลอกภายหลัง จะชี้ชัดทันทีว่าต้นเหตุอยู่ที่การเตรียมพื้นผิวหรือสภาพปูน ไม่ใช่เนื้อสี ทำให้กลับไปแก้ได้ถูกจุด ไม่หลงทาง ไม่ต้องเสียเงินไล่เปลี่ยนสีไปเรื่อยๆ ทั้งที่สีไม่ใช่จำเลย",
+             "การทดสอบเล็กๆ ต้นทุนแทบศูนย์นี้คือประกันความมั่นใจที่ถูกที่สุดในทั้งโปรเจกต์ — ไม่ต้องเชื่อคำโฆษณาของเราก็ได้ เชื่อแผ่นกระเบื้องที่แช่อยู่ในกะละมังบ้านคุณดีกว่า ทดสอบแล้วมีอะไรไม่ชัวร์ ส่งรูปมาถามทางแชทเพจได้เลย ทีมงานช่วยดูให้ฟรีก่อนตัดสินใจซื้อ"],
+     "figs":[]},
+   ],
+   "prods":[("PoolArmour","/poolarmour"),("Marine Guard","/marineguard"),("SiliconePro","/siliconepro")],
+  },
+  "en": {
+   "title": "Why We Ask Every Customer to Test the Paint on the Back of a Tile First",
+   "desc": "The best paint in the world can still peel off a bad surface. The rough back of a ceramic tile is the most stable, most honest test bench you can find — pass there and the paint is proven. If trouble shows up on the real job later, you know instantly the cause is the surface, not the paint.",
+   "cat_label": "Pools / Ponds · Tips / Know-how",
+   "hero_html": ['<figure class="vidhero"><div class="fbv"><iframe loading="lazy" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F691855920304198&show_text=false" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen title="Tile paint peel test clip from the LucernaPro page"></iframe></div>'
+                '<figcaption>Straight from our page (Thai audio) — same paint, two surfaces: on the rough matte side it will not come off no matter how hard we pick at it, while on the glossy glazed side it peels away in a sheet. The surface casts the deciding vote.</figcaption></figure>'],
+   "intro": [
+    "When paint peels off concrete, most people blame the paint first. But on a real coating job, whether paint bonds or peels, the surface always casts half the vote — and the variables that make paint fail are almost all invisible to the naked eye.",
+    "So we ask every customer to run a tiny test that costs next to nothing before buying the big lot: coat the rough back of a ceramic tile, let it cure, then soak it and see for yourself. This article explains why that ordinary little tile is the fairest laboratory you can get — for you and for us.",
+   ],
+   "steps": [
+    {"h":"The best paint in the world can still lose to a bad surface",
+     "text":["Site concrete hides three main variables, and they're different on every single job — <b>trapped moisture</b> under the surface (or groundwater pressure) pushing the film up from below, <b>concrete alkalinity</b> that can react with the coating and attack the bond at the chemical level, and <b>laitance</b>, a thin layer of cement dust floating on the surface so the paint grips the dust instead of biting into the actual concrete.",
+             "None of the three can be seen with the naked eye, and nobody can guarantee in advance whether your job has them or not — which is why pouring paint straight onto the site without testing first means betting the whole project on things you can't see."],
+     "figs":[]},
+    {"h":"The back of a tile — the most stable lab you'll find lying around the house",
+     "text":["Flip a ceramic tile over and you'll find the rough, unglazed side. That surface is about as close to raw concrete as porosity gets — with one big difference: the ceramic has already been fired, so it sits still, dry and stable. No hidden moisture, no alkalinity, no cement dust.",
+             "Which means all three troublemakers from the previous step are wiped clean out of the equation. What's left is pure paint versus porous surface, head to head — a test result that measures the paint itself, no excuses available to either side."],
+     "figs":[("why-test-on-tile-back-info-en.svg","Side by side: the tile back has zero interfering variables, so the test measures the paint alone — site concrete hides three invisible variables that differ on every job. Pass on the left, and if trouble ever shows up on site, you can point at the culprit immediately: the surface.")]},
+    {"h":"How to run the test — one scrap tile and two days of patience",
+     "text":["Grab a scrap tile, wipe the back clean, dust-free and bone dry, then coat it following that paint's normal instructions to the letter — for our pool paint system that's 2 coats with 2–3 hours between them (whichever paint you use, follow the numbers on its own product page).",
+             "Then comes the part where impatience is banned: let it fully cure for 24–48 hours first, and only then submerge the whole tile in water and watch. The paint must stay bonded tight — no blisters, no peeling. And please, go at it: pick at it with a fingernail, try to scrape it. You'll see with your own eyes how tough the paint really is, exactly like the clip above."],
+     "figs":[]},
+    {"h":"Read the result like a pro — test once, settle the question for the life of the job",
+     "text":["Pass on the back of a tile and the chemistry is proven, full stop — this bench leaves no variables to hide behind. So if blistering or peeling ever shows up on the real job later, you know immediately the cause sits in the surface prep or the condition of the concrete, not in the paint. You go fix the right thing, no guessing, no burning money swapping paints when the paint was never the culprit.",
+             "This near-zero-cost little test is the cheapest insurance in the entire project. Don't take our advertising's word for it — trust the tile soaking in a basin at your own house instead. And if anything about your test looks unclear, send us photos in chat — the team will take a look for free before you spend a baht."],
+     "figs":[]},
+   ],
+   "prods":[("PoolArmour","/en/poolarmour"),("Marine Guard","/en/marineguard"),("SiliconePro","/en/siliconepro")],
+  },
+ },
 ]
 
 V2_CSS = """:root{{
@@ -927,7 +993,11 @@ footer a:hover{{color:#fff}}
 .dcard p{{margin-top:0!important;font-size:.86rem;color:var(--steel)}}
 .dcard a.go{{margin-top:8px;font-weight:600;color:var(--signal);font-size:.88rem}}
 .dcard a.go:hover{{color:var(--signal-dark)}}
-.dcard.chat{{background:var(--tag-bg);border-style:dashed}}"""
+.dcard.chat{{background:var(--tag-bg);border-style:dashed}}
+.vidhero{{margin:26px auto 0;max-width:400px}}
+.vidhero .fbv{{position:relative;width:100%;aspect-ratio:9/16;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#191C1F}}
+.vidhero .fbv iframe{{position:absolute;inset:0;width:100%;height:100%;border:0}}
+.vidhero figcaption{{margin-top:8px;font-size:.88rem;color:var(--steel)}}"""
 
 TEMPLATE_V2_TH = """<!DOCTYPE html>
 <html lang="th">
@@ -1289,6 +1359,8 @@ def render_v2_body(lang_data, alt_prefix):
         w, h = _img_dims(os.path.join(root_img, fn))
         intro += (f'\n    <figure class="hero"><img src="/img/post/{fn}" alt="{alt_prefix} — {cap}" width="{w}" height="{h}">'
                   f'<figcaption>{cap}</figcaption></figure>')
+    for hb in lang_data.get("hero_html", []):
+        intro += f'\n    {hb}'
     blocks = []
     for i, s in enumerate(lang_data["steps"], 1):
         b  = f'    <section class="step">\n'
