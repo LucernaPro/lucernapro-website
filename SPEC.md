@@ -1179,3 +1179,15 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
   · **🔴 doctrine ใหม่ — path ภาษาไทยใน `_redirects` เขียนแบบ percent-encode เท่านั้น** พิสูจน์บน workers.dev แล้ว: paste URL ไทย → 301 เด้งไป slug ใหม่จริง (เจ้าของทดสอบเอง 31 ก.ค.)
   · **width/height ครบ 100% (จากเดิม 434/1,225):** เติม 826 รูป local อ่านขนาด pixel จริง (ratio verify 0 เพี้ยน) ด้วย `tools/add_img_dims.py` (rerun ได้ — **หน้าที่สร้างใหม่ต่อจากนี้ให้รันสคริปต์นี้ก่อนปิดงานเสมอ**) + **safety net `img{height:auto}` (bare selector — แพ้ class rule เสมอ ไม่กระทบ layout เดิม) เติม 79 หน้า** ปิดความเสี่ยงภาพยืดแบบ ironlock ทั้งฟลีต / **hotlink wixstatic 76 รูปข้ามไว้ — เก็บพร้อมรอบ image pipeline หน้า salvage**
   · **ค้างเฟส SEO ถัดไป:** (1) Google Search Console + Bing Webmaster — เจ้าของยืนยันโดเมนเอง **หลัง cutover ชี้ Cloudflare** แล้ว submit sitemap (2) FAQ schema จาก section "พูดตรงๆ ก่อนขาย" (3) BreadcrumbList schema (4) `/en/epoxycoating` (5) Case Study V2 เขียนต่อ
+
+---
+
+## เซสชัน 1 ส.ค. 2026 — HeatShield: สลับภาพหน้าโฮมกับภาพในแกลเลอรี
+
+**งานที่ทำ:** เจ้าของส่งภาพ pack-shot ใหม่ของ HeatShield (ขวดตั้งอยู่บนหลังคาขาวจริง มีตึกกระจก+เส้นขอบฟ้าเมืองด้านหลัง) มาให้ใช้แทนภาพ thumbnail เดิมบนหน้าโฮม — ภาพเดิม (หลังคาขาวล้วน ไม่มีขวด) ไม่อยากทิ้งเพราะสวย เลยย้ายไปแทรกในแกลเลอรีหน้าสินค้าแทน
+
+- `img/heatshield.webp` (thumbnail หน้าโฮม) — แทนที่ด้วยภาพใหม่ resize เหลือ 480 กว้าง (คงอัตราส่วนต้นฉบับ ไม่ครอป) ได้ 480×343 (เดิม 480×325) → แก้ width/height attribute ใน `index.html` ให้ตรง
+- `img/heatshield-g08.webp` (ใหม่) — ภาพหลังคาขาวเดิมที่ถอดออกจากหน้าโฮม เอามาครอปกลางเป็นสี่เหลี่ยมจัตุรัส (325×325 จากต้นฉบับ 480×325) แล้ว upscale เป็น 720×720 ตามมาตรฐานแกลเลอรี (LANCZOS + UnsharpMask, q85) — เป็นภาพเดียวในแกลเลอรีที่ผ่านการ upscale เพราะไม่มีไฟล์ต้นฉบับความละเอียดสูงกว่านี้ ผลลัพธ์ยังคมพอใช้เพราะภาพส่วนใหญ่เป็นท้องฟ้า/หลังคาเรียบ ไม่มีดีเทลถี่
+- เพิ่มการ์ดที่ 08 ในแกลเลอรีทั้ง `heatshield/index.html` และ `en/heatshield/index.html` (caption อธิบายมุมกว้างเทียบกับตึกกระจก) ไม่แตะรูปอื่นในแกลเลอรี ไม่ต้องเปลี่ยนเลขลำดับเดิม
+- `heatshield-hero.webp` (hero บนหน้าสินค้า) **ไม่แตะ** — คนละภาพ เป็น pack-shot สตูดิโอที่ใช้อยู่แล้ว งานนี้แก้เฉพาะ thumbnail หน้าโฮม
+- HTML sanity check ผ่านทั้ง 3 ไฟล์ที่แก้ + Thai residue scan บนหน้า EN ผ่าน (ไม่มีอักษรไทยหลง)
