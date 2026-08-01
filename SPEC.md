@@ -74,10 +74,10 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 
 ## Instrumentation — ระบบวัดผล GA4/Google Ads (มติ 1 ส.ค. 2026)
 - **ไฟล์กลางไฟล์เดียว: `/track.js`** — GA4 Measurement ID อยู่ในไฟล์นี้ที่เดียว (ตัวแปร `GA_ID` บรรทัดบนสุด) แก้ที่เดียวมีผลทุกหน้า **ห้ามฝัง gtag ในหน้า HTML รายหน้าเด็ดขาด**
-- สถานะปัจจุบัน: `GA_ID` ยังเป็น placeholder `G-XXXXXXXXXX` → สคริปต์มี guard **ไม่ทำอะไรเลย**จนกว่าจะวาง ID จริง (รอเจ้าของสร้าง GA4 property แล้วส่ง ID มา — งานที่เหลือคือแก้ string ตัวเดียวใน track.js)
+- สถานะปัจจุบัน (v1.1, 1 ส.ค.): placeholder 3 ช่องใน track.js — `GA_ID` (GA4) / `AW_ID` + `AW_LABEL` (Google Ads conversion tag ยิงตรงเข้า Ads ไม่ต้องรอ import) — guard แยกรายตัว ช่องไหนยังเป็น placeholder ส่วนนั้นไม่ทำงาน push ได้ปลอดภัย (รอเจ้าของสร้าง GA4 property + Ads conversion action แล้วส่ง ID มาเสียบ)
 - ทุกหน้า (127 ไฟล์ ณ วันออกมติ) มี `<script src="/track.js" defer></script>` ก่อน `</head>` — **ทุกหน้าที่สร้างใหม่ต่อจากนี้ต้องมี tag นี้ตั้งแต่เกิด** (เพิ่มใน checklist ก่อนถือว่าหน้าเสร็จ)
-- **ไม่ต้องแก้ markup ปุ่ม** — track.js ใช้ delegated click listener จำแนกช่องทางจาก href อัตโนมัติ: shopee.co.th→shopee, lazada.co.th→lazada, m.me→messenger, lin.ee/line.me→line, tel:→phone_click, `/files/*-tds.pdf`→tds_download
-- **Event schema (ห้ามเปลี่ยนชื่อ event/parameter โดยพลการ — GA4 report ผูกกับชื่อพวกนี้):** `channel_click {channel, product, lang}` = conversion หลัก (proxy ของ order เพราะการซื้อจริงจบนอกเว็บ) / `phone_click` / `tds_download` — `product` คือ slug จาก pathname, หน้า post เป็น `post:{slug}`, หน้าแรกเป็น `home`
+- **ไม่ต้องแก้ markup ปุ่ม** — track.js ใช้ delegated click listener จำแนกช่องทางจาก href อัตโนมัติ: shopee.co.th→shopee, lazada.co.th→lazada, m.me→messenger, lin.ee/line.me→line, tel:→phone_click, `/files/*-(tds|sds).pdf`→tds_download (param `doc`), facebook.com→social_click
+- **Event schema v1.1 (ห้ามเปลี่ยนชื่อ event/parameter โดยพลการ — GA4 report ผูกกับชื่อพวกนี้):** `channel_click {channel, product, lang}` = conversion หลัก (proxy ของ order เพราะการซื้อจริงจบนอกเว็บ) / `phone_click` / `tds_download {doc: tds|sds}` / `social_click {channel: facebook}` = คลิกไปหน้าเพจ FB — **intent อ่อน แยกจาก channel_click โดยเจตนา ห้ามยุบรวม** (กันเจือ conversion signal ของ Ads ด้วยคลิกไม่ซื้อ) — `product` คือ slug จาก pathname, หน้า post เป็น `post:{slug}`, หน้าแรกเป็น `home`
 - ขั้นต่อไปเมื่อได้ ID จริง: วาง ID → mark `channel_click` เป็น conversion ใน GA4 → link GA4↔Google Ads → import conversion — ฝั่ง attribution จริง (ปุ่ม→order) ปิด loop ด้วย LucernaOne + พนักงานถามลูกค้า "เห็นจากไหน"
 
 ## Campaign Roadmap
