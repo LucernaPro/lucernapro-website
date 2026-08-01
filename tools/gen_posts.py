@@ -375,11 +375,12 @@ POSTS_V2 = [
   "slug": "why-coating-over-cracks-fails",
   "cat": "joint tips",
   "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
-  "thumb": "why-coating-over-cracks-fails-01.webp", "thumb_en": "why-coating-over-cracks-fails-01en.webp",
+  "thumb": "why-coating-over-cracks-fails-00.webp",
   "th": {
    "title": "มีรอยร้าวแล้วไม่โป๊วก่อนทากันซึม — ทำไมถึงไม่รอด",
    "desc": "จากประสบการณ์หน้างานของเรา งานที่ทากันซึมทับรอยร้าวตรงๆ โดยไม่โป๊วก่อน จบด้วยการรั่วซ้ำตามแนวเดิมแทบทุกครั้ง — นี่คือเหตุผลเชิงกลไกว่าทำไม และขั้นตอนที่ทำให้จบในรอบเดียว",
    "cat_label": "รอยต่อ / รอยร้าว",
+   "hero": ("why-coating-over-cracks-fails-00.webp", "สภาพแบบนี้เห็นแล้วทุกคนรู้ว่าต้องโป๊วก่อน — แต่ประเด็นจริงคือ รอยที่เล็กกว่านี้หลายเท่าก็ต้องโป๊วก่อนเหมือนกัน และนั่นคือจุดที่งานส่วนใหญ่พลาด"),
    "intro": [
     "มีคำถามหนึ่งที่เราเจอบ่อยมาก: \u201cพื้นหรือกำแพงมีรอยร้าวนิดหน่อย ทากันซึมทับเลยได้ไหม สเปกก็บอกว่ายืดหยุ่นสูง\u201d คำตอบจากประสบการณ์ตรงของเราคือ ไม่แนะนำเด็ดขาด เพราะงานแบบนี้ทำแล้วก็ไม่จบ — ลูกค้าที่ข้ามขั้นตอนโป๊ว เกือบทั้งหมดกลับมาหาเราอีกครั้งด้วยอาการเดิม รั่วตามแนวรอยเดิมเป๊ะ",
     "เคสนี้จะอธิบายเหตุผลเชิงกลไกให้เห็นภาพว่าทำไมฟิล์มกันซึมถึงแพ้รอยร้าวเสมอถ้าไม่โป๊วก่อน และขั้นตอนที่ถูกต้องที่ทำให้งานจบในรอบเดียว ไม่ต้องกลับมาทาซ้ำทุกครึ่งปี",
@@ -409,6 +410,7 @@ POSTS_V2 = [
    "title": "Coating Over Cracks Without Filling First — Why It Never Holds",
    "desc": "In our experience, waterproofing applied straight over cracks ends the same way almost every time: a repeat leak along the exact same line. Here's the mechanics of why, and how to finish the job in one pass.",
    "cat_label": "Joints / Cracks",
+   "hero": ("why-coating-over-cracks-fails-00.webp", "Cracks this size — anyone can tell they need filling first. The real point: cracks many times smaller need exactly the same treatment, and that's where most jobs go wrong."),
    "intro": [
     "Here's a question we get all the time: \u201cThe floor or wall has a small crack — can I just coat over it? The spec says high elongation.\u201d Our answer, from direct job-site experience: absolutely not recommended. This kind of job never ends. Nearly every customer who skips the filling step comes back to us with the same symptom — leaking along the exact same crack line.",
     "This case walks through the mechanics of why a waterproofing film always loses to an unfilled crack, and the correct sequence that gets the job done in one pass instead of a recoat every six months.",
@@ -798,6 +800,8 @@ article p{{margin-top:20px;font-size:1.02rem}}
 .step p{{margin-top:12px}}
 .step p a{{color:var(--signal);font-weight:600;text-decoration:underline;text-underline-offset:3px}}
 .step figure{{margin-top:18px}}
+figure.hero{{margin:22px 0 0}}
+figure.hero img{{width:100%;border-radius:12px;border:1px solid var(--line);background:#E9E7E1}}
 .step img{{width:100%;border-radius:12px;border:1px solid var(--line);background:#E9E7E1}}
 .step img.tall{{max-width:560px;margin:0 auto}}
 .step figcaption{{margin-top:8px;font-size:.88rem;color:var(--steel)}}
@@ -1178,6 +1182,11 @@ def _img_dims(path):
 
 def render_v2_body(lang_data, alt_prefix):
     intro = "\n".join(f"    <p>{t}</p>" for t in lang_data["intro"])
+    if lang_data.get("hero"):
+        fn, cap = lang_data["hero"]
+        w, h = _img_dims(os.path.join(root_img, fn))
+        intro += (f'\n    <figure class="hero"><img src="/img/post/{fn}" alt="{alt_prefix} — {cap}" width="{w}" height="{h}">'
+                  f'<figcaption>{cap}</figcaption></figure>')
     blocks = []
     for i, s in enumerate(lang_data["steps"], 1):
         b  = f'    <section class="step">\n'
