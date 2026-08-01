@@ -372,6 +372,70 @@ BASE = "https://www.lucernapro.com"
 
 POSTS_V2 = [
  {
+  "slug": "why-coating-over-cracks-fails",
+  "cat": "joint tips",
+  "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
+  "thumb": "why-coating-over-cracks-fails-01.webp", "thumb_en": "why-coating-over-cracks-fails-01en.webp",
+  "th": {
+   "title": "มีรอยร้าวแล้วไม่โป๊วก่อนทากันซึม — ทำไมถึงไม่รอด",
+   "desc": "จากประสบการณ์หน้างานของเรา งานที่ทากันซึมทับรอยร้าวตรงๆ โดยไม่โป๊วก่อน จบด้วยการรั่วซ้ำตามแนวเดิมแทบทุกครั้ง — นี่คือเหตุผลเชิงกลไกว่าทำไม และขั้นตอนที่ทำให้จบในรอบเดียว",
+   "cat_label": "รอยต่อ / รอยร้าว",
+   "intro": [
+    "มีคำถามหนึ่งที่เราเจอบ่อยมาก: \u201cพื้นหรือกำแพงมีรอยร้าวนิดหน่อย ทากันซึมทับเลยได้ไหม สเปกก็บอกว่ายืดหยุ่นสูง\u201d คำตอบจากประสบการณ์ตรงของเราคือ ไม่แนะนำเด็ดขาด เพราะงานแบบนี้ทำแล้วก็ไม่จบ — ลูกค้าที่ข้ามขั้นตอนโป๊ว เกือบทั้งหมดกลับมาหาเราอีกครั้งด้วยอาการเดิม รั่วตามแนวรอยเดิมเป๊ะ",
+    "เคสนี้จะอธิบายเหตุผลเชิงกลไกให้เห็นภาพว่าทำไมฟิล์มกันซึมถึงแพ้รอยร้าวเสมอถ้าไม่โป๊วก่อน และขั้นตอนที่ถูกต้องที่ทำให้งานจบในรอบเดียว ไม่ต้องกลับมาทาซ้ำทุกครึ่งปี",
+   ],
+   "steps": [
+    {"h":"รอยร้าวไม่ใช่แค่รอยบนผิว — มันคือจุดที่โครงสร้างขยับ",
+     "text":["คอนกรีตกับปูนขยายตัวเมื่อร้อนและหดตัวเมื่อเย็น สลับกันแบบนี้ทุกวัน และรอยร้าวก็คือจุดที่โครงสร้างเลือกแล้วว่าจะปลดปล่อยการขยับทั้งหมดตรงนั้น ต่อให้มองด้วยตาเปล่าเห็นนิ่งสนิท จริงๆ มันกำลังอ้า-หุบระดับเสี้ยวมิลลิเมตรอยู่ตลอด กลางวันแดดเผาผนังหรือดาดฟ้าจนร้อนจัด กลางคืนเย็นลง วนแบบนี้ปีละสามร้อยกว่ารอบ ฟิล์มกันซึมที่ทาพาดข้ามรอยไว้เฉยๆ ต้องรับการขยับทั้งหมดนี้ไว้ที่เส้นเดียว"],
+     "figs":[("why-coating-over-cracks-fails-01.webp","วันแรกดูเรียบร้อย แต่ฟิล์มแค่พาดข้ามรอยร้าว ไม่ได้อุดข้างใน — พอโครงสร้างขยับ การยืดทั้งหมดกระจุกที่เส้นเดียวจนฟิล์มขาดตามแนวรอยเดิม")]},
+    {"h":"ทำไมฟิล์ม \u201cยืดหยุ่นสูง\u201d ก็ยังขาด — เลขมันฟ้อง",
+     "text":["สเปกการยืดตัวหลายร้อยเปอร์เซ็นต์บนฉลาก วัดจากการดึงแผ่นฟิล์มอิสระทั้งผืนในครั้งเดียว แต่หน้างานจริงฟิล์มถูกยึดติดแน่นกับปูนทั้งสองฝั่งของรอยร้าว ช่วงที่ยืดได้จริงจึงเหลือแค่ความกว้างของรอยเส้นเดียว สมมติรอยกว้าง 0.5 มม. อ้าเพิ่มอีกแค่ 0.5 มม. ฟิล์มตรงเส้นนั้นต้องยืดถึง 100% ทันที แล้วโดนดึง-หดแบบนี้ซ้ำทุกวันไม่ใช่ครั้งเดียวเหมือนตอนเทสต์ วัสดุอะไรก็ล้าและขาดในที่สุด จุดที่ขาดก็คือแนวรอยเดิมเป๊ะ นี่คือเหตุผลที่หลายคนเห็นรอยเดิมค่อยๆ ลางๆ ขึ้นมาบนผิวกันซึมหลังผ่านไปไม่กี่เดือน"],
+     "figs":[]},
+    {"h":"ขาดแล้วเรื่องไม่จบแค่นั้น — น้ำเดินใต้ฟิล์ม โผล่คนละที่กับรอย",
+     "text":["พอฟิล์มขาดหรือน้ำหาทางเข้าได้จากฝั่งไหนก็ตาม น้ำจะเดินตามโพรงในเนื้อปูนและช่องว่างใต้ฟิล์มไปได้ไกลเป็นเมตร จุดที่เห็นน้ำหยดหรือฟิล์มพองเป็นถุงน้ำ จึงมักไม่ใช่จุดที่ร้าวจริง หลายคนทาซ้ำตรงจุดที่เห็นหยดแล้วก็ไม่หายสักที เพราะรอยร้าวตัวจริงอยู่อีกที่หนึ่ง ถ้าเจออาการแบบนี้ให้กลับไปหาจุดรั่วตัวจริงให้เจอก่อนเสมอ — เรามีเทคนิคกั้นดินน้ำมันขังน้ำหาจุดรั่วอยู่ในเคส <a href=\"/post/finding-the-real-leak-point\">หาจุดรั่วให้เจอก่อน แล้วค่อยทากันซึม</a>"],
+     "figs":[("why-coating-over-cracks-fails-03.webp","น้ำเข้าที่รอยร้าวจุดหนึ่ง เดินตามโพรงในเนื้อปูน แล้วไปโผล่เป็นหยดน้ำห่างออกไปได้เป็นเมตร — ทาทับตรงจุดหยดจึงไม่มีวันหาย")]},
+    {"h":"จากหน้างานจริง: วงจร \u201cทำแล้วไม่จบ\u201d",
+     "text":["ลำดับเหตุการณ์ที่เราเจอซ้ำจนเดาตอนจบได้: ทาทับรอยร้าวเลยเพราะอยากประหยัดเวลา เดือนแรกทุกอย่างดูเรียบร้อยดี พอผ่านหน้าร้อนจัดหรือฝนหนักรอบแรก รอยเดิมเริ่มลางๆ ขึ้นมาบนผิวกันซึม แล้วก็รั่วซ้ำจุดเดิม สุดท้ายต้องซื้อมาทาใหม่อีกรอบทั้งที่ต้นเหตุยังอยู่ครบ วนแบบนี้ไปได้เรื่อยๆ ค่าของรวมค่าแรงแซงค่าโป๊วตั้งแต่รอบที่สองแล้ว — โป๊วเพิ่มงานแค่วันเดียว แต่ตัดวงจรนี้ทิ้งทั้งเส้น"],
+     "figs":[("why-coating-over-cracks-fails-02.webp","เทียบกันชัดๆ: ทาทับเลยคือจ่ายค่าของกับค่าแรงวนลูป ส่วนโป๊วก่อนทาเพิ่มงานวันเดียวแล้วจบถาวร")]},
+    {"h":"ขั้นตอนที่ถูก: โป๊วให้จบก่อน แล้วค่อยทา",
+     "text":["หนึ่ง เปิดร่องรอยร้าวก่อน โดยเฉพาะรอยร้าวเส้นผมต้องเจียรเปิดร่องให้กว้างพอที่เนื้อโป๊วจะลงไปเต็ม อย่าโป๊วปิดแค่ปากรอย สอง โป๊วให้เต็มร่องแล้วปาดเรียบเสมอผิวเดิม สาม รอให้เซ็ตตัวเต็มที่ตามคู่มือของตัวโป๊วที่ใช้ แล้วค่อยลงกันซึมตามระบบปกติเป็นขั้นตอนสุดท้าย",
+             "ส่วนจะโป๊วด้วยตัวไหน เลือกให้ตรงหน้างาน: งานพื้นและดาดฟ้าคอนกรีตใช้ PatchPro งานผนังปูน-คอนกรีตใช้ FillerAce หลังคาเมทัลชีทใช้ SpackleFlex ส่วนรอยต่อโหดพิเศษอย่างแผ่น Smartboard ผิวลื่นหรืองานใต้น้ำถึงจะเป็นคิวของ DeepStick ไม่แน่ใจว่าหน้างานตัวเองเข้าเคสไหน ส่งรูปมาถามในแชทได้เลย ทีมงานช่วยเลือกให้ฟรี"],
+     "figs":[("why-coating-over-cracks-fails-04.webp","เลือกตัวโป๊วให้ตรงหน้างาน: พื้น-ดาดฟ้า PatchPro / ผนังปูน FillerAce / หลังคาเมทัลชีท SpackleFlex / รอยต่อโหดพิเศษ DeepStick")]},
+   ],
+   "prods":[("PatchPro","/patchpro"),("FillerAce","/fillerace"),
+            ("SpackleFlex","/spackleflex"),("DeepStick","/deepstick")],
+  },
+  "en": {
+   "title": "Coating Over Cracks Without Filling First — Why It Never Holds",
+   "desc": "In our experience, waterproofing applied straight over cracks ends the same way almost every time: a repeat leak along the exact same line. Here's the mechanics of why, and how to finish the job in one pass.",
+   "cat_label": "Joints / Cracks",
+   "intro": [
+    "Here's a question we get all the time: \u201cThe floor or wall has a small crack — can I just coat over it? The spec says high elongation.\u201d Our answer, from direct job-site experience: absolutely not recommended. This kind of job never ends. Nearly every customer who skips the filling step comes back to us with the same symptom — leaking along the exact same crack line.",
+    "This case walks through the mechanics of why a waterproofing film always loses to an unfilled crack, and the correct sequence that gets the job done in one pass instead of a recoat every six months.",
+   ],
+   "steps": [
+    {"h":"A crack isn't a surface blemish — it's where the structure moves",
+     "text":["Concrete and render expand when hot and shrink when cool, every single day. A crack is the spot the structure has already chosen to release all of that movement. It can look perfectly still to the naked eye while it's actually opening and closing by fractions of a millimeter around the clock — sun-baked by day, cooling at night, three-hundred-plus cycles a year. A film simply draped across that line has to absorb all of it in one place."],
+     "figs":[("why-coating-over-cracks-fails-01en.webp","Day one looks fine, but the film only bridges the crack — it never filled the void. Once the structure moves, all the stretch concentrates on one line and the film tears along it.")]},
+    {"h":"Why even a \u201chigh-elongation\u201d film still tears — the numbers tell on it",
+     "text":["That several-hundred-percent elongation figure on the label is measured by pulling a whole free film, once. On site, the film is bonded tight to the concrete on both sides of the crack, so the only part that can actually stretch is the crack width itself. Say the crack is 0.5 mm wide and opens another 0.5 mm — the film on that line is instantly at 100% strain. Now repeat that pull-and-release every day instead of once like the test. Every material fatigues and eventually tears, and it tears exactly along the original crack. That's why people watch the old line slowly ghost back through their waterproofing within months."],
+     "figs":[]},
+    {"h":"And it doesn't end there — water travels under the film and surfaces somewhere else",
+     "text":["Once the film tears, or water finds a way in from anywhere at all, it travels through voids in the concrete and gaps under the film — easily meters away. The spot where you see a drip or a water-filled blister usually isn't where the crack is. That's why recoating the drip spot never works: the real crack is somewhere else entirely. If this sounds like your job, go find the real leak point first — our putty-dam ponding technique is covered in the case <a href=\"/en/post/finding-the-real-leak-point\">Find the Real Leak Point First, Then Waterproof</a>."],
+     "figs":[("why-coating-over-cracks-fails-03en.webp","Water enters at one crack, travels through voids in the slab, and surfaces as a drip meters away — which is why coating the drip spot never fixes anything")]},
+    {"h":"From real jobs: the \u201cnever-ending\u201d loop",
+     "text":["The sequence we see so often we can predict the ending: coat straight over the crack to save time, the first month looks great, then the first heatwave or heavy rain passes and the old line starts ghosting through — then the same leak returns, and it's off to buy more product for another round while the root cause sits there untouched. This loop runs forever. By the second round, materials plus labor have already overtaken the cost of filling. Filling adds one day of work — and cuts the entire loop."],
+     "figs":[("why-coating-over-cracks-fails-02en.webp","Side by side: coat straight over and you pay for materials and labor on a loop — fill first and one extra day ends it permanently")]},
+    {"h":"The correct sequence: fill it properly first, then coat",
+     "text":["One: open up the crack first — hairline cracks especially must be ground open wide enough for the filler to go in full-depth, not just capping the mouth. Two: fill the groove completely and trowel it flush with the original surface. Three: let it fully set per the filler's manual, and only then apply your waterproofing system as the final step.",
+             "As for which filler: match it to the surface. Floors and concrete decks take PatchPro. Cement and concrete walls take FillerAce. Metal-sheet roofs take SpackleFlex. And the truly brutal joints — slick surfaces like Smartboard, underwater work — that's when DeepStick comes off the bench. Not sure which case your job falls into? Send us photos in chat and the team will pick for you, free."],
+     "figs":[("why-coating-over-cracks-fails-04en.webp","Match the filler to the surface: floors and decks PatchPro / cement walls FillerAce / metal-sheet roofs SpackleFlex / brutal joints DeepStick")]},
+   ],
+   "prods":[("PatchPro","/en/patchpro"),("FillerAce","/en/fillerace"),
+            ("SpackleFlex","/en/spackleflex"),("DeepStick","/en/deepstick")],
+  },
+ },
+ {
   "slug": "pool-leak-level-test",
   "cat": "pool tips",
   "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
@@ -732,6 +796,7 @@ article p{{margin-top:20px;font-size:1.02rem}}
 .step h2{{font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:700;line-height:1.35;display:flex;gap:12px;align-items:baseline}}
 .step .n{{font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:600;color:var(--signal);letter-spacing:.08em;flex:none}}
 .step p{{margin-top:12px}}
+.step p a{{color:var(--signal);font-weight:600;text-decoration:underline;text-underline-offset:3px}}
 .step figure{{margin-top:18px}}
 .step img{{width:100%;border-radius:12px;border:1px solid var(--line);background:#E9E7E1}}
 .step img.tall{{max-width:560px;margin:0 auto}}
@@ -1134,10 +1199,11 @@ def build_v2(p, root):
         ("en", TEMPLATE_V2_EN, os.path.join(root, "en", "post", p["slug"]), p["date_en"]),
     ):
         d = p[lang]
+        thumb = p.get("thumb_en", p["thumb"]) if lang == "en" else p["thumb"]
         intro, steps = render_v2_body(d, d["title"])
         prod_links = "".join(f'<a href="{u}">{n}</a>' for n, u in d["prods"])
         html = tpl.format(title=d["title"], desc=d["desc"], slug=p["slug"], base=BASE,
-                          thumb=p["thumb"], cat_label=d["cat_label"], date=date,
+                          thumb=thumb, cat_label=d["cat_label"], date=date,
                           intro=intro, steps=steps, prod_links=prod_links)
         os.makedirs(outdir, exist_ok=True)
         with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as f:
