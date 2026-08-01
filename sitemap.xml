@@ -370,6 +370,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/poolarmour"/>
   </url>
   <url>
+    <loc>https://www.lucernapro.com/en/post/abs-pool-wall-seams</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/post/abs-pool-wall-seams"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/post/abs-pool-wall-seams"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/post/abs-pool-wall-seams"/>
+  </url>
+  <url>
     <loc>https://www.lucernapro.com/en/post/finding-the-real-leak-point</loc>
     <lastmod>2026-08-01</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/post/finding-the-real-leak-point"/>
@@ -689,6 +695,10 @@
   </url>
   <url>
     <loc>https://www.lucernapro.com/post/abs-pool-wall-seams</loc>
+    <lastmod>2026-08-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/post/abs-pool-wall-seams"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/post/abs-pool-wall-seams"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/post/abs-pool-wall-seams"/>
   </url>
   <url>
     <loc>https://www.lucernapro.com/post/finding-the-real-leak-point</loc>
