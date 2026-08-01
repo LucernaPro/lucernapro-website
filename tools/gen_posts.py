@@ -761,6 +761,100 @@ POSTS_V2 = [
             ("TileCoat Polyurea","/en/tilecoatpoly")],
   },
  },
+ {
+  "slug": "wall-to-floor-joint-leak",
+  "cat": "joint tips",
+  "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
+  "thumb": "wall-to-floor-joint-leak-00.webp",
+  "th": {
+   "title": "มุมกำแพงชนพื้นระเบียง-ดาดฟ้า รั่วซ้ำทุกปี — ทำไมทากันซึมกี่รอบก็ไม่จบ",
+   "desc": "มุมที่ผนังตั้งชนกับพื้นราบคือจุดรั่วอันดับต้นๆ ของดาดฟ้าและระเบียง เพราะมุมฉากคือจุดอ่อนตามธรรมชาติของฟิล์มกันซึม — เจาะกลไกที่แท้จริง พร้อมขั้นตอนซ่อมที่ถูกต้อง ตั้งแต่เลือกตัวโป๊วไปจนถึงเลือกกันซึมให้ตรงหน้างาน",
+   "cat_label": "รอยต่อ / รอยร้าว · เทคนิค / ความรู้",
+   "hero": ("wall-to-floor-joint-leak-00.webp", "มุมที่ผนังตั้งชนกับพื้นกระเบื้องของระเบียง — จุดที่รอยต่อแนวตั้งกับแนวราบมาบรรจบกันพอดี"),
+   "intro": [
+    "ดาดฟ้าและระเบียงหลายบ้านทากันซึมทั้งผืนอย่างดีแล้ว จ่ายของแพงด้วยซ้ำ แต่น้ำก็ยังซึมเข้าบ้านซ้ำทุกปีจากจุดเดียวกันเป๊ะ — จุดนั้นแทบไม่เคยเป็นกลางพื้นเลย แต่คือมุมที่ผนังเสาหรือผนังกันตกตั้งชนกับพื้นราบพอดี",
+    "เคสนี้จะเจาะกลไกว่าทำไมมุมนี้ถึงเป็นจุดอ่อนตามธรรมชาติของงานกันซึม และขั้นตอนที่ถูกต้องในการซ่อม ตั้งแต่วิธีเลือกตัวโป๊วให้ตรงหน้างาน ไปจนถึงเลือกกันซึมให้เหมาะกับพื้นผิวที่มีอยู่จริง",
+   ],
+   "steps": [
+    {"h":"สามเหตุผลที่มุมนี้รั่วซ้ำทุกปี",
+     "text":["ผนังกับพื้นเป็นโครงสร้างคนละชิ้นที่ขยับตัวไม่เท่ากันเมื่อร้อนขึ้นและเย็นลง แดดบ่ายที่ตกกระทบผนังตรงๆ ทำให้ผนังขยายตัวเร็วกว่าพื้นที่โดนบังร่มบางส่วน แรงเค้นจากการขยับตัวไม่เท่ากันนี้จะไปกระจุกอยู่ที่จุดเดียว คือมุมที่ทั้งสองชิ้นมาบรรจบกันพอดี",
+             "อีกเหตุผลอยู่ที่ตัวเนื้อกันซึมเอง — เวลาทาน้ำยาผ่านมุมฉาก 90 องศา แรงตึงผิวของของเหลวจะดึงเนื้อสีให้ไหลออกจากมุมไปทางผิวเรียบทั้งสองข้าง ฟิล์มตรงมุมจึงบางกว่าจุดอื่นเสมอ ทั้งที่เป็นจุดที่ต้องการฟิล์มหนาที่สุดพอดี",
+             "ข้อสุดท้ายคือน้ำขัง — ถ้าดาดฟ้าไม่มี slope ที่ดีพอ น้ำจะไหลไปกองอยู่ตรงมุมกำแพงเสมอเพราะเป็นจุดต่ำสุดตามธรรมชาติของหลายพื้นที่ ยิ่งเพิ่มแรงดันน้ำสะสมตรงจุดที่ฟิล์มบางที่สุดพอดี"],
+     "figs":[]},
+    {"h":"มุมฉาก 90 องศา คือศัตรูตัวจริงของฟิล์มกันซึม",
+     "text":["งานกันซึมที่ทาข้ามมุมตรงๆ โดยไม่ทำอะไรกับรูปทรงของมุมก่อน เท่ากับฝากความหวังทั้งหมดไว้กับจุดที่อ่อนแอที่สุดของระบบ พอโครงสร้างขยับตัวตามข้อก่อนหน้า แรงทั้งหมดจะไปรวมที่เส้นมุมเส้นเดียว ไม่ได้กระจายไปตามแนวยาวเหมือนพื้นผิวเรียบ ฟิล์มที่บางอยู่แล้วตรงนั้นจึงล้าและแตกเป็นจุดแรกเสมอ",
+             "ทางแก้ที่วงการก่อสร้างใช้กันมานานคือ<b>ทำมุมให้โค้ง (Fillet หรือ Cove)</b> ก่อนเคลือบ — โป๊วเนื้อวัสดุเสริมให้มุมฉากกลายเป็นทางโค้งมน แล้วค่อยทากันซึมคลุมทับต่อเนื่องข้ามมุมไปเลย ไม่ใช่ทาแยกกันคนละฝั่งแล้วมาชนกันพอดีที่เส้น"],
+     "figs":[("wall-to-floor-joint-leak-info-th.svg","เทียบให้เห็นภาพ: ทาทับมุมฉากตรงๆ ฟิล์มจะบางที่สุดตรงจุดรวมแรงพอดี — ส่วนการโป๊วมุมให้โค้งก่อนทำให้ฟิล์มหนาสม่ำเสมอตลอดแนวและไม่มีจุดให้รอยแตกเลือกเกิดซ้ำ")]},
+    {"h":"ขั้นตอนที่ถูก ขั้นที่ 1 — เจอปัญหาแล้ว เลือกตัวโป๊วให้ตรงหน้างาน",
+     "text":["ก่อนจะทำมุมให้โค้งได้ ต้องเช็คก่อนว่ารอยที่เจอมันเปิดอยู่ฝั่งไหน — ถ้าเป็นรอยร้าวเส้นผมบนผนังปูนหรือคอนกรีต ต้องเจียรเปิดร่องให้กว้างพอเสมอก่อนโป๊ว อย่าโป๊วปิดแค่ปากรอย ส่วนถ้าเป็นรอยแตกหรือรูบนพื้นคอนกรีต ให้เลือกตัวที่ออกแบบมาเพื่องานพื้นโดยเฉพาะ เพราะเนื้อโป๊วพื้นกับผนังคุณสมบัติไม่เหมือนกัน"],
+     "html":['<div class="decision">'
+             '<div class="dcard"><span class="tag">ฝั่งผนัง</span><h4>FillerAce</h4><p>ผนังปูน-คอนกรีตที่แตกร้าว เจียรเปิดร่องก่อนเสมอแล้วโป๊วให้เต็ม</p><a class="go" href="/fillerace">ดู FillerAce →</a></div>'
+             '<div class="dcard"><span class="tag">ฝั่งพื้น</span><h4>PatchPro</h4><p>พื้นและดาดฟ้าคอนกรีตที่แตกร้าวหรือเป็นรู เนื้อแข็งแรงสูง ต้องปาดให้เรียบตั้งแต่ตอนโป๊ว</p><a class="go" href="/patchpro">ดู PatchPro →</a></div>'
+             '<div class="dcard chat"><span class="tag">ไม่แน่ใจ</span><h4>ส่งรูปมาถามได้เลย</h4><p>ไม่รู้ว่ารอยที่เจอเข้าเคสไหน ทีมงานช่วยดูรูปหน้างานแล้วเลือกให้ฟรี</p><a class="go" href="https://m.me/lucernapro">แชทเพจ →</a></div>'
+             '</div>'],
+     "figs":[]},
+    {"h":"ขั้นตอนที่ถูก ขั้นที่ 2 — โป๊วเสร็จแล้ว เลือกกันซึมให้ตรงหน้างาน",
+     "text":["พอมุมกลายเป็นทางโค้งเรียบร้อยแล้ว ค่อยเลือกกันซึมตามพื้นผิวที่มีอยู่จริง ถ้าพื้นระเบียงยังเป็นกระเบื้องเดิมอยู่ ไม่จำเป็นต้องทุบรื้อเลย ถ้าอยากคุมงบก็มีตัวที่ไม่ต้องผสมให้ยุ่งยาก และถ้าอยากได้ตัวรองพื้นเสริมการยึดเกาะตรงมุมเป็นพิเศษก่อนเคลือบทับก็มีให้เลือก"],
+     "html":['<div class="decision">'
+             '<div class="dcard"><span class="tag">พื้นเป็นกระเบื้องเดิม</span><h4>TileCoat Polyurea</h4><p>ทากันซึมทับกระเบื้องเดิมได้เลย ไม่ต้องทุบรื้อ ยึดเกาะได้แม้บนผิวเคลือบมันวาว</p><a class="go" href="/tilecoatpoly">ดู TileCoat Polyurea →</a></div>'
+             '<div class="dcard"><span class="tag">คุมงบ</span><h4>SiliconePro</h4><p>ส่วนผสมเดียว เปิดฝาทาได้เลย ทนน้ำขังได้เป็นปี รุ่นประหยัดของสายกันซึม</p><a class="go" href="/siliconepro">ดู SiliconePro →</a></div>'
+             '<div class="dcard"><span class="tag">ต้องการรองพื้น/ปกป้องผิว</span><h4>Marine Guard</h4><p>เกาะได้แม้ปูนหมาด เหมาะเป็นรองพื้นกันชื้นก่อนเคลือบทับ หรือปกป้องผิวตรงมุมเป็นพิเศษ</p><a class="go" href="/marineguard">ดู Marine Guard →</a></div>'
+             '<div class="dcard chat"><span class="tag">ไม่แน่ใจ</span><h4>ส่งรูปมาถามได้เลย</h4><p>หน้างานจริงมีตัวแปรเยอะกว่าที่เขียนในนี้เสมอ ส่งรูปมาให้ทีมงานช่วยเลือกให้ตรงจุด</p><a class="go" href="https://m.me/lucernapro">แชทเพจ →</a></div>'
+             '</div>'],
+     "figs":[]},
+    {"h":"อย่าหยุดทาที่เส้นมุม — ต่อเนื่องเสมอ",
+     "text":["ไม่ว่าจะเลือกตัวไหนในขั้นที่ 2 กติกาเหล็กมีอยู่ข้อเดียว: ห้ามทากันซึมแยกกันคนละฝั่งแล้วมาจบพอดีที่เส้นมุม ต้องทาเป็นผืนเดียวต่อเนื่อง พันขึ้นไปบนผนังและคลุมข้ามลงมาบนพื้นให้เลยแนวมุมไปพอสมควรทั้งสองด้าน (ระยะที่เหมาะสมอ้างอิงจากคู่มือของตัวกันซึมที่เลือกใช้) เพราะรอยต่อของการทาคือจุดอ่อนพอๆ กับตัวมุมเอง",
+             "หน้างานจริงมีตัวแปรมากกว่าที่เขียนในบทความนี้เสมอ ถ้าไม่แน่ใจว่าเคสของคุณต้องใช้ชุดไหน ส่งรูปหน้างานมาทางแชทเพจได้เลย ทีมงานช่วยดูให้ฟรีก่อนตัดสินใจซื้อ"],
+     "figs":[]},
+   ],
+   "prods":[("FillerAce","/fillerace"),("PatchPro","/patchpro"),
+            ("TileCoat Polyurea","/tilecoatpoly"),("SiliconePro","/siliconepro"),("Marine Guard","/marineguard")],
+  },
+  "en": {
+   "title": "The Wall-to-Floor Corner Keeps Leaking Every Year — Here's Why Recoating Never Fixes It",
+   "desc": "The spot where a vertical wall meets a flat floor is one of the top leak points on any deck or balcony, because a 90° corner is a natural weak spot for waterproofing film. Here's the real mechanism, and the correct repair sequence — from picking the right filler to picking the right waterproofing for what you've actually got.",
+   "cat_label": "Joints / Cracks · Tips / Know-how",
+   "hero": ("wall-to-floor-joint-leak-00.webp", "Where a vertical wall meets a tiled balcony floor — exactly the spot where a vertical joint and a horizontal one meet."),
+   "intro": [
+    "Plenty of homes coat their whole deck properly, pay good money for it, and still get the exact same leak every year from the exact same spot — and that spot is almost never the middle of the floor. It's the corner where a wall or a parapet meets the flat floor.",
+    "This case breaks down why that corner is a natural weak point for waterproofing, and the correct repair sequence — from picking the right filler for the job to picking the right waterproofing for the surface you've actually got.",
+   ],
+   "steps": [
+    {"h":"Three reasons this corner leaks every year",
+     "text":["A wall and a floor are two separate structural elements that expand and contract at different rates as they heat and cool. Afternoon sun hitting a wall directly heats it faster than a floor that's partly shaded, and the stress from that mismatched movement concentrates in exactly one place — the corner where the two elements meet.",
+             "The second reason sits in the coating itself. Paint straight across a 90° corner and surface tension pulls the material away from the corner toward the flat surfaces on either side — the film at the corner ends up thinner than everywhere else, at exactly the spot that needs it thickest.",
+             "The last reason is standing water. Without good slope, water collects at the wall corner because it's the natural low point of most layouts — adding sustained pressure right where the film is already thinnest."],
+     "figs":[]},
+    {"h":"A 90° corner is the real enemy of any waterproofing film",
+     "text":["Coating straight over a corner without changing its shape first means betting the entire job on its weakest point. Once the structure starts moving the way point one describes, all that stress piles onto a single line instead of spreading along a flat run — and film that's already thin there fatigues and cracks first.",
+             "Construction has used the same fix for decades: form a <b>fillet (or cove)</b> before coating — build up material so the 90° corner becomes a smooth curve, then run the waterproofing continuously across it, instead of coating each side separately and hoping they meet cleanly at the line."],
+     "figs":[("wall-to-floor-joint-leak-info-en.svg","Side by side: coat straight over the corner and the film ends up thinnest exactly where the stress concentrates — fillet it into a curve first and the film stays even, with no single point for a crack to return to.")]},
+    {"h":"Step one — diagnose the problem, then pick the right filler",
+     "text":["Before you can round the corner, check which side the crack actually opens on. A hairline crack in a cement or concrete wall needs to be ground open wide enough before filling — never just cap the mouth of it. A crack or void in a concrete floor needs a filler built for floor work specifically, since floor and wall fillers aren't built the same way."],
+     "html":['<div class="decision">'
+             '<div class="dcard"><span class="tag">Wall side</span><h4>FillerAce</h4><p>For cracked cement or concrete walls — grind the crack open first, then fill it completely.</p><a class="go" href="/en/fillerace">See FillerAce →</a></div>'
+             '<div class="dcard"><span class="tag">Floor side</span><h4>PatchPro</h4><p>For cracked or pitted concrete floors and decks — high strength, but must be troweled smooth right away.</p><a class="go" href="/en/patchpro">See PatchPro →</a></div>'
+             '<div class="dcard chat"><span class="tag">Not sure</span><h4>Send us photos</h4><p>Not sure which case yours falls into — send photos of the job and the team will pick for you, free.</p><a class="go" href="https://m.me/lucernapro">Chat with us →</a></div>'
+             '</div>'],
+     "figs":[]},
+    {"h":"Step two — filled and cured? Now pick waterproofing for what you've actually got",
+     "text":["Once the corner is a smooth curve, match the waterproofing to the actual surface. Still got the original tile on the floor? You don't need to demolish anything. Watching the budget? There's an option that needs no mixing at all. Want extra adhesion right at the corner before the topcoat goes on? There's a primer for that too."],
+     "html":['<div class="decision">'
+             '<div class="dcard"><span class="tag">Floor is still tiled</span><h4>TileCoat Polyurea</h4><p>Coats straight over existing tile, no demolition — bonds even on a glossy glazed surface.</p><a class="go" href="/en/tilecoatpoly">See TileCoat Polyurea →</a></div>'
+             '<div class="dcard"><span class="tag">Budget option</span><h4>SiliconePro</h4><p>Single-component — open and apply, no mixing. Holds up to standing water for years.</p><a class="go" href="/en/siliconepro">See SiliconePro →</a></div>'
+             '<div class="dcard"><span class="tag">Want a primer/extra protection</span><h4>Marine Guard</h4><p>Bonds even to damp concrete — good as a moisture-barrier primer or extra protection right at the corner.</p><a class="go" href="/en/marineguard">See Marine Guard →</a></div>'
+             '<div class="dcard chat"><span class="tag">Not sure</span><h4>Send us photos</h4><p>Every real job has more variables than any article covers — send photos and the team will help you pick.</p><a class="go" href="https://m.me/lucernapro">Chat with us →</a></div>'
+             '</div>'],
+     "figs":[]},
+    {"h":"Don't stop coating at the corner line — keep it continuous",
+     "text":["Whichever option you pick in step two, there's one rule that never changes: never coat each side separately and let them meet exactly at the corner line. Run it as one continuous coat, wrapping up the wall and across the floor well past the corner on both sides (check your chosen product's manual for the exact distance) — a seam in the coating is just as weak as the corner itself.",
+             "Every real job has more variables than any article can cover. If you're not sure which combination fits your case, send us photos in chat — the team will help you pick, free, before you spend a baht."],
+     "figs":[]},
+   ],
+   "prods":[("FillerAce","/en/fillerace"),("PatchPro","/en/patchpro"),
+            ("TileCoat Polyurea","/en/tilecoatpoly"),("SiliconePro","/en/siliconepro"),("Marine Guard","/en/marineguard")],
+  },
+ },
 ]
 
 V2_CSS = """:root{{
@@ -825,7 +919,15 @@ footer{{background:var(--ink);border-top:1px solid #2A2F38;color:#8A93A1;font-si
 .foot-inner{{max-width:1200px;margin:0 auto;padding:26px 20px;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}}
 footer a{{color:#B9BFC9}}
 footer a:hover{{color:#fff}}
-@media (prefers-reduced-motion:reduce){{*,*::before,*::after{{transition:none!important;animation:none!important}}}}"""
+@media (prefers-reduced-motion:reduce){{*,*::before,*::after{{transition:none!important;animation:none!important}}}}
+.decision{{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px}}
+.dcard{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 17px;display:flex;flex-direction:column;gap:5px}}
+.dcard .tag{{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.07em;color:var(--signal);text-transform:uppercase}}
+.dcard h4{{font-size:1rem;font-weight:700;font-family:'Chakra Petch','Anuphan',sans-serif}}
+.dcard p{{margin-top:0!important;font-size:.86rem;color:var(--steel)}}
+.dcard a.go{{margin-top:8px;font-weight:600;color:var(--signal);font-size:.88rem}}
+.dcard a.go:hover{{color:var(--signal-dark)}}
+.dcard.chat{{background:var(--tag-bg);border-style:dashed}}"""
 
 TEMPLATE_V2_TH = """<!DOCTYPE html>
 <html lang="th">
@@ -1193,6 +1295,8 @@ def render_v2_body(lang_data, alt_prefix):
         b += f'      <h2><span class="n">{i:02d}</span>{s["h"]}</h2>\n'
         for t in s.get("text", []):
             b += f'      <p>{t}</p>\n'
+        for html_block in s.get("html", []):
+            b += f'      {html_block}\n'
         for fn, cap in s.get("figs", []):
             tall = ' class="tall"' if fn in V2_TALL else ""
             w, h = _img_dims(os.path.join(root_img, fn))

@@ -80,6 +80,14 @@ footer{background:var(--ink);border-top:1px solid #2A2F38;color:#8A93A1;font-siz
 footer a{color:#B9BFC9}
 footer a:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+.decision{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 17px;display:flex;flex-direction:column;gap:5px}
+.dcard .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.07em;color:var(--signal);text-transform:uppercase}
+.dcard h4{font-size:1rem;font-weight:700;font-family:'Chakra Petch','Anuphan',sans-serif}
+.dcard p{margin-top:0!important;font-size:.86rem;color:var(--steel)}
+.dcard a.go{margin-top:8px;font-weight:600;color:var(--signal);font-size:.88rem}
+.dcard a.go:hover{color:var(--signal-dark)}
+.dcard.chat{background:var(--tag-bg);border-style:dashed}
   /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
   .mnav-btn,.mnav,.mnav-scrim{display:none}
   @media(max-width:860px){
