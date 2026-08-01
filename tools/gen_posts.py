@@ -178,12 +178,43 @@ footer{{background:var(--ink);border-top:1px solid #2A2F38;color:#8A93A1;font-si
 footer a{{color:#B9BFC9}}
 footer a:hover{{color:#fff}}
 @media (prefers-reduced-motion:reduce){{*,*::before,*::after{{transition:none!important;animation:none!important}}}}
+  /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
+  .mnav-btn,.mnav,.mnav-scrim{{display:none}}
+  @media(max-width:860px){{
+    .theme-toggle,.lang-switch{{display:none}}
+    .mnav-scrim{{display:block}}
+    .cta-chat{{display:inline-flex;margin-left:auto}}
+    .mnav-btn{{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:17px;line-height:1;cursor:pointer}}
+    .mnav-btn:hover{{border-color:var(--orange)}}
+    .mnav-scrim{{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:98;opacity:0;pointer-events:none;transition:opacity .22s ease}}
+    .mnav-scrim.open{{opacity:1;pointer-events:auto}}
+    .mnav{{position:fixed;top:0;bottom:0;left:0;width:min(280px,82vw);z-index:99;background:var(--panel);border-right:1px solid var(--line);padding:20px 22px 18px;display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .26s ease;overflow-y:auto}}
+    .mnav.open{{transform:translateX(0)}}
+    .mnav-head{{display:flex;align-items:center;justify-content:space-between}}
+    .mnav-brand{{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--ink)}}
+    .mnav-brand em{{color:var(--orange);font-style:normal}}
+    .mnav-close{{background:none;border:none;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;padding:4px}}
+    .mnav-tag{{font-size:11.5px;color:var(--muted);margin-top:3px}}
+    .mnav-k{{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);margin:22px 0 4px}}
+    .mnav-links{{display:flex;flex-direction:column}}
+    .mnav-links a{{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink)}}
+    .mnav-links a:last-child{{border-bottom:none}}
+    .mnav-links a span{{color:var(--orange)}}
+    .mnav-chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}}
+    .mnav-chips a{{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}}
+    .mnav-util{{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);margin-top:auto}}
+    .mnav-util .mnav-lang{{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 12px;color:var(--muted)}}
+    .mnav-util .mnav-theme{{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink)}}
+    .mnav-chat{{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}}
+  }}
+  /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
+    <button class="mnav-btn" id="mnavBtn" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <a class="brand" href="/">
       <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
       LUCERNA<em>PRO</em>
@@ -196,9 +227,38 @@ footer a:hover{{color:#fff}}
       <a class="active" href="/casestudy/">Case Study</a>
       <a href="/#contact">ติดต่อเรา</a>
     </nav>
-    <a class="btn-chat" href="https://m.me/lucernapro">แชทเพจ</a>
+    <a class="btn-chat" href="https://lin.ee/LpUR3Ld" style="background:#06C755"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#fff;color:#06C755;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em;margin-right:7px;vertical-align:1px">LINE</span>แอดไลน์</a>
   </div>
 </header>
+
+<!-- ═══ MOBILE DRAWER MENU: ลิ้นชัก (ถอนได้) ═══ -->
+<div class="mnav-scrim" id="mnavScrim" aria-hidden="true"></div>
+<aside class="mnav" id="mnav" aria-label="เมนูหลัก">
+  <div class="mnav-head">
+    <span class="mnav-brand"><img src="/img/logo.png" alt="" width="24" height="24" style="object-fit:contain;vertical-align:-6px;margin-right:8px">LUCERNA<em>PRO</em></span>
+    <button class="mnav-close" id="mnavClose" aria-label="ปิดเมนู">✕</button>
+  </div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <div class="mnav-k">MENU</div>
+  <nav class="mnav-links">
+    <a href="/">หน้าแรก <span>→</span></a>
+    <a href="/#finder">สินค้าทั้งหมด <span>→</span></a>
+    <a href="/casestudy/">Case Study <span>→</span></a>
+    <a href="/#contact">ติดต่อเรา <span>→</span></a>
+  </nav>
+  <div class="mnav-k">SHORTCUTS</div>
+  <div class="mnav-chips">
+    <a href="/#waterproof">กันซึม</a>
+    <a href="/#flooring">งานพื้น</a>
+    <a href="/#coating">เคลือบปกป้อง</a>
+  </div>
+  <div class="mnav-util">
+    <button class="mnav-theme" id="mnavTheme" aria-label="สลับโหมดสี">🌙</button>
+  </div>
+  <a class="mnav-chat" href="https://m.me/lucernapro">f&nbsp; แชทเพจ — ตอบไว</a>
+</aside>
+<!-- ═══ จบลิ้นชัก MOBILE DRAWER MENU ═══ -->
+
 
 <main class="wrap">
   <p class="crumb"><a href="/casestudy/">← Case Study ทั้งหมด</a></p>
@@ -232,6 +292,37 @@ footer a:hover{{color:#fff}}
   </div>
 </footer>
 
+<!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
+<script>
+(function(){{
+  var mn=document.getElementById('mnav'),sc=document.getElementById('mnavScrim'),
+      bt=document.getElementById('mnavBtn'),cl=document.getElementById('mnavClose'),
+      tb=document.getElementById('mnavTheme'),master=document.getElementById('themeToggle');
+  if(!mn||!bt)return;
+  function set(open){{
+    mn.classList.toggle('open',open);sc.classList.toggle('open',open);
+    bt.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  }}
+  bt.addEventListener('click',function(){{set(true)}});
+  cl.addEventListener('click',function(){{set(false)}});
+  sc.addEventListener('click',function(){{set(false)}});
+  document.addEventListener('keydown',function(e){{if(e.key==='Escape')set(false)}});
+  window.addEventListener('pageshow',function(){{set(false)}});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){{
+    a.addEventListener('click',function(){{set(false)}});
+  }});
+  if(tb){{
+    if(!master){{tb.style.display='none';}}
+    else{{
+      function syncT(){{tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}}
+      tb.addEventListener('click',function(){{master.click();syncT();}});
+      syncT();
+    }}
+  }}
+}})();
+</script>
+<!-- ═══ จบ JS MOBILE DRAWER MENU ═══ -->
 </body>
 </html>
 """
@@ -280,6 +371,64 @@ def build(p, root):
 BASE = "https://www.lucernapro.com"
 
 POSTS_V2 = [
+ {
+  "slug": "pool-leak-level-test",
+  "cat": "pool tips",
+  "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
+  "thumb": "pool-leak-level-test-01.webp",
+  "th": {
+   "title": "สระรั่วอย่าเพิ่งรื้อ — หยุดเติมน้ำ แล้วให้น้ำบอกจุดรั่วเอง",
+   "desc": "สระว่ายน้ำรั่วไม่ต้องรีบจ้างทีมหาจุดรั่วหรือรื้อกระเบื้องทั้งสระ — หยุดเติมน้ำ ปล่อยให้ระดับลด น้ำหยุดนิ่งระดับไหน จุดรั่วอยู่ระดับนั้น พร้อมวิธีอ่านผลทีละระดับและอินโฟกราฟิกสรุป",
+   "cat_label": "สระว่ายน้ำ · เทคนิค / ความรู้",
+   "intro": [
+    "สระรั่วทีไร คนส่วนใหญ่ควักเงินก้อนโตทันที — ไม่จ้างทีมหาจุดรั่วพร้อมเครื่องมือเต็มรถ ก็ใจร้อนถึงขั้นรื้อกระเบื้องทำใหม่ทั้งสระ ทั้งที่ความจริงสระทุกสระมีวิธีบอกจุดรั่วของตัวเองอยู่แล้ว และวิธีนั้นฟรี",
+    "หลักการมีบรรทัดเดียว: หยุดเติมน้ำ แล้วปล่อยให้ระดับน้ำลดลงเอง น้ำจะลดไปเรื่อยๆ จนถึงระดับของรูรั่ว แล้วหยุดนิ่งอยู่ตรงนั้น — เพราะน้ำที่อยู่ต่ำกว่ารูรั่วไม่มีแรงดันดันมันออกไปไหนได้อีก ระดับที่น้ำหยุดนิ่งจึงเท่ากับระดับของจุดรั่วพอดี เหลือแค่ไล่ตรวจตามแนวนั้นแนวเดียว ไม่ต้องเดาสุ่มทั้งสระ",
+   ],
+   "steps": [
+    {"h":"เช็คก่อนว่ารั่วจริง ไม่ใช่แค่น้ำระเหย (Bucket Test)",
+     "text":["หน้าร้อนแดดจัดๆ น้ำสระระเหยได้เป็นเซนต่อวันโดยไม่ต้องรั่วสักรู อย่าเพิ่งตกใจ ทดสอบง่ายๆ ก่อน: เอาถังใส่น้ำวางบนขั้นบันไดสระให้ปากถังโผล่พ้นน้ำ เติมน้ำในถังให้ระดับใกล้เคียงกับระดับน้ำสระ ขีดมาร์คระดับทั้งในถังและขอบสระ ปิดปั๊มแล้วทิ้งไว้ 24 ชั่วโมง — ถ้าน้ำลดลงพอๆ กันทั้งคู่ นั่นคือการระเหยธรรมดา ไม่ต้องซ่อมอะไร แต่ถ้าน้ำสระลดมากกว่าน้ำในถังชัดเจน อันนี้รั่วจริง ไปขั้นถัดไปได้เลย"],
+     "figs":[]},
+    {"h":"หยุดเติมน้ำ ปิดระบบ แล้วปล่อยให้ระดับลดเอง",
+     "text":["ตัดใจหยุดเติมน้ำ ปิดปั๊มและระบบกรองทั้งหมด งดใช้สระชั่วคราว แล้วปล่อยให้ธรรมชาติทำงาน จดระดับน้ำวันละครั้งเวลาเดิม ช่วงแรกระดับจะลดทุกวัน จนวันหนึ่งมันจะหยุดนิ่ง — นั่นแหละคือคำตอบที่รอ",
+      "ข้อควรระวังข้อเดียวของวิธีนี้: ถ้าเป็นสระคอนกรีตฝังดินในพื้นที่น้ำใต้ดินสูงหรือช่วงหน้าฝน อย่าปล่อยน้ำลดจนสระแห้งสนิทเด็ดขาด เพราะน้ำใต้ดินรอบสระอาจดันโครงสระให้ลอยขึ้นทั้งตัวได้ ถ้าระดับลดลึกมากแล้วยังไม่หยุด ให้ถือว่าได้ข้อมูลพอแล้ว (จุดรั่วอยู่โซนก้นสระหรือแนวท่อล่าง) แล้วเติมน้ำกลับได้เลย"],
+     "figs":[]},
+    {"h":"อ่านผล: น้ำหยุดนิ่งระดับไหน จุดรั่วอยู่ระดับนั้น",
+     "text":["เทียบระดับที่น้ำหยุดนิ่งกับอุปกรณ์บนผนังสระ แล้วอ่านผลตามนี้ — หยุดแถวปาก Skimmer แปลว่ารั่วที่ตัว Skimmer หรือแนวท่อระดับนั้น / หยุดตรงระดับหัวจ่ายน้ำ (Return) แปลว่าแนวท่อ Return / หยุดที่ระดับไฟใต้น้ำ แปลว่ารอบกล่องไฟหรือแนวเดินสาย / ลดลงจนเกือบแห้งก้นสระ แปลว่ารั่วที่พื้นสระหรือท่อสะดือสระ ยิ่งจุดรั่วอยู่ลึก งานยิ่งใหญ่ขึ้น — แต่อย่างน้อยตอนนี้รู้แล้วว่ากำลังสู้กับอะไร ไม่ได้สู้กับผี"],
+     "figs":[("pool-leak-level-test-info-th.svg","อินโฟกราฟิกสรุปการอ่านผล: ระดับที่น้ำลดลงแล้วหยุดนิ่ง ชี้ตรงไปที่ระดับของจุดรั่ว — ไล่ตรวจแค่แนวนั้นแนวเดียว")]},
+    {"h":"ยืนยันจุดด้วยสีย้อม แล้วซ่อมให้ตรงจุด",
+     "text":["ได้แนวระดับแล้ว ไล่ตรวจตามแนวนั้นด้วยตา: รอยแตกร้าว ยาแนวหลุดร่อน ขอบรอบอุปกรณ์ทุกชิ้น เจอจุดสงสัยให้ยืนยันด้วยสีผสมอาหาร — รอให้น้ำนิ่งสนิท หยดสีใกล้ๆ จุดสงสัย ถ้าสีถูกดูดวิ่งเข้ารอยนั้น ยินดีด้วย เจอตัวการแล้ว",
+      "รอยแตก รอยต่อ หรือขอบอุปกรณ์ที่ยืนยันแล้ว โป๊วปิดด้วย DeepStick ได้เลย — ตัวนี้ทำงานใต้น้ำได้ แปลว่าไม่ต้องสูบน้ำทิ้งทั้งสระเพื่อซ่อมจุดเดียว ประหยัดทั้งค่าน้ำและเวลา ส่วนสระที่ผิวโดยรวมหมดสภาพจนถึงเวลาทำใหม่ทั้งใบ ค่อยขยับไปคุยเรื่องทาเคลือบใหม่ด้วย PoolArmour — แต่นั่นคือการตัดสินใจหลังจากรู้ความจริงแล้ว ไม่ใช่การเดาเพราะหาจุดรั่วไม่เจอ"],
+     "figs":[]},
+   ],
+   "prods":[("DeepStick","/deepstick"),("PoolArmour","/poolarmour")],
+  },
+  "en": {
+   "title": "Pool Leaking? Don't Demolish Anything Yet — Stop Filling and Let the Water Talk",
+   "desc": "A leaking pool doesn't mean hiring a leak-detection crew or re-tiling the whole thing. Stop topping up, let the level drop, and wherever the water stands still — that's the level of your leak. Full reading guide with an infographic.",
+   "cat_label": "Pool · Tips / Know-how",
+   "intro": [
+    "The moment a pool starts leaking, most owners reach for their wallet — either a leak-detection crew with a truck full of equipment, or worse, ripping out every tile to rebuild the whole shell. Meanwhile every pool already knows how to point out its own leak, and that method costs nothing.",
+    "The whole principle fits in one line: stop topping up the water and let the level fall on its own. It will keep dropping until it reaches the level of the hole, then stand perfectly still — because water sitting below the hole has no pressure left to push it out. The standstill level equals the leak level. Now you inspect one band of the pool instead of guessing across all of it.",
+   ],
+   "steps": [
+    {"h":"First, confirm it's a leak and not just evaporation (the Bucket Test)",
+     "text":["On a hot sunny week a pool can lose a centimeter a day to evaporation alone, no hole required. So test before you panic: place a bucket of water on a pool step with its rim above the surface, fill it to roughly match the pool's water level, mark both levels, switch off the pump, and wait 24 hours. If both drop about the same, that's plain evaporation — nothing to fix. If the pool drops clearly more than the bucket, you have a real leak. Move on."],
+     "figs":[]},
+    {"h":"Stop filling, switch everything off, and let the level fall",
+     "text":["Commit to it: no topping up, pump and filtration off, no swimming for now. Let nature run the test. Note the water level once a day at the same time. It will drop day after day — until one day it stops. That standstill is the answer you've been waiting for.",
+      "One caution with this method: for an in-ground concrete pool in an area with a high water table, or during the rainy season, never let it drain completely dry. Groundwater around the shell can lift the entire structure out of the ground. If the level has fallen very deep and still hasn't stopped, treat that as your answer (the leak is in the floor zone or the lower plumbing), and refill."],
+     "figs":[]},
+    {"h":"Read the result: where the water stands still is where the leak lives",
+     "text":["Compare the standstill level against the fittings on your pool wall. Stops near the skimmer mouth — the leak is at the skimmer or the piping at that level. Stops at the return jet — the return line. Stops at the underwater light — around the light niche or its conduit. Drops to near empty — the floor or the main-drain line. The deeper the leak, the bigger the job — but at least now you know exactly what you're fighting, instead of fighting a ghost."],
+     "figs":[("pool-leak-level-test-info-en.svg","Reading the result: the level where the water drops and then stands still points straight at the level of the leak — inspect that one band only")]},
+    {"h":"Confirm the spot with dye, then fix that spot specifically",
+     "text":["With the band identified, inspect along it: cracks, failed grout lines, the edge of every fitting. Found a suspect? Confirm it with food coloring — wait until the water is dead calm, drop a little dye next to the spot, and if the color gets pulled into the crack, congratulations, you've caught the culprit.",
+      "Confirmed cracks, joints, and fitting edges can be sealed with DeepStick — it works underwater, which means you don't drain a whole pool to fix one spot. That saves the water bill and the downtime. And if the overall surface is genuinely at the end of its life, that's when you talk about recoating the shell with PoolArmour — a decision made after knowing the truth, not a guess made because nobody could find the leak."],
+     "figs":[]},
+   ],
+   "prods":[("DeepStick","/en/deepstick"),("PoolArmour","/en/poolarmour")],
+  },
+ },
  {
   "slug": "finding-the-real-leak-point",
   "cat": "tips",
@@ -629,12 +778,43 @@ TEMPLATE_V2_TH = """<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 """ + V2_CSS + """
+  /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
+  .mnav-btn,.mnav,.mnav-scrim{{display:none}}
+  @media(max-width:860px){{
+    .theme-toggle,.lang-switch{{display:none}}
+    .mnav-scrim{{display:block}}
+    .cta-chat{{display:inline-flex;margin-left:auto}}
+    .mnav-btn{{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:17px;line-height:1;cursor:pointer}}
+    .mnav-btn:hover{{border-color:var(--orange)}}
+    .mnav-scrim{{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:98;opacity:0;pointer-events:none;transition:opacity .22s ease}}
+    .mnav-scrim.open{{opacity:1;pointer-events:auto}}
+    .mnav{{position:fixed;top:0;bottom:0;left:0;width:min(280px,82vw);z-index:99;background:var(--panel);border-right:1px solid var(--line);padding:20px 22px 18px;display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .26s ease;overflow-y:auto}}
+    .mnav.open{{transform:translateX(0)}}
+    .mnav-head{{display:flex;align-items:center;justify-content:space-between}}
+    .mnav-brand{{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--ink)}}
+    .mnav-brand em{{color:var(--orange);font-style:normal}}
+    .mnav-close{{background:none;border:none;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;padding:4px}}
+    .mnav-tag{{font-size:11.5px;color:var(--muted);margin-top:3px}}
+    .mnav-k{{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);margin:22px 0 4px}}
+    .mnav-links{{display:flex;flex-direction:column}}
+    .mnav-links a{{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink)}}
+    .mnav-links a:last-child{{border-bottom:none}}
+    .mnav-links a span{{color:var(--orange)}}
+    .mnav-chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}}
+    .mnav-chips a{{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}}
+    .mnav-util{{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);margin-top:auto}}
+    .mnav-util .mnav-lang{{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 12px;color:var(--muted)}}
+    .mnav-util .mnav-theme{{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink)}}
+    .mnav-chat{{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}}
+  }}
+  /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
+    <button class="mnav-btn" id="mnavBtn" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <a class="brand" href="/">
       <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
       LUCERNA<em>PRO</em>
@@ -647,9 +827,38 @@ TEMPLATE_V2_TH = """<!DOCTYPE html>
       <a class="active" href="/casestudy/">Case Study</a>
       <a href="/#contact">ติดต่อเรา</a>
     </nav>
-    <a class="btn-chat" href="https://m.me/lucernapro">แชทเพจ</a>
+    <a class="btn-chat" href="https://lin.ee/LpUR3Ld" style="background:#06C755"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#fff;color:#06C755;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em;margin-right:7px;vertical-align:1px">LINE</span>แอดไลน์</a>
   </div>
 </header>
+
+<!-- ═══ MOBILE DRAWER MENU: ลิ้นชัก (ถอนได้) ═══ -->
+<div class="mnav-scrim" id="mnavScrim" aria-hidden="true"></div>
+<aside class="mnav" id="mnav" aria-label="เมนูหลัก">
+  <div class="mnav-head">
+    <span class="mnav-brand"><img src="/img/logo.png" alt="" width="24" height="24" style="object-fit:contain;vertical-align:-6px;margin-right:8px">LUCERNA<em>PRO</em></span>
+    <button class="mnav-close" id="mnavClose" aria-label="ปิดเมนู">✕</button>
+  </div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <div class="mnav-k">MENU</div>
+  <nav class="mnav-links">
+    <a href="/">หน้าแรก <span>→</span></a>
+    <a href="/#finder">สินค้าทั้งหมด <span>→</span></a>
+    <a href="/casestudy/">Case Study <span>→</span></a>
+    <a href="/#contact">ติดต่อเรา <span>→</span></a>
+  </nav>
+  <div class="mnav-k">SHORTCUTS</div>
+  <div class="mnav-chips">
+    <a href="/#waterproof">กันซึม</a>
+    <a href="/#flooring">งานพื้น</a>
+    <a href="/#coating">เคลือบปกป้อง</a>
+  </div>
+  <div class="mnav-util">
+    <button class="mnav-theme" id="mnavTheme" aria-label="สลับโหมดสี">🌙</button>
+  </div>
+  <a class="mnav-chat" href="https://m.me/lucernapro">f&nbsp; แชทเพจ — ตอบไว</a>
+</aside>
+<!-- ═══ จบลิ้นชัก MOBILE DRAWER MENU ═══ -->
+
 
 <main class="wrap">
   <p class="crumb"><a href="/casestudy/">← Case Study ทั้งหมด</a><a class="lang" href="/en/post/{slug}">English</a></p>
@@ -682,6 +891,37 @@ TEMPLATE_V2_TH = """<!DOCTYPE html>
   </div>
 </footer>
 
+<!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
+<script>
+(function(){{
+  var mn=document.getElementById('mnav'),sc=document.getElementById('mnavScrim'),
+      bt=document.getElementById('mnavBtn'),cl=document.getElementById('mnavClose'),
+      tb=document.getElementById('mnavTheme'),master=document.getElementById('themeToggle');
+  if(!mn||!bt)return;
+  function set(open){{
+    mn.classList.toggle('open',open);sc.classList.toggle('open',open);
+    bt.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  }}
+  bt.addEventListener('click',function(){{set(true)}});
+  cl.addEventListener('click',function(){{set(false)}});
+  sc.addEventListener('click',function(){{set(false)}});
+  document.addEventListener('keydown',function(e){{if(e.key==='Escape')set(false)}});
+  window.addEventListener('pageshow',function(){{set(false)}});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){{
+    a.addEventListener('click',function(){{set(false)}});
+  }});
+  if(tb){{
+    if(!master){{tb.style.display='none';}}
+    else{{
+      function syncT(){{tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}}
+      tb.addEventListener('click',function(){{master.click();syncT();}});
+      syncT();
+    }}
+  }}
+}})();
+</script>
+<!-- ═══ จบ JS MOBILE DRAWER MENU ═══ -->
 </body>
 </html>
 """
@@ -706,12 +946,43 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 """ + V2_CSS + """
+  /* ═══ MOBILE DRAWER MENU (removable: delete the 3 blocks carrying this marker: CSS/HTML/JS) ═══ */
+  .mnav-btn,.mnav,.mnav-scrim{{display:none}}
+  @media(max-width:860px){{
+    .theme-toggle,.lang-switch{{display:none}}
+    .mnav-scrim{{display:block}}
+    .cta-chat{{display:inline-flex;margin-left:auto}}
+    .mnav-btn{{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:17px;line-height:1;cursor:pointer}}
+    .mnav-btn:hover{{border-color:var(--orange)}}
+    .mnav-scrim{{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:98;opacity:0;pointer-events:none;transition:opacity .22s ease}}
+    .mnav-scrim.open{{opacity:1;pointer-events:auto}}
+    .mnav{{position:fixed;top:0;bottom:0;left:0;width:min(280px,82vw);z-index:99;background:var(--panel);border-right:1px solid var(--line);padding:20px 22px 18px;display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .26s ease;overflow-y:auto}}
+    .mnav.open{{transform:translateX(0)}}
+    .mnav-head{{display:flex;align-items:center;justify-content:space-between}}
+    .mnav-brand{{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--ink)}}
+    .mnav-brand em{{color:var(--orange);font-style:normal}}
+    .mnav-close{{background:none;border:none;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;padding:4px}}
+    .mnav-tag{{font-size:11.5px;color:var(--muted);margin-top:3px}}
+    .mnav-k{{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);margin:22px 0 4px}}
+    .mnav-links{{display:flex;flex-direction:column}}
+    .mnav-links a{{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink)}}
+    .mnav-links a:last-child{{border-bottom:none}}
+    .mnav-links a span{{color:var(--orange)}}
+    .mnav-chips{{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}}
+    .mnav-chips a{{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}}
+    .mnav-util{{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);margin-top:auto}}
+    .mnav-util .mnav-lang{{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 12px;color:var(--muted)}}
+    .mnav-util .mnav-theme{{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink)}}
+    .mnav-chat{{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}}
+  }}
+  /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
+    <button class="mnav-btn" id="mnavBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     <a class="brand" href="/">
       <img src="/img/logo.png" alt="LucernaPro logo" width="34" height="34">
       LUCERNA<em>PRO</em>
@@ -724,9 +995,38 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
       <a class="active" href="/en/casestudy/">Case Study</a>
       <a href="/#contact">Contact</a>
     </nav>
-    <a class="btn-chat" href="https://m.me/lucernapro">Chat</a>
+    <a class="btn-chat" href="https://lin.ee/LpUR3Ld" style="background:#06C755"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#fff;color:#06C755;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em;margin-right:7px;vertical-align:1px">LINE</span>Add LINE</a>
   </div>
 </header>
+
+<!-- ═══ MOBILE DRAWER MENU: drawer (removable) ═══ -->
+<div class="mnav-scrim" id="mnavScrim" aria-hidden="true"></div>
+<aside class="mnav" id="mnav" aria-label="Main menu">
+  <div class="mnav-head">
+    <span class="mnav-brand"><img src="/img/logo.png" alt="" width="24" height="24" style="object-fit:contain;vertical-align:-6px;margin-right:8px">LUCERNA<em>PRO</em></span>
+    <button class="mnav-close" id="mnavClose" aria-label="Close menu">✕</button>
+  </div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <div class="mnav-k">MENU</div>
+  <nav class="mnav-links">
+    <a href="/en/">Home <span>→</span></a>
+    <a href="/en/#finder">All products <span>→</span></a>
+    <a href="/en/casestudy/">Case Study <span>→</span></a>
+    <a href="/en/#contact">Contact <span>→</span></a>
+  </nav>
+  <div class="mnav-k">SHORTCUTS</div>
+  <div class="mnav-chips">
+    <a href="/en/#waterproof">Waterproofing</a>
+    <a href="/en/#flooring">Flooring</a>
+    <a href="/en/#coating">Coatings</a>
+  </div>
+  <div class="mnav-util">
+    <button class="mnav-theme" id="mnavTheme" aria-label="Toggle color theme">🌙</button>
+  </div>
+  <a class="mnav-chat" href="https://m.me/lucernapro">f&nbsp; Facebook chat — fast replies</a>
+</aside>
+<!-- ═══ end of drawer MOBILE DRAWER MENU ═══ -->
+
 
 <main class="wrap">
   <p class="crumb"><a href="/en/casestudy/">← All case studies</a><a class="lang" href="/post/{slug}">ภาษาไทย</a></p>
@@ -759,6 +1059,37 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
   </div>
 </footer>
 
+<!-- ═══ MOBILE DRAWER MENU: JS (removable) ═══ -->
+<script>
+(function(){{
+  var mn=document.getElementById('mnav'),sc=document.getElementById('mnavScrim'),
+      bt=document.getElementById('mnavBtn'),cl=document.getElementById('mnavClose'),
+      tb=document.getElementById('mnavTheme'),master=document.getElementById('themeToggle');
+  if(!mn||!bt)return;
+  function set(open){{
+    mn.classList.toggle('open',open);sc.classList.toggle('open',open);
+    bt.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  }}
+  bt.addEventListener('click',function(){{set(true)}});
+  cl.addEventListener('click',function(){{set(false)}});
+  sc.addEventListener('click',function(){{set(false)}});
+  document.addEventListener('keydown',function(e){{if(e.key==='Escape')set(false)}});
+  window.addEventListener('pageshow',function(){{set(false)}});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){{
+    a.addEventListener('click',function(){{set(false)}});
+  }});
+  if(tb){{
+    if(!master){{tb.style.display='none';}}
+    else{{
+      function syncT(){{tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}}
+      tb.addEventListener('click',function(){{master.click();syncT();}});
+      syncT();
+    }}
+  }}
+}})();
+</script>
+<!-- ═══ end of JS MOBILE DRAWER MENU ═══ -->
 </body>
 </html>
 """
@@ -766,6 +1097,19 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
 # รูปแนวตั้ง (สูงกว่ากว้าง) — จำกัดความกว้างด้วย class .tall กันภาพล้นจอ
 V2_TALL = {"waterproofing-techniques-07.webp","waterproofing-techniques-08.webp","waterproofing-techniques-11.webp"}
 
+
+
+root_img = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "img", "post")
+
+def _img_dims(path):
+    """Real pixel dims for width/height attrs (กฎกันภาพยืด). WebP via header, SVG via viewBox."""
+    if path.endswith(".svg"):
+        import re as _re
+        m = _re.search(r'viewBox="0 0 (\d+) (\d+)"', open(path, encoding="utf-8").read())
+        return int(m.group(1)), int(m.group(2))
+    from PIL import Image as _Image
+    with _Image.open(path) as im:
+        return im.size
 
 def render_v2_body(lang_data, alt_prefix):
     intro = "\n".join(f"    <p>{t}</p>" for t in lang_data["intro"])
@@ -777,7 +1121,8 @@ def render_v2_body(lang_data, alt_prefix):
             b += f'      <p>{t}</p>\n'
         for fn, cap in s.get("figs", []):
             tall = ' class="tall"' if fn in V2_TALL else ""
-            b += (f'      <figure><img{tall} src="/img/post/{fn}" alt="{alt_prefix} — {cap}" loading="lazy">'
+            w, h = _img_dims(os.path.join(root_img, fn))
+            b += (f'      <figure><img{tall} src="/img/post/{fn}" alt="{alt_prefix} — {cap}" loading="lazy" width="{w}" height="{h}">'
                   f'<figcaption>{cap}</figcaption></figure>\n')
         b += "    </section>"
         blocks.append(b)
