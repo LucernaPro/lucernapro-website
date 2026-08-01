@@ -9,7 +9,7 @@
  * GUARD: ID ไหนยังเป็น placeholder ส่วนนั้นจะไม่ทำงาน — push ได้ปลอดภัยก่อนมี ID จริง
  */
 (function () {
-  var GA_ID    = 'G-XXXXXXXXXX';   /* ← GA4 Measurement ID (analytics.google.com) */
+  var GA_ID    = 'G-WHKF5BFB2F';   /* ← GA4 Measurement ID (analytics.google.com) */
   var AW_ID    = 'AW-XXXXXXXXXX';  /* ← Google Ads tag ID (ได้ตอนสร้าง conversion action ใน Ads) */
   var AW_LABEL = 'XXXXXXXXXX';     /* ← conversion label ของ action "channel_click" ใน Ads */
   var hasGA = GA_ID.indexOf('XXXXXXXXXX') === -1;
