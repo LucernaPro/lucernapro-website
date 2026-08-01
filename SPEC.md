@@ -72,6 +72,14 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 - **วินัยฝั่ง Claude (บังคับ):** `git status` + `git diff --stat` ตรวจทุกครั้งก่อน push (กันไฟล์หลงเข้า commit) / หลัง push verify ผ่าน raw.githubusercontent ว่าไฟล์ขึ้น main ครบและหน้า Home ไม่โดนแตะ — sandbox ของ Claude fetch workers.dev ไม่ได้ การตรวจ render จริงเป็นหน้าที่ QA ของเจ้าของเสมอ
 - รูปต้นฉบับยังส่งเข้าแชทตามเดิม (อยู่ในมือถือเจ้าของ ตัดขั้นนี้ไม่ได้)
 
+## Instrumentation — ระบบวัดผล GA4/Google Ads (มติ 1 ส.ค. 2026)
+- **ไฟล์กลางไฟล์เดียว: `/track.js`** — GA4 Measurement ID อยู่ในไฟล์นี้ที่เดียว (ตัวแปร `GA_ID` บรรทัดบนสุด) แก้ที่เดียวมีผลทุกหน้า **ห้ามฝัง gtag ในหน้า HTML รายหน้าเด็ดขาด**
+- สถานะปัจจุบัน: `GA_ID` ยังเป็น placeholder `G-XXXXXXXXXX` → สคริปต์มี guard **ไม่ทำอะไรเลย**จนกว่าจะวาง ID จริง (รอเจ้าของสร้าง GA4 property แล้วส่ง ID มา — งานที่เหลือคือแก้ string ตัวเดียวใน track.js)
+- ทุกหน้า (127 ไฟล์ ณ วันออกมติ) มี `<script src="/track.js" defer></script>` ก่อน `</head>` — **ทุกหน้าที่สร้างใหม่ต่อจากนี้ต้องมี tag นี้ตั้งแต่เกิด** (เพิ่มใน checklist ก่อนถือว่าหน้าเสร็จ)
+- **ไม่ต้องแก้ markup ปุ่ม** — track.js ใช้ delegated click listener จำแนกช่องทางจาก href อัตโนมัติ: shopee.co.th→shopee, lazada.co.th→lazada, m.me→messenger, lin.ee/line.me→line, tel:→phone_click, `/files/*-tds.pdf`→tds_download
+- **Event schema (ห้ามเปลี่ยนชื่อ event/parameter โดยพลการ — GA4 report ผูกกับชื่อพวกนี้):** `channel_click {channel, product, lang}` = conversion หลัก (proxy ของ order เพราะการซื้อจริงจบนอกเว็บ) / `phone_click` / `tds_download` — `product` คือ slug จาก pathname, หน้า post เป็น `post:{slug}`, หน้าแรกเป็น `home`
+- ขั้นต่อไปเมื่อได้ ID จริง: วาง ID → mark `channel_click` เป็น conversion ใน GA4 → link GA4↔Google Ads → import conversion — ฝั่ง attribution จริง (ปุ่ม→order) ปิด loop ด้วย LucernaOne + พนักงานถามลูกค้า "เห็นจากไหน"
+
 ## Campaign Roadmap
 - [x] **Case Study ใหม่: `/post/why-bathroom-grout-leaks-recur` (1 ส.ค. 2026 — commit จะระบุหลัง push):** เคสห้องน้ำ — ยาแนวคือจุดรั่วจริง ไม่ใช่กระเบื้อง เขียนจากข้อมูลจริงบนเว็บ (`/tilecoatpoly`, `/epoxygrout`, `/carbontilegrout`, `/masterseal`, `/exotic`, `/polyaspartic`) ไม่ใช่ค่าเดา ตามคำสั่งเจ้าของ "อ่านข้อมูลพวกกันซึมในเว็บฉันนะ อย่าเขียนมั่ว"
   · **โครงสร้าง 5 steps (ยกโครง CSS/HTML จาก `/post/wall-to-floor-joint-leak` มาทั้งก้อน):** 01 ปัญหาจริงคือยาแนว (capillary + วงจรซ่อมผิดที่พัง) · 02 ทำไมต้องเติมยาแนวให้เต็มก่อนทาทับเสมอ + infographic SVG วาดเอง (เทียบ cross-section ฟิล์มแขวนข้ามร่องว่างจนแตก vs เติมยาแนวเต็มแล้วฟิล์มต่อเนื่อง) · 03 **decision cards** กระเบื้องเดิม (Epoxy TileGrout ผสมเอง / Carbon Tile Grout ปืนหลอดคู่ / TileCoat Polyurea มีสี / Polyaspartic ใสโชว์ลาย) · 04 **decision cards** สร้างใหม่/ช่างดื้อ (PatchPro→Exotic ก่อนปูกระเบื้อง / Master Seal 2% ผสมตอนกวนปูนยาแนว) · 05 ปิดท้าย
