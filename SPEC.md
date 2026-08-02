@@ -13,7 +13,7 @@
 1. **URL สินค้าต้องตรงกับ Wix เดิมทุกเส้น** เช่น `/tilecoatpoly`, `/polypro` — สร้างเป็น `{slug}/index.html`
 2. **เว็บเป็นสองภาษาเสมอ**: ไทยที่ราก `/` (ตลาดหลัก), อังกฤษที่ `/en/` โครงเดียวกันเป๊ะ — hreflang โยงถึงกัน (th, en, x-default=th) และปุ่มสลับภาษา (.lang-switch) บน topbar
    **ลำดับการทำ (มติ 25 ก.ค. 2026): ทำหน้าสินค้าภาษาไทยให้ครบและผ่านการตรวจจากเจ้าของก่อนทั้งหมด แล้วค่อยเปิด phase แปล EN เป็นชุดเดียวทีหลัง** — ระหว่างที่หน้า EN ของสินค้าตัวนั้นยังไม่มี: ห้ามใส่ hreflang en ชี้หน้าที่ไม่มีจริง และปุ่ม EN บนหน้าสินค้าไทยให้ชี้ `/en/` (Home อังกฤษ) ไปพลางก่อน
-3. เว็บนี้ยังไม่ cutover — domain จริงยังชี้ Wix / ลิงก์ระหว่างหน้าใช้ relative หรือ root-relative path (`/img/...`, `/en/`) เพื่อให้ทำงานทั้ง sandbox และ domain จริง
+3. **✅ CUTOVER เสร็จแล้ว 2 ส.ค. 2026 — `lucernapro.com` + `www` ชี้ Worker บน Cloudflare อย่างเป็นทางการ** (ดูบันทึกเต็มที่ section 🚀 GO-LIVE ท้ายไฟล์) / กติกาลิงก์เดิมยังบังคับเต็ม: ลิงก์ระหว่างหน้าใช้ root-relative path (`/img/...`, `/en/`) เสมอ — ทำงานได้ทั้ง workers.dev และโดเมนจริง
 4. ห้าม hardcode domain ในลิงก์ภายใน (ยกเว้น canonical/OG/hreflang ใน meta ที่ชี้ lucernapro.com)
 5. รูปทุกรูปผ่าน pipeline (มติแก้ไข 26 ก.ค. 2026 — บังคับ unsharp): ทุกใบผ่าน exif_transpose ก่อน → crop จัตุรัสให้พอดีกรอบ → resize → **unsharp mask หลังย่อเสมอ** (ย่อแล้วไม่ sharpen = ภาพนุ่มเบลอ) / gallery **720×720 WebP q85** / รูปหลัก (hero/pack shot) **900×900 WebP q90** (ฉลากมีตัวหนังสือ) / **ห้าม upscale เกินความละเอียดต้นฉบับ** — ต้นฉบับเล็กกว่าเป้า ให้ใช้ขนาดต้นฉบับ / ชื่อไฟล์ = slug (`{slug}-hero.webp`, `{slug}-gXX.webp`) — รูปใช้ร่วมกันทั้งสองภาษาจากโฟลเดอร์ `/img/` เดียว
    (หมายเหตุ: หน้าที่ทำก่อนมตินี้เป็นชุด 480 q74 — ไล่ทำใหม่เป็นรอบ batch เมื่อสะดวก)
@@ -562,7 +562,7 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 - [ ] ปั๊มหน้าสินค้าไทยที่เหลือตามหมวด (หนึ่งเซสชัน = หนึ่งชุด)
 - [ ] Phase แปล EN หน้าสินค้าทั้งหมด (หลังไทยครบ + เจ้าของตรวจแล้ว)
 - [ ] Blog / Case study
-- [ ] ตรวจ URL ครบทุกเส้น → cutover DNS → เฝ้าดู 1–2 สัปดาห์ → ยกเลิก Wix
+- [x] ~~ตรวจ URL ครบทุกเส้น →~~ **cutover DNS ✅ เสร็จ 2 ส.ค. 2026** → 🔄 **เฝ้าดูถึง ~16 ส.ค. 2026** → ค่อยพิจารณายกเลิก Wix (เงื่อนไขเพิ่ม: Post Migration ต้องจบก่อน — ดู GO-LIVE ข้อ Wix)
 
 ## วิธีเปิดเซสชันใหม่กับ Claude
 วางลิงก์ repo นี้ + บอกว่าจะทำด่านไหน — Claude อ่าน SPEC.md + index.html แล้วทำงานต่อได้ทันที
@@ -1205,3 +1205,36 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 - เพิ่มการ์ดที่ 08 ในแกลเลอรีทั้ง `heatshield/index.html` และ `en/heatshield/index.html` (caption อธิบายมุมกว้างเทียบกับตึกกระจก) ไม่แตะรูปอื่นในแกลเลอรี ไม่ต้องเปลี่ยนเลขลำดับเดิม
 - `heatshield-hero.webp` (hero บนหน้าสินค้า) **ไม่แตะ** — คนละภาพ เป็น pack-shot สตูดิโอที่ใช้อยู่แล้ว งานนี้แก้เฉพาะ thumbnail หน้าโฮม
 - HTML sanity check ผ่านทั้ง 3 ไฟล์ที่แก้ + Thai residue scan บนหน้า EN ผ่าน (ไม่มีอักษรไทยหลง)
+
+---
+
+## 🚀 GO-LIVE — 2 ส.ค. 2026 (โดเมนจริงขึ้น production — จบยุค Wix อย่างเป็นทางการ)
+
+**เหตุการณ์ทั้งหมดจบใน ~40 นาที ช่วงบ่าย (16:50–17:30):**
+1. Domain transfer Wix → Namecheap **สำเร็จ** (order `209459543` / สถานะ ACTIVE / หมดอายุ **12 ก.พ. 2028** ได้ +1 ปีจากการ transfer ตามกติกา ICANN)
+2. Nameservers ที่ Namecheap เปลี่ยนจาก `ns6/ns7.wixdns.net` → **`david.ns.cloudflare.com` + `kelly.ns.cloudflare.com`** — ยืนยัน 3 ชั้น: dig ทั่วโลก / ICANN RDAP registry / Cloudflare zone เด้ง Active ภายใน ~10 นาที
+3. **กวาด DNS record เก่าของ Wix ทิ้ง 4 แถว** (A ×3 → 185.230.63.x + CNAME www → cdn1.wixdns.net) — จำเป็นเพราะ Worker custom domain ฟ้อง "already has externally managed DNS records" ถ้าไม่ลบ
+4. **เก็บไว้ 2 แถว (ห้ามลบ):** `MX eforward3.registrar-servers.com` (email forwarding ของ Namecheap) + `TXT google-site-verification` (จะได้ใช้ตอน Search Console / Ads)
+5. Add custom domain เข้า Worker `lucernapro-website`: **`lucernapro.com` + `www.lucernapro.com`** — SSL universal cert ออกอัตโนมัติ
+6. **ยืนยัน live:** `https://lucernapro.com/tilecoatpoly/` เสิร์ฟ golden master จริงบนโดเมนจริง 🔒
+
+**ผลที่ตามมา (สำคัญกับทุกเซสชันต่อจากนี้):**
+- **URL `lucernapro.com/*` ทุกเส้นตอนนี้คือเว็บเรา ไม่ใช่ Wix อีกแล้ว** — เทคนิคดึงเนื้อโพสต์เก่าด้วย `web_fetch lucernapro.com/post/...` **ใช้ไม่ได้อีกต่อไป** (จะได้หน้าเว็บใหม่/redirect ของเราเอง) → Post Migration ที่เหลือต้องให้เจ้าของ copy เนื้อจาก Wix editor/preview มาเอง หรือใช้ web_search cache
+- canonical/OG/hreflang ที่ชี้ `lucernapro.com` แบบ absolute ตอนนี้ชี้ของจริงแล้ว — ถูกต้องโดยอัตโนมัติทั้งเว็บ
+- `_redirects` ทำงานบนโดเมนจริงแล้ว (301 สินค้าเลิกขาย / 302 หน้าค้าง / โพสต์ Wix เก่า percent-encoded)
+
+**สถานะเว็บจริง ณ วัน launch (นับจาก repo ตรงๆ ไม่ใช่ความจำ):**
+- หน้าสินค้า: **TH 50 หน้า / EN 49 หน้า** — ทั้งเว็บเหลือหน้าค้างชิ้นเดียวคือ **`/en/epoxycoating`** (บรรทัด 302 ใน `_redirects` คาไว้ถูกต้องแล้ว รอเซสชันของตัวเอง)
+- Home TH+EN / casestudy hub TH+EN / **Case Study V2: TH 10 โพสต์ / EN 9** (ขาด EN ของ `why-bathroom-grout-leaks-recur` — ตามมติรอ batch)
+- sitemap.xml **122 URL** / GA4 **เสียบ ID จริงแล้ว `G-WHKF5BFB2F`** (track.js v1.1 — ช่อง AW_ID/AW_LABEL ยังเป็น placeholder รอ Ads conversion action)
+- **✅ wixstatic hotlink = 0 ทั้งเว็บ (ยืนยัน 2 ส.ค.)** — งานค้าง "ไล่เก็บรูป/คลิป wixstatic ก่อน cutover" ที่จดไว้หลาย doctrine **ปิดสมบูรณ์แล้ว** เว็บไม่พึ่งพา asset ของ Wix แม้แต่ไฟล์เดียว
+
+**Post-launch checklist (เรียงตามลำดับ):**
+1. 🔄 **ช่วงเฝ้าดูถึง ~16 ส.ค. 2026** — เจ้าของ + Ning/Milk ใช้งานจริง เจอหน้าไหนเพี้ยน/ลิงก์ตาย จดแล้ว batch แก้
+2. **Google Search Console + Bing Webmaster** — ปลดล็อกแล้ว (เงื่อนไข "หลัง cutover" สำเร็จ) → verify โดเมน (TXT google-site-verification ที่เก็บไว้ช่วยได้) → submit sitemap → รอ index 2–3 วันก่อนเปิด Ads
+3. **Google Ads** — ปลดล็อกแล้วตามมติ 1 ส.ค. (บัญชี 445-668-0292) / **ก่อนเปิด: ปิด conversion action เก่า (นับปลอม 653K) เสมอ** → สร้าง conversion ใหม่ → เอา AW_ID/AW_LABEL มาเสียบ track.js → link GA4↔Ads / แผน 4 แคมเปญตามไฟล์ร่างเจ้าของ
+4. **เช็ค email forwarding** — ถ้ามีเมล @lucernapro.com ใช้งานอยู่ ทดสอบส่งเข้าดูว่า eforward ของ Namecheap ยัง forward ถึงจริง
+5. **Namecheap housekeeping:** transfer lock 60 วัน (ถึง ~1 ต.ค.) ห้ามแก้ contact info / **WithheldforPrivacy auto-renew ยังปิดอยู่ — เปิดก่อนหมดอายุ ส.ค. 2027** กัน WHOIS หลุด
+6. **Wix:** เว็บเก่าเข้าจากโดเมนไม่ได้แล้ว แต่**ห้ามยกเลิกบัญชี**จนกว่า (ก) พ้นช่วงเฝ้าดู และ (ข) Post Migration ดึงเนื้อโพสต์ที่เหลือครบตามคิวเจ้าของ — บัญชี Wix ตอนนี้เหลือสถานะเดียวคือ "คลังเนื้อหาต้นฉบับ"
+
+**งานสร้างที่เหลือ (นับหลัง launch):** `/en/epoxycoating` (ชิ้นสุดท้ายของเว็บสองภาษา — ⚠️ ตรวจ ruling คำ "Epoxy" บนหน้า EN กับเจ้าของก่อนเริ่ม) · EN ของ why-bathroom-grout-leaks-recur · Case Study ใหม่ตามคิวเจ้าของ · TDS ที่ค้างตามลิสต์ 8.7 · งานเก็บตกจากช่วงเฝ้าดู
