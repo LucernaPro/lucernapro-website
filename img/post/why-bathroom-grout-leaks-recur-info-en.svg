@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="'Chakra Petch','Anuphan','Loma','Laksaman',sans-serif">
+<rect width="1200" height="900" fill="#F2F2EF"/>
+<rect x="1.5" y="1.5" width="1197" height="897" fill="none" stroke="#DCDCD6" stroke-width="3" rx="18"/>
+<text x="60" y="52" font-size="17" letter-spacing="3" fill="#D8571C" font-weight="600">LUCERNAPRO · CASE STUDY</text>
+<text x="60" y="100" font-size="33" font-weight="700" fill="#191C1F">Coating over hollow grout  vs  filling grout full first</text>
+<text x="60" y="136" font-size="19.5" fill="#5E646A">Hollow grout gives the film nothing to rest on — always fill flush with the tile surface before coating over.</text>
+
+<rect x="60" y="190" width="520" height="520" rx="14" fill="#FFFFFF" stroke="#DCDCD6" stroke-width="2"/>
+<circle cx="94" cy="224" r="16" fill="#A8433A"/>
+<text x="94" y="230" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">✕</text>
+<text x="118" y="230" font-size="19" font-weight="700" fill="#A8433A">Wrong — coated without filling grout</text>
+
+<rect x="100" y="340" width="170" height="70" fill="#E4E3DD" stroke="#B9B9B1" stroke-width="2"/>
+<rect x="330" y="340" width="170" height="70" fill="#E4E3DD" stroke="#B9B9B1" stroke-width="2"/>
+<rect x="100" y="410" width="400" height="90" fill="#E4E3DD" stroke="#B9B9B1" stroke-width="2"/>
+<rect x="270" y="410" width="60" height="90" fill="#4FA3D1" opacity="0.16"/>
+<text x="185" y="330" font-size="15" fill="#5E646A" text-anchor="middle">Tile</text>
+<text x="300" y="530" font-size="15" fill="#5E646A" text-anchor="middle">Concrete bed under tiles</text>
+
+<path d="M 100 340 L 262 340" stroke="#4FA3D1" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M 500 340 L 306 340" stroke="#4FA3D1" stroke-width="9" fill="none" stroke-linecap="round"/>
+<line x1="270" y1="410" x2="270" y2="500" stroke="#B9B9B1" stroke-width="2" stroke-dasharray="3 4"/>
+<line x1="330" y1="410" x2="330" y2="500" stroke="#B9B9B1" stroke-width="2" stroke-dasharray="3 4"/>
+
+<circle cx="286" cy="360" r="4" fill="#A8433A"/>
+<circle cx="300" cy="430" r="6" fill="#4FA3D1" opacity="0.6"/>
+<circle cx="292" cy="455" r="5" fill="#4FA3D1" opacity="0.45"/>
+<circle cx="304" cy="478" r="4.5" fill="#4FA3D1" opacity="0.35"/>
+<path d="M 292 362 q 6 8 0 16" stroke="#A8433A" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+<line x1="286" y1="360" x2="420" y2="300" stroke="#A8433A" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="420" y="272" font-size="16.5" font-weight="600" fill="#A8433A">Empty groove —</text>
+<text x="420" y="294" font-size="16.5" font-weight="600" fill="#A8433A">film has no support</text>
+
+<line x1="300" y1="430" x2="430" y2="410" stroke="#1E6E96" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="430" y="405" font-size="14.5" fill="#1E6E96">Water pools under tiles</text>
+
+<text x="90" y="680" font-size="16" font-weight="600" fill="#A8433A">Leaks again at the same grout line, every time</text>
+
+<rect x="620" y="190" width="520" height="520" rx="14" fill="#FFFFFF" stroke="#DCDCD6" stroke-width="2"/>
+<circle cx="654" cy="224" r="16" fill="#2F9760"/>
+<text x="654" y="230" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">✓</text>
+<text x="678" y="230" font-size="19" font-weight="700" fill="#2F9760">Right — grout filled full first</text>
+
+<rect x="660" y="340" width="170" height="70" fill="#E4E3DD" stroke="#B9B9B1" stroke-width="2"/>
+<rect x="890" y="340" width="170" height="70" fill="#E4E3DD" stroke="#B9B9B1" stroke-width="2"/>
+<rect x="830" y="340" width="60" height="70" fill="#D9C29B" stroke="#A6835A" stroke-width="1.5"/>
+<rect x="660" y="410" width="400" height="90" fill="#E4E3DD" stroke="#B9B9B1" stroke-width="2"/>
+<text x="745" y="330" font-size="15" fill="#5E646A" text-anchor="middle">Tile</text>
+<text x="860" y="530" font-size="15" fill="#5E646A" text-anchor="middle">Concrete bed under tiles (dry)</text>
+
+<path d="M 660 340 L 1060 340" stroke="#4FA3D1" stroke-width="9" fill="none" stroke-linecap="round"/>
+
+<circle cx="860" cy="375" r="10" fill="#2F9760"/>
+<path d="M 855 375 l 4 4 l 7 -8" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="860" y1="385" x2="980" y2="300" stroke="#2F9760" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="700" y="292" font-size="16.5" font-weight="600" fill="#2F9760">Grout filled flush with the tile surface</text>
+
+<line x1="860" y1="340" x2="980" y2="410" stroke="#2F9760" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="700" y="415" font-size="14.5" fill="#2F9760">Continuous film — no break point</text>
+
+<text x="650" y="680" font-size="16" font-weight="600" fill="#2F9760">No weak point left for a leak to come back to</text>
+
+<rect x="60" y="730" width="1080" height="110" rx="14" fill="#FFFFFF" stroke="#DCDCD6" stroke-width="2"/>
+<rect x="60" y="730" width="8" height="110" rx="4" fill="#D8571C"/>
+<text x="92" y="776" font-size="22" fill="#191C1F">One rule only: fill the grout flush with the tile surface before every coat.</text>
+<text x="92" y="812" font-size="22" font-weight="700" fill="#D8571C">Only a film with continuous support survives repeated flexing without cracking.</text>
+</svg>
