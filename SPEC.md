@@ -73,6 +73,16 @@ Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucer
 - **วินัยฝั่ง Claude (บังคับ):** `git status` + `git diff --stat` ตรวจทุกครั้งก่อน push (กันไฟล์หลงเข้า commit) / หลัง push verify ผ่าน raw.githubusercontent ว่าไฟล์ขึ้น main ครบและหน้า Home ไม่โดนแตะ — sandbox ของ Claude fetch workers.dev ไม่ได้ การตรวจ render จริงเป็นหน้าที่ QA ของเจ้าของเสมอ
 - รูปต้นฉบับยังส่งเข้าแชทตามเดิม (อยู่ในมือถือเจ้าของ ตัดขั้นนี้ไม่ได้)
 
+## ⚠️ เช็คลิสต์วัน cutover + งานค้างรอเจ้าของ (จด 1 ส.ค. 2026 ก่อนปิด session)
+**ต้องทำวัน cutover:**
+1. เพิ่ม `/landingpage / 302` ใน _redirects — ปลายทางแอด Google เก่า (313K views) ยังไม่มีหน้า/redirect
+2. Search Console จะหลุด verification หลังออกจาก Wix — verify ใหม่แบบ **DNS TXT ใน Cloudflare** (ยั่งยืนสุด) แล้ว submit sitemap ซ้ำ
+3. Realtime test ระบบวัด (เปิดเว็บมือถือ → GA4 Reports → Realtime → เห็น 1 active user + กดปุ่ม Messenger เห็น channel_click)
+
+**รอคำตัดสินเจ้าของ (ทวงได้แต่อย่าเดาเอง):**
+4. ปลายทาง 302 ของสลักเก่ามี traffic: /tilegrout (996 views, engagement สูงสุดทั้งเว็บ!), /cleanline, /wetblock, /tekbond, /epoxytilegrout, /polyaspartictilegrout (ตัวแบน—ยิ่งต้องพาออก), /destroyer, /purebreeze, /eisengarde, /drywallpro, /interstate — เจ้าของเสนอไว้กว้างๆ ว่า "หน้ารวมสินค้า" ได้ แต่ยังไม่ฟันธงรายตัว
+5. Ruling คำว่า "Epoxy" ใน**ข้อความแอด**สาย epoxycoating: ร่างปัจจุบันใช้แบบปลอดภัย (ซื้อคำค้น epoxy ได้ / ข้อความแอดไม่ใช้คำ) — เจ้าของยังไม่ตอบว่าสายนี้ได้รับยกเว้นหรือไม่
+
 ## บันทึกมติ 1 ส.ค. 2026 (รอบค่ำ)
 - **ถอด 5 บทความถาวรตามคำสั่งเจ้าของ** (ไม่ใช่ลืมลิสต์ — เจ้าของตั้งใจถอดและจะเขียนใหม่ให้ดีกว่าเดิมทั้งหมด): basement-solution-center, seamless-house, คิดให้ดีก่อนจะรื้อ, ชมพลังของ-deepstick-กันชัดๆ, ซ่อมสระว่ายน้ำด้วย-polypro — ลบโฟลเดอร์แล้ว + ใส่ 302 → /casestudy ใน _redirects (รวมแบบ percent-encoded สำหรับสลักไทย) **ห้ามชี้ว่าหน้ารวม casestudy "ลืม" บทความอีก — ที่ไม่อยู่ในลิสต์คือเจตนา**
 - **PoolArmour ได้ section "สระคุณอาจยังไม่ต้องเคลือบใหม่ทั้งระบบ"** (ไทย+EN): ทางแยกตามอาการ → จุดรั่วเล็ก/DeepStick, โครงสร้างเสียหาย/PolyPro — แพทเทิร์นเดียวกับ altcard ของ /deepstick / งานถัดไปในตระกูลนี้: กล่อง "รั่วแบบไหน มาทางนี้" กลุ่มห้องน้ำ (ดูแผนใน google-ads-draft-v1)
