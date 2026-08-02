@@ -48,6 +48,9 @@
 # 301 ถาวร — หน้าเดี่ยว Wix เดิมที่ไม่ได้ไปต่อ
 /tilegrout-expire /epoxygrout 301
 
+# 302 ชั่วคราว — ปลายทางแอด Google เก่า (313K views) ยังไม่มีหน้าจริง
+/landingpage / 302
+
 # posts ที่เจ้าของถอดออก (จะเขียนใหม่) — กันลิงก์เก่าค้างภายนอก
 /post/basement-solution-center /casestudy 302
 /post/seamless-house /casestudy 302
