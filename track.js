@@ -10,8 +10,8 @@
  */
 (function () {
   var GA_ID    = 'G-WHKF5BFB2F';   /* ← GA4 Measurement ID (analytics.google.com) */
-  var AW_ID    = 'AW-XXXXXXXXXX';  /* ← Google Ads tag ID (ได้ตอนสร้าง conversion action ใน Ads) */
-  var AW_LABEL = 'XXXXXXXXXX';     /* ← conversion label ของ action "channel_click" ใน Ads */
+  var AW_ID    = 'AW-413684054';  /* ← Google Ads tag ID (conversion action "channel_click", 2 ส.ค. 2026) */
+  var AW_LABEL = '52a7CMza2NocENaiocUB';     /* ← conversion label ของ action "channel_click" ใน Ads */
   var hasGA = GA_ID.indexOf('XXXXXXXXXX') === -1;
   var hasAW = AW_ID.indexOf('XXXXXXXXXX') === -1;
   if (!hasGA && !hasAW) return;
