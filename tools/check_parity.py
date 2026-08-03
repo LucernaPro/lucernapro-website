@@ -201,6 +201,20 @@ def main():
         if not ok_rows:
             problems[p].append('มี data-calc แต่ไม่มีแถวที่ใช้งานได้เลย')
 
+        # ค่าส่งที่ระบบคิด ต้องมีตัวเลขนั้นพิมพ์อยู่บนหน้าจริง — ห้ามคิดเงินลูกค้าด้วยเลขที่ไม่ได้ประกาศ
+        full = meta[p]['src']
+        plain = re.sub(r'<[^>]+>', ' ', full)
+        for amt in set(re.findall(r'data-ship(?:ping)?="(\d+)"', full)):
+            shown = (
+                # เขียนเป็นประโยค เช่น "ค่าจัดส่ง 130 บาท" หรือ "ค่าส่ง 70–130 บาท ตามขนาด"
+                re.search(r'(?:ค่าจัดส่ง|ค่าส่ง|[Ss]hipping)[^.]{0,40}\b' + amt + r'\b', plain)
+                or re.search(r'\b' + amt + r'\b[^<]{0,12}(?:บาท|THB)', plain)
+                # หรืออยู่ในช่องตารางคอลัมน์ค่าส่ง เช่น <td>130.-</td>
+                or re.search(r'<td[^>]*>\s*' + amt + r'\s*(?:\.-|บาท|฿)?\s*</td>', full)
+            )
+            if not shown:
+                problems[p].append('ระบบคิดค่าส่ง %s แต่หน้าเว็บไม่ได้พิมพ์ตัวเลขนี้ไว้' % amt)
+
     bad = {p: v for p, v in problems.items() if v}
     print('ตรวจ %d หน้า' % len(files))
     if not bad:
