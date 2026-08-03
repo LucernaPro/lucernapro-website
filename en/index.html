@@ -52,6 +52,8 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
+  #catalog,#finder,.cat-section,.shorts-band{scroll-margin-top:72px}
+  @media(min-width:861px){#catalog,#finder,.cat-section,.shorts-band{scroll-margin-top:76px}}
   body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -312,7 +314,7 @@ img{height:auto}
   <div class="mnav-k">MENU</div>
   <nav class="mnav-links">
     <a href="#top">Home <span>→</span></a>
-    <a href="#finder">All products <span>→</span></a>
+    <a href="#catalog">All products <span>→</span></a>
     <a href="/en/casestudy/">Case Study <span>→</span></a>
     <a href="#contact">Contact <span>→</span></a>
   </nav>
@@ -685,6 +687,9 @@ applyFilter();
   sc.addEventListener('click',function(){set(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
   window.addEventListener('pageshow',function(){set(false)});
+  mn.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(){set(false)});
+  });
   mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){
     a.addEventListener('click',function(){set(false)});
   });

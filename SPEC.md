@@ -1305,3 +1305,10 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 3. **ruling คำ "Epoxy" (เจ้าของตัดสิน 3 ส.ค. 2026 — เคลียร์ของค้างใน SPEC เดิม):** ไม่ได้แบนเหมารวม **ใช้ได้กับสินค้าที่มีคำนี้ในชื่ออยู่แล้ว** (สีทาพื้น Epoxy-PU, ยาแนวกันซึม Epoxy, EpoxyPutty) เพราะเป็นคำกลางในตลาด ไม่ใช่การเปิดเผยสูตร — **ห้ามเรียกสินค้าตัวอื่นที่ไม่มีคำนี้ในชื่อว่าเป็น Epoxy เด็ดขาด** (MarineGuard, BoundGravel ฯลฯ) → `/en/epoxycoating` เริ่มทำได้แล้ว ไม่ต้องรอถามอีก
 
 **ยังไม่ตัดสิน:** tagline ซ้อนกันสองอัน — `Leave the Ordinary Behind` (kicker + footer + schema slogan) กับ `Real deal or nothing` (drawer มือถือ) ยังอยู่ทั้งคู่ รอเจ้าของเลือก
+
+**แก้บั๊กตามหลัง (เจ้าของรายงาน — เมนู "สินค้าทั้งหมด" กดแล้วไม่ลงไปถึงสินค้า):** เจอ 3 บั๊กซ้อนกัน
+1. **(เกิดจากการย้าย finder รอบนี้)** ลิงก์ drawer "สินค้าทั้งหมด" ชี้ `#finder` ซึ่งย้ายขึ้นไปอยู่ใน hero แล้ว → เปลี่ยนเป็น `#catalog` / ปุ่ม nav บน "ค้นหาสินค้า" ยังชี้ `#finder` ถูกแล้ว (ตั้งใจให้ไปที่ช่องค้นหา)
+2. **(บั๊กเก่า) drawer มือถือไม่ปิดตัวเองเมื่อกดลิงก์ในเมนู** — `set(open)` ล็อก `body{overflow:hidden}` ไว้ พอ drawer ค้างเปิด หน้าเลย scroll ไม่ได้เลย = อาการ "กดแล้วไม่ไปไหน" ตัวจริง → ผูก listener บน `mn.querySelectorAll('a[href^="#"]')` ให้ `set(false)` ก่อน
+3. **(บั๊กเก่า) ไม่มี `scroll-margin-top` ทั้งที่ `.topbar` เป็น `position:sticky` สูง 58/60px** — ทุก anchor jump (`#waterproof` `#flooring` `#coating`) หัวข้อ section จะไปมุดใต้แถบเมนู → เพิ่ม `scroll-margin-top:72px` (mobile) / `76px` (≥861px) บน `#catalog,#finder,.cat-section,.shorts-band`
+
+**🔴 Doctrine:** ย้าย section ที่มี `id` เมื่อไหร่ **ต้องไล่ทุก `href="#id"` ในหน้าทั้งหมดก่อนเสมอ** — anchor ไม่พังแบบมองเห็น ไม่มี error ใน console แค่ scroll ไปผิดที่เงียบๆ
