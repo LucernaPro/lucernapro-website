@@ -325,6 +325,7 @@ img{height:auto}
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -425,12 +426,12 @@ img{height:auto}
     <h2 class="sec-h">Sizes &amp; prices</h2>
     <div class="pricecard">
       <div class="ph">DeepSeal — 3 sizes<small>clear amber film · paintable once fully dry</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">0.5 kg</td><td>≈ 1–2.5 m²</td><td class="pr">390.-</td></tr>
-          <tr><td class="sz">1 kg</td><td>≈ 2–5 m²</td><td class="pr">590.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 10–25 m²</td><td class="pr">2,690.-</td></tr>
+          <tr><td class="sz" data-sqm="1">0.5 kg</td><td>≈ 1–2.5 m²</td><td class="pr" data-price="390">390.-</td></tr>
+          <tr><td class="sz" data-sqm="2">1 kg</td><td>≈ 2–5 m²</td><td class="pr" data-price="590">590.-</td></tr>
+          <tr><td class="sz" data-sqm="10">5 kg</td><td>≈ 10–25 m²</td><td class="pr" data-price="2690">2,690.-</td></tr>
         </tbody>
       </table>
     </div>

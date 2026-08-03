@@ -165,6 +165,21 @@ def main():
         s = meta[p]['src']
         if 'data-calc' not in s: continue
         if 'calc.js' not in s: problems[p].append('มี data-calc แต่ไม่ได้โหลด calc.js')
+
+        # หน้าเดียวมีหลาย .pricecard ได้ (เช่น HeatShield มีตัวหลัก + Primer คนละสินค้า)
+        # calc.js อ่านเฉพาะตารางที่มี data-calc — annotation ที่หลุดไปติดตารางอื่นคือบั๊ก
+        cards = re.findall(r'<div class="pricecard">.*?</table>', s, re.S)
+        calc_card = None
+        for c in cards:
+            if 'data-calc="1"' in c:
+                if calc_card is not None:
+                    problems[p].append('มีตารางที่ติด data-calc มากกว่า 1 ตาราง — calc.js อ่านแค่ตารางแรก')
+                calc_card = c
+            elif 'data-sqm="' in c or 'data-price="' in c:
+                problems[p].append('ตารางที่ไม่มี data-calc แต่มี data-sqm/data-price ติดอยู่ (คนละสินค้า?)')
+        if calc_card is None:
+            problems[p].append('มี data-calc แต่หาตารางไม่เจอ'); continue
+        s = calc_card
         # ตรวจทีละแถว ไม่ใช่แค่ "มีอย่างน้อยหนึ่ง" — แถวที่ตกหล่นจะหายไปจากผลคำนวณเงียบๆ
         # แถวที่ตั้งใจไม่ให้เข้าระบบคำนวณ (เช่น "สอบถาม") ต้องประกาศ data-calc="skip" ให้ชัด
         ok_rows = 0

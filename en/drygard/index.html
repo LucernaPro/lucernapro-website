@@ -393,6 +393,7 @@ img{height:auto}
   }
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style><script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -494,10 +495,10 @@ img{height:auto}
     <h2 class="sec-h">Sizes and <em>prices</em></h2>
     <div class="pricecard">
       <div class="ph">DryGard Waterproof House Paint <small>price per pail · VAT included</small></div>
-      <table>
+      <table data-calc="1">
         <tr><th>Size</th><th>Covers about</th><th>Price</th></tr>
-        <tr><td class="sz">4.5 kg<small>Small pail · patch work, a single room</small></td><td>≈ 22 sq.m</td><td class="pr">1,730 ฿</td></tr>
-        <tr><td class="sz">18 kg<small>Large pail · whole house, better per kilo</small></td><td>≈ 90 sq.m</td><td class="pr">5,390 ฿</td></tr>
+        <tr><td class="sz" data-sqm="22" data-label="4.5 kg">4.5 kg<small>Small pail · patch work, a single room</small></td><td>≈ 22 sq.m</td><td class="pr" data-price="1730">1,730 ฿</td></tr>
+        <tr><td class="sz" data-sqm="90" data-label="18 kg">18 kg<small>Large pail · whole house, better per kilo</small></td><td>≈ 90 sq.m</td><td class="pr" data-price="5390">5,390 ฿</td></tr>
       </table>
     </div>
     <p class="pricenote">Based on the real rate of <b>about 5 sq.m per kg over two full coats</b>, on smooth render in normal condition — <b>rough render, porous surfaces, exposed brickwork, timber weatherboard and deep-profile roof sheet will all drink more than this</b>. These figures are for <b>setting a budget, not for ordering down to the last kilo</b>. / Delivery quoted at order — <b>order several items together and we work the shipping out as one sensible charge rather than adding it per item</b>.</p>

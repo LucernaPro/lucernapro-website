@@ -366,6 +366,7 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -472,7 +473,7 @@ img{height:auto}
         <div class="ph">เทียบสามระบบให้เห็นภาพ<small>บนมือถือ ปัดตารางไปทางซ้ายเพื่อดูคอลัมน์ถัดไป</small></div>
         <div class="tscroll">
         <table class="cmp">
-          <thead><tr><th></th><th>Epoxy แบบทา</th><th>PU แบบทา</th><th>Epoxy Self-leveling</th></tr></thead>
+          <thead><tr data-calc="skip"><th></th><th>Epoxy แบบทา</th><th>PU แบบทา</th><th>Epoxy Self-leveling</th></tr></thead>
           <tbody>
             <tr><td class="rowk">ความหนา</td><td>บาง (ระดับฟิล์มสี)<small>ทา 2 รอบ</small></td><td>บาง (ระดับฟิล์มสี)<small>ทา 2 รอบ</small></td><td><b>1.5–3 มม.</b><small>หนาพอกลบผิวได้จริง</small></td></tr>
             <tr><td class="rowk">ผิวที่ได้</td><td>เงา แต่<b>ไปตามผิวปูนเดิม</b></td><td>เงา/กึ่งเงา/ด้าน เลือกได้ ไปตามผิวปูนเดิม</td><td><b>เรียบเงาเหมือนกระจก</b> ไร้รอยต่อ</td></tr>
@@ -506,12 +507,12 @@ img{height:auto}
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
       <div class="ph">ชุด 2 ส่วนผสม 16 กก.<small>Part A เรซิน 12.8 กก. + Part B ฮาร์ดเดนเนอร์ 3.2 กก.</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ระบบ</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">Epoxy 2K<small>ชุด 16 กก.</small></td><td>≈ 50 ตร.ม.<small>ทาครบ 2 รอบ</small></td><td class="pr">5,340.-</td></tr>
-          <tr><td class="sz">PU 2K<small>ชุด 16 กก.</small></td><td>≈ 50 ตร.ม.<small>ทาครบ 2 รอบ</small></td><td class="pr">5,940.-</td></tr>
-          <tr><td class="sz">Epoxy Self-leveling<small>สั่งผลิตตามงาน</small></td><td>คิดตามความหนาที่ต้องการ</td><td class="pr">สอบถาม</td></tr>
+          <tr><td class="sz" data-sqm="50" data-label="Epoxy 2K ชุด 16 กก.">Epoxy 2K<small>ชุด 16 กก.</small></td><td>≈ 50 ตร.ม.<small>ทาครบ 2 รอบ</small></td><td class="pr" data-price="5340">5,340.-</td></tr>
+          <tr><td class="sz" data-sqm="50" data-label="PU 2K ชุด 16 กก.">PU 2K<small>ชุด 16 กก.</small></td><td>≈ 50 ตร.ม.<small>ทาครบ 2 รอบ</small></td><td class="pr" data-price="5940">5,940.-</td></tr>
+          <tr data-calc="skip"><td class="sz">Epoxy Self-leveling<small>สั่งผลิตตามงาน</small></td><td>คิดตามความหนาที่ต้องการ</td><td class="pr">สอบถาม</td></tr>
         </tbody>
       </table>
     </div>
