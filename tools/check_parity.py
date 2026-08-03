@@ -118,6 +118,11 @@ def main():
             if want and re.sub(r'^https?://[^/]+', '', want).rstrip('/') != href.rstrip('/'):
                 add('%s ไม่ตรงกับ hreflang (ปุ่ม=%s / hreflang=%s)' % (cls, href, want))
 
+        # 4.1) ห้ามมีลิงก์สลับภาษาตัวที่สองนอกหัวเว็บ (doctrine รอบ 4: ปุ่มเดียวต่อจอ)
+        # pattern เก่าที่เคยตกค้าง: <a class="lang" ...> ใน crumb ของหน้า post (เจอ 3 ส.ค. 2026, 24 หน้า)
+        if re.search(r'<a class="lang"[ >]', s):
+            add('มีลิงก์สลับภาษาซ้ำ (<a class="lang">) นอกเหนือจาก lang-switch/mnav-lang')
+
         meta[p] = dict(
             title=(re.search(r'<title>(.*?)</title>', s, re.S) or [None, ''])[1].strip(),
             canon=(re.search(r'rel="canonical" href="([^"]+)"', s) or [None, ''])[1],
