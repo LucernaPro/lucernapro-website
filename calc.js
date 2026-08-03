@@ -27,6 +27,7 @@
     w: 'Width (m)', l: 'Length (m)', a: 'Or enter area (m&sup2;)',
     buf: 'Add 10% for porous or rough surfaces',
     ship: 'Shipping', total: 'Total',
+    shipnote: 'Shipping here is charged in full for every tub. <b>On a real order we combine them, so you pay less</b> — message us for the exact figure.',
     meta: function (a, got, cov, spare, per) {
       return 'Area ' + a + ' m&sup2; &middot; you get ' + got + ' (covers ' + cov + ' m&sup2;)<br>' +
              'Spare ' + spare + ' m&sup2; &middot; ' + per + ' THB per m&sup2;';
@@ -39,6 +40,7 @@
     w: 'กว้าง (ม.)', l: 'ยาว (ม.)', a: 'หรือกรอกพื้นที่ (ตร.ม.)',
     buf: 'เผื่อ 10% สำหรับพื้นดูดซึม/ผิวหยาบ',
     ship: 'ค่าจัดส่ง', total: 'รวม',
+    shipnote: 'ค่าส่งตรงนี้คิดเต็มทุกถัง <b>เวลาสั่งจริงเราเหมาให้ ถูกกว่านี้</b> — ทักมาถามยอดจริงก่อนโอนได้เลย',
     meta: function (a, got, cov, spare, per) {
       return 'พื้นที่ ' + a + ' ตร.ม. &middot; ได้มา ' + got + ' (ทาได้ ' + cov + ' ตร.ม.)<br>' +
              'เหลือเผื่อ ' + spare + ' ตร.ม. &middot; เฉลี่ย ' + per + ' บาท/ตร.ม.';
@@ -59,11 +61,12 @@
     if (!(sqm > 0) && COV > 0) sqm = parseFloat(sz.getAttribute('data-kg') || '0') * COV;
     if (!(sqm > 0)) return;
     var label = (sz.getAttribute('data-label') || sz.textContent).trim().split('\n')[0].trim();
+    var ship = parseFloat(sz.getAttribute('data-ship') || '0') || 0;
     [].forEach.call(tr.querySelectorAll('td.pr[data-price]'), function (td) {
       var price = parseFloat(td.getAttribute('data-price'));
       if (!(price > 0)) return;
       var v = td.getAttribute('data-variant') || '';
-      (variants[v] = variants[v] || []).push({ sqm: sqm, price: price, label: label });
+      (variants[v] = variants[v] || []).push({ sqm: sqm, price: price, label: label, ship: ship });
     });
   });
   var names = Object.keys(variants);
@@ -101,9 +104,10 @@
       var p = packs[key];
       items.push({ label: p.label, sqm: p.sqm, n: counts[key], sum: p.price * counts[key] });
       total += p.price * counts[key];
+      shipSum += (p.ship || 0) * counts[key];
     }
     items.sort(function (a, b) { return b.sqm - a.sqm; });
-    return { items: items, total: total, covers: Math.round(covers * 100) / 100 };
+    return { items: items, total: total, ship: shipSum, covers: Math.round(covers * 100) / 100 };
   }
 
   var money = function (n) { return n.toLocaleString('en-US'); };
@@ -190,8 +194,10 @@
     r.items.forEach(function (it) {
       h += '<div class="row"><span>' + it.label + ' &times; ' + it.n + '</span><b>' + money(it.sum) + '.-</b></div>';
     });
-    if (SHIP) h += '<div class="row"><span>' + T.ship + '</span><b>' + money(SHIP) + '.-</b></div>';
-    h += '<div class="row tot"><span>' + T.total + '</span><span class="o">' + money(r.total + SHIP) + '.-</span></div>';
+    var ship = r.ship || SHIP;
+    if (ship) h += '<div class="row"><span>' + T.ship + '</span><b>' + money(ship) + '.-</b></div>';
+    h += '<div class="row tot"><span>' + T.total + '</span><span class="o">' + money(r.total + ship) + '.-</span></div>';
+    if (r.ship) h += '<div class="calcnote">' + T.shipnote + '</div>';
     var NOTE = table.getAttribute(EN ? 'data-note-en' : 'data-note');
     if (NOTE) h += '<div class="calcnote">' + NOTE + '</div>';
     var spare = r.covers - a;
@@ -200,7 +206,7 @@
           num(r.covers), num(spare > 0 ? spare : 0), num(r.total / a)) + '</div>';
     h += '<div class="hint">' + T.hint + '</div>';
     OUT.innerHTML = h;
-    if (window.gtag) window.gtag('event', 'calc_used', { area: Math.round(a), total: r.total + SHIP });
+    if (window.gtag) window.gtag('event', 'calc_used', { area: Math.round(a), total: r.total + ship });
   }
 
   [W, L, A, B].forEach(function (el) { el.addEventListener('input', run); el.addEventListener('change', run); });

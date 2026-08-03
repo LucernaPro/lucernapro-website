@@ -175,7 +175,7 @@ def main():
                 if calc_card is not None:
                     problems[p].append('มีตารางที่ติด data-calc มากกว่า 1 ตาราง — calc.js อ่านแค่ตารางแรก')
                 calc_card = c
-            elif 'data-sqm="' in c or 'data-price="' in c:
+            elif 'data-sqm="' in c or 'data-price="' in c or 'data-ship="' in c:
                 problems[p].append('ตารางที่ไม่มี data-calc แต่มี data-sqm/data-price ติดอยู่ (คนละสินค้า?)')
         if calc_card is None:
             problems[p].append('มี data-calc แต่หาตารางไม่เจอ'); continue

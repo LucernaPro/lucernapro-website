@@ -351,6 +351,7 @@
   }
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style><script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -449,12 +450,12 @@
     <h2 class="sec-h">ขนาดที่มี</h2>
     <div class="pricecard">
       <div class="ph">EcoBind<small>น้ำยาล็อคหิน · 1 กก. ≈ 1 ตร.ม.</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 กก.</td><td>≈ 1 ตร.ม.</td><td class="pr">สอบถาม</td><td>—</td></tr>
-          <tr><td class="sz">5 กก.</td><td>≈ 5 ตร.ม.</td><td class="pr">สอบถาม</td><td>—</td></tr>
-          <tr><td class="sz">18 กก.</td><td>≈ 18 ตร.ม.</td><td class="pr">สอบถาม</td><td>—</td></tr>
+          <tr><td class="sz" data-sqm="1" data-ship="70">1 กก.</td><td>≈ 1 ตร.ม.</td><td class="pr" data-price="420">420.-</td><td>70.-</td></tr>
+          <tr><td class="sz" data-sqm="5" data-ship="130">5 กก.</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="1740">1,740.-</td><td>130.-</td></tr>
+          <tr><td class="sz" data-sqm="18" data-ship="200">18 กก.</td><td>≈ 18 ตร.ม.</td><td class="pr" data-price="3470">3,470.-</td><td>200.-</td></tr>
         </tbody>
       </table>
     </div>

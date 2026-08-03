@@ -352,6 +352,7 @@
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -450,12 +451,12 @@
     <h2 class="sec-h">Sizes & prices</h2>
     <div class="pricecard">
       <div class="ph">EcoBind<small>Gravel lock · 1 kg ≈ 1 m²</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th><th>Shipping</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 1 m²</td><td class="pr">420.-</td><td>70.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 5 m²</td><td class="pr">1,740.-</td><td>130.-</td></tr>
-          <tr><td class="sz">18 kg</td><td>≈ 18 m²</td><td class="pr">3,470.-</td><td>200.-</td></tr>
+          <tr><td class="sz" data-sqm="1" data-ship="70">1 kg</td><td>≈ 1 m²</td><td class="pr" data-price="420">420.-</td><td>70.-</td></tr>
+          <tr><td class="sz" data-sqm="5" data-ship="130">5 kg</td><td>≈ 5 m²</td><td class="pr" data-price="1740">1,740.-</td><td>130.-</td></tr>
+          <tr><td class="sz" data-sqm="18" data-ship="200">18 kg</td><td>≈ 18 m²</td><td class="pr" data-price="3470">3,470.-</td><td>200.-</td></tr>
         </tbody>
       </table>
     </div>
