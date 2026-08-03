@@ -56,6 +56,8 @@ const KNOWN = [
   { f: 'crystalseal/index.html',     area: 33, total: '4,560',  note: true  }, // 5kg+1kg×2 + ส่ง 270
   { f: 'tilecoatpoly/index.html',    area: 40, total: '16,320', note: true  }, // 1kg×8 + ส่งต่อชิ้น 130×8
   { f: 'en/tilecoatpoly/index.html', area: 7,  total: '2,890',  note: false },
+  { f: 'thermaglaze/index.html',     area: 80, total: '4,980',  note: true  }, // แบบสี 15kg+1kg = 4,610 + ส่ง 300+70 (มติ 3 ส.ค.)
+  { f: 'boundgravel/index.html',     area: 10, total: '2,410',  note: false }, // 5kg = 2,280 + ส่ง 130 ทุกขนาด (มติ 3 ส.ค.)
 ];
 for (const k of KNOWN) {
   const f = path.join(ROOT, k.f);
