@@ -2,7 +2,8 @@
  * เครื่องคำนวณพื้นที่ → ขนาดที่ควรซื้อ + ราคารวม (ไทย/อังกฤษ อัตโนมัติจาก <html lang>)
  *
  * แหล่งข้อมูล = ตารางราคาบนหน้านั้นเอง ไม่มีไฟล์ข้อมูลแยก
- *   <table data-calc="1" data-shipping="130">
+ *   <table data-calc="1" data-shipping="130"
+ *          data-note="ราคารวมเฉพาะน้ำยา ยังไม่รวมค่าหิน" data-note-en="Binder only ...">
  *     <tr><td class="sz" data-sqm="7.5">1.5 kg</td>
  *         <td class="pr" data-price="2760" data-variant="แบบสี">2,760.-</td></tr>
  *     <tr data-calc="skip"> ... แถวที่ไม่เข้าระบบคำนวณ เช่น "สอบถาม" ...
@@ -132,6 +133,8 @@
     '.lcalc .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:9px;font-family:var(--disp);font-size:18px;font-weight:700}' +
     '.lcalc .tot .o{color:var(--orange)}' +
     '.lcalc .meta{margin-top:8px;font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.75}' +
+    '.lcalc .calcnote{margin-top:10px;border-left:3px solid var(--orange);background:var(--panel-2,transparent);'+
+    'border-radius:0 8px 8px 0;padding:9px 12px;font-size:13px;color:var(--ink)}' +
     '.lcalc .hint{margin-top:10px;font-size:13px;color:var(--muted)}';
   document.head.appendChild(css);
 
@@ -189,6 +192,8 @@
     });
     if (SHIP) h += '<div class="row"><span>' + T.ship + '</span><b>' + money(SHIP) + '.-</b></div>';
     h += '<div class="row tot"><span>' + T.total + '</span><span class="o">' + money(r.total + SHIP) + '.-</span></div>';
+    var NOTE = table.getAttribute(EN ? 'data-note-en' : 'data-note');
+    if (NOTE) h += '<div class="calcnote">' + NOTE + '</div>';
     var spare = r.covers - a;
     h += '<div class="meta">' + T.meta(num(a),
           r.items.map(function (i) { return i.label + '\u00d7' + i.n; }).join(', '),

@@ -192,6 +192,11 @@ def main():
             elif 'data-price="' not in r:
                 problems[p].append('แถวมี data-sqm แต่ไม่มี data-price สักช่อง: %s' % txt)
             else:
+                # หลายราคาในแถวเดียวได้เฉพาะกรณีเป็นคนละรุ่น (ต้องมี data-variant)
+                # ไม่งั้นมักเป็นการเผลอติด data-price ให้ช่อง "ค่าส่ง" ซึ่งจะบวกเข้าราคาสินค้า
+                npr = r.count('data-price="')
+                if npr > 1 and r.count('data-variant="') != npr:
+                    problems[p].append('แถวมี data-price %d ช่องแต่ไม่ได้ประกาศ data-variant ครบ (เผลอติดช่องค่าส่ง?): %s' % (npr, txt))
                 ok_rows += 1
         if not ok_rows:
             problems[p].append('มี data-calc แต่ไม่มีแถวที่ใช้งานได้เลย')
