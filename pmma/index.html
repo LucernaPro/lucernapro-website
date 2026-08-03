@@ -336,6 +336,7 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -439,12 +440,12 @@ img{height:auto}
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
       <div class="ph">PMMA — 3 ขนาด<small>สองส่วนผสม (น้ำยา + ผง hardener) · พื้นที่คิดจากวิธีเทแล้วปาด</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 1 ตร.ม.</td><td class="pr">1,070.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 5 ตร.ม.</td><td class="pr">3,590.-</td></tr>
-          <tr><td class="sz">15 kg</td><td>≈ 15 ตร.ม.</td><td class="pr">7,800.-</td></tr>
+          <tr><td class="sz" data-sqm="1">1 kg</td><td>≈ 1 ตร.ม.</td><td class="pr" data-price="1070">1,070.-</td></tr>
+          <tr><td class="sz" data-sqm="5">5 kg</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="15">15 kg</td><td>≈ 15 ตร.ม.</td><td class="pr" data-price="7800">7,800.-</td></tr>
         </tbody>
       </table>
     </div>

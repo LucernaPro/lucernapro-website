@@ -355,6 +355,7 @@
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 
 <body>
@@ -472,12 +473,12 @@
     <h2 class="sec-h">ราคาและ<em>ปริมาณ</em></h2>
     <div class="pricecard">
       <div class="ph">OffShore เคลือบไม้สูตรน้ำ<small>ส่วนผสมเดียว เปิดฝาใช้ได้ทันที ไม่ต้องผสม</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>ทาได้</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 กก.</td><td>≈ 5 ตร.ม.</td><td class="pr">390.-</td></tr>
-          <tr><td class="sz">2.5 กก.</td><td>≈ 12.5 ตร.ม.</td><td class="pr">890.-</td></tr>
-          <tr><td class="sz">5 กก.</td><td>≈ 25 ตร.ม.</td><td class="pr">1,490.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 กก.</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="390">390.-</td></tr>
+          <tr><td class="sz" data-sqm="12.5">2.5 กก.</td><td>≈ 12.5 ตร.ม.</td><td class="pr" data-price="890">890.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 กก.</td><td>≈ 25 ตร.ม.</td><td class="pr" data-price="1490">1,490.-</td></tr>
         </tbody>
       </table>
     </div>

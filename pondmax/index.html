@@ -334,6 +334,7 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -433,12 +434,12 @@ img{height:auto}
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
       <div class="ph">ทุกสี — เทา น้ำเงิน ดำ<small>1 kg ≈ 5 ตร.ม. (ครบ 2 รอบ)</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr">950.-</td></tr>
-          <tr><td class="sz">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class="pr">2,150.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr">4,070.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="950">950.-</td></tr>
+          <tr><td class="sz" data-sqm="12.5">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class="pr" data-price="2150">2,150.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr" data-price="4070">4,070.-</td></tr>
         </tbody>
       </table>
     </div>

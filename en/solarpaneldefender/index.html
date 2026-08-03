@@ -335,6 +335,7 @@ img{height:auto}
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -481,12 +482,12 @@ img{height:auto}
     <h2 class="sec-h">Sizes &amp; Prices</h2>
     <div class="pricecard">
       <div class="ph">Solar Panel Defender<small>One thin pass — the thinner the better</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price (THB)</th></tr></thead>
         <tbody>
-          <tr><td class="sz">100 g</td><td>≈ 16 m² (~8 large panels)</td><td class="pr">830.-</td></tr>
-          <tr><td class="sz">500 g</td><td>≈ 80 m²</td><td class="pr">3,590.-</td></tr>
-          <tr><td class="sz">1 kg</td><td>≈ 160 m²</td><td class="pr">6,600.-</td></tr>
+          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 m² (~8 large panels)</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 m²</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 m²</td><td class="pr" data-price="6600">6,600.-</td></tr>
         </tbody>
       </table>
     </div>

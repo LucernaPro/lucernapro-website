@@ -331,6 +331,7 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -431,12 +432,12 @@ img{height:auto}
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
       <div class="ph">ชุด Part A + Part B ตวงมาให้พอดีแล้ว<small>1 kg ≈ 5 ตร.ม. (ครบ 2 รอบ — ทาด้วยลูกกลิ้ง)</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr">830.-</td></tr>
-          <tr><td class="sz">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class="pr">1,790.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr">3,230.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="12.5">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class="pr" data-price="1790">1,790.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr" data-price="3230">3,230.-</td></tr>
         </tbody>
       </table>
     </div>

@@ -315,6 +315,7 @@ img{height:auto}
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -413,11 +414,11 @@ img{height:auto}
   <div class="wrap">
     <h2 class="sec-h">Sizes &amp; prices</h2>
     <div class="pricecard">
-      <table>
+      <table data-calc="1" data-shipping="130">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 3–5 m²</td><td class="pr">฿1,910</td></tr>
-          <tr><td class="sz">6 kg</td><td>≈ 20–30 m² (depends on thickness)</td><td class="pr">฿10,680</td></tr>
+          <tr><td class="sz" data-sqm="5">1 kg</td><td>≈ 5 m²</td><td class="pr" data-price="1910">฿1,910</td></tr>
+          <tr><td class="sz" data-sqm="30">6 kg</td><td>≈ 30 m²</td><td class="pr" data-price="10680">฿10,680</td></tr>
         </tbody>
       </table>
     </div>

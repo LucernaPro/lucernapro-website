@@ -320,6 +320,7 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -418,12 +419,12 @@ img{height:auto}
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr">710.-</td></tr>
-          <tr><td class="sz">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class="pr">1,670.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr">2,870.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 kg</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="710">710.-</td></tr>
+          <tr><td class="sz" data-sqm="12.5">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class="pr" data-price="1670">1,670.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 kg</td><td>≈ 25 ตร.ม.</td><td class="pr" data-price="2870">2,870.-</td></tr>
         </tbody>
       </table>
     </div>

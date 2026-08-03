@@ -336,6 +336,7 @@ img{height:auto}
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -438,12 +439,12 @@ img{height:auto}
     <h2 class="sec-h">Sizes and prices</h2>
     <div class="pricecard">
       <div class="ph">PMMA — 3 sizes<small>two-component (resin + hardener powder) · coverage based on pour-and-squeegee</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 1 sqm</td><td class="pr">1,070.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 5 sqm</td><td class="pr">3,590.-</td></tr>
-          <tr><td class="sz">15 kg</td><td>≈ 15 sqm</td><td class="pr">7,800.-</td></tr>
+          <tr><td class="sz" data-sqm="1">1 kg</td><td>≈ 1 sqm</td><td class="pr" data-price="1070">1,070.-</td></tr>
+          <tr><td class="sz" data-sqm="5">5 kg</td><td>≈ 5 sqm</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="15">15 kg</td><td>≈ 15 sqm</td><td class="pr" data-price="7800">7,800.-</td></tr>
         </tbody>
       </table>
     </div>

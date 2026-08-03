@@ -163,23 +163,23 @@ def main():
     # 8) ตารางของเครื่องคำนวณต้องอ่านได้จริง
     for p in files:
         s = meta[p]['src']
-        if 'data-coverage' not in s: continue
-        if 'calc.js' not in s: problems[p].append('มี data-coverage แต่ไม่ได้โหลด calc.js')
+        if 'data-calc' not in s: continue
+        if 'calc.js' not in s: problems[p].append('มี data-calc แต่ไม่ได้โหลด calc.js')
         # ตรวจทีละแถว ไม่ใช่แค่ "มีอย่างน้อยหนึ่ง" — แถวที่ตกหล่นจะหายไปจากผลคำนวณเงียบๆ
+        # แถวที่ตั้งใจไม่ให้เข้าระบบคำนวณ (เช่น "สอบถาม") ต้องประกาศ data-calc="skip" ให้ชัด
         ok_rows = 0
         for r in re.findall(r'<tr>(?:(?!</tr>).)*?</tr>', s, re.S):
             if 'class="sz"' not in r: continue
+            if 'data-calc="skip"' in r: continue
             txt = re.sub(r'<[^>]+>', ' ', r).strip()[:40]
-            if 'data-kg="' not in r:
-                problems[p].append('แถวราคาขาด data-kg: %s' % txt)
+            if 'data-sqm="' not in r:
+                problems[p].append('แถวราคาขาด data-sqm (หรือใส่ data-calc="skip"): %s' % txt)
             elif 'data-price="' not in r:
-                problems[p].append('แถวมี data-kg แต่ไม่มี data-price สักช่อง: %s' % txt)
+                problems[p].append('แถวมี data-sqm แต่ไม่มี data-price สักช่อง: %s' % txt)
             else:
                 ok_rows += 1
-        rows = [1] if ok_rows else []
-        prices = rows
-        if not rows or not prices:
-            problems[p].append('ตารางคำนวณขาด data-kg หรือ data-price')
+        if not ok_rows:
+            problems[p].append('มี data-calc แต่ไม่มีแถวที่ใช้งานได้เลย')
 
     bad = {p: v for p, v in problems.items() if v}
     print('ตรวจ %d หน้า' % len(files))

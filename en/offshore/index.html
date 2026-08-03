@@ -355,6 +355,7 @@
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 
 <body>
@@ -472,12 +473,12 @@
     <h2 class="sec-h">Price and <em>coverage</em></h2>
     <div class="pricecard">
       <div class="ph">OffShore waterborne wood coating<small>Single component, ready to use, nothing to mix</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>Size</th><th>Covers</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 5 sqm</td><td class="pr">390.-</td></tr>
-          <tr><td class="sz">2.5 kg</td><td>≈ 12.5 sqm</td><td class="pr">890.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 25 sqm</td><td class="pr">1,490.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 kg</td><td>≈ 5 sqm</td><td class="pr" data-price="390">390.-</td></tr>
+          <tr><td class="sz" data-sqm="12.5">2.5 kg</td><td>≈ 12.5 sqm</td><td class="pr" data-price="890">890.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 kg</td><td>≈ 25 sqm</td><td class="pr" data-price="1490">1,490.-</td></tr>
         </tbody>
       </table>
     </div>

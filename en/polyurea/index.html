@@ -319,6 +319,7 @@ img{height:auto}
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body data-search="กันซึม ดาดฟ้า ระเบียง โพลียูเรีย polyurea standard ทากันซึม ปูน คอนกรีต น้ำขัง">
 
@@ -428,12 +429,12 @@ img{height:auto}
   <div class="wrap">
     <h2 class="sec-h">Sizes and prices</h2>
     <div class="pricecard">
-      <table>
+      <table data-calc="1">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg</td><td>≈ 5 m² (two coats)</td><td class="pr">1,190.-</td></tr>
-          <tr><td class="sz">5 kg</td><td>≈ 25 m² (two coats)</td><td class="pr">5,390.-</td></tr>
-          <tr><td class="sz">9 kg</td><td>≈ 45 m² (two coats)</td><td class="pr">8,700.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 kg</td><td>≈ 5 m² (two coats)</td><td class="pr" data-price="1190">1,190.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 kg</td><td>≈ 25 m² (two coats)</td><td class="pr" data-price="5390">5,390.-</td></tr>
+          <tr><td class="sz" data-sqm="45">9 kg</td><td>≈ 45 m² (two coats)</td><td class="pr" data-price="8700">8,700.-</td></tr>
         </tbody>
       </table>
     </div>

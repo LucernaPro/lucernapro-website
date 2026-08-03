@@ -329,6 +329,7 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -428,11 +429,11 @@ img{height:auto}
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
       <div class="ph">AquaShell 709 — สีใส (Clear)<small>ผิวหลังแห้งมีความเงาเล็กน้อย · พื้นที่คิดจากการทาครบ 2 รอบ</small></div>
-      <table>
+      <table data-calc="1">
         <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ (ทา 2 รอบ)</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 กก.</td><td>≈ 5 ตร.ม.</td><td class="pr">470.-</td></tr>
-          <tr><td class="sz">5 กก.</td><td>≈ 25 ตร.ม.</td><td class="pr">1,670.-</td></tr>
+          <tr><td class="sz" data-sqm="5">1 กก.</td><td>≈ 5 ตร.ม.</td><td class="pr" data-price="470">470.-</td></tr>
+          <tr><td class="sz" data-sqm="25">5 กก.</td><td>≈ 25 ตร.ม.</td><td class="pr" data-price="1670">1,670.-</td></tr>
         </tbody>
       </table>
     </div>
