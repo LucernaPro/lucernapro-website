@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
-<title>LucernaPro — The Construction Secret Weapon for Professionals | Waterproofing, Crack Repair, Coatings</title>
-<meta name="description" content="LucernaPro — Advanced materials specialists. Polyurea waterproofing, no-demolition tile paint, crack repair, epoxy floors, industrial-grade protective coatings. Free advice via Facebook chat">
-<meta property="og:title" content="LucernaPro — The Construction Secret Weapon for Professionals">
+<title>LucernaPro — Repair It Without Tearing It Out | Waterproofing, Crack Repair, Coatings</title>
+<meta name="description" content="LucernaPro — Advanced materials specialists. Repair without demolition: Polyurea waterproofing, no-demolition tile paint, crack repair, epoxy floors, industrial-grade protective coatings. Free advice via Facebook chat">
+<meta property="og:title" content="LucernaPro — Repair It Without Tearing It Out">
 <meta property="og:description" content="Polyurea waterproofing, crack repair, floor paint, protective coatings — industrial grade. Free advice via Facebook chat">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.lucernapro.com/en/">
@@ -91,6 +91,17 @@
   .hero h1 .o{color:var(--orange)}
   .hero p.lede{margin-top:18px;max-width:640px;color:var(--muted);font-size:16.5px}
   .hero-cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .hero-finder{margin-top:30px;max-width:900px}
+  .hero-meta{margin-top:15px;display:flex;align-items:center;gap:11px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  .hero-meta .result-note{margin-top:0}
+  .hero-meta .sep{opacity:.4}
+  .hero-meta .sp b{color:var(--orange);font-weight:700}
+  .hero-meta a.cs{font-family:var(--body);font-size:13.5px;color:var(--ink);
+    border-bottom:1px solid var(--line);padding-bottom:1px}
+  .hero-meta a.cs:hover{color:var(--orange);border-color:var(--orange)}
+  .searchbox .icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;
+    stroke-width:2;stroke-linecap:round}
   .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
   .btn:hover{transform:translateY(-1px)}
   .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
@@ -323,14 +334,34 @@ img{height:auto}
 <section class="hero" id="top">
   <div class="wrap">
     <div class="kicker">Leave the Ordinary Behind</div>
-    <h1>The construction secret weapon,<br>built for <span class="o">professionals</span></h1>
-    <p class="lede">We don't just sell products — we are advanced-materials specialists solving the problems ordinary systems can't. From industrial-grade Polyurea waterproofing to innovative coatings for automotive and residential work, we end every pain point with top-grade chemistry</p>
-    <div class="hero-cta">
-      <a class="btn btn-orange" href="#finder">🔎 Find products by problem</a>
-      <a class="btn btn-ghost" href="/casestudy/">See real case studies</a>
+    <h1>Repair it. <span class="o">Without tearing it out.</span></h1>
+    <p class="lede">Industrial-grade chemistry for the problems ordinary materials can't handle — seal a leaking bathroom without removing the tiles, treat rust without grinding it off, re-fix fallen pool tiles without draining the water, and much more</p>
+
+    <div class="hero-finder" id="finder">
+      <div class="searchbox">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"></circle><line x1="16.2" y1="16.2" x2="21" y2="21"></line></svg></span>
+        <input id="q" type="text" placeholder="Tell us what you see — leaking bathroom, hot rooftop, cracked floor, rust...">
+      </div>
+      <div class="chips" id="chips">
+        <button class="chip" data-tag="ห้องน้ำ">Leaking bathroom</button>
+        <button class="chip" data-tag="ดาดฟ้า">Leaking roof/deck</button>
+        <button class="chip" data-tag="แตกร้าว">Cracked floor/wall</button>
+        <button class="chip" data-tag="สระ">Pool / fish pond</button>
+        <button class="chip" data-tag="สนิม">Rust</button>
+        <button class="chip" data-tag="กาว">Adhesives</button>
+        <button class="chip" data-tag="รถ">Automotive</button>
+        <button class="chip" data-tag="เคลือบ">Protective coating</button>
+      </div>
+      <div class="hero-meta">
+        <span class="result-note" id="note">Showing all products</span>
+        <span class="sep">·</span>
+        <span class="sp">Over <b>100,000 people</b> follow us on Facebook</span>
+        <span class="sep">·</span>
+        <a class="cs" href="/casestudy/">See real case studies →</a>
+      </div>
     </div>
   </div>
-  <div class="shelf">
+  <div class="shelf" id="shelf">
     <div class="wrap proof">
       <div class="proof-head">
         <h2>Proof over promises<span class="o"> — watch real jobs before you decide</span></h2>
@@ -369,27 +400,6 @@ img{height:auto}
   </div>
 </section>
 
-<section class="finder" id="finder">
-  <div class="wrap">
-    <h2>What's your problem?</h2>
-    <div class="sub">Type what you see, or pick a problem below — matching products appear instantly</div>
-    <div class="searchbox">
-      <span class="icon">🔎</span>
-      <input id="q" type="text" placeholder="e.g. leaking bathroom, hot rooftop, cracked floor, rust...">
-    </div>
-    <div class="chips" id="chips">
-      <button class="chip" data-tag="ห้องน้ำ">🚿 Leaking bathroom</button>
-      <button class="chip" data-tag="ดาดฟ้า">🏠 Leaking roof/deck</button>
-      <button class="chip" data-tag="แตกร้าว">🧱 Cracked floor/wall</button>
-      <button class="chip" data-tag="สระ">🏊 Pool / fish pond</button>
-      <button class="chip" data-tag="สนิม">🔩 Rust</button>
-      <button class="chip" data-tag="กาว">🧪 Adhesives</button>
-      <button class="chip" data-tag="รถ">🚗 Automotive</button>
-      <button class="chip" data-tag="เคลือบ">🛡️ Protective coating</button>
-    </div>
-    <div class="result-note" id="note">Showing all 49 products</div>
-  </div>
-</section>
 
 <main class="catalog wrap" id="catalog">
 <section class="cat-section" id="waterproof">
@@ -536,7 +546,7 @@ img{height:auto}
     </div>
     <div class="fb-actions">
       <a class="btn btn-fb" href="https://www.facebook.com/lucernapro"><span class="fbadge">f</span>Follow LucernaPro</a>
-      <a class="btn btn-ghost" href="https://m.me/lucernapro">💬 Message us</a>
+      <a class="btn btn-ghost" href="https://m.me/lucernapro">Message us</a>
     </div>
   </div>
 </section>
@@ -549,15 +559,15 @@ img{height:auto}
         <p>Send photos of your job site or describe the problem — our team will analyze it and recommend the right system for your budget before you buy</p>
         <div class="contact-actions">
           <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Chat with us — free advice</a>
-          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+          <a class="btn btn-tel" href="tel:0970799547">โทร 097-079-9547</a>
         </div>
         <div class="shoplinks">
-          <a class="shop" href="https://shopee.co.th/lucernapro">🛒 Shopee</a>
-          <a class="shop" href="https://www.lazada.co.th/shop/lucernapro/">🛒 Lazada</a>
+          <a class="shop" href="https://shopee.co.th/lucernapro">Shopee</a>
+          <a class="shop" href="https://www.lazada.co.th/shop/lucernapro/">Lazada</a>
           <a class="shop" href="https://www.youtube.com/channel/UC8xkRcjo_5RZoNm_jV7kg7g">▶ YouTube</a>
           <a class="shop" href="https://www.facebook.com/lucernapro">Facebook</a>
           <a class="shop" href="https://instagram.com/lucerna_pro">Instagram</a>
-          <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+          <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">Line @lucerna</a>
         </div>
       </div>
       <div class="contact-list">
@@ -585,7 +595,7 @@ img{height:auto}
 
 <div class="mob-bar">
   <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Facebook chat</a>
-  <a class="mob-tel" href="tel:0970799547">📞 Call now</a>
+  <a class="mob-tel" href="tel:0970799547">Call now</a>
 </div>
 
 <script>
@@ -615,10 +625,15 @@ function applyFilter(){
     shown += secShown;
   });
   emptyBox.classList.toggle('hidden', shown>0);
+  const shelf = document.getElementById('shelf');
+  if(shelf) shelf.classList.toggle('hidden', !!(text||needle));
   note.textContent = (text||needle) ? `Found ${shown} products` : `Showing all ${shown} products`;
 }
 
+applyFilter();
 q.addEventListener('input', applyFilter);
+q.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault();
+  document.getElementById('catalog').scrollIntoView({behavior:'smooth', block:'start'}); } });
 chips.forEach(ch=>{
   ch.addEventListener('click', ()=>{
     if(ch.classList.contains('active')){ ch.classList.remove('active'); activeTag=null; }

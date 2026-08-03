@@ -1282,3 +1282,26 @@ hreflang + lang-switch โยงสองทาง · ไม่มีสีต�
 2. **`tools/gen_sitemap.py` ต้องรันบน working tree สะอาดเท่านั้น** — lastmod อิง mtime/สถานะไฟล์ รันตอนมีไฟล์ modified ค้างจะเด้ง lastmod ทั้งเว็บเป็นวันนี้ (รอบนี้ 125/127 URL — ทิ้ง regen, ใช้ hand-edit ที่ diff URL set กับ generator แล้วตรงกัน 127=127)
 
 **สถานะจบเซสชัน:** origin/main = `6e05776` verify ผ่าน `git show origin/main` ทุกไฟล์ / Case Study V2: TH 11 / EN 10 / sitemap 127 URL / งานค้างเดิมไม่เปลี่ยน (en/epoxycoating · EN bathroom-grout · Search Console · Ads)
+
+---
+
+## เซสชัน 3 ส.ค. 2026 (รอบ 2) — รื้อ Hero หน้าแรก: เปลี่ยน positioning + ดัน Finder ขึ้น above the fold
+
+**ที่มา:** เจ้าของถามตรงๆ ว่าหัวข้อ "อาวุธลับงานก่อสร้างสำหรับมืออาชีพ" มันดึงคนได้จริงไหม — วินิจฉัยว่าไม่ เพราะ (ก) เป็น cliché ตลาดไทย สมองคนกรองทิ้งอัตโนมัติ (ข) เป็น metaphor ต้องแปลก่อนเข้าใจ = friction ในวินาทีแรก (ค) ไม่ได้บอกว่าขายอะไร ทั้งที่คนเข้าเว็บมาแบบ pain mode ไม่ใช่ brand mode
+
+**Insight ที่ใช้ตั้ง positioning ใหม่:** อ่าน sub-headline สินค้าตัวเองแล้วเจอ pattern ชัด — TileCoat ไม่ต้องรื้อกระเบื้อง / Aquashell ไม่ต้องลอกสีเดิม / Revival ไม่ต้องขัดสนิม / Submarine ไม่ต้องสูบน้ำ / American Iron ไม่ต้องทำสีใหม่ / SwiftSet แทนการเจาะ / PlastiBright-DenimBlack แทนการซื้อใหม่ **"ไม่ต้องรื้อ/ไม่ต้องทำใหม่" คือ through-line จริงของแบรนด์** ครอบ catalog ได้ราว 70% และเป็น benefit ไม่ใช่ metaphor
+
+**เปลี่ยนจริง (index.html + en/index.html):**
+1. **Headline:** `ซ่อมได้ โดยไม่ต้องรื้อ` / EN `Repair it. Without tearing it out.` — เปลี่ยน `<title>` + `og:title` + meta description ตามด้วย
+2. **Lede:** "เคมีเกรดอุตสาหกรรม สำหรับปัญหาที่วัสดุทั่วไปเอาไม่อยู่ — ห้องน้ำรั่วไม่ต้องรื้อกระเบื้อง สนิมไม่ต้องขัดออก กระเบื้องสระหลุดไม่ต้องสูบน้ำทิ้ง และอีกมากมาย"
+3. **Finder ย้ายเข้า hero** — `<section class="finder">` เดิมถูกลบ ย้าย search box + chips 8 ปุ่ม + `id="finder"` มาไว้ใน `.hero-finder` ใต้ lede / ลิงก์ nav `#finder` ยังทำงานปกติ
+4. **ปุ่ม CTA คู่เดิมถูกถอด** — ปุ่ม "ค้นหาสินค้าตามปัญหา" ไม่มีประโยชน์แล้วเพราะช่องค้นหาอยู่ตรงนั้น / "ดู Case Study" ลดเป็นลิงก์ในบรรทัด `.hero-meta`
+5. **Social proof ขึ้นบน** — "คนกว่า 100,000 คน ติดตามบน Facebook" อยู่ในบรรทัด `.hero-meta` คู่กับ result-note (ตัวเดิมท้ายหน้ายังอยู่ ไม่ได้ลบ)
+6. **Emoji ออก** — `🔎` เป็น inline SVG แว่นขยาย / chip 8 ปุ่มเหลือข้อความล้วน / footer `🛒 💬 📞` ออกหมด — **คงไว้เฉพาะ `☰ ✕ 🌙/☀️` เพราะเป็น UI control ไม่ใช่ brand copy**
+
+**🔴 Doctrine ใหม่:**
+1. **ห้าม hardcode จำนวนสินค้าใน HTML** — เดิม `#note` เขียน "49 รายการ" ตายตัว เจ้าของจะเพิ่มสินค้าอีกเยอะ ตัวเลขจะ stale ทันที ตอนนี้เรียก `applyFilter()` ตอนโหลด ให้ JS นับจาก `.card` เอง ข้อความตั้งต้นเหลือ "แสดงสินค้าทั้งหมด" เฉยๆ **หน้าไหนมี counter ให้ compute จาก DOM เสมอ**
+2. **search box อยู่บน = ผลลัพธ์ต้องตามมาทันที** — `applyFilter()` สั่ง `#shelf` (แถบวิดีโอ) `.hidden` เมื่อมี filter ทำงาน ไม่งั้นคนพิมพ์แล้วผลลัพธ์โดนวิดีโอ 4 ตัวบังอยู่ใต้ fold / กด Enter scroll ไป `#catalog`
+3. **ruling คำ "Epoxy" (เจ้าของตัดสิน 3 ส.ค. 2026 — เคลียร์ของค้างใน SPEC เดิม):** ไม่ได้แบนเหมารวม **ใช้ได้กับสินค้าที่มีคำนี้ในชื่ออยู่แล้ว** (สีทาพื้น Epoxy-PU, ยาแนวกันซึม Epoxy, EpoxyPutty) เพราะเป็นคำกลางในตลาด ไม่ใช่การเปิดเผยสูตร — **ห้ามเรียกสินค้าตัวอื่นที่ไม่มีคำนี้ในชื่อว่าเป็น Epoxy เด็ดขาด** (MarineGuard, BoundGravel ฯลฯ) → `/en/epoxycoating` เริ่มทำได้แล้ว ไม่ต้องรอถามอีก
+
+**ยังไม่ตัดสิน:** tagline ซ้อนกันสองอัน — `Leave the Ordinary Behind` (kicker + footer + schema slogan) กับ `Real deal or nothing` (drawer มือถือ) ยังอยู่ทั้งคู่ รอเจ้าของเลือก
