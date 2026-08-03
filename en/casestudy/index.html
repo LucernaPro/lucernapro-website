@@ -25,6 +25,11 @@
   --signal:#D8571C;
   --signal-dark:#ED6A2F;
   --tag-bg:#ECECE9;
+  --disp:'Chakra Petch','Anuphan',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --muted:#5E646A;
+  --orange:#D8571C;
+  --panel:#FFFFFF;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -57,13 +62,18 @@ h1,.body h2,.brand{font-family:'Chakra Petch','Anuphan',sans-serif}
 .topnav{margin-left:auto;display:flex;gap:22px;font-size:.92rem;font-weight:500;color:var(--steel)}
 .topnav a:hover{color:var(--ink)}
 .topnav .active{color:var(--signal);font-weight:600}
-@media(max-width:720px){.topnav{display:none}}
+@media(max-width:860px){.topnav{display:none}}
+@media(max-width:860px){
+  .topbar-inner{padding:0 18px;height:58px;gap:12px}
+  .brand{font-size:16.5px;letter-spacing:.04em;gap:7px}
+  .brand img{width:23px;height:23px}
+}
 .btn-chat{
   margin-left:auto;display:none;
   background:var(--signal);color:#fff;font-weight:600;font-size:.88rem;
   padding:8px 14px;border-radius:8px;
 }
-@media(max-width:720px){.btn-chat{display:inline-block}}
+@media(max-width:860px){.btn-chat{display:inline-block}}
 
 /* ---------- hero ---------- */
 .hero{max-width:1200px;margin:0 auto;padding:56px 20px 8px}
