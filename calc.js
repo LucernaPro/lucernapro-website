@@ -1,4 +1,6 @@
-/* LucernaPro Coverage Calculator v2.0 (2026-08-03)
+/* LucernaPro Coverage Calculator v2.1 (2026-08-03)
+ * v2.1: แก้บั๊ก shipSum ไม่ได้ประกาศ (ReferenceError ใน strict mode ทำให้กรอกตัวเลขแล้วไม่คำนวณเลยทั้งเว็บ)
+ *       + ค่าส่งคิดต่อชิ้นทุกกรณี: data-shipping ระดับตาราง = อัตราเดียวทุกขนาด × จำนวนชิ้น (มติเจ้าของ)
  * เครื่องคำนวณพื้นที่ → ขนาดที่ควรซื้อ + ราคารวม (ไทย/อังกฤษ อัตโนมัติจาก <html lang>)
  *
  * แหล่งข้อมูล = ตารางราคาบนหน้านั้นเอง ไม่มีไฟล์ข้อมูลแยก
@@ -61,7 +63,8 @@
     if (!(sqm > 0) && COV > 0) sqm = parseFloat(sz.getAttribute('data-kg') || '0') * COV;
     if (!(sqm > 0)) return;
     var label = (sz.getAttribute('data-label') || sz.textContent).trim().split('\n')[0].trim();
-    var ship = parseFloat(sz.getAttribute('data-ship') || '0') || 0;
+    /* ค่าส่งต่อชิ้น: data-ship ต่อแถวมาก่อน ไม่มีก็ใช้อัตราเดียวของตาราง (data-shipping) */
+    var ship = parseFloat(sz.getAttribute('data-ship') || '0') || SHIP;
     [].forEach.call(tr.querySelectorAll('td.pr[data-price]'), function (td) {
       var price = parseFloat(td.getAttribute('data-price'));
       if (!(price > 0)) return;
@@ -84,7 +87,9 @@
       for (j = 0; j < packs.length; j++) {
         var u = Math.round(packs[j].sqm * U);
         var prev = i - u < 0 ? 0 : i - u;
-        var c = cost[prev] + packs[j].price;
+        /* optimize จาก "ราคาสินค้า + ค่าส่งของชิ้นนั้น" — ค่าส่งต่อชิ้นเปลี่ยนคำตอบได้จริง
+           (ถังเล็กหลายใบเนื้อถูกกว่า แต่โดนค่าส่งรายชิ้นจนแพงกว่าถังใหญ่) */
+        var c = cost[prev] + packs[j].price + (packs[j].ship || 0);
         if (c < cost[i] - 1e-9) { cost[i] = c; from[i] = j; }
       }
     }
@@ -99,15 +104,16 @@
       covers += pk.sqm;
       cur -= Math.round(pk.sqm * U); if (cur < 0) cur = 0;
     }
-    var items = [], total = 0;
+    var items = [], total = 0, shipSum = 0, pieces = 0;
     for (key in counts) {
       var p = packs[key];
       items.push({ label: p.label, sqm: p.sqm, n: counts[key], sum: p.price * counts[key] });
       total += p.price * counts[key];
       shipSum += (p.ship || 0) * counts[key];
+      pieces += counts[key];
     }
     items.sort(function (a, b) { return b.sqm - a.sqm; });
-    return { items: items, total: total, ship: shipSum, covers: Math.round(covers * 100) / 100 };
+    return { items: items, total: total, ship: shipSum, pieces: pieces, covers: Math.round(covers * 100) / 100 };
   }
 
   var money = function (n) { return n.toLocaleString('en-US'); };
@@ -194,10 +200,13 @@
     r.items.forEach(function (it) {
       h += '<div class="row"><span>' + it.label + ' &times; ' + it.n + '</span><b>' + money(it.sum) + '.-</b></div>';
     });
-    var ship = r.ship || SHIP;
+    /* ค่าส่งคิด "ต่อชิ้น" เสมอ (มติเจ้าของ 3 ส.ค. 2026):
+       data-ship ต่อแถว = อัตราของขนาดนั้น / data-shipping ระดับตาราง = อัตราเดียวใช้ทุกขนาด
+       หลายชิ้นคูณตามจำนวนชิ้น แล้วขึ้นหมายเหตุว่าสั่งจริงเหมาให้ถูกกว่านี้ */
+    var ship = r.ship;
     if (ship) h += '<div class="row"><span>' + T.ship + '</span><b>' + money(ship) + '.-</b></div>';
     h += '<div class="row tot"><span>' + T.total + '</span><span class="o">' + money(r.total + ship) + '.-</span></div>';
-    if (r.ship) h += '<div class="calcnote">' + T.shipnote + '</div>';
+    if (ship && r.pieces > 1) h += '<div class="calcnote">' + T.shipnote + '</div>';
     var NOTE = table.getAttribute(EN ? 'data-note-en' : 'data-note');
     if (NOTE) h += '<div class="calcnote">' + NOTE + '</div>';
     var spare = r.covers - a;
