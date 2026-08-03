@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Waterproofing Techniques That Actually Work | Case Study LucernaPro</title>
 <meta name="description" content="Waterproofing isn't magic in a bucket. The full step-by-step: inspection, crack repair, fiberglass reinforcement, proper mixing, and the two-coat technique.">
@@ -26,6 +27,27 @@
   --orange:#D8571C;
   --panel:#FFFFFF;
 }
+[data-theme="dark"]{
+  --paper:#0B0B0D;
+  --card:#151518;
+  --ink:#F4F4F2;
+  --steel:#9BA0A6;
+  --line:#28282E;
+  --signal:#ED6A2F;
+  --signal-dark:#FF8A4C;
+  --tag-bg:#1B1B1F;
+  --panel:#151518;
+  --muted:#9BA0A6;
+  --orange:#ED6A2F;
+  color-scheme:dark;
+}
+[data-theme="dark"] .topbar{background:rgba(11,11,13,.9)}
+[data-theme="dark"] .thumb{background:#1B1B1F}
+[data-theme="dark"] .chip.on{background:var(--signal);border-color:var(--signal);color:#14100D}
+[data-theme="dark"] .cta{background:#151518}
+[data-theme="dark"] footer{background:#151518;border-top-color:#28282E}
+.theme-toggle{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;line-height:1}
+.theme-toggle:hover{border-color:var(--signal)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Anuphan',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
@@ -152,6 +174,7 @@ footer a:hover{color:#fff}
       <a class="active" href="/en/casestudy/">Case Study</a>
       <a href="/#contact">Contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
     <a class="btn-chat" href="https://lin.ee/LpUR3Ld" style="background:#06C755"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#fff;color:#06C755;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em;margin-right:7px;vertical-align:1px">LINE</span>Add LINE</a>
   </div>
 </header>
@@ -292,5 +315,19 @@ footer a:hover{color:#fff}
 })();
 </script>
 <!-- ═══ end of JS MOBILE DRAWER MENU ═══ -->
+<script>
+(function(){
+  var t=document.getElementById('themeToggle');if(!t)return;
+  var r=document.documentElement;
+  function s(){t.textContent=r.dataset.theme==='dark'?'☀️':'🌙';}
+  t.addEventListener('click',function(){
+    r.dataset.theme=r.dataset.theme==='dark'?'':'dark';
+    if(!r.dataset.theme)delete r.dataset.theme;
+    try{localStorage.setItem('lucerna-theme',r.dataset.theme||'');}catch(e){}
+    s();
+  });
+  s();
+})();
+</script>
 </body>
 </html>
