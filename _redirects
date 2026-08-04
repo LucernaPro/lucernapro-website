@@ -60,3 +60,11 @@
 /post/%E0%B8%8A%E0%B8%A1%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%82%E0%B8%AD%E0%B8%87-deepstick-%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%8A%E0%B8%B1%E0%B8%94%E0%B9%86 /casestudy 302
 /post/ซ่อมสระว่ายน้ำด้วย-polypro /casestudy 302
 /post/%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-polypro /casestudy 302
+
+# ไฟล์ภายใน — ห้าม serve สู่สาธารณะ (มติเจ้าของ 4 ส.ค. 2026) ห้ามลบบรรทัดพวกนี้
+# หมวดที่ 3 นอกเหนือ 301/302 ปกติ: ปิดทางเข้าเอกสารภายในจากฝั่งเว็บ (repo-side แก้แยกต่างหาก)
+/SPEC.md / 302
+/README.md / 302
+/notes/* / 302
+/en/notes/* / 302
+/tools/* / 302
