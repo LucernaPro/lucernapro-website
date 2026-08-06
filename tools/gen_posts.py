@@ -372,6 +372,72 @@ BASE = "https://www.lucernapro.com"
 
 POSTS_V2 = [
  {
+  "slug": "solar-panel-defender-feibo-lab",
+  "cat": "coat",
+  "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
+  "thumb": "solar-panel-defender-feibo-lab-00.webp",
+  "th": {
+   "title": "เบื้องหลัง Solar Panel Defender — นวัตกรรมปกป้องแผงโซลาร์เซลล์มาตรฐานระดับโลก",
+   "desc": "Solar Panel Defender ไม่ได้เกิดจากการเอาน้ำยาเคลือบเงาทั่วไปหรือเคลือบสีรถมาดัดแปลง — พาไปดูเบื้องหลังศูนย์ R&D Feibo เมืองฉางชา ต้นทาง Raw Material เกรดพรีเมียมระดับ Nano Technology ก่อนนำมาผลิตและควบคุมคุณภาพในประเทศไทย",
+   "cat_label": "เคลือบปกป้อง / กาว",
+   "hero": ("solar-panel-defender-feibo-lab-00.webp", "ห้องปฏิบัติการของศูนย์ R&D Feibo เมืองฉางชา — โต๊ะทดสอบสูตร ตู้อบทดสอบความทนทาน และระบบดูดไอระเหย (Fume Hood) ที่ใช้พัฒนา Raw Material สำหรับงานเคลือบแผงโซลาร์เซลล์โดยเฉพาะ"),
+   "intro": [
+    "ผลิตภัณฑ์ Solar Panel Defender ของเรา ไม่ได้เกิดจากการนำน้ำยาเคลือบเงาทั่วไปหรือเคลือบสีรถยนต์มาดัดแปลงใช้งาน แต่คือนวัตกรรมที่ถูกออกแบบมาโดยเฉพาะด้วยเทคโนโลยีระดับ Nano Technology",
+    "เราทำงานร่วมกับบริษัท Feibo ณ เมืองฉางชา ประเทศจีน ซึ่งเป็นศูนย์ R&D และผู้ผลิต Raw Material ชั้นนำที่มีมาตรฐานระดับสากล เพื่อนำเข้า Raw Material เกรดพรีเมียมที่สุดมาทำการผลิตและควบคุมคุณภาพในประเทศไทย — เคสนี้เราพาไปดูเบื้องหลังของศูนย์แห่งนี้กันชัดๆ ว่าทำไมเราถึงเลือกที่นี่",
+   ],
+   "steps": [
+    {"h":"ทำไมถึงต้องเป็น Nano Technology จากห้องปฏิบัติการเฉพาะทาง",
+     "text":["การเคลือบแผง Solar Cell มีความซับซ้อนและต้องการความแม่นยำสูงกว่างานเคลือบทั่วไปมาก สารเคลือบจะต้องทนทานต่อความร้อนสะสมบนหน้าแผงและรังสี UV ที่เผาอยู่ทุกวัน และที่สำคัญที่สุด — ต้องไม่สร้างชั้นฟิล์มที่หนาจนลดทอนประสิทธิภาพการรับแสง (Light Transmittance) ของแผง เพราะเคลือบแล้วแผงผลิตไฟได้น้อยลงคือผิดวัตถุประสงค์ตั้งแต่ต้น นี่คือเหตุผลว่าทำไมน้ำยาเคลือบเงาหรือเคลือบเซรามิกรถยนต์ที่ออกแบบมาเพื่อความเงาและเม็ดน้ำกลิ้ง จึงไม่ใช่คำตอบสำหรับงานนี้"],
+     "figs":[]},
+    {"h":"Advanced Laboratory — สเกลการทำงานที่จริงจังและได้มาตรฐาน",
+     "text":["จากภาพรวมของศูนย์วิจัย Feibo คุณจะเห็นถึงสเกลการทำงานที่จริงจัง ห้อง Lab วิจัยเพียบพร้อมไปด้วยอุปกรณ์วิเคราะห์ทางเคมี ระบบจัดการมลพิษ (Fume Hood) และตู้อบสำหรับทดสอบความทนทานต่อสภาพอากาศ — สูตรที่ออกจากที่นี่ผ่านการทดสอบซ้ำในสภาวะจำลองก่อนเสมอ ไม่ใช่ผสมแล้วบรรจุขายเลย"],
+     "figs":[("solar-panel-defender-feibo-lab-01.webp","ทีมวิจัยของ Feibo ทำงานอยู่ในห้อง Lab จริงทุกวัน — ห้องปฏิบัติการแยกเป็นสัดส่วนพร้อมระบบระบายอากาศเฉพาะ")]},
+    {"h":"โฟกัสงานโซลาร์เซลล์แบบครบวงจร ไม่ใช่เคมีทั่วไปที่แถมงานโซลาร์",
+     "text":["สิ่งที่ทำให้เรามั่นใจอีกอย่างคือที่นี่หายใจเป็นงานโซลาร์เซลล์จริงๆ ทั้งสารเคลือบ อุปกรณ์ดูแลรักษาแผง และแผงจริงสำหรับทดสอบ ถูกจัดแสดงและใช้งานอยู่ในที่เดียวกัน ปัญหาหน้างานจริงของแผงโซลาร์เซลล์คือโจทย์หลักของศูนย์นี้ ไม่ใช่งานเสริม"],
+     "figs":[("solar-panel-defender-feibo-lab-03.webp","โซนสาธิตของศูนย์ — อุปกรณ์ทำความสะอาดแผงครบระบบ ติดตั้งคู่กับแผงโซลาร์เซลล์จริงขนาดเต็ม"),
+             ("solar-panel-defender-feibo-lab-04.webp","แปรงล้างแผง หัวฉีดน้ำ และลูกกลิ้งเฉพาะทาง — อุปกรณ์ทุกชิ้นออกแบบมาเพื่อผิวกระจกแผงโซลาร์เซลล์โดยเฉพาะ")]},
+    {"h":"มี Certificate และผลทดสอบรองรับเพื่อการส่งออกทั่วโลก",
+     "text":["Raw Material จากศูนย์นี้มี Certificate และผลทดสอบรองรับเพื่อการส่งออกทั่วโลก ใบรับรองและรางวัลจัดแสดงอยู่คู่กับตัวอย่างวัสดุจริงให้ตรวจสอบได้ — สำหรับเราเรื่องนี้สำคัญ เพราะเอกสารทดสอบคือสิ่งที่แยก \u201cของจริง\u201d ออกจากคำโฆษณา"],
+     "figs":[("solar-panel-defender-feibo-lab-05.webp","ผนังใบรับรองและรางวัลของศูนย์ Feibo จัดแสดงคู่กับโซนทดสอบวัสดุ มองทะลุเข้าไปเห็นห้อง Lab ด้านใน"),
+             ("solar-panel-defender-feibo-lab-02.webp","ชั้นจัดแสดง Raw Material และตัวอย่างชิ้นงานทดสอบ — วัสดุแต่ละรุ่นมีตัวอย่างจริงประกอบ ไม่ใช่แค่แคตตาล็อก")]},
+    {"h":"จาก Raw Material พรีเมียม สู่การผลิตและควบคุมคุณภาพในไทย",
+     "text":["ด้วยความมุ่งมั่นที่จะแก้ปัญหาให้กับผู้ใช้งานระบบพลังงานแสงอาทิตย์ เราจึงนำเข้า Raw Material ที่ผ่านการทดสอบอย่างเข้มงวดเหล่านี้ มาผ่านกระบวนการผลิตที่ได้มาตรฐานในไทย เพื่อส่งมอบนวัตกรรมระดับ Nano ที่แท้จริง ให้คุณมั่นใจได้ว่าแผง Solar Cell ของคุณจะได้รับการปกป้องอย่างเต็มประสิทธิภาพ ยืดอายุการใช้งาน และรักษากำลังการผลิตไฟฟ้าได้อย่างยาวนาน"],
+     "figs":[]},
+   ],
+   "prods":[("Solar Panel Defender","/solarpaneldefender")],
+  },
+  "en": {
+   "title": "Inside Solar Panel Defender — World-Class Innovation Behind Our Solar Panel Protection",
+   "desc": "Solar Panel Defender isn't a repurposed car polish or generic gloss coating — take a look inside the Feibo R&D center in Changsha, the source of the premium nano-grade raw material we manufacture and quality-control in Thailand.",
+   "cat_label": "Coatings / Adhesives",
+   "hero": ("solar-panel-defender-feibo-lab-00.webp", "Inside the Feibo R&D laboratory in Changsha — formulation benches, durability-test ovens, and fume-extraction systems dedicated to developing raw materials for solar panel coatings."),
+   "intro": [
+    "Our Solar Panel Defender was not created by repurposing a generic gloss coating or an automotive paint sealant. It is an innovation engineered specifically for solar panels, built on genuine nano technology.",
+    "We work with Feibo, an R&D center and leading raw-material manufacturer in Changsha, China, operating to international standards — importing their most premium raw material grade for manufacturing and quality control in Thailand. In this case study, we take you behind the scenes to show exactly why we chose this partner.",
+   ],
+   "steps": [
+    {"h":"Why it has to be nano technology from a specialized laboratory",
+     "text":["Coating a solar panel is far more demanding than ordinary coating work. The coating must withstand the heat that builds up on the panel face and the UV radiation baking it every day — and most critically, it must not form a film thick enough to reduce the panel's light transmittance. A coating that makes the panel produce less power defeats the purpose from day one. That is why gloss coatings and automotive ceramic coatings, designed for shine and water beading, are simply not the answer here."],
+     "figs":[]},
+    {"h":"An advanced laboratory — serious scale, serious standards",
+     "text":["One look inside the Feibo research center shows the scale of the operation: a research lab fully equipped with chemical analysis instruments, fume-extraction systems, and climate ovens for weathering tests. Every formula that leaves this facility has been through repeated testing under simulated conditions — nothing gets mixed and bottled straight for sale."],
+     "figs":[("solar-panel-defender-feibo-lab-01.webp","Feibo's research team at work in the lab — a dedicated, partitioned laboratory with its own ventilation system.")]},
+    {"h":"Fully focused on solar — not a general chemical shop with a solar side line",
+     "text":["What gives us extra confidence is that this place lives and breathes solar. Coatings, panel-maintenance equipment, and full-size test panels are displayed and used together in one facility. Real-world solar panel problems are this center's core mission, not an afterthought."],
+     "figs":[("solar-panel-defender-feibo-lab-03.webp","The center's demo zone — a complete panel-cleaning system installed alongside a real full-size solar panel."),
+             ("solar-panel-defender-feibo-lab-04.webp","Panel-washing brushes, water-fed heads, and specialized rollers — every tool engineered specifically for solar panel glass.")]},
+    {"h":"Certificates and test reports supporting worldwide export",
+     "text":["The raw materials from this center carry certificates and test reports that support export worldwide. Certifications and awards are displayed right alongside physical material samples, open for inspection — and to us that matters, because test documentation is what separates the real thing from marketing claims."],
+     "figs":[("solar-panel-defender-feibo-lab-05.webp","Feibo's wall of certifications and awards, displayed beside the material-testing zone, with the laboratory visible through the glass."),
+             ("solar-panel-defender-feibo-lab-02.webp","Display shelves of raw materials and test specimens — every material grade backed by a physical sample, not just a catalog page.")]},
+    {"h":"From premium raw material to manufacturing and QC in Thailand",
+     "text":["Driven by our commitment to solving real problems for solar energy users, we import these rigorously tested raw materials and put them through a standards-controlled manufacturing process in Thailand — delivering genuine nano-grade innovation, so you can be confident your solar panels get full-strength protection, a longer service life, and sustained power output for years to come."],
+     "figs":[]},
+   ],
+   "prods":[("Solar Panel Defender","/en/solarpaneldefender")],
+  },
+ },
+ {
   "slug": "why-coating-over-cracks-fails",
   "cat": "joint tips",
   "date_th": "ส.ค. 2026", "date_en": "Aug 2026",
@@ -1336,7 +1402,8 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
 """
 
 # รูปแนวตั้ง (สูงกว่ากว้าง) — จำกัดความกว้างด้วย class .tall กันภาพล้นจอ
-V2_TALL = {"waterproofing-techniques-07.webp","waterproofing-techniques-08.webp","waterproofing-techniques-11.webp"}
+V2_TALL = {"waterproofing-techniques-07.webp","waterproofing-techniques-08.webp","waterproofing-techniques-11.webp",
+           "solar-panel-defender-feibo-lab-04.webp"}
 
 
 
@@ -1395,6 +1462,11 @@ def build_v2(p, root):
             f.write(html)
         print("built:", outdir)
 
+# ⚠️ WARNING (6 ส.ค. 2026): TEMPLATE ในไฟล์นี้ล้าหลังกว่าหน้า live แล้ว —
+#   หน้าโพสต์จริงถูกอัปเกรด dark theme + theme script ทีหลังโดยไม่ได้ sync กลับมาที่ template
+#   ห้ามรัน __main__ ตรงๆ เพื่อ regenerate ทั้งชุด (จะทำลาย dark mode ทุกหน้า และสร้างโพสต์ V1 ที่ cull ไปแล้วกลับมา)
+#   โพสต์ใหม่ล่าสุด (solar-panel-defender-feibo-lab) สร้างโดย transplant chrome จากหน้า live แทน
+#   ถ้าจะกลับมาใช้ generator ต้อง sync template ให้ตรงหน้า live ก่อน แล้ว verify byte-identical
 if __name__ == "__main__":
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     for p in POSTS:
