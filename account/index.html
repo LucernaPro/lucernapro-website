@@ -825,7 +825,31 @@ document.getElementById('btnPrint').onclick = async ()=>{
   setTimeout(()=>window.print(), 150);
 };
 
-/* ---------- Save PNG ---------- */
+/* ---------- ส่งออก PNG: เลือกวิธีที่ดีที่สุดของแต่ละเครื่อง ---------- */
+async function exportPNG(canvas, name){
+  const blob = await new Promise(r=>canvas.toBlob(r,'image/png'));
+  /* 1) PC (Chrome/Edge): เลือกโฟลเดอร์ + ชื่อไฟล์เองได้ */
+  if(window.showSaveFilePicker){
+    try{
+      const h = await showSaveFilePicker({suggestedName:name, types:[{description:'รูปภาพ PNG', accept:{'image/png':['.png']}}]});
+      const w = await h.createWritable(); await w.write(blob); await w.close();
+      return {how:'picker'};
+    }catch(e){ if(e.name==='AbortError') return {how:'cancelled'}; /* อื่นๆ ตกไป fallback */ }
+  }
+  /* 2) มือถือ: share sheet — กดบันทึกรูป หรือส่งเข้า LINE ต่อได้ทันที */
+  try{
+    const file = new File([blob], name, {type:'image/png'});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({files:[file]});
+      return {how:'share'};
+    }
+  }catch(e){ if(e.name==='AbortError') return {how:'cancelled'}; }
+  /* 3) สำรอง: ดาวน์โหลดตรง (ไม่เปิดแท็บใหม่) */
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
+  return {how:'download'};
+}
+
 document.getElementById('btnSave').onclick = async function(){
   const btn=this, doc=document.getElementById('doc'), scaler=document.getElementById('scaler');
   btn.disabled=true; btn.textContent='กำลังบันทึก…';
@@ -839,18 +863,13 @@ document.getElementById('btnSave').onclick = async function(){
     await document.fonts.ready;
     const canvas=await html2canvas(doc,{scale:2,backgroundColor:'#FFFFFF',useCORS:true});
     const name=(document.getElementById('docNo').textContent.trim().replace(/[^\w\-]/g,'_')||'quotation')+'.png';
-    const url=canvas.toDataURL('image/png');
-    const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
-    if(isIOS){
-      const w=window.open('');
-      if(w){ w.document.write('<img src="'+url+'" style="width:100%">');
-             showToast('กดค้างที่รูป แล้วเลือก "บันทึกลงในรูปภาพ"',5000); }
-      else showToast('เปิดหน้าต่างไม่ได้ — อนุญาต popup แล้วลองใหม่',4200);
-    }else{
-      const a=document.createElement('a'); a.href=url; a.download=name; a.click();
-      showToast((s.ok ? 'บันทึกลงระบบแล้ว ✓ เลขที่ '+s.no+'\n' : (s.skipped?'':'⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+')\n'))
-        + 'บันทึกรูปแล้ว ✓ ดูได้ในอัลบั้ม/Downloads', 4500);
-    }
+    const r = await exportPNG(canvas, name);
+    const saveMsg = s.ok ? 'บันทึกลงระบบแล้ว ✓ เลขที่ '+s.no+'\n'
+                  : (s.skipped ? '' : '⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+')\n');
+    if(r.how==='picker')    showToast(saveMsg+'บันทึกไฟล์ลงโฟลเดอร์ที่เลือกแล้ว ✓', 4200);
+    else if(r.how==='share')showToast(saveMsg+'ส่งรูปเข้า share sheet แล้ว ✓', 4200);
+    else if(r.how==='download')showToast(saveMsg+'ดาวน์โหลดรูปแล้ว ✓ ('+name+')', 4200);
+    else if(r.how==='cancelled' && saveMsg) showToast(saveMsg.trim(), 3200);
   }catch(err){ showToast('สร้างรูปไม่สำเร็จ: '+err.message,4500); }
   scaler.style.transform=saved;
   document.body.classList.remove('exporting');
