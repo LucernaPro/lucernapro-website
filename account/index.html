@@ -681,7 +681,7 @@ function parsePaste(){
       }
     }
     /* เบอร์โทร */
-    if(/โทร|โทรศัพท์|โทรสาร|แฟกซ์|Tel|Fax|เบอร์|(^|\s)[TF]\.\s*0/i.test(line) || /^0\d{9}$/.test(line.replace(/[-\s,]/g,''))){
+    if((/โทร|โทรศัพท์|โทรสาร|แฟกซ์|Tel|Fax|เบอร์|(^|\s)[TF]\.\s*0/i.test(line) && !ADDR.test(line) && !ADDR_EN.test(line)) || /^0\d{9}$/.test(line.replace(/[-\s,]/g,''))){
       const ph = line.match(/0\d{1,2}[-\s]?\d{3}[-\s]?\d{3,4}/g);
       if(ph){ d.phone.push(...ph); continue; }
     }
