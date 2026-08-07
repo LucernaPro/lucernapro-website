@@ -269,7 +269,8 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v8</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v9</span></div>
+<div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
 <div class="doc" id="doc">
@@ -351,7 +352,7 @@
       <div class="row"><span>รวมเป็นเงิน</span><span class="v" id="subTotal">0.00</span></div>
       <div class="row" id="rowDisc"><span>ส่วนลด</span><span class="v" id="disc">0.00</span></div>
       <div class="row" id="rowAfter"><span>จำนวนเงินหลังหักส่วนลด</span><span class="v" id="afterDisc">0.00</span></div>
-      <div class="row sub"><span>ราคาไม่รวมภาษีมูลค่าเพิ่ม</span><span class="v" id="preVat">0.00</span></div>
+      <div class="row sub" id="rowPreVat"><span>ราคาไม่รวมภาษีมูลค่าเพิ่ม</span><span class="v" id="preVat">0.00</span></div>
       <div class="row sub"><span>ภาษีมูลค่าเพิ่ม 7%</span><span class="v" id="vat">0.00</span></div>
       <div class="grand"><span class="k">จำนวนเงินรวมทั้งสิ้น</span><span class="v" id="grand">0.00</span></div>
       <div class="baht-text" id="bahtText">( ศูนย์บาทถ้วน )</div>
@@ -416,6 +417,17 @@ let docDirty = true;      /* มีการแก้ไขที่ยังไ
 let lastSavedNo = null;
 let lastSavedCust = null; /* ชื่อลูกค้าของใบที่ save ล่าสุด — กันเขียนทับข้ามลูกค้า */
 
+function setSaveStatus(ok, text){
+  const el = document.getElementById('saveStatus');
+  const t = new Date().toTimeString().slice(0,5);
+  el.textContent = 'ระบบบันทึก: ' + (ok ? '✓ ' : '✗ ') + text + ' (' + t + ')';
+  el.style.color = ok ? '#7FB77E' : '#E08A8A';
+}
+function setPendingNo(){
+  const now = new Date();
+  const ym = now.getFullYear() + String(now.getMonth()+1).padStart(2,'0');
+  document.getElementById('docNo').textContent = 'QT-' + ym + '-XXXX';   /* เลขจริงออกตอนบันทึก */
+}
 function collectDoc(){
   const items = [...document.querySelectorAll('#tbody tr')].map(tr=>({
     name: tr.querySelector('td:nth-child(2) div').textContent.trim(),
@@ -468,16 +480,18 @@ async function ensureSaved(){
       headers:{'content-type':'application/json','x-pin':pin},
       body: JSON.stringify(payload)
     });
-    if(res.status === 401){ clearPin(); return {ok:false, err:'PIN ไม่ถูกต้อง — กดใหม่แล้วใส่อีกครั้ง'}; }
+    if(res.status === 401){ clearPin(); setSaveStatus(false,'PIN ไม่ถูกต้อง'); return {ok:false, err:'PIN ไม่ถูกต้อง — กดใหม่แล้วใส่อีกครั้ง'}; }
     const j = await res.json();
     if(res.ok && j.no){
       if(asked) storePin(pin);                     /* จำ PIN เฉพาะเมื่อพิสูจน์แล้วว่าถูก */
       document.getElementById('docNo').textContent = j.no;
       lastSavedNo = j.no; lastSavedCust = payload.customer.name; docDirty = false;
+      setSaveStatus(true, (j.updated?'อัพเดต ':'บันทึก ')+j.no);
       return {ok:true, no:j.no, updated: !!j.updated};
     }
+    setSaveStatus(false, j.error||('HTTP '+res.status));
     return {ok:false, err:j.error||('HTTP '+res.status)};
-  }catch(e){ return {ok:false, err:e.message}; }
+  }catch(e){ setSaveStatus(false, e.message); return {ok:false, err:e.message}; }
 }
 
 /* ---------- ย่อให้พอดีจอ ---------- */
@@ -525,8 +539,10 @@ function recalc(){
   document.getElementById('vat').textContent = money(vat);
   document.getElementById('grand').textContent = money(grand);
   document.getElementById('bahtText').textContent = '( ' + bahtText(grand) + ' )';
+  /* โหมดไม่รวม VAT: "รวมเป็นเงิน" คือยอดก่อนภาษีอยู่แล้ว ไม่ต้องมีบรรทัดซ้ำ */
+  document.getElementById('rowPreVat').style.display = exVat ? 'none' : '';
   document.getElementById('vatNote').textContent =
-    exVat ? 'ราคาสินค้าไม่รวมภาษีมูลค่าเพิ่ม' : 'ราคาสินค้ารวมภาษีมูลค่าเพิ่มแล้ว';
+    exVat ? '' : 'ราคาสินค้ารวมภาษีมูลค่าเพิ่มแล้ว';
   fit();
 }
 document.getElementById('discInput').addEventListener('input', recalc);
@@ -647,6 +663,8 @@ function parsePaste(){
   const CO_EN = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 
   for(let line of lines){
+    /* บรรทัดคำสั่งชนิดอื่น (ออกใบกำกับภาษี/แจ้งหนี้/วางบิล) — ไม่ใช่ข้อมูลลูกค้า */
+    if(/^ออกใบ/.test(line)) continue;
     /* อีเมล */
     const em = line.match(/[\w.+-]+@[\w-]+\.[\w.]+/);
     if(em){ d.email = em[0]; line = line.replace(em[0],'').trim(); if(!line) continue; }
@@ -667,6 +685,13 @@ function parsePaste(){
       const ph = line.match(/0\d{1,2}[-\s]?\d{3}[-\s]?\d{3,4}/g);
       if(ph){ d.phone.push(...ph); continue; }
     }
+    /* เบอร์โทรแฝงในบรรทัดอื่น เช่น (โทร.0950916233) — ดึงเข้าช่องโทร แล้วแยกส่วนที่เหลือต่อ */
+    const phin = line.match(/\(?\s*โทร\.?\s*:?\s*(0[\d\-\s]{8,12}\d)\s*\)?/);
+    if(phin){
+      d.phone.push(phin[1].replace(/[\s]/g,''));
+      line = line.replace(phin[0],'').trim();
+      if(!line) continue;
+    }
     /* ค่าส่ง */
     if(/^(ค่าส่ง|ค่าขนส่ง|ค่าจัดส่ง)/.test(line)){
       const m = line.match(/[\d,]+(?:\.\d+)?/);
@@ -684,7 +709,7 @@ function parsePaste(){
     else { const br = line.match(/สาขา\s*\S+/); if(br && !CO.test(line)) d.branch = br[0]; }
     if(!line) continue;
     /* ชื่อบุคคล นำหน้าด้วย คุณ/ช่าง/Khun/K. */
-    if(!d.name && /^(คุณ|ช่าง|khun|k\.)\s*\S/i.test(line) && !ADDR.test(line) && !ADDR_EN.test(line)){ d.name = line; continue; }
+    if(!d.name && /^(คุณ|ช่าง|นาย|นางสาว|นาง|น\.ส\.|khun|k\.)\s*\S/i.test(line) && !ADDR.test(line) && !ADDR_EN.test(line)){ d.name = line; continue; }
     /* ชื่อนิติบุคคล (ไทยหรืออังกฤษ) */
     if((CO.test(line) || CO_EN.test(line)) && !ADDR.test(line) && !ADDR_EN.test(line) && !d.name){ d.name = line; continue; }
     /* ที่อยู่ (ไทยหรืออังกฤษ หรือจบด้วยรหัสไปรษณีย์) */
@@ -736,6 +761,7 @@ function parsePaste(){
   document.getElementById('discInput').value = d.itemDisc > 0 ? d.itemDisc : '';
   document.getElementById('discMode').value = 'baht';
   lastSavedNo = null;   /* paste ใหม่ = ใบใหม่เสมอ ออกเลขใหม่ได้ */
+  setPendingNo();
 
   if(d.items.length){
     tbody.innerHTML = '';
@@ -836,6 +862,7 @@ document.getElementById('btnReset').onclick = function(){
   document.getElementById('shipInput').value = '';
   document.getElementById('exVat').checked = false;
   docDirty = true; lastSavedNo = null;
+  setPendingNo();
   recalc();
   showToast('ล้างฟอร์มแล้ว พร้อมออกใบใหม่');
 };
