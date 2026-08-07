@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/glasscoating">
 <link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/glasscoating">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Glass Coating น้ำยาเคลือบกระจก Self-Cleaning","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบกระจกอาคารเทคโนโลยี Self-Cleaning — ฟิล์ม Superhydrophilic ทำให้น้ำแผ่เป็นแผ่นไม่เกาะหยด พาฝุ่นและคราบไหลลงตามน้ำฝน ฟิล์มใสแสงผ่าน 92.7% ความแข็ง 6H สำหรับ Curtain Wall หลังคากระจก และกระจกอาคาร","image":"https://www.lucernapro.com/img/glasscoating-hero.webp","url":"https://www.lucernapro.com/glasscoating"}
+{"@context":"https://schema.org","@type":"Product","name":"Glass Coating น้ำยาเคลือบกระจก Self-Cleaning","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบกระจกอาคารเทคโนโลยี Self-Cleaning — ฟิล์ม Superhydrophilic ทำให้น้ำแผ่เป็นแผ่นไม่เกาะหยด พาฝุ่นและคราบไหลลงตามน้ำฝน ฟิล์มใสแสงผ่าน 92.7% ความแข็ง 6H สำหรับ Curtain Wall หลังคากระจก และกระจกอาคาร","image":"https://www.lucernapro.com/img/glasscoating-hero.webp","url":"https://www.lucernapro.com/glasscoating","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}
 </script>
 <link rel="icon" type="image/png" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -338,6 +338,7 @@ img{height:auto}
   .speccard td:last-child{font-family:var(--mono);white-space:nowrap}
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -389,7 +390,7 @@ img{height:auto}
       <h1>Glass <span class="o">Coating</span><br>น้ำยาเคลือบกระจก Self-Cleaning</h1>
       <p class="lede">กระจกอาคาร Curtain Wall หลังคากระจก — เคลือบครั้งเดียว แล้ว<b>ให้ฝนช่วยล้างแทนคุณ</b> ฟิล์ม Superhydrophilic ทำให้น้ำแผ่เป็นแผ่นบางไม่เกาะหยด พาฝุ่นและคราบไหลลงไปพร้อมกัน ใสจนมองไม่เห็นว่าเคลือบอยู่</p>
       <div class="hero-cta">
-        <a class="btn btn-orange" href="#price">สอบถามราคา</a>
+        <a class="btn btn-orange" href="#price">สั่งซื้อ / ดูราคา</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ปรึกษาหน้างานฟรี</a>
       </div>
     </div>
@@ -456,16 +457,19 @@ img{height:auto}
 
 <section class="buybox" id="price">
   <div class="wrap">
-    <h2 class="sec-h">ราคา — <em>สอบถามทางแชท</em></h2>
-    <div class="askprice">
-      <h3>ตัวนี้ยังไม่ขึ้นราคาหน้าเว็บ และยังไม่มีขายใน Shopee / Lazada</h3>
-      <p>เป็นสินค้า<b>นำเข้าล็อตใหม่</b> ราคาขึ้นกับปริมาณและลักษณะงาน — งานกระจกบานเดียวกับงาน Curtain Wall ทั้งตึกคนละเรื่องกัน เราจึงให้ทีมงานคุยตรงเพื่อเสนอราคาที่ตรงกับงานจริงของคุณ ไม่ตั้งราคากลางที่แพงเกินสำหรับงานเล็กหรือถูกเกินจนต้องบวกทีหลัง</p>
-      <p><b>บอกเรามาสองอย่างพอ:</b> พื้นที่กระจกโดยประมาณ (ตร.ม.) และลักษณะงาน (กระจกอาคาร / หลังคากระจก / อื่นๆ) — ทีมงานตอบพร้อมราคาและปริมาณที่ต้องใช้</p>
-      <div class="row">
-        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>สอบถามราคาทางแชทเพจ</a>
-        <a class="btn btn-ghost" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
-      </div>
+    <h2 class="sec-h">ขนาดและราคา</h2>
+    <div class="pricecard">
+      <table data-calc="1" data-shipping="70">
+        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>
+        <tbody>
+          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 ตร.ม.</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 ตร.ม.</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 ตร.ม.</td><td class="pr" data-price="6600">6,600.-</td></tr>
+          <tr data-calc="skip"><td class="sz">งานโครงการ<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">Curtain Wall / อาคารทั้งหลัง</small></td><td>พื้นที่ขนาดใหญ่</td><td class="pr">ราคาโครงการ — สอบถาม</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="pricenote">ค่าจัดส่ง <b>70 บาท</b> · พื้นที่ต่อขวดคิดจากการพ่น<b>ชั้นบางชั้นเดียว</b>ตามขั้นตอนด้านล่าง — ยิ่งบางยิ่งดีทั้งผลลัพธ์และความคุ้ม · <b>งานใหญ่มีราคาโครงการ</b> แจ้งพื้นที่กระจก (ตร.ม.) มาทางแชทเพจ เราเสนอราคาและคำนวณปริมาณให้ฟรีก่อนสั่งซื้อ</p>
   </div>
 </section>
 
@@ -570,7 +574,7 @@ img{height:auto}
     <h2 class="sec-h">สั่งซื้อ <em>Glass Coating</em></h2>
     <div class="ordercard">
       <h3>ช่วงเปิดตัว — สั่งผ่านแชทเท่านั้น</h3>
-      <div class="sub">สินค้านำเข้าล็อตใหม่ ยังไม่ขึ้น Shopee / Lazada เพราะราคาขึ้นกับปริมาณและลักษณะงาน — แจ้งพื้นที่กระจก (ตร.ม.) มาได้เลย ทีมงานเสนอราคาพร้อมคำนวณปริมาณให้ฟรี</div>
+      <div class="sub">สินค้านำเข้าล็อตใหม่ ยังไม่ขึ้น Shopee / Lazada ในช่วงเปิดตัว — สั่งตรงผ่านแชทได้ราคาตามตารางด้านบน แจ้งพื้นที่กระจก (ตร.ม.) มาได้เลย ทีมงานคำนวณปริมาณให้ฟรีก่อนสั่ง · <b>งานใหญ่มีราคาโครงการ</b></div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>

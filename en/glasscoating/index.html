@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/glasscoating">
 <link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/glasscoating">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Glass Coating — Self-Cleaning Glass Treatment","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Self-cleaning coating for architectural glass — a superhydrophilic film makes water sheet off instead of beading, carrying dust and grime down with every rain. 92.7% light transmittance, 6H pencil hardness, for curtain walls, glass roofs and building glazing.","image":"https://www.lucernapro.com/img/glasscoating-hero.webp","url":"https://www.lucernapro.com/en/glasscoating"}
+{"@context":"https://schema.org","@type":"Product","name":"Glass Coating — Self-Cleaning Glass Treatment","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Self-cleaning coating for architectural glass — a superhydrophilic film makes water sheet off instead of beading, carrying dust and grime down with every rain. 92.7% light transmittance, 6H pencil hardness, for curtain walls, glass roofs and building glazing.","image":"https://www.lucernapro.com/img/glasscoating-hero.webp","url":"https://www.lucernapro.com/en/glasscoating","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}
 </script>
 <link rel="icon" type="image/png" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -338,6 +338,7 @@ img{height:auto}
   .speccard td:last-child{font-family:var(--mono);white-space:nowrap}
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 </head>
 <body>
 
@@ -389,7 +390,7 @@ img{height:auto}
       <h1>Glass <span class="o">Coating</span><br>Self-Cleaning Glass Treatment</h1>
       <p class="lede">Curtain walls, glass roofs, high-rise glazing — coat once, then <b>let the rain do the washing</b>. A superhydrophilic film makes water spread into a thin sheet instead of beading, carrying dust and grime down with it. Completely invisible once applied.</p>
       <div class="hero-cta">
-        <a class="btn btn-orange" href="#price">Ask for pricing</a>
+        <a class="btn btn-orange" href="#price">Order / See pricing</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Free consultation</a>
       </div>
     </div>
@@ -456,16 +457,19 @@ img{height:auto}
 
 <section class="buybox" id="price">
   <div class="wrap">
-    <h2 class="sec-h">Pricing — <em>ask us in chat</em></h2>
-    <div class="askprice">
-      <h3>No list price yet, and not on Shopee / Lazada</h3>
-      <p>This is a <b>newly imported product</b> and pricing depends on volume and the nature of the job — a single pane and a full curtain wall are entirely different projects. We quote each job directly so you are not paying an inflated flat price for a small job, or an underpriced one that gets padded later.</p>
-      <p><b>Just tell us two things:</b> your approximate glass area (m²) and the type of job (building glazing / glass roof / other) — our team replies with a price and the quantity you will need.</p>
-      <div class="row">
-        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Ask for pricing on Facebook</a>
-        <a class="btn btn-ghost" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
-      </div>
+    <h2 class="sec-h">Sizes and pricing</h2>
+    <div class="pricecard">
+      <table data-calc="1" data-shipping="70">
+        <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 m²</td><td class="pr" data-price="830">830 THB</td></tr>
+          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 m²</td><td class="pr" data-price="3590">3,590 THB</td></tr>
+          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 m²</td><td class="pr" data-price="6600">6,600 THB</td></tr>
+          <tr data-calc="skip"><td class="sz">Project scale<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">Curtain walls / whole buildings</small></td><td>Large areas</td><td class="pr">Project pricing — ask us</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="pricenote">Shipping <b>70 THB</b> · Coverage is based on <b>one thin sprayed coat</b> as described in the steps below — the thinner the coat, the better the result and the further the bottle goes · <b>Project pricing available for large jobs</b> — send your glass area (m²) via chat and we will quote a price and calculate the quantity free before you order.</p>
   </div>
 </section>
 
@@ -570,7 +574,7 @@ img{height:auto}
     <h2 class="sec-h">Order <em>Glass Coating</em></h2>
     <div class="ordercard">
       <h3>Launch period — chat orders only</h3>
-      <div class="sub">Newly imported, not yet listed on Shopee / Lazada because pricing depends on volume and job type — send us your glass area (m²) and we will quote a price and calculate the quantity you need, free.</div>
+      <div class="sub">Newly imported — not yet listed on Shopee / Lazada during the launch period. Order directly via chat at the prices in the table above. Send us your glass area (m²) and we will calculate the quantity you need, free · <b>Project pricing available for large jobs</b>.</div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
