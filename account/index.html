@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
   :root{
     --ink:#2A2118;
@@ -248,6 +249,7 @@
   <div class="brand"><span class="layers"><i></i><i></i><i></i></span>LUCERNA DOCS</div>
   <div class="btns">
     <button class="btn btn-print" id="btnPrint">พิมพ์</button>
+    <button class="btn btn-print" id="btnPdf">PDF</button>
     <button class="btn btn-save" id="btnSave">บันทึกรูป</button>
   </div>
 </div>
@@ -274,7 +276,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v13</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v14</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -991,6 +993,69 @@ document.getElementById('btnPrint').onclick = async ()=>{
   if(s.ok) showToast((s.updated?'อัพเดตใบเดิมแล้ว ✓ เลขที่ ':'บันทึกแล้ว ✓ เลขที่ ')+s.no, 2600);
   else if(!s.skipped) showToast('⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+') — พิมพ์ให้ตามปกติ', 4200);
   setTimeout(()=>printCopies('orig'), 150);
+};
+
+/* ---------- render เอกสารเป็น canvas (เลือกป้ายต้นฉบับ/สำเนาได้) ---------- */
+async function renderDocCanvas(label){
+  const docEl = document.getElementById('doc'), scaler = document.getElementById('scaler');
+  const sub = document.getElementById('copySub');
+  const prev = {d: sub.style.display, t: sub.textContent, tr: scaler.style.transform};
+  if(label){ sub.style.display=''; sub.textContent = label; }
+  scaler.style.transform = 'none';
+  document.body.classList.add('exporting');
+  await document.fonts.ready;
+  const canvas = await html2canvas(docEl, {scale:2, backgroundColor:'#FFFFFF', useCORS:true});
+  document.body.classList.remove('exporting');
+  scaler.style.transform = prev.tr;
+  sub.style.display = prev.d; sub.textContent = prev.t;
+  return canvas;
+}
+
+/* ---------- ส่งไฟล์ (PDF/อื่นๆ): picker บนคอม → share บนมือถือ → ดาวน์โหลดตรง ---------- */
+async function exportFileBlob(blob, name, mime){
+  if(window.showSaveFilePicker){
+    try{
+      const h = await showSaveFilePicker({suggestedName:name, types:[{description:name.split('.').pop().toUpperCase(), accept:{[mime]:['.'+name.split('.').pop()]}}]});
+      const w = await h.createWritable(); await w.write(blob); await w.close();
+      return {how:'picker'};
+    }catch(e){ if(e.name==='AbortError') return {how:'cancelled'}; }
+  }
+  try{
+    const file = new File([blob], name, {type:mime});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({files:[file]});
+      return {how:'share'};
+    }
+  }catch(e){ if(e.name==='AbortError') return {how:'cancelled'}; }
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
+  return {how:'download'};
+}
+
+/* ---------- ปุ่ม PDF: QT หน้าเดียว / INV,BL สองหน้า ต้นฉบับ+สำเนา ---------- */
+document.getElementById('btnPdf').onclick = async function(){
+  const btn = this;
+  btn.disabled = true; btn.textContent = 'กำลังสร้าง…';
+  const s = await ensureSaved();
+  try{
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({unit:'mm', format:'a4', compress:true});
+    const tail = DOCTYPES[docType].tail;
+    const labels = (docType === 'QT') ? [''] : ['ต้นฉบับ'+tail, 'สำเนา'+tail];
+    for(let i = 0; i < labels.length; i++){
+      const canvas = await renderDocCanvas(labels[i]);
+      const h = Math.min(297, canvas.height * 210 / canvas.width);
+      if(i > 0) pdf.addPage();
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, 210, h);
+    }
+    const name = (document.getElementById('docNo').textContent.trim().replace(/[^\w\-]/g,'_')||'document') + '.pdf';
+    const r = await exportFileBlob(pdf.output('blob'), name, 'application/pdf');
+    const saveMsg = s.ok ? (s.updated?'อัพเดตใบเดิมแล้ว ✓ ':'บันทึกแล้ว ✓ ')+s.no+'\n' : (s.skipped?'':'⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+')\n');
+    if(r.how==='picker') showToast(saveMsg+'บันทึก PDF ลงโฟลเดอร์ที่เลือกแล้ว ✓'+(labels.length>1?' ('+labels.length+' หน้า)':''), 4200);
+    else if(r.how==='share') showToast(saveMsg+'ส่ง PDF เข้า share sheet แล้ว ✓', 4200);
+    else if(r.how==='download') showToast(saveMsg+'ดาวน์โหลด PDF แล้ว ✓ ('+name+')', 4200);
+  }catch(err){ showToast('สร้าง PDF ไม่สำเร็จ: '+err.message, 4500); }
+  btn.disabled = false; btn.textContent = 'PDF';
 };
 
 /* ---------- ส่งออก PNG: เลือกวิธีที่ดีที่สุดของแต่ละเครื่อง ---------- */
