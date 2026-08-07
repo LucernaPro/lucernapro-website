@@ -283,7 +283,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v16</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v17</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -567,9 +567,17 @@ function collectDoc(){
 }
 
 /* บันทึกลงระบบ: ขอเลขจริงจาก Worker แล้วอัพเดตหน้าเอกสารก่อน render */
+let _saveInFlight = null;
 async function ensureSaved(){
   if(!API.url) return {skipped:true};              /* ยังไม่ต่อระบบ — ทำงานแบบ standalone ต่อได้ */
   if(!docDirty && lastSavedNo) return {ok:true, no:lastSavedNo};
+  if(_saveInFlight) return _saveInFlight;          /* กันกดรัว: รอบที่ยิงอยู่คือคำตอบของทุกคน */
+  _saveInFlight = _doSave();
+  const r = await _saveInFlight;
+  _saveInFlight = null;
+  return r;
+}
+async function _doSave(){
   let pin = getStoredPin(), asked = false;
   if(!pin){ pin = await askPin(); asked = true; if(!pin) return {ok:false, err:'ไม่ได้ใส่ PIN'}; }
   try{
@@ -595,6 +603,7 @@ async function ensureSaved(){
     return {ok:false, err:j.error||('HTTP '+res.status)};
   }catch(e){ setSaveStatus(false, e.message); return {ok:false, err:e.message}; }
 }
+/* หมายเหตุ: _doSave ถูกเรียกผ่าน ensureSaved เท่านั้น (มีล็อกกันซ้อน) */
 
 /* ---------- ย่อให้พอดีจอ ---------- */
 const DOC_W = 794;
