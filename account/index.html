@@ -283,7 +283,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v20</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v21</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -1058,6 +1058,11 @@ document.getElementById('btnReset').onclick = function(){
   }
   resetArmedAt = 0;
   this.textContent = 'ล้างฟอร์ม'; this.style.background=''; this.style.color='';
+  clearForm();
+  showToast('ล้างฟอร์มแล้ว พร้อมออกใบใหม่');
+};
+
+function clearForm(){
   document.getElementById('pasteArea').value = '';
   document.getElementById('custNameText').textContent = 'ชื่อลูกค้า';
   document.getElementById('inNameCust').textContent = 'ในนาม ....................';
@@ -1079,8 +1084,7 @@ document.getElementById('btnReset').onclick = function(){
   docDirty = true; lastSavedNo = null;
   setPendingNo();
   recalc();
-  showToast('ล้างฟอร์มแล้ว พร้อมออกใบใหม่');
-};
+}
 
 /* ---------- วันที่ตั้งต้น (DD/MM/YYYY ตามฟอร์แมตเดิมของร้าน) + เลขเอกสารระบบใหม่ ---------- */
 (function(){
@@ -1089,7 +1093,7 @@ document.getElementById('btnReset').onclick = function(){
   document.getElementById('docDate').textContent  = fmt(now);
   document.getElementById('validDate').textContent= fmt(new Date(Date.now()+30*864e5));
   document.getElementById('payDate').textContent  = fmt(now);
-  setPendingNo();
+  clearForm();               /* เปิดหน้ามา = ฟอร์มว่างพร้อมทำงาน ไม่มีข้อมูลตัวอย่างค้าง */
 })();
 
 /* ---------- toast ---------- */
