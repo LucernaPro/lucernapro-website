@@ -122,10 +122,15 @@
     body.pcopies .stage, body.pcopies .appbar, body.pcopies .tabs, body.pcopies .pastebox,
     body.pcopies .toolstrip, body.pcopies .hint{display:none!important}
     body.pcopies #printArea{display:block}
-    #printArea .ppage{height:296mm;overflow:hidden;page-break-after:always;display:flex;justify-content:center;align-items:flex-start}
+    #printArea .ppage{page-break-after:always;display:flex;justify-content:center;align-items:flex-start}
+    #printArea .ppage.fixed{height:296mm;overflow:hidden}
+    #printArea .ppage.flow{height:auto;overflow:visible}
     #printArea .ppage:last-child{page-break-after:auto}
     #printArea .pscale{transform-origin:top center}
     #printArea .doc{box-shadow:none;margin:0}
+    /* จุดตัดหน้า ห้ามผ่ากลางของ: แถวสินค้า / บล็อกยอด / ชำระเงิน / ในนาม / ลายเซ็น */
+    #printArea tr, #printArea .totals-wrap, #printArea .paybox,
+    #printArea .in-names, #printArea .signs, #printArea .cust{page-break-inside:avoid}
   }
   .hint{color:#A08B72;font-size:12.5px;text-align:center;padding:8px 20px 10px}
 
@@ -278,7 +283,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v15</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v16</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -1046,10 +1051,22 @@ document.getElementById('btnPdf').onclick = async function(){
     const labels = (docType === 'QT') ? [''] : ['ต้นฉบับ'+tail, 'สำเนา'+tail];
     for(let i = 0; i < labels.length; i++){
       const canvas = await renderDocCanvas(labels[i]);
-      let w = 210, h = canvas.height * 210 / canvas.width;
-      if(h > 297){ w = canvas.width * 297 / canvas.height; h = 297; }   /* ใบยาว: ย่อทั้งใบ จบหน้าเดียว สัดส่วนไม่เพี้ยน */
+      const img = canvas.toDataURL('image/jpeg', 0.92);
+      const fullH = canvas.height * 210 / canvas.width;
       if(i > 0) pdf.addPage();
-      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', (210 - w) / 2, 0, w, h);
+      if(fullH <= 297 * 1.15){
+        /* เกินนิดเดียว: ย่อจบหน้าเดียว สัดส่วนคงเดิม */
+        let w = 210, h = fullH;
+        if(h > 297){ w = canvas.width * 297 / canvas.height; h = 297; }
+        pdf.addImage(img, 'JPEG', (210 - w) / 2, 0, w, h);
+      } else {
+        /* ยาวจริง: ไหลหลายหน้า ตัวหนังสือขนาดปกติ */
+        const nPages = Math.ceil(fullH / 297);
+        for(let p = 0; p < nPages; p++){
+          if(p > 0) pdf.addPage();
+          pdf.addImage(img, 'JPEG', 0, -p * 297, 210, fullH);
+        }
+      }
     }
     const name = (document.getElementById('docNo').textContent.trim().replace(/[^\w\-]/g,'_')||'document') + '.pdf';
     const r = await exportFileBlob(pdf.output('blob'), name, 'application/pdf');
@@ -1286,10 +1303,11 @@ function printCopies(mode){
   const area = document.getElementById('printArea');
   area.innerHTML = '';
   const tail = DOCTYPES[docType].tail;
-  /* หน้ากระดาษพิมพ์ได้ ~1120px (296มม.) — ใบสูงกว่านี้ ย่อทั้งใบให้จบหน้าเดียว */
+  /* หน้ากระดาษ ~1120px: เกินนิดเดียว (≤15%) ย่อให้จบหน้าเดียว / ยาวจริงปล่อยไหลหลายหน้าตัวหนังสือปกติ */
   const PAGE_H = 1120;
   const docH = document.getElementById('doc').offsetHeight || PAGE_H;
-  const scale = Math.min(1, PAGE_H / docH);
+  const fitOne = docH <= PAGE_H * 1.15;
+  const scale = fitOne ? Math.min(1, PAGE_H / docH) : 1;
   function mk(label){
     const cl = document.getElementById('doc').cloneNode(true);
     cl.removeAttribute('id');
@@ -1297,7 +1315,7 @@ function printCopies(mode){
     if(sub){ sub.style.display = label ? '' : 'none'; if(label) sub.textContent = label; }
     cl.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
     cl.style.minHeight = '1122px';
-    const page = document.createElement('div'); page.className = 'ppage';
+    const page = document.createElement('div'); page.className = 'ppage ' + (fitOne ? 'fixed' : 'flow');
     const inner = document.createElement('div'); inner.className = 'pscale';
     inner.style.transform = 'scale(' + scale + ')';
     inner.appendChild(cl); page.appendChild(inner);
