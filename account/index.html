@@ -99,11 +99,11 @@
   .seg{display:inline-flex;border:1px solid #6A4E2E;border-radius:8px;overflow:hidden}
   .seg button{font-family:'Sarabun';font-weight:600;font-size:13px;padding:8px 12px;border:none;background:#1D1509;color:#C9B294;cursor:pointer}
   .seg button.on{background:var(--orange);color:#fff}
-  .copy-sub{font-size:12.5px;color:var(--gray);margin-top:3px}
-  .paybox{margin-top:20px;border-top:1px solid var(--hairline);padding-top:12px;font-size:12.5px;color:var(--ink)}
-  .pay-line{line-height:2}
+  .copy-sub{font-size:11px;color:var(--gray);margin-top:2px}
+  .paybox{margin-top:12px;border-top:1px solid var(--hairline);padding-top:9px;font-size:11.5px;color:var(--ink)}
+  .pay-line{line-height:1.85}
   .paym{margin-left:14px;cursor:pointer;white-space:nowrap}
-  .pay-line2{margin-top:6px;color:var(--gray)}
+  .pay-line2{margin-top:3px;color:var(--gray)}
   .pay-line2 b{color:var(--ink);font-weight:400;font-variant-numeric:tabular-nums}
   .tabs{display:flex;gap:8px;padding:0 14px 8px;background:var(--app-bg)}
   .tabs button{flex:1;font-family:'Sarabun';font-weight:600;font-size:14px;padding:9px;border-radius:9px;border:1px solid #6A4E2E;background:transparent;color:#C9B294;cursor:pointer}
@@ -141,7 +141,7 @@
   /* ===== เอกสาร A4 ===== */
   .doc{
     width:794px;min-height:1123px;background:var(--paper);
-    padding:50px 56px 44px;position:relative;
+    padding:38px 46px 32px;position:relative;
     display:flex;flex-direction:column;
     box-shadow:0 8px 40px rgba(0,0,0,.5);
   }
@@ -151,82 +151,82 @@
   /* ---- หัวเอกสาร ---- */
   .doc-head{display:flex;justify-content:space-between;gap:24px}
   .head-left{display:flex;flex-direction:column;align-items:flex-start}
-  .logo{width:88px;height:auto;margin-bottom:14px}
-  .co-name{font-family:'Sarabun',sans-serif;font-weight:600;font-size:19px}
-  .co-detail{font-size:13px;color:var(--gray);line-height:1.75;margin-top:5px}
+  .logo{width:62px;height:auto;margin-bottom:9px}
+  .co-name{font-family:'Sarabun',sans-serif;font-weight:600;font-size:16px}
+  .co-detail{font-size:11.5px;color:var(--gray);line-height:1.6;margin-top:3px}
   .co-detail b{color:var(--ink);font-weight:400}
 
   .head-right{text-align:right;flex-shrink:0}
-  .doc-title{font-family:'Sarabun',sans-serif;font-weight:600;font-size:26px;color:var(--orange-deep)}
-  .doc-title-en{font-family:'Sarabun',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.22em;color:var(--gray);text-transform:uppercase;margin-top:2px}
-  .doc-meta{margin-top:14px;font-size:13px;display:grid;grid-template-columns:auto auto;gap:4px 12px;justify-content:end}
+  .doc-title{font-family:'Sarabun',sans-serif;font-weight:600;font-size:20px;color:var(--orange-deep)}
+  .doc-title-en{font-family:'Sarabun',sans-serif;font-weight:500;font-size:9.5px;letter-spacing:.22em;color:var(--gray);text-transform:uppercase;margin-top:2px}
+  .doc-meta{margin-top:10px;font-size:11.5px;display:grid;grid-template-columns:auto auto;gap:3px 10px;justify-content:end}
   .doc-meta .k{color:var(--gray)}
-  .doc-meta .v{font-weight:400;font-variant-numeric:tabular-nums;text-align:left;min-width:112px}
+  .doc-meta .v{font-weight:400;font-variant-numeric:tabular-nums;text-align:left;min-width:98px}
 
   /* ---- ลูกค้า ---- */
   .cust{
-    margin-top:24px;border:1px solid var(--orange-line);border-radius:6px;
-    background:var(--orange-soft);padding:16px 20px 14px;position:relative;
+    margin-top:15px;border:1px solid var(--orange-line);border-radius:6px;
+    background:var(--orange-soft);padding:10px 14px 9px;position:relative;
   }
   .cust .tag{
     position:absolute;top:-9px;left:14px;background:var(--paper);padding:0 8px;
     font-family:'Sarabun',sans-serif;font-weight:500;font-size:11.5px;color:var(--orange-deep);border-radius:3px;
   }
-  .cust-name{font-size:15.5px;font-weight:400}
-  .branch-tag{font-weight:500;font-size:13px;color:var(--gray)}
-  .cust-line{font-size:13px;color:var(--gray);line-height:1.7;margin-top:3px}
-  .cust-ids{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:6px;font-size:12.5px}
+  .cust-name{font-size:13px;font-weight:400}
+  .branch-tag{font-weight:500;font-size:11.5px;color:var(--gray)}
+  .cust-line{font-size:11.5px;color:var(--gray);line-height:1.55;margin-top:2px}
+  .cust-ids{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:4px;font-size:11.5px}
   .cust-ids span{color:var(--gray)}
   .cust-ids b{color:var(--ink);font-weight:400;font-variant-numeric:tabular-nums}
 
   /* ---- ตาราง ---- */
-  table.items{width:100%;border-collapse:collapse;margin-top:24px;font-size:13.5px}
+  table.items{width:100%;border-collapse:collapse;margin-top:13px;font-size:12px}
   .items thead th{
-    font-family:'Sarabun',sans-serif;font-weight:500;font-size:12.5px;
-    color:#fff;background:var(--orange);padding:10px 12px;text-align:left;
+    font-family:'Sarabun',sans-serif;font-weight:500;font-size:11px;
+    color:#fff;background:var(--orange);padding:6px 10px;text-align:left;
   }
   .items thead th:first-child{border-radius:5px 0 0 0}
   .items thead th:last-child{border-radius:0 5px 0 0}
   .items thead th.num,.items td.num{text-align:right;font-variant-numeric:tabular-nums}
   .items thead th.ctr,.items td.ctr{text-align:center}
-  .items tbody td{padding:11px 12px;border-bottom:1px solid var(--hairline);vertical-align:top}
+  .items tbody td{padding:5px 10px;border-bottom:1px solid var(--hairline);vertical-align:top}
   .items tbody tr:nth-child(even){background:#FDFAF5}
-  .item-desc{font-size:12px;color:var(--gray);margin-top:2px}
+  .item-desc{font-size:10.5px;color:var(--gray);margin-top:1px}
   .row-x{border:none;background:none;color:#D8CBBB;font-size:15px;cursor:pointer;padding:2px 6px}
   .row-x:active{color:#E05B5B}
   .add-row{
-    margin-top:10px;font-family:'Sarabun';font-size:13px;font-weight:600;
+    margin-top:7px;font-family:'Sarabun';font-size:12px;font-weight:600;
     color:var(--orange-deep);background:var(--orange-soft);border:1px dashed var(--orange-line);
     border-radius:6px;padding:8px 16px;cursor:pointer;
   }
 
   /* ---- สรุปยอด ---- */
-  .totals-wrap{display:flex;justify-content:space-between;gap:30px;margin-top:20px}
-  .note-box{flex:1;font-size:12.5px;color:var(--gray);line-height:1.8}
-  .note-box .nh{font-family:'Sarabun',sans-serif;font-weight:400;font-size:11.5px;color:var(--ink);margin-bottom:5px}
-  .totals{width:315px;font-size:13.5px;flex-shrink:0}
-  .totals .row{display:flex;justify-content:space-between;padding:6px 2px;gap:10px}
+  .totals-wrap{display:flex;justify-content:space-between;gap:24px;margin-top:12px}
+  .note-box{flex:1;font-size:11.5px;color:var(--gray);line-height:1.65}
+  .note-box .nh{font-family:'Sarabun',sans-serif;font-weight:400;font-size:10.5px;color:var(--ink);margin-bottom:3px}
+  .totals{width:290px;font-size:12px;flex-shrink:0}
+  .totals .row{display:flex;justify-content:space-between;padding:3.5px 2px;gap:10px}
   .totals .row .v{font-variant-numeric:tabular-nums;font-weight:400;white-space:nowrap}
   .totals .row.sub .v,.totals .row.sub span:first-child{color:var(--gray);font-weight:500}
   .totals .grand{
-    margin-top:6px;padding:11px 14px;background:var(--orange-soft);
+    margin-top:5px;padding:8px 12px;background:var(--orange-soft);
     border:1px solid var(--orange-line);border-radius:6px;
     display:flex;justify-content:space-between;align-items:center;
   }
-  .totals .grand .k{font-family:'Sarabun',sans-serif;font-weight:500;font-size:13px;color:var(--orange-deep)}
-  .totals .grand .v{font-size:19px;font-weight:600;color:var(--orange-deep);font-variant-numeric:tabular-nums}
-  .baht-text{font-size:12px;color:var(--gray);text-align:right;margin-top:7px}
+  .totals .grand .k{font-family:'Sarabun',sans-serif;font-weight:500;font-size:12px;color:var(--orange-deep)}
+  .totals .grand .v{font-size:15.5px;font-weight:600;color:var(--orange-deep);font-variant-numeric:tabular-nums}
+  .baht-text{font-size:10.5px;color:var(--gray);text-align:right;margin-top:4px}
   @keyframes pulseGrand{0%{box-shadow:0 0 0 0 rgba(240,126,34,.55)}100%{box-shadow:0 0 0 16px rgba(240,126,34,0)}}
   .totals .grand.pulse{animation:pulseGrand .65s ease-out 2}
-  .vat-note{font-size:11.5px;color:var(--gray);text-align:right;margin-top:3px}
+  .vat-note{font-size:10px;color:var(--gray);text-align:right;margin-top:2px}
 
-  .in-names{display:flex;justify-content:space-between;gap:30px;margin-top:auto;padding-top:34px;font-size:13px;font-weight:400}
-  .signs{display:flex;justify-content:space-between;gap:60px;margin-top:40px}
+  .in-names{display:flex;justify-content:space-between;gap:30px;margin-top:auto;padding-top:22px;font-size:11.5px;font-weight:400}
+  .signs{display:flex;justify-content:space-between;gap:56px;margin-top:26px}
   .pair{display:flex;gap:18px;flex:1}
   .sign{flex:1.4;text-align:center}
   .sign.sm{flex:1}
-  .sign .line{border-bottom:1px solid #C9BCA9;height:30px}
-  .sign .who{font-size:12.5px;font-weight:400;margin-top:8px}
+  .sign .line{border-bottom:1px solid #C9BCA9;height:24px}
+  .sign .who{font-size:11px;font-weight:400;margin-top:5px}
 
   /* ===== export PNG: ซ่อน UI ===== */
   .exporting .row-x,.exporting .add-row{visibility:hidden}
@@ -283,7 +283,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v17</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v18</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -475,9 +475,9 @@ function askPin(){
 const CO_G   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
 const CO_ENG = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 const DOCTYPES = {
-  QT:  {title:'ใบเสนอราคา', en:'QUOTATION', fs:'26px', meta3:'ยืนราคาถึง', pay:false, tail:'', signA:'ผู้สั่งซื้อสินค้า', signB:'ผู้อนุมัติ'},
-  INV: {title:'ใบกำกับภาษี/ใบเสร็จรับเงิน', en:'TAX INVOICE / RECEIPT', fs:'21px', meta3:null, pay:true, tail:' (เอกสารออกเป็นชุด)', signA:'ผู้จ่ายเงิน', signB:'ผู้รับเงิน'},
-  BL:  {title:'ใบวางบิล/ใบแจ้งหนี้', en:'BILLING / INVOICE', fs:'22px', meta3:'ครบกำหนด', pay:false, tail:'', signA:'ผู้รับวางบิล', signB:'ผู้วางบิล'}
+  QT:  {title:'ใบเสนอราคา', en:'QUOTATION', fs:'20px', meta3:'ยืนราคาถึง', pay:false, tail:'', signA:'ผู้สั่งซื้อสินค้า', signB:'ผู้อนุมัติ'},
+  INV: {title:'ใบกำกับภาษี/ใบเสร็จรับเงิน', en:'TAX INVOICE / RECEIPT', fs:'17px', meta3:null, pay:true, tail:' (เอกสารออกเป็นชุด)', signA:'ผู้จ่ายเงิน', signB:'ผู้รับเงิน'},
+  BL:  {title:'ใบวางบิล/ใบแจ้งหนี้', en:'BILLING / INVOICE', fs:'17.5px', meta3:'ครบกำหนด', pay:false, tail:'', signA:'ผู้รับวางบิล', signB:'ผู้วางบิล'}
 };
 let docType = 'QT', docRef = '';
 function setDocType(t, ref){
