@@ -67,18 +67,6 @@
   }
   .btn-parse:active{background:var(--orange-deep)}
 
-  .guide{margin:0 14px 6px;background:#1A1209;border:1px solid #4A3721;border-radius:10px}
-  .guide summary{
-    font-size:13px;font-weight:600;color:#D9A96B;padding:10px 14px;cursor:pointer;
-    list-style-position:inside;
-  }
-  .guide-body{padding:2px 16px 14px;font-size:13px;color:#CDBCA5;line-height:1.8}
-  .guide-body b{color:#F0D9BC}
-  .guide-body pre{
-    font-family:'Sarabun';font-size:12.5px;line-height:1.7;
-    background:#241A0E;border-radius:8px;padding:10px 12px;margin:8px 0;
-    white-space:pre-wrap;color:#E8D6BC;
-  }
 
   /* ===== แถบเครื่องมือ (ไม่ติดไปในเอกสาร) ===== */
   .toolstrip{
@@ -274,26 +262,6 @@
   <button class="btn-parse" id="btnParse">แยกข้อมูลลงเอกสาร</button>
 </div>
 
-<details class="guide">
-  <summary>รูปแบบข้อความสั่งงาน (กติกาสำหรับ Ning / Milk)</summary>
-  <div class="guide-body">
-<b>หนึ่งข้อความ = หนึ่งใบ</b> เรียงตามนี้:
-<pre>ออกใบเสนอราคา            ← หรือ ออกใบกำกับภาษี / ออกใบวางบิล (ระบบสลับชนิดใบให้เอง)
-ชื่อสินค้า ราคา×จำนวน = ยอด
-ชื่อสินค้า ราคา             ← ถ้าจำนวน 1 ชิ้น ใส่แค่ราคา
-ลด 15%                    ← ลดรายการบนสุดที่พิมพ์ก่อนหน้า (หรือ "ลด 500" เป็นบาท)
-ค่าส่ง 130                 ← ใส่เฉพาะเคสรวมค่าส่งเข้าบิล
-ยอดรวม 2,530
-ชื่อบริษัท / ชื่อลูกค้า
-ที่อยู่ (ลงท้ายรหัสไปรษณีย์)
-เลขประจำตัวผู้เสียภาษี 13 หลัก
-โทร 08x-xxx-xxxx</pre>
-กติกาค่าส่ง — ดูที่บรรทัด "ค่าส่ง" เป็นหลัก:
-<br>· <b>รวมค่าส่งเข้าบิล</b> → ต้องมีบรรทัด "ค่าส่ง XXX" ระบบจะเกลี่ยเข้าราคาสินค้าตัวแพงสุดให้เอง
-<br>· <b>ส่งฟรี / ไม่คิดค่าส่ง</b> → ไม่ต้องเขียนบรรทัดค่าส่ง
-<br>· ใส่ "ยอดรวม" ทุกครั้ง — ระบบใช้ตรวจทานว่าคำนวณตรงกัน ไม่ตรงจะเตือน
-  </div>
-</details>
 
 <div class="toolstrip">
   <span class="seg" id="segType">
@@ -306,7 +274,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v12</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v13</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -1116,7 +1084,6 @@ function showTab(which){
   document.querySelector('.pastebox').style.display = isDoc ? '' : 'none';
   document.querySelector('.toolstrip').style.display = isDoc ? '' : 'none';
   document.querySelectorAll('.hint').forEach(h=>h.style.display = isDoc ? '' : 'none');
-  document.querySelector('details.guide').style.display = isDoc ? '' : 'none';
   document.getElementById('listView').style.display = isDoc ? 'none' : '';
   document.getElementById('tabDoc').classList.toggle('on', isDoc);
   document.getElementById('tabList').classList.toggle('on', !isDoc);
