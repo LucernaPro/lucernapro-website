@@ -826,6 +826,32 @@ document.getElementById('btnPrint').onclick = async ()=>{
 };
 
 /* ---------- ส่งออก PNG: เลือกวิธีที่ดีที่สุดของแต่ละเครื่อง ---------- */
+const IS_IOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Mac/.test(navigator.platform) && navigator.maxTouchPoints > 1);
+function iosImageSheet(blob, name){
+  return new Promise(resolve=>{
+    let sh = document.getElementById('imgSheet');
+    if(!sh){
+      sh = document.createElement('div'); sh.id='imgSheet';
+      sh.style.cssText='display:none;position:fixed;inset:0;background:rgba(10,6,2,.88);z-index:210;flex-direction:column;align-items:center;justify-content:center;padding:18px';
+      sh.innerHTML =
+        '<div style="font-size:13.5px;color:#F0D9BC;margin-bottom:10px;text-align:center">กดค้างที่รูป แล้วเลือก "เพิ่มลงรูปภาพ" เพื่อบันทึกลงอัลบั้ม</div>'+
+        '<img id="imgSheetImg" style="max-width:92vw;max-height:62vh;border-radius:8px;background:#fff">'+
+        '<div style="display:flex;gap:10px;margin-top:16px">'+
+        '<button id="imgSheetShare" style="font-family:Sarabun;font-weight:600;font-size:14px;padding:10px 18px;border-radius:8px;border:none;background:var(--orange);color:#fff">แชร์ / ส่ง LINE</button>'+
+        '<button id="imgSheetClose" style="font-family:Sarabun;font-weight:600;font-size:14px;padding:10px 18px;border-radius:8px;border:1px solid #6A4E2E;background:transparent;color:#D9C6AE">ปิด</button></div>';
+      document.body.appendChild(sh);
+    }
+    const url = URL.createObjectURL(blob);
+    document.getElementById('imgSheetImg').src = url;
+    sh.style.display = 'flex';
+    document.getElementById('imgSheetShare').onclick = async ()=>{
+      try{ await navigator.share({files:[new File([blob], name, {type:'image/png'})]}); }catch(e){}
+    };
+    document.getElementById('imgSheetClose').onclick = ()=>{
+      sh.style.display='none'; URL.revokeObjectURL(url); resolve({how:'ios-sheet'});
+    };
+  });
+}
 async function exportPNG(canvas, name){
   const blob = await new Promise(r=>canvas.toBlob(r,'image/png'));
   /* 1) PC (Chrome/Edge): เลือกโฟลเดอร์ + ชื่อไฟล์เองได้ */
@@ -836,15 +862,17 @@ async function exportPNG(canvas, name){
       return {how:'picker'};
     }catch(e){ if(e.name==='AbortError') return {how:'cancelled'}; /* อื่นๆ ตกไป fallback */ }
   }
-  /* 2) มือถือ: share sheet — กดบันทึกรูป หรือส่งเข้า LINE ต่อได้ทันที */
+  /* 2) iPhone/iPad: แผ่นรูปในหน้าเดิม — กดค้างลงอัลบั้มได้ชัวร์ + ปุ่มแชร์ */
+  if(IS_IOS) return await iosImageSheet(blob, name);
+  /* 3) Android: share sheet — บันทึกรูป หรือส่งเข้า LINE ต่อได้ทันที */
   try{
     const file = new File([blob], name, {type:'image/png'});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
+    if(/Android/.test(navigator.userAgent) && navigator.canShare && navigator.canShare({files:[file]})){
       await navigator.share({files:[file]});
       return {how:'share'};
     }
   }catch(e){ if(e.name==='AbortError') return {how:'cancelled'}; }
-  /* 3) สำรอง: ดาวน์โหลดตรง (ไม่เปิดแท็บใหม่) */
+  /* 4) สำรอง (เช่น Safari บน Mac): ดาวน์โหลดตรง ไม่เปิดแท็บใหม่ */
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click();
   setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
   return {how:'download'};
@@ -868,6 +896,7 @@ document.getElementById('btnSave').onclick = async function(){
                   : (s.skipped ? '' : '⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+')\n');
     if(r.how==='picker')    showToast(saveMsg+'บันทึกไฟล์ลงโฟลเดอร์ที่เลือกแล้ว ✓', 4200);
     else if(r.how==='share')showToast(saveMsg+'ส่งรูปเข้า share sheet แล้ว ✓', 4200);
+    else if(r.how==='ios-sheet'){ if(saveMsg) showToast(saveMsg.trim(), 3200); }
     else if(r.how==='download')showToast(saveMsg+'ดาวน์โหลดรูปแล้ว ✓ ('+name+')', 4200);
     else if(r.how==='cancelled' && saveMsg) showToast(saveMsg.trim(), 3200);
   }catch(err){ showToast('สร้างรูปไม่สำเร็จ: '+err.message,4500); }
