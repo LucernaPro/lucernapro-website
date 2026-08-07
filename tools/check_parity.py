@@ -65,7 +65,10 @@ def url_to_file(href, files):
     return cand if cand in files else False
 
 def main():
-    files = sorted(glob.glob('**/index.html', recursive=True))
+    # โฟลเดอร์แอปภายใน (ไม่ใช่หน้าเว็บ product/content) — ไม่เข้าเกณฑ์ nav/ธีม/ภาษา
+    APP_DIRS = ('account/',)
+    files = sorted(f for f in glob.glob('**/index.html', recursive=True)
+                   if not f.startswith(APP_DIRS))
     fileset = set(files)
     problems = defaultdict(list)
     ids_by_page, meta = {}, {}
