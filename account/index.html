@@ -269,7 +269,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v10</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v11</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -302,7 +302,7 @@
     <div class="cust-name"><span id="custNameText" contenteditable>หจก.แวลู คอนสตรัคชั่น (ประเทศไทย)</span> <span class="branch-tag" id="fBranch" contenteditable>(สำนักงานใหญ่)</span></div>
     <div class="cust-line" contenteditable>77 ซอยสุคนธสวัสดิ์ 14 แขวงลาดพร้าว เขตลาดพร้าว กทม. 10230</div>
     <div class="cust-ids">
-      <div id="fTax"><span>เลขผู้เสียภาษี </span><b contenteditable>0103561013391</b></div>
+      <div id="fTax"><span id="fTaxLabel" contenteditable>เลขผู้เสียภาษี</span> <b contenteditable>0103561013391</b></div>
       <div id="fPhone"><span>โทร </span><b contenteditable>063-871-3979</b></div>
       <div id="fEmail"><span>อีเมล </span><b contenteditable>kwnagiftland@gmail.com</b></div>
     </div>
@@ -752,6 +752,9 @@ function parsePaste(){
     if(val) (el.querySelector('b') || el).textContent = val;
   }
   setField('fTax', d.tax);
+  /* บุคคลธรรมดาใช้เลขบัตรประชาชน — เปลี่ยนป้ายให้ตรงความจริง */
+  const isJuristic = d.name && (CO.test(d.name) || CO_EN.test(d.name));
+  document.getElementById('fTaxLabel').textContent = isJuristic ? 'เลขผู้เสียภาษี' : 'เลขบัตรประชาชน';
   const brRaw = d.branch || (d.name && CO.test(d.name) ? 'สำนักงานใหญ่' : '');
   setField('fBranch', brRaw ? '('+brRaw+')' : '');
   setField('fPhone', d.phone.length ? d.phone.join(', ') : '');
