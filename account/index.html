@@ -615,7 +615,14 @@ function parsePaste(){
   let multi = false;
   if(cmdIdx.length >= 2){ lines = lines.slice(0, cmdIdx[1]); multi = true; }
   let inclShipFlag = lines.some(o=>o.s.includes('ออกใบเสนอราคา') && o.s.includes('รวมค่าส่ง'));
+  /* ชื่อคนส่ง = ทุกอย่างก่อนคำว่า "ออกใบเสนอราคา" ในบรรทัดคำสั่ง */
+  let senderPre = '';
+  const cmdLine = lines.find(o=>o.s.includes('ออกใบเสนอราคา'));
+  if(cmdLine) senderPre = cmdLine.s.slice(0, cmdLine.s.indexOf('ออกใบเสนอราคา')).trim();
   lines = lines.filter(o=>!o.s.includes('ออกใบเสนอราคา'));
+  if(senderPre.length >= 3){
+    lines.forEach(o=>{ if(o.t && o.s.startsWith(senderPre)) o.s = o.s.slice(senderPre.length).trim(); });
+  }
 
   /* ชื่อคนส่งติดหัวบรรทัดแชท: หา prefix ร่วมของบรรทัดที่มี timestamp แล้วตัดทิ้ง */
   const tLines = lines.filter(o=>o.t).map(o=>o.s);
@@ -640,13 +647,20 @@ function parsePaste(){
     /* อีเมล */
     const em = line.match(/[\w.+-]+@[\w-]+\.[\w.]+/);
     if(em){ d.email = em[0]; line = line.replace(em[0],'').trim(); if(!line) continue; }
-    /* เลขผู้เสียภาษี = 13 หลักติดกัน */
-    const tax = line.replace(/[-\s]/g,'').match(/\d{13}/);
-    if(tax && /ภาษี|Tax|เลขประจำตัว/i.test(line) || (tax && line.replace(/[-\s]/g,'').replace(/\D/g,'').length===13)){
-      d.tax = tax[0]; continue;
+    /* เลขผู้เสียภาษี 13 หลัก — จับได้แม้อยู่บรรทัดเดียวกับชื่อบริษัท แล้วแยกส่วนที่เหลือต่อ */
+    const taxm = line.match(/(^|\D)(\d{13})(\D|$)/);
+    if(taxm && !d.tax){
+      d.tax = taxm[2];
+      line = line.replace(taxm[2],'').replace(/เลขประจำตัวผู้เสียภาษี|เลขผู้เสียภาษี|Tax\s*ID\s*:?/i,'').trim();
+      if(!line) continue;
+    } else {
+      const tax2 = line.replace(/[-\s]/g,'');
+      if(!d.tax && /ภาษี|Tax|เลขประจำตัว/i.test(line) && /^\D*\d{13}\D*$/.test(tax2.replace(/[^\d]/g, m=>'x').replace(/x+/g,'x')) && tax2.replace(/\D/g,'').length===13){
+        d.tax = tax2.replace(/\D/g,''); continue;
+      }
     }
     /* เบอร์โทร */
-    if(/โทร|Tel|เบอร์/i.test(line) || /^0\d{9}$/.test(line.replace(/[-\s,]/g,''))){
+    if(/โทร|โทรศัพท์|โทรสาร|แฟกซ์|Tel|Fax|เบอร์|(^|\s)[TF]\.\s*0/i.test(line) || /^0\d{9}$/.test(line.replace(/[-\s,]/g,''))){
       const ph = line.match(/0\d{1,2}[-\s]?\d{3}[-\s]?\d{3,4}/g);
       if(ph){ d.phone.push(...ph); continue; }
     }
@@ -681,8 +695,11 @@ function parsePaste(){
     }
     dm = line.match(/^ลด\s*([\d,\.]+)\s*(บาท)?\s*$/);
     if(dm){ d.itemDisc = r2(d.itemDisc + num(dm[1])); continue; }
+    /* รายการสินค้าแบบ ราคา +N% × จำนวน (บวกภาษีเข้าราคาก่อนคูณ เช่น 5,340 +7% × 8) */
+    let m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*\+\s*([\d.]+)\s*%\s*[x×\*]\s*([\d,]+(?:\.\d+)?)/);
+    if(m){ d.items.push({name:m[1].trim(), price:r2(num(m[2])*(1+num(m[3])/100)), qty:num(m[4])}); continue; }
     /* รายการสินค้าแบบ ราคา×จำนวน = ยอด */
-    let m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*[x×\*]\s*([\d,]+(?:\.\d+)?)\s*=?\s*([\d,]+(?:\.\d+)?)?/);
+    m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*[x×\*]\s*([\d,]+(?:\.\d+)?)\s*=?\s*([\d,]+(?:\.\d+)?)?/);
     if(m){ d.items.push({name:m[1].trim(), price:num(m[2]), qty:num(m[3])}); continue; }
     /* รายการสินค้าแบบ ชื่อ / จำนวน (ไม่บอกราคา → ใส่ 0 ให้พนักงานเติม) */
     m = line.match(/^(.+?)\s*[\/x×]\s*(\d+)\s*$/);
