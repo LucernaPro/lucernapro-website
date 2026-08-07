@@ -120,10 +120,12 @@
   #printArea{display:none}
   @media print{
     body.pcopies .stage, body.pcopies .appbar, body.pcopies .tabs, body.pcopies .pastebox,
-    body.pcopies .toolstrip, body.pcopies .hint, body.pcopies details{display:none!important}
+    body.pcopies .toolstrip, body.pcopies .hint{display:none!important}
     body.pcopies #printArea{display:block}
-    #printArea .doc{box-shadow:none;min-height:auto;margin:0 auto;page-break-after:always}
-    #printArea .doc:last-child{page-break-after:auto}
+    #printArea .ppage{height:296mm;overflow:hidden;page-break-after:always;display:flex;justify-content:center;align-items:flex-start}
+    #printArea .ppage:last-child{page-break-after:auto}
+    #printArea .pscale{transform-origin:top center}
+    #printArea .doc{box-shadow:none;margin:0}
   }
   .hint{color:#A08B72;font-size:12.5px;text-align:center;padding:8px 20px 10px}
 
@@ -276,7 +278,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v14</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v15</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -1044,9 +1046,10 @@ document.getElementById('btnPdf').onclick = async function(){
     const labels = (docType === 'QT') ? [''] : ['ต้นฉบับ'+tail, 'สำเนา'+tail];
     for(let i = 0; i < labels.length; i++){
       const canvas = await renderDocCanvas(labels[i]);
-      const h = Math.min(297, canvas.height * 210 / canvas.width);
+      let w = 210, h = canvas.height * 210 / canvas.width;
+      if(h > 297){ w = canvas.width * 297 / canvas.height; h = 297; }   /* ใบยาว: ย่อทั้งใบ จบหน้าเดียว สัดส่วนไม่เพี้ยน */
       if(i > 0) pdf.addPage();
-      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, 210, h);
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', (210 - w) / 2, 0, w, h);
     }
     const name = (document.getElementById('docNo').textContent.trim().replace(/[^\w\-]/g,'_')||'document') + '.pdf';
     const r = await exportFileBlob(pdf.output('blob'), name, 'application/pdf');
@@ -1283,20 +1286,28 @@ function printCopies(mode){
   const area = document.getElementById('printArea');
   area.innerHTML = '';
   const tail = DOCTYPES[docType].tail;
+  /* หน้ากระดาษพิมพ์ได้ ~1120px (296มม.) — ใบสูงกว่านี้ ย่อทั้งใบให้จบหน้าเดียว */
+  const PAGE_H = 1120;
+  const docH = document.getElementById('doc').offsetHeight || PAGE_H;
+  const scale = Math.min(1, PAGE_H / docH);
   function mk(label){
     const cl = document.getElementById('doc').cloneNode(true);
     cl.removeAttribute('id');
     const sub = cl.querySelector('.copy-sub');
-    if(sub){ sub.style.display=''; sub.textContent = label; }
+    if(sub){ sub.style.display = label ? '' : 'none'; if(label) sub.textContent = label; }
     cl.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
-    return cl;
+    cl.style.minHeight = '1122px';
+    const page = document.createElement('div'); page.className = 'ppage';
+    const inner = document.createElement('div'); inner.className = 'pscale';
+    inner.style.transform = 'scale(' + scale + ')';
+    inner.appendChild(cl); page.appendChild(inner);
+    return page;
   }
   if(docType === 'QT'){ area.appendChild(mk('')); }
   else{
     if(mode !== 'copy') area.appendChild(mk('ต้นฉบับ'+tail));
     if(mode !== 'orig') area.appendChild(mk('สำเนา'+tail));
   }
-  if(docType === 'QT') area.querySelector('.copy-sub').style.display = 'none';
   document.body.classList.add('pcopies');
   window.print();
   setTimeout(()=>{ area.innerHTML=''; document.body.classList.remove('pcopies'); }, 800);
