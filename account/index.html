@@ -283,7 +283,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v19</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v20</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -934,11 +934,17 @@ function parsePaste(){
     if(mk.items.length){ d.items = mk.items.concat(d.items); }
     if(mk.excess) d.itemDisc = r2(d.itemDisc + mk.excess);
     if(mk.stated != null && d.stated == null) d.stated = mk.stated;
-    if(!d.name && mk.cust) d.name = mk.cust;
     d.orderRef = mk.platform + ' ' + mk.orderNo;
+    /* ชื่อจาก marketplace เป็น username/ขยะ — ไม่ใช้ ล้างช่องลูกค้ารอ paste ข้อความที่ลูกค้าพิมพ์มา */
+    if(!d.name){
+      document.getElementById('custNameText').textContent = 'ชื่อลูกค้า';
+      document.getElementById('inNameCust').textContent = 'ในนาม ....................';
+      document.querySelector('.cust-line').textContent = 'ที่อยู่ลูกค้า';
+      ['fTax','fBranch','fPhone','fEmail'].forEach(id=>document.getElementById(id).style.display='none');
+    }
   }
   /* ---- เทลงเอกสาร ---- */
-  setDocType(wantType);
+  if(cmdLine || mk) setDocType(cmdLine ? wantType : docType);
   if(d.name){
     document.getElementById('custNameText').textContent = d.name;
     document.getElementById('inNameCust').textContent = 'ในนาม ' + d.name;
@@ -1002,7 +1008,7 @@ function parsePaste(){
     if(!nb.textContent.includes(mk.orderNo)) nb.innerHTML += '<br>· อ้างอิงคำสั่งซื้อ ' + esc(d.orderRef);
     msg += '\nคำสั่งซื้อ ' + d.orderRef + ' ใส่ในหมายเหตุแล้ว';
   }
-  if(mk && mk.cust && /^[\w.]+$/.test(mk.cust)) msg += '\n⚠ ชื่อผู้ซื้อเป็น username — แก้เป็นชื่อจริงก่อนออกใบกำกับภาษี';
+  if(mk && !d.name) msg += '\nวางข้อความชื่อ-ที่อยู่-เลขภาษีที่ลูกค้าพิมพ์มา ต่อได้เลย — รายการสินค้าจะคงอยู่';
   if(mk && mk.multi) msg += '\nพบหลายออเดอร์ — ใช้ออเดอร์แรก แยก paste ทีละออเดอร์นะ';
   if(multi) msg += '\nพบมากกว่า 1 ใบในข้อความ — ใช้ใบแรก แยก paste ทีละใบนะ';
   docDirty = true; lastSavedNo = null;
