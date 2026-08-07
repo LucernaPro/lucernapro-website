@@ -283,7 +283,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v18</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v19</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -738,7 +738,81 @@ function parsePaste(){
 
   /* แยกบรรทัด จำว่าบรรทัดไหนมี timestamp (= บรรทัดจากแชท อาจมีชื่อคนส่งติดหัว) */
   let lines = raw.split(/\r?\n/).map(l=>l.trim()).filter(l=>l)
-    .map(l=>{ const t = /^\d{1,2}:\d{2}\s+/.test(l); return {t, s: l.replace(/^\d{1,2}:\d{2}\s+/,'')}; });
+    .map(l=>{
+      const t = /^\d{1,2}:\d{2}\s+/.test(l);
+      const link = /\]\(/.test(l);
+      const plink = /\/products\//.test(l);
+      let sTxt = l.replace(/^\d{1,2}:\d{2}\s+/,'').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').trim();
+      return {t, link, plink, s: sTxt};
+    });
+  /* ---------- โหมด Shopee / Lazada (ยกบทเรียนจาก LucernaOne) ---------- */
+  const isShopee = /seller\.shopee/.test(raw) || /หมายเลขคำสั่งซื้อ\s+[0-9A-Z]{6,}/.test(raw);
+  const isLazada = !isShopee && (/sellercenter\.lazada/.test(raw) || /แพ็คเกจ/.test(raw) || /หมายเลขคำสั่งซื้อ\s*:/.test(raw));
+  let mk = null;
+  if(isShopee || isLazada){
+    mk = {platform: isShopee?'Shopee':'Lazada', items:[], orderNo:'', total:null, cust:'', leftovers:[]};
+    const SP_JUNK = ['TH','SPX','Pickup','Drop','Standard','เก็บเงิน','ShopeePay','ที่ต้อง','รับพัสดุ','ต้องส่ง','เพื่อหลีก','Hot Listing','ยอดเงิน','บัตรเครดิต','QR ','Mobile Banking','SPayLater','โอนเงิน','พร้อมเพย์'];
+    const LZ_NOISE = ['แพ็คเกจ','รหัสสินค้า','เพิ่มเติม','การจัดส่ง','FM ','TN:','รอเข้ารับ','พร้อมส่ง','ฉลาก','ใบแจ้งหนี้','รายการเตรียม','COD','อยู่ระหว่าง','จัดส่ง','ชำระ','คูปอง','สถานะ','ยกเลิก','คืนเงิน'];
+    const notAPerson = (l, wasLink)=>{
+      if(!l || l.length > 60 || wasLink) return true;
+      if(LZ_NOISE.some(n=>l.startsWith(n)) || l.startsWith('฿') || l.startsWith('หมายเลข')) return true;
+      if(/hrs|http|www\./i.test(l)) return true;
+      if(/^[(\[{].*[)\]}]$/.test(l)) return true;
+      if(l.includes(':') || l.includes('：')) return true;
+      const dg = (l.match(/\d/g)||[]).length;
+      if(dg && dg/l.length > 0.3) return true;
+      if(!/[a-zA-Z\u0e00-\u0e7f]/.test(l)) return true;
+      return false;
+    };
+    let open = false, prev = '', buf = [];
+    for(const o of lines){
+      const l = o.s;
+      if(isShopee && /^หมายเลขคำสั่งซื้อ\s+\S/.test(l) && !l.includes(':')){
+        if(mk.orderNo){ mk.multi = true; break; }
+        mk.orderNo = l.replace('หมายเลขคำสั่งซื้อ','').trim();
+        if(prev && !notAPerson(prev, false)) mk.cust = prev;
+        else if(prev && /^[\w.]{3,}$/.test(prev)) mk.cust = prev;   /* username Shopee — ใช้เป็นตัวสำรอง */
+        open = true; prev = l; continue;
+      }
+      if(isLazada && l.startsWith('หมายเลขคำสั่งซื้อ')){
+        if(mk.orderNo){ mk.multi = true; break; }
+        mk.orderNo = l.replace('หมายเลขคำสั่งซื้อ','').replace(/^[:\s]+/,'').split(/วันที่|อัพเดทเวลา/)[0].trim();
+        for(let i = buf.length-1; i >= 0; i--){ if(!notAPerson(buf[i].s, buf[i].link)){ mk.cust = buf[i].s; break; } }
+        open = true; prev = l; continue;
+      }
+      if(!open){ buf.push(o); if(!o.link) mk.leftovers.push(l); prev = l; continue; }
+      const last = mk.items[mk.items.length-1];
+      if(isShopee && l.startsWith('฿')){ mk.total = num(l); open = false; }
+      else if(l.startsWith('ส่งข้อความ')){ open = false; }                       /* ข้อความผู้ซื้อ (มักขอใบกำกับ) → เข้าตัวแยกปกติ */
+      else if(/^(ตัวเลือกสินค้า|ขนาด|Variation)/.test(l)){ if(last) last.desc = l.split(/[:：]/).slice(1).join(':').trim().replace(/\.$/,''); }
+      else if(/^[x×]\s*\d+$/i.test(l)){ if(last) last.qty = num(l); }
+      else if(l.startsWith('฿')){ if(last) last.price = num(l); }                /* Lazada: ราคาต่อชิ้น */
+      else if(l.startsWith('อัพเดทเวลา') || l === 'img'){ /* ขยะ */ }
+      else if((isShopee ? SP_JUNK : LZ_NOISE).some(j=>l.startsWith(j))){ /* ขยะ */ }
+      else if(isLazada && o.link && !o.plink){ /* ป้าย UI ที่เป็นลิงก์ */ }
+      else if(l.length > 3 && !/^[\d\-]+$/.test(l)){ mk.items.push({name:l, desc:'', qty:1, price:0}); }
+      prev = l;
+    }
+    /* บรรทัดหลังปิดช่วงสินค้า (เช่นข้อความขอใบกำกับ) → ให้ตัวแยกปกติอ่านต่อ */
+    if(!open){
+      let after = false, closed = false;
+      for(const o of lines){
+        if(!closed && (o.s.startsWith('ส่งข้อความ') || (isShopee && o.s.startsWith('฿') && mk.total !== null))){ closed = true; continue; }
+        if(closed && !o.link && !(isShopee?SP_JUNK:LZ_NOISE).some(j=>o.s.startsWith(j))) mk.leftovers.push(o.s);
+      }
+    }
+    /* Shopee: ฿ คือยอดรวมออเดอร์ — สินค้าชิ้นเดียวถอดเป็นราคา/หน่วยได้เลย */
+    if(isShopee && mk.total !== null){
+      if(mk.items.length === 1){
+        const it = mk.items[0];
+        it.price = Math.ceil((mk.total / it.qty) * 100) / 100;
+        const excess = r2(it.price * it.qty - mk.total);
+        if(excess > 0.004) mk.excess = excess;
+      }
+      mk.stated = mk.total;
+    }
+    lines = mk.leftovers.map(l=>({t:false, link:false, plink:false, s:l}));
+  }
 
   /* คำสั่ง "ออกใบเสนอราคา": เก็บ flag แล้วถอดบรรทัดคำสั่งออก / เจอ 2 ใบใช้ใบแรก */
   const cmdIdx = [];
@@ -855,6 +929,14 @@ function parsePaste(){
     if(!d.name && !/\d/.test(line) && !(/^[a-z0-9._]+$/i.test(line) && !line.includes(' '))) d.name = line;
   }
 
+  /* ---- ผสานข้อมูลจาก Shopee/Lazada ---- */
+  if(mk){
+    if(mk.items.length){ d.items = mk.items.concat(d.items); }
+    if(mk.excess) d.itemDisc = r2(d.itemDisc + mk.excess);
+    if(mk.stated != null && d.stated == null) d.stated = mk.stated;
+    if(!d.name && mk.cust) d.name = mk.cust;
+    d.orderRef = mk.platform + ' ' + mk.orderNo;
+  }
   /* ---- เทลงเอกสาร ---- */
   setDocType(wantType);
   if(d.name){
@@ -888,7 +970,7 @@ function parsePaste(){
     d.items.forEach(it=>{
       const tr = document.createElement('tr');
       tr.innerHTML = '<td class="ctr idx"></td>'+
-        '<td><div contenteditable>'+esc(it.name)+'</div><div class="item-desc" contenteditable></div></td>'+
+        '<td><div contenteditable>'+esc(it.name)+'</div><div class="item-desc" contenteditable>'+esc(it.desc||'')+'</div></td>'+
         '<td class="ctr qty" contenteditable>'+it.qty+'</td>'+
         '<td class="ctr" contenteditable>ชิ้น</td>'+
         '<td class="num price" contenteditable>'+money(it.price)+'</td>'+
@@ -915,6 +997,13 @@ function parsePaste(){
     else
       msg += '\nยอดตรงกับที่แจ้งมา '+money(d.stated)+' ✓';
   }
+  if(mk && mk.orderNo){
+    const nb = document.querySelector('.note-box div[contenteditable]');
+    if(!nb.textContent.includes(mk.orderNo)) nb.innerHTML += '<br>· อ้างอิงคำสั่งซื้อ ' + esc(d.orderRef);
+    msg += '\nคำสั่งซื้อ ' + d.orderRef + ' ใส่ในหมายเหตุแล้ว';
+  }
+  if(mk && mk.cust && /^[\w.]+$/.test(mk.cust)) msg += '\n⚠ ชื่อผู้ซื้อเป็น username — แก้เป็นชื่อจริงก่อนออกใบกำกับภาษี';
+  if(mk && mk.multi) msg += '\nพบหลายออเดอร์ — ใช้ออเดอร์แรก แยก paste ทีละออเดอร์นะ';
   if(multi) msg += '\nพบมากกว่า 1 ใบในข้อความ — ใช้ใบแรก แยก paste ทีละใบนะ';
   docDirty = true; lastSavedNo = null;
   showToast(msg, 7000);
