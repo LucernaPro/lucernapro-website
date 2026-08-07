@@ -269,7 +269,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v9</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v10</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -398,7 +398,7 @@
    หลัง deploy Worker แล้ว ใส่ค่า 2 บรรทัดนี้ แล้วทุกครั้งที่กด
    "พิมพ์" หรือ "บันทึกรูป" ระบบจะขอเลขจริง + บันทึกลง GitHub ให้เอง */
 const API = {
-  url: ''    /* ใส่ URL ของ Worker หลัง deploy เช่น 'https://lucerna-docs.xxxx.workers.dev' */
+  url: 'https://lucerna-docs.lekvtwin.workers.dev'
 };
 /* PIN ไม่ฝังในไฟล์นี้ (หน้านี้อยู่บนเว็บสาธารณะ) — พนักงานใส่ครั้งแรกครั้งเดียว เครื่องจำไว้ */
 function getStoredPin(){ try{ return localStorage.getItem('lucerna_pin'); }catch(e){ return null; } }

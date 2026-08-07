@@ -69,8 +69,15 @@ def main():
     APP_DIRS = ('account/',)
     files = sorted(f for f in glob.glob('**/index.html', recursive=True)
                    if not f.startswith(APP_DIRS))
+
     fileset = set(files)
     problems = defaultdict(list)
+
+    # ยามแอปบัญชี: หน้า /account ต้องต่อสาย API เสมอ (กัน deploy ทับแล้วสายหลุด)
+    if os.path.exists('account/index.html'):
+        acc = io.open('account/index.html', encoding='utf-8').read()
+        if 'lucerna-docs.lekvtwin.workers.dev' not in acc:
+            problems['account/index.html'].append('API.url หาย — หน้าแอปไม่ได้ต่อกับ Worker')
     ids_by_page, meta = {}, {}
 
     for p in files:
