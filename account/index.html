@@ -107,6 +107,35 @@
     background:transparent;color:#E8A090;cursor:pointer;
   }
   .btn-reset:active{background:#3A1F16}
+  .seg{display:inline-flex;border:1px solid #6A4E2E;border-radius:8px;overflow:hidden}
+  .seg button{font-family:'Sarabun';font-weight:600;font-size:13px;padding:8px 12px;border:none;background:#1D1509;color:#C9B294;cursor:pointer}
+  .seg button.on{background:var(--orange);color:#fff}
+  .copy-sub{font-size:12.5px;color:var(--gray);margin-top:3px}
+  .paybox{margin-top:20px;border-top:1px solid var(--hairline);padding-top:12px;font-size:12.5px;color:var(--ink)}
+  .pay-line{line-height:2}
+  .paym{margin-left:14px;cursor:pointer;white-space:nowrap}
+  .pay-line2{margin-top:6px;color:var(--gray)}
+  .pay-line2 b{color:var(--ink);font-weight:400;font-variant-numeric:tabular-nums}
+  .tabs{display:flex;gap:8px;padding:0 14px 8px;background:var(--app-bg)}
+  .tabs button{flex:1;font-family:'Sarabun';font-weight:600;font-size:14px;padding:9px;border-radius:9px;border:1px solid #6A4E2E;background:transparent;color:#C9B294;cursor:pointer}
+  .tabs button.on{background:#3A2B18;color:#F6EADB;border-color:var(--orange)}
+  .lrow{background:#2A1F11;border:1px solid #4A3721;border-radius:11px;padding:12px 14px;margin-bottom:9px;cursor:pointer}
+  .lrow .l1{display:flex;justify-content:space-between;font-size:14px;color:#F6EADB}
+  .lrow .l1 b{font-weight:600;font-variant-numeric:tabular-nums}
+  .lrow .l2{display:flex;justify-content:space-between;font-size:12.5px;color:#A08B72;margin-top:4px}
+  .chip{font-size:11.5px;padding:2px 9px;border-radius:20px;background:#3A2B18;color:#C9B294}
+  .chip.ok{color:#8FCB8D}.chip.conv{color:#8FB8E8}.chip.cancel{color:#E08A8A;text-decoration:line-through}
+  .sheet-btn{font-family:'Sarabun';font-weight:600;font-size:14.5px;padding:12px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F0D9BC;cursor:pointer;text-align:center}
+  .sheet-btn:active{background:#3A2B18}
+  .sheet-btn.danger{color:#E08A8A;border-color:#7A4030}
+  #printArea{display:none}
+  @media print{
+    body.pcopies .stage, body.pcopies .appbar, body.pcopies .tabs, body.pcopies .pastebox,
+    body.pcopies .toolstrip, body.pcopies .hint, body.pcopies details{display:none!important}
+    body.pcopies #printArea{display:block}
+    #printArea .doc{box-shadow:none;min-height:auto;margin:0 auto;page-break-after:always}
+    #printArea .doc:last-child{page-break-after:auto}
+  }
   .hint{color:#A08B72;font-size:12.5px;text-align:center;padding:8px 20px 10px}
 
   /* ===== เวที ===== */
@@ -235,6 +264,11 @@
   </div>
 </div>
 
+<div class="tabs">
+  <button id="tabDoc" class="on">ออกเอกสาร</button>
+  <button id="tabList">รายการ</button>
+</div>
+
 <div class="pastebox">
   <textarea id="pasteArea" placeholder="วางข้อความจากไลน์ตรงนี้ — ระบบแยกชื่อลูกค้า ที่อยู่ เลขผู้เสียภาษี และรายการสินค้าลงเอกสารให้เอง"></textarea>
   <button class="btn-parse" id="btnParse">แยกข้อมูลลงเอกสาร</button>
@@ -244,7 +278,7 @@
   <summary>รูปแบบข้อความสั่งงาน (กติกาสำหรับ Ning / Milk)</summary>
   <div class="guide-body">
 <b>หนึ่งข้อความ = หนึ่งใบ</b> เรียงตามนี้:
-<pre>ออกใบเสนอราคา            ← หรือ "ออกใบเสนอราคา รวมค่าส่ง"
+<pre>ออกใบเสนอราคา            ← หรือ ออกใบกำกับภาษี / ออกใบวางบิล (ระบบสลับชนิดใบให้เอง)
 ชื่อสินค้า ราคา×จำนวน = ยอด
 ชื่อสินค้า ราคา             ← ถ้าจำนวน 1 ชิ้น ใส่แค่ราคา
 ลด 15%                    ← ลดรายการบนสุดที่พิมพ์ก่อนหน้า (หรือ "ลด 500" เป็นบาท)
@@ -262,6 +296,9 @@
 </details>
 
 <div class="toolstrip">
+  <span class="seg" id="segType">
+    <button data-t="QT" class="on">ใบเสนอราคา</button><button data-t="INV">ใบกำกับภาษี</button><button data-t="BL">ใบวางบิล</button>
+  </span>
   <label>ค่าส่งรวม <input type="number" id="shipInput" placeholder="0" min="0" step="0.01" inputmode="decimal"></label>
   <button class="btn-spread" id="btnSpread">เกลี่ยเข้าราคาสินค้า</button>
   <label>ส่วนลด <input type="number" id="discInput" placeholder="0" min="0" step="0.01" inputmode="decimal">
@@ -269,7 +306,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v11</span></div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v12</span></div>
 <div class="hint" id="saveStatus" style="color:#8DA0AC">ระบบบันทึก: ยังไม่มีการบันทึกในหน้านี้</div>
 
 <div class="stage"><div class="scaler" id="scaler">
@@ -285,12 +322,14 @@
       โทร 062-0057933</div>
     </div>
     <div class="head-right">
-      <div class="doc-title">ใบเสนอราคา</div>
-      <div class="doc-title-en">Quotation</div>
+      <div class="doc-title" id="docTitle">ใบเสนอราคา</div>
+      <div class="doc-title-en" id="docTitleEn">Quotation</div>
+      <div class="copy-sub" id="copySub" style="display:none">ต้นฉบับ</div>
       <div class="doc-meta">
         <span class="k">เลขที่</span><span class="v" id="docNo" contenteditable>QT-202608-0001</span>
         <span class="k">วันที่</span><span class="v" contenteditable id="docDate">07/08/2026</span>
-        <span class="k">ยืนราคาถึง</span><span class="v" contenteditable id="validDate">06/09/2026</span>
+        <span class="k" id="meta3k">ยืนราคาถึง</span><span class="v" contenteditable id="validDate">06/09/2026</span>
+        <span class="k" id="refK" style="display:none">อ้างอิง</span><span class="v" id="refV" style="display:none"></span>
         <span class="k">ผู้ขาย</span><span class="v" contenteditable>Lucerna</span>
       </div>
     </div>
@@ -360,23 +399,65 @@
     </div>
   </div>
 
+  <div class="paybox" id="payBox" style="display:none">
+    <div class="pay-line">การชำระเงินจะสมบูรณ์เมื่อบริษัทได้รับเงินเรียบร้อยแล้ว
+      <span class="paym" data-m="เงินสด">☐ เงินสด</span>
+      <span class="paym" data-m="เช็ค">☐ เช็ค</span>
+      <span class="paym on" data-m="โอนเงิน">☑ โอนเงิน</span>
+      <span class="paym" data-m="บัตรเครดิต">☐ บัตรเครดิต</span>
+    </div>
+    <div class="pay-line2">ธนาคาร <b contenteditable>กสิกรไทย ออมทรัพย์</b> &nbsp; เลขที่ <b contenteditable>1003315394</b> &nbsp; วันที่ <b contenteditable id="payDate"></b> &nbsp; จำนวนเงิน <b id="payAmt">0.00</b></div>
+  </div>
+
   <div class="in-names">
     <div class="in-name" id="inNameCust" contenteditable>ในนาม หจก.แวลู คอนสตรัคชั่น (ประเทศไทย)</div>
     <div class="in-name" contenteditable>ในนาม บริษัท ลูเซอน่า จำกัด</div>
   </div>
   <div class="signs">
     <div class="pair">
-      <div class="sign"><div class="line"></div><div class="who">ผู้สั่งซื้อสินค้า</div></div>
+      <div class="sign"><div class="line"></div><div class="who" id="signA">ผู้สั่งซื้อสินค้า</div></div>
       <div class="sign sm"><div class="line"></div><div class="who">วันที่</div></div>
     </div>
     <div class="pair">
-      <div class="sign"><div class="line"></div><div class="who">ผู้อนุมัติ</div></div>
+      <div class="sign"><div class="line"></div><div class="who" id="signB">ผู้อนุมัติ</div></div>
       <div class="sign sm"><div class="line"></div><div class="who">วันที่</div></div>
     </div>
   </div>
 
 </div>
 </div></div>
+
+<div id="listView" style="display:none;padding:10px 14px 60px">
+  <input id="listSearch" placeholder="ค้นหา ชื่อลูกค้า / เลขที่ใบ" style="width:100%;font-family:'Sarabun';font-size:14.5px;padding:11px 14px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB;margin-bottom:10px">
+  <div id="listRows"></div>
+</div>
+
+<div id="rowSheet" style="display:none;position:fixed;inset:0;background:rgba(10,6,2,.8);z-index:205;align-items:flex-end;justify-content:center">
+  <div style="background:#2E2213;border:1px solid #6A4E2E;border-radius:16px 16px 0 0;padding:18px 16px 26px;width:min(440px,100vw)">
+    <div id="sheetTitle" style="font-size:14px;font-weight:600;color:#F0D9BC;margin-bottom:12px"></div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <button class="sheet-btn" id="shView">เปิดดู / พิมพ์ซ้ำ / แก้ไข</button>
+      <button class="sheet-btn" id="shInv">แปลงเป็นใบกำกับภาษี</button>
+      <button class="sheet-btn" id="shBl">แปลงเป็นใบวางบิล</button>
+      <button class="sheet-btn danger" id="shCancel">ยกเลิกใบนี้</button>
+      <button class="sheet-btn" id="shClose">ปิด</button>
+    </div>
+  </div>
+</div>
+
+<div id="printPick" style="display:none;position:fixed;inset:0;background:rgba(10,6,2,.8);z-index:205;align-items:center;justify-content:center">
+  <div style="background:#2E2213;border:1px solid #6A4E2E;border-radius:14px;padding:20px 18px;width:min(340px,88vw)">
+    <div style="font-size:14px;font-weight:600;color:#F0D9BC;margin-bottom:12px">พิมพ์อะไรบ้าง</div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <button class="sheet-btn" data-p="both">ทั้งชุด — ต้นฉบับ + สำเนา (2 แผ่น)</button>
+      <button class="sheet-btn" data-p="orig">ต้นฉบับ อย่างเดียว</button>
+      <button class="sheet-btn" data-p="copy">สำเนา อย่างเดียว</button>
+      <button class="sheet-btn" id="ppClose">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<div id="printArea"></div>
 
 <div class="toast" id="toast"></div>
 
@@ -413,6 +494,48 @@ function askPin(){
     document.getElementById('pinCancel').onclick = ()=>{ m.style.display='none'; resolve(null); };
   });
 }
+/* ---------- ประเภทเอกสาร ---------- */
+const CO_G   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
+const CO_ENG = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
+const DOCTYPES = {
+  QT:  {title:'ใบเสนอราคา', en:'QUOTATION', fs:'26px', meta3:'ยืนราคาถึง', pay:false, tail:'', signA:'ผู้สั่งซื้อสินค้า', signB:'ผู้อนุมัติ'},
+  INV: {title:'ใบกำกับภาษี/ใบเสร็จรับเงิน', en:'TAX INVOICE / RECEIPT', fs:'21px', meta3:null, pay:true, tail:' (เอกสารออกเป็นชุด)', signA:'ผู้จ่ายเงิน', signB:'ผู้รับเงิน'},
+  BL:  {title:'ใบวางบิล/ใบแจ้งหนี้', en:'BILLING / INVOICE', fs:'22px', meta3:'ครบกำหนด', pay:false, tail:'', signA:'ผู้รับวางบิล', signB:'ผู้วางบิล'}
+};
+let docType = 'QT', docRef = '';
+function setDocType(t, ref){
+  docType = t; docRef = ref || '';
+  const c = DOCTYPES[t];
+  document.getElementById('docTitle').textContent = c.title;
+  document.getElementById('docTitle').style.fontSize = c.fs;
+  document.getElementById('docTitleEn').textContent = c.en;
+  const sub = document.getElementById('copySub');
+  sub.style.display = (t === 'QT') ? 'none' : '';
+  sub.textContent = 'ต้นฉบับ' + c.tail;
+  const m3 = document.getElementById('meta3k'), m3v = document.getElementById('validDate');
+  if(c.meta3){ m3.style.display=''; m3v.style.display=''; m3.textContent = c.meta3; }
+  else { m3.style.display='none'; m3v.style.display='none'; }
+  document.getElementById('refK').style.display = docRef ? '' : 'none';
+  document.getElementById('refV').style.display = docRef ? '' : 'none';
+  document.getElementById('refV').textContent = docRef;
+  document.getElementById('payBox').style.display = c.pay ? '' : 'none';
+  document.getElementById('signA').textContent = c.signA;
+  document.getElementById('signB').textContent = c.signB;
+  document.querySelectorAll('#segType button').forEach(b => b.classList.toggle('on', b.dataset.t === t));
+  docDirty = true;
+}
+document.querySelectorAll('#segType button').forEach(b=>{
+  b.onclick = ()=>{ setDocType(b.dataset.t, docRef); setPendingNo(); lastSavedNo = null; recalc(); };
+});
+/* วิธีชำระเงิน: เลือกได้อันเดียว */
+document.querySelectorAll('.paym').forEach(p=>{
+  p.onclick = ()=>{
+    document.querySelectorAll('.paym').forEach(x=>{ x.classList.remove('on'); x.textContent = '☐ ' + x.dataset.m; });
+    p.classList.add('on'); p.textContent = '☑ ' + p.dataset.m;
+    docDirty = true;
+  };
+});
+
 let docDirty = true;      /* มีการแก้ไขที่ยังไม่บันทึก */
 let lastSavedNo = null;
 let lastSavedCust = null; /* ชื่อลูกค้าของใบที่ save ล่าสุด — กันเขียนทับข้ามลูกค้า */
@@ -426,7 +549,7 @@ function setSaveStatus(ok, text){
 function setPendingNo(){
   const now = new Date();
   const ym = now.getFullYear() + String(now.getMonth()+1).padStart(2,'0');
-  document.getElementById('docNo').textContent = 'QT-' + ym + '-XXXX';   /* เลขจริงออกตอนบันทึก */
+  document.getElementById('docNo').textContent = docType + '-' + ym + '-XXXX';   /* เลขจริงออกตอนบันทึก */
 }
 function collectDoc(){
   const items = [...document.querySelectorAll('#tbody tr')].map(tr=>({
@@ -437,7 +560,9 @@ function collectDoc(){
     price:num(tr.querySelector('.price').textContent)
   })).filter(it=>it.name && it.name!=='ชื่อสินค้า');
   return {
-    type:'QT',
+    type: docType,
+    ref: docRef,
+    payMethod: (document.querySelector('.paym.on')||{dataset:{m:''}}).dataset.m,
     no: document.getElementById('docNo').textContent.trim(),
     date: document.getElementById('docDate').textContent.trim(),
     validUntil: document.getElementById('validDate').textContent.trim(),
@@ -539,6 +664,7 @@ function recalc(){
   document.getElementById('vat').textContent = money(vat);
   document.getElementById('grand').textContent = money(grand);
   document.getElementById('bahtText').textContent = '( ' + bahtText(grand) + ' )';
+  document.getElementById('payAmt').textContent = money(grand);
   /* โหมดไม่รวม VAT: "รวมเป็นเงิน" คือยอดก่อนภาษีอยู่แล้ว ไม่ต้องมีบรรทัดซ้ำ */
   document.getElementById('rowPreVat').style.display = exVat ? 'none' : '';
   document.getElementById('vatNote').textContent =
@@ -634,10 +760,14 @@ function parsePaste(){
   let multi = false;
   if(cmdIdx.length >= 2){ lines = lines.slice(0, cmdIdx[1]); multi = true; }
   let inclShipFlag = lines.some(o=>o.s.includes('ออกใบเสนอราคา') && o.s.includes('รวมค่าส่ง'));
-  /* ชื่อคนส่ง = ทุกอย่างก่อนคำว่า "ออกใบเสนอราคา" ในบรรทัดคำสั่ง */
-  let senderPre = '';
-  const cmdLine = lines.find(o=>o.s.includes('ออกใบเสนอราคา'));
-  if(cmdLine) senderPre = cmdLine.s.slice(0, cmdLine.s.indexOf('ออกใบเสนอราคา')).trim();
+  /* ชนิดใบจากบรรทัดคำสั่งแรก + ชื่อคนส่ง = ทุกอย่างก่อนคำว่า "ออกใบ..." */
+  let senderPre = '', wantType = 'QT';
+  const cmdLine = lines.find(o=>/ออกใบ(เสนอราคา|กำกับภาษี|วางบิล|แจ้งหนี้)/.test(o.s));
+  if(cmdLine){
+    senderPre = cmdLine.s.slice(0, cmdLine.s.search(/ออกใบ/)).trim();
+    if(cmdLine.s.includes('กำกับภาษี')) wantType = 'INV';
+    else if(/วางบิล|แจ้งหนี้/.test(cmdLine.s)) wantType = 'BL';
+  }
   lines = lines.filter(o=>!o.s.includes('ออกใบเสนอราคา'));
   if(senderPre.length >= 3){
     lines.forEach(o=>{ if(o.t && o.s.startsWith(senderPre)) o.s = o.s.slice(senderPre.length).trim(); });
@@ -740,6 +870,7 @@ function parsePaste(){
   }
 
   /* ---- เทลงเอกสาร ---- */
+  setDocType(wantType);
   if(d.name){
     document.getElementById('custNameText').textContent = d.name;
     document.getElementById('inNameCust').textContent = 'ในนาม ' + d.name;
@@ -784,7 +915,7 @@ function parsePaste(){
   recalc();
 
   /* ---- เกลี่ยค่าส่ง + ตรวจทานยอด ---- */
-  let msg = 'แยกข้อมูลแล้ว: '+d.items.length+' รายการ' + (d.name ? ' · '+d.name : '');
+  let msg = DOCTYPES[wantType].title + ' · แยกข้อมูลแล้ว: '+d.items.length+' รายการ' + (d.name ? ' · '+d.name : '');
   if(d.itemDisc > 0) msg += '\nส่วนลด '+money(d.itemDisc)+' บาท คำนวณใส่ช่องส่วนลดให้แล้ว';
   if(d.items.some(it=>it.price===0)) msg += '\n⚠ มีรายการที่ไม่ได้บอกราคามา — เติมราคาในตารางด้วย';
   if(d.ship > 0){
@@ -876,9 +1007,8 @@ document.getElementById('btnReset').onclick = function(){
   const now = new Date();
   document.getElementById('docDate').textContent  = fmt(now);
   document.getElementById('validDate').textContent= fmt(new Date(Date.now()+30*864e5));
-  /* เลขเอกสาร: PREFIX-YYYYMM-NNNN (running จริงจะมาจากระบบใน phase ถัดไป) */
-  const ym = now.getFullYear() + String(now.getMonth()+1).padStart(2,'0');
-  document.getElementById('docNo').textContent = 'QT-' + ym + '-0001';
+  document.getElementById('payDate').textContent  = fmt(now);
+  setPendingNo();
 })();
 
 /* ---------- toast ---------- */
@@ -888,10 +1018,11 @@ function showToast(msg,ms){ toast.textContent=msg; toast.style.display='block';
 
 /* ---------- พิมพ์ (บันทึกลงระบบก่อนเสมอ) ---------- */
 document.getElementById('btnPrint').onclick = async ()=>{
+  if(docType !== 'QT'){ document.getElementById('printPick').style.display = 'flex'; return; }
   const s = await ensureSaved();
   if(s.ok) showToast((s.updated?'อัพเดตใบเดิมแล้ว ✓ เลขที่ ':'บันทึกแล้ว ✓ เลขที่ ')+s.no, 2600);
   else if(!s.skipped) showToast('⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+') — พิมพ์ให้ตามปกติ', 4200);
-  setTimeout(()=>window.print(), 150);
+  setTimeout(()=>printCopies('orig'), 150);
 };
 
 /* ---------- ส่งออก PNG: เลือกวิธีที่ดีที่สุดของแต่ละเครื่อง ---------- */
@@ -977,6 +1108,177 @@ document.getElementById('btnSave').onclick = async function(){
   document.body.classList.remove('exporting');
   btn.disabled=false; btn.textContent='บันทึกรูป';
 };
+
+/* ================= Tab รายการ ================= */
+function showTab(which){
+  const isDoc = which === 'doc';
+  document.querySelector('.stage').style.display = isDoc ? '' : 'none';
+  document.querySelector('.pastebox').style.display = isDoc ? '' : 'none';
+  document.querySelector('.toolstrip').style.display = isDoc ? '' : 'none';
+  document.querySelectorAll('.hint').forEach(h=>h.style.display = isDoc ? '' : 'none');
+  document.querySelector('details.guide').style.display = isDoc ? '' : 'none';
+  document.getElementById('listView').style.display = isDoc ? 'none' : '';
+  document.getElementById('tabDoc').classList.toggle('on', isDoc);
+  document.getElementById('tabList').classList.toggle('on', !isDoc);
+  if(isDoc) fit();
+}
+document.getElementById('tabDoc').onclick = ()=> showTab('doc');
+document.getElementById('tabList').onclick = ()=>{ showTab('list'); loadList(); };
+
+async function apiCall(path, body){
+  if(!API.url) return {error:'ยังไม่ได้ตั้งค่าระบบ'};
+  let pin = getStoredPin(), asked = false;
+  if(!pin){ pin = await askPin(); asked = true; if(!pin) return {error:'ไม่ได้ใส่ PIN'}; }
+  try{
+    const res = await fetch(API.url.replace(/\/$/,'') + path, body
+      ? {method:'POST', headers:{'content-type':'application/json','x-pin':pin}, body: JSON.stringify(body)}
+      : {headers:{'x-pin':pin}});
+    if(res.status === 401){ clearPin(); return {error:'PIN ไม่ถูกต้อง — ลองใหม่'}; }
+    const j = await res.json();
+    if(res.ok && asked) storePin(pin);
+    return j;
+  }catch(e){ return {error:e.message}; }
+}
+
+let listCache = [];
+async function loadList(){
+  const box = document.getElementById('listRows');
+  box.innerHTML = '<div style="color:#A08B72;font-size:13.5px;padding:20px;text-align:center">กำลังโหลด…</div>';
+  const rows = await apiCall('/list');
+  if(rows.error){ box.innerHTML = '<div style="color:#E08A8A;font-size:13.5px;padding:20px;text-align:center">'+esc(rows.error)+'</div>'; return; }
+  listCache = rows.slice().sort((a,b)=>(b.savedAt||'').localeCompare(a.savedAt||''));
+  renderList();
+}
+function renderList(){
+  const q = document.getElementById('listSearch').value.trim().toLowerCase();
+  const rows = listCache.filter(r => !q || (r.no+' '+(r.customer||'')).toLowerCase().includes(q));
+  const box = document.getElementById('listRows');
+  if(!rows.length){ box.innerHTML = '<div style="color:#A08B72;font-size:13.5px;padding:20px;text-align:center">ไม่พบเอกสาร</div>'; return; }
+  box.innerHTML = rows.map(r=>{
+    const st = r.status || 'ออกแล้ว';
+    const cls = st === 'ยกเลิก' ? 'cancel' : (st.startsWith('แปลง') ? 'conv' : 'ok');
+    return '<div class="lrow" data-no="'+r.no+'">'
+      + '<div class="l1"><b>'+r.no+'</b><b>'+Number(r.grand||0).toLocaleString('th-TH',{minimumFractionDigits:2})+'</b></div>'
+      + '<div class="l2"><span>'+esc((r.customer||'—').slice(0,32))+'</span><span class="chip '+cls+'">'+esc(st)+'</span></div>'
+      + '</div>';
+  }).join('');
+  box.querySelectorAll('.lrow').forEach(el=> el.onclick = ()=> openSheet(el.dataset.no));
+}
+document.getElementById('listSearch').addEventListener('input', renderList);
+
+let sheetNo = null, cancelArmed = 0;
+function openSheet(no){
+  sheetNo = no; cancelArmed = 0;
+  const r = listCache.find(x=>x.no===no) || {};
+  document.getElementById('sheetTitle').textContent = no + ' · ' + (r.customer||'');
+  const isQT = no.startsWith('QT-');
+  document.getElementById('shInv').style.display = isQT ? '' : 'none';
+  document.getElementById('shBl').style.display  = isQT ? '' : 'none';
+  const cb = document.getElementById('shCancel');
+  cb.textContent = 'ยกเลิกใบนี้'; cb.style.display = (r.status==='ยกเลิก') ? 'none' : '';
+  document.getElementById('rowSheet').style.display = 'flex';
+}
+document.getElementById('shClose').onclick = ()=> document.getElementById('rowSheet').style.display = 'none';
+document.getElementById('rowSheet').onclick = e=>{ if(e.target.id==='rowSheet') e.target.style.display='none'; };
+
+function fillFromDoc(d){
+  document.getElementById('custNameText').textContent = (d.customer&&d.customer.name)||'ชื่อลูกค้า';
+  document.getElementById('inNameCust').textContent = 'ในนาม ' + ((d.customer&&d.customer.name)||'....................');
+  document.querySelector('.cust-line').textContent = (d.customer&&d.customer.address)||'—';
+  function sf(id,val){ const el=document.getElementById(id); el.style.display = val?'':'none'; if(val)(el.querySelector('b')||el).textContent = val; }
+  const c = d.customer||{};
+  sf('fTax', c.taxId); sf('fPhone', c.phone); sf('fEmail', c.email);
+  sf('fBranch', c.branch ? '('+c.branch+')' : '');
+  const jur = c.name && (CO_G.test(c.name) || CO_ENG.test(c.name));
+  document.getElementById('fTaxLabel').textContent = jur ? 'เลขผู้เสียภาษี' : 'เลขบัตรประชาชน';
+  tbody.innerHTML = '';
+  (d.items||[]).forEach(it=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td class="ctr idx"></td>'
+      + '<td><div contenteditable>'+esc(it.name||'')+'</div><div class="item-desc" contenteditable>'+esc(it.desc||'')+'</div></td>'
+      + '<td class="ctr qty" contenteditable>'+(it.qty||1)+'</td>'
+      + '<td class="ctr" contenteditable>'+esc(it.unit||'ชิ้น')+'</td>'
+      + '<td class="num price" contenteditable>'+money(it.price||0)+'</td>'
+      + '<td class="num amount">0.00</td>'
+      + '<td><button class="row-x" title="ลบแถว">✕</button></td>';
+    tbody.appendChild(tr);
+  });
+  const disc = d.discount||{};
+  document.getElementById('discInput').value = disc.input||'';
+  document.getElementById('discMode').value = disc.mode||'baht';
+  discExtra = disc.extra||0;
+  document.getElementById('exVat').checked = !!d.exVat;
+  if(d.date) document.getElementById('docDate').textContent = d.date;
+  if(d.validUntil) document.getElementById('validDate').textContent = d.validUntil;
+  recalc();
+}
+async function viewDoc(no){
+  const d = await apiCall('/doc?no='+encodeURIComponent(no));
+  if(d.error){ showToast('⚠ '+d.error, 4000); return; }
+  fillFromDoc(d);
+  setDocType(d.type||'QT', d.ref||'');
+  document.getElementById('docNo').textContent = d.no;
+  lastSavedNo = d.no; lastSavedCust = (d.customer&&d.customer.name)||''; docDirty = false;
+  document.getElementById('rowSheet').style.display = 'none';
+  showTab('doc');
+  showToast('เปิดใบ '+d.no+' — แก้แล้วกดบันทึก = อัพเดตใบเดิม', 4200);
+}
+async function convertDoc(no, target){
+  const d = await apiCall('/doc?no='+encodeURIComponent(no));
+  if(d.error){ showToast('⚠ '+d.error, 4000); return; }
+  fillFromDoc(d);
+  setDocType(target, d.no);
+  setPendingNo();
+  lastSavedNo = null; docDirty = true;
+  document.getElementById('rowSheet').style.display = 'none';
+  showTab('doc');
+  showToast('แปลง '+no+' เป็น'+DOCTYPES[target].title+'\nตรวจรายการแล้วกดบันทึกรูป/พิมพ์ → ระบบออกเลขใหม่ให้', 5200);
+}
+document.getElementById('shView').onclick = ()=> viewDoc(sheetNo);
+document.getElementById('shInv').onclick  = ()=> convertDoc(sheetNo, 'INV');
+document.getElementById('shBl').onclick   = ()=> convertDoc(sheetNo, 'BL');
+document.getElementById('shCancel').onclick = async function(){
+  if(Date.now() - cancelArmed > 2600){ cancelArmed = Date.now(); this.textContent = 'แตะอีกครั้ง ยืนยันยกเลิก '+sheetNo; return; }
+  const r = await apiCall('/cancel', {no: sheetNo});
+  if(r.error){ showToast('⚠ '+r.error, 4000); return; }
+  document.getElementById('rowSheet').style.display = 'none';
+  showToast('ยกเลิกใบ '+sheetNo+' แล้ว', 3600);
+  loadList();
+};
+
+/* ================= พิมพ์ ต้นฉบับ/สำเนา ================= */
+function printCopies(mode){
+  const area = document.getElementById('printArea');
+  area.innerHTML = '';
+  const tail = DOCTYPES[docType].tail;
+  function mk(label){
+    const cl = document.getElementById('doc').cloneNode(true);
+    cl.removeAttribute('id');
+    const sub = cl.querySelector('.copy-sub');
+    if(sub){ sub.style.display=''; sub.textContent = label; }
+    cl.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+    return cl;
+  }
+  if(docType === 'QT'){ area.appendChild(mk('')); }
+  else{
+    if(mode !== 'copy') area.appendChild(mk('ต้นฉบับ'+tail));
+    if(mode !== 'orig') area.appendChild(mk('สำเนา'+tail));
+  }
+  if(docType === 'QT') area.querySelector('.copy-sub').style.display = 'none';
+  document.body.classList.add('pcopies');
+  window.print();
+  setTimeout(()=>{ area.innerHTML=''; document.body.classList.remove('pcopies'); }, 800);
+}
+document.querySelectorAll('#printPick .sheet-btn[data-p]').forEach(b=>{
+  b.onclick = async ()=>{
+    document.getElementById('printPick').style.display = 'none';
+    const s = await ensureSaved();
+    if(s.ok) showToast((s.updated?'อัพเดตใบเดิมแล้ว ✓ ':'บันทึกแล้ว ✓ ')+s.no, 2400);
+    else if(!s.skipped) showToast('⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+') — พิมพ์ให้ตามปกติ', 4000);
+    setTimeout(()=> printCopies(b.dataset.p), 150);
+  };
+});
+document.getElementById('ppClose').onclick = ()=> document.getElementById('printPick').style.display = 'none';
 
 recalc();
 window.addEventListener('load', fit);
