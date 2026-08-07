@@ -221,7 +221,7 @@
   .toast{
     position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
     background:#3B2C1A;color:#F6EADB;font-size:13.5px;padding:11px 20px;
-    border-radius:10px;z-index:99;display:none;max-width:88vw;text-align:center;line-height:1.6;
+    border-radius:10px;z-index:230;display:none;max-width:88vw;text-align:center;line-height:1.6;
   }
 </style>
 </head>
@@ -247,6 +247,7 @@
 <pre>ออกใบเสนอราคา            ← หรือ "ออกใบเสนอราคา รวมค่าส่ง"
 ชื่อสินค้า ราคา×จำนวน = ยอด
 ชื่อสินค้า ราคา             ← ถ้าจำนวน 1 ชิ้น ใส่แค่ราคา
+ลด 15%                    ← ลดรายการบนสุดที่พิมพ์ก่อนหน้า (หรือ "ลด 500" เป็นบาท)
 ค่าส่ง 130                 ← ใส่เฉพาะเคสรวมค่าส่งเข้าบิล
 ยอดรวม 2,530
 ชื่อบริษัท / ชื่อลูกค้า
@@ -396,7 +397,7 @@
    หลัง deploy Worker แล้ว ใส่ค่า 2 บรรทัดนี้ แล้วทุกครั้งที่กด
    "พิมพ์" หรือ "บันทึกรูป" ระบบจะขอเลขจริง + บันทึกลง GitHub ให้เอง */
 const API = {
-  url: 'https://lucerna-docs.lekvtwin.workers.dev'
+  url: ''    /* ใส่ URL ของ Worker หลัง deploy เช่น 'https://lucerna-docs.xxxx.workers.dev' */
 };
 /* PIN ไม่ฝังในไฟล์นี้ (หน้านี้อยู่บนเว็บสาธารณะ) — พนักงานใส่ครั้งแรกครั้งเดียว เครื่องจำไว้ */
 function getStoredPin(){ try{ return localStorage.getItem('lucerna_pin'); }catch(e){ return null; } }
@@ -457,10 +458,12 @@ async function ensureSaved(){
   let pin = getStoredPin(), asked = false;
   if(!pin){ pin = await askPin(); asked = true; if(!pin) return {ok:false, err:'ไม่ได้ใส่ PIN'}; }
   try{
+    const payload = collectDoc();
+    if(lastSavedNo){ payload.no = lastSavedNo; payload.update = true; }   /* แก้ใบเดิม = ทับเลขเดิม ไม่ออกเลขใหม่ */
     const res = await fetch(API.url.replace(/\/$/,'')+'/save', {
       method:'POST',
       headers:{'content-type':'application/json','x-pin':pin},
-      body: JSON.stringify(collectDoc())
+      body: JSON.stringify(payload)
     });
     if(res.status === 401){ clearPin(); return {ok:false, err:'PIN ไม่ถูกต้อง — กดใหม่แล้วใส่อีกครั้ง'}; }
     const j = await res.json();
@@ -468,7 +471,7 @@ async function ensureSaved(){
       if(asked) storePin(pin);                     /* จำ PIN เฉพาะเมื่อพิสูจน์แล้วว่าถูก */
       document.getElementById('docNo').textContent = j.no;
       lastSavedNo = j.no; docDirty = false;
-      return {ok:true, no:j.no};
+      return {ok:true, no:j.no, updated: !!j.updated};
     }
     return {ok:false, err:j.error||('HTTP '+res.status)};
   }catch(e){ return {ok:false, err:e.message}; }
@@ -626,10 +629,12 @@ function parsePaste(){
   /* ล้างอักขระตกแต่ง เช่น ******* */
   lines = lines.map(o=>o.s.replace(/[*_~=]{2,}/g,' ').replace(/\s+/g,' ').trim()).filter(l=>l);
 
-  const d = {name:'', addr:[], tax:'', phone:[], email:'', branch:'', items:[], ship:0, stated:null, inclShip:inclShipFlag};
+  const d = {name:'', addr:[], tax:'', phone:[], email:'', branch:'', items:[], ship:0, stated:null, inclShip:inclShipFlag, itemDisc:0};
 
   const ADDR = /(ตำบล|ต\.|อำเภอ|อ\.|จังหวัด|จ\.|แขวง|เขต|ถนน|ถ\.|ซอย|หมู่บ้าน|หมู่|ม\.|กทม|กรุงเทพ)/;
+  const ADDR_EN = /\b(road|rd\.?|street|soi|moo|floor|fl\.?|tower|building|bldg|district|bangkok|thailand)\b/i;
   const CO   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
+  const CO_EN = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 
   for(let line of lines){
     /* อีเมล */
@@ -658,12 +663,24 @@ function parsePaste(){
     }
     /* สาขา */
     if(line.includes('สำนักงานใหญ่')){ d.branch = 'สำนักงานใหญ่'; line = line.replace(/[\(\)]?สำนักงานใหญ่[\(\)]?/,'').trim(); }
+    else if(/head\s*office/i.test(line)){ d.branch = 'Head Office'; line = line.replace(/\(?\s*head\s*office\s*\)?/i,'').trim(); }
     else { const br = line.match(/สาขา\s*\S+/); if(br && !CO.test(line)) d.branch = br[0]; }
     if(!line) continue;
-    /* ชื่อนิติบุคคล */
-    if(CO.test(line) && !ADDR.test(line) && !d.name){ d.name = line; continue; }
-    /* ที่อยู่ */
-    if(ADDR.test(line) || /\d{5}\s*$/.test(line)){ d.addr.push(line); continue; }
+    /* ชื่อบุคคล นำหน้าด้วย คุณ/ช่าง/Khun/K. */
+    if(!d.name && /^(คุณ|ช่าง|khun|k\.)\s*\S/i.test(line) && !ADDR.test(line) && !ADDR_EN.test(line)){ d.name = line; continue; }
+    /* ชื่อนิติบุคคล (ไทยหรืออังกฤษ) */
+    if((CO.test(line) || CO_EN.test(line)) && !ADDR.test(line) && !ADDR_EN.test(line) && !d.name){ d.name = line; continue; }
+    /* ที่อยู่ (ไทยหรืออังกฤษ หรือจบด้วยรหัสไปรษณีย์) */
+    if(ADDR.test(line) || ADDR_EN.test(line) || /\d{5}\s*(thailand)?\s*\.?\s*$/i.test(line)){ d.addr.push(line); continue; }
+    /* บรรทัดส่วนลด: "ลด 15% ..." คิดจากรายการก่อนหน้า / "ลด 500" ลดเป็นบาทตรงๆ */
+    let dm = line.match(/^ลด\s*([\d,\.]+)\s*%/);
+    if(dm && d.items.length){
+      const it = d.items[d.items.length-1];
+      d.itemDisc = r2(d.itemDisc + r2(it.price * it.qty * num(dm[1]) / 100));
+      continue;
+    }
+    dm = line.match(/^ลด\s*([\d,\.]+)\s*(บาท)?\s*$/);
+    if(dm){ d.itemDisc = r2(d.itemDisc + num(dm[1])); continue; }
     /* รายการสินค้าแบบ ราคา×จำนวน = ยอด */
     let m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*[x×\*]\s*([\d,]+(?:\.\d+)?)\s*=?\s*([\d,]+(?:\.\d+)?)?/);
     if(m){ d.items.push({name:m[1].trim(), price:num(m[2]), qty:num(m[3])}); continue; }
@@ -674,7 +691,7 @@ function parsePaste(){
     m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*(?:บาท)?\s*\.?-?\s*$/);
     if(m && num(m[2]) > 0){ d.items.push({name:m[1].trim(), price:num(m[2]), qty:1}); continue; }
     /* ข้อความที่เหลือ ไม่มีตัวเลข และยังไม่มีชื่อ → ชื่อลูกค้าบุคคล */
-    if(!d.name && !/\d/.test(line)) d.name = line;
+    if(!d.name && !/\d/.test(line) && !(/^[a-z0-9._]+$/i.test(line) && !line.includes(' '))) d.name = line;
   }
 
   /* ---- เทลงเอกสาร ---- */
@@ -694,10 +711,11 @@ function parsePaste(){
   setField('fBranch', brRaw ? '('+brRaw+')' : '');
   setField('fPhone', d.phone.length ? d.phone.join(', ') : '');
   setField('fEmail', d.email);
-  /* ใบใหม่ = ล้างส่วนลดและเศษเกลี่ยเก่า */
+  /* ใบใหม่ = ล้างส่วนลดและเศษเกลี่ยเก่า แล้วใส่ส่วนลดที่คำนวณได้จากข้อความ */
   discExtra = 0;
-  document.getElementById('discInput').value = '';
+  document.getElementById('discInput').value = d.itemDisc > 0 ? d.itemDisc : '';
   document.getElementById('discMode').value = 'baht';
+  lastSavedNo = null;   /* paste ใหม่ = ใบใหม่เสมอ ออกเลขใหม่ได้ */
 
   if(d.items.length){
     tbody.innerHTML = '';
@@ -718,6 +736,7 @@ function parsePaste(){
 
   /* ---- เกลี่ยค่าส่ง + ตรวจทานยอด ---- */
   let msg = 'แยกข้อมูลแล้ว: '+d.items.length+' รายการ' + (d.name ? ' · '+d.name : '');
+  if(d.itemDisc > 0) msg += '\nส่วนลด '+money(d.itemDisc)+' บาท คำนวณใส่ช่องส่วนลดให้แล้ว';
   if(d.items.some(it=>it.price===0)) msg += '\n⚠ มีรายการที่ไม่ได้บอกราคามา — เติมราคาในตารางด้วย';
   if(d.ship > 0){
     const res = spreadShipping(d.ship);
@@ -820,7 +839,7 @@ function showToast(msg,ms){ toast.textContent=msg; toast.style.display='block';
 /* ---------- พิมพ์ (บันทึกลงระบบก่อนเสมอ) ---------- */
 document.getElementById('btnPrint').onclick = async ()=>{
   const s = await ensureSaved();
-  if(s.ok) showToast('บันทึกแล้ว ✓ เลขที่ '+s.no, 2600);
+  if(s.ok) showToast((s.updated?'อัพเดตใบเดิมแล้ว ✓ เลขที่ ':'บันทึกแล้ว ✓ เลขที่ ')+s.no, 2600);
   else if(!s.skipped) showToast('⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+') — พิมพ์ให้ตามปกติ', 4200);
   setTimeout(()=>window.print(), 150);
 };
@@ -838,6 +857,7 @@ function iosImageSheet(blob, name){
         '<img id="imgSheetImg" style="max-width:92vw;max-height:62vh;border-radius:8px;background:#fff">'+
         '<div style="display:flex;gap:10px;margin-top:16px">'+
         '<button id="imgSheetShare" style="font-family:Sarabun;font-weight:600;font-size:14px;padding:10px 18px;border-radius:8px;border:none;background:var(--orange);color:#fff">แชร์ / ส่ง LINE</button>'+
+        '<button id="imgSheetDl" style="font-family:Sarabun;font-weight:600;font-size:14px;padding:10px 18px;border-radius:8px;border:1px solid #6A4E2E;background:transparent;color:#F0D9BC">ดาวน์โหลด</button>'+
         '<button id="imgSheetClose" style="font-family:Sarabun;font-weight:600;font-size:14px;padding:10px 18px;border-radius:8px;border:1px solid #6A4E2E;background:transparent;color:#D9C6AE">ปิด</button></div>';
       document.body.appendChild(sh);
     }
@@ -846,6 +866,9 @@ function iosImageSheet(blob, name){
     sh.style.display = 'flex';
     document.getElementById('imgSheetShare').onclick = async ()=>{
       try{ await navigator.share({files:[new File([blob], name, {type:'image/png'})]}); }catch(e){}
+    };
+    document.getElementById('imgSheetDl').onclick = ()=>{
+      const a=document.createElement('a'); a.href=url; a.download=name; a.click();
     };
     document.getElementById('imgSheetClose').onclick = ()=>{
       sh.style.display='none'; URL.revokeObjectURL(url); resolve({how:'ios-sheet'});
@@ -892,7 +915,7 @@ document.getElementById('btnSave').onclick = async function(){
     const canvas=await html2canvas(doc,{scale:2,backgroundColor:'#FFFFFF',useCORS:true});
     const name=(document.getElementById('docNo').textContent.trim().replace(/[^\w\-]/g,'_')||'quotation')+'.png';
     const r = await exportPNG(canvas, name);
-    const saveMsg = s.ok ? 'บันทึกลงระบบแล้ว ✓ เลขที่ '+s.no+'\n'
+    const saveMsg = s.ok ? (s.updated?'อัพเดตใบเดิมในระบบแล้ว ✓ เลขที่ ':'บันทึกลงระบบแล้ว ✓ เลขที่ ')+s.no+'\n'
                   : (s.skipped ? '' : '⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+')\n');
     if(r.how==='picker')    showToast(saveMsg+'บันทึกไฟล์ลงโฟลเดอร์ที่เลือกแล้ว ✓', 4200);
     else if(r.how==='share')showToast(saveMsg+'ส่งรูปเข้า share sheet แล้ว ✓', 4200);
