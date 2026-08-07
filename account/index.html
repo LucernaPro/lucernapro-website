@@ -269,7 +269,7 @@
   <label><input type="checkbox" id="exVat"> ราคาสินค้าไม่รวม VAT</label>
   <button class="btn-reset" id="btnReset">ล้างฟอร์ม</button>
 </div>
-<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ</div>
+<div class="hint">แตะที่ข้อความในเอกสารเพื่อแก้ไข · ตัวเลขคำนวณอัตโนมัติ · <span style="color:#6E5B44">v8</span></div>
 
 <div class="stage"><div class="scaler" id="scaler">
 <div class="doc" id="doc">
@@ -414,6 +414,7 @@ function askPin(){
 }
 let docDirty = true;      /* มีการแก้ไขที่ยังไม่บันทึก */
 let lastSavedNo = null;
+let lastSavedCust = null; /* ชื่อลูกค้าของใบที่ save ล่าสุด — กันเขียนทับข้ามลูกค้า */
 
 function collectDoc(){
   const items = [...document.querySelectorAll('#tbody tr')].map(tr=>({
@@ -459,7 +460,9 @@ async function ensureSaved(){
   if(!pin){ pin = await askPin(); asked = true; if(!pin) return {ok:false, err:'ไม่ได้ใส่ PIN'}; }
   try{
     const payload = collectDoc();
-    if(lastSavedNo){ payload.no = lastSavedNo; payload.update = true; }   /* แก้ใบเดิม = ทับเลขเดิม ไม่ออกเลขใหม่ */
+    /* แก้ใบเดิม (ลูกค้าเดียวกัน) = ทับเลขเดิม / ลูกค้าเปลี่ยน = ใบใหม่ ออกเลขใหม่ */
+    if(lastSavedNo && payload.customer.name === lastSavedCust){ payload.no = lastSavedNo; payload.update = true; }
+    else { lastSavedNo = null; }
     const res = await fetch(API.url.replace(/\/$/,'')+'/save', {
       method:'POST',
       headers:{'content-type':'application/json','x-pin':pin},
@@ -470,7 +473,7 @@ async function ensureSaved(){
     if(res.ok && j.no){
       if(asked) storePin(pin);                     /* จำ PIN เฉพาะเมื่อพิสูจน์แล้วว่าถูก */
       document.getElementById('docNo').textContent = j.no;
-      lastSavedNo = j.no; docDirty = false;
+      lastSavedNo = j.no; lastSavedCust = payload.customer.name; docDirty = false;
       return {ok:true, no:j.no, updated: !!j.updated};
     }
     return {ok:false, err:j.error||('HTTP '+res.status)};
