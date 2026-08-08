@@ -165,6 +165,13 @@
   .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
   .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
   .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .howpics{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.howpics{grid-template-columns:1fr 1fr}}
+  .howpics figure{margin:0;border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px}
+  .howpics img{width:100%;height:auto;border-radius:9px;display:block}
+  .howpics figcaption{padding:11px 6px 3px;font-size:14px;color:var(--muted)}
+  .howpics figcaption b{color:var(--ink)}
+  .howpics .stepno{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange)}
   .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
   .warn b{color:var(--warn-ink)}
   .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--cat);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
@@ -423,6 +430,16 @@
   <div class="wrap">
     <h2 class="sec-h">วิธีใช้งาน — <em>จบบนหน้านี้</em></h2>
     <p class="sec-sub">4 ขั้นตอนตามคู่มือบนฉลากจริง ตัวเลขครบ — อ่านจบลงมือได้เลย</p>
+    <div class="howpics">
+      <figure>
+        <img loading="lazy" decoding="async" src="/img/bioshield-howto01.webp" alt="ใช้แปรงทา BioShield ลงบนผนังที่มีคราบตะไคร่และเชื้อราโดยตรง" width="1200" height="959">
+        <figcaption><span class="stepno">STEP 01</span><br><b>ทาลงบนคราบได้เลย</b> — ไม่ต้องขัดก่อน ไม่ต้องผสมน้ำ ลงน้ำยาให้เปียกชุ่มทั่วบริเวณที่มีเชื้อ</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="/img/bioshield-howto02.webp" alt="ฉีดน้ำล้างคราบตะไคร่ที่ตายแล้วออกจากผนังหลังปล่อยน้ำยาออกฤทธิ์ครบ 1 ชั่วโมง" width="1200" height="959">
+        <figcaption><span class="stepno">STEP 02</span><br><b>รอ 1 ชั่วโมง แล้วล้างออก</b> — เชื้อที่ตายแล้วหลุดง่าย ช่วยขัดด้วยแปรงอีกนิดเพื่อผลลัพธ์ที่ดีที่สุด</figcaption>
+      </figure>
+    </div>
     <ol class="flow">
       <li class="fstep"><h4>ลงน้ำยาให้ทั่วบริเวณที่มีเชื้อ</h4><p>พร้อมใช้งานทันที ไม่ต้องผสมน้ำเพิ่ม — ใช้แปรง ลูกกลิ้ง หรือเครื่องพ่น ลงน้ำยาให้ทั่วและเปียกชุ่มตลอดบริเวณที่มีเชื้อรา ตะไคร่ หรือไลเคน รวมถึงขอบรอบๆ ที่ยังไม่เห็นคราบด้วยเล็กน้อย</p><span class="fchip">1 ลิตร ≈ 4–5 ตร.ม.</span><span class="fchip">ไม่ต้องผสมน้ำ</span></li>
       <li class="fstep"><h4>ปล่อยให้น้ำยาออกฤทธิ์</h4><p>หลังลงน้ำยา ปล่อยให้ทำงานบนพื้นผิวโดยไม่ต้องล้างออก ทิ้งไว้ประมาณ 1 ชั่วโมง เพื่อให้น้ำยาออกฤทธิ์กับคราบและจุลินทรีย์บนพื้นผิว</p><span class="fchip">ทิ้งไว้ ~1 ชม.</span></li>
