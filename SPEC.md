@@ -46,7 +46,7 @@
 - ปุ่ม Facebook: พื้น graphite (--panel-2 + border --line) + ตรา f น้ำเงิน #1877F2 ดวงเล็ก (.fbadge) — ห้ามปุ่มน้ำเงินเต็มแผ่น
 - Line: สีเขียว #06C755 ใช้ได้ (chip .shop-line)
 - ฟอนต์: Chakra Petch (หัวข้อ/display), Anuphan (เนื้อหา), IBM Plex Mono (โค้ด/ตัวเลขกำกับ)
-- สีหมวด: waterproof #4FA3D1, flooring #E0A458, wall #D1766B, coating #8FA6B8, chem #7FBF8E, auto #B48FD1
+- สีหมวด: waterproof #4FA3D1, flooring #E0A458, wall #D1766B, coating #8FA6B8, chem #7FBF8E, auto #B48FD1, **household #52C5B0 (เพิ่ม 8 ส.ค. 2026 — มติเจ้าของ: แยกหมวดผลิตภัณฑ์ทำความสะอาดในบ้าน id="household" รับสายสินค้า cleaning ที่กำลังจะออกอีกหลายตัว / สมาชิกเริ่มต้น: Blast, BioShield ย้ายจาก chem / explore chips ทั้ง fleet ยังเป็นชุด 6 หมวดเดิม — เพิ่มชิป HOUSEHOLD แล้วเฉพาะ /bioshield /blast, ที่เหลือรอ batch)**
 
 ## เสียงของแบรนด์
 - Slogan: "Leave the Ordinary Behind" (hero kicker + footer)
