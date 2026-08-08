@@ -722,6 +722,8 @@ tgl.addEventListener('click', ()=>{
   if(!root.dataset.theme) delete root.dataset.theme;
   try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
   syncIcon();
+});
+syncIcon();
 </script>
 <!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
 <script>
