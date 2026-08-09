@@ -3,7 +3,7 @@
 build_silo_post.py — เปิดเคสไซโล (V1 "ชมพลังของ-deepstick-กันชัดๆ") กลับขึ้น /casestudy
 ด้วยวิธี chrome-transplant จากโพสต์ solar (dark theme + favicon ครบ)
 เนื้อหาไทย = คำต่อคำจาก V1 (Wix migration) / EN = แปลจากต้นฉบับ
-รูป: hotlink wixstatic ชั่วคราว (งาน salvage ยังค้างตาม SPEC — sandbox ต่อ wixstatic ไม่ได้)
+รูป: ไฟล์ local ทั้งหมด (ต้นฉบับจาก Pist ส.ค. 2026 — เลิกพึ่ง wixstatic แล้ว)
 รัน: python3 tools/build_silo_post.py (จาก root ของ repo)
 """
 import os, re
@@ -12,32 +12,45 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = "solar-panel-defender-feibo-lab"
 SLUG = "deepstick-factory-silo-joints"
 
-WIX = "https://static.wixstatic.com/media/"
-def hero_url(mid): return f"{WIX}{mid}/v1/fill/w_1200,h_900,al_c,q_90/{mid}"
-def gal_url(mid):  return f"{WIX}{mid}/v1/fill/w_720,h_720,al_c,q_85/{mid}"
-
-GALLERY = [
- "00cbb9_65ca1f944fe648f9b283d17d835d5a4d~mv2.jpg","00cbb9_44a7aa2d692a49b0b753e1bb79ddf234~mv2.jpg",
- "00cbb9_c16d0d9934f048e79772a195b6641759~mv2.jpg","00cbb9_295478c6800f4c6c9b9dd6a762da88b2~mv2.jpg",
- "00cbb9_64a18ad5a8184d9a8306e042370c2a03~mv2.jpg","00cbb9_6fdfedab5a25474fb11cb7e2365c343b~mv2.jpg",
- "00cbb9_7612f67eb9d64d3bb66778e77f895cd8~mv2.jpg","00cbb9_1d49d77d5c5849aabf4b868f9b16a1a6~mv2.jpg",
- "00cbb9_128a9edf4852455c8bc6b147b223d2dc~mv2.jpg","00cbb9_2e410ba6a5a340209ae348d437d7a441~mv2.jpg",
- "00cbb9_6d6032e5e7d6460395f75f9e88d77512~mv2.jpg","00cbb9_a286b062a3ee4bb09e7855116f8f61a2~mv2.jpg",
- "00cbb9_832992b4c91144c69d375735c9106cb1~mv2.jpg","00cbb9_777193f9d3184279940a8db993b76c1a~mv2.jpg",
- "00cbb9_502b6d4df96f4d60869e8318b13f317f~mv2.jpg","00cbb9_7507e0954c284f21bf16f76ef4cbbdc0~mv2.jpg",
- "00cbb9_031476a4f2c5416c9c8f6681fb6c81ca~mv2.jpg","00cbb9_5b7a26670bb54a0cb4d8da65dd922de5~mv2.jpg",
- "00cbb9_478e3fb99c78479d8591f4f8f663d0c5~mv2.jpg","00cbb9_e4178964b78940bf86e2d2da38e37164~mv2.jpg",
- "00cbb9_2fcf6c54f8eb46cfa6c1352667b66d3e~mv2.jpg","00cbb9_38e08de72e1f4a9c913d0ea51f260389~mv2.jpg",
- "00cbb9_7661c96754fe4254b09a19a47f5334b1~mv2.jpg","00cbb9_ba4d52d621f74e3bbbef18b06d23380a~mv2.jpg",
- "00cbb9_4aaa15198939479aac054308f973cf46~mv2.jpg","00cbb9_ea2660d121764dc4946d79e6142c9c66~mv2.jpg",
- "00cbb9_72ed1fa28aca47258274333be5591d2d~mv2.jpg","00cbb9_1bb8f8f1435f4f01bdc7df37c471acb4~mv2.jpg",
- "00cbb9_03cac759ac8b4048a7a545fe65e7e78e~mv2.jpg","00cbb9_76eb4231d88c462aad354dc21bde83b5~mv2.jpg",
- "00cbb9_7246e10e19a2423b9679d5d6781d69ae~mv2.jpg","00cbb9_c35321e6eb344cb79d3b8430b3d1ac97~mv2.jpg",
- "00cbb9_ae49edd513c44a1d9ac3ab5972e87d58~mv2.jpg","00cbb9_2c86ea9e8c2b4d0387a098be8d838f28~mv2.jpg",
- "00cbb9_933617812f01477e8ef8d6f378cb2cdc~mv2.jpg","00cbb9_97246794009544bcaba4d4c43b1cea39~mv2.jpg",
- "00cbb9_43be01ce672d450a82a3dc36dbe24319~mv2.jpg","00cbb9_5dc56f1c695440fdad9282cb23af43ff~mv2.jpg",
- "00cbb9_af72d92987874154bbaaf2969e6648dd~mv2.jpg","00cbb9_721a3b9b329448dbaa54cd80c68e53da~mv2.jpg",
- "00cbb9_6cc7ebb32e6f4770ac83c1dbac2d21bb~mv2.jpg",
+LOCAL_GALLERY = [
+ "deepstick-factory-silo-joints-g01",
+ "deepstick-factory-silo-joints-g02",
+ "deepstick-factory-silo-joints-g03",
+ "deepstick-factory-silo-joints-g04",
+ "deepstick-factory-silo-joints-g05",
+ "deepstick-factory-silo-joints-g06",
+ "deepstick-factory-silo-joints-g07",
+ "deepstick-factory-silo-joints-g08",
+ "deepstick-factory-silo-joints-g09",
+ "deepstick-factory-silo-joints-g10",
+ "deepstick-factory-silo-joints-g11",
+ "deepstick-factory-silo-joints-g12",
+ "deepstick-factory-silo-joints-g13",
+ "deepstick-factory-silo-joints-g14",
+ "deepstick-factory-silo-joints-g15",
+ "deepstick-factory-silo-joints-g16",
+ "deepstick-factory-silo-joints-g17",
+ "deepstick-factory-silo-joints-g18",
+ "deepstick-factory-silo-joints-g19",
+ "deepstick-factory-silo-joints-g20",
+ "deepstick-factory-silo-joints-g21",
+ "deepstick-factory-silo-joints-g22",
+ "deepstick-factory-silo-joints-g23",
+ "deepstick-factory-silo-joints-g24",
+ "deepstick-factory-silo-joints-g25",
+ "deepstick-factory-silo-joints-g26",
+ "deepstick-factory-silo-joints-g27",
+ "deepstick-factory-silo-joints-g28",
+ "deepstick-factory-silo-joints-g29",
+ "deepstick-factory-silo-joints-g30",
+ "deepstick-factory-silo-joints-g31",
+ "deepstick-factory-silo-joints-g32",
+ "deepstick-factory-silo-joints-g33",
+ "deepstick-factory-silo-joints-g34",
+ "deepstick-factory-silo-joints-g35",
+ "deepstick-factory-silo-joints-g36",
+ "deepstick-factory-silo-joints-g37",
+ "deepstick-factory-silo-joints-g38",
 ]
 
 GRID_STYLE = ("display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));"
@@ -45,10 +58,10 @@ GRID_STYLE = ("display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,
 
 def gallery_html(alt_prefix):
     imgs = "".join(
-        f'<img src="{gal_url(m)}" alt="{alt_prefix} {i+1:02d}" loading="lazy" '
-        f'width="720" height="720" style="border-radius:10px;border:1px solid var(--line)">\n'
-        for i, m in enumerate(GALLERY))
-    return f'<div style="{GRID_STYLE}">\n{imgs}</div>'
+        f'<img src="/img/post/{n}.webp" alt="{alt_prefix} {i+1:02d}" loading="lazy" '
+        f'width="800" height="800" style="border-radius:10px;border:1px solid var(--line)">\n'
+        for i, n in enumerate(LOCAL_GALLERY))
+    return '<div style="' + GRID_STYLE + '">\n' + imgs + '</div>'
 
 TH_TITLE = "ชมพลังของ DeepStick กันชัดๆ — งานรอยต่อไซโลบนดาดฟ้าโรงงานใหญ่ระดับประเทศ"
 TH_DESC = ("งานรอยต่อที่โหดที่สุดที่เราเคยเจอ: ไซโลบนดาดฟ้าโรงงานใหญ่อันดับต้นๆ ของไทย เจาะทะลุพื้นปูน "
