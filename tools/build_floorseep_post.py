@@ -23,12 +23,13 @@ TH_BODY = """  <article>
     <p>อาการหน้าตาแบบนี้: พื้นบ้านชื้นทั้งที่ไม่มีน้ำหก สีทาพื้นโป่งพองเป็นหย่อมๆ คราบเกลือขาว (Efflorescence) ผุดตามผิวปูนหรือร่องยาแนว และพอเข้าหน้าฝนอาการหนักขึ้นชัดเจน — นี่ไม่ใช่น้ำจากด้านบน แต่คือ <b>ความชื้นและน้ำใต้ดินดันขึ้นมาจากใต้พื้น</b></p>
     <p>ถ้าเคยอ่านเคส <a href="/post/negative-side-waterproofing">ทากันซึมจากด้านในบ้าน</a> ของเรามาก่อน จะจำหลักข้อเดียวกันได้: กันซึมที่ถูกหลักต้องทา <b>ฝั่งที่น้ำมา</b> — และเคสพื้นบ้านคือเวอร์ชันที่โหดที่สุดของหลักข้อนี้ เพราะฝั่งที่น้ำมาคือ <b>ดินใต้บ้าน</b> ไม่มีใครขุดบ้านทั้งหลังลงไปทากันซึมข้างล่างได้ งานนี้จึงเป็นสนาม Negative Side เต็มรูปแบบตั้งแต่ยังไม่เริ่มทำอะไรเลย</p>
     <p>และขอย้ำแบบไม่อ้อมตั้งแต่ต้นเคส: ทุกวิธีในบทความนี้คือ <b>ทางแก้ฉุกเฉิน</b> ของหน้างานที่ออกไปฝั่งที่น้ำมาไม่ได้แล้วเท่านั้น ไม่ใช่วิธีที่ถูกหลัก — ถ้าบ้านยังอยู่ในจังหวะที่รื้อทำระบบกันซึมใต้พื้นหรือจัดการที่ต้นทางได้ ให้ทำฝั่งที่ถูกก่อนเสมอ</p>
-    <figure class="hero"><img src="/img/post/{slug}-00.webp" alt="น้ำดันขึ้นจากใต้พื้นบ้าน — หน้าตัดแสดงน้ำใต้ดินดันผ่านพื้นคอนกรีตขึ้นมาทางรอยร้าว มุมห้อง และผิวปูน" width="1200" height="900"><figcaption>หน้าตัดของปัญหา: น้ำและความชื้นใต้ดินดันขึ้นตลอดเวลา — ทางเข้าหลักคือรอยร้าว มุมห้อง และเนื้อปูนเอง</figcaption></figure>
+    <figure class="hero"><img src="/img/post/{slug}-hero.webp" alt="พื้นบ้านปูนเปลือยมีน้ำซึมขึ้นตามแนวรอยร้าว คราบเกลือขาวผุดตามรอยร้าวและโคนผนัง สีผนังโป่งลอกแนวล่าง" width="1600" height="1200"><figcaption>อาการครบในภาพเดียว: น้ำเจิ่งตามแนวรอยร้าว เกลือขาว (Efflorescence) ผุดตามรอยและโคนผนัง สีโป่งลอกแนวล่าง (ภาพประกอบ)</figcaption></figure>
     <section class="step">
       <h2><span class="n">01</span>พื้นไม่เหมือนผนัง — โจทย์บวกเพิ่มอีกหนึ่งข้อ: ต้องเดินเหยียบได้</h2>
       <p>แรงดันย้อน (Negative Hydrostatic Pressure) ที่พยายามถีบฟิล์มออกจากผิวคือศัตรูตัวเดียวกับเคสผนัง แต่พื้นมีเงื่อนไขเพิ่มที่ผนังไม่มี: <b>มันต้องรับการเดินเหยียบ ขัดถู และลากเฟอร์นิเจอร์ทุกวัน</b></p>
       <p>เงื่อนไขข้อนี้ทำให้ตัวเลือกเปลี่ยน — <a href="/deepseal">DeepSeal</a> ตัวกันซึมฝั่ง Negative เฉพาะทางของเรา เกิดมาเพื่อผนังและจุดที่ไม่มีการเดินเหยียบ เนื้อสารถูกออกแบบให้เน้นซึมลงรูพรุนคอนกรีตเป็นหลัก ไม่ได้เน้นสร้างผิวแข็งไว้รับรองเท้าและขาโต๊ะ</p>
       <p>พื้นที่ใช้งานจริงจึงต้องการอีกแบบ: ฟิล์มที่แห้งแล้ว <b>แข็ง เดินได้จริง</b> และแรงยึดเกาะสูงพอจะสู้แรงดันจากด้านล่าง — ตัวที่เราใช้คือ <a href="/marineguard">MarineGuard</a> Epoxy สองส่วนผสมเนื้อ 100% Solids (Curing system powered by Huntsman) ที่มีจุดแข็งตรงสเปคเคสนี้สองข้อพอดี: <b>แรงยึดเกาะสูงมาก</b> และ <b>เกาะได้แม้ปูนหมาด</b> ซึ่งสำคัญ เพราะพื้นแบบนี้เนื้อปูนมีความชื้นสะสมอยู่แล้วแทบตลอดเวลา ระบบที่ต้องรอพื้นแห้งสนิทถึงจะเกาะ แทบไม่มีวันได้เริ่มงาน</p>
+      <figure><img src="/img/post/{slug}-00.webp" alt="หน้าตัดแสดงน้ำใต้ดินดันผ่านพื้นคอนกรีตขึ้นมาทางรอยร้าว มุมห้อง และผิวปูน — Negative Hydrostatic Pressure" loading="lazy" width="1200" height="900"><figcaption>หน้าตัดของปัญหา: น้ำและความชื้นใต้ดินดันขึ้นตลอดเวลา — ทางเข้าหลักคือรอยร้าว มุมห้อง และเนื้อปูนเอง</figcaption></figure>
     </section>
     <section class="step">
       <h2><span class="n">02</span>เคสที่หนึ่ง — พื้นปูนเปลือย: อุดให้จบก่อน แล้วค่อยเคลือบทั้งผืน</h2>
@@ -70,12 +71,13 @@ EN_BODY = """  <article>
     <p>The symptoms look like this: a floor that stays damp with nothing spilled on it, floor paint blistering in patches, white salt stains (efflorescence) blooming on the concrete or along grout lines — and everything getting worse in the rainy season. This is not water from above. It is <b>moisture and groundwater pushing up from underneath the slab</b>.</p>
     <p>If you have read our case on <a href="/en/post/negative-side-waterproofing">waterproofing from inside the house</a>, you know the one rule that matters: proper waterproofing goes on <b>the side the water comes from</b>. A house floor is the most brutal version of that rule, because the water side is <b>the soil under your home</b> — nobody can dig up a house to coat underneath it. This job is full negative-side territory before you even start.</p>
     <p>And let us be blunt from the very top: everything in this article is an <b>emergency fix</b> for sites that can no longer reach the water side — not the proper method. If your house is still at a stage where the underside can be waterproofed or the source can be dealt with, do the correct side first, always.</p>
-    <figure class="hero"><img src="/img/post/{slug}-00en.webp" alt="Water pushing up from under a house floor — cross-section showing groundwater forcing through a concrete slab via cracks, room corners and the slab itself" width="1200" height="900"><figcaption>The problem in cross-section: groundwater and moisture push upward constantly — the main entry points are cracks, room corners, and the concrete itself</figcaption></figure>
+    <figure class="hero"><img src="/img/post/{slug}-hero.webp" alt="Bare concrete house floor with water seeping up along a crack, white efflorescence salt along the crack and wall base, paint blistering and peeling on the lower wall" width="1600" height="1200"><figcaption>Every symptom in one frame: water pooling along the crack, white efflorescence blooming along the crack lines and wall base, paint blistering low on the wall (illustrative image)</figcaption></figure>
     <section class="step">
       <h2><span class="n">01</span>A Floor Is Not a Wall — One Extra Requirement: You Walk on It</h2>
       <p>Negative hydrostatic pressure — water trying to shove the film off the surface — is the same enemy as in the wall case. But a floor adds a condition a wall never has: <b>it takes foot traffic, scrubbing, and furniture being dragged across it every day</b>.</p>
       <p>That changes the pick. <a href="/en/deepseal">DeepSeal</a>, our dedicated negative-side sealer, was built for walls and areas with no foot traffic — its whole design is about soaking deep into the concrete's pores, not building a hard wearing surface for shoes and table legs.</p>
       <p>A floor you actually live on needs the other kind: a film that dries <b>hard and genuinely walkable</b>, with adhesion strong enough to fight pressure from below. Our pick is <a href="/en/marineguard">MarineGuard</a> — a two-part, 100% solids epoxy (curing system powered by Huntsman) whose two headline strengths happen to be exactly what this case demands: <b>extremely high adhesion</b>, and <b>the ability to bond to damp concrete</b>. That last one matters, because a floor like this almost never fully dries out — a system that needs bone-dry concrete before it can grip would never get to start.</p>
+      <figure><img src="/img/post/{slug}-00en.webp" alt="Cross-section showing groundwater forcing through a concrete slab via cracks, room corners and the slab itself — negative hydrostatic pressure" loading="lazy" width="1200" height="900"><figcaption>The problem in cross-section: groundwater and moisture push upward constantly — the main entry points are cracks, room corners, and the concrete itself</figcaption></figure>
     </section>
     <section class="step">
       <h2><span class="n">02</span>Case One — Bare Concrete: Seal Every Opening First, Then Coat the Whole Slab</h2>
@@ -128,7 +130,7 @@ def transplant(src_path, out_path, title, desc, eyebrow, h1, meta, body, og_img)
 if __name__ == "__main__":
     transplant(os.path.join(ROOT, "post", SRC, "index.html"),
                os.path.join(ROOT, "post", SLUG, "index.html"),
-               TH_TITLE, TH_DESC, TH_EYEBROW, TH_TITLE, TH_META, TH_BODY, f"{SLUG}-00.webp")
+               TH_TITLE, TH_DESC, TH_EYEBROW, TH_TITLE, TH_META, TH_BODY, f"{SLUG}-hero.webp")
     transplant(os.path.join(ROOT, "en", "post", SRC, "index.html"),
                os.path.join(ROOT, "en", "post", SLUG, "index.html"),
-               EN_TITLE, EN_DESC, EN_EYEBROW, EN_TITLE, EN_META, EN_BODY, f"{SLUG}-00en.webp")
+               EN_TITLE, EN_DESC, EN_EYEBROW, EN_TITLE, EN_META, EN_BODY, f"{SLUG}-hero.webp")
