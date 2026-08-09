@@ -59,12 +59,17 @@ TH_META = "เผยแพร่ ก.พ. 2024 · โดยทีมงาน Lu
 
 TH_BODY = f"""  <article>
     <p>งานรอยต่อที่ยากมากๆ สำหรับเราคงไม่มีงานไหนเกินงานนี้แล้ว</p>
-    <figure class="hero"><img src="{hero_url(GALLERY[0])}" alt="งานรอยต่อไซโลบนดาดฟ้าโรงงาน — หน้างานจริง" width="1200" height="900"><figcaption>หน้างานจริง: ไซโลเจาะทะลุขึ้นมาจากพื้นดาดฟ้าโรงงาน</figcaption></figure>
+    <figure class="hero"><img src="/img/post/{SLUG}-h1.webp" alt="ไซโลสเตนเลสบนดาดฟ้าโรงงาน แนวโป๊ว DeepStick รอบฐานปูนโอบก่อนเคลือบระบบทับ" width="1600" height="1200"><figcaption>หน้างานจริง: รอบฐานไซโล อัด DeepStick ตามแนวรอยต่อปูนโอบให้เต็มก่อนเคลือบระบบทับ</figcaption></figure>
     <p>เป็นไซโลในโรงงานที่ใหญ่อันดับต้นๆ ของไทย ตั้งอยู่บนดาดฟ้าเจาะทะลุขึ้นมาจากพื้นปูน มีแรงสั่นสะเทือนตลอดเวลา งานนี้มีการทำปูนโอบไว้อย่างดีก็ยังมีรอยรั่วลงไปชั้นล่าง ใช้ตัวโป๊วหรือซิลิโคนทั่วไปไม่ได้เลย</p>
+    <figure><img src="/img/post/{SLUG}-h2.webp" alt="แนวพื้นชนผนังปูนโอบและขาโครงเหล็ก อัด DeepStick เต็มแนวแล้วเคลือบ Polyurea Gen3 ทับ" loading="lazy" width="1600" height="1200"><figcaption>แนวพื้นชนผนังและขาโครงเหล็ก — จุดที่รับแรงสั่นตลอดเวลา อัด DeepStick ให้เต็มแนวก่อนเคลือบทับ</figcaption></figure>
     <p>งานนี้ DeepStick แก้ปัญหาได้เรียบร้อยด้วยคุณสมบัติที่ไม่เหมือนใคร เป็นตัวโป๊วที่ยืดหยุ่นแต่มีความเหนียวแน่นในตัวและแรงยึดเกาะสูงมากแม้บนพื้นผิวแปลกๆ แทบจะเรียกว่าพื้นผิวแบบไหนก็โป๊วได้</p>
+    <figure><img class="tall" src="/img/post/{SLUG}-h3.webp" alt="ซูมแนวโป๊ว DeepStick อัดแน่นเต็มร่องบนแนวตาข่ายเสริมแรง" loading="lazy" width="1200" height="1600"><figcaption>ซูมแนวโป๊ว: เนื้อ DeepStick อัดแน่นต่อเนื่องเต็มร่องบนแนวตาข่ายเสริมแรงของระบบ</figcaption></figure>
+    <figure><img class="tall" src="/img/post/{SLUG}-h4.webp" alt="รอยต่อรูปตัว T บนพื้นดาดฟ้า อัด DeepStick เต็มแนว" loading="lazy" width="1200" height="1600"><figcaption>รอยต่อรูปตัว T บนพื้น — โป๊วให้เต็มทุกแนว ไม่ขาดช่วง</figcaption></figure>
+    <figure><img class="tall" src="/img/post/{SLUG}-h5.webp" alt="แนวโค้งรอบปูนโอบฐานไซโล โป๊ว DeepStick ต่อเนื่องตลอดแนว" loading="lazy" width="1200" height="1600"><figcaption>แนวโค้งรอบปูนโอบ — โป๊วต่อเนื่องตลอดแนวโค้ง ไม่มีจุดเริ่ม-จุดจบให้น้ำแทรก</figcaption></figure>
     <p>หลังจากโป๊วให้ทั่วแล้วก็ทาทับพื้นที่ด้วยกันซึมตัว Top ของเราด้วย Polyurea Gen3 ปกติทาเพียง 2 รอบก็พอแต่งานนี้ทา 3 รอบไปเลยเพื่อให้ใช้งานได้ยาวนานยิ่งกว่าเดิม</p>
+    <figure><img class="tall" src="/img/post/{SLUG}-h6.webp" alt="ทางเดินระหว่างไซโลหลังเคลือบ Polyurea Gen3 ทั้งผืน" loading="lazy" width="1200" height="1600"><figcaption>งานจบ: ทางเดินระหว่างไซโลเคลือบ Polyurea Gen3 ต่อเนื่องทั้งผืน จบทุกแนวรอยต่อในระบบเดียว</figcaption></figure>
     <section class="step">
-      <h2><span class="n">📷</span>ภาพหน้างานจริงทั้งชุด — ไล่ดูทีละขั้นได้เลย</h2>
+      <h2><span class="n">📷</span>ภาพหน้างานเพิ่มเติมทั้งชุด — ไล่ดูทีละขั้นได้เลย</h2>
       {gallery_html("งานรอยต่อไซโล DeepStick — ภาพหน้างานจริง")}
     </section>
   </article>
@@ -81,12 +86,17 @@ EN_META = "Published Feb 2024 · by the LucernaPro team"
 
 EN_BODY = f"""  <article>
     <p>Of all the joint repairs we have ever taken on, nothing has come close to this one.</p>
-    <figure class="hero"><img src="{hero_url(GALLERY[0])}" alt="Silo joint repair on a factory rooftop — real jobsite" width="1200" height="900"><figcaption>The real site: silos punching up through the factory's rooftop concrete deck</figcaption></figure>
+    <figure class="hero"><img src="/img/post/{SLUG}-h1.webp" alt="Stainless silos on a factory rooftop, DeepStick sealed along the concrete collar joint before topcoating" width="1600" height="1200"><figcaption>The real site: DeepStick packed full along the collar joint around the silo base, before the topcoat system goes on</figcaption></figure>
     <p>These are silos at one of Thailand's largest factories, mounted on the rooftop and punching through the concrete deck, vibrating constantly. Even with concrete collars cast carefully around them, water still leaked to the floor below — ordinary fillers and silicone sealants stood no chance here.</p>
+    <figure><img src="/img/post/{SLUG}-h2.webp" alt="Wall-to-floor joint and steel bracket sealed full with DeepStick, coated over with Polyurea Gen3" loading="lazy" width="1600" height="1200"><figcaption>The wall-to-floor line and a steel support leg — under constant vibration, packed full with DeepStick before coating over</figcaption></figure>
     <p>DeepStick closed this job with a property set nothing else has: a filler that is flexible yet dense and tenacious in body, with extremely high adhesion even on unusual surfaces — you could almost say there is no surface it won't bond to.</p>
+    <figure><img class="tall" src="/img/post/{SLUG}-h3.webp" alt="Close-up of the DeepStick bead packed full over the reinforcing mesh line" loading="lazy" width="1200" height="1600"><figcaption>Close-up: DeepStick packed dense and continuous over the system's reinforcing mesh line</figcaption></figure>
+    <figure><img class="tall" src="/img/post/{SLUG}-h4.webp" alt="T-shaped joint on the deck sealed full with DeepStick" loading="lazy" width="1200" height="1600"><figcaption>A T-shaped joint on the deck — every line filled, no breaks</figcaption></figure>
+    <figure><img class="tall" src="/img/post/{SLUG}-h5.webp" alt="The curved collar joint around the silo base sealed continuously with DeepStick" loading="lazy" width="1200" height="1600"><figcaption>The curved collar line — sealed in one continuous run, no start-stop points for water to find</figcaption></figure>
     <p>After every joint was sealed, the whole area was coated over with our top waterproofing, Polyurea Gen3. Two coats are normally enough — this job got three, for an even longer service life.</p>
+    <figure><img class="tall" src="/img/post/{SLUG}-h6.webp" alt="Walkway between silos after full Polyurea Gen3 coating" loading="lazy" width="1200" height="1600"><figcaption>Finished: the walkway between silos coated wall-to-wall in Polyurea Gen3, every joint closed in one system</figcaption></figure>
     <section class="step">
-      <h2><span class="n">📷</span>The Full Jobsite Photo Set — Step Through the Whole Job</h2>
+      <h2><span class="n">📷</span>More Jobsite Photos — Step Through the Whole Job</h2>
       {gallery_html("DeepStick silo joint job — real jobsite photo")}
     </section>
   </article>
@@ -115,7 +125,7 @@ def transplant(src_path, out_path, title, desc, eyebrow, h1, meta, body, og_img)
     print("built:", out_path)
 
 if __name__ == "__main__":
-    og = hero_url(GALLERY[0])
+    og = f"https://www.lucernapro.com/img/post/{SLUG}-h1.webp"
     transplant(os.path.join(ROOT, "post", SRC, "index.html"),
                os.path.join(ROOT, "post", SLUG, "index.html"),
                TH_TITLE, TH_DESC, TH_EYEBROW, TH_TITLE, TH_META, TH_BODY, og)
