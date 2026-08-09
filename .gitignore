@@ -1,2 +1,5 @@
-wix_dump/
 __pycache__/
+node_modules/
+package-lock.json
+package.json
+wix_dump/
