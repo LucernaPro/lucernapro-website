@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-build_silo_post.py — เปิดเคสไซโล (V1 "ชมพลังของ-deepstick-กันชัดๆ") กลับขึ้น /casestudy
+build_silo_post.py — เคสไซโล DeepStick (อดีตโพสต์ V1 slug ไทย ดูประวัติใน git) กลับขึ้น /casestudy
 ด้วยวิธี chrome-transplant จากโพสต์ solar (dark theme + favicon ครบ)
 เนื้อหาไทย = คำต่อคำจาก V1 (Wix migration) / EN = แปลจากต้นฉบับ
 รูป: ไฟล์ local ทั้งหมด (ต้นฉบับจาก Pist ส.ค. 2026 — เลิกพึ่ง wixstatic แล้ว)
