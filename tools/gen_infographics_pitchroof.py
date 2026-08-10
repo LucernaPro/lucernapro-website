@@ -274,8 +274,8 @@ def render(name, svg, q):
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    render(f"{SLUG}-hero", hero(TH_HERO), 88)
-    render(f"{SLUG}-hero-en", hero(EN_HERO), 86)
+    render(f"{SLUG}-map-th", hero(TH_HERO), 88)
+    render(f"{SLUG}-map-en", hero(EN_HERO), 86)
     render(f"{SLUG}-cpac-th", detail(TH_CPAC, cpac_plane), 88)
     render(f"{SLUG}-cpac-en", detail(EN_CPAC, cpac_plane), 86)
     render(f"{SLUG}-metal-th", detail(TH_METAL, metal_plane), 88)
