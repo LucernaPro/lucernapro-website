@@ -23,12 +23,13 @@ TH_BODY = """  <article>
     <p>ทุกวันจะมีข้อความหน้าตาแบบนี้เข้ามาในแชทเพจ: <b>"ดาดฟ้ารั่วครับ น้ำหยดลงฝ้า ใช้ตัวไหนดี"</b> — และคำตอบแรกจากทีมเราเหมือนกันทุกครั้ง ไม่ใช่ชื่อสินค้า ไม่ใช่ราคา แต่เป็นคำถามกลับสั้นๆ ว่า <b>ดาดฟ้าเป็นปูนเปลือย หรือปูกระเบื้อง?</b></p>
     <p>บางท่านอาจนึกในใจว่าถามทำไม รั่วก็คือรั่ว ทากันซึมเหมือนกันไม่ใช่หรือ — ไม่เหมือนครับ สองพื้นผิวนี้ <b>น้ำเข้าคนละทาง เดินคนละเส้น และแผนซ่อมที่ได้ผลก็คนละแผน</b> เลือกระบบผิดตั้งแต่คำถามแรก คือจ่ายสองรอบ: รอบแรกค่าของกับค่าแรงที่เสียเปล่า รอบสองค่ารื้อของที่ลอกออกก่อนทำใหม่</p>
     <p>เคสนี้เลยขอเล่ายาวรอบเดียวให้จบ ว่าคำถามข้อนี้เปลี่ยนแผนงานยังไง — อ่านจบแล้วดูดาดฟ้าตัวเองออกเลยว่าต้องเดินทางไหน</p>
-    <figure class="hero"><img src="/img/post/{slug}-hero.webp" alt="เปรียบเทียบดาดฟ้าปูนเปลือยที่น้ำเข้าทางรอยแตกลายงา กับดาดฟ้าปูกระเบื้องที่น้ำเข้าทางร่องยาแนวแล้วเดินใต้กระเบื้อง" width="1200" height="900"><figcaption>สองพื้นผิว สองกลไกการรั่ว — คำถามข้อเดียวนี้คือจุดเริ่มของแผนงานที่ถูกต้อง</figcaption></figure>
+    <figure class="hero"><img src="/img/post/{slug}-hero.webp" alt="ดาดฟ้าบ้านพักอาศัยปูกระเบื้องเต็มผืน เห็นร่องยาแนวชัดทั่วพื้น มีราวระเบียงไม้ กระถางต้นไม้ และชุดโต๊ะนั่งเล่น" width="1600" height="1200"><figcaption>ดาดฟ้าปูกระเบื้องหน้าตาดีแบบนี้แหละ ที่พอรั่วแล้วหาจุดเข้าของน้ำยากที่สุด — เพราะทางเข้าคือร่องยาแนวที่มองผ่านตลอด</figcaption></figure>
     <section class="step">
       <h2><span class="n">01</span>อาการเดียวกัน — แต่คนละโรค</h2>
       <p>ลองดูลูกค้าสองรายที่ทักเข้ามาในสัปดาห์เดียวกัน อาการภายนอกเหมือนกันทุกอย่าง: น้ำหยดจากฝ้าห้องชั้นบนสุด คราบวงเหลืองลามบนฝ้า หน้าฝนหนักขึ้นชัด</p>
       <p><b>รายแรก — ดาดฟ้าปูนเปลือย:</b> ขึ้นไปดูเจอรอยแตกลายงากระจายทั้งผืน กับรอยต่อโคนผนังกันตกที่ปูนแยกตัว น้ำฝนซึมผ่านรอยพวกนี้ลงไปตรงๆ จุดที่หยดข้างล่างอยู่ใกล้เคียงกับจุดที่น้ำเข้าด้านบน — เจอง่าย ชี้ถูก ซ่อมตรงจุด</p>
       <p><b>รายที่สอง — ดาดฟ้าปูกระเบื้อง:</b> หน้ากระเบื้องสภาพดี ไม่มีรอยแตกให้เห็นเลยสักจุด แต่ยาแนวเสื่อม แข็งกรอบ หลุดร่อนเป็นช่วง น้ำซึมเข้าทางร่องยาแนว แล้ว<b>ไหลเดินอยู่ใต้แผ่นกระเบื้อง</b>ไปตามความลาดเอียง ก่อนหาทางลงผ่านรอยร้าวของพื้นปูนอีกฟากหนึ่ง — จุดที่น้ำหยดในบ้าน ห่างจากจุดที่น้ำเข้าจริงหลายเมตร</p>
+      <figure><img src="/img/post/{slug}-compare-th.webp" alt="เปรียบเทียบดาดฟ้าปูนเปลือยที่น้ำเข้าทางรอยแตกลายงา กับดาดฟ้าปูกระเบื้องที่น้ำเข้าทางร่องยาแนวแล้วเดินใต้กระเบื้อง" loading="lazy" width="1200" height="900"><figcaption>สองพื้นผิว สองกลไกการรั่ว — คำถามข้อเดียวนี้คือจุดเริ่มของแผนงานที่ถูกต้อง</figcaption></figure>
       <p>อาการเหมือนกันเป๊ะ แต่กลไกคนละเรื่อง — และนี่คือเหตุผลข้อแรกที่เราต้องถาม เพราะถ้าวินิจฉัยผิดตั้งแต่ต้น ยาที่จ่ายจะถูกแค่ไหนก็รักษาไม่หาย</p>
     </section>
     <section class="step">
@@ -79,12 +80,13 @@ EN_BODY = """  <article>
     <p>Every day a message like this lands in our page chat: <b>"My rooftop is leaking, water's dripping through the ceiling — which product do I need?"</b> And every time, our first reply is the same. Not a product name. Not a price. A question: <b>is your deck bare concrete, or tiled?</b></p>
     <p>You might be thinking: why does it matter? A leak is a leak. Except it isn't — on these two surfaces, water <b>enters differently, travels differently, and the repair plan that actually works is different</b>. Get the answer wrong at step one and you pay twice: once for the materials and labour that peel off, and again to strip it all before doing it properly.</p>
     <p>So here's the whole story in one sitting — read to the end and you'll know exactly which path your own rooftop is on.</p>
-    <figure class="hero"><img src="/img/post/{slug}-hero-en.webp" alt="Comparison of a bare concrete rooftop where water enters through hairline cracks versus a tiled rooftop where water enters through grout lines and travels under the tiles" width="1200" height="900"><figcaption>Two surfaces, two leak mechanisms — this one question is where the right game plan starts</figcaption></figure>
+    <figure class="hero"><img src="/img/post/{slug}-hero.webp" alt="A fully tiled residential rooftop deck with grout lines visible across the floor, a wooden railing, potted plants and a small seating set" width="1600" height="1200"><figcaption>A good-looking tiled deck exactly like this is the hardest kind to trace once it leaks — because the entry is the grout line everyone looks straight past</figcaption></figure>
     <section class="step">
       <h2><span class="n">01</span>Same symptom — different disease</h2>
       <p>Take two customers who messaged us in the same week. Identical symptoms: water dripping from the top-floor ceiling, a yellow ring spreading across it, clearly worse in the rainy season.</p>
       <p><b>Customer one — bare concrete deck:</b> up on the roof we found hairline cracks spread across the slab, plus a separated joint at the base of the parapet wall. Rainwater goes straight down through them. The drip below sits close to the entry above — easy to find, easy to point at, easy to fix at the source.</p>
       <p><b>Customer two — tiled deck:</b> the tile faces looked fine, not a crack in sight. But the grout had gone — hard, brittle, crumbling in stretches. Water slips in through the grout lines, then <b>travels along under the tiles</b> with the slope, until it finds a crack in the slab on the far side to drop through. The drip inside the house was metres away from where the water actually got in.</p>
+      <figure><img src="/img/post/{slug}-compare-en.webp" alt="Comparison of a bare concrete rooftop where water enters through hairline cracks versus a tiled rooftop where water enters through grout lines and travels under the tiles" loading="lazy" width="1200" height="900"><figcaption>Two surfaces, two leak mechanisms — this one question is where the right game plan starts</figcaption></figure>
       <p>Same symptom, completely different mechanism — and that's the first reason we ask. Misdiagnose at the start, and no medicine works, however good it is.</p>
     </section>
     <section class="step">
@@ -148,4 +150,4 @@ if __name__ == "__main__":
                TH_TITLE, TH_DESC, TH_EYEBROW, TH_TITLE, TH_META, TH_BODY, f"{SLUG}-hero.webp")
     transplant(os.path.join(ROOT, "en", "post", SRC, "index.html"),
                os.path.join(ROOT, "en", "post", SLUG, "index.html"),
-               EN_TITLE, EN_DESC, EN_EYEBROW, EN_TITLE, EN_META, EN_BODY, f"{SLUG}-hero-en.webp")
+               EN_TITLE, EN_DESC, EN_EYEBROW, EN_TITLE, EN_META, EN_BODY, f"{SLUG}-hero.webp")

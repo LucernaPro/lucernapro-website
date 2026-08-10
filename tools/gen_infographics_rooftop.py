@@ -351,8 +351,8 @@ def render(name, svg, q):
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    render(f"{SLUG}-hero", hero(TH_HERO), 88)
-    render(f"{SLUG}-hero-en", hero(EN_HERO), 86)
+    render(f"{SLUG}-compare-th", hero(TH_HERO), 88)
+    render(f"{SLUG}-compare-en", hero(EN_HERO), 86)
     render(f"{SLUG}-path-th", path(TH_PATH), 88)
     render(f"{SLUG}-path-en", path(EN_PATH), 86)
     render(f"{SLUG}-decide-th", decide(TH_DECIDE), 88)
