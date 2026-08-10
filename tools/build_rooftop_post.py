@@ -36,7 +36,8 @@ TH_BODY = """  <article>
       <h2><span class="n">02</span>ดาดฟ้าปูนเปลือย — เกมตรงไปตรงมา: อุดก่อน แล้วเคลือบทั้งผืน</h2>
       <p>ทางน้ำเข้าของปูนเปลือยชัดเจน: <b>รอยแตกลายงา รอยต่อโคนผนังกันตก และรอบปากท่อระบายน้ำ</b> ลำดับงานจึงตายตัวและห้ามสลับ — ไล่หารอยพวกนี้ให้ครบก่อน แล้วอุดด้วย <a href="/patchpro">PatchPro</a> ให้เต็มเสมอผิว เหตุผลเดียวกับที่เราย้ำใน<a href="/post/why-coating-over-cracks-fails">เคสรอยร้าว</a>: กันซึมทุกตัวคือฟิล์มบางๆ ไม่ใช่วัสดุอุดร่อง ทาข้ามรอยร้าวไปคือรอวันฟิล์มขาดตามแนวเดิม</p>
       <p>รอตัวโป๊วเซ็ตตัวตามคู่มือ แล้วค่อยเคลือบทั้งผืนด้วย <a href="/polypro">PolyPro</a> — กันซึม Polyurea Gen3 ตัวท็อปของสายเรา และเป็นตัวที่เราเชียร์สุดสำหรับดาดฟ้าโดยเฉพาะ เพราะดาดฟ้าคือสนามที่โหดที่สุดของงานกันซึม: <b>โดนแดด UV เต็มวันทั้งปี บวกน้ำขังหลังฝนทุกครั้ง</b> — PolyPro ทน UV ไม่เหลือง แช่น้ำได้ถาวร และให้ฟิล์มหนากว่ากันซึมทาทั่วไปหลายเท่า สเปคตรงข้อสอบของดาดฟ้าทุกข้อ</p>
-      <p>งบยังไม่ถึงตัวท็อป ไม่ต้องฝืน — ในหน้า <a href="/polypro">PolyPro</a> มีส่วน "เลือกให้ตรงโจทย์ ตรงงบ" เทียบรุ่นรองในสายกันซึมของเราไว้ให้แล้ว เลือกตามงบจริงของหน้างานได้เลย</p>
+      <p>งบยังไม่ถึงตัวท็อป ไม่ต้องฝืนครับ — สนามปูนเปลือยมีตัวเริ่มต้นที่เราแนะนำเต็มปากคือ <a href="/siliconepro">SiliconePro</a> กันซึมซิลิโคนส่วนผสมเดียว เปิดฝาแล้วทาได้เลยไม่ต้องผสม เนื้อทนน้ำขังได้สบาย แลกกับอายุงานที่สั้นกว่าตัวท็อป (ราว 5 ปีทาเปลือย ยืดเป็น 8–10 ปีเมื่อเสริมผ้าไฟเบอร์กลาส) — สำหรับดาดฟ้าบ้านทั่วไปที่ไม่ได้โดนโจทย์โหดพิเศษ แค่นี้ก็ทำหน้าที่ครบแล้ว</p>
+      <p>และเลือกสเกลการทาได้ตามงบอีกชั้น: <b>ทาเฉพาะแผล</b> — เฉพาะแนวรอยที่อุดไว้ รอยต่อโคนผนัง และรอบปากท่อ คือหมากเปิดเกมที่ฉลาด ปิดประตูบานหนักสุดด้วยเงินน้อยสุด รอฝนจริงตกแล้วเช็คผล ค่อยตัดสินใจลงทุนต่อ — หรือ<b>เอาให้ชัวร์ก็ทาทั้งผืน</b> จบรอบเดียว ไม่ต้องลุ้นว่าน้ำจะย้ายไปหาทางเข้าใหม่ที่ยังไม่ได้ปิด</p>
     </section>
     <section class="step">
       <h2><span class="n">03</span>ดาดฟ้าปูกระเบื้อง — กับดักชื่อ "น้ำเดินใต้กระเบื้อง"</h2>
@@ -63,7 +64,7 @@ TH_BODY = """  <article>
       <p>ไม่แน่ใจว่าดาดฟ้าตัวเองเข้าเคสไหน หรือเจอทั้งสองอย่างผสมกัน — ถ่ายรูปหน้างานส่งมาทางแชทเพจได้เลย บอกแค่ว่าปูนหรือกระเบื้อง เราช่วยวางแผนให้ฟรีก่อนตัดสินใจซื้อ เพราะงานกันซึมที่ดีที่สุด คืองานที่ทำครั้งเดียวแล้วไม่ต้องคุยกันอีกนานๆ</p>
     </section>
   </article>
-  <div class="prods"><span class="lbl">สินค้าที่ใช้ในงานนี้:</span><a href="/polypro">PolyPro</a><a href="/patchpro">PatchPro</a><a href="/epoxygrout">ยาแนว Epoxy TileGrout</a><a href="/carbontilegrout">รุ่นปืนยิง Carbon</a></div>
+  <div class="prods"><span class="lbl">สินค้าที่ใช้ในงานนี้:</span><a href="/polypro">PolyPro</a><a href="/siliconepro">SiliconePro</a><a href="/patchpro">PatchPro</a><a href="/epoxygrout">ยาแนว Epoxy TileGrout</a><a href="/carbontilegrout">รุ่นปืนยิง Carbon</a></div>
   <a class="back" href="/casestudy/">← กลับไปดูเคสอื่นๆ</a>
 """.replace("{slug}", SLUG)
 
@@ -93,7 +94,8 @@ EN_BODY = """  <article>
       <h2><span class="n">02</span>Bare concrete deck — the straightforward game: seal first, then coat the lot</h2>
       <p>On bare concrete the entry points are clear: <b>hairline cracks, the parapet-wall joint, and around the drains</b>. The work order is fixed and non-negotiable — hunt every one of them down first, then fill flush with <a href="/en/patchpro">PatchPro</a>. Same principle we hammer in <a href="/en/post/why-coating-over-cracks-fails">our crack case study</a>: every waterproofing product is a thin film, not a gap filler. Coat straight over a crack and you're just waiting for the film to tear along the same line.</p>
       <p>Let the filler cure per the manual, then coat the whole deck with <a href="/en/polypro">PolyPro</a> — our top-of-the-line Polyurea Gen3, and the one we push hardest for rooftops specifically. A rooftop is the most hostile arena waterproofing ever plays in: <b>full UV all day, every day, plus standing water after every storm</b>. PolyPro is UV-stable, doesn't yellow, handles permanent immersion, and lays down a far thicker film than ordinary brush-on waterproofing. It answers every question a rooftop asks.</p>
-      <p>Budget not stretching to the top shelf? No need to force it — the <a href="/en/polypro">PolyPro page</a> has a "pick by job and budget" section comparing the lighter options in our waterproofing line. Choose what your site and wallet actually call for.</p>
+      <p>Budget not stretching to the top shelf? No need to force it — on bare concrete we happily recommend a starter: <a href="/en/siliconepro">SiliconePro</a>, a single-component silicone waterproofer you open and roll straight away, no mixing, comfortable with standing water. The trade is service life: around 5 years bare, stretching to 8–10 with a fibreglass mesh layer — and for an ordinary house rooftop with no extreme demands, that does the whole job.</p>
+      <p>You can also scale the coat itself to the budget: <b>spot-coat the wounds only</b> — just the sealed crack lines, the parapet joint and around the drains. A smart opening move: close the heaviest door with the least money, wait for real rain, check the result, then decide on the next investment. Or <b>coat the whole deck and be certain</b> — one round, done, no wondering whether the water will find a new door you left open.</p>
     </section>
     <section class="step">
       <h2><span class="n">03</span>Tiled deck — the trap called "water travels under the tiles"</h2>
@@ -120,7 +122,7 @@ EN_BODY = """  <article>
       <p>Not sure which case your rooftop is — or facing a mix of both? Snap some photos and send them to our page chat. Just tell us: concrete or tiled. We'll help you plan it for free before you spend a baht — because the best waterproofing job is the one you do once and then don't have to talk about for a very long time.</p>
     </section>
   </article>
-  <div class="prods"><span class="lbl">Products used in this job:</span><a href="/en/polypro">PolyPro</a><a href="/en/patchpro">PatchPro</a><a href="/en/epoxygrout">Epoxy TileGrout</a><a href="/en/carbontilegrout">Carbon gun-cartridge</a></div>
+  <div class="prods"><span class="lbl">Products used in this job:</span><a href="/en/polypro">PolyPro</a><a href="/en/siliconepro">SiliconePro</a><a href="/en/patchpro">PatchPro</a><a href="/en/epoxygrout">Epoxy TileGrout</a><a href="/en/carbontilegrout">Carbon gun-cartridge</a></div>
   <a class="back" href="/en/casestudy/">← Back to all case studies</a>
 """.replace("{slug}", SLUG)
 
