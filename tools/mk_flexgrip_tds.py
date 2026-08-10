@@ -59,7 +59,7 @@ def footer():
     c.drawString(L, base(782.0, 7.5),
                  'Lucerna Co., Ltd. \u00b7 23 Suriyat Rd. Soi 4, Nai Mueang, Mueang, Ubon Ratchathani 34000, Thailand')
     c.drawString(L, base(791.0, 7.5),
-                 'Tel 062-005-7933 \u00b7 Lucernapro@yahoo.com \u00b7 www.lucernapro.com')
+                 'Tel 097-079-9547, 097-079-6583 \u00b7 Lucernapro@yahoo.com \u00b7 www.lucernapro.com')
     c.setFont('Helvetica-Oblique', 6.8); c.setFillGray(0.25)
     foot = ('The information herein is given in good faith based on our current knowledge and practical experience. '
             'Bond performance depends on substrate, surface condition, film thickness and clamping; values are '

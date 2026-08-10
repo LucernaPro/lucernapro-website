@@ -252,7 +252,7 @@ footer a:hover{{color:#fff}}
 
 <footer>
   <div class="foot-inner">
-    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0620057933">062-005-7933</a></span>
+    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span>
     <span><a href="/">หน้าแรก</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
   </div>
 </footer>
@@ -1170,7 +1170,7 @@ TEMPLATE_V2_TH = """<!DOCTYPE html>
 
 <footer>
   <div class="foot-inner">
-    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0620057933">062-005-7933</a></span>
+    <span>© 2026 บริษัท ลูเซอน่า จำกัด · โทร <a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span>
     <span><a href="/">หน้าแรก</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
   </div>
 </footer>
@@ -1338,7 +1338,7 @@ TEMPLATE_V2_EN = """<!DOCTYPE html>
 
 <footer>
   <div class="foot-inner">
-    <span>© 2026 Lucerna Co., Ltd. · Tel <a href="tel:+66620057933">+66 62-005-7933</a></span>
+    <span>© 2026 Lucerna Co., Ltd. · Tel <a href="tel:+66970799547">+66 97-079-9547</a>, <a href="tel:+66970796583">+66 97-079-6583</a></span>
     <span><a href="/">Home</a> · <a href="https://lin.ee/LpUR3Ld">Line @lucerna</a> · <a href="https://www.facebook.com/lucernapro">Facebook</a></span>
   </div>
 </footer>

@@ -55,7 +55,7 @@
 
 ## ข้อมูลบริษัท
 บริษัท ลูเซอน่า จำกัด — 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000
-โทร 097-079-9547, 097-079-6583 / Office 062-005-7933 / Lucernapro@yahoo.com / 08.00–19.00 จ–ส
+โทร 097-079-9547, 097-079-6583 / Office 097-079-9547, 097-079-6583 / Lucernapro@yahoo.com / 08.00–19.00 จ–ส
 Facebook: facebook.com/lucernapro (100k+ followers) / Shopee: shopee.co.th/lucernapro / Lazada: lazada.co.th/shop/lucernapro
 
 ## สินค้า (52 ตัว, 6 หมวด) — สถานะพิเศษ
