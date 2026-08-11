@@ -1,5 +1,6 @@
-/* LucernaPro Instrumentation v1.2 (2026-08-08)
- * ไฟล์กลางไฟล์เดียวของระบบวัดผลทั้งเว็บ — แก้ ID 3 ตัวข้างล่างที่นี่ที่เดียว มีผลทุกหน้า
+/* LucernaPro Instrumentation v1.3 (2026-08-11)
+ * ไฟล์กลางไฟล์เดียวของระบบวัดผลทั้งเว็บ — แก้ ID 4 ตัวข้างล่างที่นี่ที่เดียว มีผลทุกหน้า
+ * v1.3: เพิ่ม Facebook Pixel (base + PageView + mirror channel_click + Contact สำหรับ messenger/line)
  * Event schema:
  *   channel_click  {channel: shopee|lazada|messenger|line, product, lang}  ← conversion หลัก (proxy)
  *   phone_click    {product, lang, number}
@@ -28,9 +29,22 @@
   var GA_ID    = 'G-WHKF5BFB2F';   /* ← GA4 Measurement ID (analytics.google.com) */
   var AW_ID    = 'AW-413684054';  /* ← Google Ads tag ID (conversion action "channel_click", 2 ส.ค. 2026) */
   var AW_LABEL = '52a7CMza2NocENaiocUB';     /* ← conversion label ของ action "channel_click" ใน Ads */
+  var FB_PIXEL = '1597092361161109';    /* ← Facebook Pixel ID (Events Manager → Data Sources) — ใส่แล้ว pixel ทำงานทันทีทุกหน้า */
   var hasGA = GA_ID.indexOf('XXXXXXXXXX') === -1;
   var hasAW = AW_ID.indexOf('XXXXXXXXXX') === -1;
-  if (!hasGA && !hasAW) return;
+  var hasFB = FB_PIXEL.indexOf('XXXXXXXXXX') === -1;
+  if (!hasGA && !hasAW && !hasFB) return;
+
+  /* ---- Facebook Pixel base code (โหลดเฉพาะเมื่อมี ID จริง — GUARD เดียวกับ GA/AW) ---- */
+  if (hasFB) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', FB_PIXEL);
+    fbq('track', 'PageView');
+  }
 
   /* ---- โหลด gtag.js (ตัวเดียวรับได้ทั้ง GA4 และ AW) ---- */
   var s = document.createElement('script');
@@ -74,11 +88,19 @@
                                                  base.channel = 'facebook';  gtag('event', 'social_click', base); }
   }, true);
 
-  /* channel_click = conversion proxy: ยิง GA4 เสมอ + ยิง Ads conversion ถ้ามี label */
+  /* channel_click = conversion proxy: ยิง GA4 เสมอ + Ads conversion ถ้ามี label + FB Pixel ถ้ามี ID
+   * FB mapping (v1.3):
+   *   ทุก channel → trackCustom 'channel_click' {channel, product, lang}  ← schema เดียวกับ GA4 เทียบข้าม platform ได้ตรงๆ
+   *   messenger/line เท่านั้น → track 'Contact' (standard event, ใช้ optimize delivery ใน Ads Manager ได้)
+   *   shopee/lazada ไม่ยิง standard event — ไม่มีตัวไหนความหมายตรง ไม่ยัด */
   function fireConv(base) {
     gtag('event', 'channel_click', base);
     if (hasAW && AW_LABEL.indexOf('XXXXXXXXXX') === -1) {
       gtag('event', 'conversion', { send_to: AW_ID + '/' + AW_LABEL, transport_type: 'beacon' });
+    }
+    if (hasFB) {
+      fbq('trackCustom', 'channel_click', { channel: base.channel, product: base.product, lang: base.lang });
+      if (base.channel === 'messenger' || base.channel === 'line') fbq('track', 'Contact');
     }
   }
 })();
