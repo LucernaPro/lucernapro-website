@@ -192,6 +192,12 @@
   .vidgrid.vert.solo{grid-template-columns:1fr}
   .vidgrid.vert.c2{max-width:280px}
   @media(min-width:760px){.vidgrid.vert.c2{max-width:576px;grid-template-columns:1fr 1fr}}
+  .labstats{margin-top:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:760px){.labstats{grid-template-columns:repeat(3,1fr)}}
+  .lstat{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 16px 14px}
+  .lstat .num{font-size:25px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  .lstat h5{margin:6px 0 4px;font-size:14.5px}
+  .lstat p{margin:0;font-size:13px;color:var(--muted);line-height:1.55}
   .fbv.v916{aspect-ratio:9/16}
   .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
       radial-gradient(340px 200px at 20% 0%, rgba(143,166,184,.25), transparent 60%),
@@ -499,6 +505,21 @@ img{height:auto}
       <img loading="lazy" decoding="async" src="/img/solarpaneldefender-info04.webp" alt="Infographic: 600-hour SGS accelerated weathering test results — no cracking, no peeling, no blistering, chalking grade 0" width="1285" height="686">
       <figcaption>ทดสอบ Weathering เร่งสภาวะ 600 ชั่วโมงโดยแล็บอิสระ (SGS) — ฟิล์มไม่แตก ไม่ลอก ไม่พอง Chalking เกรด 0</figcaption>
     </figure>
+
+    <p class="sec-sub" style="margin-top:34px">ตัวเลขสำคัญจากรายงานทดสอบของแล็บอิสระ <b>SGS</b> — รายงานฉบับเต็มดาวน์โหลดได้ท้ายหัวข้อนี้</p>
+    <div class="labstats">
+      <div class="lstat"><span class="num">9H</span><h5>ความแข็งผิวสูงสุดของสเกล</h5><p>ดินสอทดสอบเบอร์แข็งที่สุด (9H) ยังขีดไม่เป็นรอย — GB/T 6739</p></div>
+      <div class="lstat"><span class="num">91.7%</span><h5>ความใสหลังเคลือบ</h5><p>อัตราส่งผ่านแสงวัดด้วย Spectrophotometer ช่วง 360–1100 nm — อ้างอิง ASTM E903</p></div>
+      <div class="lstat"><span class="num">Class 0</span><h5>การยึดเกาะระดับดีที่สุด</h5><p>Cross-cut test ได้เกรด 0 จากสเกล 0–5 (0 คือดีที่สุด) — GB/T 9286</p></div>
+      <div class="lstat"><span class="num">600 ชม.</span><h5>เร่งสภาวะอากาศ Xenon</h5><p>ฟิล์มไม่พอง ไม่ลอก ไม่แตก และ Chalking เกรด 0 — GB/T 1865</p></div>
+      <div class="lstat"><span class="num">1 ชม.</span><h5>แช่กรดกำมะถัน 5%</h5><p>ไม่พบรอยแตกหรือฟิล์มพองหลังแช่ที่อุณหภูมิห้อง — จำลองสภาพฝนกรดรุนแรง</p></div>
+      <div class="lstat"><span class="num">ND</span><h5>ผ่าน EU RoHS ทุกรายการ</h5><p>โลหะหนักและสารต้องห้าม 10 กลุ่ม ตรวจไม่พบแม้แต่รายการเดียว — SGS 2024</p></div>
+    </div>
+    <div class="note" style="margin-top:14px"><b>VOC 402 g/L</b> ต่ำกว่าเกณฑ์มาตรฐาน GB 18582-2020 (580 g/L) — เบนซีน ทูลูอีน เอทิลเบนซีน ไซลีน และไฮโดรคาร์บอนคลอรีน <b>ตรวจไม่พบทั้งหมด</b> (ND)</div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-ghost" href="/files/solarpaneldefender-sgs-rohs.pdf" target="_blank" rel="noopener">📄 รายงานทดสอบ RoHS (SGS)</a>
+      <a class="btn btn-ghost" href="/files/solarpaneldefender-sgs-voc.pdf" target="_blank" rel="noopener">📄 รายงานทดสอบ VOC (SGS)</a>
+    </div>
   </div>
 </section>
 
