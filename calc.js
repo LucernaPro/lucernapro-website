@@ -1,4 +1,8 @@
-/* LucernaPro Coverage Calculator v2.1 (2026-08-03)
+/* LucernaPro Coverage Calculator v2.2 (2026-08-17)
+ * v2.2: โหมดบ่อ/สระ (tank mode) — ตารางที่ติด data-tank="1" จะได้ช่อง "ลึก (ม.)" เพิ่ม
+ *       พื้นที่ = พื้น (กว้าง×ยาว) + ผนัง 4 ด้าน (2×(กว้าง+ยาว)×ลึก) = ครบ 5 แผง
+ *       กรอกกว้าง×ยาวแต่ไม่กรอกลึก → ไม่คำนวณ ขึ้นข้อความให้กรอกลึกก่อน (กันลูกค้าซื้อขาด 2-3 เท่า)
+ *       หน้าอื่นที่ไม่มี data-tank พฤติกรรมเดิมทุกอย่าง (พื้นเรียบ = กว้าง×ยาว)
  * v2.1: แก้บั๊ก shipSum ไม่ได้ประกาศ (ReferenceError ใน strict mode ทำให้กรอกตัวเลขแล้วไม่คำนวณเลยทั้งเว็บ)
  *       + ค่าส่งคิดต่อชิ้นทุกกรณี: data-shipping ระดับตาราง = อัตราเดียวทุกขนาด × จำนวนชิ้น (มติเจ้าของ)
  * เครื่องคำนวณพื้นที่ → ขนาดที่ควรซื้อ + ราคารวม (ไทย/อังกฤษ อัตโนมัติจาก <html lang>)
@@ -23,10 +27,16 @@
   if (!table) return;
 
   var EN = (document.documentElement.lang || 'th').toLowerCase().indexOf('en') === 0;
+  var TANK = table.getAttribute('data-tank') === '1';
   var T = EN ? {
     h: 'How much do you need?',
-    sub: 'Enter your area — we work out the <b>cheapest combination</b> that still covers it',
-    w: 'Width (m)', l: 'Length (m)', a: 'Or enter area (m&sup2;)',
+    sub: TANK
+      ? 'Enter your pond size — we count <b>all 5 surfaces</b> (floor + 4 walls) and find the cheapest combination that covers them'
+      : 'Enter your area — we work out the <b>cheapest combination</b> that still covers it',
+    w: 'Width (m)', l: 'Length (m)', d: 'Depth (m)',
+    a: TANK ? 'Or total surface area (m&sup2;)' : 'Or enter area (m&sup2;)',
+    needDepth: 'A pond is coated on the floor <b>and all four walls</b> — enter the depth so we can count all 5 surfaces.',
+    tankmeta: function (fl, wl) { return 'Floor ' + fl + ' m&sup2; + walls ' + wl + ' m&sup2; &middot; '; },
     buf: 'Add 10% for porous or rough surfaces',
     ship: 'Shipping', total: 'Total',
     shipnote: 'Shipping here is charged in full for every tub. <b>On a real order we combine them, so you pay less</b> — message us for the exact figure.',
@@ -38,8 +48,13 @@
     big: 'Larger than this table covers — message us for a quote'
   } : {
     h: 'คำนวณว่าต้องซื้อขนาดไหน',
-    sub: 'กรอกขนาดพื้นที่ เราจัดชุดที่<b>ราคารวมถูกที่สุด</b>ที่ยังทาได้ครบให้',
-    w: 'กว้าง (ม.)', l: 'ยาว (ม.)', a: 'หรือกรอกพื้นที่ (ตร.ม.)',
+    sub: TANK
+      ? 'กรอกขนาดบ่อ เราคิดพื้นที่<b>ครบทั้ง 5 ด้าน</b> (พื้น + ผนัง 4 ด้าน) แล้วจัดชุดที่ราคารวมถูกที่สุดให้'
+      : 'กรอกขนาดพื้นที่ เราจัดชุดที่<b>ราคารวมถูกที่สุด</b>ที่ยังทาได้ครบให้',
+    w: 'กว้าง (ม.)', l: 'ยาว (ม.)', d: 'ลึก (ม.)',
+    a: TANK ? 'หรือกรอกพื้นที่รวมทุกด้าน (ตร.ม.)' : 'หรือกรอกพื้นที่ (ตร.ม.)',
+    needDepth: 'บ่อต้องทาทั้งพื้น<b>และผนังทั้ง 4 ด้าน</b> — กรอกความลึกด้วย ระบบถึงจะคิดครบ 5 ด้านให้ได้',
+    tankmeta: function (fl, wl) { return 'พื้น ' + fl + ' ตร.ม. + ผนัง ' + wl + ' ตร.ม. &middot; '; },
     buf: 'เผื่อ 10% สำหรับพื้นดูดซึม/ผิวหยาบ',
     ship: 'ค่าจัดส่ง', total: 'รวม',
     shipnote: 'ค่าส่งตรงนี้คิดเต็มทุกถัง <b>เวลาสั่งจริงเราเหมาให้ ถูกกว่านี้</b> — ทักมาถามยอดจริงก่อนโอนได้เลย',
@@ -156,6 +171,8 @@
       '<div class="f"><label>' + T.w + '</label><input id="lcW" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0"></div>' +
       '<div class="x">&times;</div>' +
       '<div class="f"><label>' + T.l + '</label><input id="lcL" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0"></div>' +
+      (TANK ? '<div class="x">&times;</div>' +
+      '<div class="f"><label>' + T.d + '</label><input id="lcD" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0"></div>' : '') +
       '<div class="f"><label>' + T.a + '</label><input id="lcA" type="number" inputmode="decimal" min="0" step="0.5" placeholder="0"></div>' +
     '</div>' +
     (names.length > 1 ? '<div class="vsel" id="lcV"></div>' : '') +
@@ -166,6 +183,7 @@
   card.parentNode.insertBefore(box, card.nextSibling);
 
   var W = box.querySelector('#lcW'), L = box.querySelector('#lcL'),
+      D = box.querySelector('#lcD'),
       A = box.querySelector('#lcA'), B = box.querySelector('#lcB'),
       OUT = box.querySelector('#lcOut');
   var active = names[0];
@@ -185,15 +203,28 @@
     });
   }
 
+  /* คืน { a: พื้นที่รวม, floor, wall, needDepth }
+   * โหมดบ่อ (TANK): พื้นที่ = พื้น + ผนัง 4 ด้าน = w*l + 2*(w+l)*d — ครบ 5 แผง
+   *   กรอก w,l แต่ยังไม่กรอก d → needDepth=true จงใจไม่คำนวณ (คิดแค่พื้นคือขาด 2-3 เท่า อันตรายกว่าไม่ตอบ)
+   * โหมดปกติ: เหมือน v2.1 ทุกอย่าง */
   function area() {
     var w = parseFloat(W.value), l = parseFloat(L.value), a = parseFloat(A.value);
-    if (w > 0 && l > 0) return w * l;
-    return a > 0 ? a : 0;
+    if (w > 0 && l > 0) {
+      if (!TANK) return { a: w * l };
+      var d = parseFloat(D.value);
+      if (!(d > 0)) return { a: 0, needDepth: true };
+      var fl = w * l, wl = 2 * (w + l) * d;
+      return { a: fl + wl, floor: fl, wall: wl };
+    }
+    return { a: a > 0 ? a : 0 };
   }
 
   function run() {
-    var a = area();
-    if (!(a > 0)) { OUT.innerHTML = ''; return; }
+    var ar = area(), a = ar.a;
+    if (!(a > 0)) {
+      OUT.innerHTML = ar.needDepth ? '<div class="calcnote">' + T.needDepth + '</div>' : '';
+      return;
+    }
     var r = bestCombo(variants[active], a * (B.checked ? 1.1 : 1));
     if (!r) { OUT.innerHTML = '<div class="hint">' + T.big + '</div>'; return; }
     var h = '';
@@ -210,7 +241,9 @@
     var NOTE = table.getAttribute(EN ? 'data-note-en' : 'data-note');
     if (NOTE) h += '<div class="calcnote">' + NOTE + '</div>';
     var spare = r.covers - a;
-    h += '<div class="meta">' + T.meta(num(a),
+    h += '<div class="meta">' +
+          (ar.floor ? T.tankmeta(num(ar.floor), num(ar.wall)) : '') +
+          T.meta(num(a),
           r.items.map(function (i) { return i.label + '\u00d7' + i.n; }).join(', '),
           num(r.covers), num(spare > 0 ? spare : 0), num(r.total / a)) + '</div>';
     h += '<div class="hint">' + T.hint + '</div>';
@@ -218,8 +251,12 @@
     if (window.gtag) window.gtag('event', 'calc_used', { area: Math.round(a), total: r.total + ship });
   }
 
-  [W, L, A, B].forEach(function (el) { el.addEventListener('input', run); el.addEventListener('change', run); });
+  [W, L, D, A, B].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener('input', run); el.addEventListener('change', run);
+  });
   W.addEventListener('input', function () { A.value = ''; });
   L.addEventListener('input', function () { A.value = ''; });
-  A.addEventListener('input', function () { W.value = ''; L.value = ''; });
+  if (D) D.addEventListener('input', function () { A.value = ''; });
+  A.addEventListener('input', function () { W.value = ''; L.value = ''; if (D) D.value = ''; });
 })();
