@@ -66,7 +66,7 @@ def url_to_file(href, files):
 
 def main():
     # โฟลเดอร์แอปภายใน (ไม่ใช่หน้าเว็บ product/content) — ไม่เข้าเกณฑ์ nav/ธีม/ภาษา
-    APP_DIRS = ('account/',)
+    APP_DIRS = ('account/', 'finder/')
     files = sorted(f for f in glob.glob('**/index.html', recursive=True)
                    if not f.startswith(APP_DIRS))
 
