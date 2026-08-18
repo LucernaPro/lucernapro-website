@@ -319,7 +319,7 @@
     <div class="cust-name"><span id="custNameText" contenteditable>หจก.แวลู คอนสตรัคชั่น (ประเทศไทย)</span> <span class="branch-tag" id="fBranch" contenteditable>(สำนักงานใหญ่)</span></div>
     <div class="cust-line" contenteditable>77 ซอยสุคนธสวัสดิ์ 14 แขวงลาดพร้าว เขตลาดพร้าว กทม. 10230</div>
     <div class="cust-ids">
-      <div id="fTax"><span id="fTaxLabel" contenteditable>เลขผู้เสียภาษี</span> <b contenteditable>0103561013391</b></div>
+      <div id="fTax"><span id="fTaxLabel" contenteditable>เลขประจำตัวผู้เสียภาษีอากร</span> <b contenteditable>0103561013391</b></div>
       <div id="fPhone"><span>โทร </span><b contenteditable>063-871-3979</b></div>
       <div id="fEmail"><span>อีเมล </span><b contenteditable>kwnagiftland@gmail.com</b></div>
     </div>
@@ -958,9 +958,8 @@ function parsePaste(){
     if(val) (el.querySelector('b') || el).textContent = val;
   }
   setField('fTax', d.tax);
-  /* บุคคลธรรมดาใช้เลขบัตรประชาชน — เปลี่ยนป้ายให้ตรงความจริง */
-  const isJuristic = d.name && (CO.test(d.name) || CO_EN.test(d.name));
-  document.getElementById('fTaxLabel').textContent = isJuristic ? 'เลขผู้เสียภาษี' : 'เลขบัตรประชาชน';
+  /* ใช้ป้ายเดียวทั้งบุคคลและนิติบุคคล — เลขบัตรประชาชนคือเลขผู้เสียภาษีของบุคคลธรรมดาอยู่แล้ว */
+  document.getElementById('fTaxLabel').textContent = 'เลขประจำตัวผู้เสียภาษีอากร';
   const brRaw = d.branch || (d.name && CO.test(d.name) ? 'สำนักงานใหญ่' : '');
   setField('fBranch', brRaw ? '('+brRaw+')' : '');
   setField('fPhone', d.phone.length ? d.phone.join(', ') : '');
@@ -1350,8 +1349,7 @@ function fillFromDoc(d){
   const c = d.customer||{};
   sf('fTax', c.taxId); sf('fPhone', c.phone); sf('fEmail', c.email);
   sf('fBranch', c.branch ? '('+c.branch+')' : '');
-  const jur = c.name && (CO_G.test(c.name) || CO_ENG.test(c.name));
-  document.getElementById('fTaxLabel').textContent = jur ? 'เลขผู้เสียภาษี' : 'เลขบัตรประชาชน';
+  document.getElementById('fTaxLabel').textContent = 'เลขประจำตัวผู้เสียภาษีอากร';
   tbody.innerHTML = '';
   (d.items||[]).forEach(it=>{
     const tr = document.createElement('tr');
