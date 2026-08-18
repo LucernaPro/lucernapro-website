@@ -126,6 +126,31 @@
   .hero p.lede{margin-top:18px;max-width:640px;color:var(--muted);font-size:16.5px}
   .hero-cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
   .hero-finder{margin-top:30px;max-width:900px}
+  /* ── ประตูเข้าเกม /finder ── */
+  .game-portal{position:relative;display:flex;align-items:center;gap:14px;margin-top:14px;
+    background:radial-gradient(circle at 85% 120%, #0E3557, #071B33 70%);
+    border:1.5px solid #2C5A83;border-radius:18px;padding:13px 15px;overflow:hidden;
+    cursor:pointer;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease}
+  .game-portal:active{transform:scale(.985)}
+  @media(hover:hover){.game-portal:hover{box-shadow:0 8px 24px rgba(14,53,87,.35);transform:translateY(-2px)}}
+  .gp-bub{position:absolute;bottom:-10px;border-radius:50%;border:1.2px solid rgba(143,216,255,.3);
+    background:rgba(143,216,255,.05);animation:gpRise 9s linear infinite;pointer-events:none}
+  @keyframes gpRise{from{transform:translateY(0);opacity:0}15%{opacity:1}to{transform:translateY(-110px);opacity:0}}
+  .gp-mascot{width:56px;height:62px;flex-shrink:0;position:relative;z-index:2;display:block}
+  .gp-mascot svg{width:100%;height:100%;overflow:visible}
+  .gp-bob{animation:gpBob 3s ease-in-out infinite;transform-origin:50% 90%}
+  @keyframes gpBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .gp-txt{flex:1;min-width:0;position:relative;z-index:2;display:block}
+  .gp-t1{display:block;font-family:'Mitr',sans-serif;font-weight:600;font-size:16.5px;color:#fff;line-height:1.35}
+  .gp-o{color:#FFC53D}
+  .gp-t2{display:block;font-size:12.5px;color:#9FC6DD;margin-top:2px;line-height:1.5}
+  .gp-btn{flex-shrink:0;position:relative;z-index:2;display:block;
+    font-family:'Mitr',sans-serif;font-weight:600;font-size:14.5px;
+    background:linear-gradient(180deg,#FF8A3D,#E86F1F);color:#fff;
+    border:1.5px solid rgba(255,255,255,.75);padding:10px 18px;border-radius:999px;
+    box-shadow:0 4px 12px rgba(232,111,31,.4);white-space:nowrap}
+  @media(max-width:420px){.gp-t2{display:none}.gp-btn{padding:9px 14px;font-size:13.5px}}
+  @media (prefers-reduced-motion: reduce){.gp-bub,.gp-bob{animation:none}}
   .hero-meta{margin-top:15px;display:flex;align-items:center;gap:11px;flex-wrap:wrap;
     font-family:var(--mono);font-size:12.5px;color:var(--muted)}
   .hero-meta .result-note{margin-top:0}
@@ -357,6 +382,39 @@ img{height:auto}
         <button class="chip" data-tag="รถ">งานรถยนต์</button>
         <button class="chip" data-tag="เคลือบ">เคลือบปกป้อง</button>
       </div>
+
+      <!-- ประตูเข้าเกมหาอาวุธลับ /finder -->
+      <a class="game-portal" href="/finder/" id="gamePortal" onclick="try{fbq('trackCustom','Finder_entry_home')}catch(e){}">
+        <span class="gp-bub" style="width:10px;height:10px;left:38%;animation-delay:0s"></span>
+        <span class="gp-bub" style="width:6px;height:6px;left:60%;animation-delay:3s"></span>
+        <span class="gp-bub" style="width:8px;height:8px;left:76%;animation-delay:6s"></span>
+        <span class="gp-mascot" aria-hidden="true">
+          <svg viewBox="0 0 100 110">
+            <g class="gp-bob">
+              <path d="M50 14 q30 34 30 55 a30 30 0 1 1 -60 0 q0 -21 30 -55z" fill="#2FA8E8" stroke="#0E6FA8" stroke-width="3"/>
+              <path d="M36 52 q-6 14 2 26" stroke="#8FD8FF" stroke-width="5" fill="none" stroke-linecap="round" opacity=".8"/>
+              <g>
+                <path d="M28 34 a22 16 0 0 1 44 0 z" fill="#FFC53D" stroke="#C98F00" stroke-width="2.5"/>
+                <rect x="24" y="32" width="52" height="7" rx="3.5" fill="#FFC53D" stroke="#C98F00" stroke-width="2.5"/>
+                <rect x="46" y="18" width="8" height="14" rx="3" fill="#FFD86B"/>
+              </g>
+              <circle cx="41" cy="56" r="4" fill="#071B33"/><circle cx="61" cy="56" r="4" fill="#071B33"/>
+              <circle cx="42.5" cy="54.5" r="1.4" fill="#fff"/><circle cx="62.5" cy="54.5" r="1.4" fill="#fff"/>
+              <path d="M44 68 q7 7 14 0" stroke="#071B33" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <ellipse cx="33" cy="64" rx="4.5" ry="3" fill="#FF9DB0" opacity=".55"/>
+              <ellipse cx="69" cy="64" rx="4.5" ry="3" fill="#FF9DB0" opacity=".55"/>
+              <path d="M78 62 q12 -6 14 -16" stroke="#0E6FA8" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <circle cx="93" cy="45" r="5.5" fill="#2FA8E8" stroke="#0E6FA8" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </span>
+        <span class="gp-txt">
+          <span class="gp-t1">ไม่รู้จะเริ่มตรงไหน? <span class="gp-o">จิ้มบ้านเลย</span></span>
+          <span class="gp-t2">ตอบไม่กี่ข้อ หยดหยดชี้ตัวที่ใช่ให้ — จบใน 20 วินาที</span>
+        </span>
+        <span class="gp-btn">🎮 เล่นเลย</span>
+      </a>
+
       <div class="hero-meta">
         <span class="result-note" id="note">แสดงสินค้าทั้งหมด</span>
         <span class="sep">·</span>
