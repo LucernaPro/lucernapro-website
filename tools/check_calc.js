@@ -68,6 +68,7 @@ const KNOWN = [
   { f: 'en/tilecoatpoly/index.html', area: 7,  total: '2,890',  note: false },
   { f: 'thermaglaze/index.html',     area: 80, total: '4,980',  note: true  }, // แบบสี 15kg+1kg = 4,610 + ส่ง 300+70 (มติ 3 ส.ค.)
   { f: 'boundgravel/index.html',     area: 10, total: '2,410',  note: false }, // 5kg = 2,280 + ส่ง 130 ทุกขนาด (มติ 3 ส.ค.)
+  { f: 'surfaceguard/index.html',    area: 7,  total: '1,520',  note: true  }, // 1kg×2 = 1,380 + ส่ง 70×2 มีโน้ตเหมา (เปิดตัว 18 ส.ค. — ถูกกว่า 5kg 2,820)
 ];
 for (const k of KNOWN) {
   const f = path.join(ROOT, k.f);
