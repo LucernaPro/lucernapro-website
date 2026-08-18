@@ -47,7 +47,7 @@ def header(page):
     c.drawRightString(R, base(48.0, 13), 'SurfaceGuard')
     c.setFont('Helvetica', 8.0)
     c.drawString(L, base(58.0, 8.0),
-                 'TECHNICAL DATA SHEET  \u00b7  Issue 1.0  \u00b7  August 2026  \u00b7  Page %d of %d' % (page, TOTAL))
+                 'TECHNICAL DATA SHEET  \u00b7  Issue 1.1  \u00b7  August 2026  \u00b7  Page %d of %d' % (page, TOTAL))
     c.setFont('Helvetica', 8.5)
     c.drawRightString(R, base(58.1, 8.5), 'Water-based PUD Floor Coating')
     c.setStrokeColorRGB(*ORANGE); c.setLineWidth(1.6)
@@ -126,7 +126,7 @@ kv([
     ('Coverage',          'Approx. 5 m\u00b2 per kg for the complete 2-coat system on smooth, sound concrete; '
                           'rough or porous substrates consume more'),
     ('Recommended system','2 coats by short-pile roller, second coat applied crosswise to the first'),
-    ('Pack sizes',        '1 kg and 5 kg'),
+    ('Pack sizes',        '1 kg, 5 kg and 18 kg'),
     ('Clean-up',          'Plain water, before the coating dries'),
     ('Storage',           'Keep tightly closed in a cool, shaded place. Protect from direct sun, heat build-up '
                           'and freezing'),
