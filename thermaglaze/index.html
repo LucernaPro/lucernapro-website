@@ -324,6 +324,11 @@
   .gph img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
   .gph:hover img{transform:scale(1.04)}
   .gph figcaption{font-size:13px;color:var(--muted);padding:9px 4px 2px;line-height:1.4;text-align:center}
+  /* กริดภาพไอเดีย — แนวนอน 16:9 สองคอลัมน์ ใช้กรอบเดียวกับ .gph */
+  .igrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:11px}
+  @media(min-width:640px){.igrid{grid-template-columns:repeat(2,1fr);gap:14px}}
+  .iph .im{aspect-ratio:16/9}
+  .inote{font-size:13px;color:var(--muted);margin-top:10px}
   /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
   .mnav-btn,.mnav,.mnav-scrim{display:none}
   @media(max-width:860px){
@@ -561,6 +566,27 @@
         </div>
       </div>
     </div>
+
+    <h3 class="sec-h" style="margin-top:48px">สรุปเป็นภาพ — <em>ตัวนี้ให้อะไรคุณ</em></h3>
+    <div class="igrid">
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i01.webp" alt="ภาพจำลองพื้นโรงรถครึ่งซ้ายเป็นปูนเปลือยมีคราบ ครึ่งขวาทาสีพื้นสีเทาเรียบเสมอกัน เห็นความต่างก่อน–หลังในภาพเดียว" width="1100" height="614" loading="lazy"></div>
+        <figcaption>ก่อน–หลังในภาพเดียว — คราบด่างที่ล้างไม่ออก ปิดจบเป็นสีเดียวทั้งผืน</figcaption>
+      </figure>
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i02.webp" alt="ภาพจำลองมือกำลังกลิ้งสีพื้นสีเทาลงบนพื้นปูนด้วยลูกกลิ้งธรรมดา" width="1100" height="962" loading="lazy"></div>
+        <figcaption>เครื่องมือแค่ลูกกลิ้งกับถาดสี — ทาเองได้ ไม่ต้องจ้างช่าง</figcaption>
+      </figure>
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i03.webp" alt="ภาพจำลองล้อรถยนต์จอดอยู่บนพื้นโรงรถที่ทาสีพื้นสีเทาแล้ว" width="1100" height="614" loading="lazy"></div>
+        <figcaption>ฟิล์มแห้งสมบูรณ์แล้วรถขึ้นจอดได้ — งานโรงรถและลานจอดคือหน้างานหลักของตัวนี้</figcaption>
+      </figure>
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i04.webp" alt="ภาพจำลองหยดน้ำเกาะเป็นเม็ดบนผิวพื้นที่ทาสีพื้นสีเทา ไม่ซึมลงเนื้อปูน" width="1100" height="614" loading="lazy"></div>
+        <figcaption>น้ำและของที่หกอยู่บนฟิล์ม ไม่ซึมลงเนื้อปูน — เช็ดออกได้ ไม่ทิ้งคราบ</figcaption>
+      </figure>
+    </div>
+    <p class="inote">* ภาพชุดนี้เป็นภาพจำลองเพื่อสื่อไอเดียการใช้งาน — ภาพหน้างานจริงดูได้ที่แกลเลอรีด้านล่างครับ</p>
 
     <h3 class="sec-h" style="margin-top:48px">งานที่ทาไปแล้ว — <em>หลากหลายหน้างาน</em></h3>
     <div class="ggrid">

@@ -324,6 +324,11 @@
   .gph img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
   .gph:hover img{transform:scale(1.04)}
   .gph figcaption{font-size:13px;color:var(--muted);padding:9px 4px 2px;line-height:1.4;text-align:center}
+  /* Idea-image grid — landscape 16:9, two columns, same frame as .gph */
+  .igrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:11px}
+  @media(min-width:640px){.igrid{grid-template-columns:repeat(2,1fr);gap:14px}}
+  .iph .im{aspect-ratio:16/9}
+  .inote{font-size:13px;color:var(--muted);margin-top:10px}
   /* ═══ MOBILE DRAWER MENU (removable: delete the 3 blocks carrying this marker: CSS/HTML/JS) ═══ */
   .mnav-btn,.mnav,.mnav-scrim{display:none}
   @media(max-width:860px){
@@ -561,6 +566,27 @@
         </div>
       </div>
     </div>
+
+    <h3 class="sec-h" style="margin-top:48px">The idea, in pictures — <em>what you get</em></h3>
+    <div class="igrid">
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i01.webp" alt="Concept visual of a garage floor, left half bare stained concrete and right half coated in an even grey floor paint, showing before and after in one frame" width="1100" height="614" loading="lazy"></div>
+        <figcaption>Before and after in one frame — stains that never wash out, sealed under a single even colour</figcaption>
+      </figure>
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i02.webp" alt="Concept visual of a hand rolling grey floor paint onto bare concrete with an ordinary paint roller" width="1100" height="962" loading="lazy"></div>
+        <figcaption>The tools are just a roller and a tray — a DIY job, no contractor needed</figcaption>
+      </figure>
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i03.webp" alt="Concept visual of a car tyre parked on a garage floor finished in grey floor paint" width="1100" height="614" loading="lazy"></div>
+        <figcaption>Once the film has fully cured, cars can park on it — garages and driveways are this product's home turf</figcaption>
+      </figure>
+      <figure class="gph iph">
+        <div class="im"><img src="/img/thermaglaze-i04.webp" alt="Concept visual of water beading on a grey painted floor surface instead of soaking into the concrete" width="1100" height="614" loading="lazy"></div>
+        <figcaption>Water and spills sit on the film instead of soaking into the concrete — wipe them off, no permanent stains</figcaption>
+      </figure>
+    </div>
+    <p class="inote">* These are concept visuals to illustrate the idea — real job-site photos are in the gallery below.</p>
 
     <h3 class="sec-h" style="margin-top:48px">Floors already done — <em>across a range of jobs</em></h3>
     <div class="ggrid">
