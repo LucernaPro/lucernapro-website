@@ -47,7 +47,7 @@ def header(page):
     c.drawRightString(R, base(48.0, 13), 'SurfaceGuard')
     c.setFont('Helvetica', 8.0)
     c.drawString(L, base(58.0, 8.0),
-                 'TECHNICAL DATA SHEET  \u00b7  Issue 1.2  \u00b7  August 2026  \u00b7  Page %d of %d' % (page, TOTAL))
+                 'TECHNICAL DATA SHEET  \u00b7  Issue 1.3  \u00b7  August 2026  \u00b7  Page %d of %d' % (page, TOTAL))
     c.setFont('Helvetica', 8.5)
     c.drawRightString(R, base(58.1, 8.5), 'Water-based PUD Floor Coating')
     c.setStrokeColorRGB(*ORANGE); c.setLineWidth(1.6)
@@ -83,11 +83,24 @@ def section(title):
 
 
 def para(text, gap=14.2, indent=2.0):
+    """Justified paragraph (มติ QA 18 ส.ค.: information paragraphs = justify) —
+    กระจายช่องว่างด้วย word spacing ทุกบรรทัดยกเว้นบรรทัดสุดท้ายของย่อหน้า"""
     global y
     y += gap
-    c.setFillGray(0); c.setFont('Helvetica', BODY)
-    for ln in wrap(text, 'Helvetica', BODY, CW - indent):
-        c.drawString(L + indent, base(y + 8.6, BODY), ln)
+    c.setFillGray(0)
+    lines = wrap(text, 'Helvetica', BODY, CW - indent)
+    for i, ln in enumerate(lines):
+        nsp = ln.count(' ')
+        if i < len(lines) - 1 and nsp > 0:
+            extra = (CW - indent - stringWidth(ln, 'Helvetica', BODY)) / nsp
+            t = c.beginText(L + indent, base(y + 8.6, BODY))
+            t.setFont('Helvetica', BODY)
+            t.setWordSpace(extra)
+            t.textOut(ln)
+            c.drawText(t)
+        else:
+            c.setFont('Helvetica', BODY)
+            c.drawString(L + indent, base(y + 8.6, BODY), ln)
         y += LEAD
     y -= LEAD
     y += 8.6
