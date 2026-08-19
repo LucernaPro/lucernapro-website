@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""หยดหยดสอน EP.2 — 'รางผุ ไม่ใช่เวรกรรม' 1080x1920 30fps 21s = 630 เฟรม"""
+"""หยดหยดเล่า EP.2 — 'รางผุ ไม่ใช่เวรกรรม' 1080x1920 30fps 28s = 840 เฟรม (มติเจ้าของ: ยืดช่วงค้างตัวหนังสือ)"""
 import math, os, random, sys
 sys.path.insert(0, "/home/claude")
 from gen_frames import (W, H, mascot, droplet, bubbles, clamp01, P,
                         ease_out, ease_in, ease_io, ease_back, esc)
 
-FPS, DUR = 30, 21.0
+FPS, DUR = 30, 28.0
 N = int(FPS * DUR)
 OUT = "/home/claude/frames_ep2"
 os.makedirs(OUT, exist_ok=True)
@@ -113,7 +113,7 @@ def frame(t):
 </defs>''')
 
     # ================= ฉาก 1 (0-3) รางสองเส้น เทียบกัน =================
-    if t < 3.0:
+    if t < 4.5:
         p.append(f'<rect width="{W}" height="{H}" fill="url(#sky)"/>')
         # ครึ่งซ้าย: รางผุ + คราบผนัง | ครึ่งขวา: รางสวย
         p.append(f'<rect x="0" y="300" width="530" height="1000" fill="#F4EFE4"/>')
@@ -131,10 +131,10 @@ def frame(t):
         p.append(fade_txt(t, 1.4, 540, 1615, 76, "ทำไมผุอยู่เส้นเดียว?", fill=GOLD_HL))
 
     # ================= ฉาก 2 (3-8) ผ่าเส้นซ้าย: โลหะเปลือย =================
-    elif t < 8.0:
-        ts = t - 3.0
+    elif t < 11.5:
+        ts = t - 4.5
         p.append(f'<rect width="{W}" height="{H}" fill="#EEF5FA"/>')
-        p.append(fade_txt(t, 3.1, 540, 250, 58, "มาดูเส้นซ้ายใกล้ๆ ครับ"))
+        p.append(fade_txt(ts, 0.1, 540, 250, 58, "มาดูเส้นซ้ายใกล้ๆ ครับ"))
         p.append(sun(920, 420))
         # แดดส่องลงราง
         for k in range(3):
@@ -160,14 +160,14 @@ def frame(t):
             pu = 0.5 + 0.5*math.sin(ts*4.5)
             p.append(f'<circle cx="540" cy="1046" r="{74+10*pu:.0f}" fill="none" stroke="{GOLD_HL}" '
                      f'stroke-width="6" opacity="{(0.25+0.45*pu)*min(1,rp*2):.2f}"/>')
-        p.append(fade_txt(t, 4.2, 540, 1400, 62, "โลหะเปลือย เจอฝนเจอแดดตรงๆ"))
-        p.append(fade_txt(t, 5.8, 540, 1515, 74, "สนิมเริ่มที่รอยเชื่อมก่อนเสมอ", fill=GOLD_HL))
+        p.append(fade_txt(ts, 1.2, 540, 1400, 62, "โลหะเปลือย เจอฝนเจอแดดตรงๆ"))
+        p.append(fade_txt(ts, 2.8, 540, 1515, 74, "สนิมเริ่มที่รอยเชื่อมก่อนเสมอ", fill=GOLD_HL))
 
     # ================= ฉาก 3 (8-13) ผ่าเส้นขวา: มีชั้นเคลือบ =================
-    elif t < 13.0:
-        ts = t - 8.0
+    elif t < 18.5:
+        ts = t - 11.5
         p.append(f'<rect width="{W}" height="{H}" fill="#EEF5FA"/>')
-        p.append(fade_txt(t, 8.1, 540, 250, 58, "ส่วนเส้นขวา..."))
+        p.append(fade_txt(ts, 0.1, 540, 250, 58, "ส่วนเส้นขวา..."))
         coat = ease_io(P(ts, 0.5, 1.1))
         p.append(gutter_xsec(540, 860, 1.0, coat=coat))
         if 0 < P(ts, 1.55, 0.6) < 1:
@@ -197,8 +197,8 @@ def frame(t):
                                              ("เนื้อโลหะข้างใน ไม่โดนเลย", "#FFC53D", 52)], op=e, dy=14*(1-e)))
 
     # ================= ฉาก 4 (13-17) ทางแก้: ทาตั้งแต่วันแรก =================
-    elif t < 17.0:
-        ts = t - 13.0
+    elif t < 24.0:
+        ts = t - 18.5
         p.append(f'<rect width="{W}" height="{H}" fill="url(#sky)"/>')
         p.append(f'<rect x="0" y="330" width="{W}" height="900" fill="#FBF7EE"/>')
         prog = ease_io(P(ts, 0.5, 2.2))
@@ -215,13 +215,13 @@ def frame(t):
         # หยดหยดยืนเชียร์ข้างราง
         arm = -20 - 8*math.sin(ts*2.6)
         p.append(f'<g transform="translate(60,830)">' + mascot(0, 0, 2.9, arm) + '</g>')
-        p.append(fade_txt(t, 13.6, 540, 1400, 66, "ทาเคลือบไว้ตั้งแต่วันแรก"))
-        p.append(fade_txt(t, 14.3, 540, 1520, 80, "ตอนรางยังใหม่", fill=GOLD_HL))
-        p.append(fade_txt(t, 15.2, 540, 1620, 44, "ง่ายกว่า ประหยัดกว่า มาตามแก้ทีหลังเยอะครับ", fill="#3D566E", w="500"))
+        p.append(fade_txt(ts, 1.1, 540, 1400, 66, "ทาเคลือบไว้ตั้งแต่วันแรก"))
+        p.append(fade_txt(ts, 1.8, 540, 1520, 80, "ตอนรางยังใหม่", fill=GOLD_HL))
+        p.append(fade_txt(ts, 2.7, 540, 1620, 44, "ง่ายกว่า ประหยัดกว่า มาตามแก้ทีหลังเยอะครับ", fill="#3D566E", w="500"))
 
     # ================= ฉาก 5 (17-21) เฟรมปิดซีรีส์ (มาตรฐาน) =================
     else:
-        ts = t - 17.0
+        ts = t - 24.0
         p.append(f'<rect width="{W}" height="{H}" fill="url(#deep)"/>')
         p.append(bubbles(t))
         pM = P(ts, 0.1, 0.45)
@@ -237,7 +237,7 @@ def frame(t):
             e = ease_out(pB)
             p.append(f'<g opacity="{e:.2f}" transform="translate(0,{14*(1-e):.0f})">'
                      f'<rect x="270" y="1050" width="540" height="104" rx="52" fill="#FFC53D" stroke="#fff" stroke-width="5"/>'
-                     + txt(540, 1119, 50, "หยดหยดสอน EP.2", fill="#5C3A00") + '</g>')
+                     + txt(540, 1119, 50, "หยดหยดเล่า EP.2", fill="#5C3A00") + '</g>')
         pU = P(ts, 1.0, 0.45)
         if pU > 0:
             e = ease_out(pU)
