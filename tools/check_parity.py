@@ -128,6 +128,17 @@ def main():
             if want and re.sub(r'^https?://[^/]+', '', want).rstrip('/') != href.rstrip('/'):
                 add('%s ไม่ตรงกับ hreflang (ปุ่ม=%s / hreflang=%s)' % (cls, href, want))
 
+        # 4.2) ป้าย "สั่งตรงถูกกว่าบนแอป" (.direct-deal) — เพิ่ม 21 ส.ค. 2026
+        # กติกา: หน้าที่มี shoprow + ลิงก์ Shopee/Lazada ต้องมีป้ายพอดี 1 ชิ้น
+        # หน้าที่มี shoprow แต่ขายตรงอย่างเดียว (ไม่มีลิงก์แอป) ต้อง "ไม่มี" ป้าย — กัน overclaim
+        if 'class="shoprow"' in s:
+            has_mkt = ('shopee.co.th' in s) or ('lazada.co.th' in s)
+            n_deal = s.count('class="direct-deal"')
+            if has_mkt and n_deal != 1:
+                add('ป้ายสั่งตรงถูกกว่า (direct-deal) ควรมี 1 พบ %d' % n_deal)
+            if not has_mkt and n_deal != 0:
+                add('มีป้าย direct-deal ทั้งที่หน้านี้ไม่มีลิงก์แอป — overclaim')
+
         # 4.1) ห้ามมีลิงก์สลับภาษาตัวที่สองนอกหัวเว็บ (doctrine รอบ 4: ปุ่มเดียวต่อจอ)
         # pattern เก่าที่เคยตกค้าง: <a class="lang" ...> ใน crumb ของหน้า post (เจอ 3 ส.ค. 2026, 24 หน้า)
         if re.search(r'<a class="lang"[ >]', s):
