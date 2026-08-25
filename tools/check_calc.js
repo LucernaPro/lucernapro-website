@@ -70,6 +70,9 @@ const KNOWN = [
   { f: 'boundgravel/index.html',     area: 10, total: '2,410',  note: false }, // 5kg = 2,280 + ส่ง 130 ทุกขนาด (มติ 3 ส.ค.)
   { f: 'surfaceguard/index.html',    area: 7,  total: '1,520',  note: true  }, // 1kg×2 = 1,380 + ส่ง 70×2 มีโน้ตเหมา (เปิดตัว 18 ส.ค. — ถูกกว่า 5kg 2,820)
   { f: 'surfaceguard/index.html',    area: 80, total: '9,220',  note: true  }, // 5kg×3+1kg = 8,760 + ส่ง 460 มีโน้ตเหมา (มติ 18 ส.ค.: ตัด 18kg ทิ้ง)
+  { f: 'heatshield/index.html',      area: 30, total: '4,620',  note: false }, // 18kg×1 = 4,320 + ส่ง 300 (แก้อัตราเป็น 0.6 กก./ตร.ม. 25 ส.ค. — 4.5kg=7.5 ตร.ม., 18kg=30 ตร.ม.)
+  { f: 'heatshield/index.html',      area: 10, total: '3,820',  note: true  }, // 4.5kg×2 = 3,560 + ส่ง 130×2 มีโน้ตเหมา
+  { f: 'en/heatshield/index.html',   area: 30, total: '4,620',  note: false },
 ];
 for (const k of KNOWN) {
   const f = path.join(ROOT, k.f);
