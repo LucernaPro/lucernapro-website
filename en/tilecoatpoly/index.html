@@ -160,6 +160,10 @@
   .swx{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:13px;color:var(--muted)}
   .sw{width:42px;height:42px;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 0 0 2px rgba(11,11,13,.35)}
   .colornote{margin-top:12px;font-size:13px;color:var(--muted)}
+  .colorcard{margin-top:14px;max-width:560px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .colorcard img{display:block;width:100%;height:auto}
+  .colorcard figcaption{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px;font-weight:600}
+  .colorcard figcaption .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
   .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
 
   /* ---------- HOW TO USE ---------- */
@@ -443,15 +447,11 @@ img{height:auto}
 
     <div class="colors">
       <h3 class="colors-h">Available in 6 colors</h3>
-      <div class="swatches">
-        <div class="swx"><span class="sw" style="background:#F2F2EF"></span>White</div>
-        <div class="swx"><span class="sw" style="background:#E8DEC8"></span>Cream</div>
-        <div class="swx"><span class="sw" style="background:#B9BDBF"></span>Light Grey</div>
-        <div class="swx"><span class="sw" style="background:#5A5E63"></span>Dark Grey</div>
-        <div class="swx"><span class="sw" style="background:#A8CADD"></span>Light Blue</div>
-        <div class="swx"><span class="sw" style="background:#26282A"></span>Black</div>
-      </div>
-      <p class="colornote">On-screen shades are approximate — message us for real color samples before you decide.</p>
+      <figure class="colorcard">
+        <img loading="lazy" decoding="async" alt="Real TileCoat Polyurea color chips — White, Light Grey, Dark Grey, Cream, Light Blue, Black — photographed from actual coated panels" src="/img/tilecoatpoly-colors.webp" width="800" height="800">
+        <figcaption><span class="dot"></span>Photographed from real coated panels — top: White · Light Grey · Dark Grey, bottom: Cream · Light Blue · Black</figcaption>
+      </figure>
+      <p class="colornote">Actual shade may differ slightly depending on your screen — message our page if you'd like help choosing.</p>
     </div>
   </div>
 </section>

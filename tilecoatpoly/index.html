@@ -160,6 +160,10 @@
   .swx{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:13px;color:var(--muted)}
   .sw{width:42px;height:42px;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 0 0 2px rgba(11,11,13,.35)}
   .colornote{margin-top:12px;font-size:13px;color:var(--muted)}
+  .colorcard{margin-top:14px;max-width:560px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .colorcard img{display:block;width:100%;height:auto}
+  .colorcard figcaption{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px;font-weight:600}
+  .colorcard figcaption .dot{width:9px;height:9px;border-radius:3px;background:var(--wproof);flex:none}
   .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
 
   /* ---------- HOW TO USE ---------- */
@@ -443,15 +447,11 @@ img{height:auto}
 
     <div class="colors">
       <h3 class="colors-h">มีให้เลือก 6 สี</h3>
-      <div class="swatches">
-        <div class="swx"><span class="sw" style="background:#F2F2EF"></span>ขาว</div>
-        <div class="swx"><span class="sw" style="background:#E8DEC8"></span>ครีม</div>
-        <div class="swx"><span class="sw" style="background:#B9BDBF"></span>เทาอ่อน</div>
-        <div class="swx"><span class="sw" style="background:#5A5E63"></span>เทาเข้ม</div>
-        <div class="swx"><span class="sw" style="background:#A8CADD"></span>ฟ้าอ่อน</div>
-        <div class="swx"><span class="sw" style="background:#26282A"></span>ดำ</div>
-      </div>
-      <p class="colornote">เฉดสีบนหน้าจอเป็นค่าโดยประมาณ — ขอดูตัวอย่างสีจริงได้ทางแชทเพจก่อนตัดสินใจ</p>
+      <figure class="colorcard">
+        <img loading="lazy" decoding="async" alt="เฉดสีจริง TileCoat Polyurea ทั้ง 6 สี — ขาว เทาอ่อน เทาเข้ม ครีม ฟ้า ดำ ถ่ายจากแผ่นเคลือบจริง" src="/img/tilecoatpoly-colors.webp" width="800" height="800">
+        <figcaption><span class="dot"></span>ภาพถ่ายจากแผ่นเคลือบจริง ไม่ใช่สีจำลองบนคอมพิวเตอร์</figcaption>
+      </figure>
+      <p class="colornote">สีที่เห็นอาจต่างจากของจริงเล็กน้อยตามหน้าจอแต่ละเครื่อง — ไม่แน่ใจเฉดไหน ทักแชทเพจมาปรึกษาได้ก่อนตัดสินใจ</p>
     </div>
   </div>
 </section>
