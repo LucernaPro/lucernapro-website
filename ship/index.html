@@ -142,7 +142,7 @@
 
 <div class="tabs">
   <button data-tab="day" class="on">รายการวัน</button>
-  <button data-tab="match">จับคู่ EMS</button>
+  <button data-tab="match">กรอกเลข EMS</button>
   <button data-tab="pending">ค้างส่ง<span class="cnt" id="cntPending">0</span></button>
   <button data-tab="orphan">เลขลอย<span class="cnt" id="cntOrphan">0</span></button>
 </div>
@@ -246,7 +246,7 @@ function tableFor(groups, emptyMsg){
           `<button class="mini orange" onclick="saveTrk(${g.gid})" style="margin-left:6px">บันทึก</button>`+
           `<button class="mini ghost" onclick="skipG(${g.gid})" style="margin-left:6px" title="ออเดอร์ที่ไม่ได้ส่งทางไปรษณีย์ เช่น Shopee/Lazada">ตัด</button>`;
     return `<tr class="${g.status}"><td class="td-date">${thDate(g.odate)}</td>`+
-           `<td class="td-cust" title="${esc(g.customer)}">${esc(g.customer)}</td>`+
+           `<td class="td-cust" title="${esc(g.customer)}">${esc(g.customer)}${g.receiver?`<div style="font-weight:400;font-size:11.5px;color:var(--gray)">ผู้รับ: ${esc(g.receiver)}</div>`:''}</td>`+
            `<td>${esc(fmtItems(g))}</td><td class="td-trk">${trk}</td></tr>`;
   }).join('');
   return `<div class="twrap"><table class="otab"><thead><tr>`+

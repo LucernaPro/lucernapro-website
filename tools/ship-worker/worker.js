@@ -221,7 +221,7 @@ async function syncFromSheet(env, daysBack = 3) {
   let added = 0, updated = 0, scanned = 0;
   const kept = new Set();
   for (const title of months) {
-    const ranges = ['A', 'C', 'H', 'I', 'J']  // H=คนขาย ใช้กรองช่องทาง · K ห้ามอ่าน (สูตรยอดขาย)
+    const ranges = ['A', 'C', 'H', 'I', 'J', 'P']  // H=คนขาย(กรอง) · P=ผู้รับพัสดุ · K ห้ามอ่าน (สูตรยอดขาย)
       .map(c => 'ranges=' + encodeURIComponent(`${title}!${c}1:${c}3000`)).join('&');
     const r = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values:batchGet?${ranges}`,
@@ -229,7 +229,7 @@ async function syncFromSheet(env, daysBack = 3) {
     if (r.status === 400 || r.status === 404) continue; // เดือนนั้นยังไม่มีชีต
     const j = await r.json();
     if (!j.valueRanges) throw new Error('อ่านชีตไม่ได้: ' + JSON.stringify(j).slice(0, 200));
-    const [colA, colC, colH, colI, colJ] = j.valueRanges.map(v => v.values || []);
+    const [colA, colC, colH, colI, colJ, colP] = j.valueRanges.map(v => v.values || []);
     const cell = (col, i) => ((col[i] || [])[0] || '').toString().trim();
     const nRows = Math.max(colA.length, colI.length, colJ.length);
 
@@ -247,7 +247,9 @@ async function syncFromSheet(env, daysBack = 3) {
       scanned++;
       const okey = `${title}:r${i + 1}`;
       kept.add(okey);
-      const receiver = '';
+      // P = ชื่อผู้รับพัสดุที่ LucernaOne parser เก็บจากบรรทัด "ถึง ..." (ต้องเป็นชื่อ ไม่ใช่ตัวเลข)
+      let receiver = cell(colP, i);
+      if (/\d/.test(receiver)) receiver = ''; // การ์ดสองชั้น: ค่าแปลกปลอม/ตัวเลขหลงมา ไม่ใช้
       const ex = await env.DB.prepare('SELECT id FROM orders WHERE okey=?').bind(okey).first();
       if (ex) {
         await env.DB.prepare(
