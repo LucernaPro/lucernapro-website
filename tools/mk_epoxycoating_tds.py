@@ -6,7 +6,14 @@ Site doctrine: no raw material codes/ingredients published."""
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase.pdfmetrics import stringWidth
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 import os
+
+_F = os.path.join(os.path.dirname(__file__), 'fonts')
+pdfmetrics.registerFont(TTFont('Sarabun', os.path.join(_F, 'Sarabun-Regular.ttf')))
+pdfmetrics.registerFont(TTFont('Sarabun-Bold', os.path.join(_F, 'Sarabun-Bold.ttf')))
+pdfmetrics.registerFont(TTFont('Sarabun-Italic', os.path.join(_F, 'Sarabun-Italic.ttf')))
 
 W, H = A4
 L, R = 45.4, 549.9
@@ -16,6 +23,8 @@ BAR    = (0.937255, 0.937255, 0.925490)
 RULE   = (0.862745, 0.862745, 0.839216)
 BODY, LEAD = 7.2, 9.4
 LABEL_W = 118.0
+FR, FB, FI = 'Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique'
+JUSTIFY = True
 
 c = canvas.Canvas(os.environ.get('LP_OUT', 'files/epoxycoating-tds.pdf'), pagesize=A4)
 c.setTitle('LucernaPro Epoxy / PU Floor Coating — Technical Data Sheet')
@@ -40,33 +49,36 @@ def wrap(text, font, size, width):
     return out
 
 
-def header():
+def header(title, issue_line, tagline):
     c.setFont('Helvetica-Bold', 15); c.setFillGray(0)
     c.drawString(L, base(46.5, 15), 'LUCERNAPRO')
-    c.setFont('Helvetica-Bold', 12)
-    c.drawRightString(R, base(46.0, 12), 'Epoxy / PU Floor Coating')
-    c.setFont('Helvetica', 7.6)
-    c.drawString(L, base(56.0, 7.6), 'TECHNICAL DATA SHEET  \u00b7  Issue 1.1  \u00b7  August 2026')
-    c.drawRightString(R, base(56.0, 7.6),
-                      'Roller-applied and self-levelling 2K floor coatings for concrete')
+    c.setFont(FB, 12)
+    c.drawRightString(R, base(46.0, 12), title)
+    c.setFont(FR, 7.6)
+    c.drawString(L, base(56.0, 7.6), issue_line)
+    c.drawRightString(R, base(56.0, 7.6), tagline)
     c.setStrokeColorRGB(*ORANGE); c.setLineWidth(1.6)
     c.line(L, H - 63.0, R, H - 63.0)
 
 
-def footer():
-    c.setFont('Helvetica-Oblique', 6.4); c.setFillGray(0.25)
-    foot = ('Given in good faith on the basis of our current knowledge and applying to the product as supplied. '
-            'Site conditions, substrate condition and workmanship are outside our control and no warranty of result '
-            'is given or implied; users should satisfy themselves that the product suits the intended use, by trial '
-            'on site if necessary.')
-    for i, ln in enumerate(wrap(foot, 'Helvetica-Oblique', 6.4, CW)):
-        c.drawString(L, base(786.0 + i * 7.8, 6.4), ln)
+def footer(foot, disc_size=6.4, disc_lead=7.8):
+    c.setFont(FI, disc_size); c.setFillGray(0.25)
+    for i, ln in enumerate(wrap(foot, FI, disc_size, CW)):
+        c.drawString(L, base(786.0 + i * disc_lead, disc_size), ln)
     c.setFont('Helvetica', 7.2); c.setFillGray(0)
     c.drawString(L, base(806.0, 7.2), 'Lucerna Co., Ltd. \u00b7 23 Suriyat Road Soi 4, Nai Mueang, Mueang, Ubon Ratchathani 34000, Thailand')
     c.drawString(L, base(815.0, 7.2), 'Tel 097-079-9547, 097-079-6583 \u00b7 Office 062-005-7933 \u00b7 Lucernapro@yahoo.com \u00b7 www.lucernapro.com/epoxycoating')
 
 
-header()
+EN_FOOT = ('Given in good faith on the basis of our current knowledge and applying to the product as supplied. '
+           'Site conditions, substrate condition and workmanship are outside our control and no warranty of result '
+           'is given or implied; users should satisfy themselves that the product suits the intended use, by trial '
+           'on site if necessary.')
+TH_FOOT = ('\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e19\u0e35\u0e49\u0e43\u0e2b\u0e49\u0e44\u0e27\u0e49\u0e42\u0e14\u0e22\u0e2a\u0e38\u0e08\u0e23\u0e34\u0e15\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32 \u0e41\u0e25\u0e30\u0e43\u0e0a\u0e49\u0e01\u0e31\u0e1a\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e15\u0e32\u0e21\u0e2a\u0e20\u0e32\u0e1e\u0e17\u0e35\u0e48\u0e08\u0e31\u0e14\u0e2a\u0e48\u0e07 \u0e2a\u0e20\u0e32\u0e1e\u0e2b\u0e19\u0e49\u0e32\u0e07\u0e32\u0e19 \u0e2a\u0e20\u0e32\u0e1e\u0e1e\u0e37\u0e49\u0e19\u0e1c\u0e34\u0e27 \u0e41\u0e25\u0e30\u0e1d\u0e35\u0e21\u0e37\u0e2d\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e2d\u0e22\u0e39\u0e48\u0e19\u0e2d\u0e01\u0e40\u0e2b\u0e19\u0e37\u0e2d\u0e01\u0e32\u0e23\u0e04\u0e27\u0e1a\u0e04\u0e38\u0e21\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32 \u0e08\u0e36\u0e07\u0e44\u0e21\u0e48\u0e21\u0e35\u0e01\u0e32\u0e23\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e30\u0e01\u0e31\u0e19\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c\u0e44\u0e21\u0e48\u0e27\u0e48\u0e32\u0e42\u0e14\u0e22\u0e15\u0e23\u0e07\u0e2b\u0e23\u0e37\u0e2d\u0e42\u0e14\u0e22\u0e19\u0e31\u0e22 \u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49\u0e04\u0e27\u0e23\u0e17\u0e14\u0e2a\u0e2d\u0e1a\u0e01\u0e48\u0e2d\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e08\u0e23\u0e34\u0e07 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e27\u0e48\u0e32\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e01\u0e31\u0e1a\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e15\u0e19')
+
+header('Epoxy / PU Floor Coating',
+       'TECHNICAL DATA SHEET  \u00b7  Issue 1.1  \u00b7  August 2026  \u00b7  Page 1 of 2',
+       'Roller-applied and self-levelling 2K floor coatings for concrete')
 y = 67.0
 
 
@@ -75,7 +87,7 @@ def section(title, gap=3.0):
     y += gap
     c.setFillColorRGB(*BAR)
     c.rect(L, H - (y + 11.5), CW, 11.5, stroke=0, fill=1)
-    c.setFillGray(0); c.setFont('Helvetica-Bold', 8.2)
+    c.setFillGray(0); c.setFont(FB, 8.2)
     c.drawString(L + 4.0, base(y + 10.0, 8.2), title)
     y += 11.5
 
@@ -85,18 +97,18 @@ def para(text, gap=6.4, indent=2.0, width=None):
     y += gap
     c.setFillGray(0)
     w = (width or CW) - indent
-    lines = wrap(text, 'Helvetica', BODY, w)
+    lines = wrap(text, FR, BODY, w)
     for i, ln in enumerate(lines):
         nsp = ln.count(' ')
-        if i < len(lines) - 1 and nsp > 0:
-            extra = (w - stringWidth(ln, 'Helvetica', BODY)) / nsp
+        if JUSTIFY and i < len(lines) - 1 and nsp > 0:
+            extra = (w - stringWidth(ln, FR, BODY)) / nsp
             t = c.beginText(L + indent, base(y + BODY, BODY))
-            t.setFont('Helvetica', BODY)
+            t.setFont(FR, BODY)
             t.setWordSpace(extra)
             t.textOut(ln)
             c.drawText(t)
         else:
-            c.setFont('Helvetica', BODY)
+            c.setFont(FR, BODY)
             c.drawString(L + indent, base(y + BODY, BODY), ln)
         y += LEAD
     y -= LEAD
@@ -107,9 +119,9 @@ def kv(rows, gap=5.0):
     global y
     y += gap
     for label, value in rows:
-        lines = wrap(value, 'Helvetica', BODY, CW - LABEL_W - 2.0)
-        c.setFillGray(0); c.setFont('Helvetica', BODY)
-        for j, lln in enumerate(wrap(label, 'Helvetica', BODY, LABEL_W - 6)):
+        lines = wrap(value, FR, BODY, CW - LABEL_W - 2.0)
+        c.setFillGray(0); c.setFont(FR, BODY)
+        for j, lln in enumerate(wrap(label, FR, BODY, LABEL_W - 6)):
             c.drawString(L + 2.0, base(y + BODY + j * LEAD, BODY), lln)
         for i, ln in enumerate(lines):
             c.drawString(L + LABEL_W, base(y + BODY + i * LEAD, BODY), ln)
@@ -123,9 +135,9 @@ def kv(rows, gap=5.0):
 def bullet(text, gap=3.4):
     global y
     y += gap
-    c.setFillGray(0); c.setFont('Helvetica', BODY)
+    c.setFillGray(0); c.setFont(FR, BODY)
     c.drawString(L + 3.0, base(y + BODY, BODY), '\u2022')
-    lines = wrap(text, 'Helvetica', BODY, CW - 14.0)
+    lines = wrap(text, FR, BODY, CW - 14.0)
     for i, ln in enumerate(lines):
         c.drawString(L + 12.0, base(y + BODY + i * LEAD, BODY), ln)
     y += LEAD * (len(lines) - 1) + BODY
@@ -218,8 +230,91 @@ para('These products contain organic solvent: they are flammable and give off va
      'may cause skin sensitisation: avoid skin contact and wash off immediately with soap and water, never with '
      'thinner. Refer to the Safety Data Sheet for the grade supplied before use.')
 
-print('final y =', y)
-assert y < 778, 'content overflows into footer: y=%s' % y
-footer()
+print('EN page final y =', y)
+assert y < 778, 'EN content overflows into footer: y=%s' % y
+footer(EN_FOOT)
+c.showPage()
+
+# ================= PAGE 2 — THAI =================
+FR, FB, FI = 'Sarabun', 'Sarabun-Bold', 'Sarabun-Italic'
+BODY, LEAD = 7.9, 10.3
+LABEL_W = 100.0
+JUSTIFY = False
+
+header('\u0e2a\u0e35\u0e17\u0e32\u0e1e\u0e37\u0e49\u0e19 Epoxy / PU',
+       'TECHNICAL DATA SHEET \u00b7 Issue 1.1 \u00b7 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2026 \u00b7 \u0e2b\u0e19\u0e49\u0e32 2 \u0e08\u0e32\u0e01 2',
+       '\u0e2a\u0e35\u0e17\u0e32\u0e1e\u0e37\u0e49\u0e19\u0e2a\u0e2d\u0e07\u0e2a\u0e48\u0e27\u0e19\u0e1c\u0e2a\u0e21 (2K) \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e1e\u0e37\u0e49\u0e19\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15 \u2014 \u0e41\u0e1a\u0e1a\u0e25\u0e39\u0e01\u0e01\u0e25\u0e34\u0e49\u0e07\u0e41\u0e25\u0e30 self-levelling')
+y = 67.0
+
+section('ข้อมูลผลิตภัณฑ์', gap=4.0)
+para('สีทาพื้น Epoxy / PU ของ LucernaPro เป็นสีเคลือบปกป้องพื้นชนิดสองส่วนผสม (2K) สูตร solvent สำหรับพื้นคอนกรีตและพื้นปูน '
+     'กำหนดระดับความเงา ความหนาฟิล์ม เฉดสี และการเติมสารกันลื่นได้ตามลักษณะงาน / เกรด EPOXY — อีพ็อกซีโมเลกุลสูง '
+     'บ่มด้วยฮาร์ดเดนเนอร์ชนิด polyamide — แห้งตัวเป็นฟิล์มแน่น แข็ง และหนา ทนแรงกด การเสียดสี และสารเคมีได้สูงสุด '
+     'ใช้ได้ทั้งสภาพแวดล้อมทั่วไปและงานแช่น้ำ เป็นตัวเลือกมาตรฐานของโกดัง พื้นที่ผลิต โรงงาน และโรงรถ / '
+     'เกรด POLYURETHANE (PU) ยืดหยุ่นกว่า ทนแดดและการเปลี่ยนอุณหภูมิได้ดีกว่ามาก เหมาะกับลานโหลดของ ธรณีประตู '
+     'และพื้นที่โดนแดดหรือแรงสั่นสะเทือนของเครื่องจักร / ทั้งสองเกรดทา 2 รอบ และมีเกรด self-levelling (Epoxy หนา 1.5–3 มม.) '
+     'สั่งผลิตได้สำหรับงานที่ต้องการพื้นเรียบเนียนไร้รอยต่อ')
+
+section('ข้อมูลสำคัญ')
+kv([
+    ('ชนิด',              'สีทาพื้นสองส่วนผสม (2K) สูตร solvent — เกรด Epoxy (บ่มด้วย polyamide) และเกรด PU'),
+    ('อัตราส่วนผสม',       'Part A : Part B = 4 : 1 โดยน้ำหนัก ทั้งสองเกรด ต้องชั่งน้ำหนัก ห้ามกะด้วยตา — สูตรเฉพาะบางรุ่นอาจต่างไป '
+                          'ให้ยึดฉลากข้างกระปุกเป็นหลักเสมอ'),
+    ('Pot life',          'ประมาณ 30–40 นาที ที่ 25°C อากาศร้อนยิ่งสั้นลง — ผสมทีละเท่าที่ทาทันเท่านั้น'),
+    ('แห้งสัมผัส',         'เกรด Epoxy: 2 ชั่วโมง ที่ 25°C — อากาศเย็นหรือชื้นใช้เวลานานขึ้น'),
+    ('ทาทับรอบถัดไป',      'เกรด Epoxy: เร็วสุด 5 ชั่วโมงเมื่อฟิล์มเซ็ตตัวทั่วแล้ว — โดยทั่วไป 4–8 ชั่วโมง ตามอุณหภูมิ ความชื้น '
+                          'และการระบายอากาศ ทิ้งข้ามคืนก็ได้ ทารอบสองในทิศตัดขวางกับรอบแรก'),
+    ('จำนวนรอบ',          '2 รอบ — ตัวเลขพื้นที่ครอบคลุมคิดจากการทาครบสองรอบแล้ว'),
+    ('พื้นที่ครอบคลุม',     'ชุด 16 กก. ≈ 50 ตร.ม. เมื่อทา 2 รอบ (≈ 100 ตร.ม. ต่อชุดต่อรอบเดียว หรือ ≈ 5–7 ตร.ม. ต่อ กก. ต่อรอบ)'),
+    ('เปิดใช้งาน',         'เหยียบเข้าไปทำงานเบาๆ 5 ชั่วโมง · เปิดเดินใช้งานจริง 2 วัน · รถวิ่ง วางของหนัก '
+                          'และทนสารเคมีเต็มที่ 7 วัน'),
+    ('คุณสมบัติฟิล์ม',      'เกรด Epoxy (ค่าทั่วไป): ความเงา 60° > 80 GU · ความแข็งดินสอ HB–2H · การยึดเกาะ cross-cut 100/100 · '
+                          'เนื้อสี 65 ± 5 % · ความถ่วงจำเพาะ 1.35 ± 0.15'),
+    ('วิธีทา',             'ลูกกลิ้ง แปรง หรือเกรียงหยัก — เก็บขอบมุมและขาเสาด้วยแปรงก่อน แล้วค่อยกลิ้งพื้นใหญ่'),
+    ('พื้นผิว',            'คอนกรีตหรือพื้นปูน บ่มครบอย่างน้อย 28 วัน แข็งแรง ความชื้นต่ำกว่า 10 % ไม่มีความชื้นดันขึ้นจากใต้พื้น '
+                          'เตรียมผิวด้วยเครื่องเจียร ใบขัดเพชร หรือยิงทราย แล้วดูดฝุ่นให้สะอาด — กวาดอย่างเดียวไม่พอ'),
+    ('รองพื้น',            'พื้นที่เป็นฝุ่นหรือดูดซึมจัด ให้รองพื้นด้วย LucernaPro Marine Guard ก่อนทาสีทาพื้น'),
+    ('ผิวงาน',             'Epoxy: เงา / PU: เงา กึ่งเงา หรือด้าน สั่งได้'),
+    ('เฉดสี',              'สั่งได้ทุกเบอร์ RAL — แจ้งรหัส RAL มาพร้อมออเดอร์'),
+    ('กันลื่น',             'โรยเม็ดทรายคัดเบอร์ลงในรอบสุดท้ายได้ ช่วยลดความลื่น — แต่พื้นเปียกไม่มีทางกันลื่นได้สนิท'),
+    ('ขนาดบรรจุ',          'ชุด 16 กก. — Part A 12.8 กก. + Part B 3.2 กก. · ชุดเล็ก 4 กก. สั่งได้ — Part A 3.2 กก. + Part B 0.8 กก.'),
+    ('Self-levelling',    'Epoxy หนา 1.5–3 มม. ปาดด้วยเกรียงหยักแล้วไล่ฟองด้วยลูกกลิ้งหนาม — สั่งผลิต '
+                          'พร้อมคำแนะนำการทำงานสำหรับผู้ซื้อ'),
+    ('ล้างเครื่องมือ',       'ทินเนอร์ ล้างทันทีขณะยังไม่แห้ง — แข็งแล้วล้างไม่ออก / ล้างถังผสมให้สะอาดก่อนใช้ซ้ำ '
+                          'เศษที่แข็งตัวจากรอบก่อนทำให้ฟิล์มเป็นตำหนิ'),
+    ('การเก็บรักษา',        '12 เดือนในภาชนะที่ยังไม่เปิด ปิดฝาสนิท เก็บที่แห้ง เย็น อากาศถ่ายเท อุณหภูมิต่ำกว่า 37°C '
+                          'ห่างความร้อนและประกายไฟ เก็บพ้นมือเด็ก'),
+])
+
+section('หมายเหตุเรื่องค่าตัวเลข')
+para('ค่าทั่วไปของสูตรมาตรฐานที่ 25°C ให้ไว้เป็นแนวทาง ไม่ใช่ข้อกำหนดผูกพัน — อากาศร้อนแห้งเร็วขึ้น อากาศเย็นหรือชื้นช้าลง '
+     'และพื้นที่ครอบคลุมขึ้นกับความพรุนของพื้นอย่างมาก หากฉลากผลิตภัณฑ์ระบุต่างจากเอกสารนี้ ให้ยึดฉลากเป็นหลัก')
+
+section('ข้อควรรู้ในการใช้งาน')
+bullet('การเตรียมผิวคืองานส่วนใหญ่ของทั้งระบบ — เจียรหรือยิงทรายเอาผิวปูนขัดมัน คราบน้ำมัน สีเก่า และส่วนที่หลุดร่อน '
+       'ออกให้หมด แล้วดูดฝุ่นให้สะอาด ทาทับฝุ่นหรือผิวที่อ่อนแอ ฟิล์มจะหลุดล่อน มักภายในปีแรก', gap=5.0)
+bullet('ขีดจำกัดความชื้น — ห้ามทาบนปูนเปียก ปูนที่ยังบ่มไม่ครบ หรือรอยซ่อมชนิด polymer-modified ที่ความชื้นเกิน 5 % / '
+       'ห้ามทาเมื่ออุณหภูมิอากาศหรือพื้นห่างจากจุดน้ำค้าง (dew point) ไม่ถึง 3°C / ระวังหยดน้ำจากท่อหรือรอยรั่วเหนือหัว '
+       'ระหว่างทำงาน — ความชื้นที่ถูกขังใต้ฟิล์มคือสาเหตุคลาสสิกของสีพองและหลุดล่อน')
+bullet('นี่คือสีเคลือบ ไม่ใช่วัสดุปรับระดับ — ฟิล์มบางและวิ่งตามผิวเดิม รอยคลื่น หลุม และรอยต่อจะยังมองเห็น ผิวเงายิ่งเห็นชัด / '
+       'ซ่อมก่อนทาเสมอ: รอยร้าวและหลุมบ่อ (PatchPro / CreteRevive) ปรับระดับ (LevelPro) และรอให้งานซ่อมเซ็ตตัวก่อน')
+bullet('สร้างความหนาด้วยมอร์ตาร์ ไม่ใช่เรซินล้วน — ต้องการความหนาหลายมิลลิเมตร ให้ปาด epoxy mortar (เรซินผสมทรายควอตซ์ '
+       'คัดเบอร์) ปรับระดับก่อน แล้วเคลือบบางทับ เทเรซินล้วนหนาๆ จะเกิดความร้อน หดตัว และแตก / พื้นที่แห้งดี ไม่โดนเคมี '
+       'ใช้ปูนปรับระดับธรรมดาถูกกว่าหลายเท่าและเพียงพอ')
+bullet('กวนให้เข้ากันจนเป็นเนื้อเดียวสีเดียวทั้งถัง ขูดข้างถังและก้นถังด้วย — กวนไม่ทั่วคือสาเหตุอันดับหนึ่งของพื้นด่าง '
+       'นิ่ม หรือเหนียวเป็นจุดๆ')
+bullet('ห้ามผสมทินเนอร์เพื่อยืดปริมาณสี — เจือได้เล็กน้อยเพื่อปรับความหนืดเท่านั้น เจือเยอะฟิล์มบางลงและอ่อนแอลงตรงๆ')
+bullet('เกรด Epoxy โดนแดดนานจะเหลืองและด้าน ออกแบบสำหรับงานในร่ม — พื้นที่โดนแดดให้เลือกเกรด PU')
+
+section('ความปลอดภัย')
+para('ผลิตภัณฑ์นี้มีตัวทำละลายอินทรีย์ (solvent): ติดไฟได้ และมีไอระเหยระหว่างทาและระหว่างแห้งตัว ทำงานในที่อากาศถ่ายเทดีจริง '
+     'เท่านั้น พื้นที่ปิดต้องใช้พัดลมดูดอากาศ และกำจัดแหล่งประกายไฟทั้งหมดรวมถึงการสูบบุหรี่ออกจากพื้นที่ทำงานและพื้นที่ติดกัน — '
+     'ห้ามทำงานในห้องปิดตายเด็ดขาด / สวมถุงมือยาง แว่นตานิรภัย และหน้ากากกันไอสารอินทรีย์ (organic vapor) / '
+     'ฮาร์ดเดนเนอร์อาจทำให้แพ้ทางผิวหนัง เลี่ยงการสัมผัส โดนแล้วล้างด้วยสบู่และน้ำทันที ห้ามใช้ทินเนอร์ล้างมือ / '
+     'อ่านเอกสารข้อมูลความปลอดภัย (SDS) ของรุ่นที่ได้รับก่อนใช้งาน')
+
+print('TH page final y =', y)
+assert y < 778, 'TH content overflows into footer: y=%s' % y
+footer(TH_FOOT, disc_size=6.8, disc_lead=8.4)
 c.save()
 print('written', os.environ.get('LP_OUT', 'files/epoxycoating-tds.pdf'))
