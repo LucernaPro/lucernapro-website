@@ -66,7 +66,7 @@ def url_to_file(href, files):
 
 def main():
     # โฟลเดอร์แอปภายใน (ไม่ใช่หน้าเว็บ product/content) — ไม่เข้าเกณฑ์ nav/ธีม/ภาษา
-    APP_DIRS = ('account/', 'finder/')
+    APP_DIRS = ('account/', 'finder/', 'ship/')
     files = sorted(f for f in glob.glob('**/index.html', recursive=True)
                    if not f.startswith(APP_DIRS))
 
@@ -78,6 +78,11 @@ def main():
         acc = io.open('account/index.html', encoding='utf-8').read()
         if 'lucerna-docs.lekvtwin.workers.dev' not in acc:
             problems['account/index.html'].append('API.url หาย — หน้าแอปไม่ได้ต่อกับ Worker')
+    # ยามแอปจัดส่ง: หน้า /ship ต้องต่อสาย API เสมอ (เกณฑ์เดียวกับ /account)
+    if os.path.exists('ship/index.html'):
+        shp = io.open('ship/index.html', encoding='utf-8').read()
+        if 'lucerna-ship.lekvtwin.workers.dev' not in shp:
+            problems['ship/index.html'].append('API.url หาย — หน้าแอปไม่ได้ต่อกับ Worker')
     ids_by_page, meta = {}, {}
 
     for p in files:

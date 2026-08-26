@@ -1,0 +1,12 @@
+name = "lucerna-ship"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lucerna-ship"
+database_id = "ใส่ id ที่ได้จากคำสั่ง wrangler d1 create lucerna-ship"
+
+# secrets (ตั้งด้วยคำสั่ง ไม่เขียนในไฟล์นี้):
+#   wrangler secret put PIN          <- รหัสพนักงาน (หน้า /ship)
+#   wrangler secret put IMPORT_KEY   <- รหัสสคริปต์ import (คนละตัวกับ PIN)
