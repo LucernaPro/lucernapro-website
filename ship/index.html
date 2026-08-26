@@ -305,7 +305,7 @@ async function loadOrphan(){
   document.getElementById('cntPending').textContent=(rp.groups||[]).length;
   if(!ro.orphans.length){ box.innerHTML='<div class="empty">ไม่มีเลขลอยค้างอยู่</div>'; return; }
   box.innerHTML=ro.orphans.map(o=>{
-    const opts=(rp.groups||[]).map(g=>`<option value="${g.gid}">${esc(g.customer)} — ${thDate(g.odate)}</option>`).join('');
+    const opts=recentPending().map(g=>`<option value="${g.gid}">${esc(g.customer)} — ${thDate(g.odate)}</option>`).join('');
     return `<div class="card m-card ask">
       <div class="m-head"><span class="m-track">${esc(o.tracking)}</span>
         ${o.ems_name?`<span class="m-name">${esc(o.ems_name)}</span>`:''}
@@ -345,6 +345,12 @@ document.getElementById('btnParse').onclick=async()=>{
 };
 
 function candLabel(g){ return `${g.customer} — ${thDate(g.odate)} (${g.items.map(i=>i.product).join(', ').slice(0,40)})`; }
+function recentPending(){
+  /* dropdown เลือกเอง: เอาแค่วันนี้+เมื่อวาน — ของเก่ากว่านั้นไปใส่เลขที่แท็บ "ค้างส่ง" แทน */
+  const d=new Date(); d.setDate(d.getDate()-1);
+  const cut=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return (window._pending||[]).filter(g=>g.odate>=cut);
+}
 
 function renderMatch(){
   const box=document.getElementById('matchResults');
@@ -363,7 +369,7 @@ function renderMatch(){
           <span class="m-name">${thDate(m.match.odate)} · ${esc(m.match.items.map(x=>x.product).join(', ').slice(0,50))}</span></span></label>
         <span class="tag ok">${tag}</span></div></div>`;
     }
-    const cands=(m.candidates&&m.candidates.length?m.candidates:(window._pending||[]));
+    const cands=(m.candidates&&m.candidates.length?m.candidates:recentPending());
     const opts=cands.map(g=>`<option value="${g.gid}">${esc(candLabel(g))}</option>`).join('');
     const tag=m.reason==='ambiguous'?'<span class="tag ask">เจอหลายคน — เลือกเอง</span>':'<span class="tag none">ไม่เจอคู่</span>';
     return `<div class="card m-card ${m.reason==='ambiguous'?'ask':'none'}">
