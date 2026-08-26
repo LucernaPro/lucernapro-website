@@ -149,6 +149,9 @@ function matchOne(emsName, groups) {
    scope = spreadsheets.READONLY — เส้นทางนี้เขียนกลับชีตไม่ได้ทางกายภาพ
    อ่านเฉพาะคอลัมน์ A(สินค้า) C(จำนวน) I(ลูกค้า) J(วันที่) K(ผู้รับ) — คอลัมน์เงินไม่ถูก request */
 
+/* ===== โหมดเปิด (ชั่วคราว): true = ไม่ต้องใช้ PIN — ให้ระบบลงตัวก่อนค่อยเปลี่ยนเป็น false ===== */
+const OPEN_MODE = true;
+
 const SPREADSHEET_ID = '1gmdoVX9Oa18zEXBJUNhW1PjRTGaw7PcjkgSK0_YG1RM';
 const START_DATE = '2026-08-25'; // guard: ไม่ import ก่อนวันเริ่มระบบ (ของเก่าส่งไปแล้ว จับคู่ไม่ได้)
 const MONTH_ABBRS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -286,8 +289,8 @@ export default {
       return J({ ok: true, added, updated, skipped });
     }
 
-    /* ---- ทุก endpoint ที่เหลือ: PIN พนักงาน ---- */
-    if (req.headers.get('x-pin') !== env.PIN) return J({ error: 'PIN ไม่ถูกต้อง' }, 401);
+    /* ---- ทุก endpoint ที่เหลือ: PIN พนักงาน (ปิดชั่วคราวด้วย OPEN_MODE) ---- */
+    if (!OPEN_MODE && req.headers.get('x-pin') !== env.PIN) return J({ error: 'PIN ไม่ถูกต้อง' }, 401);
 
     if (path === '/sync' && req.method === 'POST') {
       // พนักงานกดได้ ปลอดภัย: อ่านชีตแบบ readonly เฉพาะคอลัมน์ที่ไม่ใช่เงิน แล้ว upsert ลง D1

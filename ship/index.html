@@ -166,6 +166,7 @@
 
 <script>
 const API = { url: 'https://lucerna-ship.lekvtwin.workers.dev' };
+const OPEN_MODE = true; /* ชั่วคราว: ไม่ถาม PIN — เปลี่ยนเป็น false เมื่อเปิดระบบ security */
 
 /* ---------- PIN (pattern เดียวกับ /account) ---------- */
 function getPin(){ try{ return localStorage.getItem('ship_pin'); }catch(e){ return null; } }
@@ -181,7 +182,8 @@ function askPin(){
 }
 async function api(path, body){
   let pin=getPin(), asked=false;
-  if(!pin){ pin=await askPin(); asked=true; if(!pin) return {error:'ไม่ได้ใส่ PIN'}; }
+  if(OPEN_MODE){ pin='open'; asked=false; }
+  else if(!pin){ pin=await askPin(); asked=true; if(!pin) return {error:'ไม่ได้ใส่ PIN'}; }
   try{
     const r=await fetch(API.url.replace(/\/$/,'')+path, body
       ? {method:'POST',headers:{'content-type':'application/json','x-pin':pin},body:JSON.stringify(body)}
