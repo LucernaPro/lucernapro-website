@@ -93,12 +93,20 @@ function groupRows(rows) {
         tracking: r.tracking || '',
         items: [],
         _ids: [],
+        _sts: [],
       });
     }
     const g = map.get(key);
     g.items.push({ product: r.product, qty: r.qty });
     g._ids.push(r.id);
+    g._sts.push(r.status);
     if (r.status === 'shipped') { g.status = 'shipped'; g.tracking = r.tracking || g.tracking; }
+  }
+  for (const g of map.values()) {
+    if (g._sts.includes('shipped')) g.status = 'shipped';
+    else if (g._sts.includes('pending')) g.status = 'pending';
+    else g.status = 'skipped';
+    delete g._sts;
   }
   return [...map.values()];
 }
@@ -195,7 +203,7 @@ function parseSheetDate(s) { // '25/8/2026' หรือ '25/08/2026' -> '2026-0
   return `${m[3]}-${String(+m[2]).padStart(2, '0')}-${String(+m[1]).padStart(2, '0')}`;
 }
 
-async function syncFromSheet(env, daysBack = 3) {
+async function syncFromSheet(env, daysBack = 2) {
   // หน้าต่างเลื่อน: วันนี้ย้อนหลัง daysBack วัน (คลุมเคสลงบิลย้อนหลัง) แต่ไม่ก่อน START_DATE
   const today = bkkToday();
   const want = new Set();
@@ -212,7 +220,7 @@ async function syncFromSheet(env, daysBack = 3) {
   const token = await googleToken(env);
   let added = 0, updated = 0, scanned = 0;
   for (const title of months) {
-    const ranges = ['A', 'C', 'I', 'J', 'K']
+    const ranges = ['A', 'C', 'I', 'J']  // K ห้ามอ่าน — LucernaOne ใช้ลงสูตรยอดขายรายวัน
       .map(c => 'ranges=' + encodeURIComponent(`${title}!${c}1:${c}3000`)).join('&');
     const r = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values:batchGet?${ranges}`,
@@ -220,7 +228,7 @@ async function syncFromSheet(env, daysBack = 3) {
     if (r.status === 400 || r.status === 404) continue; // เดือนนั้นยังไม่มีชีต
     const j = await r.json();
     if (!j.valueRanges) throw new Error('อ่านชีตไม่ได้: ' + JSON.stringify(j).slice(0, 200));
-    const [colA, colC, colI, colJ, colK] = j.valueRanges.map(v => v.values || []);
+    const [colA, colC, colI, colJ] = j.valueRanges.map(v => v.values || []);
     const cell = (col, i) => ((col[i] || [])[0] || '').toString().trim();
     const nRows = Math.max(colA.length, colI.length, colJ.length);
 
@@ -233,8 +241,8 @@ async function syncFromSheet(env, daysBack = 3) {
       let qty = parseFloat(cell(colC, i).replace(/,/g, '')) || 1;
       if (qty <= 0) continue;
       scanned++;
-      const okey = `${title}:r${i + 1}`; // ฟอร์แมตเดียวกับ lucerna_push.py — รันปนกันได้ไม่ซ้ำ
-      const receiver = cell(colK, i);
+      const okey = `${title}:r${i + 1}`;
+      const receiver = ''; // ล้างของเก่าที่เผลอดูดมาด้วย — sync รอบถัดไปเขียนทับเป็นค่าว่างทั้งหมด
       const ex = await env.DB.prepare('SELECT id FROM orders WHERE okey=?').bind(okey).first();
       if (ex) {
         await env.DB.prepare(
@@ -256,7 +264,7 @@ async function syncFromSheet(env, daysBack = 3) {
 
 export default {
   async scheduled(event, env, ctx) { // cron: sync อัตโนมัติ
-    ctx.waitUntil(syncFromSheet(env, 3).catch(() => {}));
+    ctx.waitUntil(syncFromSheet(env, 2).catch(() => {}));
   },
   async fetch(req, env) {
     /* กันตายเงียบ (Error 1101): พ่นสาเหตุจริง + สถานะอวัยวะทุกชิ้น */
@@ -312,7 +320,7 @@ async function handleReq(req, env) {
 
     if (path === '/sync' && req.method === 'POST') {
       // พนักงานกดได้ ปลอดภัย: อ่านชีตแบบ readonly เฉพาะคอลัมน์ที่ไม่ใช่เงิน แล้ว upsert ลง D1
-      try { return J(await syncFromSheet(env, 3)); }
+      try { return J(await syncFromSheet(env, 2)); }
       catch (e) { return J({ error: String(e.message || e) }, 500); }
     }
 
@@ -382,6 +390,26 @@ async function handleReq(req, env) {
       if (r.error) return J(r, 400);
       if (orphan_id) await env.DB.prepare("UPDATE orphans SET status='archived', note='จับคู่แล้ว' WHERE id=?").bind(orphan_id).run();
       return J(r);
+    }
+
+    if (path === '/skip' && req.method === 'POST') {
+      const { gid } = await req.json();
+      const g = await loadGroup(env, gid);
+      if (!g) return J({ error: 'ไม่พบออเดอร์' }, 400);
+      for (const id of g._ids)
+        await env.DB.prepare("UPDATE orders SET status='skipped' WHERE id=? AND status!='shipped'").bind(id).run();
+      await env.DB.prepare('INSERT INTO audit(action,detail) VALUES(?,?)').bind('skip', `${g.customer} ${g.odate}`).run();
+      return J({ ok: true });
+    }
+
+    if (path === '/unskip' && req.method === 'POST') {
+      const { gid } = await req.json();
+      const g = await loadGroup(env, gid);
+      if (!g) return J({ error: 'ไม่พบออเดอร์' }, 400);
+      for (const id of g._ids)
+        await env.DB.prepare("UPDATE orders SET status='pending' WHERE id=? AND status='skipped'").bind(id).run();
+      await env.DB.prepare('INSERT INTO audit(action,detail) VALUES(?,?)').bind('unskip', `${g.customer} ${g.odate}`).run();
+      return J({ ok: true });
     }
 
     if (path === '/unassign' && req.method === 'POST') {

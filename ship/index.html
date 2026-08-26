@@ -48,7 +48,20 @@
   .tabs .cnt{display:inline-block;min-width:18px;padding:0 5px;margin-left:4px;border-radius:9px;
     background:#00000033;font-size:11px;line-height:17px}
 
-  .page{padding:12px 14px 90px;max-width:640px;margin:0 auto}
+  .page{padding:12px 14px 90px;max-width:1100px;margin:0 auto}
+  .twrap{background:var(--paper);border-radius:12px;overflow-x:auto}
+  .otab{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+  .otab th{text-align:left;font-size:11.5px;color:var(--gray);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--hairline);white-space:nowrap;background:var(--orange-soft)}
+  .otab td{padding:8px 12px;border-bottom:1px solid var(--hairline);vertical-align:middle}
+  .otab tr:last-child td{border-bottom:none}
+  .td-date{white-space:nowrap;color:var(--gray);font-variant-numeric:tabular-nums;width:1%}
+  .td-cust{font-weight:600;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+  .td-trk{white-space:nowrap;width:1%}
+  .trkin{font-family:'Sarabun';font-size:13px;padding:6px 9px;border-radius:7px;border:1px solid var(--orange-line);background:var(--orange-soft);width:168px;letter-spacing:.02em}
+  .trkin:focus{outline:none;border-color:var(--orange);background:#fff}
+  .tok{color:var(--ok);font-weight:600;font-size:12.5px;font-variant-numeric:tabular-nums}
+  .tmut{color:#B4A794;font-size:12.5px}
+  tr.skipped td{opacity:.5}
   .card{background:var(--paper);border-radius:12px;padding:12px 14px;margin-bottom:10px;border:1px solid transparent}
   .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
   .cust{font-weight:600;font-size:15px}
@@ -219,23 +232,26 @@ const datePick=document.getElementById('datePick');
 datePick.value=new Date().toISOString().slice(0,10);
 datePick.onchange=()=>loadDay();
 
-function groupCard(g, opts={}){
-  const items=g.items.map(i=>`${esc(i.product)} <b>×${qtyFmt(i.qty)}</b>`).join('<br>');
-  const chip=g.status==='shipped'
-    ? `<span class="chip done trackno">✓ ${esc(g.tracking)}</span>`
-    : `<span class="chip wait">รอเลขพัสดุ</span>`;
-  const btns=[];
-  if(g.status==='pending'&&opts.manual) btns.push(`<button class="mini orange" onclick="manualAssign(${g.gid})">ใส่เลขเอง</button>`);
-  if(g.status==='shipped'&&opts.undo)   btns.push(`<button class="mini red" onclick="unassign(${g.gid})">ถอนเลข</button>`);
-  return `<div class="card">
-    <div class="top">
-      <div><div class="cust">${esc(g.customer)}</div>
-      ${g.receiver?`<div class="sub">ผู้รับ: ${esc(g.receiver)}</div>`:''}
-      <div class="sub">${thDate(g.odate)}</div></div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:7px">${chip}${btns.join('')}</div>
-    </div>
-    <div class="items">${items}</div>
-  </div>`;
+function fmtItems(g){return g.items.map(i=>`${i.product} ×${qtyFmt(i.qty)}`).join(', ');}
+function tableFor(groups, emptyMsg){
+  if(!groups.length) return `<div class="empty">${emptyMsg}</div>`;
+  const rows=groups.map(g=>{
+    let trk='';
+    if(g.status==='shipped')
+      trk=`<span class="tok">✓ ${esc(g.tracking)}</span> <button class="mini red" onclick="unassign(${g.gid})">ถอน</button>`;
+    else if(g.status==='skipped')
+      trk=`<span class="tmut">ตัดออก (ไม่ส่ง ปณ)</span> <button class="mini ghost" onclick="unskipG(${g.gid})">คืน</button>`;
+    else
+      trk=`<input class="trkin" id="trk${g.gid}" placeholder="EDxxxxxxxxxTH" onkeydown="if(event.key==='Enter')saveTrk(${g.gid})">`+
+          `<button class="mini orange" onclick="saveTrk(${g.gid})" style="margin-left:6px">บันทึก</button>`+
+          `<button class="mini ghost" onclick="skipG(${g.gid})" style="margin-left:6px" title="ออเดอร์ที่ไม่ได้ส่งทางไปรษณีย์ เช่น Shopee/Lazada">ตัด</button>`;
+    return `<tr class="${g.status}"><td class="td-date">${thDate(g.odate)}</td>`+
+           `<td class="td-cust" title="${esc(g.customer)}">${esc(g.customer)}</td>`+
+           `<td>${esc(fmtItems(g))}</td><td class="td-trk">${trk}</td></tr>`;
+  }).join('');
+  return `<div class="twrap"><table class="otab"><thead><tr>`+
+         `<th>วันที่</th><th>ลูกค้า</th><th>รายการสินค้า</th><th>เลขพัสดุ</th>`+
+         `</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 async function loadDay(){
@@ -243,12 +259,9 @@ async function loadDay(){
   box.innerHTML='<div class="empty">กำลังโหลด…</div>';
   const r=await api('/orders?date='+datePick.value);
   if(r.error){ box.innerHTML=`<div class="empty">${esc(r.error)}</div>`; return; }
-  box.innerHTML=r.groups.length
-    ? r.groups.map(g=>groupCard(g,{manual:true,undo:true})).join('')
-    : '<div class="empty">ยังไม่มีออเดอร์ของวันนี้ในระบบ<br>(รอเจ้าของกดส่งข้อมูลจากโปรแกรมหลัก)</div>';
+  box.innerHTML=tableFor(r.groups,'ยังไม่มีออเดอร์ของวันนี้ในระบบ — กด ⟳ ดึงข้อมูล');
 }
 
-/* ---------- ค้างส่ง ---------- */
 async function loadPending(){
   const box=document.getElementById('tab-pending');
   box.innerHTML='<div class="empty">กำลังโหลด…</div>';
@@ -256,17 +269,24 @@ async function loadPending(){
   if(r.error){ box.innerHTML=`<div class="empty">${esc(r.error)}</div>`; return; }
   window._pending=r.groups;
   document.getElementById('cntPending').textContent=r.groups.length;
-  box.innerHTML=r.groups.length
-    ? r.groups.map(g=>groupCard(g,{manual:true})).join('')
-    : '<div class="empty">ไม่มีของค้างส่ง 🎉</div>';
+  box.innerHTML=tableFor(r.groups,'ไม่มีของค้างส่ง 🎉');
 }
-async function manualAssign(gid){
-  const t=prompt('ใส่เลขพัสดุ (เช่น ED458656595TH)');
-  if(!t) return;
-  const tr=t.replace(/\s+/g,'').toUpperCase();
+
+async function saveTrk(gid){
+  const inp=document.getElementById('trk'+gid);
+  const tr=(inp.value||'').replace(/\s+/g,'').toUpperCase();
+  if(!tr){ toast('พิมพ์เลขพัสดุก่อน'); inp.focus(); return; }
   if(!/^[A-Z]{2}\d{9}TH$/.test(tr)&&!confirm('รูปแบบเลขดูแปลก ๆ — ยืนยันใช้ "'+tr+'" ?')) return;
   const r=await api('/assign',{tracking:tr,gid});
   if(r.error) toast(r.error); else { toast('บันทึกแล้ว: '+r.customer); refreshAll(); }
+}
+async function skipG(gid){
+  const r=await api('/skip',{gid});
+  if(r.error) toast(r.error); else { toast('ตัดออกแล้ว'); refreshAll(); }
+}
+async function unskipG(gid){
+  const r=await api('/unskip',{gid});
+  if(r.error) toast(r.error); else { toast('คืนเข้ารายการแล้ว'); refreshAll(); }
 }
 async function unassign(gid){
   if(!confirm('ถอนเลขพัสดุออกจากออเดอร์นี้?')) return;
@@ -324,7 +344,7 @@ document.getElementById('btnParse').onclick=async()=>{
   renderMatch();
 };
 
-function candLabel(g){ return `${g.customer}${g.receiver?' / '+g.receiver:''} — ${thDate(g.odate)} (${g.items.map(i=>i.product).join(', ').slice(0,40)})`; }
+function candLabel(g){ return `${g.customer} — ${thDate(g.odate)} (${g.items.map(i=>i.product).join(', ').slice(0,40)})`; }
 
 function renderMatch(){
   const box=document.getElementById('matchResults');
