@@ -259,6 +259,24 @@ export default {
     ctx.waitUntil(syncFromSheet(env, 3).catch(() => {}));
   },
   async fetch(req, env) {
+    /* กันตายเงียบ (Error 1101): พ่นสาเหตุจริง + สถานะอวัยวะทุกชิ้น */
+    try {
+      return await handleReq(req, env);
+    } catch (e) {
+      const msg = String((e && e.message) || e);
+      let hint = '';
+      if (/no such table/i.test(msg)) hint = 'D1 ยังไม่มีตาราง → เข้า D1 lucerna-ship → Console → วาง schema.sql → Execute';
+      else if (!env.DB) hint = 'Binding DB หาย → Worker → Settings → Bindings → Add → D1 database → Variable name: DB';
+      return J({
+        error: 'WORKER EXCEPTION: ' + msg,
+        hint,
+        diag: { DB: !!env.DB, PIN: !!env.PIN, IMPORT_KEY: !!env.IMPORT_KEY, GOOGLE_SA: !!env.GOOGLE_SA },
+      }, 500);
+    }
+  },
+};
+
+async function handleReq(req, env) {
     if (req.method === 'OPTIONS') return J({ ok: true });
     const url = new URL(req.url);
     const path = url.pathname.replace(/\/$/, '');
@@ -383,5 +401,4 @@ export default {
     }
 
     return J({ error: 'not found' }, 404);
-  },
-};
+}
