@@ -144,7 +144,117 @@ function matchOne(emsName, groups) {
   return { match: null, reason: 'none', candidates: [] };
 }
 
+/* ---------- Google Sheets sync (แทน lucerna_push.py — ไม่ต้องมีไฟล์บนเครื่องใคร) ----------
+   ต้องมี Secret: GOOGLE_SA = เนื้อหา service_account.json ทั้งไฟล์
+   scope = spreadsheets.READONLY — เส้นทางนี้เขียนกลับชีตไม่ได้ทางกายภาพ
+   อ่านเฉพาะคอลัมน์ A(สินค้า) C(จำนวน) I(ลูกค้า) J(วันที่) K(ผู้รับ) — คอลัมน์เงินไม่ถูก request */
+
+const SPREADSHEET_ID = '1gmdoVX9Oa18zEXBJUNhW1PjRTGaw7PcjkgSK0_YG1RM';
+const START_DATE = '2026-08-25'; // guard: ไม่ import ก่อนวันเริ่มระบบ (ของเก่าส่งไปแล้ว จับคู่ไม่ได้)
+const MONTH_ABBRS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const b64u = s => btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64uBytes = buf => b64u(String.fromCharCode(...new Uint8Array(buf)));
+
+async function googleToken(env) {
+  const sa = JSON.parse(env.GOOGLE_SA);
+  const now = Math.floor(Date.now() / 1000);
+  const header = b64u(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
+  const claim = b64u(JSON.stringify({
+    iss: sa.client_email,
+    scope: 'https://www.googleapis.com/auth/spreadsheets.readonly',
+    aud: 'https://oauth2.googleapis.com/token',
+    iat: now, exp: now + 3600,
+  }));
+  const pem = sa.private_key.replace(/-----[^-]+-----/g, '').replace(/\s+/g, '');
+  const der = Uint8Array.from(atob(pem), c => c.charCodeAt(0));
+  const key = await crypto.subtle.importKey('pkcs8', der,
+    { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['sign']);
+  const sig = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', key,
+    new TextEncoder().encode(header + '.' + claim));
+  const jwt = `${header}.${claim}.${b64uBytes(sig)}`;
+  const r = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    body: 'grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=' + jwt,
+  });
+  const j = await r.json();
+  if (!j.access_token) throw new Error('Google auth ล้มเหลว: ' + JSON.stringify(j).slice(0, 200));
+  return j.access_token;
+}
+
+function bkkToday() { // วันที่ตามเวลาไทย (Worker รันเป็น UTC)
+  return new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10);
+}
+function parseSheetDate(s) { // '25/8/2026' หรือ '25/08/2026' -> '2026-08-25'
+  const m = String(s || '').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!m) return null;
+  return `${m[3]}-${String(+m[2]).padStart(2, '0')}-${String(+m[1]).padStart(2, '0')}`;
+}
+
+async function syncFromSheet(env, daysBack = 3) {
+  // หน้าต่างเลื่อน: วันนี้ย้อนหลัง daysBack วัน (คลุมเคสลงบิลย้อนหลัง) แต่ไม่ก่อน START_DATE
+  const today = bkkToday();
+  const want = new Set();
+  const months = new Set();
+  for (let i = 0; i < daysBack; i++) {
+    const d = new Date(Date.parse(today) - i * 86400000).toISOString().slice(0, 10);
+    if (d < START_DATE) break;
+    want.add(d);
+    const [y, mo] = d.split('-');
+    months.add(`${MONTH_ABBRS[+mo - 1]}${y}`);
+  }
+  if (!want.size) return { ok: true, added: 0, updated: 0, note: 'ยังไม่ถึงวันเริ่มระบบ' };
+
+  const token = await googleToken(env);
+  let added = 0, updated = 0, scanned = 0;
+  for (const title of months) {
+    const ranges = ['A', 'C', 'I', 'J', 'K']
+      .map(c => 'ranges=' + encodeURIComponent(`${title}!${c}1:${c}3000`)).join('&');
+    const r = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values:batchGet?${ranges}`,
+      { headers: { authorization: 'Bearer ' + token } });
+    if (r.status === 400 || r.status === 404) continue; // เดือนนั้นยังไม่มีชีต
+    const j = await r.json();
+    if (!j.valueRanges) throw new Error('อ่านชีตไม่ได้: ' + JSON.stringify(j).slice(0, 200));
+    const [colA, colC, colI, colJ, colK] = j.valueRanges.map(v => v.values || []);
+    const cell = (col, i) => ((col[i] || [])[0] || '').toString().trim();
+    const nRows = Math.max(colA.length, colI.length, colJ.length);
+
+    for (let i = 0; i < nRows; i++) {
+      const product = cell(colA, i), customer = cell(colI, i);
+      const odate = parseSheetDate(cell(colJ, i));
+      if (!odate || !want.has(odate)) continue;
+      if (!product || !customer) continue;
+      if (product.startsWith('ยอดขาย') || product.includes('ส่วนลด')) continue;
+      let qty = parseFloat(cell(colC, i).replace(/,/g, '')) || 1;
+      if (qty <= 0) continue;
+      scanned++;
+      const okey = `${title}:r${i + 1}`; // ฟอร์แมตเดียวกับ lucerna_push.py — รันปนกันได้ไม่ซ้ำ
+      const receiver = cell(colK, i);
+      const ex = await env.DB.prepare('SELECT id FROM orders WHERE okey=?').bind(okey).first();
+      if (ex) {
+        await env.DB.prepare(
+          'UPDATE orders SET odate=?, ym=?, customer=?, receiver=?, product=?, qty=? WHERE okey=?'
+        ).bind(odate, odate.slice(0, 7), customer, receiver, product, qty, okey).run();
+        updated++;
+      } else {
+        await env.DB.prepare(
+          'INSERT INTO orders(ym,odate,customer,receiver,product,qty,okey) VALUES(?,?,?,?,?,?,?)'
+        ).bind(odate.slice(0, 7), odate, customer, receiver, product, qty, okey).run();
+        added++;
+      }
+    }
+  }
+  await env.DB.prepare('INSERT INTO audit(action,detail) VALUES(?,?)')
+    .bind('import', `sync +${added} ~${updated} (scan ${scanned}, ${[...want].join(',')})`).run();
+  return { ok: true, added, updated, days: [...want] };
+}
+
 export default {
+  async scheduled(event, env, ctx) { // cron: sync อัตโนมัติ
+    ctx.waitUntil(syncFromSheet(env, 3).catch(() => {}));
+  },
   async fetch(req, env) {
     if (req.method === 'OPTIONS') return J({ ok: true });
     const url = new URL(req.url);
@@ -178,6 +288,12 @@ export default {
 
     /* ---- ทุก endpoint ที่เหลือ: PIN พนักงาน ---- */
     if (req.headers.get('x-pin') !== env.PIN) return J({ error: 'PIN ไม่ถูกต้อง' }, 401);
+
+    if (path === '/sync' && req.method === 'POST') {
+      // พนักงานกดได้ ปลอดภัย: อ่านชีตแบบ readonly เฉพาะคอลัมน์ที่ไม่ใช่เงิน แล้ว upsert ลง D1
+      try { return J(await syncFromSheet(env, 3)); }
+      catch (e) { return J({ error: String(e.message || e) }, 500); }
+    }
 
     if (path === '/orders' && req.method === 'GET') {
       const d = url.searchParams.get('date') || '';

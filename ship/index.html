@@ -121,7 +121,10 @@
 
 <div class="appbar">
   <div class="brand"><span class="layers"><i></i><i></i><i></i></span> LUCERNA · จัดส่ง</div>
-  <input type="date" id="datePick">
+  <div style="display:flex;gap:8px;align-items:center">
+    <button id="btnSync" style="font-family:'Sarabun';font-weight:600;font-size:13px;padding:7px 12px;border-radius:7px;border:1px solid #7A5836;background:transparent;color:#F3C186;cursor:pointer">⟳ ดึงข้อมูล</button>
+    <input type="date" id="datePick">
+  </div>
 </div>
 
 <div class="tabs">
@@ -382,6 +385,15 @@ document.getElementById('btnConfirm').onclick=async()=>{
 
 const t_load={day:loadDay,pending:loadPending,orphan:loadOrphan};
 function refreshAll(){ loadDay(); loadPending(); loadOrphan(); }
+document.getElementById('btnSync').onclick=async()=>{
+  const b=document.getElementById('btnSync');
+  b.disabled=true; b.textContent='⟳ กำลังดึง…';
+  const r=await api('/sync',{});
+  b.disabled=false; b.textContent='⟳ ดึงข้อมูล';
+  if(r.error){ toast(r.error); return; }
+  toast(`ดึงข้อมูลแล้ว: ใหม่ ${r.added} / อัพเดต ${r.updated}`);
+  refreshAll();
+};
 refreshAll();
 </script>
 </body>

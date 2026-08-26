@@ -4,9 +4,12 @@
 พนักงานเห็นแค่: ชื่อลูกค้า / สินค้า / จำนวน / วันที่ — **ไม่มีตัวเลขเงินอยู่ในฐานข้อมูลนี้เลย**
 (สคริปต์ import อ่านเฉพาะคอลัมน์ A, C, I, J, K — คอลัมน์เงินไม่ถูกอ่านออกไป)
 
-## Data flow
-Google Sheet (เครื่อง Pist) → `lucerna_push.py` → Worker `lucerna-ship` (D1) → หน้า /ship
-พนักงานไม่แตะ Google Sheet — คนละฐานข้อมูล คนละรหัส
+## Data flow (v2 — ไม่มีไฟล์บนเครื่องใคร)
+Google Sheet → Worker `lucerna-ship` ดึงเอง (readonly, เฉพาะคอลัมน์ A/C/I/J/K) → D1 → หน้า /ship
+sync 3 ทาง: ปุ่ม "⟳ ดึงข้อมูล" บนหน้า /ship · cron อัตโนมัติ · (สำรอง) `lucerna_push.py`
+ต้องมี Secret เพิ่ม: `GOOGLE_SA` = เนื้อหา service_account.json ทั้งไฟล์
+scope เป็น spreadsheets.readonly — worker เขียนกลับชีตไม่ได้ทางกายภาพ
+cron: Worker → Settings → Triggers → Cron Triggers → `0 * * * *` (ทุกชั่วโมง)
 
 ## Deploy ครั้งแรก (ทำครั้งเดียว)
 ```
