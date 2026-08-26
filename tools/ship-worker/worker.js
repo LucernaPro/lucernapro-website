@@ -203,7 +203,7 @@ function parseSheetDate(s) { // '25/8/2026' หรือ '25/08/2026' -> '2026-0
   return `${m[3]}-${String(+m[2]).padStart(2, '0')}-${String(+m[1]).padStart(2, '0')}`;
 }
 
-async function syncFromSheet(env, daysBack = 2) {
+async function syncFromSheet(env, daysBack = 3) {
   // หน้าต่างเลื่อน: วันนี้ย้อนหลัง daysBack วัน (คลุมเคสลงบิลย้อนหลัง) แต่ไม่ก่อน START_DATE
   const today = bkkToday();
   const want = new Set();
@@ -219,8 +219,9 @@ async function syncFromSheet(env, daysBack = 2) {
 
   const token = await googleToken(env);
   let added = 0, updated = 0, scanned = 0;
+  const kept = new Set();
   for (const title of months) {
-    const ranges = ['A', 'C', 'I', 'J']  // K ห้ามอ่าน — LucernaOne ใช้ลงสูตรยอดขายรายวัน
+    const ranges = ['A', 'C', 'H', 'I', 'J']  // H=คนขาย ใช้กรองช่องทาง · K ห้ามอ่าน (สูตรยอดขาย)
       .map(c => 'ranges=' + encodeURIComponent(`${title}!${c}1:${c}3000`)).join('&');
     const r = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values:batchGet?${ranges}`,
@@ -228,7 +229,7 @@ async function syncFromSheet(env, daysBack = 2) {
     if (r.status === 400 || r.status === 404) continue; // เดือนนั้นยังไม่มีชีต
     const j = await r.json();
     if (!j.valueRanges) throw new Error('อ่านชีตไม่ได้: ' + JSON.stringify(j).slice(0, 200));
-    const [colA, colC, colI, colJ] = j.valueRanges.map(v => v.values || []);
+    const [colA, colC, colH, colI, colJ] = j.valueRanges.map(v => v.values || []);
     const cell = (col, i) => ((col[i] || [])[0] || '').toString().trim();
     const nRows = Math.max(colA.length, colI.length, colJ.length);
 
@@ -238,11 +239,15 @@ async function syncFromSheet(env, daysBack = 2) {
       if (!odate || !want.has(odate)) continue;
       if (!product || !customer) continue;
       if (product.startsWith('ยอดขาย') || product.includes('ส่วนลด')) continue;
+      // เอาเฉพาะออเดอร์ช่องแชท (คนขาย หนิง/มิ้ว/Milk) — Shopee/Lazada ไม่เข้าระบบนี้
+      const seller = cell(colH, i).toLowerCase();
+      if (!/หนิง|มิ้ว|milk|ning/.test(seller)) continue;
       let qty = parseFloat(cell(colC, i).replace(/,/g, '')) || 1;
       if (qty <= 0) continue;
       scanned++;
       const okey = `${title}:r${i + 1}`;
-      const receiver = ''; // ล้างของเก่าที่เผลอดูดมาด้วย — sync รอบถัดไปเขียนทับเป็นค่าว่างทั้งหมด
+      kept.add(okey);
+      const receiver = '';
       const ex = await env.DB.prepare('SELECT id FROM orders WHERE okey=?').bind(okey).first();
       if (ex) {
         await env.DB.prepare(
@@ -257,14 +262,28 @@ async function syncFromSheet(env, daysBack = 2) {
       }
     }
   }
+  // หน้าต่าง sync = กระจกของชีต (เฉพาะแถวที่ผ่านตัวกรอง): แถวที่ไม่ผ่าน/ถูกลบจากชีต เอาออกจาก D1
+  // ยกเว้นแถวที่พนักงานจับคู่ส่งแล้ว — งานคนไม่ถูกลบทิ้ง
+  let removed = 0;
+  const dates = [...want];
+  const qs = dates.map(() => '?').join(',');
+  const exRows = await env.DB.prepare(
+    `SELECT id, okey FROM orders WHERE odate IN (${qs}) AND status != 'shipped'`
+  ).bind(...dates).all();
+  for (const r of exRows.results) {
+    if (!kept.has(r.okey)) {
+      await env.DB.prepare('DELETE FROM orders WHERE id=?').bind(r.id).run();
+      removed++;
+    }
+  }
   await env.DB.prepare('INSERT INTO audit(action,detail) VALUES(?,?)')
-    .bind('import', `sync +${added} ~${updated} (scan ${scanned}, ${[...want].join(',')})`).run();
-  return { ok: true, added, updated, days: [...want] };
+    .bind('import', `sync +${added} ~${updated} -${removed} (scan ${scanned}, ${[...want].join(',')})`).run();
+  return { ok: true, added, updated, removed, days: [...want] };
 }
 
 export default {
   async scheduled(event, env, ctx) { // cron: sync อัตโนมัติ
-    ctx.waitUntil(syncFromSheet(env, 2).catch(() => {}));
+    ctx.waitUntil(syncFromSheet(env, 3).catch(() => {}));
   },
   async fetch(req, env) {
     /* กันตายเงียบ (Error 1101): พ่นสาเหตุจริง + สถานะอวัยวะทุกชิ้น */
@@ -320,7 +339,7 @@ async function handleReq(req, env) {
 
     if (path === '/sync' && req.method === 'POST') {
       // พนักงานกดได้ ปลอดภัย: อ่านชีตแบบ readonly เฉพาะคอลัมน์ที่ไม่ใช่เงิน แล้ว upsert ลง D1
-      try { return J(await syncFromSheet(env, 2)); }
+      try { return J(await syncFromSheet(env, 3)); }
       catch (e) { return J({ error: String(e.message || e) }, 500); }
     }
 
