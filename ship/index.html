@@ -277,9 +277,9 @@ async function saveTrk(gid){
   const tr=(inp.value||'').replace(/\s+/g,'').toUpperCase();
   if(!tr){ toast('พิมพ์เลขพัสดุก่อน'); inp.focus(); return; }
   const isEms=/^[A-Z]{2}\d{9}TH$/.test(tr);           // เลขไปรษณีย์เต็มรูป
-  const isTag=/^[A-Z]{1,10}$/.test(tr);                 // ตัวย่อขนส่ง: BS, FLASH, KERRY ฯลฯ
-  const isOther=/^[A-Z0-9-]{6,25}$/.test(tr)&&!/TH$/.test(tr); // เลขจริงของขนส่งเจ้าอื่น
-  if(!isEms&&!isTag&&!isOther&&!confirm('รูปแบบเลขดูแปลก ๆ — ยืนยันใช้ "'+tr+'" ?')) return;
+  const isOther=/^[A-Z0-9-]{6,25}$/.test(tr)&&/\d{3,}/.test(tr)&&!/TH$/.test(tr); // เลขจริงขนส่งเจ้าอื่น (BS/Flash/Kerry)
+  if(!/\d{3,}/.test(tr)){ toast('ต้องเป็นเลขจริงจากขนส่ง — ยังไม่มีเลข = ยังไม่ส่ง ปล่อยค้างไว้เพื่อตามงาน'); inp.focus(); return; }
+  if(!isEms&&!isOther&&!confirm('รูปแบบเลขดูแปลก ๆ — ยืนยันใช้ "'+tr+'" ?')) return;
   const r=await api('/assign',{tracking:tr,gid});
   if(r.error) toast(r.error); else { toast('บันทึกแล้ว: '+r.customer); refreshAll(); }
 }
