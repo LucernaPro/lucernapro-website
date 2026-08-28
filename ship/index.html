@@ -164,6 +164,7 @@
 
 <div class="confirmbar" id="confirmBar"><button id="btnConfirm">บันทึกผลจับคู่</button></div>
 <div class="toast" id="toast"></div>
+<datalist id="dlOrphans"></datalist>
 
 <div id="pinModal">
   <div class="box">
@@ -229,7 +230,7 @@ document.querySelectorAll('.tabs button').forEach(b=>{
 
 /* ---------- รายการวัน ---------- */
 const datePick=document.getElementById('datePick');
-datePick.value=new Date().toISOString().slice(0,10);
+{const _n=new Date();datePick.value=`${_n.getFullYear()}-${String(_n.getMonth()+1).padStart(2,'0')}-${String(_n.getDate()).padStart(2,'0')}`;}
 datePick.onchange=()=>loadDay();
 
 function fmtItems(g){return g.items.map(i=>`${i.product} ×${qtyFmt(i.qty)}`).join(', ');}
@@ -238,11 +239,11 @@ function tableFor(groups, emptyMsg){
   const rows=groups.map(g=>{
     let trk='';
     if(g.status==='shipped')
-      trk=`<span class="tok">✓ ${esc(g.tracking)}</span> <button class="mini red" onclick="unassign(${g.gid})">ถอน</button>`;
+      trk=`<span class="tok">✓ ${esc(g.tracking)}</span> <button class="mini ghost" onclick="addTrk(${g.gid})">+เลข</button> <button class="mini red" onclick="unassign(${g.gid})">ถอน</button>`;
     else if(g.status==='skipped')
       trk=`<span class="tmut">ตัดออก (ไม่ส่ง ปณ)</span> <button class="mini ghost" onclick="unskipG(${g.gid})">คืน</button>`;
     else
-      trk=`<input class="trkin" id="trk${g.gid}" placeholder="EDxxxxxxxxxTH" onkeydown="if(event.key==='Enter')saveTrk(${g.gid})">`+
+      trk=`<input class="trkin" id="trk${g.gid}" list="dlOrphans" placeholder="EDxxxxxxxxxTH" onkeydown="if(event.key==='Enter')saveTrk(${g.gid})">`+
           `<button class="mini orange" onclick="saveTrk(${g.gid})" style="margin-left:6px">บันทึก</button>`+
           `<button class="mini ghost" onclick="skipG(${g.gid})" style="margin-left:6px" title="ออเดอร์ที่ไม่ได้ส่งทางไปรษณีย์ เช่น Shopee/Lazada">ตัด</button>`;
     return `<tr class="${g.status}"><td class="td-date">${thDate(g.odate)}</td>`+
@@ -283,7 +284,16 @@ async function saveTrk(gid){
   const r=await api('/assign',{tracking:tr,gid});
   if(r.error) toast(r.error); else { toast('บันทึกแล้ว: '+r.customer); refreshAll(); }
 }
+async function addTrk(gid){
+  const t=prompt('เพิ่มเลขพัสดุอีกกล่อง (ออเดอร์เดียวกัน)');
+  if(!t) return;
+  const tr=t.replace(/\s+/g,'').toUpperCase();
+  if(!/\d{3,}/.test(tr)){ toast('ต้องเป็นเลขจริงจากขนส่ง'); return; }
+  const r=await api('/assign',{tracking:tr,gid});
+  if(r.error) toast(r.error); else { toast('เพิ่มเลขแล้ว: '+r.customer); refreshAll(); }
+}
 async function skipG(gid){
+  if(!confirm('ตัดออเดอร์นี้ออกจากรายการจริงไหม?\n(ใช้กับออเดอร์ที่ไม่ส่งทางไปรษณีย์ — กดคืนได้ทีหลัง)')) return;
   const r=await api('/skip',{gid});
   if(r.error) toast(r.error); else { toast('ตัดออกแล้ว'); refreshAll(); }
 }
@@ -301,14 +311,14 @@ async function unassign(gid){
 async function loadOrphan(){
   const box=document.getElementById('tab-orphan');
   box.innerHTML='<div class="empty">กำลังโหลด…</div>';
-  const [ro,rp]=await Promise.all([api('/orphans'),api('/pending')]);
+  const [ro,rp]=await Promise.all([api('/orphans'),api('/recent')]);
   if(ro.error){ box.innerHTML=`<div class="empty">${esc(ro.error)}</div>`; return; }
-  window._pending=rp.groups||[];
+  window._recent=rp.groups||[];
   document.getElementById('cntOrphan').textContent=ro.orphans.length;
-  document.getElementById('cntPending').textContent=(rp.groups||[]).length;
+  document.getElementById('dlOrphans').innerHTML=ro.orphans.map(o=>`<option value="${esc(o.tracking)}">${esc(o.ems_name)}</option>`).join('');
   if(!ro.orphans.length){ box.innerHTML='<div class="empty">ไม่มีเลขลอยค้างอยู่</div>'; return; }
   box.innerHTML=ro.orphans.map(o=>{
-    const opts=recentPending().map(g=>`<option value="${g.gid}">${esc(g.customer)} — ${thDate(g.odate)}</option>`).join('');
+    const opts=pickOptions();
     return `<div class="card m-card ask">
       <div class="m-head"><span class="m-track">${esc(o.tracking)}</span>
         ${o.ems_name?`<span class="m-name">${esc(o.ems_name)}</span>`:''}
@@ -342,17 +352,18 @@ document.getElementById('btnParse').onclick=async()=>{
   const r=await api('/parse-match',{text:document.getElementById('emsText').value});
   btn.disabled=false;
   if(r.error){ toast(r.error); return; }
-  const rp=await api('/pending'); window._pending=rp.groups||[];
+  const rp=await api('/recent'); window._recent=rp.groups||[];
   matchData=r.results;
   renderMatch();
 };
 
 function candLabel(g){ return `${g.customer} — ${thDate(g.odate)} (${g.items.map(i=>i.product).join(', ').slice(0,40)})`; }
-function recentPending(){
-  /* dropdown เลือกเอง: เอาแค่วันนี้+เมื่อวาน — ของเก่ากว่านั้นไปใส่เลขที่แท็บ "ค้างส่ง" แทน */
-  const d=new Date(); d.setDate(d.getDate()-1);
-  const cut=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-  return (window._pending||[]).filter(g=>g.odate>=cut);
+function pickOptions(){
+  /* dropdown เลือกเอง: ค้างส่งวันนี้+เมื่อวาน + กลุ่มที่ส่งแล้ว (เผื่อเพิ่มกล่อง/เลขเอกสาร) */
+  const gs=window._recent||[];
+  const p=gs.filter(g=>g.status==='pending').map(g=>`<option value="${g.gid}">${esc(candLabel(g))}</option>`).join('');
+  const sh=gs.filter(g=>g.status==='shipped').map(g=>`<option value="${g.gid}">เพิ่มกล่อง: ${esc(g.customer)} ✓${esc((g.tracking||'').split(' ')[0])}</option>`).join('');
+  return p+(sh?`<optgroup label="— ส่งแล้ว (เพิ่มเลขให้ออเดอร์เดิม) —">${sh}</optgroup>`:'');
 }
 
 function renderMatch(){
@@ -372,8 +383,9 @@ function renderMatch(){
           <span class="m-name">${thDate(m.match.odate)} · ${esc(m.match.items.map(x=>x.product).join(', ').slice(0,50))}</span></span></label>
         <span class="tag ok">${tag}</span></div></div>`;
     }
-    const cands=(m.candidates&&m.candidates.length?m.candidates:recentPending());
-    const opts=cands.map(g=>`<option value="${g.gid}">${esc(candLabel(g))}</option>`).join('');
+    const opts=(m.candidates&&m.candidates.length)
+      ? m.candidates.map(g=>`<option value="${g.gid}">${esc(candLabel(g))}</option>`).join('')
+      : pickOptions();
     const tag=m.reason==='ambiguous'?'<span class="tag ask">เจอหลายคน — เลือกเอง</span>':'<span class="tag none">ไม่เจอคู่</span>';
     return `<div class="card m-card ${m.reason==='ambiguous'?'ask':'none'}">
       <div class="m-head"><span class="m-track">${esc(m.tracking)}</span>

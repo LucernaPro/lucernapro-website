@@ -89,6 +89,7 @@ function groupRows(rows) {
         odate: r.odate,
         customer: r.customer,
         receiver: r.receiver || '',
+        receiver2: r.receiver2 || '',
         status: r.status,
         tracking: r.tracking || '',
         items: [],
@@ -123,6 +124,12 @@ async function loadGroup(env, gid) {
 async function setGroupTracking(env, gid, tracking, how) {
   const g = await loadGroup(env, gid);
   if (!g) return { error: 'ไม่พบออเดอร์' };
+  // ออเดอร์เดียวหลายกล่อง: เลขใหม่ต่อท้ายเลขเดิม (ไม่ทับ, ไม่ซ้ำ) — unassign ('') ล้างหมด
+  if (tracking && g.tracking) {
+    const setT = new Set(g.tracking.split(/\s+/).filter(Boolean));
+    setT.add(tracking);
+    tracking = [...setT].join(' ');
+  }
   const now = new Date().toISOString();
   for (const id of g._ids) {
     await env.DB.prepare(
@@ -141,7 +148,7 @@ function matchOne(emsName, groups) {
   let exact = [], prefix = [];
   for (const g of groups) {
     if (g.status === 'shipped') continue;
-    const s = Math.max(nameHit(q, norm(g.customer)), nameHit(q, norm(g.receiver)));
+    const s = Math.max(nameHit(q, norm(g.customer)), nameHit(q, norm(g.receiver)), nameHit(q, norm(g.receiver2)));
     if (s === 2) exact.push(g);
     else if (s === 1) prefix.push(g);
   }
@@ -217,11 +224,13 @@ async function syncFromSheet(env, daysBack = 3) {
   }
   if (!want.size) return { ok: true, added: 0, updated: 0, note: 'ยังไม่ถึงวันเริ่มระบบ' };
 
+  // migrate อัตโนมัติ: เพิ่มคอลัมน์ receiver2 ถ้ายังไม่มี (รันซ้ำ = error เงียบ ข้ามไป)
+  try { await env.DB.prepare("ALTER TABLE orders ADD COLUMN receiver2 TEXT NOT NULL DEFAULT ''").run(); } catch (e) {}
   const token = await googleToken(env);
   let added = 0, updated = 0, scanned = 0;
   const kept = new Set();
   for (const title of months) {
-    const ranges = ['A', 'C', 'H', 'I', 'J', 'P']  // H=คนขาย(กรอง) · P=ผู้รับพัสดุ · K ห้ามอ่าน (สูตรยอดขาย)
+    const ranges = ['A', 'C', 'H', 'I', 'J', 'P', 'Q']  // H=คนขาย(กรอง) · P=ผู้รับสินค้า · Q=ผู้รับเอกสาร · K ห้ามอ่าน
       .map(c => 'ranges=' + encodeURIComponent(`${title}!${c}1:${c}3000`)).join('&');
     const r = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values:batchGet?${ranges}`,
@@ -229,7 +238,7 @@ async function syncFromSheet(env, daysBack = 3) {
     if (r.status === 400 || r.status === 404) continue; // เดือนนั้นยังไม่มีชีต
     const j = await r.json();
     if (!j.valueRanges) throw new Error('อ่านชีตไม่ได้: ' + JSON.stringify(j).slice(0, 200));
-    const [colA, colC, colH, colI, colJ, colP] = j.valueRanges.map(v => v.values || []);
+    const [colA, colC, colH, colI, colJ, colP, colQ] = j.valueRanges.map(v => v.values || []);
     const cell = (col, i) => ((col[i] || [])[0] || '').toString().trim();
     const nRows = Math.max(colA.length, colI.length, colJ.length);
 
@@ -250,16 +259,18 @@ async function syncFromSheet(env, daysBack = 3) {
       // P = ชื่อผู้รับพัสดุที่ LucernaOne parser เก็บจากบรรทัด "ถึง ..." (ต้องเป็นชื่อ ไม่ใช่ตัวเลข)
       let receiver = cell(colP, i);
       if (/\d/.test(receiver)) receiver = ''; // การ์ดสองชั้น: ค่าแปลกปลอม/ตัวเลขหลงมา ไม่ใช้
+      let receiver2 = cell(colQ, i);           // ผู้รับเอกสาร (ใบกำกับส่งแยกที่)
+      if (/\d/.test(receiver2)) receiver2 = '';
       const ex = await env.DB.prepare('SELECT id FROM orders WHERE okey=?').bind(okey).first();
       if (ex) {
         await env.DB.prepare(
-          'UPDATE orders SET odate=?, ym=?, customer=?, receiver=?, product=?, qty=? WHERE okey=?'
-        ).bind(odate, odate.slice(0, 7), customer, receiver, product, qty, okey).run();
+          'UPDATE orders SET odate=?, ym=?, customer=?, receiver=?, receiver2=?, product=?, qty=? WHERE okey=?'
+        ).bind(odate, odate.slice(0, 7), customer, receiver, receiver2, product, qty, okey).run();
         updated++;
       } else {
         await env.DB.prepare(
-          'INSERT INTO orders(ym,odate,customer,receiver,product,qty,okey) VALUES(?,?,?,?,?,?,?)'
-        ).bind(odate.slice(0, 7), odate, customer, receiver, product, qty, okey).run();
+          'INSERT INTO orders(ym,odate,customer,receiver,receiver2,product,qty,okey) VALUES(?,?,?,?,?,?,?,?)'
+        ).bind(odate.slice(0, 7), odate, customer, receiver, receiver2, product, qty, okey).run();
         added++;
       }
     }
@@ -351,6 +362,15 @@ async function handleReq(req, env) {
       return J({ groups: groupRows(rows.results).map(({ _ids, ...g }) => g) });
     }
 
+    if (path === '/recent' && req.method === 'GET') {
+      const today = bkkToday();
+      const cut = new Date(Date.parse(today) - 86400000).toISOString().slice(0, 10);
+      const rows = await env.DB.prepare(
+        "SELECT * FROM orders WHERE odate>=? AND status!='skipped' ORDER BY odate, id"
+      ).bind(cut).all();
+      return J({ groups: groupRows(rows.results).map(({ _ids, ...g }) => g) });
+    }
+
     if (path === '/pending' && req.method === 'GET') {
       const rows = await env.DB.prepare(
         "SELECT * FROM orders WHERE status='pending' ORDER BY odate, id"
@@ -365,12 +385,9 @@ async function handleReq(req, env) {
       // จับคู่กับ "ค้างส่งทั้งหมด" (รวมวันก่อน ๆ ที่เพิ่งพร้อมส่งวันนี้)
       const rows = await env.DB.prepare("SELECT * FROM orders WHERE status='pending' ORDER BY odate, id").all();
       const groups = groupRows(rows.results);
-      const usedGid = new Set();
       const results = parsed.map(p => {
-        // เลขซ้ำในลิสต์เดียวกัน / เลขที่เคยบันทึกแล้ว
-        const r = matchOne(p.ems_name, groups.filter(g => !usedGid.has(g.gid)));
-        if (r.match) usedGid.add(r.match.gid);
-        const strip = g => g && { gid: g.gid, odate: g.odate, customer: g.customer, receiver: g.receiver, items: g.items };
+        const r = matchOne(p.ems_name, groups);
+        const strip = g => g && { gid: g.gid, odate: g.odate, customer: g.customer, receiver: g.receiver, receiver2: g.receiver2, items: g.items };
         return {
           tracking: p.tracking,
           ems_name: p.ems_name,
@@ -381,7 +398,7 @@ async function handleReq(req, env) {
       });
       // เช็คว่าเลขไหนเคยใช้ไปแล้ว
       for (const res of results) {
-        const dup = await env.DB.prepare('SELECT customer FROM orders WHERE tracking=? LIMIT 1').bind(res.tracking).first();
+        const dup = await env.DB.prepare('SELECT customer FROM orders WHERE instr(tracking, ?) > 0 LIMIT 1').bind(res.tracking).first();
         if (dup) { res.reason = 'already_used'; res.match = null; res.used_by = dup.customer; }
       }
       return J({ results, pending_count: groups.filter(g => g.status === 'pending').length });
@@ -409,6 +426,8 @@ async function handleReq(req, env) {
       if (!tracking || !gid) return J({ error: 'ข้อมูลไม่ครบ' }, 400);
       const r = await setGroupTracking(env, gid, tracking, 'match_manual');
       if (r.error) return J(r, 400);
+      // เลขนี้ถ้าค้างเป็นเลขลอยอยู่ ปิดให้เลย (ไม่ว่ามาจากแท็บไหน)
+      await env.DB.prepare("UPDATE orphans SET status='archived', note='จับคู่แล้ว' WHERE tracking=? AND status='open'").bind(tracking).run();
       if (orphan_id) await env.DB.prepare("UPDATE orphans SET status='archived', note='จับคู่แล้ว' WHERE id=?").bind(orphan_id).run();
       return J(r);
     }
