@@ -133,7 +133,7 @@
 <body>
 
 <div class="appbar">
-  <div class="brand"><span class="layers"><i></i><i></i><i></i></span> LUCERNA · จัดส่ง</div>
+  <div class="brand"><span class="layers"><i></i><i></i><i></i></span> LUCERNA · จัดส่ง <span style="font-weight:400;font-size:10px;color:#8A7458">v4</span></div>
   <div style="display:flex;gap:8px;align-items:center">
     <button id="btnSync" style="font-family:'Sarabun';font-weight:600;font-size:13px;padding:7px 12px;border-radius:7px;border:1px solid #7A5836;background:transparent;color:#F3C186;cursor:pointer">⟳ ดึงข้อมูล</button>
     <input type="date" id="datePick">
@@ -244,7 +244,7 @@ function tableFor(groups, emptyMsg){
       trk=`<span class="tmut">ตัดออก (ไม่ส่ง ปณ)</span> <button class="mini ghost" onclick="unskipG(${g.gid})">คืน</button>`;
     else
       trk=`<input class="trkin" list="dlOrphans" placeholder="EDxxxxxxxxxTH" onkeydown="if(event.key==='Enter')saveTrk(${g.gid},this)">`+
-          `<button class="mini orange" onclick="saveTrk(${g.gid},this.previousElementSibling)" style="margin-left:6px">บันทึก</button>`+
+          `<button class="mini orange" onclick="saveTrk(${g.gid},this.closest('td').querySelector('input.trkin'))" style="margin-left:6px">บันทึก</button>`+
           `<button class="mini ghost" onclick="skipG(${g.gid})" style="margin-left:6px" title="ออเดอร์ที่ไม่ได้ส่งทางไปรษณีย์ เช่น Shopee/Lazada">ตัด</button>`;
     return `<tr class="${g.status}"><td class="td-date">${thDate(g.odate)}</td>`+
            `<td class="td-cust" title="${esc(g.customer)}">${esc(g.customer)}${g.receiver?`<div style="font-weight:400;font-size:11.5px;color:var(--gray)">ผู้รับ: ${esc(g.receiver)}</div>`:''}</td>`+
@@ -310,9 +310,8 @@ async function unassign(gid){
 async function loadOrphan(){
   const box=document.getElementById('tab-orphan');
   box.innerHTML='<div class="empty">กำลังโหลด…</div>';
-  const [ro,rp]=await Promise.all([api('/orphans'),api('/recent')]);
+  const [ro]=await Promise.all([api('/orphans'),loadPickSources()]);
   if(ro.error){ box.innerHTML=`<div class="empty">${esc(ro.error)}</div>`; return; }
-  window._recent=rp.groups||[];
   document.getElementById('cntOrphan').textContent=ro.orphans.length;
   document.getElementById('dlOrphans').innerHTML=ro.orphans.map(o=>`<option value="${esc(o.tracking)}">${esc(o.ems_name)}</option>`).join('');
   if(!ro.orphans.length){ box.innerHTML='<div class="empty">ไม่มีเลขลอยค้างอยู่</div>'; return; }
@@ -351,18 +350,23 @@ document.getElementById('btnParse').onclick=async()=>{
   const r=await api('/parse-match',{text:document.getElementById('emsText').value});
   btn.disabled=false;
   if(r.error){ toast(r.error); return; }
-  const rp=await api('/recent'); window._recent=rp.groups||[];
+  await loadPickSources();
   matchData=r.results;
   renderMatch();
 };
 
 function candLabel(g){ return `${g.customer} — ${thDate(g.odate)} (${g.items.map(i=>i.product).join(', ').slice(0,40)})`; }
 function pickOptions(){
-  /* dropdown เลือกเอง: ค้างส่งวันนี้+เมื่อวาน + กลุ่มที่ส่งแล้ว (เผื่อเพิ่มกล่อง/เลขเอกสาร) */
-  const gs=window._recent||[];
-  const p=gs.filter(g=>g.status==='pending').map(g=>`<option value="${g.gid}">${esc(candLabel(g))}</option>`).join('');
-  const sh=gs.filter(g=>g.status==='shipped').map(g=>`<option value="${g.gid}">เพิ่มกล่อง: ${esc(g.customer)} ✓${esc((g.tracking||'').split(' ')[0])}</option>`).join('');
+  /* dropdown เลือกเอง: ค้างส่งทั้งหมด (จับคู่แล้ว/ตัดแล้วไม่ขึ้น — เหลือน้อยอยู่แล้ว)
+     + กลุ่มที่ส่งแล้ว 2 วันล่าสุด สำหรับเพิ่มกล่อง/เลขเอกสาร */
+  const p=(window._pendingAll||[]).map(g=>`<option value="${g.gid}">${esc(candLabel(g))}</option>`).join('');
+  const sh=(window._recent||[]).filter(g=>g.status==='shipped').map(g=>`<option value="${g.gid}">เพิ่มกล่อง: ${esc(g.customer)} ✓${esc((g.tracking||'').split(' ')[0])}</option>`).join('');
   return p+(sh?`<optgroup label="— ส่งแล้ว (เพิ่มเลขให้ออเดอร์เดิม) —">${sh}</optgroup>`:'');
+}
+async function loadPickSources(){
+  const [rp,rr]=await Promise.all([api('/pending'),api('/recent')]);
+  window._pendingAll=rp.groups||[];
+  window._recent=(rr&&!rr.error&&rr.groups)||[]; /* worker เก่ายังไม่มี /recent → ข้ามหมวดส่งแล้วไปก่อน */
 }
 
 function renderMatch(){
