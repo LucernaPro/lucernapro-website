@@ -133,7 +133,7 @@
 <body>
 
 <div class="appbar">
-  <div class="brand"><span class="layers"><i></i><i></i><i></i></span> LUCERNA · จัดส่ง <span style="font-weight:400;font-size:10px;color:#8A7458">v6</span></div>
+  <div class="brand"><span class="layers"><i></i><i></i><i></i></span> LUCERNA · จัดส่ง <span style="font-weight:400;font-size:10px;color:#8A7458">v7</span></div>
   <div style="display:flex;gap:8px;align-items:center">
     <button id="btnSync" style="font-family:'Sarabun';font-weight:600;font-size:13px;padding:7px 12px;border-radius:7px;border:1px solid #7A5836;background:transparent;color:#F3C186;cursor:pointer">⟳ ดึงข้อมูล</button>
     <input type="date" id="datePick">
@@ -238,10 +238,11 @@ function tableFor(groups, emptyMsg){
   if(!groups.length) return `<div class="empty">${emptyMsg}</div>`;
   const rows=groups.map(g=>{
     let trk='';
-    if(g.status==='shipped')
+    if(g.status==='shipped'){
       const toks=(g.tracking||'').split(/\s+/).filter(Boolean)
         .map(t=>`<div class="tok">✓ ${esc(t)}</div>`).join('');
       trk=`<span style="display:inline-block;vertical-align:middle;text-align:left">${toks}</span> <button class="mini ghost" onclick="addTrk(${g.gid},this)">+เลข</button> <button class="mini red" onclick="unassign(${g.gid})">ถอน</button>`;
+    }
     else if(g.status==='skipped')
       trk=`<span class="tmut">ตัดออก (ไม่ส่ง ปณ)</span> <button class="mini ghost" onclick="unskipG(${g.gid})">คืน</button>`;
     else
