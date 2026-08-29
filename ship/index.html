@@ -243,8 +243,8 @@ function tableFor(groups, emptyMsg){
     else if(g.status==='skipped')
       trk=`<span class="tmut">ตัดออก (ไม่ส่ง ปณ)</span> <button class="mini ghost" onclick="unskipG(${g.gid})">คืน</button>`;
     else
-      trk=`<input class="trkin" id="trk${g.gid}" list="dlOrphans" placeholder="EDxxxxxxxxxTH" onkeydown="if(event.key==='Enter')saveTrk(${g.gid})">`+
-          `<button class="mini orange" onclick="saveTrk(${g.gid})" style="margin-left:6px">บันทึก</button>`+
+      trk=`<input class="trkin" list="dlOrphans" placeholder="EDxxxxxxxxxTH" onkeydown="if(event.key==='Enter')saveTrk(${g.gid},this)">`+
+          `<button class="mini orange" onclick="saveTrk(${g.gid},this.previousElementSibling)" style="margin-left:6px">บันทึก</button>`+
           `<button class="mini ghost" onclick="skipG(${g.gid})" style="margin-left:6px" title="ออเดอร์ที่ไม่ได้ส่งทางไปรษณีย์ เช่น Shopee/Lazada">ตัด</button>`;
     return `<tr class="${g.status}"><td class="td-date">${thDate(g.odate)}</td>`+
            `<td class="td-cust" title="${esc(g.customer)}">${esc(g.customer)}${g.receiver?`<div style="font-weight:400;font-size:11.5px;color:var(--gray)">ผู้รับ: ${esc(g.receiver)}</div>`:''}</td>`+
@@ -273,9 +273,8 @@ async function loadPending(){
   box.innerHTML=tableFor(r.groups,'ไม่มีของค้างส่ง 🎉');
 }
 
-async function saveTrk(gid){
-  const inp=document.getElementById('trk'+gid);
-  const tr=(inp.value||'').replace(/\s+/g,'').toUpperCase();
+async function saveTrk(gid,inp){
+  const tr=((inp&&inp.value)||'').replace(/\s+/g,'').toUpperCase();
   if(!tr){ toast('พิมพ์เลขพัสดุก่อน'); inp.focus(); return; }
   const isEms=/^[A-Z]{2}\d{9}TH$/.test(tr);           // เลขไปรษณีย์เต็มรูป
   const isOther=/^[A-Z0-9-]{6,25}$/.test(tr)&&/\d{3,}/.test(tr)&&!/TH$/.test(tr); // เลขจริงขนส่งเจ้าอื่น (BS/Flash/Kerry)
