@@ -78,6 +78,21 @@ def main():
         acc = io.open('account/index.html', encoding='utf-8').read()
         if 'lucerna-docs.lekvtwin.workers.dev' not in acc:
             problems['account/index.html'].append('API.url หาย — หน้าแอปไม่ได้ต่อกับ Worker')
+    # ยาม JS หน้าแอป: script พังหนึ่งตัวอักษร = ทั้งหน้าตาย (บทเรียน ship v6)
+    import subprocess, tempfile
+    for app_page in ('ship/index.html', 'account/index.html'):
+        if not os.path.exists(app_page):
+            continue
+        _html = io.open(app_page, encoding='utf-8').read()
+        import re as _re
+        for _i, _m in enumerate(_re.finditer(r'<script>([\s\S]*?)</script>', _html)):
+            with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, encoding='utf-8') as _f:
+                _f.write(_m.group(1)); _tmp = _f.name
+            _r = subprocess.run(['node', '--check', _tmp], capture_output=True, text=True)
+            os.unlink(_tmp)
+            if _r.returncode != 0:
+                problems[app_page].append('JS พัง (script #%d): %s' % (_i + 1, (_r.stderr or '').strip().splitlines()[-1][:120]))
+
     # ยามแอปจัดส่ง: หน้า /ship ต้องต่อสาย API เสมอ (เกณฑ์เดียวกับ /account)
     if os.path.exists('ship/index.html'):
         shp = io.open('ship/index.html', encoding='utf-8').read()
