@@ -282,6 +282,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/paintcoating"/>
   </url>
   <url>
+    <loc>https://www.lucernapro.com/en/stonesurface</loc>
+    <lastmod>2026-09-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/stonesurface"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/stonesurface"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/stonesurface"/>
+  </url>
+  <url>
     <loc>https://www.lucernapro.com/en/heatshield</loc>
     <lastmod>2026-08-17</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/heatshield"/>
@@ -710,6 +717,13 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/paintcoating"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/paintcoating"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/paintcoating"/>
+  </url>
+  <url>
+    <loc>https://www.lucernapro.com/stonesurface</loc>
+    <lastmod>2026-09-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/stonesurface"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/stonesurface"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/stonesurface"/>
   </url>
   <url>
     <loc>https://www.lucernapro.com/heatshield</loc>
