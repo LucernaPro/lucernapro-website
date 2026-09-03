@@ -42,10 +42,10 @@ S_TH_META = "เผยแพร่ ก.ย. 2026 · งานปี 2022–2023 
 S_TH_BODY = f"""  <article>
     <p>เคสนี้ไม่ใช่งานของทีมเราในไทย — เป็นงานของ <b>Feibo</b> (ฉางชา ประเทศจีน) ผู้พัฒนาและผลิตวัตถุดิบหลักที่เราใช้ใน <a href="/paintcoating">Paint Coating</a> เราขอภาพชุดนี้มาลงเพราะมันตอบคำถามที่ลูกค้าถามบ่อยที่สุดได้ในภาพเดียว: <b>เคลือบแล้วต่างจากไม่เคลือบจริงไหม</b></p>
 {fig(S,1,'ช่างสองคนบนรถกระเช้าใช้ลูกกลิ้งเคลือบ Self-Cleaning บนแผงสีขาวข้างป้ายโลโก้ปั๊มน้ำมัน','หน้างานจริง: ทีม Feibo บนรถกระเช้า ลงฟิล์มด้วยลูกกลิ้งขนสั้นบนแผงสีขาวรอบป้ายโลโก้ — ขวดน้ำยาวางอยู่บนกระเช้า ลงบางทีละแนว',hero=True)}
-    <p>หลังคาปั๊มน้ำมันคือหน้างานที่โหดกับผิวสีที่สุดแบบหนึ่งในเมือง — ไอน้ำมันจากหัวจ่าย เขม่าท่อไอเสียของรถที่เข้าออกทั้งวัน ฝุ่นถนน แล้วฝนก็พัดทั้งหมดนั้นให้ไหลลงแผงเป็นทาง ทุกสาขามีคราบแบบเดียวกัน และทุกสาขาต้องจ้างคนขึ้นกระเช้าล้างเป็นรอบๆ</p>
+    <p>หลังคาปั๊มน้ำมันคือหน้างานที่โหดกับผิวสีที่สุดแบบหนึ่งในเมือง — ไอน้ำมันจากหัวจ่าย เขม่าท่อไอเสียของรถที่เข้าออกทั้งวัน ฝุ่นถนน แล้วฝนก็พัดทั้งหมดนั้นให้ไหลลงแผงเป็นทาง แทบทุกสาขามีคราบแบบเดียวกัน และต้องจ้างคนขึ้นกระเช้าล้างเป็นรอบๆ</p>
     <section class="step">
       <h2><span class="n">01</span>แผงเดียวกัน ครึ่งเคลือบ ครึ่งไม่เคลือบ</h2>
-      <p>ทีมงานจงใจเคลือบแผงหลังคาไว้ครึ่งเดียวเป็นตัวเทียบ แล้วปล่อยให้โดนแดดฝนตามปกติ — ภาพนี้คือผลที่กลับไปถ่ายในภายหลัง ไม่ได้ล้าง ไม่ได้แต่งภาพ เส้นแบ่งคือขอบเขตที่เคลือบ</p>
+      <p>แผงหลังคาชิ้นนี้ฝั่งหนึ่งเคลือบแล้ว อีกฝั่งยังไม่ได้เคลือบ แล้วโดนแดดฝนมาด้วยกัน — ภาพนี้ไม่ได้ล้าง ไม่ได้แต่งภาพ เส้นแบ่งคือขอบเขตที่เคลือบ</p>
 {fig(S,2,'แผงหลังคาปั๊มน้ำมัน ครึ่งซ้ายเคลือบ Self-Cleaning สะอาดเรียบ ครึ่งขวาไม่เคลือบมีคราบน้ำไหลเป็นทาง','ซ้าย: เคลือบแล้ว แผงเรียบสะอาด · ขวา: ไม่ได้เคลือบ คราบน้ำและฝุ่นไหลเป็นทางชัดเจน — แผงชิ้นเดียวกัน โดนแดดฝนเท่ากัน')}
 {fig(S,3,'ระยะใกล้แผงสีแดงที่ยังไม่เคลือบ เห็นคราบน้ำฝนไหลเป็นทางบนผิวสี','ระยะใกล้ฝั่งที่ไม่ได้เคลือบ — ฝุ่นที่ฝนพัดมากองแล้วแห้งเป็นทาง นี่คือคราบที่ทำให้ปั๊ม "ดูเก่า" ทั้งที่แผงยังไม่เสีย')}
     </section>
@@ -53,7 +53,7 @@ S_TH_BODY = f"""  <article>
       <h2><span class="n">02</span>ลงบนแผงสีแดงเงา — ผิวที่ต้องบางที่สุด</h2>
       <p>แผงสีแดงเงาคือผิวที่โชว์ความผิดพลาดง่ายที่สุด ถ้าลงหนา ฟิล์มจะเกิดคราบรุ้งให้เห็นเวลาสะท้อนแสง ทีมงานจึงใช้ลูกกลิ้งขนสั้นไล่ทีละแนว คุมให้ฟิล์มบางสม่ำเสมอ ไม่ย้อนกลับไปกลิ้งซ้ำจุดที่เริ่มเซ็ตตัวแล้ว — หลักการเดียวกับที่เราเขียนไว้ในวิธีใช้บนหน้าสินค้า</p>
 {fig(S,4,'ช่างสองคนใช้ลูกกลิ้งเคลือบแผงสีแดงเงาหลังคาปั๊มน้ำมันช่วงเย็น','แผงสีแดงเงาช่วงเย็น — ลูกกลิ้งขนสั้น ลงบางทีละแนว สองคนไล่ต่อกันเพื่อไม่ให้รอยต่อระหว่างแนวแห้งก่อน')}
-{fig(S,6,'ช่างใช้ลูกกลิ้งเคลือบรอบป้ายโลโก้บนหลังคาปั๊มน้ำมัน มีรถกระเช้าอีกคันทำงานด้านหลัง','รอบป้ายโลโก้ — จุดที่ต้องลงด้วยมืออย่างระวัง ด้านหลังมีอีกทีมบนกระเช้าอีกคัน ปั๊มเปิดบริการตามปกติระหว่างทำงาน')}
+{fig(S,6,'ช่างใช้ลูกกลิ้งเคลือบรอบป้ายโลโก้บนหลังคาปั๊มน้ำมัน มีรถกระเช้าอีกคันทำงานด้านหลัง','รอบป้ายโลโก้ — จุดที่ต้องลงด้วยมืออย่างระวัง ด้านหลังมีอีกทีมบนกระเช้าอีกคัน ในภาพปั๊มยังเปิดบริการระหว่างทำงาน')}
     </section>
     <section class="step">
       <h2><span class="n">03</span>เคลือบตั้งแต่ในโรงงานผลิตป้าย — ก่อนขึ้นติดตั้ง</h2>
@@ -79,10 +79,10 @@ S_EN_META = "Published Sept 2026 · Work from 2022–2023 by the Feibo team (Chi
 S_EN_BODY = f"""  <article>
     <p>This case is not our own crew in Thailand — it is the work of <b>Feibo</b> (Changsha, China), the developer and producer of the core raw material in our <a href="/en/paintcoating">Paint Coating</a>. We asked for this photo set because it answers the question customers ask most, in a single picture: <b>is coated really different from uncoated?</b></p>
 {fig(S,1,'Two applicators on a boom lift rolling self-cleaning coating onto white panels beside a fuel-station logo sign','On site: the Feibo crew on a boom lift, rolling the film onto the white panels around the logo with a short-nap roller — bottle on the platform, one thin pass at a time',hero=True)}
-    <p>A fuel-station canopy is one of the harshest environments for paint in any city — fuel vapour from the pumps, exhaust soot from cars all day, road dust, and then rain pushing all of it down the panels in streaks. Every branch shows the same marks, and every branch pays a crew on a lift to wash them off, round after round.</p>
+    <p>A fuel-station canopy is one of the harshest environments for paint in any city — fuel vapour from the pumps, exhaust soot from cars all day, road dust, and then rain pushing all of it down the panels in streaks. Almost every branch shows the same marks and pays a crew on a lift to wash them off, round after round.</p>
     <section class="step">
       <h2><span class="n">01</span>Same panel, half coated, half not</h2>
-      <p>The crew deliberately coated only half of a canopy panel as a control, then left it to normal sun and rain. This photo is the result, taken later — not washed, not retouched. The line is the edge of the coated area.</p>
+      <p>One side of this canopy panel had been coated, the other not yet, and both had taken the same sun and rain. Not washed, not retouched. The line is the edge of the coated area.</p>
 {fig(S,2,'Fuel-station canopy panel — left half coated with self-cleaning film and clean, right half uncoated with water streaks','Left: coated, panel smooth and clean · Right: not coated, clear water and dust streaks — one panel, identical exposure')}
 {fig(S,3,'Close-up of an uncoated red panel with rain streaks running down the painted surface','Close-up of the uncoated side — dust pushed into streaks by rain and left to dry. This is what makes a station look old while the panel itself is still fine')}
     </section>
@@ -90,7 +90,7 @@ S_EN_BODY = f"""  <article>
       <h2><span class="n">02</span>Glossy red panels — the surface that needs the thinnest coat</h2>
       <p>Glossy red is the surface that shows mistakes fastest: apply too thick and the film shows a rainbow sheen in reflected light. So the crew works line by line with a short-nap roller, keeps the film thin and even, and never goes back over a spot that has started to set — the same rules we spell out in the how-to on the product page.</p>
 {fig(S,4,'Two applicators rolling coating onto glossy red fuel-station canopy panels at dusk','Glossy red panels at dusk — short-nap roller, thin coat, one line at a time; two applicators work in sequence so the joins between lines never dry first')}
-{fig(S,6,'Applicator rolling coating around a fuel-station logo sign with a second lift working behind','Around the logo — done carefully by hand; a second crew on another lift behind. The station stayed open the whole time')}
+{fig(S,6,'Applicator rolling coating around a fuel-station logo sign with a second lift working behind','Around the logo — done carefully by hand; a second crew on another lift behind, with the station still serving customers in the photo')}
     </section>
     <section class="step">
       <h2><span class="n">03</span>Coated inside the sign factory — before installation</h2>
@@ -115,7 +115,7 @@ R_TH_DESC = ("โครงการของ Feibo ผู้พัฒนาว�
 R_TH_EYEBROW = "Case Study · เคลือบปกป้อง / Paint Coating"
 R_TH_META = "เผยแพร่ ก.ย. 2026 · ภาพหน้างานจากทีม Feibo (ประเทศจีน) ผู้พัฒนาวัตถุดิบของเรา"
 R_TH_BODY = f"""  <article>
-    <p>สูตร Paint Coating ที่เรานำเข้าวัตถุดิบมา ถูกพัฒนาขึ้นเพื่อลูกค้ากลุ่มนี้ก่อนใคร — <b>ผู้ให้บริการระบบราง</b> ในจีน ที่ตัวถังรถไฟความเร็วสูงต้องเข้าล้างทุกๆ 4,000 กิโลเมตร ผิวสีดูดเขม่า ผงเหล็กจากราง ฟิล์มน้ำมัน และซากแมลงตลอดทาง ยิ่งล้างบ่อยยิ่งกัดสี และค่าล้างต่อรอบของขบวนรถทั้งขบวนไม่ใช่เงินเล็ก</p>
+    <p>สูตร Paint Coating ที่เรานำเข้าวัตถุดิบมา มีกลุ่มลูกค้าหลักกลุ่มหนึ่งคือ <b>ผู้ให้บริการระบบราง</b> ในจีน ที่ตัวถังรถไฟความเร็วสูงต้องเข้าล้างทุกๆ 4,000 กิโลเมตร ผิวสีดูดเขม่า ผงเหล็กจากราง ฟิล์มน้ำมัน และซากแมลงตลอดทาง ยิ่งล้างบ่อยยิ่งกัดสี และค่าล้างต่อรอบของขบวนรถทั้งขบวนไม่ใช่เงินเล็ก</p>
 {fig(R,1,'หัวรถไฟความเร็วสูงสีขาวในโรงซ่อมบำรุง ผิวสีมีจุดคราบสกปรกกระจายทั่ว','หัวรถไฟความเร็วสูงในโรงซ่อมบำรุง — สภาพก่อนทำ ผิวสีขาวมีจุดคราบและซากแมลงกระจายทั่ว นี่คือหลังวิ่งมาไม่กี่พันกิโลเมตร',hero=True)}
     <section class="step">
       <h2><span class="n">01</span>หัวรถไฟความเร็วสูง — แบ่งครึ่งด้วยเทป ทำฝั่งเดียว</h2>
@@ -133,12 +133,12 @@ R_TH_BODY = f"""  <article>
     </section>
     <section class="step">
       <h2><span class="n">03</span>รถราง — สีตัวถังคือหน้าตาของบริการ</h2>
-      <p>รถรางในเมืองวิ่งช้ากว่าแต่โดนมากกว่า — ฝุ่นถนน ควันรถ และมือคนที่สัมผัสทุกวัน สีตัวถังคือสิ่งแรกที่ผู้โดยสารเห็น ทีมงานเข้าทำในโรงจอดตอนรถออกจากสาย</p>
+      <p>รถรางในเมืองวิ่งช้ากว่าแต่โดนมากกว่า — ฝุ่นถนน ควันรถ และมือคนที่สัมผัสทุกวัน สีตัวถังคือสิ่งแรกที่ผู้โดยสารเห็น ทีมงานเข้าทำในโรงจอดช่วงที่รถพักจากการให้บริการ</p>
 {fig(R,7,'หัวรถรางสีเขียวขาวในโรงจอด ทีมงานกำลังทำงานที่กระจกหน้า','รถรางในโรงจอด — ทีมงานทำที่หัวรถและกระจกหน้า รถอีกคันรอคิวด้านหลัง')}
     </section>
     <section class="step">
       <h2><span class="n">04</span>แล้วเกี่ยวอะไรกับงานในไทย</h2>
-      <p>ไม่มีใครในไทยมีรถไฟความเร็วสูงเป็นของตัวเอง แต่<b>รถบัสประจำทาง รถทัวร์ รถขนส่งของบริษัทโลจิสติกส์ รถบรรทุกฟลีท</b> เจอปัญหาเดียวกันทุกข้อ — ล้างบ่อยไม่ไหว ล้างแล้วสีด้าน ค่าล้างต่อคันคูณจำนวนคันแล้วเป็นเงินก้อนใหญ่ทุกเดือน สูตรที่ผ่านงานระดับรถไฟความเร็วสูงมาแล้ว ใช้กับฟลีทรถในไทยได้ทันที ปรึกษาเราก่อนได้ทางแชท</p>
+      <p>รถไฟความเร็วสูงในไทยยังอยู่ระหว่างก่อสร้าง แต่<b>รถบัสประจำทาง รถทัวร์ รถขนส่งของบริษัทโลจิสติกส์ รถบรรทุกฟลีท</b> เจอปัญหาเดียวกันทุกข้อ — ล้างบ่อยไม่ไหว ล้างแล้วสีด้าน ค่าล้างต่อคันคูณจำนวนคันแล้วเป็นเงินก้อนใหญ่ทุกเดือน สูตรที่ผ่านงานระดับรถไฟความเร็วสูงมาแล้ว ใช้กับฟลีทรถในไทยได้ทันที ปรึกษาเราก่อนได้ทางแชท</p>
     </section>
     <section class="step">
       <h2><span class="n">📷</span>ภาพหน้างานเพิ่มเติมทั้งชุด</h2>
@@ -155,7 +155,7 @@ R_EN_DESC = ("A project by Feibo, the developer of our Paint Coating raw materia
 R_EN_EYEBROW = "Case Study · Coatings / Paint Coating"
 R_EN_META = "Published Sept 2026 · Site photos from the Feibo team (China), developer of our raw material"
 R_EN_BODY = f"""  <article>
-    <p>The Paint Coating formulation whose raw material we import was developed for this customer group before anyone else — <b>rail operators</b> in China, where high-speed train bodies go through the wash every 4,000 kilometres. The paint collects soot, iron dust from the rails, oil film and insect remains the whole way; every wash wears the paint a little more, and washing a whole trainset is not cheap.</p>
+    <p>The Paint Coating formulation whose raw material we import has one of its main customer groups in <b>rail operators</b> in China, where high-speed train bodies go through the wash every 4,000 kilometres. The paint collects soot, iron dust from the rails, oil film and insect remains the whole way; every wash wears the paint a little more, and washing a whole trainset is not cheap.</p>
 {fig(R,1,'Nose of a white high-speed train in a maintenance depot, paint speckled with dirt','A high-speed train nose in the depot — before treatment, the white paint speckled with grime and insect remains. This is after only a few thousand kilometres',hero=True)}
     <section class="step">
       <h2><span class="n">01</span>The train nose — taped down the middle, one side treated</h2>
@@ -178,7 +178,7 @@ R_EN_BODY = f"""  <article>
     </section>
     <section class="step">
       <h2><span class="n">04</span>What this means for work in Thailand</h2>
-      <p>Nobody in Thailand runs their own high-speed train, but <b>city buses, coaches, logistics fleets and truck fleets</b> face every one of the same problems — can't wash often enough, washing dulls the paint, and the per-vehicle wash cost multiplied by the fleet is real money every month. A formulation proven at high-speed-rail level goes straight onto a Thai fleet. Ask us in chat before you start.</p>
+      <p>High-speed rail in Thailand is still under construction, but <b>city buses, coaches, logistics fleets and truck fleets</b> face every one of the same problems — can't wash often enough, washing dulls the paint, and the per-vehicle wash cost multiplied by the fleet is real money every month. A formulation proven at high-speed-rail level goes straight onto a Thai fleet. Ask us in chat before you start.</p>
     </section>
     <section class="step">
       <h2><span class="n">📷</span>More Site Photos — the Whole Set</h2>
