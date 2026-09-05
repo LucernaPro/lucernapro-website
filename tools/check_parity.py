@@ -98,6 +98,26 @@ def main():
         shp = io.open('ship/index.html', encoding='utf-8').read()
         if 'lucerna-ship.lekvtwin.workers.dev' not in shp:
             problems['ship/index.html'].append('API.url หาย — หน้าแอปไม่ได้ต่อกับ Worker')
+    # ยาม JS ทุกหน้า: inline <script> ที่ syntax พัง = ปุ่มธีม/ลิ้นชัก/ค้นหาตายเงียบๆ
+    # (บทเรียน 5 ก.ย. 2026: สคริปต์ปุ่มธีมโดนตัดท้ายบน 6 หน้า EN โดยไม่มีใครเห็น)
+    # รวมทุกสคริปต์แล้วคอมไพล์ใน node รอบเดียว (vm.Script) — ไม่รัน แค่เช็ค syntax
+    import json as _json
+    _scripts = []
+    for p in files:
+        _s = io.open(p, encoding='utf-8').read()
+        for _i, _m in enumerate(re.finditer(r'<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)</script>', _s)):
+            if 'ld+json' in _m.group(1): continue
+            _scripts.append({'p': p, 'i': _i + 1, 'c': _m.group(2)})
+    with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf-8') as _f:
+        _json.dump(_scripts, _f); _tmp = _f.name
+    _js = ("const vm=require('vm'),fs=require('fs');const L=JSON.parse(fs.readFileSync(process.argv[1],'utf8'));"
+           "for(const s of L){try{new vm.Script(s.c)}catch(e){console.log(JSON.stringify({p:s.p,i:s.i,e:String(e.message)}))}}")
+    _r = subprocess.run(['node', '-e', _js, _tmp], capture_output=True, text=True)
+    os.unlink(_tmp)
+    for _line in (_r.stdout or '').splitlines():
+        _o = _json.loads(_line)
+        problems[_o['p']].append('JS พัง (script #%d): %s' % (_o['i'], _o['e'][:120]))
+
     ids_by_page, meta = {}, {}
 
     for p in files:

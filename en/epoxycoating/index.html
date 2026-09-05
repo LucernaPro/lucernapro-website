@@ -371,6 +371,17 @@ img{height:auto}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
+<style id="sitesearch-css">
+  .mnav-search{margin:12px 0 4px;position:relative}
+  .mnav-search input{width:100%;font-family:inherit;font-size:15px;padding:11px 12px 11px 38px;border:1.5px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);outline:none}
+  .mnav-search input::placeholder{color:var(--muted)}
+  .mnav-search input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(237,106,47,.22)}
+  .mnav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;opacity:.6}
+  .topsearch{display:none;align-items:center;gap:6px;font-size:14px;color:var(--muted);white-space:nowrap;text-decoration:none}
+  .topsearch svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .topsearch:hover{color:var(--orange)}
+  @media(min-width:861px){.topsearch{display:inline-flex}}
+</style>
 </head>
 <body>
 
@@ -379,6 +390,7 @@ img{height:auto}
     <button class="mnav-btn" id="mnavBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     <a class="brand" href="/en/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
     <a class="backlink" href="/en/">← All products</a>
+    <a class="topsearch" href="/en/search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span>Search</span></a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">🌙</button>
     <a class="lang-switch" href="/epoxycoating">TH</a>
     <a class="cta-chat" href="https://lin.ee/LpUR3Ld"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#06C755;color:#fff;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em">LINE</span>Add LINE</a>
@@ -393,6 +405,7 @@ img{height:auto}
     <button class="mnav-close" id="mnavClose" aria-label="Close menu">✕</button>
   </div>
   <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <form class="mnav-search" id="siteSearch" action="/en/search" method="get" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><input type="search" name="q" placeholder="Search products / case studies…" aria-label="Search" autocomplete="off"></form>
   <div class="mnav-k">MENU</div>
   <nav class="mnav-links">
     <a href="/en/">Home <span>→</span></a>
@@ -770,6 +783,8 @@ tgl.addEventListener('click', ()=>{
   if(!root.dataset.theme) delete root.dataset.theme;
   try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
   syncIcon();
+});
+syncIcon();
 </script>
 <!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
 <script>
