@@ -369,6 +369,12 @@ img{height:auto}
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
   .direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}
 img{height:auto}
+  /* กันล้นจอมือถือ: .bignum เป็น nowrap (ตัวเลขใหญ่) แต่คำอธิบายใน small ต้องตัดบรรทัดได้ / small ในตารางราคาก็เช่นกัน (td.pr เป็น nowrap) */
+  .bignum small{white-space:normal}
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45;white-space:normal}
+  .pricecard.cmp table{table-layout:fixed}
+  .pricecard.cmp th,.pricecard.cmp td{padding-left:12px;padding-right:12px}
+  @media(max-width:520px){.pricecard.cmp{font-size:14px}.pricecard.cmp th{font-size:10.5px;letter-spacing:.06em}.pricecard.cmp td{padding:11px 9px;font-size:13.5px}.pricecard.cmp td small{font-size:11.5px}}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -606,14 +612,14 @@ img{height:auto}
 
     <div class="warn" id="primerprice" style="margin-top:22px"><b>The most important advice on this page</b> — unless your concrete is new and beyond doubt sound, <b>add CorePrimer</b>. It costs <b>about 54 THB per square metre</b> more (one tin does 50 m² in a single coat), and what you get is paint gripping concrete that has been locked solid first — with only 5–10 minutes before the paint goes on. One episode of peeling pool paint — draining, sanding, repainting — costs many times more than priming the whole pool.</div>
 
-    <div class="pricecard" style="margin-top:16px">
+    <div class="pricecard cmp" style="margin-top:16px">
       <div class="ph">Paint only vs primer + paint<small>Whole tins, VAT included · PoolArmour two coats · CorePrimer one coat</small></div>
       <table>
-        <thead><tr><th>Pool size</th><th>PoolArmour only</th><th>CorePrimer + PoolArmour</th><th>Difference</th></tr></thead>
+        <thead><tr><th>Pool size</th><th>PoolArmour only</th><th>CorePrimer + PoolArmour</th></tr></thead>
         <tbody>
-          <tr><td class="sz">25 m²<small>small home pool</small></td><td class="pr">1,910.-<small>paint 5 kg × 1 · ≈ 76 THB/m²</small></td><td class="pr">4,600.-<small>+ primer 5 kg × 1 (half a tin left over) · ≈ 184 THB/m²</small></td><td>+2,690.-</td></tr>
-          <tr><td class="sz">50 m²<small>typical home pool</small></td><td class="pr">3,820.-<small>paint 5 kg × 2 · ≈ 76 THB/m²</small></td><td class="pr">6,510.-<small>+ primer 5 kg × 1 · ≈ 130 THB/m²</small></td><td>+2,690.-</td></tr>
-          <tr><td class="sz">90 m²<small>large / public pool</small></td><td class="pr">5,890.-<small>paint 18 kg × 1 · ≈ 65 THB/m²</small></td><td class="pr">11,270.-<small>+ primer 5 kg × 2 · ≈ 125 THB/m²</small></td><td>+5,380.-</td></tr>
+          <tr><td class="sz">25 m²<small>small home pool</small></td><td class="pr">1,910.-<small>paint 5 kg × 1 · ≈ 76 THB/m²</small></td><td class="pr">4,600.-<small>+ primer 5 kg × 1 (half a tin left over) · ≈ 184 THB/m² · 2,690.- more than paint only</small></td></tr>
+          <tr><td class="sz">50 m²<small>typical home pool</small></td><td class="pr">3,820.-<small>paint 5 kg × 2 · ≈ 76 THB/m²</small></td><td class="pr">6,510.-<small>+ primer 5 kg × 1 · ≈ 130 THB/m² · 2,690.- more than paint only</small></td></tr>
+          <tr><td class="sz">90 m²<small>large / public pool</small></td><td class="pr">5,890.-<small>paint 18 kg × 1 · ≈ 65 THB/m²</small></td><td class="pr">11,270.-<small>+ primer 5 kg × 2 · ≈ 125 THB/m² · 5,380.- more than paint only</small></td></tr>
         </tbody>
       </table>
     </div>

@@ -368,6 +368,12 @@ img{height:auto}
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
   .direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}
 img{height:auto}
+  /* กันล้นจอมือถือ: .bignum เป็น nowrap (ตัวเลขใหญ่) แต่คำอธิบายใน small ต้องตัดบรรทัดได้ / small ในตารางราคาก็เช่นกัน (td.pr เป็น nowrap) */
+  .bignum small{white-space:normal}
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45;white-space:normal}
+  .pricecard.cmp table{table-layout:fixed}
+  .pricecard.cmp th,.pricecard.cmp td{padding-left:12px;padding-right:12px}
+  @media(max-width:520px){.pricecard.cmp{font-size:14px}.pricecard.cmp th{font-size:10.5px;letter-spacing:.06em}.pricecard.cmp td{padding:11px 9px;font-size:13.5px}.pricecard.cmp td small{font-size:11.5px}}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -605,14 +611,14 @@ img{height:auto}
 
     <div class="warn" id="primerprice" style="margin-top:22px"><b>คำแนะนำที่สำคัญที่สุดของหน้านี้</b> — ถ้าปูนของคุณไม่ใช่ปูนใหม่ผิวแน่นแบบไร้ข้อสงสัย <b>ใส่ CorePrimer ไปด้วยเถอะ</b> ต้นทุนเพิ่มแค่<b>ราว 54 บาทต่อตารางเมตร</b> (กระป๋องเดียวทาได้ 50 ตร.ม. รอบเดียวจบ) แต่สิ่งที่ได้คือสีเกาะบนปูนที่ถูกล็อกให้แน่นแล้ว และรอแค่ 5–10 นาทีก็ลงสีต่อได้เลย — สีสระหลุดหนึ่งครั้ง ค่าถ่ายน้ำ ขัด และทาใหม่ แพงกว่ารองพื้นทั้งสระหลายเท่า</div>
 
-    <div class="pricecard" style="margin-top:16px">
+    <div class="pricecard cmp" style="margin-top:16px">
       <div class="ph">ทาสีอย่างเดียว vs รองพื้น + สี<small>ราคายกกระป๋อง รวม VAT · PoolArmour ครบ 2 รอบ · CorePrimer รอบเดียว</small></div>
       <table>
-        <thead><tr><th>ขนาดสระ</th><th>PoolArmour อย่างเดียว</th><th>CorePrimer + PoolArmour</th><th>ส่วนต่าง</th></tr></thead>
+        <thead><tr><th>ขนาดสระ</th><th>PoolArmour อย่างเดียว</th><th>CorePrimer + PoolArmour</th></tr></thead>
         <tbody>
-          <tr><td class="sz">25 ตร.ม.<small>สระบ้านขนาดเล็ก</small></td><td class="pr">1,910.-<small>สี 5 กก. × 1 · ≈ 76 บาท/ตร.ม.</small></td><td class="pr">4,600.-<small>+ รองพื้น 5 กก. × 1 (เหลือครึ่งกระป๋อง) · ≈ 184 บาท/ตร.ม.</small></td><td>+2,690.-</td></tr>
-          <tr><td class="sz">50 ตร.ม.<small>สระบ้านทั่วไป</small></td><td class="pr">3,820.-<small>สี 5 กก. × 2 · ≈ 76 บาท/ตร.ม.</small></td><td class="pr">6,510.-<small>+ รองพื้น 5 กก. × 1 · ≈ 130 บาท/ตร.ม.</small></td><td>+2,690.-</td></tr>
-          <tr><td class="sz">90 ตร.ม.<small>สระใหญ่ / สระสาธารณะ</small></td><td class="pr">5,890.-<small>สี 18 กก. × 1 · ≈ 65 บาท/ตร.ม.</small></td><td class="pr">11,270.-<small>+ รองพื้น 5 กก. × 2 · ≈ 125 บาท/ตร.ม.</small></td><td>+5,380.-</td></tr>
+          <tr><td class="sz">25 ตร.ม.<small>สระบ้านขนาดเล็ก</small></td><td class="pr">1,910.-<small>สี 5 กก. × 1 · ≈ 76 บาท/ตร.ม.</small></td><td class="pr">4,600.-<small>+ รองพื้น 5 กก. × 1 (เหลือครึ่งกระป๋อง) · ≈ 184 บาท/ตร.ม. · เพิ่มจากทาสีอย่างเดียว 2,690.-</small></td></tr>
+          <tr><td class="sz">50 ตร.ม.<small>สระบ้านทั่วไป</small></td><td class="pr">3,820.-<small>สี 5 กก. × 2 · ≈ 76 บาท/ตร.ม.</small></td><td class="pr">6,510.-<small>+ รองพื้น 5 กก. × 1 · ≈ 130 บาท/ตร.ม. · เพิ่มจากทาสีอย่างเดียว 2,690.-</small></td></tr>
+          <tr><td class="sz">90 ตร.ม.<small>สระใหญ่ / สระสาธารณะ</small></td><td class="pr">5,890.-<small>สี 18 กก. × 1 · ≈ 65 บาท/ตร.ม.</small></td><td class="pr">11,270.-<small>+ รองพื้น 5 กก. × 2 · ≈ 125 บาท/ตร.ม. · เพิ่มจากทาสีอย่างเดียว 5,380.-</small></td></tr>
         </tbody>
       </table>
     </div>

@@ -305,7 +305,6 @@
   .sw .chip{display:block;height:86px;border-bottom:1px solid var(--line)}
   .sw .nm{font-family:var(--disp);font-weight:600;font-size:14.5px;padding:10px 11px 0;line-height:1.3}
   .sw .hx{font-size:12px;color:var(--muted);padding:3px 11px 11px;line-height:1.45}
-  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
   /* ---- คลิปโฮสต์เอง: ยกจาก /masterseal — .fbv video ให้ <video> เต็มกรอบเหมือน iframe
      และ .vert.c2 = คลิปตั้ง 2 ตัว จอใหญ่ flex กึ่งกลาง / มือถือตกไปใช้ rail ของ .vert ---- */
   .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
@@ -372,6 +371,12 @@
     .mnav-chat{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}
   }
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
+  /* กันล้นจอมือถือ: .bignum เป็น nowrap (ตัวเลขใหญ่) แต่คำอธิบายใน small ต้องตัดบรรทัดได้ / small ในตารางราคาก็เช่นกัน (td.pr เป็น nowrap) */
+  .bignum small{white-space:normal}
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45;white-space:normal}
+  .pricecard.cmp table{table-layout:fixed}
+  .pricecard.cmp th,.pricecard.cmp td{padding-left:12px;padding-right:12px}
+  @media(max-width:520px){.pricecard.cmp{font-size:14px}.pricecard.cmp th{font-size:10.5px;letter-spacing:.06em}.pricecard.cmp td{padding:11px 9px;font-size:13.5px}.pricecard.cmp td small{font-size:11.5px}}
 </style>
 
 <script src="/track.js" defer></script>
@@ -500,14 +505,14 @@
     <div class="note"><b>Coverage 1 kg ≈ 10 m² — one coat is enough, no second pass over the whole surface</b> on typical concrete — <b>the more porous the concrete, the more it drinks</b>. This product works by soaking in, so real coverage depends on how much the concrete absorbs. Use the figure to budget, not to order to the gram — allow a little extra.</div>
     <p class="pricenote"><b>Priced as a system, it's less than you'd think</b> — CorePrimer 2,690 THB ÷ 50 m² = <b>about 54 THB/m²</b> · <a href="/en/poolarmour" style="color:var(--orange)">PoolArmour</a> 5 kg 1,910 THB ÷ 25 m² (two coats) = about 76 THB/m² — <b>around 130 THB per square metre for primer and waterproofing paint together</b> (about 120 with the 18 kg pail) — small next to the cost of redoing a pool because the paint peeled.</p>
     <p class="pricenote"><b>Order it with PoolArmour in one order and shipping is combined, not charged per item</b> — ask before you transfer.</p>
-    <div class="pricecard" style="margin-top:22px">
+    <div class="pricecard cmp" style="margin-top:22px">
       <div class="ph">Paint only vs primer + paint<small>Real prices from this site, whole tins · PoolArmour two coats · CorePrimer one coat</small></div>
       <table>
-        <thead><tr><th>Pool size</th><th>PoolArmour only</th><th>CorePrimer + PoolArmour</th><th>Difference</th></tr></thead>
+        <thead><tr><th>Pool size</th><th>PoolArmour only</th><th>CorePrimer + PoolArmour</th></tr></thead>
         <tbody>
-          <tr><td class="sz">25 m²<small>small home pool</small></td><td class="pr">1,910.-<small>paint 5 kg × 1 · ≈ 76 THB/m²</small></td><td class="pr">4,600.-<small>+ primer 5 kg × 1 (half a tin left over) · ≈ 184 THB/m²</small></td><td>+2,690.-</td></tr>
-          <tr><td class="sz">50 m²<small>typical home pool</small></td><td class="pr">3,820.-<small>paint 5 kg × 2 · ≈ 76 THB/m²</small></td><td class="pr">6,510.-<small>+ primer 5 kg × 1 · ≈ 130 THB/m²</small></td><td>+2,690.-</td></tr>
-          <tr><td class="sz">90 m²<small>large / public pool</small></td><td class="pr">5,890.-<small>paint 18 kg × 1 · ≈ 65 THB/m²</small></td><td class="pr">11,270.-<small>+ primer 5 kg × 2 · ≈ 125 THB/m²</small></td><td>+5,380.-</td></tr>
+          <tr><td class="sz">25 m²<small>small home pool</small></td><td class="pr">1,910.-<small>paint 5 kg × 1 · ≈ 76 THB/m²</small></td><td class="pr">4,600.-<small>+ primer 5 kg × 1 (half a tin left over) · ≈ 184 THB/m² · 2,690.- more than paint only</small></td></tr>
+          <tr><td class="sz">50 m²<small>typical home pool</small></td><td class="pr">3,820.-<small>paint 5 kg × 2 · ≈ 76 THB/m²</small></td><td class="pr">6,510.-<small>+ primer 5 kg × 1 · ≈ 130 THB/m² · 2,690.- more than paint only</small></td></tr>
+          <tr><td class="sz">90 m²<small>large / public pool</small></td><td class="pr">5,890.-<small>paint 18 kg × 1 · ≈ 65 THB/m²</small></td><td class="pr">11,270.-<small>+ primer 5 kg × 2 · ≈ 125 THB/m² · 5,380.- more than paint only</small></td></tr>
         </tbody>
       </table>
     </div>
