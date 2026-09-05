@@ -233,6 +233,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/epdm"/>
   </url>
   <url>
+    <loc>https://www.lucernapro.com/en/epoxycoating</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/epoxycoating"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/epoxycoating"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/epoxycoating"/>
+  </url>
+  <url>
     <loc>https://www.lucernapro.com/en/epoxygrout</loc>
     <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/epoxygrout"/>
@@ -507,6 +513,7 @@
   </url>
   <url>
     <loc>https://www.lucernapro.com/en/post/laundromat-pu-floor-ral7040</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/post/laundromat-pu-floor-ral7040"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/post/laundromat-pu-floor-ral7040"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/post/laundromat-pu-floor-ral7040"/>
@@ -673,6 +680,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/submarine"/>
   </url>
   <url>
+    <loc>https://www.lucernapro.com/en/surfaceguard</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/surfaceguard"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/surfaceguard"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/surfaceguard"/>
+  </url>
+  <url>
     <loc>https://www.lucernapro.com/en/swiftset</loc>
     <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/swiftset"/>
@@ -704,6 +717,7 @@
     <loc>https://www.lucernapro.com/epoxycoating</loc>
     <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/epoxycoating"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/epoxycoating"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/epoxycoating"/>
   </url>
   <url>
@@ -985,6 +999,7 @@
   </url>
   <url>
     <loc>https://www.lucernapro.com/post/laundromat-pu-floor-ral7040</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/post/laundromat-pu-floor-ral7040"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/post/laundromat-pu-floor-ral7040"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/post/laundromat-pu-floor-ral7040"/>
@@ -1154,6 +1169,7 @@
     <loc>https://www.lucernapro.com/surfaceguard</loc>
     <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/surfaceguard"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/surfaceguard"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/surfaceguard"/>
   </url>
   <url>
