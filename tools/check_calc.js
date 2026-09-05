@@ -18,13 +18,17 @@ const { execSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '..');
 const calcSrc = fs.readFileSync(path.join(ROOT, 'calc.js'), 'utf8');
 
-function load(file, area, dims) {
+function load(file, area, dims, opts) {
+  opts = opts || {};
   const dom = new JSDOM(fs.readFileSync(file, 'utf8'), { runScripts: 'outside-only' });
   const w = dom.window;
   w.eval(calcSrc); // โยน error = fail ทันที
   const A = w.document.getElementById('lcA');
   if (!A) return { err: 'กล่องคำนวณไม่ขึ้น' };
   const fire = (el, v) => { el.value = String(v); el.dispatchEvent(new w.Event('input', { bubbles: true })); };
+  /* v2.3 add-on รองพื้น: opts.addon === false → ติ๊กออกก่อนกรอก (ค่าเริ่มต้นของหน้า = ติ๊กไว้) */
+  const Pf = w.document.getElementById('lcP');
+  if (opts.addon === false && Pf) { Pf.checked = false; Pf.dispatchEvent(new w.Event('change', { bubbles: true })); }
   if (dims) {
     /* โหมดบ่อ: กรอกกว้าง/ยาว/ลึกเหมือนลูกค้าจริง — d ไม่ระบุ = จงใจทดสอบว่าระบบ "ไม่คำนวณ" */
     const Wf = w.document.getElementById('lcW'), Lf = w.document.getElementById('lcL'),
@@ -42,6 +46,8 @@ function load(file, area, dims) {
     big: /ทักมาขอใบเสนอราคา|message us for a quote/.test(out.innerHTML),
     note: /คิดเต็มทุกถัง|charged in full/.test(out.innerHTML),
     needDepth: /กรอกความลึกด้วย|enter the depth/.test(out.innerHTML),
+    hasAddon: !!Pf,
+    addonRow: /CorePrimer/.test(out.innerHTML),
   };
 }
 
@@ -89,15 +95,22 @@ const TANKS = [
   // pondmax 2×3×1 ม. → 6+10 = 16 ตร.ม. → 2.5kg+1kg = 3,100 + ส่ง 130×2 = 3,360 (2 ชิ้น → มีโน้ตค่าส่ง)
   { f: 'pondmax/index.html',       w: 2, l: 3, d: 1,   total: '3,360', note: true },
   { f: 'en/pondmax/index.html',    w: 2, l: 3, d: 1,   total: '3,360', note: true },
-  // poolarmour 4×8×1.5 ม. → 32+36 = 68 ตร.ม. → 5kg×2+1kg×4 = 5,700 (ไม่มี data-shipping → ไม่มีโน้ต)
-  { f: 'poolarmour/index.html',    w: 4, l: 8, d: 1.5, total: '5,700', note: false },
-  { f: 'en/poolarmour/index.html', w: 4, l: 8, d: 1.5, total: '5,700', note: false },
+  // poolarmour 4×8×1.5 ม. → 32+36 = 68 ตร.ม. → สี 5kg×2+1kg×4 = 5,700 (ไม่มี data-shipping → ไม่มีโน้ต)
+  // v2.3 (5 ก.ย. 2026): add-on CorePrimer ติ๊กไว้เป็นค่าเริ่มต้น → 68/50 = 2 กระป๋อง 5,380 → รวม 11,080 / ติ๊กออก → 5,700 เท่าเดิม
+  { f: 'poolarmour/index.html',    w: 4, l: 8, d: 1.5, total: '11,080', note: false, addon: true },
+  { f: 'en/poolarmour/index.html', w: 4, l: 8, d: 1.5, total: '11,080', note: false, addon: true },
+  { f: 'poolarmour/index.html',    w: 4, l: 8, d: 1.5, total: '5,700',  note: false, addon: false },
+  { f: 'en/poolarmour/index.html', w: 4, l: 8, d: 1.5, total: '5,700',  note: false, addon: false },
 ];
 for (const k of TANKS) {
   const f = path.join(ROOT, k.f);
   try {
-    const r = load(f, 0, { w: k.w, l: k.l, d: k.d });
+    const r = load(f, 0, { w: k.w, l: k.l, d: k.d }, { addon: k.addon });
     if (r.err) { bad(f, r.err); continue; }
+    if (k.addon !== undefined) {
+      if (!r.hasAddon) bad(f, 'ตารางมี data-addon แต่ไม่มี checkbox รองพื้น (lcP)');
+      if (r.addonRow !== k.addon) bad(f, `add-on ${k.addon}: บรรทัดรองพื้นในผลลัพธ์ ${r.addonRow} ≠ ${k.addon}`);
+    } else if (r.hasAddon) bad(f, 'หน้านี้ไม่ควรมี checkbox รองพื้น แต่มี');
     if (r.total !== k.total) bad(f, `บ่อ ${k.w}×${k.l}×${k.d}: ยอดรวม ${r.total} ≠ ${k.total} ที่ยืนยันไว้`);
     if (r.note !== k.note) bad(f, `บ่อ ${k.w}×${k.l}×${k.d}: โน้ตค่าส่ง ${r.note} ≠ ${k.note}`);
     // กรอกแค่กว้าง×ยาว ไม่กรอกลึก → ต้อง "ไม่คำนวณ" และเตือนให้กรอกลึก (กันซื้อขาด)
