@@ -92,6 +92,7 @@ TH_BODY = f"""  <article>
       <h2><span class="n">01</span>ปัญหาอยู่ที่รอยต่อ ไม่ใช่ที่ผนัง</h2>
       <p>ภาพระยะใกล้จากภายใน: แนวรอยต่อระหว่างผนังกับเสามีรอยแยกเป็นเส้นยาวตลอดแนว ผิวปูนสองฝั่งยังแน่นดี แต่จุดที่สองชิ้นมาชนกันคือช่องที่น้ำจะหาเจอเสมอ — สิ่งก่อสร้างสูงและกว้างแบบนี้ ผนัง เสา คาน ขยับตัวไม่เท่ากันตามอุณหภูมิ รอยต่อจึงเป็นจุดแรกที่เปิด</p>
 {fig(2,'รอยแยกแนวตั้งยาวตลอดแนวรอยต่อระหว่างผนังปูนกับเสาภายในองค์เจดีย์','แนวรอยต่อผนัง-เสาภายใน — รอยแยกเป็นเส้นต่อเนื่องตลอดความสูง นี่คือจุดที่ทีมช่างไล่ทา')}
+      <p><b>กติกาข้อแรกที่ต้องย้ำก่อนพูดถึงน้ำยาตัวไหนทั้งนั้น: รอยต่อที่แยกเป็นร่องแบบนี้ ต้องโป๊วอุดให้เต็มก่อนเสมอ — ไม่โป๊วก่อน ทาอะไรทับไปก็เอาไม่อยู่</b> DeepSeal เป็นน้ำยาซึม มีไว้ปิดรูพรุนและรอยร้าวเส้นผมในเนื้อปูน มันไม่ใช่ตัวถมร่อง ร่องที่มองเห็นเป็นช่องคือช่องที่ฟิล์มบางๆ จะแขวนข้ามแล้วขาดในที่สุด รอยต่อผนังทั่วไปโป๊วด้วย <a href="/fillerace">FillerAce</a> · รอยต่อที่ขยับตัวหรือเป็นจุดยากอย่างผนังชนเสาบนที่สูงแบบนี้ ใช้ <a href="/deepstick">DeepStick</a> อัดให้เต็มแนว — รอแห้งเรียบร้อยแล้วค่อยทา DeepSeal ทับให้ชุ่มทั้งแนว</p>
     </section>
     <section class="step">
       <h2><span class="n">02</span>ภายใน — ทาด้วยแปรง ไล่ตามแนวรอยต่อ</h2>
@@ -99,7 +100,7 @@ TH_BODY = f"""  <article>
 {fig(3,'มือถือแปรงทา DeepSeal ตามแนวรอยต่อตั้งระหว่างผนังกับเสา เห็นน้ำยาใสอมเหลืองซึมตามรอยแยก','ทาให้ชุ่มตามแนวรอยแยก — น้ำยาใสอมเหลืองซึมลงในร่อง ไม่ใช่เคลือบอยู่บนผิว')}
 {fig(4,'ช่างสวมสายรัดนิรภัยยืนบนที่สูงใช้แปรงทาแนวรอยต่อระหว่างคานกับเพดานภายใน ผนังด้านล่างมีคราบน้ำ','รอยต่อคาน-เพดาน — ผนังด้านล่างมีคราบน้ำไหลเป็นทางให้เห็น ทีมช่างรัดสายนิรภัยขึ้นทาที่แนวรอยต่อด้านบน')}
 {fig(5,'ช่างนั่งยองใช้แปรงทา DeepSeal แนวผนังชนพื้นใต้แนวหน้าต่างกระจกภายในองค์เจดีย์','แนวผนังชนพื้นใต้แนวหน้าต่าง — มุมฉากที่ผนังตั้งชนพื้นราบคือรอยต่ออันดับต้นๆ ที่เรารู้จักดี')}
-      <p>วิธีใช้ที่ถูกต้องบนหน้างานแบบนี้คือแบบเดียวกับที่เขียนไว้บนหน้า <a href="/deepseal">DeepSeal</a>: เปิดผิวถึงปูนเปลือย ห้ามมีน้ำขัง ทาให้ชุ่มเน้นรอยต่อและมุม ถ้าผิวพรุนจัดทารอบสองตัดขวางตอนรอบแรกเริ่มหมาด แล้วปล่อยเซ็ตตัวข้ามคืน 12–24 ชั่วโมงก่อนทำอะไรทับ — รอยแยกที่กว้างจริงต้องอุดให้เต็มก่อนด้วยวัสดุซ่อม ไม่ใช่หวังให้น้ำยาถมร่องเอง</p>
+      <p>วิธีใช้ที่ถูกต้องบนหน้างานแบบนี้คือแบบเดียวกับที่เขียนไว้บนหน้า <a href="/deepseal">DeepSeal</a>: เปิดผิวถึงปูนเปลือย ห้ามมีน้ำขัง ทาให้ชุ่มเน้นรอยต่อและมุม ถ้าผิวพรุนจัดทารอบสองตัดขวางตอนรอบแรกเริ่มหมาด แล้วปล่อยเซ็ตตัวข้ามคืน 12–24 ชั่วโมงก่อนทำอะไรทับ — และย้ำอีกครั้ง: แนวที่แยกเป็นร่องต้องโป๊วให้เต็มก่อนถึงขั้นนี้ ไม่ใช่หวังให้น้ำยาถมร่องเอง</p>
     </section>
     <section class="step">
       <h2><span class="n">03</span>ด้านนอกบนกระเบื้ององค์เจดีย์ — ทีมช่างเลือกใช้เอง และเราต้องพูดตรงๆ</h2>
@@ -111,7 +112,7 @@ TH_BODY = f"""  <article>
     </section>
     <section class="step">
       <h2><span class="n">04</span>สรุปสำหรับคนที่มีงานคล้ายกัน</h2>
-      <p><b>รอยต่อภายในอาคาร บนปูน ที่ออกไปซ่อมข้างนอกไม่ได้</b> — นี่คือสนามของ DeepSeal ทาด้วยแปรงตามแนวรอยต่อและมุม ให้ชุ่ม เซ็ตตัวข้ามคืน แล้วฉาบหรือทาสีทับได้ · <b>รอยต่อกลางแจ้ง</b> — ถ้าจะใช้ ต้องมีชั้นทับกันแดดเสมอ หรือถามเราก่อน เพราะงานกลางแจ้งส่วนใหญ่มีตัวที่ถูกกว่าและตรงกว่าในระบบเรา · <b>รอยแยกที่กว้าง</b> — อุดให้เต็มก่อนเสมอ น้ำยาซึมมีไว้ปิดรูพรุนและรอยร้าวเล็ก ไม่ใช่ถมร่อง</p>
+      <p><b>รอยต่อภายในอาคาร บนปูน ที่ออกไปซ่อมข้างนอกไม่ได้</b> — นี่คือสนามของ DeepSeal ทาด้วยแปรงตามแนวรอยต่อและมุม ให้ชุ่ม เซ็ตตัวข้ามคืน แล้วฉาบหรือทาสีทับได้ · <b>รอยต่อกลางแจ้ง</b> — ถ้าจะใช้ ต้องมีชั้นทับกันแดดเสมอ หรือถามเราก่อน เพราะงานกลางแจ้งส่วนใหญ่มีตัวที่ถูกกว่าและตรงกว่าในระบบเรา · <b>รอยต่อที่แยกเป็นร่อง — โป๊วให้เต็มก่อนเสมอ ไม่โป๊วก่อน ทายังไงก็เอาไม่อยู่</b> น้ำยาซึมมีไว้ปิดรูพรุนและรอยร้าวเล็ก ไม่ใช่ถมร่อง</p>
       <p>งานลักษณะเดียวกันบนอาคารสูง วัด หรือโครงสร้างที่ขึ้นไปทำยาก ส่งรูปรอยต่อกับบอกว่าอยู่ด้านในหรือด้านนอกมาทางแชทเพจได้เลย เราชี้ให้ว่าจุดไหนใช้ตัวนี้ จุดไหนควรใช้ตัวอื่น</p>
 {gallery_html('งานทา DeepSeal บนรอยต่อภายในและภายนอกองค์เจดีย์ กาฬสินธุ์ — ภาพหน้างานจริงจากทีมผู้รับเหมา')}
     </section>
@@ -132,6 +133,7 @@ EN_BODY = f"""  <article>
       <h2><span class="n">01</span>The problem is the joint, not the wall</h2>
       <p>A close-up from inside: the joint between a wall panel and a column has opened into a continuous line along its full height. The render on both sides is still sound, but where two elements meet is the gap water will always find — on a structure this tall and wide, walls, columns and beams move differently with temperature, so the joints open first.</p>
 {fig(2,'Long vertical gap along the joint between a rendered wall and a column inside the chedi','The interior wall-to-column joint — a continuous gap the full height. This is the line the crew worked along')}
+      <p><b>Rule number one, before any product is mentioned: a joint that has opened into a gap like this must be filled full first — skip the filling and nothing you brush over it will hold.</b> DeepSeal is a penetrating liquid; it closes pores and hairline cracks in the render. It is not a gap filler. A gap you can see is a gap a thin film will bridge and eventually tear across. Ordinary wall joints: fill with <a href="/en/fillerace">FillerAce</a> · joints that move or are awkward, like a wall-to-column line at height, pack full with <a href="/en/deepstick">DeepStick</a> — let it dry properly, then brush DeepSeal generously over the whole line.</p>
     </section>
     <section class="step">
       <h2><span class="n">02</span>Inside — brushed along the joint lines</h2>
@@ -139,7 +141,7 @@ EN_BODY = f"""  <article>
 {fig(3,'Hand holding a brush applying DeepSeal along a vertical wall-to-column joint, clear amber liquid soaking into the gap','Brushed generously along the gap — the clear amber liquid soaks into the joint rather than sitting on the surface')}
 {fig(4,'Worker in a safety harness standing at height brushing the beam-to-ceiling joint inside, water stains on the wall below','The beam-to-ceiling joint — the wall below shows water streaks. The crew clipped into a harness to work the joint line overhead')}
 {fig(5,'Worker crouching, brushing DeepSeal along the wall-to-floor line below a run of windows inside the chedi','The wall-to-floor line below the windows — the right-angle where a wall meets a floor is one of the joints we know best')}
-      <p>The correct method on a job like this is the one on the <a href="/en/deepseal">DeepSeal</a> page: open the surface to bare concrete, no standing water, brush generously with emphasis on joints and corners, add a second cross-wise coat while the first is going tacky if the surface is very porous, then leave it to set overnight — 12 to 24 hours — before doing anything over it. A gap that is genuinely wide must be filled with a repair material first; a penetrating liquid is not meant to fill a trench.</p>
+      <p>The correct method on a job like this is the one on the <a href="/en/deepseal">DeepSeal</a> page: open the surface to bare concrete, no standing water, brush generously with emphasis on joints and corners, add a second cross-wise coat while the first is going tacky if the surface is very porous, then leave it to set overnight — 12 to 24 hours — before doing anything over it. And once more: a line that has opened into a gap must be filled full before this step — do not expect the liquid to fill the trench.</p>
     </section>
     <section class="step">
       <h2><span class="n">03</span>Outside, on the chedi's tiles — the crew's own choice, and we have to be straight about it</h2>
@@ -151,7 +153,7 @@ EN_BODY = f"""  <article>
     </section>
     <section class="step">
       <h2><span class="n">04</span>In short, for anyone with a similar job</h2>
-      <p><b>Interior joints on render or concrete that cannot be repaired from outside</b> — DeepSeal's home ground: brush generously along joints and corners, let it set overnight, then skim or paint over · <b>Exterior joints</b> — if you use it, it needs a covering layer against the sun every time, or ask us first, because most outdoor jobs have a cheaper and more suitable product in our range · <b>Wide gaps</b> — fill them full first; a penetrating liquid closes pores and fine cracks, it does not fill a trench.</p>
+      <p><b>Interior joints on render or concrete that cannot be repaired from outside</b> — DeepSeal's home ground: brush generously along joints and corners, let it set overnight, then skim or paint over · <b>Exterior joints</b> — if you use it, it needs a covering layer against the sun every time, or ask us first, because most outdoor jobs have a cheaper and more suitable product in our range · <b>Joints that have opened into a gap — fill them full first, every time; skip the filling and nothing brushed over will hold.</b> A penetrating liquid closes pores and fine cracks; it does not fill a trench.</p>
       <p>Similar work on tall buildings, temples or structures that are hard to reach: send photos of the joints and tell us whether they are inside or outside, and we will point out where this product fits and where another one should go.</p>
 {gallery_html('DeepSeal work on the interior and exterior joints of a chedi in Kalasin — real site photos from the contractor crew')}
     </section>
