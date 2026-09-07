@@ -1,4 +1,6 @@
-/* LucernaPro Coverage Calculator v2.3 (2026-09-05)
+/* LucernaPro Coverage Calculator v2.4 (2026-09-07)
+ * v2.4: add-on รองพื้นหลายขนาด — data-addon-sizes="1 กก.:10:690|5 กก.:50:2690" (+ data-addon-sizes-en) → เลือกชุดที่ถูกสุดด้วย bestCombo
+ *       เหมือนสีทุกอย่าง (คิดค่าส่งต่อชิ้นจาก data-addon-ship ด้วย) แสดงบรรทัดละขนาด · ตารางที่ยังใช้ data-addon-sqm/-price ขนาดเดียว พฤติกรรมเดิม
  * v2.3: add-on รองพื้น — ตารางที่ติด data-addon-price + data-addon-sqm จะได้ checkbox "รวมรองพื้น …" (ติ๊กไว้เป็นค่าเริ่มต้น)
  *       จำนวนรองพื้น = ceil(พื้นที่(+เผื่อ) / data-addon-sqm) ยอดรวม = สี + รองพื้น (+ค่าส่งของสีตามเดิม)
  *       ใช้กับ poolarmour (CorePrimer 5 กก. ≈ 50 ตร.ม. รอบเดียว 2,690.-) — ตารางที่ไม่มี attribute นี้ พฤติกรรมเดิมทุกอย่าง
@@ -78,10 +80,21 @@
   /* add-on รองพื้น (v2.3) — มีก็ต่อเมื่อตารางระบุราคาและพื้นที่ต่อชิ้นครบ */
   var ADDON = null;
   (function () {
-    var ap = parseFloat(table.getAttribute('data-addon-price') || '0'), as = parseFloat(table.getAttribute('data-addon-sqm') || '0');
-    if (!(ap > 0 && as > 0)) return;
+    var ship = parseFloat(table.getAttribute('data-addon-ship') || '0') || 0, packs = [];
+    /* v2.4 หลายขนาด: "ฉลาก:ตร.ม.:ราคา|ฉลาก:ตร.ม.:ราคา" */
+    var sizes = (EN && table.getAttribute('data-addon-sizes-en')) || table.getAttribute('data-addon-sizes') || '';
+    sizes.split('|').forEach(function (s) {
+      var p = s.split(':'); if (p.length < 3) return;
+      var sq = parseFloat(p[1]), pr = parseFloat(p[2]);
+      if (sq > 0 && pr > 0) packs.push({ label: p[0].trim(), sqm: sq, price: pr, ship: ship });
+    });
+    if (!packs.length) {
+      var ap = parseFloat(table.getAttribute('data-addon-price') || '0'), as = parseFloat(table.getAttribute('data-addon-sqm') || '0');
+      if (ap > 0 && as > 0) packs.push({ label: '', sqm: as, price: ap, ship: ship });
+    }
+    if (!packs.length) return;
     var lbl = (EN && table.getAttribute('data-addon-label-en')) || table.getAttribute('data-addon-label') || 'Primer';
-    ADDON = { price: ap, sqm: as, label: lbl, url: table.getAttribute('data-addon-url') || '', ship: parseFloat(table.getAttribute('data-addon-ship') || '0') || 0 };
+    ADDON = { packs: packs, label: lbl, url: table.getAttribute('data-addon-url') || '' };
   })();
   var SHIP = parseFloat(table.getAttribute('data-shipping') || '0') || 0;
 
@@ -256,14 +269,18 @@
        data-ship ต่อแถว = อัตราของขนาดนั้น / data-shipping ระดับตาราง = อัตราเดียวใช้ทุกขนาด
        หลายชิ้นคูณตามจำนวนชิ้น แล้วขึ้นหมายเหตุว่าสั่งจริงเหมาให้ถูกกว่านี้ */
     var ship = r.ship;
-    /* add-on รองพื้น: จำนวน = ceil(พื้นที่ที่ใช้คำนวณสี / พื้นที่ต่อชิ้น) ราคาบวกเข้ายอดรวมตรงๆ */
-    var addN = 0, addSum = 0, addShip = 0;
+    /* add-on รองพื้น (v2.4): ชุดที่ถูกสุดจากทุกขนาด บนพื้นที่เดียวกับที่ใช้คิดสี (+เผื่อ) ราคาบวกเข้ายอดรวมตรงๆ */
+    var addN = 0, addSum = 0, addCov = 0, addDesc = '';
     if (ADDON && P && P.checked) {
-      addN = Math.ceil(a * (B.checked ? 1.1 : 1) / ADDON.sqm - 1e-9);
-      addSum = addN * ADDON.price; addShip = addN * ADDON.ship;
-      var alab = ADDON.url ? '<a href="' + ADDON.url + '">' + ADDON.label + '</a>' : ADDON.label;
-      h += '<div class="row"><span>' + alab + ' &times; ' + addN + '</span><b>' + money(addSum) + '.-</b></div>';
-      ship += addShip;
+      var ar2 = bestCombo(ADDON.packs, a * (B.checked ? 1.1 : 1));
+      if (ar2) {
+        var alab = ADDON.url ? '<a href="' + ADDON.url + '">' + ADDON.label + '</a>' : ADDON.label;
+        ar2.items.forEach(function (it) {
+          h += '<div class="row"><span>' + alab + (it.label ? ' ' + it.label : '') + ' &times; ' + it.n + '</span><b>' + money(it.sum) + '.-</b></div>';
+        });
+        addN = ar2.pieces; addSum = ar2.total; addCov = ar2.covers; ship += ar2.ship;
+        addDesc = ADDON.label + ' ' + ar2.items.map(function (i) { return (i.label ? i.label : '') + '\u00d7' + i.n; }).join(', ');
+      }
     }
     if (ship) h += '<div class="row"><span>' + T.ship + '</span><b>' + money(ship) + '.-</b></div>';
     h += '<div class="row tot"><span>' + T.total + '</span><span class="o">' + money(r.total + addSum + ship) + '.-</span></div>';
@@ -273,7 +290,7 @@
     var spare = r.covers - a;
     h += '<div class="meta">' +
           (ar.floor ? T.tankmeta(num(ar.floor), num(ar.wall)) : '') +
-          (addN ? T.addonmeta(ADDON.label + '\u00d7' + addN, num(addN * ADDON.sqm)) : '') +
+          (addN ? T.addonmeta(addDesc, num(addCov)) : '') +
           T.meta(num(a),
           r.items.map(function (i) { return i.label + '\u00d7' + i.n; }).join(', '),
           num(r.covers), num(spare > 0 ? spare : 0), num(r.total / a)) + '</div>';

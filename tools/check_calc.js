@@ -96,9 +96,12 @@ const TANKS = [
   { f: 'pondmax/index.html',       w: 2, l: 3, d: 1,   total: '3,360', note: true },
   { f: 'en/pondmax/index.html',    w: 2, l: 3, d: 1,   total: '3,360', note: true },
   // poolarmour 4×8×1.5 ม. → 32+36 = 68 ตร.ม. → สี 5kg×2+1kg×4 = 5,700 (ไม่มี data-shipping → ไม่มีโน้ต)
-  // v2.3 (5 ก.ย. 2026): add-on CorePrimer ติ๊กไว้เป็นค่าเริ่มต้น → 68/50 = 2 กระป๋อง 5,380 → รวม 11,080 / ติ๊กออก → 5,700 เท่าเดิม
-  { f: 'poolarmour/index.html',    w: 4, l: 8, d: 1.5, total: '11,080', note: false, addon: true },
-  { f: 'en/poolarmour/index.html', w: 4, l: 8, d: 1.5, total: '11,080', note: false, addon: true },
+  // v2.4 (7 ก.ย. 2026): add-on CorePrimer 2 ขนาด (1 กก. 690 / 5 กก. 2,690) เลือกชุดถูกสุด → 68 ตร.ม. = 5 กก.×1 + 1 กก.×2 = 4,070 → รวม 9,770
+  //   (v2.3 ขนาดเดียวเคยได้ 2×5 กก. = 5,380 → 11,080) / ติ๊กออก → 5,700 เท่าเดิม / สระเล็ก 2×3×1 = 16 ตร.ม. → 1 กก.×2 = 1,380 + สี 1,880 = 3,260
+  { f: 'poolarmour/index.html',    w: 4, l: 8, d: 1.5, total: '9,770', note: false, addon: true },
+  { f: 'en/poolarmour/index.html', w: 4, l: 8, d: 1.5, total: '9,770', note: false, addon: true },
+  { f: 'poolarmour/index.html',    w: 2, l: 3, d: 1,   total: '3,260', note: false, addon: true },
+  { f: 'en/poolarmour/index.html', w: 2, l: 3, d: 1,   total: '3,260', note: false, addon: true },
   { f: 'poolarmour/index.html',    w: 4, l: 8, d: 1.5, total: '5,700',  note: false, addon: false },
   { f: 'en/poolarmour/index.html', w: 4, l: 8, d: 1.5, total: '5,700',  note: false, addon: false },
 ];
