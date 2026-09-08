@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>เครื่องคำนวณทุกสินค้า (แอดมิน) — LucernaPro</title>
+<meta name="description" content="หน้าคำนวณปริมาณสินค้าทุกตัวสำหรับแอดมิน">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --cat:#4FA3D1;    /* สีหมวด waterproof ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block}   /* height:auto = กันภาพยืดถาวร */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(224,164,88,.16), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--cat);flex:none}
+  .crumb b{color:var(--cat);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .docbtns{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .sec-sub b{color:var(--ink)}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--cat);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+  .pt p b{color:var(--ink)}
+
+  /* ---------- Story ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard .ph{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard .ph small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .pricenote b{color:var(--ink)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fstep p b{color:var(--ink)}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  /* คลิปแนวตั้ง (Reels 9:16): คลิปเดี่ยว solo กึ่งกลาง จำกัดกว้างไม่ให้จอใหญ่เป็นแถบยักษ์ */
+  .vidgrid.vert{max-width:720px}
+  @media(max-width:759px){
+    .vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+    .vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}
+  }
+  .vidgrid.vert.solo{max-width:320px;grid-template-columns:1fr;margin-left:auto;margin-right:auto}
+  @media(min-width:760px){.vidgrid.vert.solo{margin-left:0}}
+  @media(max-width:759px){.vidgrid.vert.solo{display:grid}.vidgrid.vert.solo figure{flex:none}}
+  .fbv.v916{aspect-ratio:9/16}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(340px 200px at 20% 0%, rgba(224,164,88,.25), transparent 60%),
+      radial-gradient(340px 220px at 90% 100%, rgba(237,106,47,.22), transparent 60%), var(--panel-2)}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+
+  /* ---------- Showcase ---------- */
+  .showcase{padding:46px 0 12px}
+  .showgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.showgrid{grid-template-columns:1fr 1fr}}
+  .showcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .showcard .im{aspect-ratio:1/1;overflow:hidden;border-radius:9px}
+  .showcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .showcard:hover img{transform:scale(1.03)}
+  .showcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .showcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--cat);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--cat);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard p b{color:var(--ink)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- อ่านต่อ (บทความ + case study) ---------- */
+  .reads{padding:44px 0 10px}
+  .readgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.readgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.readgrid{grid-template-columns:repeat(3,1fr)}}
+  .readcard{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--panel);padding:18px;display:flex;flex-direction:column;transition:transform .14s ease,border-color .14s ease}
+  .readcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .readcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .readcard h4{font-family:var(--disp);font-size:16.5px;margin:7px 0 5px;line-height:1.35}
+  .readcard p{font-size:14px;color:var(--muted);flex:1}
+  .readcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:11px}
+  .readcard:hover .go{text-decoration:underline}
+  .readall{margin-top:16px;display:flex;justify-content:flex-start}
+
+  /* ---------- ทำไมช่างมืออาชีพถึงเลือก LucernaPro ---------- */
+  .why{border-top:1px solid var(--line);background:var(--panel);padding:52px 0}
+  .why h2{font-family:var(--disp);font-size:24px;font-weight:700;max-width:640px}
+  .why .sec-sub{margin-top:6px}
+  .why-grid{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+  .why-card{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--bg)}
+  .why-card .n{font-family:var(--mono);font-size:12px;color:var(--orange);letter-spacing:.12em}
+  .why-card h4{font-family:var(--disp);font-size:17px;margin:9px 0 7px}
+  .why-card p{font-size:14px;color:var(--muted)}
+
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Explore + Contact + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  /* Pack shot */
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+  /* ---------- เลือกแบบไหนดี ---------- */
+  /* ---- ชาร์ตสี: สร้างจาก HTML ล้วน แก้เฉดในอนาคต = แก้ hex บรรทัดเดียว (ยกจาก /drygard)
+     หมายเหตุ: hex ของเฉดสีเป็น "ข้อมูลสินค้า" ไม่ใช่สีธีม จึงฝังตรงได้
+     (สีจริงต้องเท่ากันทั้งโหมดสว่างและมืด) — carve-out จากกฎเหล็กข้อ 7 ---- */
+  .swgrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:560px){.swgrid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:880px){.swgrid.s6{grid-template-columns:repeat(3,1fr);max-width:780px}}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);min-height:152px}
+  .sw .chip{display:block;height:86px;border-bottom:1px solid var(--line)}
+  .sw .nm{font-family:var(--disp);font-weight:600;font-size:14.5px;padding:10px 11px 0;line-height:1.3}
+  .sw .hx{font-size:12px;color:var(--muted);padding:3px 11px 11px;line-height:1.45}
+  /* ---- คลิปโฮสต์เอง: ยกจาก /masterseal — .fbv video ให้ <video> เต็มกรอบเหมือน iframe
+     และ .vert.c2 = คลิปตั้ง 2 ตัว จอใหญ่ flex กึ่งกลาง / มือถือตกไปใช้ rail ของ .vert ---- */
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
+  .pick{margin-top:20px;display:grid;grid-template-columns:1fr;gap:10px;max-width:900px}
+  @media(min-width:760px){.pick{grid-template-columns:1fr 1fr}}
+  .pickrow{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:10px;background:var(--panel);padding:13px 15px;font-size:14.5px;color:var(--muted)}
+  .pickrow b{color:var(--ink)}
+  .pickrow .ans{display:block;font-family:var(--disp);font-weight:700;color:var(--orange);margin-top:6px;font-size:15px}
+
+  /* ---------- เพิ่มสำหรับหน้า IronLock ---------- */
+  /* คลิปตั้ง 4 ตัวบล็อกเดียว: จอใหญ่ flex กึ่งกลาง 2x2 / มือถือใช้ rail ของ .vert ตามปกติ (ยก pattern จาก epoxygrout c5) */
+  @media(min-width:760px){.vidgrid.vert.c4{display:flex;flex-wrap:wrap;justify-content:center;max-width:490px}.vidgrid.vert.c4 figure{width:230px}}
+  /* คลิปแนวนอนเดี่ยว 16:9 */
+  .vidgrid.k1{max-width:560px;grid-template-columns:1fr}
+  /* ภาพหน้างานคู่กับข้อเขียน (บล็อกรางน้ำ) */
+  .wideshot{margin-top:14px;border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:8px;margin-bottom:0;max-width:820px}
+  .wideshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .gwrap{margin-top:24px;display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+  @media(min-width:861px){.gwrap{grid-template-columns:1.02fr 1fr;gap:36px}}
+  .gwrap .wideshot{margin-top:0;max-width:none}
+  .gwrap h3{font-family:var(--disp);font-size:21px;font-weight:700;line-height:1.35}
+  .gwrap h3 em{color:var(--orange);font-style:normal}
+  .gwrap > div > p{color:var(--muted);font-size:15px;margin-top:11px}
+  .gwrap > div > p b{color:var(--ink)}
+  .gwrap .beats{margin-top:18px}
+  /* แกลเลอรีจัตุรัส — ขนาดเท่ากันทุกใบ แถวไม่เบี้ยว (ยกจาก heatshield) */
+  .ggrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+  @media(min-width:640px){.ggrid{grid-template-columns:repeat(4,1fr);gap:14px}}
+  .gph{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--panel);padding:7px;margin:0;display:flex;flex-direction:column}
+  .gph .im{aspect-ratio:1/1;overflow:hidden;border-radius:7px}
+  .gph img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .gph:hover img{transform:scale(1.04)}
+  .gph figcaption{font-size:13px;color:var(--muted);padding:9px 4px 2px;line-height:1.4;text-align:center}
+  /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
+  .mnav-btn,.mnav,.mnav-scrim{display:none}
+  @media(max-width:860px){
+    .theme-toggle{display:none}
+    .lang-switch{display:inline-flex;align-items:center;margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:5px 9px;color:var(--muted);line-height:1}
+    .topbar .btn-chat,.topbar .cta-chat{margin-left:10px}
+    .mnav-scrim{display:block}
+    .cta-chat{display:inline-flex;margin-left:auto}
+    .mnav-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:17px;line-height:1;cursor:pointer}
+    .mnav-btn:hover{border-color:var(--orange)}
+    .mnav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:98;opacity:0;pointer-events:none;transition:opacity .22s ease}
+    .mnav-scrim.open{opacity:1;pointer-events:auto}
+    .mnav{position:fixed;top:0;bottom:0;left:0;width:min(280px,82vw);z-index:99;background:var(--panel);border-right:1px solid var(--line);padding:20px 22px 18px;display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .26s ease;overflow-y:auto}
+    .mnav.open{transform:translateX(0)}
+    .mnav-head{display:flex;align-items:center;justify-content:space-between}
+    .mnav-brand{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--ink)}
+    .mnav-brand em{color:var(--orange);font-style:normal}
+    .mnav-close{background:none;border:none;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;padding:4px}
+    .mnav-tag{font-size:11.5px;color:var(--muted);margin-top:3px}
+    .mnav-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);margin:22px 0 4px}
+    .mnav-links{display:flex;flex-direction:column}
+    .mnav-links a{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink)}
+    .mnav-links a:last-child{border-bottom:none}
+    .mnav-links a span{color:var(--orange)}
+    .mnav-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .mnav-chips a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}
+    .mnav-util{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);margin-top:auto}
+    .mnav-util .mnav-lang{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 12px;color:var(--muted)}
+    .mnav-util .mnav-theme{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink)}
+    .mnav-chat{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}
+  }
+  /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
+  /* กันล้นจอมือถือ: .bignum เป็น nowrap (ตัวเลขใหญ่) แต่คำอธิบายใน small ต้องตัดบรรทัดได้ / small ในตารางราคาก็เช่นกัน (td.pr เป็น nowrap) */
+  .bignum small{white-space:normal}
+  .pricecard td small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45;white-space:normal}
+  .pricecard.cmp table{table-layout:fixed}
+  .pricecard.cmp th,.pricecard.cmp td{padding-left:12px;padding-right:12px}
+  @media(max-width:520px){.pricecard.cmp{font-size:14px}.pricecard.cmp th{font-size:10.5px;letter-spacing:.06em}.pricecard.cmp td{padding:11px 9px;font-size:13.5px}.pricecard.cmp td small{font-size:11.5px}}
+
+  /* ---------- เปิดผิวปูนด้วยกรดเกลือ (#etch) ---------- */
+  .etch{margin:44px 0 0;border-top:1px solid var(--line);background:linear-gradient(180deg, rgba(216,87,28,.07), transparent 45%), var(--panel);padding:50px 0 54px}
+  .egate{margin-top:22px;display:grid;grid-template-columns:1fr;gap:12px;max-width:920px}
+  @media(min-width:760px){.egate{grid-template-columns:1fr 1fr}}
+  .egate>div{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--bg);padding:16px 18px}
+  .egate .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--orange);text-transform:uppercase}
+  .egate h4{font-family:var(--disp);font-size:16px;margin-top:5px}
+  .egate p{font-size:14px;color:var(--muted);margin-top:5px}
+  .egate p b{color:var(--ink)}
+  .esteps{margin-top:26px;display:grid;grid-template-columns:1fr;gap:12px;max-width:920px}
+  @media(min-width:760px){.esteps{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.esteps{grid-template-columns:repeat(4,1fr)}}
+  .estep{border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:16px}
+  .estep .no{font-family:var(--mono);font-size:12px;color:var(--orange);display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--orange);border-radius:50%;background:var(--panel)}
+  .estep h4{font-family:var(--disp);font-size:15.5px;margin-top:10px}
+  .estep p{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .estep p b{color:var(--ink)}
+  .echeck{margin-top:22px;max-width:720px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:16px 18px}
+  .echeck h4{font-family:var(--disp);font-size:16px}
+  .echeck ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .echeck li{margin-top:4px}
+  .echeck li b{color:var(--ink)}
+
+  .adm{padding:34px 0 40px}
+  .adm h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.2}
+  .adm h1 .o{color:var(--orange)}
+  .adm .lede{margin-top:8px;color:var(--muted);font-size:15px;max-width:720px}
+  .psel{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;max-width:720px}
+  .psel .f{display:flex;flex-direction:column;gap:5px;flex:1 1 260px}
+  .psel label{font-size:12px;color:var(--muted)}
+  .psel select{font-family:var(--body);font-size:16px;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+  .psel select:focus{border-color:var(--orange);outline:none}
+  .psel a.go{font-size:13.5px;color:var(--orange);padding-bottom:12px;white-space:nowrap}
+  #calcHost{max-width:720px}
+  .msgbox{margin-top:18px;border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:16px 18px 18px;max-width:720px}
+  .msgbox h3{font-family:var(--disp);font-size:16.5px;font-weight:700;margin-bottom:3px}
+  .msgbox .sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .msgbox textarea{width:100%;min-height:260px;font-family:var(--body);font-size:15px;line-height:1.6;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);resize:vertical}
+  .msgbox textarea:focus{border-color:var(--orange);outline:none}
+  .msgbox .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .msgbox button{font-family:var(--body);font-size:14.5px;font-weight:600;padding:10px 18px;border:1.5px solid var(--orange);border-radius:999px;background:var(--orange);color:#16130F;cursor:pointer}
+  .msgbox button.ghost{background:var(--bg);color:var(--ink);border-color:var(--line)}
+  .msgbox .ok{font-size:13px;color:var(--muted)}
+  .msgbox .opts{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:13.5px;color:var(--muted)}
+  .msgbox .opts label{display:flex;align-items:center;gap:6px}
+</style>
+
+<script src="/track.js" defer></script>
+<style id="sitesearch-css">
+  .mnav-search{margin:12px 0 4px;position:relative}
+  .mnav-search input{width:100%;font-family:inherit;font-size:15px;padding:11px 12px 11px 38px;border:1.5px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);outline:none}
+  .mnav-search input::placeholder{color:var(--muted)}
+  .mnav-search input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(237,106,47,.22)}
+  .mnav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;opacity:.6}
+  .topsearch{display:none;align-items:center;gap:6px;font-size:14px;color:var(--muted);white-space:nowrap;text-decoration:none}
+  .topsearch svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .topsearch:hover{color:var(--orange)}
+  @media(min-width:861px){.topsearch{display:inline-flex}}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <button class="mnav-btn" id="mnavBtn" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+    <a class="brand" href="/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/">← หน้าแรก</a>
+    <a class="topsearch" href="/search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span>ค้นหา</span></a>
+    <button class="theme-toggle" id="themeToggle" aria-label="สลับโหมดสี">🌙</button>
+    
+    <a class="cta-chat" href="https://lin.ee/LpUR3Ld"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#06C755;color:#fff;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em">LINE</span>แอดไลน์</a>
+  </div>
+</header>
+
+<!-- ═══ MOBILE DRAWER MENU: ลิ้นชัก (ถอนได้) ═══ -->
+<div class="mnav-scrim" id="mnavScrim" aria-hidden="true"></div>
+<aside class="mnav" id="mnav" aria-label="เมนูหลัก">
+  <div class="mnav-head">
+    <span class="mnav-brand"><img src="/img/logo.png" alt="" width="24" height="24" style="object-fit:contain;vertical-align:-6px;margin-right:8px">LUCERNA<em>PRO</em></span>
+    <button class="mnav-close" id="mnavClose" aria-label="ปิดเมนู">✕</button>
+  </div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <form class="mnav-search" id="siteSearch" action="/search" method="get" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><input type="search" name="q" placeholder="ค้นหาสินค้า / เคสหน้างาน…" aria-label="ค้นหา" autocomplete="off"></form>
+  <div class="mnav-k">MENU</div>
+  <nav class="mnav-links">
+    <a href="/">หน้าแรก <span>→</span></a>
+    <a href="/#catalog">สินค้าทั้งหมด <span>→</span></a>
+    <a href="/casestudy/">Case Study <span>→</span></a>
+    <a href="/#contact">ติดต่อเรา <span>→</span></a>
+  </nav>
+  <div class="mnav-k">SHORTCUTS</div>
+  <div class="mnav-chips">
+    <a href="/#waterproof">กันซึม</a>
+    <a href="/#flooring">งานพื้น</a>
+    <a href="/#coating">เคลือบปกป้อง</a>
+  </div>
+  <div class="mnav-util">
+    
+    <button class="mnav-theme" id="mnavTheme" aria-label="สลับโหมดสี">🌙</button>
+  </div>
+  <a class="mnav-chat" href="https://m.me/lucernapro">f&nbsp; แชทเพจ — ตอบไว</a>
+</aside>
+<!-- ═══ จบลิ้นชัก MOBILE DRAWER MENU ═══ -->
+
+
+
+<main class="wrap adm">
+  <h1>เครื่องคำนวณ <span class="o">ทุกสินค้า</span> <small style="font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em;vertical-align:middle">ADMIN</small></h1>
+  <p class="lede">เลือกสินค้า กรอกขนาดพื้นที่ (หรือขนาดบ่อ) ระบบใช้เครื่องคำนวณตัวเดียวกับหน้าสินค้า แล้วเรียบเรียงเป็นข้อความพร้อมส่งให้ลูกค้าด้านล่าง — แก้ข้อความก่อนคัดลอกได้</p>
+
+  <div class="psel">
+    <div class="f"><label>สินค้า</label><select id="pSel"></select></div>
+    <a class="go" id="pLink" href="/" target="_blank" rel="noopener">เปิดหน้าสินค้า →</a>
+  </div>
+
+  <div id="calcHost"></div>
+
+  <div class="msgbox">
+    <h3>ข้อความส่งลูกค้า</h3>
+    <div class="sub">สร้างอัตโนมัติจากผลคำนวณด้านบน — พิมพ์แก้ในช่องได้เลย แล้วกดคัดลอก</div>
+    <div class="opts">
+      <label><input type="checkbox" id="oShip" checked> ใส่บรรทัดค่าส่ง</label>
+      <label><input type="checkbox" id="oNote" checked> ใส่หมายเหตุท้ายข้อความ</label>
+      <label><input type="checkbox" id="oLink" checked> ใส่ลิงก์หน้าสินค้า</label>
+    </div>
+    <textarea id="msg" placeholder="กรอกขนาดพื้นที่ด้านบนก่อน ข้อความจะขึ้นตรงนี้"></textarea>
+    <div class="bar">
+      <button type="button" id="copyBtn">คัดลอกข้อความ</button>
+      <button type="button" class="ghost" id="regenBtn">สร้างใหม่จากผลคำนวณ</button>
+      <span class="ok" id="copyOk"></span>
+    </div>
+  </div>
+</main>
+
+<script id="lcData" type="application/json">[{"slug":"aquashell","name":"AquaShell 709 กันซึมใสสำหรับผนัง","card":"<div class=\"pricecard\">\n      <div class=\"ph\">AquaShell 709 — สีใส (Clear)<small>ผิวหลังแห้งมีความเงาเล็กน้อย · พื้นที่คิดจากการทาครบ 2 รอบ</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ (ทา 2 รอบ)</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-ship=\"70\">1 กก.</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"470\">470.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\" data-ship=\"130\">5 กก.</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"1670\">1,670.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"boundgravel","name":"BoundGravel น้ำยาทรายล้าง","card":"<div class=\"pricecard\">\n      <div class=\"ph\">น้ำยา BoundGravel (Part A + Part B)<small>อ้างอิงหินทรายล้างเบอร์ 5 ฉาบหนา ~1 ซม.</small></div>\n      <table data-calc=\"1\" data-shipping=\"130\" data-note=\"ราคานี้เป็น<b>ค่าน้ำยา BoundGravel อย่างเดียว</b> ยังไม่รวมค่าหิน — น้ำยา 2.5 กก. ใช้กับหิน 50 กก. · 5 กก. ใช้กับหิน 100 กก.\" data-note-en=\"This is the price of the <b>BoundGravel binder only</b> — stone not included. 2.5 kg of binder goes with 50 kg of stone; 5 kg with 100 kg.\">\n        <thead><tr><th>ขนาด</th><th>ใช้กับหิน</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"4\">2.5 kg</td><td>50 kg</td><td>3–4 ตร.ม.</td><td class=\"pr\" data-price=\"1200\">1,200.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"10\">5 kg</td><td>100 kg</td><td>8–10 ตร.ม.</td><td class=\"pr\" data-price=\"2280\">2,280.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"coreprimer","name":"CorePrimer","card":"<div class=\"pricecard\">\n      <div class=\"ph\">CorePrimer รองพื้นซึมลึกสำหรับคอนกรีต<small>ส่วนผสมเดียว พร้อมทาจากกระป๋อง · มี 2 ขนาด · ราคารวม VAT แล้ว</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"10\">1 กก.</td><td>≈ 10 ตร.ม. (รองพื้นรอบเดียวจบ)</td><td class=\"pr\" data-price=\"690\">690.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"50\">5 กก.</td><td>≈ 50 ตร.ม. (รองพื้นรอบเดียวจบ)</td><td class=\"pr\" data-price=\"2690\">2,690.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"deepseal","name":"DeepSeal กันซึม Negative Side","card":"<div class=\"pricecard\">\n      <div class=\"ph\">DeepSeal — 3 ขนาด<small>ฟิล์มใสอมเหลือง · ทาสีทับได้เมื่อแห้งสนิท</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"2.5\">0.5 kg</td><td>≈ 1–2.5 ตร.ม.</td><td class=\"pr\" data-price=\"390\">390.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 2–5 ตร.ม.</td><td class=\"pr\" data-price=\"590\">590.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\">5 kg</td><td>≈ 10–25 ตร.ม.</td><td class=\"pr\" data-price=\"2690\">2,690.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"drygard","name":"DryGard สีทาบ้านกันซึม","card":"<div class=\"pricecard\">\n      <div class=\"ph\">DryGard สีทาบ้านกันซึม <small>ราคาต่อถัง · รวม VAT แล้ว</small></div>\n      <table data-calc=\"1\">\n        <tr><th>ขนาด</th><th>ทาได้ประมาณ</th><th>ราคา</th></tr>\n        <tr><td class=\"sz\" data-sqm=\"22\" data-label=\"4.5 กก.\">4.5 กก.<small>ถังเล็ก · งานซ่อมจุด ผนังห้องเดียว</small></td><td>≈ 22 ตร.ม.</td><td class=\"pr\" data-price=\"1730\">1,730 ฿</td></tr>\n        <tr><td class=\"sz\" data-sqm=\"90\" data-label=\"18 กก.\">18 กก.<small>ถังใหญ่ · ทาทั้งบ้าน คุ้มต่อกิโลกว่า</small></td><td>≈ 90 ตร.ม.</td><td class=\"pr\" data-price=\"5390\">5,390 ฿</td></tr>\n      </table>\n    </div>"},{"slug":"ecobind","name":"EcoBind น้ำยาล็อคหิน","card":"<div class=\"pricecard\">\n      <div class=\"ph\">EcoBind<small>น้ำยาล็อคหิน · 1 กก. ≈ 1 ตร.ม.</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"1\" data-ship=\"70\">1 กก.</td><td>≈ 1 ตร.ม.</td><td class=\"pr\" data-price=\"420\">420.-</td><td>70.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-ship=\"130\">5 กก.</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"1740\">1,740.-</td><td>130.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"18\" data-ship=\"200\">18 กก.</td><td>≈ 18 ตร.ม.</td><td class=\"pr\" data-price=\"3470\">3,470.-</td><td>200.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"ghostshield","name":"GhostShield","card":"<div class=\"pricecard\">\n      <div class=\"ph\">GhostShield เคลือบใส<small>ขายเป็นชุด ครบทั้ง Part A และ Part B</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>ทาได้ราว</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-label=\"1 กก.\" data-ship=\"70\">1 กก. <small>Part A 0.67 กก. + Part B 0.33 กก.</small></td><td>5 ตร.ม.</td><td class=\"pr\" data-price=\"660\">660.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"12.5\" data-label=\"2.5 กก.\" data-ship=\"130\">2.5 กก. <small>Part A 1.67 กก. + Part B 0.83 กก.</small></td><td>12.5 ตร.ม.</td><td class=\"pr\" data-price=\"1190\">1,190.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\" data-label=\"5 กก.\" data-ship=\"130\">5 กก. <small>Part A 3.33 กก. + Part B 1.66 กก.</small></td><td>25 ตร.ม.</td><td class=\"pr\" data-price=\"2030\">2,030.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"glasscoating","name":"Glass Coating","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\" data-shipping=\"70\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"16\">100 g</td><td>≈ 16 ตร.ม.</td><td class=\"pr\" data-price=\"830\">830.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"80\">500 g</td><td>≈ 80 ตร.ม.</td><td class=\"pr\" data-price=\"3590\">3,590.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"160\">1 kg</td><td>≈ 160 ตร.ม.</td><td class=\"pr\" data-price=\"6600\">6,600.-</td></tr>\n          <tr data-calc=\"skip\"><td class=\"sz\">งานโครงการ<br><small style=\"font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)\">Curtain Wall / อาคารทั้งหลัง</small></td><td>พื้นที่ขนาดใหญ่</td><td class=\"pr\">ราคาโครงการ — สอบถาม</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"heatshield","name":"HeatShield กันซึม + ลดความร้อน","card":"<div class=\"pricecard\">\n      <div class=\"ph\">HeatShield — ตัวหลัก<small>สีขาว · สูตรน้ำ ส่วนผสมเดียว เปิดฝาทาได้เลย · ราคารวม VAT แล้ว</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ (2 รอบ)</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"7.5\" data-ship=\"130\">4.5 kg</td><td>≈ 7.5 ตร.ม.</td><td class=\"pr\" data-price=\"1780\">1,780.-</td><td>130.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"30\" data-ship=\"300\">18 kg</td><td>≈ 30 ตร.ม.</td><td class=\"pr\" data-price=\"4320\">4,320.-</td><td>300.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"ironlock","name":"IronLock","card":"<div class=\"pricecard\">\n      <div class=\"ph\">IronLock สีกันสนิมสูตรน้ำ<small>ราคารวม VAT แล้ว</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-ship=\"70\">1 กก.</td><td class=\"pr\" data-price=\"470\">470.-</td><td class=\"pr\">70.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"22.5\" data-ship=\"130\">4.5 กก.</td><td class=\"pr\" data-price=\"1550\">1,550.-</td><td class=\"pr\">130.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"bioshield","name":"Lucerna BioShield","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-ship=\"70\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"160\">160.-</td><td>70.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\" data-ship=\"130\">5 kg</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"399\">399.-</td><td>130.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"marineguard","name":"Marine Guard เคลือบปกป้อง","card":"<div class=\"pricecard\">\n      <div class=\"ph\">ชุด Part A + Part B ตวงมาให้พอดีแล้ว<small>1 kg ≈ 5 ตร.ม. (ครบ 2 รอบ — ทาด้วยลูกกลิ้ง)</small></div>\n      <table data-calc=\"1\" data-shipping=\"130\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"830\">830.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"12.5\">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class=\"pr\" data-price=\"1790\">1,790.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\">5 kg</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"3230\">3,230.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"offshore","name":"OffShore","card":"<div class=\"pricecard\">\n      <div class=\"ph\">OffShore เคลือบไม้สูตรน้ำ<small>ส่วนผสมเดียว เปิดฝาใช้ได้ทันที ไม่ต้องผสม</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>ทาได้</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-ship=\"70\">1 กก.</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"390\">390.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"12.5\" data-ship=\"130\">2.5 กก.</td><td>≈ 12.5 ตร.ม.</td><td class=\"pr\" data-price=\"890\">890.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\" data-ship=\"130\">5 กก.</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"1490\">1,490.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"paintcoating","name":"Paint Coating","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\" data-shipping=\"70\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"16\">100 g</td><td>≈ 16 ตร.ม. (แผง ACP ใหญ่ ~8 แผ่น)</td><td class=\"pr\" data-price=\"830\">830.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"80\">500 g</td><td>≈ 80 ตร.ม.</td><td class=\"pr\" data-price=\"3590\">3,590.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"160\">1 kg</td><td>≈ 160 ตร.ม.</td><td class=\"pr\" data-price=\"6600\">6,600.-</td></tr>\n          <tr data-calc=\"skip\"><td class=\"sz\">งานโครงการ<br><small style=\"font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)\">ปั๊ม / อาคาร / ฟลีทรถ</small></td><td>พื้นที่ขนาดใหญ่</td><td class=\"pr\">ราคาโครงการ — สอบถาม</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"pmma","name":"PMMA กันซึมและซ่อมพื้น","card":"<div class=\"pricecard\">\n      <div class=\"ph\">PMMA — 3 ขนาด<small>สองส่วนผสม (น้ำยา + ผง hardener) · พื้นที่คิดจากวิธีเทแล้วปาด</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"1\">1 kg</td><td>≈ 1 ตร.ม.</td><td class=\"pr\" data-price=\"1070\">1,070.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"5\">5 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"3590\">3,590.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"15\">15 kg</td><td>≈ 15 ตร.ม.</td><td class=\"pr\" data-price=\"7800\">7,800.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"polypro","name":"PolyPro Polyurea Gen3","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\" data-shipping=\"130\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 3–5 ตร.ม.</td><td class=\"pr\" data-price=\"1910\">1,910.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"30\">6 kg</td><td>≈ 20–30 ตร.ม. (ขึ้นกับความหนา)</td><td class=\"pr\" data-price=\"10680\">10,680.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"polyurea","name":"Polyurea Standard","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม. (ทา 2 รอบ)</td><td class=\"pr\" data-price=\"1190\">1,190.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\">5 kg</td><td>≈ 25 ตร.ม. (ทา 2 รอบ)</td><td class=\"pr\" data-price=\"5390\">5,390.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"45\">9 kg</td><td>≈ 45 ตร.ม. (ทา 2 รอบ)</td><td class=\"pr\" data-price=\"8700\">8,700.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"pondmax","name":"PondMax สีทาบ่อปลากันซึม","card":"<div class=\"pricecard\">\n      <div class=\"ph\">ทุกสี — เทา น้ำเงิน ดำ<small>1 kg ≈ 5 ตร.ม. (ครบ 2 รอบ)</small></div>\n      <table data-calc=\"1\" data-tank=\"1\" data-shipping=\"130\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"950\">950.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"12.5\">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class=\"pr\" data-price=\"2150\">2,150.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\">5 kg</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"4070\">4,070.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"poolarmour","name":"PoolArmour สีทาสระว่ายน้ำกันซึม","card":"<div class=\"pricecard\">\n      <div class=\"ph\">ทุกสี — ขาว ฟ้า เทา<small>1 kg ≈ 5 ตร.ม. (ครบ 2 รอบ)</small></div>\n      <table data-calc=\"1\" data-tank=\"1\" data-addon-label=\"CorePrimer\" data-addon-label-en=\"CorePrimer\" data-addon-sizes=\"1 กก.:10:690|5 กก.:50:2690\" data-addon-sizes-en=\"1 kg:10:690|5 kg:50:2690\" data-addon-url=\"/coreprimer\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"470\">470.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\">5 kg</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"1910\">1,910.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"90\">18 kg</td><td>≈ 90 ตร.ม.</td><td class=\"pr\" data-price=\"5890\">5,890.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"siliconepro","name":"SiliconePro กันซึมซิลิโคนสูตรน้ำ","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"540\">540.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"12.5\">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class=\"pr\" data-price=\"1080\">1,080.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\">5 kg</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"1920\">1,920.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"solarpaneldefender","name":"Solar Panel Defender เคลือบนาโนกันฝุ่นเกาะแผงโซลาร์","card":"<div class=\"pricecard\">\n      <div class=\"ph\">Solar Panel Defender<small>ทาบางๆ รอบเดียว — ยิ่งบางยิ่งดี</small></div>\n      <table data-calc=\"1\" data-shipping=\"70\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"16\">100 g</td><td>≈ 16 ตร.ม. (~8 แผ่นใหญ่)</td><td class=\"pr\" data-price=\"830\">830.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"80\">500 g</td><td>≈ 80 ตร.ม.</td><td class=\"pr\" data-price=\"3590\">3,590.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"160\">1 kg</td><td>≈ 160 ตร.ม.</td><td class=\"pr\" data-price=\"6600\">6,600.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"stonesurface","name":"Stone Coating","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\" data-shipping=\"70\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"16\">100 g</td><td>≈ 16 ตร.ม.</td><td class=\"pr\" data-price=\"830\">830.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"80\">500 g</td><td>≈ 80 ตร.ม.</td><td class=\"pr\" data-price=\"3590\">3,590.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"160\">1 kg</td><td>≈ 160 ตร.ม.</td><td class=\"pr\" data-price=\"6600\">6,600.-</td></tr>\n          <tr data-calc=\"skip\"><td class=\"sz\">งานโครงการ<br><small style=\"font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)\">ผนังหิน / ลาน / อาคารทั้งหลัง</small></td><td>พื้นที่ขนาดใหญ่</td><td class=\"pr\">ราคาโครงการ — สอบถาม</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"surfaceguard","name":"SurfaceGuard","card":"<div class=\"pricecard\">\n      <div class=\"ph\">SurfaceGuard สีทาพื้นปูนสูตรน้ำ<small>ส่วนผสมเดียว พร้อมทาจากกระป๋อง · มี 5 เฉดสี</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-ship=\"70\" data-sqm=\"5\">1 กก.</td><td>≈ 5 ตร.ม. (ครบ 2 รอบ)</td><td class=\"pr\" data-price=\"690\">690.-</td><td class=\"pr\">70.-</td></tr>\n          <tr><td class=\"sz\" data-ship=\"130\" data-sqm=\"25\">5 กก.</td><td>≈ 25 ตร.ม. (ครบ 2 รอบ)</td><td class=\"pr\" data-price=\"2690\">2,690.-</td><td class=\"pr\">130.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"thermaglaze","name":"ThermaGlaze","card":"<div class=\"pricecard\">\n      <div class=\"ph\">ThermaGlaze สีทาพื้นคอนกรีต<small>ราคารวม VAT แล้ว</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>แบบสี</th><th>แบบใส</th><th>ค่าส่ง</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-ship=\"70\" data-sqm=\"5\">1 กก.</td><td class=\"pr\" data-price=\"650\" data-variant=\"แบบสี\">650.-</td><td class=\"pr\" data-price=\"590\" data-variant=\"แบบใส\">590.-</td><td class=\"pr\">70.-</td></tr>\n          <tr><td class=\"sz\" data-ship=\"130\" data-sqm=\"12\">2.5 กก.</td><td class=\"pr\" data-price=\"1440\" data-variant=\"แบบสี\">1,440.-</td><td class=\"pr\" data-price=\"1320\" data-variant=\"แบบใส\">1,320.-</td><td class=\"pr\">130.-</td></tr>\n          <tr><td class=\"sz\" data-ship=\"130\" data-sqm=\"25\">5 กก.</td><td class=\"pr\" data-price=\"2590\" data-variant=\"แบบสี\">2,590.-</td><td class=\"pr\" data-price=\"2350\" data-variant=\"แบบใส\">2,350.-</td><td class=\"pr\">130.-</td></tr>\n          <tr><td class=\"sz\" data-ship=\"300\" data-sqm=\"75\">15 กก.</td><td class=\"pr\" data-price=\"3960\" data-variant=\"แบบสี\">3,960.-</td><td class=\"pr\" data-price=\"3600\" data-variant=\"แบบใส\">3,600.-</td><td class=\"pr\">300.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"tilecoatpoly","name":"TileCoat Polyurea","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\" data-shipping=\"130\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"2.5\">0.5 kg</td><td>≈ 2.5 ตร.ม.</td><td class=\"pr\" data-price=\"1190\">1,190.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"1910\">1,910.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"7\">1.5 kg</td><td>≈ 6–7 ตร.ม.</td><td class=\"pr\" data-price=\"2760\">2,760.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"exotic","name":"กันซึม Exotic","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"6\" data-ship=\"130\">1.2 kg / ชุด</td><td>≈ 6 ตร.ม. (ทาสองรอบ)</td><td class=\"pr\" data-price=\"2030\">2,030.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"crystalseal","name":"กันซึมใส Crystal Seal","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\" data-ship=\"70\">1 kg</td><td>≈ 5 ตร.ม.</td><td class=\"pr\" data-price=\"710\">710.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"12.5\" data-ship=\"130\">2.5 kg</td><td>≈ 12.5 ตร.ม.</td><td class=\"pr\" data-price=\"1670\">1,670.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"25\" data-ship=\"130\">5 kg</td><td>≈ 25 ตร.ม.</td><td class=\"pr\" data-price=\"2870\">2,870.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"polyaspartic","name":"กันซึมใส Polyaspartic","card":"<div class=\"pricecard\">\n      <table data-calc=\"1\" data-shipping=\"130\">\n        <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"5\">1 kg</td><td>≈ 5 ตร.ม. (ทา 2 รอบ)</td><td class=\"pr\" data-price=\"1910\">1,910.-</td></tr>\n        </tbody>\n      </table>\n    </div>"},{"slug":"epoxycoating","name":"สีทาพื้น Epoxy / PU","card":"<div class=\"pricecard\">\n      <div class=\"ph\">ชุด 2 ส่วนผสม 16 กก.<small>Part A เรซิน 12.8 กก. + Part B ฮาร์ดเดนเนอร์ 3.2 กก.</small></div>\n      <table data-calc=\"1\">\n        <thead><tr><th>ระบบ</th><th>พื้นที่โดยประมาณ</th><th>ราคา</th></tr></thead>\n        <tbody>\n          <tr><td class=\"sz\" data-sqm=\"50\" data-label=\"Epoxy 2K ชุด 16 กก.\">Epoxy 2K<small>ชุด 16 กก.</small></td><td>≈ 50 ตร.ม.<small>ทาครบ 2 รอบ</small></td><td class=\"pr\" data-price=\"5340\">5,340.-</td></tr>\n          <tr><td class=\"sz\" data-sqm=\"50\" data-label=\"PU 2K ชุด 16 กก.\">PU 2K<small>ชุด 16 กก.</small></td><td>≈ 50 ตร.ม.<small>ทาครบ 2 รอบ</small></td><td class=\"pr\" data-price=\"5940\">5,940.-</td></tr>\n          <tr data-calc=\"skip\"><td class=\"sz\">Epoxy Self-leveling<small>สั่งผลิตตามงาน</small></td><td>คิดตามความหนาที่ต้องการ</td><td class=\"pr\">สอบถาม</td></tr>\n        </tbody>\n      </table>\n    </div>"}]</script>
+<script>
+(function(){
+  'use strict';
+  var DATA = JSON.parse(document.getElementById('lcData').textContent);
+  var SEL = document.getElementById('pSel'), HOST = document.getElementById('calcHost'),
+      LINK = document.getElementById('pLink'), MSG = document.getElementById('msg'),
+      OS = document.getElementById('oShip'), ON = document.getElementById('oNote'), OL = document.getElementById('oLink');
+  var calcSrc = null, cur = null, edited = false;
+
+  DATA.forEach(function (p, i) {
+    var o = document.createElement('option'); o.value = i; o.textContent = p.name; SEL.appendChild(o);
+  });
+  var q = (location.hash || '').replace('#', '');
+  DATA.some(function (p, i) { if (p.slug === q) { SEL.value = i; return true; } });
+
+  function getCalc(cb) {
+    if (calcSrc) return cb(calcSrc);
+    (window.__calcSrc ? Promise.resolve(window.__calcSrc)
+      : fetch('/calc.js', { cache: 'no-store' }).then(function (r) { return r.text(); }))
+      .then(function (t) { calcSrc = t; cb(t); });
+  }
+
+  function mount() {
+    cur = DATA[parseInt(SEL.value, 10)] || DATA[0];
+    location.hash = cur.slug;
+    LINK.href = '/' + cur.slug;
+    HOST.innerHTML = cur.card;
+    edited = false; MSG.value = '';
+    getCalc(function (src) {
+      new Function(src)();            /* calc.js: หา .pricecard table[data-calc] ในหน้า → มีตัวเดียวคือของสินค้าที่เลือก */
+      var out = document.getElementById('lcOut');
+      if (out) new MutationObserver(function () { if (!edited) MSG.value = compose(); }).observe(out, { childList: true, subtree: true });
+    });
+  }
+
+  function txt(el) {
+    var h = el.innerHTML.replace(/<br\s*\/?>/gi, '\n');
+    var d = document.createElement('div'); d.innerHTML = h;
+    return d.textContent.replace(/\u00a0/g, ' ').replace(/[ \t]+/g, ' ').trim();
+  }
+  function v(id) { var e = document.getElementById(id); return e && parseFloat(e.value) > 0 ? parseFloat(e.value) : 0; }
+
+  function compose() {
+    var out = document.getElementById('lcOut');
+    if (!out || !out.querySelector('.tot')) return '';
+    var w = v('lcW'), l = v('lcL'), d = v('lcD'), a = v('lcA');
+    var B = document.getElementById('lcB'), lines = [];
+    var size = w && l ? (w + ' × ' + l + (d ? ' × ลึก ' + d : '') + ' ม.') : (a + ' ตร.ม.');
+    lines.push('สรุปปริมาณ ' + cur.name + ' สำหรับ' + (d ? 'สระ/บ่อ ' : 'พื้นที่ ') + size + (B && B.checked ? ' (เผื่อ 10%)' : ''));
+    var short = (cur.name.match(/^[A-Za-z0-9 .+\/-]+/) || [cur.name])[0].trim() || cur.name;
+    var vs = document.querySelector('#lcV button.on');
+    if (vs) lines.push('แบบ: ' + vs.textContent.trim());
+    lines.push('');
+    [].forEach.call(out.querySelectorAll('.row'), function (r) {
+      var isTot = r.classList.contains('tot'), s = r.children[0], b = r.children[1];
+      if (!s || !b) return;
+      var label = txt(s), amt = txt(b).replace(/\.-$/, '') + ' บาท';
+      if (!isTot && label === 'ค่าจัดส่ง') { if (OS.checked) lines.push('ค่าจัดส่ง ' + amt); return; }
+      if (isTot) { lines.push(''); lines.push('รวม ' + amt); return; }
+      /* แถวสีไม่มีชื่อสินค้านำหน้า (ตารางบนหน้าสินค้ารู้อยู่แล้วว่าสินค้าอะไร) — แถว add-on รองพื้นมีชื่อ+ลิงก์ของมันเอง */
+      lines.push('• ' + (s.querySelector('a') ? '' : short + ' ') + label + ' = ' + amt);
+    });
+    var meta = out.querySelector('.meta');
+    if (meta) { lines.push(''); lines.push(txt(meta)); }
+    if (ON.checked) {
+      [].forEach.call(out.querySelectorAll('.calcnote'), function (n) {
+        var t = txt(n);
+        if (t.indexOf('คิดเต็มทุกถัง') >= 0) t = 'ค่าส่งข้างต้นคิดเต็มทุกชิ้น สั่งจริงเราเหมาค่าส่งให้ถูกกว่านี้ครับ';
+        lines.push(''); lines.push(t);
+      });
+      var hint = out.querySelector('.hint'); if (hint) { lines.push(''); lines.push(txt(hint)); }
+    }
+    if (OL.checked) { lines.push(''); lines.push('รายละเอียดสินค้า: https://www.lucernapro.com/' + cur.slug); }
+    return lines.join('\n');
+  }
+
+  function copy() {
+    var t = MSG.value; if (!t) return;
+    var done = function () { document.getElementById('copyOk').textContent = 'คัดลอกแล้ว ✓'; setTimeout(function () { document.getElementById('copyOk').textContent = ''; }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function () { MSG.select(); document.execCommand('copy'); done(); });
+    else { MSG.select(); document.execCommand('copy'); done(); }
+  }
+
+  SEL.addEventListener('change', mount);
+  MSG.addEventListener('input', function () { edited = true; });
+  [OS, ON, OL].forEach(function (o) { o.addEventListener('change', function () { edited = false; MSG.value = compose(); }); });
+  document.getElementById('regenBtn').addEventListener('click', function () { edited = false; MSG.value = compose(); });
+  document.getElementById('copyBtn').addEventListener('click', copy);
+  mount();
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">บริษัท ลูเซอน่า จำกัด · 23 ถ.สุริยาตร์ ซอย 4 ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 · โทร <a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></div>
+    </div>
+    <div>© 2026 บริษัท ลูเซอน่า จำกัด</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>แชทเพจ Facebook</a>
+  <a class="mob-tel" href="tel:0970799547">📞 โทรเลย</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+<!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
+<script>
+(function(){
+  var mn=document.getElementById('mnav'),sc=document.getElementById('mnavScrim'),
+      bt=document.getElementById('mnavBtn'),cl=document.getElementById('mnavClose'),
+      tb=document.getElementById('mnavTheme'),master=document.getElementById('themeToggle');
+  if(!mn||!bt)return;
+  function set(open){
+    mn.classList.toggle('open',open);sc.classList.toggle('open',open);
+    bt.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  }
+  bt.addEventListener('click',function(){set(true)});
+  cl.addEventListener('click',function(){set(false)});
+  sc.addEventListener('click',function(){set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  window.addEventListener('pageshow',function(){set(false)});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){
+    a.addEventListener('click',function(){set(false)});
+  });
+  if(tb){
+    if(!master){tb.style.display='none';}
+    else{
+      function syncT(){tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}
+      tb.addEventListener('click',function(){master.click();syncT();});
+      syncT();
+    }
+  }
+})();
+</script>
+<!-- ═══ จบ JS MOBILE DRAWER MENU ═══ -->
+</body>
+</html>

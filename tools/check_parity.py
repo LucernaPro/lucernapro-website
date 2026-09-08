@@ -66,13 +66,23 @@ def url_to_file(href, files):
 
 def main():
     # โฟลเดอร์แอปภายใน (ไม่ใช่หน้าเว็บ product/content) — ไม่เข้าเกณฑ์ nav/ธีม/ภาษา
-    APP_DIRS = ('account/', 'finder/', 'ship/')
+    APP_DIRS = ('account/', 'finder/', 'ship/', 'calculator/')
     files = sorted(f for f in glob.glob('**/index.html', recursive=True)
                    if not f.startswith(APP_DIRS))
 
     fileset = set(files)
     problems = defaultdict(list)
 
+    # ยามหน้า /calculator (แอดมิน): ตารางราคาที่ฝังไว้ต้องตรงกับหน้าสินค้าปัจจุบันเป๊ะ (กันคำนวณจากราคาเก่า)
+    if os.path.exists('calculator/index.html'):
+        import sys; sys.path.insert(0, 'tools')
+        import build_calculator_page as bcp
+        cal = io.open('calculator/index.html', encoding='utf-8').read()
+        mm = re.search(re.escape(bcp.MARK_A) + r'(.*?)' + re.escape(bcp.MARK_B), cal, re.S)
+        if not mm:
+            problems['calculator/index.html'].append('ไม่พบ JSON ตารางราคา (lcData)')
+        elif mm.group(1) != bcp.data_json():
+            problems['calculator/index.html'].append('ตารางราคาที่ฝังไว้ไม่ตรงกับหน้าสินค้า — รัน python3 tools/build_calculator_page.py')
     # ยามแอปบัญชี: หน้า /account ต้องต่อสาย API เสมอ (กัน deploy ทับแล้วสายหลุด)
     if os.path.exists('account/index.html'):
         acc = io.open('account/index.html', encoding='utf-8').read()

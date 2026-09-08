@@ -56,7 +56,8 @@ const bad = (f, msg) => { console.log('  ✗ ' + f.replace(ROOT + '/', '') + ' �
 
 /* ชั้น 1: smoke ทุกหน้า */
 const pages = execSync(`grep -rl 'data-calc="1"' --include=index.html ${ROOT}`)
-  .toString().trim().split('\n').filter(Boolean);
+  .toString().trim().split('\n').filter(Boolean)
+  .filter(f => !/\/calculator\/index\.html$/.test(f)); // หน้าแอดมิน: ตารางอยู่ใน JSON ตรวจแยกชั้น 4
 for (const f of pages) {
   try {
     const r = load(f, 12);
@@ -123,7 +124,37 @@ for (const k of TANKS) {
   } catch (e) { bad(f, e.message); }
 }
 
+/* ชั้น 4: หน้าแอดมิน /calculator — ต้องรัน calc.js ตัวเดียวกันบนตารางที่ฝังไว้ แล้วให้ยอดเท่าหน้าสินค้า
+ * เคสอ้างอิง: poolarmour บ่อ 4×8×1.5 + CorePrimer = 9,770 (เคสเดียวกับชั้นบ่อ) + ข้อความส่งลูกค้าต้องมียอดรวมและลิงก์ */
+async function checkCalculatorPage() {
+  const CAL = path.join(ROOT, 'calculator/index.html');
+  if (!fs.existsSync(CAL)) return;
+  try {
+    const dom = new JSDOM(fs.readFileSync(CAL, 'utf8'), { runScripts: 'dangerously', url: 'https://www.lucernapro.com/calculator',
+      beforeParse(win) { win.__calcSrc = calcSrc; } }); // หน้าเว็บจริง fetch('/calc.js') — ใน jsdom ป้อนให้ก่อนสคริปต์ในหน้ารัน
+    const w = dom.window;
+    const sel = w.document.getElementById('pSel');
+    if (!sel || sel.options.length < 20) { bad(CAL, `รายการสินค้ามีแค่ ${sel ? sel.options.length : 0}`); return; }
+    const idx = [...sel.options].findIndex(o => /^PoolArmour/.test(o.textContent));
+    if (idx < 0) { bad(CAL, 'ไม่มี PoolArmour ในรายการ'); return; }
+    sel.value = String(idx); sel.dispatchEvent(new w.Event('change', { bubbles: true }));
+    await new Promise(r => setTimeout(r, 20)); // getCalc → Promise.resolve → mount ต่อ
+    const fire = (id, v) => { const el = w.document.getElementById(id); el.value = String(v); el.dispatchEvent(new w.Event('input', { bubbles: true })); };
+    if (!w.document.getElementById('lcD')) { bad(CAL, 'เลือก PoolArmour แล้วไม่มีช่องลึก — calc.js ไม่ได้รันบนตารางที่ฝัง'); return; }
+    fire('lcW', 4); fire('lcL', 8); fire('lcD', 1.5);
+    const tot = w.document.querySelector('#lcOut .tot .o');
+    const t = tot ? tot.textContent.replace(/[^0-9,]/g, '') : null;
+    if (t !== '9,770') bad(CAL, `PoolArmour 4×8×1.5 + primer ต้อง 9,770 ได้ ${t}`);
+    w.document.getElementById('regenBtn').click();
+    const msg = w.document.getElementById('msg').value;
+    if (!/รวม 9,770 บาท/.test(msg)) bad(CAL, 'ข้อความส่งลูกค้าไม่มียอดรวม 9,770');
+    if (!/lucernapro\.com\/poolarmour/.test(msg)) bad(CAL, 'ข้อความส่งลูกค้าไม่มีลิงก์หน้าสินค้า');
+  } catch (e) { bad(CAL, e.constructor.name + ': ' + e.message); }
+}
+
+checkCalculatorPage().then(() => {
 console.log(fails === 0
-  ? `ผ่านครบ ${pages.length} หน้า + เคสค่าคงที่ ${KNOWN.length} เคส + เคสโหมดบ่อ ${TANKS.length} เคส`
+  ? `ผ่านครบ ${pages.length} หน้า + เคสค่าคงที่ ${KNOWN.length} เคส + เคสโหมดบ่อ ${TANKS.length} เคส + หน้า /calculator`
   : `\nพบปัญหา ${fails} จุด`);
 process.exit(fails ? 1 : 0);
+});
