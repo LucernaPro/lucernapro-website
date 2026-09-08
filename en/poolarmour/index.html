@@ -381,6 +381,29 @@ img{height:auto}
   .pairshot figcaption{padding:12px 6px 4px;font-size:14px;color:var(--muted);line-height:1.55}
   .pairshot figcaption b{color:var(--ink)}
   .pairshot .go{display:inline-block;margin-top:6px;color:var(--orange);font-weight:600}
+
+  /* ---------- เปิดผิวปูนด้วยกรดเกลือ (#etch) ---------- */
+  .etch{margin:44px 0 0;border-top:1px solid var(--line);background:linear-gradient(180deg, rgba(216,87,28,.07), transparent 45%), var(--panel);padding:50px 0 54px}
+  .egate{margin-top:22px;display:grid;grid-template-columns:1fr;gap:12px;max-width:920px}
+  @media(min-width:760px){.egate{grid-template-columns:1fr 1fr}}
+  .egate>div{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--bg);padding:16px 18px}
+  .egate .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--orange);text-transform:uppercase}
+  .egate h4{font-family:var(--disp);font-size:16px;margin-top:5px}
+  .egate p{font-size:14px;color:var(--muted);margin-top:5px}
+  .egate p b{color:var(--ink)}
+  .esteps{margin-top:26px;display:grid;grid-template-columns:1fr;gap:12px;max-width:920px}
+  @media(min-width:760px){.esteps{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.esteps{grid-template-columns:repeat(4,1fr)}}
+  .estep{border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:16px}
+  .estep .no{font-family:var(--mono);font-size:12px;color:var(--orange);display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--orange);border-radius:50%;background:var(--panel)}
+  .estep h4{font-family:var(--disp);font-size:15.5px;margin-top:10px}
+  .estep p{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .estep p b{color:var(--ink)}
+  .echeck{margin-top:22px;max-width:720px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:16px 18px}
+  .echeck h4{font-family:var(--disp);font-size:16px}
+  .echeck ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .echeck li{margin-top:4px}
+  .echeck li b{color:var(--ink)}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -522,11 +545,11 @@ img{height:auto}
   <div class="wrap">
     <h2 class="sec-h">How to use</h2>
     <p class="sec-sub">Everything is on this page, every number included — pool work comes down to <b>surface prep</b> and <b>patience during cure</b>. Nail those two and the film lasts for years.</p>
-    <div class="note" style="margin:0 0 18px;border-left-color:var(--orange)"><b>Before you buy — water-drop test on every pool:</b> PoolArmour and CorePrimer work by <b>soaking into the concrete</b>. If the pour had a lot of waterproofing admixture mixed in, the surface won't absorb — the primer can't penetrate, the paint can't bond, and the job fails no matter how good the concrete looks. The check is simple: <b>drop water on the dry pool surface — good concrete drinks it almost instantly.</b> If the drop beads up or sits on the surface for a minute or more, the concrete isn't absorbent: <b>don't buy yet, don't paint yet, message us first</b> and send a photo of that drop.</div>
+    <div class="note" style="margin:0 0 18px;border-left-color:var(--orange)"><b>Before you buy — water-drop test on every pool:</b> PoolArmour and CorePrimer work by <b>soaking into the concrete</b>. If the pour had a lot of waterproofing admixture mixed in, the surface won't absorb — the primer can't penetrate, the paint can't bond, and the job fails no matter how good the concrete looks. The check is simple: <b>drop water on the dry pool surface — good concrete drinks it almost instantly.</b> If the drop beads up or sits on the surface for a minute or more, the concrete isn't absorbent (a sealed trowelled render, or heavy waterproofing admixture): <b>don't paint yet — open the surface with an acid wash first, <a href="#etch" style="color:var(--orange)">the do-it-yourself steps are below</a></b>. If anything there isn't clear, send us a photo of that drop and we'll talk it through.</div>
     <div class="vidgrid vert solo" style="margin:0 0 22px">
       <figure style="margin:0">
         <div class="fbv v916"><video controls playsinline muted preload="metadata" poster="/img/poolarmour-v01-drop-test-poster.webp" width="540" height="960"><source src="/img/poolarmour-v01-drop-test.mp4" type="video/mp4"></video></div>
-        <figcaption><b>This is what "soaks in instantly" looks like</b> — water dropped on the unglazed back of a tile (an absorbent surface) vanishes into it and darkens the spot <b>within a second</b>. A good concrete pool surface should behave exactly like this · if the drop beads up and sits there instead, it fails — message us first · (the white marks on the tile are factory residue, nothing to do with the test)</figcaption>
+        <figcaption><b>This is what "soaks in instantly" looks like</b> — water dropped on the unglazed back of a tile (an absorbent surface) vanishes into it and darkens the spot <b>within a second</b>. A good concrete pool surface should behave exactly like this · if the drop beads up and sits there instead, it fails — open the surface first (<a href="#etch" style="color:var(--orange)">steps below</a>) · (the white marks on the tile are factory residue, nothing to do with the test)</figcaption>
       </figure>
     </div>
     <ol class="flow">
@@ -557,6 +580,41 @@ img{height:auto}
     <div class="docbtns">
       <a class="btn btn-ghost" href="/files/poolarmour-tds.pdf" target="_blank" rel="noopener">📑 TDS — Technical Data Sheet</a>
     </div>
+  </div>
+</section>
+
+<section class="etch" id="etch">
+  <div class="wrap">
+    <div class="rdtag">SURFACE PREP — open the concrete before you paint</div>
+    <h2 class="sec-h" style="font-size:clamp(24px,3.6vw,32px)">Want it to last as long as possible? <em>Read this before you paint</em></h2>
+    <p class="sec-sub">A steel-trowelled pool render is sealed smooth: the paint can't soak in, so it will peel. The surface has to be opened with <b>muriatic acid</b> first — but let a drop of water decide whether you need to.</p>
+    <div class="egate">
+      <div><div class="k">Water drop — soaks in within 1 minute</div><h4>Pass — no acid wash needed</h4><p>Skip the steps below and go straight to <b>CorePrimer, then PoolArmour</b> as usual</p></div>
+      <div><div class="k">Water drop — beads up or sits on the surface</div><h4>Fail — do the 7-step acid wash</h4><p>When you're done, <b>drop water on it again</b>: it has to soak in before you paint — if anything here isn't clear, message us</p></div>
+    </div>
+
+    <div class="note" style="margin-top:22px;border-left-color:var(--orange)"><b>You need:</b> muriatic acid (hydrochloric acid, sold at any hardware shop) · clean water, a hose and a long-handled stiff scrubbing brush · <b>1 kg baking soda per pool</b> · rubber gloves, chemical goggles, rubber boots</div>
+
+    <div class="esteps">
+      <div class="estep"><span class="no">1</span><h4>Wet the whole surface</h4><p><b>Always before the acid</b> — dry concrete drinks the acid in patches and the surface comes out uneven</p></div>
+      <div class="estep"><span class="no">2</span><h4>Dilute the acid</h4><p><b>1 part acid : 5 parts water</b> — <b>pour the acid into the water, never water into acid</b></p></div>
+      <div class="estep"><span class="no">3</span><h4>Pour one area at a time and scrub</h4><p>It will fizz — <b>scrub with the brush while it fizzes</b>, about 5–10 minutes · <b>no fizz</b> = oil, grease or old paint is sealing the surface; acid won't help, remove that first and start again</p></div>
+      <div class="estep"><span class="no">4</span><h4>Rinse hard with water</h4><p>Rinse until <b>no foam</b> remains</p></div>
+      <div class="estep"><span class="no">5</span><h4>Wash with baking-soda water</h4><p><b>1 kg baking soda in 20 litres of water</b>, over the whole surface, to neutralise the leftover acid — <b>the most important step</b>: skip it and the paint will blister later</p></div>
+      <div class="estep"><span class="no">6</span><h4>Rinse with clean water again</h4><p>Until it's clean, with no white residue left</p></div>
+      <div class="estep"><span class="no">7</span><h4>Let it dry completely, 2–3 days</h4><p><b>No standing water</b> — then run the check below before priming</p></div>
+    </div>
+
+    <div class="echeck">
+      <h4>Check before priming — both must pass</h4>
+      <ul>
+        <li>Run your hand over it: it should feel <b>like fine sandpaper</b> and leave <b>no dust on your palm</b></li>
+        <li>A drop of water must <b>soak in within 1 minute</b></li>
+      </ul>
+    </div>
+
+    <div class="warn"><b>⚠ Safety:</b> a pool is a basin — acid fumes collect at the bottom. <b>Work when there's a breeze</b> and don't lean in close · <b>no chlorine</b> or sanitiser anywhere in the pool while you're using acid · acid on skin: rinse with clean water immediately</div>
+    <div class="note"><b>Either way</b> — whether the drop passed straight away or passed after the acid wash — <b>prime with <a href="/en/coreprimer" style="color:var(--orange)">CorePrimer</a> before <a href="/en/poolarmour" style="color:var(--orange)">PoolArmour</a>, every time.</b> There is no skipping this step.</div>
   </div>
 </section>
 

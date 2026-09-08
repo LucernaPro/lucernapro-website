@@ -380,6 +380,29 @@ img{height:auto}
   .pairshot figcaption{padding:12px 6px 4px;font-size:14px;color:var(--muted);line-height:1.55}
   .pairshot figcaption b{color:var(--ink)}
   .pairshot .go{display:inline-block;margin-top:6px;color:var(--orange);font-weight:600}
+
+  /* ---------- เปิดผิวปูนด้วยกรดเกลือ (#etch) ---------- */
+  .etch{margin:44px 0 0;border-top:1px solid var(--line);background:linear-gradient(180deg, rgba(216,87,28,.07), transparent 45%), var(--panel);padding:50px 0 54px}
+  .egate{margin-top:22px;display:grid;grid-template-columns:1fr;gap:12px;max-width:920px}
+  @media(min-width:760px){.egate{grid-template-columns:1fr 1fr}}
+  .egate>div{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--bg);padding:16px 18px}
+  .egate .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--orange);text-transform:uppercase}
+  .egate h4{font-family:var(--disp);font-size:16px;margin-top:5px}
+  .egate p{font-size:14px;color:var(--muted);margin-top:5px}
+  .egate p b{color:var(--ink)}
+  .esteps{margin-top:26px;display:grid;grid-template-columns:1fr;gap:12px;max-width:920px}
+  @media(min-width:760px){.esteps{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.esteps{grid-template-columns:repeat(4,1fr)}}
+  .estep{border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:16px}
+  .estep .no{font-family:var(--mono);font-size:12px;color:var(--orange);display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--orange);border-radius:50%;background:var(--panel)}
+  .estep h4{font-family:var(--disp);font-size:15.5px;margin-top:10px}
+  .estep p{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .estep p b{color:var(--ink)}
+  .echeck{margin-top:22px;max-width:720px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:16px 18px}
+  .echeck h4{font-family:var(--disp);font-size:16px}
+  .echeck ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .echeck li{margin-top:4px}
+  .echeck li b{color:var(--ink)}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -521,11 +544,11 @@ img{height:auto}
   <div class="wrap">
     <h2 class="sec-h">วิธีใช้งาน</h2>
     <p class="sec-sub">จบบนหน้านี้ครบทุกตัวเลข — หัวใจของงานสระคือ<b>การเตรียมผิวปูน</b>กับ<b>ความใจเย็นตอนรอเซ็ตตัว</b> สองอย่างนี้ทำครบ ฟิล์มอยู่ยาว</p>
-    <div class="note" style="margin:0 0 18px;border-left-color:var(--orange)"><b>ก่อนซื้อ — ทดสอบหยดน้ำก่อนทุกสระ:</b> PoolArmour และ CorePrimer ทำงานด้วยการ<b>ซึมเข้าเนื้อปูน</b> ถ้าตอนเทปูนใส่น้ำยากันซึมผสมในเนื้อปูนเยอะ ผิวจะไม่ดูดน้ำ น้ำยาซึมไม่ลง สีเกาะไม่ได้ ต่อให้ปูนดูดีแค่ไหนก็พัง · วิธีเช็คง่ายมาก: <b>หยดน้ำลงบนผิวสระที่แห้ง — ปูนดีน้ำจะซึมหายเข้าเนื้อแทบทันที</b> ถ้าน้ำเป็นเม็ดกลิ้งหรือค้างอยู่บนผิวเป็นนาที = ปูนไม่ดูดซึม <b>อย่าเพิ่งซื้อ อย่าเพิ่งทา ทักมาคุยก่อน</b> ถ่ายรูปหยดน้ำนั้นส่งเข้าแชทเพจได้เลย</div>
+    <div class="note" style="margin:0 0 18px;border-left-color:var(--orange)"><b>ก่อนซื้อ — ทดสอบหยดน้ำก่อนทุกสระ:</b> PoolArmour และ CorePrimer ทำงานด้วยการ<b>ซึมเข้าเนื้อปูน</b> ถ้าตอนเทปูนใส่น้ำยากันซึมผสมในเนื้อปูนเยอะ ผิวจะไม่ดูดน้ำ น้ำยาซึมไม่ลง สีเกาะไม่ได้ ต่อให้ปูนดูดีแค่ไหนก็พัง · วิธีเช็คง่ายมาก: <b>หยดน้ำลงบนผิวสระที่แห้ง — ปูนดีน้ำจะซึมหายเข้าเนื้อแทบทันที</b> ถ้าน้ำเป็นเม็ดกลิ้งหรือค้างอยู่บนผิวเป็นนาที = ปูนไม่ดูดซึม (ปูนขัดมันปิดหน้า หรือปูนผสมน้ำยากันซึมเยอะ) <b>อย่าเพิ่งทา — ต้องเปิดผิวด้วยกรดเกลือก่อน <a href="#etch" style="color:var(--orange)">อ่านวิธีทำเองด้านล่าง</a></b> ถ้าอ่านแล้วไม่เข้าใจ ค่อยถ่ายรูปหยดน้ำนั้นส่งเข้าแชทเพจมาคุย</div>
     <div class="vidgrid vert solo" style="margin:0 0 22px">
       <figure style="margin:0">
         <div class="fbv v916"><video controls playsinline muted preload="metadata" poster="/img/poolarmour-v01-drop-test-poster.webp" width="540" height="960"><source src="/img/poolarmour-v01-drop-test.mp4" type="video/mp4"></video></div>
-        <figcaption><b>หน้าตาของ "ซึมทันที" คือแบบนี้</b> — หยดน้ำลงหลังกระเบื้องดินเผา (ผิวที่ดูดซึม) น้ำหายเข้าเนื้อจนเป็นสีเข้ม<b>ภายในวินาทีเดียว</b> ผิวสระปูนที่ดีต้องออกแบบเดียวกันนี้ · ถ้าหยดแล้วน้ำยังเป็นเม็ดกลิ้งอยู่บนผิว = ไม่ผ่าน ทักมาคุยก่อน · (รอยขาวบนกระเบื้องเป็นคราบที่ติดมาจากโรงงาน ไม่เกี่ยวกับการทดสอบ)</figcaption>
+        <figcaption><b>หน้าตาของ "ซึมทันที" คือแบบนี้</b> — หยดน้ำลงหลังกระเบื้องดินเผา (ผิวที่ดูดซึม) น้ำหายเข้าเนื้อจนเป็นสีเข้ม<b>ภายในวินาทีเดียว</b> ผิวสระปูนที่ดีต้องออกแบบเดียวกันนี้ · ถ้าหยดแล้วน้ำยังเป็นเม็ดกลิ้งอยู่บนผิว = ไม่ผ่าน ต้องเปิดผิวก่อน (<a href="#etch" style="color:var(--orange)">วิธีอยู่ด้านล่าง</a>) · (รอยขาวบนกระเบื้องเป็นคราบที่ติดมาจากโรงงาน ไม่เกี่ยวกับการทดสอบ)</figcaption>
       </figure>
     </div>
     <ol class="flow">
@@ -556,6 +579,41 @@ img{height:auto}
     <div class="docbtns">
       <a class="btn btn-ghost" href="/files/poolarmour-tds.pdf" target="_blank" rel="noopener">📑 TDS ข้อมูลเทคนิค</a>
     </div>
+  </div>
+</section>
+
+<section class="etch" id="etch">
+  <div class="wrap">
+    <div class="rdtag">SURFACE PREP — เปิดผิวปูนก่อนทา</div>
+    <h2 class="sec-h" style="font-size:clamp(24px,3.6vw,32px)">อยากให้ทนขั้นสุด <em>อ่านตรงนี้ก่อนทา</em></h2>
+    <p class="sec-sub">ปูนสระที่ฉาบขัดมันจะผิวเรียบปิดสนิท สีซึมลงไม่ได้ ทาแล้วหลุดแน่นอน — ต้องเปิดผิวด้วย<b>กรดเกลือ</b>ก่อน แต่จะต้องทำหรือไม่ต้องทำ ให้หยดน้ำเป็นคนตัดสิน</p>
+    <div class="egate">
+      <div><div class="k">หยดน้ำ — ซึมหายภายใน 1 นาที</div><h4>ผ่าน — ไม่ต้องล้างกรด</h4><p>ข้ามขั้นตอนข้างล่างได้เลย ไปที่<b>รองพื้น CorePrimer แล้วทา PoolArmour</b>ตามขั้นตอนปกติ</p></div>
+      <div><div class="k">หยดน้ำ — เป็นเม็ดหรือค้างอยู่บนผิว</div><h4>ไม่ผ่าน — ต้องล้างกรดตาม 7 ขั้นนี้</h4><p>ทำครบแล้ว<b>หยดน้ำซ้ำอีกครั้ง</b>ต้องซึมถึงจะทาได้ — ถ้าอ่านแล้วไม่เข้าใจ ค่อยทักมาคุย</p></div>
+    </div>
+
+    <div class="note" style="margin-top:22px;border-left-color:var(--orange)"><b>ต้องเตรียม:</b> กรดเกลือ (ซื้อได้ทั่วไป) · น้ำสะอาด สายยาง แปรงขัดพื้นด้ามยาว · <b>เบกกิ้งโซดา 1 กก. ต่อสระ 1 สระ</b> · ถุงมือยาง แว่นกันสารเคมี รองเท้าบูท</div>
+
+    <div class="esteps">
+      <div class="estep"><span class="no">1</span><h4>ราดน้ำให้ปูนเปียกทั่ว</h4><p>ทำ<b>ก่อนราดกรดเสมอ</b> — ปูนแห้งจะดูดกรดเป็นหย่อม ผิวจะออกมาไม่เท่ากัน</p></div>
+      <div class="estep"><span class="no">2</span><h4>ผสมกรด</h4><p>กรดเกลือ <b>1 ส่วน : น้ำ 5 ส่วน</b> — <b>เทกรดลงน้ำ ห้ามเทน้ำลงกรด</b></p></div>
+      <div class="estep"><span class="no">3</span><h4>ราดกรดทีละส่วน แล้วขัด</h4><p>จะเห็นฟองฟู่ขึ้นมา <b>ขัดด้วยแปรงตอนกำลังฟู่</b> ประมาณ 5–10 นาที · <b>ถ้าไม่ฟู่</b> = มีคราบน้ำมันหรือสีเก่าปิดหน้าอยู่ กรดไม่ช่วย ต้องขัดหรือล้างคราบออกก่อนแล้วเริ่มใหม่</p></div>
+      <div class="estep"><span class="no">4</span><h4>ล้างน้ำแรงๆ ให้ทั่ว</h4><p>ล้างจน<b>ไม่มีฟอง</b>เหลืออยู่</p></div>
+      <div class="estep"><span class="no">5</span><h4>ล้างด้วยน้ำเบกกิ้งโซดา</h4><p>เบกกิ้งโซดา <b>1 กก. ต่อน้ำ 20 ลิตร</b> ราดให้ทั่วเพื่อล้างกรดที่เหลือ — <b>ขั้นนี้สำคัญที่สุด</b> ถ้าข้าม สีจะพองภายหลัง</p></div>
+      <div class="estep"><span class="no">6</span><h4>ล้างน้ำเปล่าอีกรอบ</h4><p>ล้างให้สะอาด ไม่มีคราบขาวเหลือ</p></div>
+      <div class="estep"><span class="no">7</span><h4>ปล่อยแห้งสนิท 2–3 วัน</h4><p><b>ห้ามมีน้ำขัง</b> แล้วค่อยเช็คตามกล่องข้างล่างก่อนรองพื้น</p></div>
+    </div>
+
+    <div class="echeck">
+      <h4>เช็คก่อนรองพื้น — ต้องผ่านทั้ง 2 ข้อ</h4>
+      <ul>
+        <li>เอามือลูบผิวปูน ต้อง<b>สากเหมือนกระดาษทรายละเอียด</b> และ<b>ไม่มีผงติดมือ</b></li>
+        <li>หยดน้ำต้อง<b>ซึมหายภายใน 1 นาที</b></li>
+      </ul>
+    </div>
+
+    <div class="warn"><b>⚠ ระวัง:</b> สระเป็นแอ่ง ไอกรดจะกองอยู่ข้างล่าง <b>ทำตอนมีลม</b> อย่าก้มหน้าลงไปดมใกล้ๆ · <b>ห้ามมีคลอรีน</b>หรือน้ำยาฆ่าเชื้ออยู่ในสระตอนราดกรด · กรดกระเด็นโดนตัว ล้างน้ำสะอาดทันที</div>
+    <div class="note"><b>ไม่ว่าจะทางไหน</b> — ผ่านหยดน้ำตั้งแต่แรก หรือล้างกรดแล้วผ่าน — <b>ต้องรองพื้นด้วย <a href="/coreprimer" style="color:var(--orange)">CorePrimer</a> ก่อนทา <a href="/poolarmour" style="color:var(--orange)">PoolArmour</a> เสมอ</b> ขั้นนี้ไม่มีข้าม</div>
   </div>
 </section>
 
