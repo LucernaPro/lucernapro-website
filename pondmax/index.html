@@ -346,6 +346,18 @@ img{height:auto}
   }
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
   .direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}
+
+  /* ---------- Customer cards (ภาพชุดลูกค้าแต่ละราย แยกการ์ด) ---------- */
+  .custcards{padding:12px 0 12px}
+  .custgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:900px){.custgrid{grid-template-columns:1fr 1fr}}
+  .custcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .custcard .im2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .custcard .im2 .im{aspect-ratio:4/3;overflow:hidden;border-radius:9px}
+  .custcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .custcard:hover img{transform:scale(1.03)}
+  .custcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .custcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -557,6 +569,22 @@ img{height:auto}
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="บ่อปลาทา PondMax สีดำ เติมน้ำแล้ว" src="/img/pondmax-g07.webp" width="720" height="720"></div><figcaption>ดำ — ตัวเลือกอันดับหนึ่งของบ่อโค่ย<small>บ่อดูลึกลับมีมิติ สีปลาเด้งตัดกับพื้นสุดๆ</small></figcaption></figure>
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="สระทา PondMax สีน้ำเงินสด" src="/img/pondmax-g13.webp" width="720" height="720"></div><figcaption>น้ำเงิน — โทนน้ำใสสดฉ่ำ<small>สายบ่อสวยงาม บ่อเลี้ยงรวม และงานภูมิทัศน์</small></figcaption></figure>
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="บ่อปลาทา PondMax สีเทา กำแพงหินชนวน" src="/img/pondmax-g20.webp" width="720" height="720"></div><figcaption>เทา — เรียบหรูโทนธรรมชาติ<small>เข้ากับงานหินและสวนสไตล์ญี่ปุ่นแบบไร้ที่ติ</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="custcards">
+  <div class="wrap">
+    <h2 class="sec-h">งานจากลูกค้า <em>เคสต่อเคส</em></h2>
+    <p class="sec-sub">ภาพชุดที่ลูกค้าส่งมาให้ — แยกการ์ดรายละคน ไม่ปนกัน</p>
+    <div class="custgrid">
+      <figure class="custcard">
+        <div class="im2">
+          <div class="im"><img loading="lazy" decoding="async" alt="บ่อปูนฟรีฟอร์มสองห้องข้างกำแพง ทา PondMax สีดำเสร็จ ก่อนเติมน้ำ" src="/img/pondmax-c01-a.webp" width="960" height="720"></div>
+          <div class="im"><img loading="lazy" decoding="async" alt="มุมสูงของบ่อ PondMax ดำ เก็บมุมโค้ง ขอบ และห้องเล็กครบ" src="/img/pondmax-c01-b.webp" width="960" height="720"></div>
+        </div>
+        <figcaption>บ่อปูนฟรีฟอร์มสองห้อง — ดำทั้งบ่อ ก่อนเติมน้ำ<small>บ่อหล่อโค้งข้างกำแพงบ้าน ทาด้วยลูกกลิ้ง เก็บผนังโค้ง มุม ขอบ และห้องเล็กเป็นฟิล์มเดียวต่อเนื่อง</small></figcaption>
+      </figure>
     </div>
   </div>
 </section>

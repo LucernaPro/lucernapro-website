@@ -346,6 +346,18 @@ img{height:auto}
   }
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
   .direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}
+
+  /* ---------- Customer cards (ภาพชุดลูกค้าแต่ละราย แยกการ์ด) ---------- */
+  .custcards{padding:12px 0 12px}
+  .custgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:900px){.custgrid{grid-template-columns:1fr 1fr}}
+  .custcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+  .custcard .im2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .custcard .im2 .im{aspect-ratio:4/3;overflow:hidden;border-radius:9px}
+  .custcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+  .custcard:hover img{transform:scale(1.03)}
+  .custcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+  .custcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -557,6 +569,22 @@ img{height:auto}
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="Koi pond coated in PondMax black, filled with water" src="/img/pondmax-g07.webp" width="720" height="720"></div><figcaption>Black — the number-one koi pond choice<small>Deep, dimensional water; fish colours pop hard against it</small></figcaption></figure>
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="Pond coated in vivid PondMax blue" src="/img/pondmax-g13.webp" width="720" height="720"></div><figcaption>Blue — fresh, vivid water tone<small>Display ponds, community ponds and landscape work</small></figcaption></figure>
       <figure class="showcard"><div class="im"><img loading="lazy" decoding="async" alt="Fish pond coated in PondMax grey beside a slate wall" src="/img/pondmax-g20.webp" width="720" height="720"></div><figcaption>Grey — calm natural luxury<small>Flawless with stonework and Japanese-style gardens</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="custcards">
+  <div class="wrap">
+    <h2 class="sec-h">From our customers <em>case by case</em></h2>
+    <p class="sec-sub">Photo sets sent in by customers — one card per customer, never mixed together</p>
+    <div class="custgrid">
+      <figure class="custcard">
+        <div class="im2">
+          <div class="im"><img loading="lazy" decoding="async" alt="Two-chamber free-form concrete pond beside a wall, coated in PondMax black, before filling" src="/img/pondmax-c01-a.webp" width="960" height="720"></div>
+          <div class="im"><img loading="lazy" decoding="async" alt="High angle of the PondMax black pond — curved walls, edges and small chamber all coated" src="/img/pondmax-c01-b.webp" width="960" height="720"></div>
+        </div>
+        <figcaption>Two-chamber free-form concrete pond — black throughout, before filling<small>Cast in curves beside the house wall and rolled on: curved walls, corners, rims and the small chamber all one continuous film</small></figcaption>
+      </figure>
     </div>
   </div>
 </section>
