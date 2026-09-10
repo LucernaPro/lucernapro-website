@@ -515,15 +515,7 @@ function askChoice(title, labels){
    - ออกแล้วห้ามแก้ทับ: ผิด → ยกเลิกฉบับเดิม (เก็บไว้ + เหตุผล) แล้วออกฉบับใหม่แทน ระบุอ้างอิงเลขเดิม ลงวันที่เดิม (ป.86/2542 ข้อ 25)
    - ยกเลิกได้เฉพาะก่อนยื่น ภ.พ.30 ของเดือนนั้น: ให้ถึงวันที่ 15 ของเดือนถัดไป หลังจากนั้นล็อก ต้องใช้ใบลดหนี้/ใบเพิ่มหนี้ */
 const VAT_FILE_DAY = 15;
-const INV_EDIT_DAYS = 0;   /* แก้ทับเลขเดิมได้กี่วันนับจากวันที่ในใบ (0 = เฉพาะวันเดียวกัน) */
 function isINV(no){ return /^INV-/.test(no||''); }
-function invEditable(dateStr){
-  const m = (dateStr||'').match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/); if(!m) return false;
-  const issued = new Date(Number(m[3]), Number(m[2])-1, Number(m[1]));
-  const today  = new Date(); today.setHours(0,0,0,0);
-  const days = Math.round((today - issued) / 864e5);
-  return days >= 0 && days <= INV_EDIT_DAYS;
-}
 function invCancelDeadline(no){
   const m = (no||'').match(/^INV-(\d{4})(\d{2})-/); if(!m) return null;
   return new Date(Number(m[1]), Number(m[2]), VAT_FILE_DAY, 23, 59, 59);   /* เดือนถัดไป (getMonth เป็น 0-based จึงไม่ต้อง +1) */
@@ -647,10 +639,11 @@ async function _doSave(){
   if(!pin){ pin = await askPin(); asked = true; if(!pin) return {ok:false, err:'ไม่ได้ใส่ PIN'}; }
   try{
     const payload = collectDoc();
-    /* ใบกำกับภาษี: แก้ทับเลขเดิมได้เฉพาะภายในวันที่ออก (ยังไม่ถือว่าถึงมือลูกค้า/ลงบัญชี) — ข้ามวันแล้วล็อก ต้องยกเลิก+ออกฉบับใหม่แทน */
-    if(lastSavedNo && isINV(lastSavedNo) && !invEditable(payload.date)){
-      setSaveStatus(false, 'ใบกำกับภาษีข้ามวันแล้ว แก้ทับไม่ได้');
-      return {ok:false, err:'ใบกำกับภาษี '+lastSavedNo+' ออกวันที่ '+payload.date+' ข้ามวันแล้ว แก้ทับไม่ได้ — ให้ไปหน้ารายการ กดยกเลิก แล้วออกฉบับใหม่แทน'};
+    /* ใบกำกับภาษี: แก้ทับเลขเดิมได้จนถึงวันยื่น ภ.พ.30 ของเดือนที่ออก (15 ของเดือนถัดไป) — บัญชีกึ่งแมนนวล ยอมให้แก้ก่อนยื่น
+       หลังยื่นแล้วล็อก: ยอดที่ยื่นสรรพากรไปแล้วเปลี่ยนไม่ได้ ต้องยกเลิก+ออกฉบับใหม่แทน หรือใบลดหนี้/เพิ่มหนี้ */
+    if(lastSavedNo && isINV(lastSavedNo) && invCancelLocked(lastSavedNo)){
+      setSaveStatus(false, 'ใบกำกับภาษีพ้นกำหนดยื่นภาษีแล้ว แก้ทับไม่ได้');
+      return {ok:false, err:'ใบกำกับภาษี '+lastSavedNo+' พ้นกำหนดยื่น ภ.พ.30 แล้ว (หลัง '+fmtDate(invCancelDeadline(lastSavedNo))+') แก้ทับไม่ได้ — ต้องใช้ใบลดหนี้/ใบเพิ่มหนี้'};
     }
     /* ใบเสนอราคา/ใบวางบิล: เปิดใบเดิมมาแก้ = ทับเลขเดิมเสมอ (เลขใหม่ต่อเมื่อล้างฟอร์มแล้วทำใหม่)
        ยกเว้นชื่อลูกค้าเปลี่ยน → ถามให้ชัดว่าจะทับใบเดิม หรือตั้งใจออกใบใหม่ให้ลูกค้าอีกราย */
@@ -1438,7 +1431,7 @@ function openSheet(no){
   document.getElementById('shInv').style.display = isQT ? '' : 'none';
   document.getElementById('shBl').style.display  = isQT ? '' : 'none';
   const cb = document.getElementById('shCancel'), lock = document.getElementById('shLock');
-  document.getElementById('shView').textContent = isINV(no) ? 'เปิดดู / พิมพ์ซ้ำ / แก้ไข (เฉพาะวันที่ออก)' : 'เปิดดู / พิมพ์ซ้ำ / แก้ไข';
+  document.getElementById('shView').textContent = isINV(no) ? 'เปิดดู / พิมพ์ซ้ำ / แก้ไข (ได้ถึง 15 เดือนถัดไป)' : 'เปิดดู / พิมพ์ซ้ำ / แก้ไข';
   lock.style.display = 'none';
   if(r.status==='ยกเลิก'){ cb.style.display = 'none'; }
   else if(isINV(no) && invCancelLocked(no)){
