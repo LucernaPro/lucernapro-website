@@ -1104,6 +1104,16 @@ function setToday(){
   dateAuto = true;
 }
 document.getElementById('docDate').addEventListener('input', ()=>{ dateAuto = false; });
+/* ตรวจวันที่อัตโนมัติ — แอปเปิดค้างไว้ทั้งปี ไม่มีใครมา refresh/ล้างฟอร์ม:
+   ทุกนาที + ทุกครั้งที่กลับมาที่ tab/หน้าจอ ถ้าวันที่ในใบยังเป็นค่าระบบ และเป็นใบใหม่ที่ยังไม่ออกเลข แต่ข้ามวันแล้ว → ประทับวันนี้ให้ทันที */
+function checkDate(){
+  if(!dateAuto || lastSavedNo) return;
+  const today = fmtDate(new Date());
+  if(document.getElementById('docDate').textContent.trim() !== today){ setToday(); showToast('ข้ามวันแล้ว — ตั้งวันที่ในใบเป็น '+today); }
+}
+setInterval(checkDate, 60000);
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checkDate(); });
+window.addEventListener('focus', checkDate);
 (function(){
   setToday();
   clearForm();               /* เปิดหน้ามา = ฟอร์มว่างพร้อมทำงาน ไม่มีข้อมูลตัวอย่างค้าง */
