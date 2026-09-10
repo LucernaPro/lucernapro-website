@@ -572,6 +572,7 @@ let _saveInFlight = null;
 async function ensureSaved(){
   if(!API.url) return {skipped:true};              /* ยังไม่ต่อระบบ — ทำงานแบบ standalone ต่อได้ */
   if(!docDirty && lastSavedNo) return {ok:true, no:lastSavedNo};
+  if(dateAuto && !lastSavedNo) setToday();         /* ใบใหม่ที่ไม่มีใครแก้วันที่ = ออกวันนี้เสมอ แม้หน้าเปิดค้างมาหลายวัน */
   if(_saveInFlight) return _saveInFlight;          /* กันกดรัว: รอบที่ยิงอยู่คือคำตอบของทุกคน */
   _saveInFlight = _doSave();
   const r = await _saveInFlight;
@@ -1066,6 +1067,7 @@ document.getElementById('btnReset').onclick = function(){
 };
 
 function clearForm(){
+  setToday();
   document.getElementById('pasteArea').value = '';
   document.getElementById('custNameText').textContent = 'ชื่อลูกค้า';
   document.getElementById('inNameCust').textContent = 'ในนาม ....................';
@@ -1091,12 +1093,17 @@ function clearForm(){
 
 /* ---------- วันที่ตั้งต้น (DD/MM/YYYY ตามฟอร์แมตเดิมของร้าน) + เลขเอกสารระบบใหม่ ---------- */
 function fmtDate(d){ return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear(); }
+/* dateAuto = วันที่ยังเป็นค่าที่ระบบตั้งให้ (ไม่มีใครแก้มือ) → ก่อนบันทึกจะประทับวันนี้ซ้ำอีกครั้ง
+   กันเคส tab เปิดค้างไว้หลายวัน: เดิมตั้งวันที่ครั้งเดียวตอนโหลดหน้า ใบใหม่ที่ออกวันหลังเลยติดวันที่เก่า */
+let dateAuto = true;
 function setToday(){
   const now = new Date();
   document.getElementById('docDate').textContent  = fmtDate(now);
   document.getElementById('validDate').textContent= fmtDate(new Date(Date.now()+30*864e5));
   document.getElementById('payDate').textContent  = fmtDate(now);
+  dateAuto = true;
 }
+document.getElementById('docDate').addEventListener('input', ()=>{ dateAuto = false; });
 (function(){
   setToday();
   clearForm();               /* เปิดหน้ามา = ฟอร์มว่างพร้อมทำงาน ไม่มีข้อมูลตัวอย่างค้าง */
@@ -1373,7 +1380,7 @@ function fillFromDoc(d){
   document.getElementById('discMode').value = disc.mode||'baht';
   discExtra = disc.extra||0;
   document.getElementById('exVat').checked = !!d.exVat;
-  if(d.date) document.getElementById('docDate').textContent = d.date;
+  if(d.date){ document.getElementById('docDate').textContent = d.date; dateAuto = false; }
   if(d.validUntil) document.getElementById('validDate').textContent = d.validUntil;
   recalc();
 }
