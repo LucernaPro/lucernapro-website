@@ -449,6 +449,13 @@
   </div>
 </div>
 
+<div id="choiceModal" style="display:none;position:fixed;inset:0;background:rgba(10,6,2,.8);z-index:210;align-items:center;justify-content:center">
+  <div style="background:#2E2213;border:1px solid #6A4E2E;border-radius:14px;padding:20px 18px;width:min(360px,88vw)">
+    <div id="choiceTitle" style="font-size:14px;font-weight:600;color:#F0D9BC;margin-bottom:12px;line-height:1.5"></div>
+    <div id="choiceBtns" style="display:flex;flex-direction:column;gap:9px"></div>
+  </div>
+</div>
+
 <div id="printArea"></div>
 
 <div class="toast" id="toast"></div>
@@ -493,6 +500,15 @@ function askReason(){
     m.style.display='flex'; inp.value=''; setTimeout(()=>inp.focus(),50);
     document.getElementById('reasonOk').onclick = ()=>{ const v = inp.value.trim(); if(!v){ inp.focus(); return; } m.style.display='none'; resolve(v); };
     document.getElementById('reasonCancel').onclick = ()=>{ m.style.display='none'; resolve(null); };
+  });
+}
+function askChoice(title, labels){
+  return new Promise(resolve=>{
+    const m = document.getElementById('choiceModal'), box = document.getElementById('choiceBtns');
+    document.getElementById('choiceTitle').textContent = title;
+    box.innerHTML = '';
+    labels.forEach((l,i)=>{ const b = document.createElement('button'); b.className='sheet-btn'; b.textContent=l; b.onclick=()=>{ m.style.display='none'; resolve(i); }; box.appendChild(b); });
+    m.style.display='flex';
   });
 }
 /* ---------- กติกาภาษีของใบกำกับภาษี (INV) ----------
@@ -628,9 +644,18 @@ async function _doSave(){
       setSaveStatus(false, 'ใบกำกับภาษีที่ออกแล้วแก้ทับไม่ได้');
       return {ok:false, err:'ใบกำกับภาษี '+lastSavedNo+' ออกเลขแล้ว แก้ทับไม่ได้ — ถ้าผิด ให้ไปหน้ารายการ กด "ยกเลิก + ออกฉบับใหม่แทน"'};
     }
-    /* แก้ใบเดิม (ลูกค้าเดียวกัน) = ทับเลขเดิม / ลูกค้าเปลี่ยน = ใบใหม่ ออกเลขใหม่ */
-    if(lastSavedNo && payload.customer.name === lastSavedCust){ payload.no = lastSavedNo; payload.update = true; }
-    else { lastSavedNo = null; }
+    /* ใบเสนอราคา/ใบวางบิล: เปิดใบเดิมมาแก้ = ทับเลขเดิมเสมอ (เลขใหม่ต่อเมื่อล้างฟอร์มแล้วทำใหม่)
+       ยกเว้นชื่อลูกค้าเปลี่ยน → ถามให้ชัดว่าจะทับใบเดิม หรือตั้งใจออกใบใหม่ให้ลูกค้าอีกราย */
+    if(lastSavedNo){
+      let overwrite = true;
+      if(payload.customer.name !== lastSavedCust){
+        const c = await askChoice('ชื่อลูกค้าเปลี่ยนจาก "'+lastSavedCust+'" เป็น "'+payload.customer.name+'"\nจะทำอะไรกับ '+lastSavedNo+'?',
+          ['ทับใบเดิม '+lastSavedNo+' (แก้ชื่อ)', 'ออกใบใหม่ เลขใหม่ (ลูกค้าคนละราย)']);
+        overwrite = (c === 0);
+      }
+      if(overwrite){ payload.no = lastSavedNo; payload.update = true; }
+      else { lastSavedNo = null; }
+    }
     const res = await fetch(API.url.replace(/\/$/,'')+'/save', {
       method:'POST',
       headers:{'content-type':'application/json','x-pin':pin},
