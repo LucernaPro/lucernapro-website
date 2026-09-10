@@ -418,6 +418,7 @@
       <button class="sheet-btn" id="shInv">แปลงเป็นใบกำกับภาษี</button>
       <button class="sheet-btn" id="shBl">แปลงเป็นใบวางบิล</button>
       <button class="sheet-btn danger" id="shCancel">ยกเลิกใบนี้</button>
+      <div id="shLock" style="display:none;font-size:12.5px;line-height:1.5;color:#E08A8A;padding:4px 2px"></div>
       <button class="sheet-btn" id="shClose">ปิด</button>
     </div>
   </div>
@@ -431,6 +432,19 @@
       <button class="sheet-btn" data-p="orig">ต้นฉบับ อย่างเดียว</button>
       <button class="sheet-btn" data-p="copy">สำเนา อย่างเดียว</button>
       <button class="sheet-btn" id="ppClose">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<div id="reasonModal" style="display:none;position:fixed;inset:0;background:rgba(10,6,2,.8);z-index:210;align-items:center;justify-content:center">
+  <div style="background:#2E2213;border:1px solid #6A4E2E;border-radius:14px;padding:22px 20px;width:min(360px,88vw)">
+    <div id="reasonTitle" style="font-size:15px;font-weight:600;color:#F0D9BC;margin-bottom:4px">เหตุผลที่ยกเลิก</div>
+    <div style="font-size:12.5px;color:#A08B72;margin-bottom:12px">ใบกำกับภาษีที่ยกเลิกต้องเก็บไว้พร้อมเหตุผล (ห้ามลบ) — ระบบจะออกฉบับใหม่แทนให้ต่อ</div>
+    <textarea id="reasonInput" rows="3" placeholder="เช่น ชื่อลูกค้าผิด / ยอดผิด / ออกซ้ำ"
+      style="width:100%;font-family:'Sarabun';font-size:15px;padding:10px 12px;border-radius:8px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB;resize:none"></textarea>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button id="reasonCancel" style="flex:1;font-family:'Sarabun';font-weight:600;font-size:14px;padding:10px;border-radius:8px;border:1px solid #6A4E2E;background:transparent;color:#D9C6AE">กลับ</button>
+      <button id="reasonOk" style="flex:1;font-family:'Sarabun';font-weight:600;font-size:14px;padding:10px;border-radius:8px;border:none;background:var(--orange);color:#fff">ยกเลิกใบนี้</button>
     </div>
   </div>
 </div>
@@ -472,6 +486,25 @@ function askPin(){
     document.getElementById('pinCancel').onclick = ()=>{ m.style.display='none'; resolve(null); };
   });
 }
+function askReason(){
+  return new Promise(resolve=>{
+    const m = document.getElementById('reasonModal');
+    const inp = document.getElementById('reasonInput');
+    m.style.display='flex'; inp.value=''; setTimeout(()=>inp.focus(),50);
+    document.getElementById('reasonOk').onclick = ()=>{ const v = inp.value.trim(); if(!v){ inp.focus(); return; } m.style.display='none'; resolve(v); };
+    document.getElementById('reasonCancel').onclick = ()=>{ m.style.display='none'; resolve(null); };
+  });
+}
+/* ---------- กติกาภาษีของใบกำกับภาษี (INV) ----------
+   - ออกแล้วห้ามแก้ทับ: ผิด → ยกเลิกฉบับเดิม (เก็บไว้ + เหตุผล) แล้วออกฉบับใหม่แทน ระบุอ้างอิงเลขเดิม ลงวันที่เดิม (ป.86/2542 ข้อ 25)
+   - ยกเลิกได้เฉพาะก่อนยื่น ภ.พ.30 ของเดือนนั้น: ให้ถึงวันที่ 15 ของเดือนถัดไป หลังจากนั้นล็อก ต้องใช้ใบลดหนี้/ใบเพิ่มหนี้ */
+const VAT_FILE_DAY = 15;
+function isINV(no){ return /^INV-/.test(no||''); }
+function invCancelDeadline(no){
+  const m = (no||'').match(/^INV-(\d{4})(\d{2})-/); if(!m) return null;
+  return new Date(Number(m[1]), Number(m[2]), VAT_FILE_DAY, 23, 59, 59);   /* เดือนถัดไป (getMonth เป็น 0-based จึงไม่ต้อง +1) */
+}
+function invCancelLocked(no){ const d = invCancelDeadline(no); return !!d && Date.now() > d.getTime(); }
 /* ---------- ประเภทเอกสาร ---------- */
 const CO_G   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
 const CO_ENG = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
@@ -569,6 +602,12 @@ function collectDoc(){
 
 /* บันทึกลงระบบ: ขอเลขจริงจาก Worker แล้วอัพเดตหน้าเอกสารก่อน render */
 let _saveInFlight = null;
+/* ใบกำกับภาษี: ถ้าบันทึกลงระบบไม่สำเร็จ = ไม่มีเลขที่จริง → ไม่พิมพ์/ไม่สร้างไฟล์ (ห้ามออกใบกำกับเลข XXXX) ใบเสนอราคา/วางบิลยังพิมพ์ต่อได้ */
+function outputBlocked(s){
+  if(docType !== 'INV' || s.ok || s.skipped) return false;
+  showToast('⛔ ใบกำกับภาษีต้องมีเลขที่จริง — ไม่พิมพ์ ('+s.err+')', 5200);
+  return true;
+}
 async function ensureSaved(){
   if(!API.url) return {skipped:true};              /* ยังไม่ต่อระบบ — ทำงานแบบ standalone ต่อได้ */
   if(!docDirty && lastSavedNo) return {ok:true, no:lastSavedNo};
@@ -584,6 +623,11 @@ async function _doSave(){
   if(!pin){ pin = await askPin(); asked = true; if(!pin) return {ok:false, err:'ไม่ได้ใส่ PIN'}; }
   try{
     const payload = collectDoc();
+    /* ใบกำกับภาษีที่ออกเลขแล้ว แก้ทับไม่ได้ (ผิดระบบภาษี) — ต้องไปหน้ารายการ กด "ยกเลิก + ออกฉบับใหม่แทน" */
+    if(lastSavedNo && isINV(lastSavedNo)){
+      setSaveStatus(false, 'ใบกำกับภาษีที่ออกแล้วแก้ทับไม่ได้');
+      return {ok:false, err:'ใบกำกับภาษี '+lastSavedNo+' ออกเลขแล้ว แก้ทับไม่ได้ — ถ้าผิด ให้ไปหน้ารายการ กด "ยกเลิก + ออกฉบับใหม่แทน"'};
+    }
     /* แก้ใบเดิม (ลูกค้าเดียวกัน) = ทับเลขเดิม / ลูกค้าเปลี่ยน = ใบใหม่ ออกเลขใหม่ */
     if(lastSavedNo && payload.customer.name === lastSavedCust){ payload.no = lastSavedNo; payload.update = true; }
     else { lastSavedNo = null; }
@@ -1128,6 +1172,7 @@ function showToast(msg,ms){ toast.textContent=msg; toast.style.display='block';
 document.getElementById('btnPrint').onclick = async ()=>{
   if(docType !== 'QT'){ document.getElementById('printPick').style.display = 'flex'; return; }
   const s = await ensureSaved();
+  if(outputBlocked(s)) return;
   if(s.ok) showToast((s.updated?'อัพเดตใบเดิมแล้ว ✓ เลขที่ ':'บันทึกแล้ว ✓ เลขที่ ')+s.no, 2600);
   else if(!s.skipped) showToast('⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+') — พิมพ์ให้ตามปกติ', 4200);
   setTimeout(()=>printCopies('orig'), 150);
@@ -1175,6 +1220,7 @@ document.getElementById('btnPdf').onclick = async function(){
   const btn = this;
   btn.disabled = true; btn.textContent = 'กำลังสร้าง…';
   const s = await ensureSaved();
+  if(outputBlocked(s)) return;
   try{
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({unit:'mm', format:'a4', compress:true});
@@ -1271,6 +1317,7 @@ document.getElementById('btnSave').onclick = async function(){
   btn.disabled=true; btn.textContent='กำลังบันทึก…';
   /* ขอเลขจริง + บันทึกลงระบบก่อน — รูปที่ออกจะได้ตรงกับข้อมูลในระบบเสมอ */
   const s = await ensureSaved();
+  if(outputBlocked(s)) return;
   btn.textContent='กำลังสร้างรูป…';
   document.body.classList.add('exporting');
   const saved=scaler.style.transform;
@@ -1357,8 +1404,17 @@ function openSheet(no){
   const isQT = no.startsWith('QT-');
   document.getElementById('shInv').style.display = isQT ? '' : 'none';
   document.getElementById('shBl').style.display  = isQT ? '' : 'none';
-  const cb = document.getElementById('shCancel');
-  cb.textContent = 'ยกเลิกใบนี้'; cb.style.display = (r.status==='ยกเลิก') ? 'none' : '';
+  const cb = document.getElementById('shCancel'), lock = document.getElementById('shLock');
+  document.getElementById('shView').textContent = isINV(no) ? 'เปิดดู / พิมพ์ซ้ำ (แก้ทับไม่ได้)' : 'เปิดดู / พิมพ์ซ้ำ / แก้ไข';
+  lock.style.display = 'none';
+  if(r.status==='ยกเลิก'){ cb.style.display = 'none'; }
+  else if(isINV(no) && invCancelLocked(no)){
+    cb.style.display = 'none';
+    const dl = invCancelDeadline(no);
+    lock.style.display = '';
+    lock.textContent = 'ใบกำกับภาษีเดือนนี้พ้นกำหนดยื่น ภ.พ.30 แล้ว (หลัง '+fmtDate(dl)+') ยกเลิกไม่ได้ — ถ้าต้องแก้ยอด ให้ออกใบลดหนี้/ใบเพิ่มหนี้';
+  }
+  else { cb.textContent = isINV(no) ? 'ยกเลิก + ออกฉบับใหม่แทน' : 'ยกเลิกใบนี้'; cb.style.display = ''; }
   document.getElementById('rowSheet').style.display = 'flex';
 }
 document.getElementById('shClose').onclick = ()=> document.getElementById('rowSheet').style.display = 'none';
@@ -1422,12 +1478,29 @@ document.getElementById('shInv').onclick  = ()=> convertDoc(sheetNo, 'INV');
 document.getElementById('shBl').onclick   = ()=> convertDoc(sheetNo, 'BL');
 document.getElementById('shCancel').onclick = async function(){
   if(Date.now() - cancelArmed > 2600){ cancelArmed = Date.now(); this.textContent = 'แตะอีกครั้ง ยืนยันยกเลิก '+sheetNo; return; }
-  const r = await apiCall('/cancel', {no: sheetNo});
+  const no = sheetNo;
+  if(isINV(no) && invCancelLocked(no)){ showToast('⚠ พ้นกำหนดยื่นภาษีแล้ว ยกเลิกไม่ได้', 4000); return; }
+  let reason = '';
+  if(isINV(no)){ reason = await askReason(); if(!reason){ openSheet(no); return; } }
+  const r = await apiCall('/cancel', reason ? {no, reason} : {no});
   if(r.error){ showToast('⚠ '+r.error, 4000); return; }
   document.getElementById('rowSheet').style.display = 'none';
-  showToast('ยกเลิกใบ '+sheetNo+' แล้ว', 3600);
   loadList();
+  if(isINV(no)){ await replaceDoc(no, reason); return; }
+  showToast('ยกเลิกใบ '+no+' แล้ว', 3600);
 };
+/* ออกใบกำกับภาษีฉบับใหม่แทนฉบับที่ยกเลิก — ลงวันที่เดิม อ้างอิงเลขเดิม (ป.86/2542 ข้อ 25) ระบบออกเลขใหม่ตอนบันทึก
+   ถ้าใบที่ยกเลิกเป็นใบทดลอง/ออกซ้ำ ไม่ต้องออกแทน → กดล้างฟอร์ม */
+async function replaceDoc(no, reason){
+  const d = await apiCall('/doc?no='+encodeURIComponent(no));
+  if(d.error){ showToast('⚠ ยกเลิกแล้ว แต่เปิดใบเดิมมาออกแทนไม่ได้: '+d.error, 5000); return; }
+  fillFromDoc(d);
+  setDocType('INV', 'ยกเลิกและออกใบกำกับภาษีฉบับใหม่แทนฉบับเดิมเลขที่ '+no);
+  setPendingNo();
+  lastSavedNo = null; docDirty = true;
+  showTab('doc');
+  showToast('ยกเลิก '+no+' แล้ว ('+reason+')\nนี่คือฉบับใหม่แทน วันที่เดิม — แก้ที่ผิดแล้วกดบันทึกรูป/พิมพ์ → ระบบออกเลขใหม่\nถ้าไม่ต้องออกแทน กดล้างฟอร์ม', 7000);
+}
 
 /* ================= พิมพ์ ต้นฉบับ/สำเนา ================= */
 function printCopies(mode){
@@ -1465,6 +1538,7 @@ document.querySelectorAll('#printPick .sheet-btn[data-p]').forEach(b=>{
   b.onclick = async ()=>{
     document.getElementById('printPick').style.display = 'none';
     const s = await ensureSaved();
+    if(outputBlocked(s)) return;
     if(s.ok) showToast((s.updated?'อัพเดตใบเดิมแล้ว ✓ ':'บันทึกแล้ว ✓ ')+s.no, 2400);
     else if(!s.skipped) showToast('⚠ บันทึกลงระบบไม่สำเร็จ ('+s.err+') — พิมพ์ให้ตามปกติ', 4000);
     setTimeout(()=> printCopies(b.dataset.p), 150);
