@@ -853,9 +853,13 @@ function parsePaste(){
   const CO   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
   const CO_EN = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 
+  let inShip = false;
   for(let line of lines){
     /* บรรทัดคำสั่งชนิดอื่น (ออกใบกำกับภาษี/แจ้งหนี้/วางบิล) — ไม่ใช่ข้อมูลลูกค้า */
     if(/^ออกใบ/.test(line)) continue;
+    /* บล็อกที่อยู่จัดส่ง — ไม่ใช่ที่อยู่ในใบกำกับ ข้ามชื่อ/ที่อยู่/โทรในบล็อกนี้ แต่รายการสินค้ายังอ่านต่อ */
+    if(/^(ที่อยู่)?(จัดส่ง|ส่งของ|ส่งสินค้า)/.test(line) && line.length <= 20){ inShip = true; continue; }
+    if(inShip && !/[x×\*\/]\s*\d/.test(line) && !/^(ลด|ค่าส่ง|ค่าขนส่ง|ค่าจัดส่ง|ยอดรวม|รวม)/.test(line)) continue;
     /* อีเมล */
     const em = line.match(/[\w.+-]+@[\w-]+\.[\w.]+/);
     if(em){ d.email = em[0]; line = line.replace(em[0],'').trim(); if(!line) continue; }
@@ -866,10 +870,9 @@ function parsePaste(){
       line = line.replace(taxm[2],'').replace(/เลขประจำตัวผู้เสียภาษี|เลขผู้เสียภาษี|Tax\s*ID\s*:?/i,'').trim();
       if(!line) continue;
     } else {
-      const tax2 = line.replace(/[-\s]/g,'');
-      if(!d.tax && /ภาษี|Tax|เลขประจำตัว/i.test(line) && /^\D*\d{13}\D*$/.test(tax2.replace(/[^\d]/g, m=>'x').replace(/x+/g,'x')) && tax2.replace(/\D/g,'').length===13){
-        d.tax = tax2.replace(/\D/g,''); continue;
-      }
+      /* เลขผู้เสียภาษีที่คั่นด้วยขีด/เว้นวรรค เช่น 0-1055-57027-40-7 — จับได้ทั้งแบบมีคำว่าภาษีในบรรทัด และแบบเลขล้วนอยู่บรรทัดถัดจากหัวข้อ (13 หลักไม่ชนเบอร์โทร 10 หลัก) */
+      const tax2 = line.replace(/เลขประจำตัวผู้เสียภาษี(อากร)?|เลขผู้เสียภาษี|Tax\s*ID\s*:?/i,'').replace(/[-\s.:]/g,'');
+      if(!d.tax && /^\d{13}$/.test(tax2)){ d.tax = tax2; continue; }
     }
     /* เบอร์โทร */
     if((/โทร|โทรศัพท์|โทรสาร|แฟกซ์|Tel|Fax|เบอร์|(^|\s)[TF]\.\s*0/i.test(line) && !ADDR.test(line) && !ADDR_EN.test(line)) || /^0\d{9}$/.test(line.replace(/[-\s,]/g,''))){
