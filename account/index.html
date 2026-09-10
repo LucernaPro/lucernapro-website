@@ -439,7 +439,7 @@
 <div id="reasonModal" style="display:none;position:fixed;inset:0;background:rgba(10,6,2,.8);z-index:210;align-items:center;justify-content:center">
   <div style="background:#2E2213;border:1px solid #6A4E2E;border-radius:14px;padding:22px 20px;width:min(360px,88vw)">
     <div id="reasonTitle" style="font-size:15px;font-weight:600;color:#F0D9BC;margin-bottom:4px">เหตุผลที่ยกเลิก</div>
-    <div style="font-size:12.5px;color:#A08B72;margin-bottom:12px">ใบกำกับภาษีที่ยกเลิกต้องเก็บไว้พร้อมเหตุผล (ห้ามลบ) — ระบบจะออกฉบับใหม่แทนให้ต่อ</div>
+    <div style="font-size:12.5px;color:#A08B72;margin-bottom:12px">ใบกำกับภาษีที่ยกเลิกต้องเก็บไว้พร้อมเหตุผล (ห้ามลบ) — ขั้นถัดไปเลือกได้ว่าจะออกฉบับใหม่แทนหรือไม่</div>
     <textarea id="reasonInput" rows="3" placeholder="เช่น ชื่อลูกค้าผิด / ยอดผิด / ออกซ้ำ"
       style="width:100%;font-family:'Sarabun';font-size:15px;padding:10px 12px;border-radius:8px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB;resize:none"></textarea>
     <div style="display:flex;gap:10px;margin-top:14px">
@@ -1439,7 +1439,7 @@ function openSheet(no){
     lock.style.display = '';
     lock.textContent = 'ใบกำกับภาษีเดือนนี้พ้นกำหนดยื่น ภ.พ.30 แล้ว (หลัง '+fmtDate(dl)+') ยกเลิกไม่ได้ — ถ้าต้องแก้ยอด ให้ออกใบลดหนี้/ใบเพิ่มหนี้';
   }
-  else { cb.textContent = isINV(no) ? 'ยกเลิก + ออกฉบับใหม่แทน' : 'ยกเลิกใบนี้'; cb.style.display = ''; }
+  else { cb.textContent = isINV(no) ? 'ยกเลิกใบนี้ (ใส่เหตุผล)' : 'ยกเลิกใบนี้'; cb.style.display = ''; }
   document.getElementById('rowSheet').style.display = 'flex';
 }
 document.getElementById('shClose').onclick = ()=> document.getElementById('rowSheet').style.display = 'none';
@@ -1505,14 +1505,19 @@ document.getElementById('shCancel').onclick = async function(){
   if(Date.now() - cancelArmed > 2600){ cancelArmed = Date.now(); this.textContent = 'แตะอีกครั้ง ยืนยันยกเลิก '+sheetNo; return; }
   const no = sheetNo;
   if(isINV(no) && invCancelLocked(no)){ showToast('⚠ พ้นกำหนดยื่นภาษีแล้ว ยกเลิกไม่ได้', 4000); return; }
-  let reason = '';
-  if(isINV(no)){ reason = await askReason(); if(!reason){ openSheet(no); return; } }
+  let reason = '', withReplace = false;
+  if(isINV(no)){
+    reason = await askReason(); if(!reason){ openSheet(no); return; }
+    const c = await askChoice('ยกเลิก '+no+' ('+reason+')', ['ยกเลิกอย่างเดียว (ใบทดลอง/ออกซ้ำ ไม่ต้องออกแทน)', 'ยกเลิก + ออกฉบับใหม่แทน (ลูกค้าต้องได้ใบที่ถูก)', 'กลับ']);
+    if(c === 2){ openSheet(no); return; }
+    withReplace = (c === 1);
+  }
   const r = await apiCall('/cancel', reason ? {no, reason} : {no});
   if(r.error){ showToast('⚠ '+r.error, 4000); return; }
   document.getElementById('rowSheet').style.display = 'none';
   loadList();
-  if(isINV(no)){ await replaceDoc(no, reason); return; }
-  showToast('ยกเลิกใบ '+no+' แล้ว', 3600);
+  if(withReplace){ await replaceDoc(no, reason); return; }
+  showToast('ยกเลิกใบ '+no+' แล้ว'+(reason?' ('+reason+')':''), 3600);
 };
 /* ออกใบกำกับภาษีฉบับใหม่แทนฉบับที่ยกเลิก — ลงวันที่เดิม อ้างอิงเลขเดิม (ป.86/2542 ข้อ 25) ระบบออกเลขใหม่ตอนบันทึก
    ถ้าใบที่ยกเลิกเป็นใบทดลอง/ออกซ้ำ ไม่ต้องออกแทน → กดล้างฟอร์ม */
