@@ -1090,12 +1090,15 @@ function clearForm(){
 }
 
 /* ---------- วันที่ตั้งต้น (DD/MM/YYYY ตามฟอร์แมตเดิมของร้าน) + เลขเอกสารระบบใหม่ ---------- */
-(function(){
-  function fmt(d){ return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear(); }
+function fmtDate(d){ return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear(); }
+function setToday(){
   const now = new Date();
-  document.getElementById('docDate').textContent  = fmt(now);
-  document.getElementById('validDate').textContent= fmt(new Date(Date.now()+30*864e5));
-  document.getElementById('payDate').textContent  = fmt(now);
+  document.getElementById('docDate').textContent  = fmtDate(now);
+  document.getElementById('validDate').textContent= fmtDate(new Date(Date.now()+30*864e5));
+  document.getElementById('payDate').textContent  = fmtDate(now);
+}
+(function(){
+  setToday();
   clearForm();               /* เปิดหน้ามา = ฟอร์มว่างพร้อมทำงาน ไม่มีข้อมูลตัวอย่างค้าง */
 })();
 
@@ -1389,6 +1392,7 @@ async function convertDoc(no, target){
   const d = await apiCall('/doc?no='+encodeURIComponent(no));
   if(d.error){ showToast('⚠ '+d.error, 4000); return; }
   fillFromDoc(d);
+  setToday();                /* เอกสารที่แปลงมา = ออกวันนี้ ไม่สืบวันที่จากใบต้นทาง (เคยทำให้ INV ติดวันที่ของ QT) */
   setDocType(target, d.no);
   setPendingNo();
   lastSavedNo = null; docDirty = true;
