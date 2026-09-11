@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /test/
 
 Sitemap: https://www.lucernapro.com/sitemap.xml
