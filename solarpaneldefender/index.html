@@ -343,6 +343,17 @@ img{height:auto}
   }
   /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
   .direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}
+  .reads{padding:44px 0 10px}
+  .readgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.readgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.readgrid{grid-template-columns:repeat(3,1fr)}}
+  .readcard{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--panel);padding:18px;display:flex;flex-direction:column;transition:transform .14s ease,border-color .14s ease}
+  .readcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .readcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .readcard h4{font-family:var(--disp);font-size:16.5px;margin:7px 0 5px;line-height:1.35}
+  .readcard p{font-size:14px;color:var(--muted);flex:1}
+  .readcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:11px}
+  .readcard:hover .go{text-decoration:underline}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -687,6 +698,27 @@ img{height:auto}
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="reads">
+  <div class="wrap">
+    <h2 class="sec-h">ยังไม่รีบ? <em>อ่านต่ออีกหน่อย</em></h2>
+    <p class="sec-sub">อยากรู้ว่าใช้ที่ไหนแล้วบ้าง — เคสหน้างานจริงและหลักการทั้งหมดอยู่ที่นี่</p>
+    <div class="readgrid">
+      <a class="readcard" href="/post/self-cleaning-field-projects">
+        <div class="k">เคสหน้างาน</div>
+        <h4>ผลงานจริงในสนาม 8 โครงการ — โซลาร์ฟาร์ม รูปปั้นแลนด์มาร์ก ผนังอาคาร และกระจก ที่ให้ฝนดูแลแทนคน</h4>
+        <p>รวมหน้างานจริงของสาย Self-Cleaning ในหน้าเดียว — โซลาร์ฟาร์มบนเขาและบนน้ำ รูปปั้นเกาะส้มและรูปปั้นจอมพลเหอหลง ศูนย์ศิลปะจี๋โส่ว ป้ายเขตใหม่เซียงเจียง หน้าต่างโค้งบ้านพัก และอาคารกระจกดาดฟ้า พร้อมว่าแต่ละงานตอบโจทย์งานไทยแบบไหน</p>
+        <div class="go">อ่านต่อ →</div>
+      </a>
+      <a class="readcard" href="/post/self-cleaning-technology">
+        <div class="k">หลักการ</div>
+        <h4>Self-Cleaning ทำงานยังไง — ฝนล้าง แดดย่อย และพิสูจน์อะไรมาแล้วบ้าง</h4>
+        <p>เทคโนโลยีเบื้องหลัง Glass / Paint / Stone / Solar Coating ของเรา อธิบายครั้งเดียวจบ — ทำไมถึงเลือกเส้นทาง Superhydrophilic ไม่ใช่ใบบัว ชุดทดสอบเทียบฝุ่น-ฝน-น้ำมัน หน้างานทำครึ่งไม่ทำครึ่ง และตัวเลขจากโรงไฟฟ้าโซลาร์ 6 แห่ง</p>
+        <div class="go">อ่านต่อ →</div>
+      </a>
     </div>
   </div>
 </section>

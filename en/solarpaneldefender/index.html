@@ -343,6 +343,17 @@ img{height:auto}
   }
   /* ═══ end of CSS block MOBILE DRAWER MENU ═══ */
   .direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}
+  .reads{padding:44px 0 10px}
+  .readgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.readgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.readgrid{grid-template-columns:repeat(3,1fr)}}
+  .readcard{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--panel);padding:18px;display:flex;flex-direction:column;transition:transform .14s ease,border-color .14s ease}
+  .readcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .readcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .readcard h4{font-family:var(--disp);font-size:16.5px;margin:7px 0 5px;line-height:1.35}
+  .readcard p{font-size:14px;color:var(--muted);flex:1}
+  .readcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:11px}
+  .readcard:hover .go{text-decoration:underline}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -687,6 +698,27 @@ img{height:auto}
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="reads">
+  <div class="wrap">
+    <h2 class="sec-h">Not in a hurry? <em>Read on a little</em></h2>
+    <p class="sec-sub">Want to see where it has been used — the real sites and the principle behind them are here</p>
+    <div class="readgrid">
+      <a class="readcard" href="/en/post/self-cleaning-field-projects">
+        <div class="k">Field cases</div>
+        <h4>8 Real Field Projects — Solar Farms, Landmark Statues, Facades and Glass That Let the Rain Do the Cleaning</h4>
+        <p>Every real site of our Self-Cleaning family on one page — hillside and floating solar farms, the Orange Isle and Marshal He Long statues, the Jishou arts centre, the Xiangjiang New Area sign, villa arched windows and a rooftop glass room — and what each one means for a Thai job</p>
+        <div class="go">Read on →</div>
+      </a>
+      <a class="readcard" href="/en/post/self-cleaning-technology">
+        <div class="k">The principle</div>
+        <h4>How Self-Cleaning Works — Rain Washes, Sun Digests, and What It Has Proven So Far</h4>
+        <p>The technology behind our Glass / Paint / Stone / Solar coatings explained once — why the superhydrophilic route rather than the lotus effect, the dust-rain-oil comparison tests, half-treated sites, and figures from six solar plants.</p>
+        <div class="go">Read on →</div>
+      </a>
     </div>
   </div>
 </section>
