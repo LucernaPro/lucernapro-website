@@ -1,4 +1,5 @@
 /* LucernaPro Coverage Calculator v2.4 (2026-09-07)
+ * v2.5: data-product-label(-en)/data-product-url — ชื่อสินค้าหลักนำหน้าบรรทัดสีและ meta (PoolArmour ใช้ก่อน)
  * v2.4: add-on รองพื้นหลายขนาด — data-addon-sizes="1 กก.:10:690|5 กก.:50:2690" (+ data-addon-sizes-en) → เลือกชุดที่ถูกสุดด้วย bestCombo
  *       เหมือนสีทุกอย่าง (คิดค่าส่งต่อชิ้นจาก data-addon-ship ด้วย) แสดงบรรทัดละขนาด · ตารางที่ยังใช้ data-addon-sqm/-price ขนาดเดียว พฤติกรรมเดิม
  * v2.3: add-on รองพื้น — ตารางที่ติด data-addon-price + data-addon-sqm จะได้ checkbox "รวมรองพื้น …" (ติ๊กไว้เป็นค่าเริ่มต้น)
@@ -97,6 +98,10 @@
     ADDON = { packs: packs, label: lbl, url: table.getAttribute('data-addon-url') || '' };
   })();
   var SHIP = parseFloat(table.getAttribute('data-shipping') || '0') || 0;
+  /* v2.5: data-product-label(-en) — ชื่อสินค้าหลักนำหน้าบรรทัดสี (ไม่ใส่ = พฤติกรรมเดิม) ให้คู่กับชื่อรองพื้นที่มีอยู่แล้ว ลูกค้าจะได้ไม่งงว่า "5 kg × 2" คืออะไร */
+  var PLABEL = (EN && table.getAttribute('data-product-label-en')) || table.getAttribute('data-product-label') || '';
+  var PURL = table.getAttribute('data-product-url') || '';
+  var PPRE = PLABEL ? ((PURL ? '<a href="' + PURL + '">' + PLABEL + '</a>' : PLABEL) + ' ') : '';
 
   var variants = {};
   [].forEach.call(table.querySelectorAll('tr'), function (tr) {
@@ -263,7 +268,7 @@
     if (!r) { OUT.innerHTML = '<div class="hint">' + T.big + '</div>'; return; }
     var h = '';
     r.items.forEach(function (it) {
-      h += '<div class="row"><span>' + it.label + ' &times; ' + it.n + '</span><b>' + money(it.sum) + '.-</b></div>';
+      h += '<div class="row"><span>' + PPRE + it.label + ' &times; ' + it.n + '</span><b>' + money(it.sum) + '.-</b></div>';
     });
     /* ค่าส่งคิด "ต่อชิ้น" เสมอ (มติเจ้าของ 3 ส.ค. 2026):
        data-ship ต่อแถว = อัตราของขนาดนั้น / data-shipping ระดับตาราง = อัตราเดียวใช้ทุกขนาด
@@ -292,7 +297,7 @@
           (ar.floor ? T.tankmeta(num(ar.floor), num(ar.wall)) : '') +
           (addN ? T.addonmeta(addDesc, num(addCov)) : '') +
           T.meta(num(a),
-          r.items.map(function (i) { return i.label + '\u00d7' + i.n; }).join(', '),
+          (PLABEL ? PLABEL + ' ' : '') + r.items.map(function (i) { return i.label + '\u00d7' + i.n; }).join(', '),
           num(r.covers), num(spare > 0 ? spare : 0), num(r.total / a)) + '</div>';
     h += '<div class="hint">' + T.hint + '</div>';
     OUT.innerHTML = h;
