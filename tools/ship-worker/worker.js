@@ -210,7 +210,7 @@ function parseSheetDate(s) { // '25/8/2026' หรือ '25/08/2026' -> '2026-0
   return `${m[3]}-${String(+m[2]).padStart(2, '0')}-${String(+m[1]).padStart(2, '0')}`;
 }
 
-async function syncFromSheet(env, daysBack = 3) {
+async function syncFromSheet(env, daysBack = 7) {
   // หน้าต่างเลื่อน: วันนี้ย้อนหลัง daysBack วัน (คลุมเคสลงบิลย้อนหลัง) แต่ไม่ก่อน START_DATE
   const today = bkkToday();
   const want = new Set();
@@ -296,7 +296,11 @@ async function syncFromSheet(env, daysBack = 3) {
 
 export default {
   async scheduled(event, env, ctx) { // cron: sync อัตโนมัติ
-    ctx.waitUntil(syncFromSheet(env, 3).catch(() => {}));
+    // หน้าต่าง 7 วัน: ถ้า worker ล่มไปหลายวัน (โควต้า/auth) กลับมาแล้วเก็บวันที่หลุดได้เอง
+    // sync พังต้องมีร่องรอย — บันทึกลง audit แทนกลืนเงียบ
+    ctx.waitUntil(syncFromSheet(env, 7).catch(e =>
+      env.DB.prepare('INSERT INTO audit(action,detail) VALUES(?,?)')
+        .bind('sync-error', String(e && e.message || e).slice(0, 300)).run().catch(() => {})));
   },
   async fetch(req, env) {
     /* กันตายเงียบ (Error 1101): พ่นสาเหตุจริง + สถานะอวัยวะทุกชิ้น */
@@ -352,7 +356,7 @@ async function handleReq(req, env) {
 
     if (path === '/sync' && req.method === 'POST') {
       // พนักงานกดได้ ปลอดภัย: อ่านชีตแบบ readonly เฉพาะคอลัมน์ที่ไม่ใช่เงิน แล้ว upsert ลง D1
-      try { return J(await syncFromSheet(env, 3)); }
+      try { return J(await syncFromSheet(env, 7)); }
       catch (e) { return J({ error: String(e.message || e) }, 500); }
     }
 
