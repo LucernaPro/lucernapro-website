@@ -176,6 +176,8 @@
   .cust-name{font-size:13px;font-weight:400}
   .branch-tag{font-weight:500;font-size:11.5px;color:var(--gray)}
   .cust-line{font-size:11.5px;color:var(--gray);line-height:1.55;margin-top:2px}
+  /* ใบกำกับอย่างย่อ: ไม่แสดงที่อยู่/เลขภาษี/โทร/อีเมลของผู้ซื้อ และไม่มีบรรทัด "ในนาม" ฝั่งลูกค้า */
+  .doc.ca .cust-line, .doc.ca .cust-ids, .doc.ca .branch-tag, .doc.ca #inNameCust{display:none}
   .cust-ids{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:4px;font-size:11.5px}
   .cust-ids span{color:var(--gray)}
   .cust-ids b{color:var(--ink);font-weight:400;font-variant-numeric:tabular-nums}
@@ -275,7 +277,7 @@
 
 <div class="toolstrip">
   <span class="seg" id="segType">
-    <button data-t="QT" class="on">ใบเสนอราคา</button><button data-t="INV">ใบกำกับภาษี</button><button data-t="BL">ใบวางบิล</button>
+    <button data-t="QT" class="on">ใบเสนอราคา</button><button data-t="INV">ใบกำกับภาษี</button><button data-t="BL">ใบวางบิล</button><button data-t="CA">อย่างย่อ</button>
   </span>
   <label>ค่าส่งรวม <input type="number" id="shipInput" placeholder="0" min="0" step="0.01" inputmode="decimal"></label>
   <button class="btn-spread" id="btnSpread">เกลี่ยเข้าราคาสินค้า</button>
@@ -515,19 +517,61 @@ function askChoice(title, labels){
    - ออกแล้วห้ามแก้ทับ: ผิด → ยกเลิกฉบับเดิม (เก็บไว้ + เหตุผล) แล้วออกฉบับใหม่แทน ระบุอ้างอิงเลขเดิม ลงวันที่เดิม (ป.86/2542 ข้อ 25)
    - ยกเลิกได้เฉพาะก่อนยื่น ภ.พ.30 ของเดือนนั้น: ให้ถึงวันที่ 15 ของเดือนถัดไป หลังจากนั้นล็อก ต้องใช้ใบลดหนี้/ใบเพิ่มหนี้ */
 const VAT_FILE_DAY = 15;
-function isINV(no){ return /^INV-/.test(no||''); }
+function isINV(no){ return /^(INV|CA)-/.test(no||''); }   /* ใบกำกับภาษี + ใบกำกับอย่างย่อ ใช้กติกาภาษีชุดเดียวกัน */
 function invCancelDeadline(no){
-  const m = (no||'').match(/^INV-(\d{4})(\d{2})-/); if(!m) return null;
+  const m = (no||'').match(/^(?:INV|CA)-(\d{4})(\d{2})-/); if(!m) return null;
   return new Date(Number(m[1]), Number(m[2]), VAT_FILE_DAY, 23, 59, 59);   /* เดือนถัดไป (getMonth เป็น 0-based จึงไม่ต้อง +1) */
 }
 function invCancelLocked(no){ const d = invCancelDeadline(no); return !!d && Date.now() > d.getTime(); }
+/* ---------- บิลเงินสด (ใบกำกับอย่างย่อ): วางจาก Excel — "ชื่อสินค้า  ขนาด  ราคา  จำนวน" คั่นด้วย tab หรือช่องว่างหลายช่อง
+   ราคา = ราคาขายบน Shopee/Lazada รวม VAT; บรรทัดวันที่ dd/mm/yyyy (ถ้ามี) = วันที่ในใบ (คีย์ย้อนหลังได้) ---------- */
+function parseCAPaste(raw){
+  const items = []; let date = null;
+  raw.split(/\r?\n/).map(l=>l.replace(/^\d{1,2}:\d{2}\s+/,'').trim()).filter(l=>l).forEach(line=>{
+    if(/ออกใบ|บิลเงินสด/.test(line)) return;
+    const dm = line.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+    if(dm){ date = dm[1].padStart(2,'0')+'/'+dm[2].padStart(2,'0')+'/'+dm[3]; return; }
+    /* แบบ "ชื่อ 2040 x 1" */
+    let m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*[x×\*]\s*(\d+)\s*$/);
+    if(m){ items.push({name:m[1].trim(), price:num(m[2]), qty:Number(m[3])}); return; }
+    /* แบบคอลัมน์ Excel: สองช่องท้ายเป็นตัวเลข = ราคา, จำนวน */
+    const f = line.split(/\t+| {2,}/).map(x=>x.trim()).filter(x=>x);
+    const isNum = x=>/^[\d,]+(?:\.\d+)?$/.test(x);
+    if(f.length >= 3 && isNum(f[f.length-1]) && isNum(f[f.length-2])){
+      items.push({name:f.slice(0,-2).join(' '), price:num(f[f.length-2]), qty:Number(f[f.length-1].replace(/,/g,''))}); return;
+    }
+    if(f.length >= 2 && isNum(f[f.length-1])){ items.push({name:f.slice(0,-1).join(' '), price:num(f[f.length-1]), qty:1}); }
+  });
+  const good = items.filter(it=>it.price > 0 && it.qty > 0);
+  if(!good.length){ showToast('อ่านรายการไม่ได้ — ต้องมี ชื่อสินค้า ราคา จำนวน คั่นด้วย tab/ช่องว่าง', 4200); return; }
+  clearForm();
+  setDocType('CA', '');
+  document.getElementById('custNameText').textContent = 'ลูกค้าทั่วไป';
+  const tbody = document.getElementById('tbody'); tbody.innerHTML = '';
+  good.forEach(it=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td class="ctr idx"></td>'+
+      '<td><div contenteditable>'+esc(it.name)+'</div><div class="item-desc" contenteditable></div></td>'+
+      '<td class="ctr qty" contenteditable>'+it.qty+'</td>'+
+      '<td class="ctr" contenteditable>ชิ้น</td>'+
+      '<td class="num price" contenteditable>'+money(it.price)+'</td>'+
+      '<td class="num amount">0.00</td>'+
+      '<td><button class="row-x" title="ลบแถว">✕</button></td>';
+    tbody.appendChild(tr);
+  });
+  if(date){ document.getElementById('docDate').textContent = date; document.getElementById('payDate').textContent = date; dateAuto = false; }
+  lastSavedNo = null; setPendingNo(); recalc();
+  showToast('ใบกำกับอย่างย่อ · '+good.length+' รายการ'+(date ? ' · วันที่ '+date : '')+'\nตรวจแล้วกดพิมพ์ → ระบบออกเลข CA', 4200);
+}
 /* ---------- ประเภทเอกสาร ---------- */
 const CO_G   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
 const CO_ENG = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 const DOCTYPES = {
   QT:  {title:'ใบเสนอราคา', en:'QUOTATION', fs:'20px', meta3:'ยืนราคาถึง', pay:false, tail:'', signA:'ผู้สั่งซื้อสินค้า', signB:'ผู้อนุมัติ'},
   INV: {title:'ใบกำกับภาษี/ใบเสร็จรับเงิน', en:'TAX INVOICE / RECEIPT', fs:'17px', meta3:null, pay:true, tail:' (เอกสารออกเป็นชุด)', signA:'ผู้จ่ายเงิน', signB:'ผู้รับเงิน'},
-  BL:  {title:'ใบวางบิล/ใบแจ้งหนี้', en:'BILLING / INVOICE', fs:'17.5px', meta3:'ครบกำหนด', pay:false, tail:'', signA:'ผู้รับวางบิล', signB:'ผู้วางบิล'}
+  BL:  {title:'ใบวางบิล/ใบแจ้งหนี้', en:'BILLING / INVOICE', fs:'17.5px', meta3:'ครบกำหนด', pay:false, tail:'', signA:'ผู้รับวางบิล', signB:'ผู้วางบิล'},
+  /* บิลเงินสด Shopee/Lazada — ใบกำกับภาษีอย่างย่อ: ไม่ต้องมีชื่อ/ที่อยู่ผู้ซื้อ ราคารวม VAT ถอดออกให้ เลขชุด CA-YYYYMM-NNNN */
+  CA:  {title:'ใบกำกับภาษีอย่างย่อ/ใบเสร็จรับเงิน', en:'ABBREVIATED TAX INVOICE / RECEIPT', fs:'15.5px', meta3:null, pay:true, tail:'', signA:'ผู้จ่ายเงิน', signB:'ผู้รับเงิน'}
 };
 let docType = 'QT', docRef = '';
 function setDocType(t, ref){
@@ -549,6 +593,12 @@ function setDocType(t, ref){
   document.getElementById('signA').textContent = c.signA;
   document.getElementById('signB').textContent = c.signB;
   document.querySelectorAll('#segType button').forEach(b => b.classList.toggle('on', b.dataset.t === t));
+  document.getElementById('doc').classList.toggle('ca', t === 'CA');
+  if(t === 'CA'){
+    document.getElementById('exVat').checked = false;      /* ราคา Shopee/Lazada รวม VAT เสมอ */
+    const n = document.getElementById('custNameText');
+    if(!n.textContent.trim() || n.textContent.trim() === 'ชื่อลูกค้า') n.textContent = 'ลูกค้าทั่วไป';
+  }
   docDirty = true;
 }
 document.querySelectorAll('#segType button').forEach(b=>{
@@ -620,7 +670,7 @@ function collectDoc(){
 let _saveInFlight = null;
 /* ใบกำกับภาษี: ถ้าบันทึกลงระบบไม่สำเร็จ = ไม่มีเลขที่จริง → ไม่พิมพ์/ไม่สร้างไฟล์ (ห้ามออกใบกำกับเลข XXXX) ใบเสนอราคา/วางบิลยังพิมพ์ต่อได้ */
 function outputBlocked(s){
-  if(docType !== 'INV' || s.ok || s.skipped) return false;
+  if((docType !== 'INV' && docType !== 'CA') || s.ok || s.skipped) return false;
   showToast('⛔ ใบกำกับภาษีต้องมีเลขที่จริง — ไม่พิมพ์ ('+s.err+')', 5200);
   return true;
 }
@@ -807,6 +857,7 @@ function bahtText(n){
 function parsePaste(){
   const raw = document.getElementById('pasteArea').value;
   if(!raw.trim()){ showToast('วางข้อความก่อน'); return; }
+  if(docType === 'CA' || /ออกใบกำกับ(ภาษี)?อย่างย่อ|บิลเงินสด/.test(raw)){ parseCAPaste(raw); return; }
 
   /* แยกบรรทัด จำว่าบรรทัดไหนมี timestamp (= บรรทัดจากแชท อาจมีชื่อคนส่งติดหัว) */
   let lines = raw.split(/\r?\n/).map(l=>l.trim()).filter(l=>l)
