@@ -1,0 +1,22 @@
+import {JSDOM} from 'jsdom'; import fs from 'fs'; import {makeFakeGitHub} from './fakegh.mjs';
+const workerMod = await import('/home/claude/lucernapro-website/tools/lucerna-docs-worker/worker.js');
+const worker = workerMod.default; const env={GH_REPO:'LucernaPro/lucerna-accounting',GH_TOKEN:'t',PIN:'1234'};
+const gh = makeFakeGitHub();
+const realFetch = globalThis.fetch;
+globalThis.fetch = async (url,init)=>{ url=String(url); if(url.startsWith('https://api.github.com/')) return gh.handle(url,init); throw new Error('unexpected fetch '+url); };
+const html=fs.readFileSync('/home/claude/lucernapro-website/account/index.html','utf8');
+const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'https://www.lucernapro.com/account/'});
+const w=dom.window; const d=w.document; w.alert=()=>{}; w.localStorage.setItem('lucerna_pin','1234');
+w.fetch = async (url,init={})=>{ // route client → Worker
+  const req = new Request(String(url),{method:init.method||'GET',headers:init.headers||{},body:init.body});
+  const res = await worker.fetch(req, env);
+  const txt = await res.text();
+  return {ok:res.ok,status:res.status,json:async()=>JSON.parse(txt)};
+};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms)); await sleep(800);
+const $=id=>d.getElementById(id); const dirty=()=>$('doc').dispatchEvent(new w.Event('input',{bubbles:true}));
+const results=[]; const check=(name,cond,detail='')=>{ results.push([cond?'PASS':'FAIL',name,detail]); };
+const rows=()=>[...d.querySelectorAll('#tbody tr')].map(r=>({name:r.querySelector('td:nth-child(2) div').textContent, price:r.querySelector('.price').textContent, qty:r.querySelector('.qty').textContent}));
+const idx=()=>gh.read('index.json')||[];
+const reset=()=>{ $('btnReset').click(); $('btnReset').click(); };
+export {w,d,$,dirty,check,results,rows,idx,gh,sleep,reset};
