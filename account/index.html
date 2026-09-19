@@ -575,7 +575,7 @@ function parseCAPaste(raw){
   showToast('ใบกำกับอย่างย่อ · '+good.length+' รายการ'+(date ? ' · วันที่ '+date : '')+'\nตรวจแล้วกดพิมพ์ → ระบบออกเลข CA', 4200);
 }
 /* ---------- ประเภทเอกสาร ---------- */
-const CO_G   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
+const CO_G   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน|นิติบุคคล|อาคารชุด|หมู่บ้าน|โรงแรม|โรงเรียน|โรงพยาบาล|คลินิก|สหกรณ์|มูลนิธิ|สมาคม|วัด|อบต|เทศบาล|องค์การ|สำนักงาน|มหาวิทยาลัย|วิทยาลัย)/;
 const CO_ENG = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 const DOCTYPES = {
   QT:  {title:'ใบเสนอราคา', en:'QUOTATION', fs:'20px', meta3:'ยืนราคาถึง', pay:false, tail:'', signA:'ผู้สั่งซื้อสินค้า', signB:'ผู้อนุมัติ'},
@@ -1015,7 +1015,7 @@ function parsePaste(){
 
   const ADDR = /(ตำบล|ต\.|อำเภอ|อ\.|จังหวัด|จ\.|แขวง|เขต|ถนน|ถ\.|ซอย|หมู่บ้าน|หมู่|ม\.|กทม|กรุงเทพ)/;
   const ADDR_EN = /\b(road|rd\.?|street|soi|moo|floor|fl\.?|tower|building|bldg|district|bangkok|thailand)\b/i;
-  const CO   = /(บริษัท|บจก|หจก|บมจ|ห้างหุ้นส่วน|ร้าน)/;
+  const CO   = CO_G;   /* ชนิดนิติบุคคล/องค์กรที่ถือเป็นชื่อลูกค้าแม้มีตัวเลขในบรรทัด (นิติบุคคลอาคารชุด ไอดีล 24) */
   const CO_EN = /\b(co\.?\s*,?\s*ltd\.?|company|limited|ltd\.?|corporation|corp\.?|inc\.?|llc)\b/i;
 
   let inShip = false;
