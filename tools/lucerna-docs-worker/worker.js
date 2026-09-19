@@ -67,6 +67,12 @@ async function save(req, env) {
       const path = `docs/${m[2]}/${d.no}.json`;
       const cur = await readFile(env, path);
       if (cur) {
+        const prev = JSON.parse(cur.text);
+        // ใบที่ยกเลิกแล้วห้ามแก้ทับ (กันฟื้นใบยกเลิกกลับมาเป็น "ออกแล้ว" โดยไม่ตั้งใจ)
+        if (prev.status === "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01") return J({ error: "\u0E43\u0E1A " + d.no + " \u0E22\u0E01\u0E40\u0E25\u0E34\u0E01\u0E41\u0E25\u0E49\u0E27 \u0E41\u0E01\u0E49\u0E17\u0E31\u0E1A\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49" }, 409);
+        // เก็บฟิลด์ที่ client ไม่ได้ส่งมา: สถานะ, วันที่ออกครั้งแรก
+        if (!d.status) d.status = prev.status;
+        if (!d.createdAt) d.createdAt = prev.createdAt || prev.savedAt;
         d.savedAt = now.toISOString();
         const r = await gh(env, path, {
           method: "PUT",
@@ -109,6 +115,7 @@ async function save(req, env) {
     const path = `docs/${ym.slice(0, 4)}/${no}.json`;
     d.no = no;
     d.savedAt = now.toISOString();
+    d.createdAt = d.savedAt;
     const r = await gh(env, path, {
       method: "PUT",
       body: JSON.stringify({ message: "save " + no, content: b64enc(JSON.stringify(d, null, 1)) })
@@ -141,6 +148,11 @@ async function save(req, env) {
     if (d.ref) {
       const ri = curRows.findIndex((r2) => r2.no === d.ref);
       if (ri >= 0) curRows[ri].status = "\u0E41\u0E1B\u0E25\u0E07\u0E40\u0E1B\u0E47\u0E19 " + docNo;
+    }
+    if (d.replaces) {
+      // ใบที่ยกเลิกแล้วมีฉบับใหม่ออกแทน → สถานะ "ยกเลิก → ออกแทนด้วย X" (ยังนับเป็นใบยกเลิกอยู่)
+      const ri = curRows.findIndex((r2) => r2.no === d.replaces);
+      if (ri >= 0) { curRows[ri].status = "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"; curRows[ri].replacedBy = docNo; }
     }
     const body = { message: "index " + docNo, content: b64enc(JSON.stringify(curRows, null, 1)) };
     if (cur) body.sha = cur.sha;

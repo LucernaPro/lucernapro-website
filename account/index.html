@@ -523,6 +523,16 @@ function invCancelDeadline(no){
   return new Date(Number(m[1]), Number(m[2]), VAT_FILE_DAY, 23, 59, 59);   /* เดือนถัดไป (getMonth เป็น 0-based จึงไม่ต้อง +1) */
 }
 function invCancelLocked(no){ const d = invCancelDeadline(no); return !!d && Date.now() > d.getTime(); }
+/* ใบที่คีย์ย้อนหลัง (บิลเงินสด ส.ค. คีย์เดือน ก.ย.): เส้นตายแก้ไข/ยกเลิก = เดือนที่ในเลข หรือเดือนที่คีย์ แล้วแต่อันไหนช้ากว่า
+   ไม่งั้นใบที่เพิ่งคีย์วันนี้จะล็อกทันทีทั้งที่ยังไม่ได้ยื่น */
+function invDeadlineOf(no, savedAt){
+  const a = invCancelDeadline(no); if(!a) return null;
+  const s = savedAt ? new Date(savedAt) : null;
+  if(!s || isNaN(s)) return a;
+  const b = new Date(s.getFullYear(), s.getMonth()+1, VAT_FILE_DAY, 23, 59, 59);
+  return b > a ? b : a;
+}
+function invEditLocked(no, savedAt){ const d = invDeadlineOf(no, savedAt); return !!d && Date.now() > d.getTime(); }
 /* ---------- บิลเงินสด (ใบกำกับอย่างย่อ): วางจาก Excel — "ชื่อสินค้า  ขนาด  ราคา  จำนวน" คั่นด้วย tab หรือช่องว่างหลายช่อง
    ราคา = ราคาขายบน Shopee/Lazada รวม VAT; บรรทัดวันที่ dd/mm/yyyy (ถ้ามี) = วันที่ในใบ (คีย์ย้อนหลังได้) ---------- */
 function parseCAPaste(raw){
@@ -530,7 +540,8 @@ function parseCAPaste(raw){
   raw.split(/\r?\n/).map(l=>l.replace(/^\d{1,2}:\d{2}\s+/,'').trim()).filter(l=>l).forEach(line=>{
     if(/ออกใบ|บิลเงินสด/.test(line)) return;
     const dm = line.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
-    if(dm){ date = dm[1].padStart(2,'0')+'/'+dm[2].padStart(2,'0')+'/'+dm[3]; return; }
+    if(dm){ let y = Number(dm[3]); if(y > 2400) y -= 543;   /* พ.ศ. → ค.ศ. (พนักงานพิมพ์ 2569 มาได้) */
+      date = dm[1].padStart(2,'0')+'/'+dm[2].padStart(2,'0')+'/'+y; return; }
     /* แบบ "ชื่อ 2040 x 1" */
     let m = line.match(/^(.+?)\s+([\d,]+(?:\.\d+)?)\s*[x×\*]\s*(\d+)\s*$/);
     if(m){ items.push({name:m[1].trim(), price:num(m[2]), qty:Number(m[3])}); return; }
@@ -616,6 +627,8 @@ document.querySelectorAll('.paym').forEach(p=>{
 let docDirty = true;      /* มีการแก้ไขที่ยังไม่บันทึก */
 let lastSavedNo = null;
 let lastSavedCust = null; /* ชื่อลูกค้าของใบที่ save ล่าสุด — กันเขียนทับข้ามลูกค้า */
+let loadedStatus = '', loadedSavedAt = '';
+let replacesNo = null;                       /* ใบนี้ออกแทนใบที่ยกเลิกเลขไหน */  /* สถานะ/เวลาบันทึกของใบที่เปิดมาจากรายการ (ใบที่ยกเลิกแล้วห้ามแก้ทับ) */
 
 function setSaveStatus(ok, text){
   const el = document.getElementById('saveStatus');
@@ -639,6 +652,7 @@ function collectDoc(){
   return {
     type: docType,
     ref: docRef,
+    replaces: replacesNo || undefined,   /* เลขใบที่ยกเลิกแล้วใบนี้ออกแทน (Worker ใช้ผูกสถานะ) */
     payMethod: (document.querySelector('.paym.on')||{dataset:{m:''}}).dataset.m,
     no: document.getElementById('docNo').textContent.trim(),
     date: document.getElementById('docDate').textContent.trim(),
@@ -689,11 +703,26 @@ async function _doSave(){
   if(!pin){ pin = await askPin(); asked = true; if(!pin) return {ok:false, err:'ไม่ได้ใส่ PIN'}; }
   try{
     const payload = collectDoc();
+    /* ใบเปล่า/ยอด 0/ไม่มีชื่อลูกค้า → ไม่ออกเลข (กันเลขใบกำกับหายไปกับใบว่างจากการกดพลาด) */
+    const realItems = payload.items.filter(it=>it.qty*it.price > 0);
+    if(!realItems.length || !(payload.totals && payload.totals.grand > 0)){
+      setSaveStatus(false, 'ยังไม่มีรายการสินค้า/ยอดเป็น 0');
+      return {ok:false, err:'ยังไม่มีรายการสินค้าหรือยอดเป็น 0 — ยังไม่ออกเลข'};
+    }
+    const cn = (payload.customer && payload.customer.name || '').trim();
+    if(docType !== 'CA' && (!cn || cn === 'ชื่อลูกค้า')){
+      setSaveStatus(false, 'ยังไม่มีชื่อลูกค้า');
+      return {ok:false, err:'ยังไม่มีชื่อลูกค้า — ยังไม่ออกเลข'};
+    }
     /* ใบกำกับภาษี: แก้ทับเลขเดิมได้จนถึงวันยื่น ภ.พ.30 ของเดือนที่ออก (15 ของเดือนถัดไป) — บัญชีกึ่งแมนนวล ยอมให้แก้ก่อนยื่น
        หลังยื่นแล้วล็อก: ยอดที่ยื่นสรรพากรไปแล้วเปลี่ยนไม่ได้ ต้องยกเลิก+ออกฉบับใหม่แทน หรือใบลดหนี้/เพิ่มหนี้ */
-    if(lastSavedNo && isINV(lastSavedNo) && invCancelLocked(lastSavedNo)){
+    if(lastSavedNo && loadedStatus === 'ยกเลิก'){
+      setSaveStatus(false, 'ใบนี้ยกเลิกแล้ว แก้ทับไม่ได้');
+      return {ok:false, err:'ใบ '+lastSavedNo+' ยกเลิกไปแล้ว แก้ทับไม่ได้ — กดล้างฟอร์มแล้วออกใบใหม่'};
+    }
+    if(lastSavedNo && isINV(lastSavedNo) && invEditLocked(lastSavedNo, loadedSavedAt)){
       setSaveStatus(false, 'ใบกำกับภาษีพ้นกำหนดยื่นภาษีแล้ว แก้ทับไม่ได้');
-      return {ok:false, err:'ใบกำกับภาษี '+lastSavedNo+' พ้นกำหนดยื่น ภ.พ.30 แล้ว (หลัง '+fmtDate(invCancelDeadline(lastSavedNo))+') แก้ทับไม่ได้ — ต้องใช้ใบลดหนี้/ใบเพิ่มหนี้'};
+      return {ok:false, err:'ใบกำกับภาษี '+lastSavedNo+' พ้นกำหนดยื่น ภ.พ.30 แล้ว (หลัง '+fmtDate(invDeadlineOf(lastSavedNo, loadedSavedAt))+') แก้ทับไม่ได้ — ต้องใช้ใบลดหนี้/ใบเพิ่มหนี้'};
     }
     /* ใบเสนอราคา/ใบวางบิล: เปิดใบเดิมมาแก้ = ทับเลขเดิมเสมอ (เลขใหม่ต่อเมื่อล้างฟอร์มแล้วทำใหม่)
        ยกเว้นชื่อลูกค้าเปลี่ยน → ถามให้ชัดว่าจะทับใบเดิม หรือตั้งใจออกใบใหม่ให้ลูกค้าอีกราย */
@@ -857,7 +886,10 @@ function bahtText(n){
 function parsePaste(){
   const raw = document.getElementById('pasteArea').value;
   if(!raw.trim()){ showToast('วางข้อความก่อน'); return; }
-  if(docType === 'CA' || /ออกใบกำกับ(ภาษี)?อย่างย่อ|บิลเงินสด/.test(raw)){ parseCAPaste(raw); return; }
+  /* บิลเงินสด: ถ้าข้อความสั่ง "ออกใบเสนอราคา/กำกับภาษี/วางบิล" ให้ตัวสั่งชนะเสมอ (กันค้างโหมดอย่างย่อแล้วกินใบถัดไป)
+     ไม่มีคำสั่ง → ใช้โหมดอย่างย่อเมื่อกดปุ่มอย่างย่อค้างไว้ หรือข้อความมีคำว่า อย่างย่อ/บิลเงินสด */
+  const explicitOther = /ออกใบ(เสนอราคา|กำกับภาษี(?!อย่างย่อ)|วางบิล|แจ้งหนี้)/.test(raw);
+  if(!explicitOther && (docType === 'CA' || /อย่างย่อ|บิลเงินสด/.test(raw))){ parseCAPaste(raw); return; }
 
   /* แยกบรรทัด จำว่าบรรทัดไหนมี timestamp (= บรรทัดจากแชท อาจมีชื่อคนส่งติดหัว) */
   let lines = raw.split(/\r?\n/).map(l=>l.trim()).filter(l=>l)
@@ -1189,6 +1221,7 @@ document.getElementById('btnReset').onclick = function(){
 
 function clearForm(){
   setToday();
+  loadedStatus = ''; loadedSavedAt = ''; replacesNo = null;
   document.getElementById('pasteArea').value = '';
   document.getElementById('custNameText').textContent = 'ชื่อลูกค้า';
   document.getElementById('inNameCust').textContent = 'ในนาม ....................';
@@ -1478,6 +1511,7 @@ function openSheet(no){
   sheetNo = no; cancelArmed = 0;
   const r = listCache.find(x=>x.no===no) || {};
   document.getElementById('sheetTitle').textContent = no + ' · ' + (r.customer||'');
+  if(!no) return;
   const isQT = no.startsWith('QT-');
   document.getElementById('shInv').style.display = isQT ? '' : 'none';
   document.getElementById('shBl').style.display  = isQT ? '' : 'none';
@@ -1485,9 +1519,9 @@ function openSheet(no){
   document.getElementById('shView').textContent = isINV(no) ? 'เปิดดู / พิมพ์ซ้ำ / แก้ไข (ได้ถึง 15 เดือนถัดไป)' : 'เปิดดู / พิมพ์ซ้ำ / แก้ไข';
   lock.style.display = 'none';
   if(r.status==='ยกเลิก'){ cb.style.display = 'none'; }
-  else if(isINV(no) && invCancelLocked(no)){
+  else if(isINV(no) && invEditLocked(no, r.savedAt)){
     cb.style.display = 'none';
-    const dl = invCancelDeadline(no);
+    const dl = invDeadlineOf(no, r.savedAt);
     lock.style.display = '';
     lock.textContent = 'ใบกำกับภาษีเดือนนี้พ้นกำหนดยื่น ภ.พ.30 แล้ว (หลัง '+fmtDate(dl)+') ยกเลิกไม่ได้ — ถ้าต้องแก้ยอด ให้ออกใบลดหนี้/ใบเพิ่มหนี้';
   }
@@ -1534,9 +1568,10 @@ async function viewDoc(no){
   setDocType(d.type||'QT', d.ref||'');
   document.getElementById('docNo').textContent = d.no;
   lastSavedNo = d.no; lastSavedCust = (d.customer&&d.customer.name)||''; docDirty = false;
+  loadedStatus = d.status || ''; loadedSavedAt = d.savedAt || ''; replacesNo = null;
   document.getElementById('rowSheet').style.display = 'none';
   showTab('doc');
-  showToast('เปิดใบ '+d.no+' — แก้แล้วกดบันทึก = อัพเดตใบเดิม', 4200);
+  showToast(loadedStatus === 'ยกเลิก' ? 'เปิดใบ '+d.no+' (ยกเลิกแล้ว — ดู/พิมพ์ซ้ำได้ แก้ทับไม่ได้)' : 'เปิดใบ '+d.no+' — แก้แล้วกดบันทึก = อัพเดตใบเดิม', 4200);
 }
 async function convertDoc(no, target){
   const d = await apiCall('/doc?no='+encodeURIComponent(no));
@@ -1556,7 +1591,8 @@ document.getElementById('shBl').onclick   = ()=> convertDoc(sheetNo, 'BL');
 document.getElementById('shCancel').onclick = async function(){
   if(Date.now() - cancelArmed > 2600){ cancelArmed = Date.now(); this.textContent = 'แตะอีกครั้ง ยืนยันยกเลิก '+sheetNo; return; }
   const no = sheetNo;
-  if(isINV(no) && invCancelLocked(no)){ showToast('⚠ พ้นกำหนดยื่นภาษีแล้ว ยกเลิกไม่ได้', 4000); return; }
+  const row = listCache.find(x=>x.no===no) || {};
+  if(isINV(no) && invEditLocked(no, row.savedAt)){ showToast('⚠ พ้นกำหนดยื่นภาษีแล้ว ยกเลิกไม่ได้', 4000); return; }
   let reason = '', withReplace = false;
   if(isINV(no)){
     reason = await askReason(); if(!reason){ openSheet(no); return; }
@@ -1577,7 +1613,8 @@ async function replaceDoc(no, reason){
   const d = await apiCall('/doc?no='+encodeURIComponent(no));
   if(d.error){ showToast('⚠ ยกเลิกแล้ว แต่เปิดใบเดิมมาออกแทนไม่ได้: '+d.error, 5000); return; }
   fillFromDoc(d);
-  setDocType('INV', 'ยกเลิกและออกใบกำกับภาษีฉบับใหม่แทนฉบับเดิมเลขที่ '+no);
+  setDocType(d.type === 'CA' ? 'CA' : 'INV', 'ยกเลิกและออกใบกำกับภาษีฉบับใหม่แทนฉบับเดิมเลขที่ '+no);
+  replacesNo = no;
   setPendingNo();
   lastSavedNo = null; docDirty = true;
   showTab('doc');
