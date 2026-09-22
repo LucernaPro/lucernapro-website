@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var th=localStorage.getItem('lucerna-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}</script>
+<title>EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating for Painted and Metal Surfaces | LucernaPro</title>
+<meta name="description" content="EasyClean — a hydrophobic, easy-clean nano coating for painted and metal surfaces. Clear 4H film, water contact angle ≥110°, sheds water and oily grime, wipes clean, anti-graffiti, resists acid and alkali, inhibits bacterial growth. Interior and exterior. Raw material imported from Feibo.">
+<meta property="og:title" content="EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating for Painted and Metal Surfaces">
+<meta property="og:description" content="Clear hydrophobic 4H film — water beads off, oily grime and spray paint struggle to stick, wipes clean, resists acid and alkali. For latex-painted walls, wood finishes, baked enamel and metal, indoors and out.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://www.lucernapro.com/en/easyclean">
+<meta property="og:image" content="https://www.lucernapro.com/img/easyclean-hero-sq.webp">
+<link rel="canonical" href="https://www.lucernapro.com/en/easyclean">
+<link rel="alternate" hreflang="th" href="https://www.lucernapro.com/easyclean">
+<link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/easyclean">
+<link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/easyclean">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic easy-clean nano coating for painted and metal surfaces — clear 4H film, water contact angle ≥110°, sheds water and oily grime, wipes clean, anti-graffiti, resists acid and alkali, inhibits bacterial growth.","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/en/easyclean"}
+</script>
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F2EF;
+    --panel:#FFFFFF;
+    --panel-2:#ECECE9;
+    --line:#DCDCD6;
+    --ink:#191C1F;
+    --muted:#5E646A;
+    --orange:#D8571C;
+    --orange-hi:#ED6A2F;
+    --bar-bg:rgba(247,247,244,.92);
+    --cat:#8FA6B8; /* สีหมวด coating/PROTECTION ตาม SPEC */
+    --warn-line:#C05A4C;
+    --warn-ink:#A8433A;
+    --radius:12px;
+    --disp:'Chakra Petch','Anuphan',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    color-scheme:light;
+  }
+  [data-theme="dark"]{
+    --bg:#0B0B0D;
+    --panel:#151518;
+    --panel-2:#1B1B1F;
+    --line:#28282E;
+    --ink:#F4F4F2;
+    --muted:#9BA0A6;
+    --orange:#ED6A2F;
+    --orange-hi:#FF8A4C;
+    --bar-bg:rgba(11,11,13,.9);
+    --warn-line:#D1766B;
+    --warn-ink:#E39A91;
+    color-scheme:dark;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  @media(min-width:861px){.wrap{padding:0 24px}}
+
+  /* ---------- Top bar (เหมือน Home) ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:10px;height:58px;max-width:1180px}
+  @media(min-width:861px){.topbar .wrap{gap:24px;height:60px}}
+  .brand{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:.04em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  @media(min-width:861px){.brand{font-size:20px;letter-spacing:.05em;gap:9px}}
+  .brand .logo{width:23px;height:23px;flex:none;object-fit:contain}
+  @media(min-width:861px){.brand .logo{width:28px;height:28px}}
+  .brand em{color:var(--orange);font-style:normal}
+  .backlink{font-size:14px;color:var(--muted);white-space:nowrap;display:none}
+  @media(min-width:861px){.backlink{display:inline}}
+  .backlink:hover{color:var(--ink)}
+  .theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:5px 9px;font-size:14px;cursor:pointer;margin-left:auto;line-height:1}
+  .theme-toggle:hover{border-color:var(--orange)}
+  @media(min-width:861px){.theme-toggle{margin-left:0}}
+  .lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:6px 10px;color:var(--muted)}
+  .lang-switch:hover{color:var(--ink);border-color:var(--orange)}
+  .cta-chat{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;padding:7px 13px;border-radius:8px;display:none;align-items:center;gap:8px;white-space:nowrap}
+  @media(min-width:861px){.cta-chat{display:inline-flex}}
+  .cta-chat:hover{border-color:#4E9BFF;filter:brightness(1.05)}
+  .fbadge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1877F2;color:#fff;font-weight:800;font-size:12.5px;font-family:Arial,sans-serif;line-height:1}
+
+  /* ---------- Product hero ---------- */
+  .phero{padding:40px 0 34px;background:
+      radial-gradient(640px 340px at 88% -15%, rgba(79,163,209,.13), transparent 60%),
+      radial-gradient(520px 300px at -10% 10%, rgba(237,106,47,.10), transparent 55%),var(--bg);
+      border-bottom:1px solid var(--line)}
+  .phero-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.phero-grid{grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.phero{padding:52px 0 46px}}
+  .crumb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .crumb .dot{width:9px;height:9px;border-radius:3px;background:var(--cat);flex:none}
+  .crumb b{color:var(--cat);font-weight:500}
+  .flagtag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);border:1px solid rgba(237,106,47,.45);border-radius:999px;padding:3px 11px;margin-bottom:14px;background:rgba(237,106,47,.08)}
+  .phero h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.18}
+  .phero h1 .o{color:var(--orange)}
+  .phero .lede{margin-top:14px;color:var(--muted);font-size:16.5px;max-width:520px}
+  .phero .lede b{color:var(--ink)}
+  .hero-cta{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn{font-family:var(--disp);font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-orange{background:linear-gradient(145deg,var(--orange-hi),var(--orange));color:#16130F}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink)}
+  .btn-fb:hover{border-color:#4E9BFF}
+
+  /* ---------- จุดขาย ---------- */
+  .sellpts{padding:38px 0 8px}
+  .sec-h{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.3}
+  .sec-h em{color:var(--orange);font-style:normal}
+  .sec-sub{color:var(--muted);margin-top:6px;font-size:15px;max-width:640px}
+  .pts{margin-top:22px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.pts{grid-template-columns:repeat(2,1fr)}}
+  .pt{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px 18px 17px;display:flex;gap:14px}
+  .pt .ic{font-family:var(--disp);font-weight:700;color:var(--cat);font-size:18px;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:var(--panel-2)}
+  .pt h4{font-family:var(--disp);font-size:16.5px;margin-bottom:4px}
+  .pt p{font-size:14px;color:var(--muted)}
+
+  /* ---------- Story: R&D LOG (signature ของหน้านี้) ---------- */
+  .story{margin:44px 0 0;border-top:1px solid var(--line);background:
+      linear-gradient(180deg, rgba(237,106,47,.05), transparent 40%), var(--panel);padding:50px 0 54px}
+  .rdtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .rdtag::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--orange),transparent)}
+  .story h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.3;max-width:720px}
+  .story h2 b{color:var(--orange)}
+  .story-grid{margin-top:24px;display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:861px){.story-grid{grid-template-columns:auto 1fr;gap:48px;align-items:start}}
+  .bignum{font-family:var(--disp);font-weight:700;line-height:.9;font-size:clamp(78px,11vw,128px);color:transparent;-webkit-text-stroke:2px var(--orange);white-space:nowrap}
+  .bignum small{display:block;-webkit-text-stroke:0;color:var(--muted);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;margin-top:10px;white-space:normal}
+  .story-body{max-width:620px}
+  .story-body p{color:var(--muted);font-size:15.5px}
+  .story-body p + p{margin-top:14px}
+  .story-body p b{color:var(--ink)}
+  .beats{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .beat{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;background:var(--bg);padding:13px 16px}
+  .beat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .beat p{font-size:14px;color:var(--muted);margin-top:3px}
+  .beat p b{color:var(--ink)}
+
+  /* ---------- ขนาดและราคา ---------- */
+  .buybox{padding:46px 0 10px}
+  .packshot{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:10px;margin:0}
+  .packshot img{width:100%;height:auto;border-radius:9px;display:block}
+  .packshot figcaption{padding:10px 6px 3px;font-size:13.5px;color:var(--muted);text-align:center}
+  .pricecard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .pricecard table{width:100%;border-collapse:collapse;font-size:15px}
+  .pricecard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .pricecard td{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .pricecard tr:last-child td{border-bottom:0}
+  .pricecard .sz{font-family:var(--disp);font-weight:600}
+  .pricecard .pr{font-family:var(--mono);color:var(--orange);white-space:nowrap}
+  .colors{margin-top:28px}
+  .colors-h{font-family:var(--disp);font-size:17px;font-weight:600}
+  .swatches{margin-top:13px;display:flex;gap:16px;flex-wrap:wrap}
+  .swx{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:13px;color:var(--muted)}
+  .sw{width:42px;height:42px;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 0 0 2px rgba(11,11,13,.35)}
+  .colornote{margin-top:12px;font-size:13px;color:var(--muted)}
+  .pricenote{margin-top:12px;font-size:13.5px;color:var(--muted)}
+
+  /* ---------- HOW TO USE ---------- */
+  .howto{padding:46px 0 10px}
+  .flow{margin-top:24px;max-width:720px;list-style:none;counter-reset:st}
+  .fstep{position:relative;counter-increment:st;padding:0 0 26px 56px}
+  .fstep:last-child{padding-bottom:0}
+  .fstep::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:0;width:38px;height:38px;border:1.5px solid var(--orange);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--orange);background:var(--panel)}
+  .fstep:not(:last-child)::after{content:"";position:absolute;left:18px;top:44px;bottom:6px;width:2px;background:var(--line)}
+  .fstep h4{font-family:var(--disp);font-size:17px;padding-top:7px}
+  .fstep p{font-size:14.5px;color:var(--muted);margin-top:4px}
+  .fchip{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--orange);border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:var(--panel);margin:9px 7px 0 0}
+  .docbtns{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .howvid{margin-top:22px;max-width:720px}
+  .yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#000}
+  .yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .15s, transform .25s}
+  .yt:hover img{opacity:1;transform:scale(1.02)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,17,13,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;font-size:22px;padding-left:5px;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s, background .15s}
+  .yt:hover .playbtn{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,17,13,.5)}
+  .vidgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px;max-width:980px}
+  @media(min-width:760px){.vidgrid{grid-template-columns:repeat(3,1fr)}}
+  .vidgrid figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);text-align:center}
+  .fbv{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+  .fbv.v916{aspect-ratio:9/16}
+  .fbv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vidgrid.vert{max-width:720px}
+  @media(min-width:760px){.vidgrid.vert.c2{display:flex;flex-wrap:wrap;justify-content:center;max-width:544px}.vidgrid.vert.c2 figure{width:250px}}
+  @media(max-width:759px){.vidgrid.vert{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;-webkit-overflow-scrolling:touch}.vidgrid.vert figure{flex:0 0 68%;scroll-snap-align:start}}
+  .howvid figcaption{margin-top:10px;font-size:14px;color:var(--muted)}
+  .warn{margin-top:20px;border:1px solid var(--warn-line);border-left:3px solid var(--warn-line);background:rgba(209,118,107,.08);border-radius:11px;padding:14px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .warn b{color:var(--warn-ink)}
+  .note{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--cat);background:var(--panel);border-radius:11px;padding:13px 16px;font-size:14px;color:var(--muted);max-width:720px}
+  .note b{color:var(--ink)}
+
+  /* ---------- Gallery ---------- */
+  .gallery{padding:46px 0 12px}
+  .ggrid{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+  @media(min-width:640px){.ggrid{grid-template-columns:repeat(3,1fr);gap:14px}}
+  @media(min-width:1000px){.ggrid{grid-template-columns:repeat(4,1fr)}}
+  .gph{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--panel);padding:7px;margin:0;display:flex;flex-direction:column}
+  .gph img{width:100%;height:100%;object-fit:cover;border-radius:7px;transition:transform .25s ease}
+  .gph:hover img{transform:scale(1.04)}
+
+  /* ---------- Cross-sell ---------- */
+  .alt{padding:46px 0 14px}
+  .altgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:760px){.altgrid{grid-template-columns:1fr 1fr}}
+  .altcard{border:1px solid var(--line);border-left:3px solid var(--cat);border-radius:12px;background:var(--panel);padding:18px;display:block;transition:transform .14s ease,border-color .14s ease}
+  .altcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .altcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--cat);text-transform:uppercase}
+  .altcard h4{font-family:var(--disp);font-size:17px;margin:7px 0 5px}
+  .altcard p{font-size:14px;color:var(--muted)}
+  .altcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:9px}
+  .altcard:hover .go{text-decoration:underline}
+
+  /* ---------- อ่านต่อ (บทความ + case study) ---------- */
+  .reads{padding:44px 0 10px}
+  .readgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:13px}
+  @media(min-width:700px){.readgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.readgrid{grid-template-columns:repeat(3,1fr)}}
+  .readcard{border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;background:var(--panel);padding:18px;display:flex;flex-direction:column;transition:transform .14s ease,border-color .14s ease}
+  .readcard:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .readcard .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+  .readcard h4{font-family:var(--disp);font-size:16.5px;margin:7px 0 5px;line-height:1.35}
+  .readcard p{font-size:14px;color:var(--muted);flex:1}
+  .readcard .go{font-family:var(--mono);font-size:11.5px;color:var(--orange);margin-top:11px}
+  .readcard:hover .go{text-decoration:underline}
+  .readall{margin-top:16px;display:flex;justify-content:flex-start}
+
+  /* ---------- ทำไมช่างมืออาชีพถึงเลือก LucernaPro ---------- */
+  .why{border-top:1px solid var(--line);background:var(--panel);padding:52px 0}
+  .why h2{font-family:var(--disp);font-size:24px;font-weight:700;max-width:640px}
+  .why .sec-sub{margin-top:6px}
+  .why-grid{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+  .why-card{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--bg)}
+  .why-card .n{font-family:var(--mono);font-size:12px;color:var(--orange);letter-spacing:.12em}
+  .why-card h4{font-family:var(--disp);font-size:17px;margin:9px 0 7px}
+  .why-card p{font-size:14px;color:var(--muted)}
+
+
+  /* ---------- สั่งซื้อ ---------- */
+  .order{padding:48px 0 14px}
+  .ordercard{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:
+      linear-gradient(120deg, rgba(237,106,47,.08), transparent 55%), var(--panel);padding:26px 22px}
+  @media(min-width:861px){.ordercard{padding:32px}}
+  .ordercard h3{font-family:var(--disp);font-size:20px;font-weight:700}
+  .ordercard .sub{color:var(--muted);margin-top:5px;font-size:14.5px}
+  .shoprow{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+  .shop{border:1.5px solid var(--line);border-radius:10px;background:var(--panel-2);font-family:var(--disp);font-weight:600;font-size:15px;padding:12px 19px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,border-color .15s ease}
+  .shop:hover{transform:translateY(-1px);border-color:var(--orange)}
+  .shop-line{border-color:rgba(6,199,85,.55);color:#3DDC84}
+  .shop-line:hover{border-color:#06C755}
+
+  /* ---------- Contact-lite + Footer + Mob bar (เหมือน Home) ---------- */
+  .explore{padding:6px 0 46px}
+  .explore-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,rgba(237,106,47,.07),transparent 60%),var(--panel);padding:28px 22px;text-align:center}
+  .explore-card h3{font-family:var(--disp);font-size:21px;font-weight:700}
+  .explore-card h3 em{color:var(--orange);font-style:normal}
+  .explore-card .xsub{color:var(--muted);margin-top:7px;font-size:14.5px}
+  .cat-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:17px 0 21px}
+  .cchip{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+  .cchip:hover{color:var(--orange);border-color:var(--orange)}
+  .contact{padding:40px 0 60px}
+  .contact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:861px){.contact-card{grid-template-columns:1.2fr 1fr;padding:38px}}
+  .contact h2{font-family:var(--disp);font-size:23px;font-weight:700;line-height:1.3}
+  .contact p{color:var(--muted);margin-top:10px;max-width:460px}
+  .contact-actions{margin-top:20px;display:flex;gap:11px;flex-wrap:wrap}
+  .btn-tel{border:1.5px solid var(--line);color:var(--ink)}
+  .contact-list{font-size:15px;display:flex;flex-direction:column;gap:11px;justify-content:center}
+  .contact-list .row{display:flex;gap:12px;align-items:baseline}
+  .contact-list .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);min-width:74px;text-transform:uppercase}
+  footer{border-top:1px solid var(--line);padding:26px 0 96px;color:var(--muted);font-size:13.5px}
+  @media(min-width:861px){footer{padding-bottom:34px}}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  @media(min-width:861px){footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+  .fbrand{font-family:var(--disp);font-weight:700;color:var(--ink)}
+  .mob-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  @media(min-width:861px){.mob-bar{display:none}}
+  .mob-bar a{flex:1;text-align:center;font-family:var(--disp);font-weight:600;font-size:15px;padding:13px 0;border-radius:10px}
+  .mob-fb{background:var(--panel-2);border:1.5px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mob-tel{border:1.5px solid var(--line);color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+img{height:auto}
+  /* ═══ MOBILE DRAWER MENU (ถอนได้: ลบ 3 บล็อกที่มี marker นี้: CSS/HTML/JS) ═══ */
+  .mnav-btn,.mnav,.mnav-scrim{display:none}
+  @media(max-width:860px){
+    .theme-toggle{display:none}
+    .lang-switch{display:inline-flex;align-items:center;margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.08em;border:1px solid var(--line);border-radius:7px;padding:5px 9px;color:var(--muted);line-height:1}
+    .topbar .btn-chat,.topbar .cta-chat{margin-left:10px}
+    .mnav-scrim{display:block}
+    .cta-chat{display:inline-flex;margin-left:auto}
+    .mnav-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:17px;line-height:1;cursor:pointer}
+    .mnav-btn:hover{border-color:var(--orange)}
+    .mnav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:98;opacity:0;pointer-events:none;transition:opacity .22s ease}
+    .mnav-scrim.open{opacity:1;pointer-events:auto}
+    .mnav{position:fixed;top:0;bottom:0;left:0;width:min(280px,82vw);z-index:99;background:var(--panel);border-right:1px solid var(--line);padding:20px 22px 18px;display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .26s ease;overflow-y:auto}
+    .mnav.open{transform:translateX(0)}
+    .mnav-head{display:flex;align-items:center;justify-content:space-between}
+    .mnav-brand{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--ink)}
+    .mnav-brand em{color:var(--orange);font-style:normal}
+    .mnav-close{background:none;border:none;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;padding:4px}
+    .mnav-tag{font-size:11.5px;color:var(--muted);margin-top:3px}
+    .mnav-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);margin:22px 0 4px}
+    .mnav-links{display:flex;flex-direction:column}
+    .mnav-links a{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;color:var(--ink)}
+    .mnav-links a:last-child{border-bottom:none}
+    .mnav-links a span{color:var(--orange)}
+    .mnav-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .mnav-chips a{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}
+    .mnav-util{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);margin-top:auto}
+    .mnav-util .mnav-lang{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 12px;color:var(--muted)}
+    .mnav-util .mnav-theme{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink)}
+    .mnav-chat{background:#1877F2;border-radius:10px;text-align:center;padding:11px 0;font-size:14px;color:#fff;font-weight:600;margin-top:2px}
+  }
+  /* ═══ จบบล็อก CSS MOBILE DRAWER MENU ═══ */
+  /* ---- คลิปโฮสต์เอง (ยก pattern จาก /solidfloor) ---- */
+  .fbv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  .vidgrid.k1{max-width:640px;grid-template-columns:1fr}
+  /* ---- การ์ดสอบถามราคา (หน้านี้ยังไม่ประกาศราคา) ---- */
+  .askprice{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(120deg,rgba(143,166,184,.12),transparent 55%),var(--panel);padding:24px 22px;max-width:720px}
+  .askprice h3{font-family:var(--disp);font-size:19px;font-weight:700}
+  .askprice p{margin-top:8px;font-size:14.5px;color:var(--muted)}
+  .askprice p b{color:var(--ink)}
+  .askprice .row{margin-top:16px;display:flex;gap:11px;flex-wrap:wrap}
+  /* ---- ตารางสเปค (ไม่ใช่ตารางราคา — ไม่เข้าระบบเครื่องคำนวณ) ---- */
+  .speccard{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);max-width:720px}
+  .speccard table{width:100%;border-collapse:collapse;font-size:14.5px}
+  .speccard th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .speccard td{padding:12px 16px;border-bottom:1px solid var(--line)}
+  .speccard tr:last-child td{border-bottom:0}
+  .speccard td:first-child{color:var(--muted)}
+  .speccard td:last-child{font-family:var(--mono);white-space:normal}
+
+/* gallery with captions (same as solarpaneldefender) */
+
+.gph .im{aspect-ratio:1/1;overflow:hidden;border-radius:7px}
+.gph img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.gph figcaption{font-size:12.5px;color:var(--muted);padding:8px 4px 2px;line-height:1.45}
+.gph figcaption .no{font-family:var(--mono);font-size:11px;color:var(--orange);margin-right:5px}
+.gph figcaption b{color:var(--ink)}
+img{height:auto}
+</style>
+<script src="/track.js" defer></script>
+<style id="sitesearch-css">
+  .mnav-search{margin:12px 0 4px;position:relative}
+  .mnav-search input{width:100%;font-family:inherit;font-size:15px;padding:11px 12px 11px 38px;border:1.5px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);outline:none}
+  .mnav-search input::placeholder{color:var(--muted)}
+  .mnav-search input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(237,106,47,.22)}
+  .mnav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;opacity:.6}
+  .topsearch{display:none;align-items:center;gap:6px;font-size:14px;color:var(--muted);white-space:nowrap;text-decoration:none}
+  .topsearch svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .topsearch:hover{color:var(--orange)}
+  @media(min-width:861px){.topsearch{display:inline-flex}}
+</style>
+<style id="easyclean-css">
+  .cmp{margin-top:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .cmp table{width:100%;border-collapse:collapse;font-size:14.5px}
+  .cmp th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .cmp td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp tr:last-child td{border-bottom:0}
+  .cmp td:first-child{color:var(--muted);white-space:nowrap}
+  .cmp th:nth-child(2){color:var(--orange)}
+  .cmp td:nth-child(2){font-weight:600}
+  @media(max-width:600px){.cmp td:first-child{white-space:normal}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <button class="mnav-btn" id="mnavBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <a class="brand" href="/en/"><img class="logo" src="/img/logo.png" alt="LucernaPro logo" width="28" height="28">LUCERNA<em>PRO</em></a>
+    <a class="backlink" href="/en/">← All products</a>
+    <a class="topsearch" href="/en/search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span>Search</span></a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">🌙</button>
+    <a class="lang-switch" href="/easyclean">TH</a>
+    <a class="cta-chat" href="https://lin.ee/LpUR3Ld"><span style="display:inline-grid;place-items:center;border-radius:5px;background:#06C755;color:#fff;font-weight:800;font-size:9px;font-family:Arial,sans-serif;line-height:1;padding:3px 4px;letter-spacing:.02em">LINE</span>Add LINE</a>
+  </div>
+</header>
+
+<!-- ═══ MOBILE DRAWER MENU: ลิ้นชัก (ถอนได้) ═══ -->
+<div class="mnav-scrim" id="mnavScrim" aria-hidden="true"></div>
+<aside class="mnav" id="mnav" aria-label="Main menu">
+  <div class="mnav-head">
+    <span class="mnav-brand"><img src="/img/logo.png" alt="" width="24" height="24" style="object-fit:contain;vertical-align:-6px;margin-right:8px">LUCERNA<em>PRO</em></span>
+    <button class="mnav-close" id="mnavClose" aria-label="Close menu">✕</button>
+  </div>
+  <div class="mnav-tag" style="font-family:var(--mono);letter-spacing:.05em">Real deal or nothing</div>
+  <form class="mnav-search" id="siteSearch" action="/en/search" method="get" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><input type="search" name="q" placeholder="Search products / case studies…" aria-label="Search" autocomplete="off"></form>
+  <div class="mnav-k">MENU</div>
+  <nav class="mnav-links">
+    <a href="/en/">Home <span>→</span></a>
+    <a href="/en/#catalog">All products <span>→</span></a>
+    <a href="/en/casestudy/">Case Study <span>→</span></a>
+    <a href="/en/#contact">Contact <span>→</span></a>
+  </nav>
+  <div class="mnav-k">SHORTCUTS</div>
+  <div class="mnav-chips">
+    <a href="/en/#waterproof">Waterproofing</a>
+    <a href="/en/#flooring">Flooring</a>
+    <a href="/en/#coating">Coatings</a>
+  </div>
+  <div class="mnav-util">
+    <a class="mnav-lang" href="/easyclean">TH</a>
+    <button class="mnav-theme" id="mnavTheme" aria-label="Toggle color theme">🌙</button>
+  </div>
+  <a class="mnav-chat" href="https://m.me/lucernapro">f&nbsp; Facebook chat — fast replies</a>
+</aside>
+<!-- ═══ จบลิ้นชัก MOBILE DRAWER MENU ═══ -->
+
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div>
+      <div class="crumb"><span class="dot"></span>Protection <b>· Coatings</b></div>
+      <div class="flagtag">★ NEW</div>
+      <h1>Easy<span class="o">Clean</span><br>Anti-Fouling, Easy-Clean, Antibacterial Coating</h1>
+      <p class="lede">Latex-painted walls, wood-finished doors and frames, baked-enamel furniture, metal cabinets and panels — one application forms a clear, thin 4H-hard film, and from then on <b>water beads off, oily grime and spray paint struggle to stick, and stains wipe away with a damp cloth</b>. Resists acid, alkali and petrol, cuts static so less dust settles, and inhibits bacterial growth on the surface.</p>
+      <div class="hero-cta">
+        <a class="btn btn-orange" href="#price">Order / pricing</a>
+        <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Free site consultation</a>
+      </div>
+    </div>
+    <figure class="packshot">
+      <img src="/img/easyclean-hero-sq.webp" alt="EasyClean anti-fouling easy-clean coating — hydrophobic surface with water beading into droplets" width="900" height="900">
+    </figure>
+  </div>
+</section>
+
+<section class="sellpts">
+  <div class="wrap">
+    <h2 class="sec-h">Why a coated surface <em>wipes clean</em></h2>
+    <p class="sec-sub">A low-surface-energy nano polysiloxane film — water, oil and grime don't soak into the surface, so they sit on the film and wipe off</p>
+    <div class="pts">
+      <div class="pt"><span class="ic">01</span><div><h4>Water beads off — stains don't soak in</h4><p>Water contact angle ≥110° and sliding angle 5–10° — droplets bead up and roll away. Tea, coffee, sauce or ink spilled on a wall or table leaves no ring, because it never gets into the paint.</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>Resists oily grime and spray paint</h4><p>Hand grease, kitchen fumes, marker pen and spray paint sit on the film instead of the paint — wipe them off with a damp cloth or a neutral cleaner. The manufacturer tests dye-penetration resistance (anti-graffiti) as part of the specification.</p></div></div>
+      <div class="pt"><span class="ic">03</span><div><h4>4H hard — resists acid, alkali and petrol</h4><p>An 8–12 µm film with ≥4H pencil hardness. 24 hours in 10% sulphuric acid and 10% caustic soda, 24 hours in petrol — hardness and adhesion unchanged, so the paint underneath is protected from frequent washing and cleaning chemicals.</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>Less static, inhibits bacteria</h4><p>The film reduces the charge that builds up on paint and plastics, so dust and lint settle less — and when water and organic grime can't get a grip, bacteria lose the foothold and moisture they need to grow (a manufacturer-stated property — not a disinfectant, see Straight Talk no. 5).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="compare">
+  <div class="wrap">
+    <h2 class="sec-h">EasyClean vs Paint Coating — <em>opposite principles</em></h2>
+    <p class="sec-sub">Both come from the same raw-material developer and both go on painted surfaces, but they work <b>in opposite ways</b> — choose by who does the washing: the rain, or a person</p>
+    <div class="cmp">
+      <table>
+        <thead><tr><th></th><th>EasyClean (this page)</th><th>Paint Coating</th></tr></thead>
+        <tbody>
+          <tr><td>Principle</td><td>Hydrophobic — water beads and rolls away</td><td>Superhydrophilic — water sheets and runs off as one film</td></tr>
+          <tr><td>Water contact angle</td><td>≥ 110°</td><td>&lt; 10°</td></tr>
+          <tr><td>Who cleans</td><td>A person — grime wipes off with a damp cloth</td><td>Rain and sun — rain washes without streaks, sunlight breaks down oil</td></tr>
+          <tr><td>Film</td><td>8–12 µm, ≥4H, resists acid, alkali, petrol</td><td>Invisibly thin, with a photocatalytic layer</td></tr>
+          <tr><td>Best for</td><td>Surfaces people wipe and that get dirty often — interior walls, doors, furniture, kitchens, restrooms, hospitals, schools, cabinets and machinery, walls that get tagged</td><td>Exterior surfaces the rain reaches and that are hard to wash — ACP cladding, fuel-station signage and canopies, bus and train bodies</td></tr>
+          <tr><td>Consumption</td><td>15–50 ml/m²</td><td>≈ 6 ml/m²</td></tr>
+          <tr><td>Can they be layered?</td><td colspan="2">No — one surface, one family. A hydrophobic film stops Paint Coating from bonding</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">If the job is "let the rain do the washing" on exterior panels or a canopy, go to <a href="/paintcoating" style="color:var(--orange)">Paint Coating</a> — if the job is "make grime wipe off easily and protect the paint from frequent washing", you're on the right page.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">SOURCE — where the raw material comes from</div>
+    <h2>We import the core raw material<br>directly from the technology's developer <b>— Feibo</b></h2>
+    <div class="story-grid">
+      <div class="bignum">≥110°<small>WATER CONTACT ANGLE · HYDROPHOBIC</small></div>
+      <div class="story-body">
+        <p>For this product we <b>import the core raw material from Feibo</b> (Changsha, China) — the same developer behind our <a href="/en/glasscoating" style="color:var(--orange)">Glass Coating</a> and <a href="/en/paintcoating" style="color:var(--orange)">Paint Coating</a> — and pack and quality-control it in Thailand. But this one is <b>a different family</b> from the Self-Cleaning range: a hydrophobic anti-fouling film designed for surfaces people wipe, not surfaces that wait for rain.</p>
+        <p>In China this formulation goes on surfaces that get dirty and are cleaned with chemicals so often that the paint fails early — and it passes the rail-vehicle fire-safety standard (EN 45545-2, R1 HL3), so it can be used in passenger cars and other work that needs a non-flame-spreading material.</p>
+        <div class="beats">
+          <div class="beat"><div class="k">How it works</div><p>A nano polysiloxane film with a fractal structure, doped with nano tungsten trioxide and nano tin oxide — low surface energy, so water and oil don't spread on the surface; they bead up and wipe off. The manufacturer rates the film at <b>2–3 years</b> with virtually no change in properties.</p></div>
+          <div class="beat"><div class="k">Surfaces it suits</div><p>Interior latex paint, wood finishes, baked enamel, industrial spray finishes, bare metal and powder coat — <b>paint that is fully dry and cured</b>. Interior and exterior (3,000 h outdoor weathering test).</p></div>
+          <div class="beat"><div class="k">Harder than you'd expect</div><p>8–12 µm thick, ≥4H pencil hardness on glass and metal, cross-cut adhesion grade 0, and still grade 0–1 after three −30°C ↔ 120°C thermal cycles — a <b>protective layer</b> over the paint against scrubbing and cleaning agents, not just a water-repellent one.</p></div>
+          <div class="beat"><div class="k">Less static</div><p>Paint and plastics build up charge and attract dry dust — this film reduces the surface charge, so dust, lint and oil mist settle less in the first place, which means less wiping too.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="spec">
+  <div class="wrap">
+    <h2 class="sec-h">The numbers from <em>the test data</em></h2>
+    <p class="sec-sub">Specification from the raw-material developer's TDS — not advertising copy</p>
+    <div class="speccard">
+      <table>
+        <thead><tr><th>Property</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Water contact angle</td><td>≥ 110°</td></tr>
+          <tr><td>Sliding angle</td><td>5–10°</td></tr>
+          <tr><td>Film thickness</td><td>8–12 µm · clear, no colour change</td></tr>
+          <tr><td>Pencil hardness</td><td>≥ 4H (on glass or metal)</td></tr>
+          <tr><td>Cross-cut adhesion</td><td>Grade 0 · grade 0–1 after 3 thermal cycles −30°C / 120°C</td></tr>
+          <tr><td>Drying time (25°C)</td><td>Surface dry ≤ 30 min · hard dry ≤ 4 h · full cure 24 h</td></tr>
+          <tr><td>Heat cure (factory)</td><td>75°C for 1–2 h</td></tr>
+          <tr><td>Water resistance</td><td>240 h in distilled water at 40°C — hydrophobicity unchanged</td></tr>
+          <tr><td>Petrol resistance</td><td>24 h immersion — hardness and adhesion unchanged</td></tr>
+          <tr><td>Acid and alkali resistance</td><td>10% H₂SO₄ and 10% NaOH, 24 h — unchanged</td></tr>
+          <tr><td>Outdoor weathering</td><td>3,000 h — film intact, grade 0–1 on aluminium, minimal loss of gloss or colour</td></tr>
+          <tr><td>Fire safety</td><td>Passes EN 45545-2, R1 HL3 (rail vehicles)</td></tr>
+          <tr><td>Consumption</td><td>15–50 ml/m² depending on method (spraying uses the least)</td></tr>
+          <tr><td>Shelf life</td><td>1 year unopened · store at 18–25°C away from sunlight and sparks</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="buybox" id="price">
+  <div class="wrap">
+    <h2 class="sec-h">Sizes and pricing</h2>
+    <div class="pricecard">
+      <table>
+        <thead><tr><th>Size</th><th>Approximate coverage</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td class="sz">All sizes<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">launch period</small></td><td>15–50 ml/m² — roughly 20–60 m² per kilogram depending on method and surface porosity</td><td class="pr">Launch pricing — ask us</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">First imported batch — <b>tell us the surface type and area in m² via chat</b> and we'll quote and work out the quantity for free before you order · HVLP spraying uses the least product; rollers and brushes use more · <b>Project pricing for large jobs</b></p>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="wrap">
+    <h2 class="sec-h">How to apply — <em>everything on this page</em></h2>
+    <p class="sec-sub">Read to the end before opening the can — <b>a clean, bone-dry surface</b> and <b>no water in the first hour</b> are the two things that decide the whole job</p>
+    <ol class="flow">
+      <li class="fstep"><h4>Clean, degrease and dry the surface completely</h4><p>Remove all dust, oil, hand grease and water marks. If there is old grease or wax, degrease first — fresh paint must be fully dry and cured to its own specification before coating.</p></li>
+      <li class="fstep"><h4>Test a small corner first</h4><p>Apply to an inconspicuous corner of the actual surface, let it cure, then check clarity, adhesion and a water-drop test — especially on glossy dark paint and on chalky latex walls.</p></li>
+      <li class="fstep"><h4>Apply one thin, even coat</h4><p>Spray with an HVLP gun, 1.0–1.2 mm tip, 0.2 MPa, for the smoothest film and lowest consumption. On walls and furniture use a short-nap roller or a soft brush, working in one direction without runs. <b>A little gas and a faint alcohol smell on opening the can is normal.</b></p><span class="fchip">HVLP gun</span><span class="fchip">Short-nap roller</span><span class="fchip">Soft brush</span></li>
+      <li class="fstep"><h4>Never go back over it — the surface sets immediately</h4><p>The surface starts hardening as soon as it's applied and is touch-dry in 20–30 minutes — apply and leave it. Re-rolling or re-brushing a spot marks the film.</p></li>
+      <li class="fstep"><h4>Keep water off until the film has hardened</h4><p><b>Water on the surface before the film hardens leaves marks</b> that won't wipe off — strip and recoat. The manufacturer says keep it dry for at least the first hour; outdoors, check the rain forecast first.</p><span class="fchip">Touch-dry 20–30 min</span><span class="fchip">Hard dry ≤ 4 h</span></li>
+      <li class="fstep"><h4>24 hours — fully cured and in service</h4><p>Fully cured in 24 hours at room temperature (factory work can heat-cure at 75°C for 1–2 hours instead). After that, clean as normal with a damp cloth or a neutral cleaner.</p></li>
+    </ol>
+
+    <div class="warn"><b>⚠ Safety:</b> Solvent-based and flammable — work in a ventilated area away from sparks and heat, wear gloves, goggles and an organic-vapour respirator when spraying. Store at 18–25°C out of reach of children and direct sunlight.</div>
+  </div>
+</section>
+
+<section class="story" id="straight">
+  <div class="wrap">
+    <div class="rdtag">STRAIGHT TALK — what needs saying</div>
+    <h2>Before you pay, read these 6 points —<br><b>this is not a miracle product</b> and we don't want you to misunderstand it</h2>
+    <div class="story-grid">
+      <div class="bignum">6<small>things most sellers won't tell you</small></div>
+      <div class="story-body">
+        <div class="beats">
+          <div class="beat"><div class="k">1 · You still wipe — it's just much easier</div><p>This is not self-cleaning; the rain won't do it for you, and a coated surface still gets dirty. The difference is that <b>grime sits on the film instead of soaking into the paint</b>, so it wipes off with a damp cloth instead of scrubbing or repainting. If the job is exterior panels you want the rain to look after, go to <a href="/en/paintcoating" style="color:var(--orange)">Paint Coating</a>.</p></div>
+          <div class="beat"><div class="k">2 · The first hour is the danger zone</div><p>Water on the surface before the film hardens = <b>marks that won't wipe off</b> — strip and redo. Outdoors, check the rain forecast; indoors, keep splashes away and don't mop near the wall in the first hour.</p></div>
+          <div class="beat"><div class="k">3 · Uses several times more product than the Self-Cleaning range</div><p>An 8–12 µm film takes 15–50 ml/m² — coverage per kilogram is several times lower than Paint Coating, in exchange for 4H hardness and chemical resistance. For large areas, HVLP spraying uses the least; send us the area and we'll calculate first.</p></div>
+          <div class="beat"><div class="k">4 · The paint must be fully cured, and always test a corner</div><p>Fresh paint, chalking paint or flaking latex — the film bonds to whatever is loose, not to the wall. This product <b>protects paint that is still good</b>; it doesn't repair paint that has failed. On glossy dark paint an over-thick coat can be visible, so test a small corner on the real colour every time.</p></div>
+          <div class="beat"><div class="k">5 · "Inhibits bacteria" is not "kills germs"</div><p>The manufacturer states that the coating inhibits bacterial growth on the surface, which comes from water and organic grime struggling to stick — <b>it is not a disinfectant and doesn't replace cleaning</b>. Hospitals, kitchens and restrooms keep their normal cleaning schedule; it's just easier.</p></div>
+          <div class="beat"><div class="k">6 · Don't put it over Paint Coating, and don't wax over it</div><p>One surface, one family — EasyClean won't bond well over a surface that has had Paint Coating or wax, and a surface coated with EasyClean <b>can't take Paint Coating on top</b>. Care with plain water or a neutral cleaner; no stiff brushes or scouring pads.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 class="sec-h">Is this the <em>right product for your surface?</em></h2>
+    <p class="sec-sub">No surface coating is best at everything — these two may fit your job better</p>
+    <div class="altgrid">
+      <a class="altcard" href="/en/paintcoating">
+        <div class="k">Exterior panels and canopies · SELF-CLEANING</div>
+        <h4>Paint Coating</h4>
+        <p>If the surface is ACP cladding, a fuel-station sign or a vehicle body that the rain reaches and that's hard to wash — that one lets the rain do the washing. A different principle from this page, and the better fit there.</p>
+        <div class="go">View details →</div>
+      </a>
+      <a class="altcard" href="/en/schutznano9h">
+        <div class="k">Private cars · Ceramic coating</div>
+        <h4>Schutz Nano 9H</h4>
+        <p>Hydrophobic as well, but formulated for car paint — deep gloss and beading on a car body. If the job is your own car, that's the right one.</p>
+        <div class="go">View details →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-h">Order <em>EasyClean</em></h2>
+    <div class="ordercard">
+      <h3>Launch period — order via chat only</h3>
+      <div class="sub">First imported batch, not yet on Shopee / Lazada during launch — tell us the surface type, area in m² and how you'd like to apply it, and we'll quote and work out the quantity for free before you order · <b>Project pricing for large jobs</b></div>
+      <div class="shoprow">
+        <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
+        <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
+        <a class="shop" href="tel:0970799547">📞 097-079-9547</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reads">
+  <div class="wrap">
+    <h2 class="sec-h">Not in a hurry? <em>Read a little more</em></h2>
+    <p class="sec-sub">Where this raw material comes from and what it has been through — these two take you to the source</p>
+    <div class="readgrid">
+      <a class="readcard" href="/en/post/solar-panel-defender-feibo-lab">
+        <div class="k">Behind the raw material</div>
+        <h4>Inside the Feibo lab — the source of our surface-coating raw materials</h4>
+        <p>The laboratory, the analytical equipment and the real test results of the raw-material producer we chose to import from — see it and you'll understand why we chose them.</p>
+        <div class="go">Read on →</div>
+      </a>
+      <a class="readcard" href="/en/post/feibo-rail-transit">
+        <div class="k">Site case · Rail</div>
+        <h4>High-speed rail, metro, trams — work that has to pass the EN 45545-2 fire standard</h4>
+        <p>Train bodies use the Self-Cleaning family, while EasyClean passes the same fire standard as passenger-car materials — a photo set from real rail work by the raw-material developer.</p>
+        <div class="go">Read on →</div>
+      </a>
+    </div>
+    <div class="readall"><a class="btn btn-orange" href="/en/casestudy">See all field cases →</a></div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="explore-card">
+      <h3>This is just <em>1 of 50+</em> — LucernaPro is a full system</h3>
+      <p class="xsub">We make coatings and waterproofing for everything — floors, walls, roofs, all the way to your car.</p>
+      <div class="cat-chips">
+        <a class="cchip" href="/en/#flooring">FLOORING</a><a class="cchip" href="/en/#wall">WALL</a><a class="cchip" href="/en/#waterproof">WATERPROOF</a><a class="cchip" href="/en/#coating">PROTECTION</a><a class="cchip" href="/en/#chem">CHEMICALS</a><a class="cchip" href="/en/#auto">AUTOMOTIVE</a>
+      </div>
+      <a class="btn btn-orange" href="/en/#catalog">See all products →</a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>Why professionals choose <em>LucernaPro</em></h2>
+    <p class="sec-sub">Lucerna Co., Ltd. — surface coatings and waterproofing are our core business, not a sideline.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="n">SPEC</div><h4>Genuine industrial-grade chemistry</h4><p>Polyurea, Polyaspartic, PMMA, FRP — industrial technologies you won't find at a general hardware store, selected to solve problems ordinary materials can't.</p></div>
+      <div class="why-card"><div class="n">SOLVE</div><h4>Fix the cause, not paint over it</h4><p>Endless repairs usually mean the wrong product was used. We match products to problems — positive/negative-side waterproofing, structural cracks, underwater work.</p></div>
+      <div class="why-card"><div class="n">SUPPORT</div><h4>Real on-site consultation</h4><p>Not sure which product your case needs? Send site photos via chat and our team will analyze the job and recommend the right system before you buy.</p></div>
+      <div class="why-card"><div class="n">PROOF</div><h4>Real project examples</h4><p>Every system comes with real site cases — see the process, results and reviews on our <a href="/en/casestudy" style="color:var(--orange)">Case Study</a> page.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>Not sure which product you need?<br>Let us help you choose</h2>
+        <p>Send photos or describe the job — our team will analyze it and recommend the right system for your budget and site, before you spend a baht.</p>
+        <div class="contact-actions">
+          <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Chat with us — free advice</a>
+          <a class="btn btn-tel" href="tel:0970799547">📞 097-079-9547</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="lbl">Chat</span><a href="https://m.me/lucernapro">m.me/lucernapro</a></div>
+        <div class="row"><span class="lbl">Line</span><a href="https://lin.ee/LpUR3Ld">@lucerna</a></div>
+        <div class="row"><span class="lbl">Phone</span><span><a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></span></div>
+        <div class="row"><span class="lbl">E-mail</span><a href="mailto:Lucernapro@yahoo.com">Lucernapro@yahoo.com</a></div>
+        <div class="row"><span class="lbl">Hours</span><span>8:00–19:00, Mon–Sat</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">LUCERNA<span style="color:var(--orange)">PRO</span> — Leave the Ordinary Behind</div>
+      <div style="margin-top:6px;font-size:13px">Lucerna Co., Ltd. · 23 Suriyat Rd. Soi 4, Nai Mueang, Mueang, Ubon Ratchathani 34000, Thailand · Tel <a href="tel:0970799547">097-079-9547</a>, <a href="tel:0970796583">097-079-6583</a></div>
+    </div>
+    <div>© 2026 Lucerna Co., Ltd.</div>
+  </div>
+</footer>
+
+<div class="mob-bar">
+  <a class="mob-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Facebook chat</a>
+  <a class="mob-tel" href="tel:0970799547">📞 Call now</a>
+</div>
+
+<script>
+const tgl = document.getElementById('themeToggle');
+function syncIcon(){ tgl.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+tgl.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+  if(!root.dataset.theme) delete root.dataset.theme;
+  try{ localStorage.setItem('lucerna-theme', root.dataset.theme || ''); }catch(e){}
+  syncIcon();
+});
+syncIcon();
+</script>
+<!-- ═══ MOBILE DRAWER MENU: JS (ถอนได้) ═══ -->
+<script>
+(function(){
+  var mn=document.getElementById('mnav'),sc=document.getElementById('mnavScrim'),
+      bt=document.getElementById('mnavBtn'),cl=document.getElementById('mnavClose'),
+      tb=document.getElementById('mnavTheme'),master=document.getElementById('themeToggle');
+  if(!mn||!bt)return;
+  function set(open){
+    mn.classList.toggle('open',open);sc.classList.toggle('open',open);
+    bt.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  }
+  bt.addEventListener('click',function(){set(true)});
+  cl.addEventListener('click',function(){set(false)});
+  sc.addEventListener('click',function(){set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  window.addEventListener('pageshow',function(){set(false)});
+  mn.querySelectorAll('.mnav-links a,.mnav-chips a,.mnav-chat').forEach(function(a){
+    a.addEventListener('click',function(){set(false)});
+  });
+  if(tb){
+    if(!master){tb.style.display='none';}
+    else{
+      function syncT(){tb.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';}
+      tb.addEventListener('click',function(){master.click();syncT();});
+      syncT();
+    }
+  }
+})();
+</script>
+<!-- ═══ จบ JS MOBILE DRAWER MENU ═══ -->
+</body>
+</html>
