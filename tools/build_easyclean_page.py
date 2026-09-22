@@ -8,7 +8,8 @@ build_easyclean_page.py — สร้าง /easyclean และ /en/easyclean �
 
 วิธีใช้:  python3 tools/build_easyclean_page.py   (รันจากรากรีโป)
 สถานะ:   ยังไม่มีรูปสินค้า/คลิป — ใช้ภาพ placeholder img/easyclean-hero-sq.webp ไว้ก่อน
-          ราคายังไม่กำหนด — ตารางราคาเป็น "สอบถาม" (ไม่มี data-calc จึงไม่เข้าหน้า /calculator)
+          ราคา 22 ก.ย. 2026 (Pist): 100 g 830 / 500 g 3,590 / 1 kg 6,600 ส่ง 70 — ลงด้วยลูกกลิ้งโฟม 4 นิ้ว
+          หลัง build ต้องรัน tools/build_calculator_page.py ด้วย (ตารางมี data-calc)
 """
 import io, os, re
 
@@ -54,7 +55,6 @@ def build(lang):
     head = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="%s">' % OGD[lang], head)
     head = head.replace('img/paintcoating-hero-sq.webp', 'img/easyclean-hero-sq.webp')
     head = re.sub(r'<script type="application/ld\+json">.*?</script>', SCHEMA[lang], head, flags=re.S)
-    head = head.replace('<script src="/calc.js" defer></script>\n', '')  # ไม่มีตารางคำนวณ
     head = head + EXTRA_CSS
 
     # ── drawer ──
@@ -86,8 +86,8 @@ OGD = {
     'en': 'Clear hydrophobic 4H film — water beads off, oily grime and spray paint struggle to stick, wipes clean, resists acid and alkali. For latex-painted walls, wood finishes, baked enamel and metal, indoors and out.',
 }
 SCHEMA = {
-    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"EasyClean น้ำยาเคลือบกันคราบ เช็ดง่าย ยับยั้งแบคทีเรีย","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบกันคราบสาย Hydrophobic ฟิล์มใสแข็ง 4H มุมสัมผัสน้ำ ≥110° สำหรับผิวสีและโลหะ — น้ำและคราบน้ำมันเกาะยาก เช็ดออกง่าย กันสีสเปรย์ ทนกรดด่าง ยับยั้งแบคทีเรีย","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/easyclean"}\n</script>',
-    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic easy-clean nano coating for painted and metal surfaces — clear 4H film, water contact angle ≥110°, sheds water and oily grime, wipes clean, anti-graffiti, resists acid and alkali, inhibits bacterial growth.","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/en/easyclean"}\n</script>',
+    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"EasyClean น้ำยาเคลือบกันคราบ เช็ดง่าย ยับยั้งแบคทีเรีย","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบกันคราบสาย Hydrophobic ฟิล์มใสแข็ง 4H มุมสัมผัสน้ำ ≥110° สำหรับผิวสีและโลหะ — น้ำและคราบน้ำมันเกาะยาก เช็ดออกง่าย กันสีสเปรย์ ทนกรดด่าง ยับยั้งแบคทีเรีย","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/easyclean","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic easy-clean nano coating for painted and metal surfaces — clear 4H film, water contact angle ≥110°, sheds water and oily grime, wipes clean, anti-graffiti, resists acid and alkali, inhibits bacterial growth.","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/en/easyclean","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
 }
 
 BODY = {}
@@ -136,7 +136,7 @@ BODY['th'] = r'''<section class="phero">
           <tr><td>ใครล้าง</td><td>คน — คราบเช็ดออกง่ายด้วยผ้าชุบน้ำ</td><td>ฝนกับแดด — ฝนล้างไม่ทิ้งคราบ แดดย่อยคราบน้ำมัน</td></tr>
           <tr><td>ฟิล์ม</td><td>8–12 ไมครอน แข็ง ≥4H ทนกรดด่าง เบนซิน</td><td>บางระดับตามองไม่เห็น มีชั้น Photocatalytic</td></tr>
           <tr><td>เหมาะกับ</td><td>ผิวที่คนเช็ดถึงและโดนคราบบ่อย — ผนังภายใน ประตู เฟอร์นิเจอร์ ห้องครัว ห้องน้ำ โรงพยาบาล โรงเรียน ตู้และเครื่องจักร ผนังที่โดนสีสเปรย์</td><td>ผิวภายนอกที่ฝนโดนและล้างยาก — แผง ACP ป้ายและหลังคาปั๊ม ตัวถังรถบัส-รถไฟ</td></tr>
-          <tr><td>ปริมาณใช้</td><td>15–50 มล./ตร.ม.</td><td>≈ 6 มล./ตร.ม.</td></tr>
+          <tr><td>วิธีลง</td><td>ลูกกลิ้งโฟม 4 นิ้ว ชั้นบางชั้นเดียว</td><td>ลูกกลิ้งขนสั้น / พ่น / ทา</td></tr>
           <tr><td>ใช้ทับกันได้ไหม</td><td colspan="2">ไม่ได้ — ผิวหนึ่งเลือกได้อย่างเดียว ฟิล์ม Hydrophobic จะทำให้ Paint Coating เกาะไม่ได้</td></tr>
         </tbody>
       </table>
@@ -185,7 +185,7 @@ BODY['th'] = r'''<section class="phero">
           <tr><td>ทนกรด-ด่าง</td><td>กรดซัลฟิวริก 10% และโซเดียมไฮดรอกไซด์ 10% 24 ชม. — ไม่เปลี่ยน</td></tr>
           <tr><td>ทนสภาพอากาศกลางแจ้ง</td><td>3,000 ชม. — ฟิล์มสมบูรณ์ เกรด 0–1 บนอะลูมิเนียม แทบไม่ด้านไม่เปลี่ยนสี</td></tr>
           <tr><td>ความปลอดภัยด้านไฟ</td><td>ผ่าน EN 45545-2 ระดับ R1 HL3 (ยานพาหนะระบบราง)</td></tr>
-          <tr><td>ปริมาณใช้</td><td>15–50 มล./ตร.ม. ตามวิธีลง (พ่นใช้น้อยสุด)</td></tr>
+          <tr><td>ปริมาณใช้</td><td>ลูกกลิ้งโฟมชั้นบาง ≈ 160 ตร.ม./กก. · ผู้ผลิตระบุ 15–50 มล./ตร.ม. เมื่อพ่นหรือทาแปรง</td></tr>
           <tr><td>อายุการเก็บ</td><td>1 ปี ยังไม่เปิด · เก็บ 18–25°C พ้นแดดและประกายไฟ</td></tr>
         </tbody>
       </table>
@@ -197,14 +197,17 @@ BODY['th'] = r'''<section class="phero">
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
     <div class="pricecard">
-      <table>
+      <table data-calc="1" data-shipping="70">
         <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz">ทุกขนาด<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">ช่วงเปิดตัว</small></td><td>ใช้ 15–50 มล./ตร.ม. — ประมาณ 20–60 ตร.ม. ต่อกิโลกรัม ขึ้นกับวิธีลงและความพรุนของผิว</td><td class="pr">ราคาเปิดตัว — สอบถาม</td></tr>
+          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 ตร.ม.</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 ตร.ม.</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 ตร.ม.</td><td class="pr" data-price="6600">6,600.-</td></tr>
+          <tr data-calc="skip"><td class="sz">งานโครงการ<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">อาคาร / โรงงาน / ฟลีท</small></td><td>พื้นที่ขนาดใหญ่</td><td class="pr">ราคาโครงการ — สอบถาม</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote">สินค้านำเข้าล็อตแรก — <b>แจ้งชนิดผิวและพื้นที่ (ตร.ม.) มาทางแชทเพจ</b> เราเสนอราคาและคำนวณปริมาณให้ฟรีก่อนสั่งซื้อ · พ่นด้วยกาพ่น HVLP ใช้น้ำยาน้อยที่สุด ลูกกลิ้งและแปรงใช้มากกว่า · <b>งานใหญ่มีราคาโครงการ</b></p>
+    <p class="pricenote">ค่าจัดส่ง <b>70 บาท</b> · พื้นที่ต่อขวดคิดจากการลง<b>ชั้นบางชั้นเดียวด้วยลูกกลิ้งโฟม 4 นิ้ว</b>ตามขั้นตอนด้านล่าง — ยิ่งบางยิ่งดีทั้งผลลัพธ์และความคุ้ม · <b>งานใหญ่มีราคาโครงการ</b> แจ้งชนิดผิวและพื้นที่ (ตร.ม.) มาทางแชทเพจ เราเสนอราคาและคำนวณปริมาณให้ฟรีก่อนสั่งซื้อ</p>
   </div>
 </section>
 
@@ -215,7 +218,7 @@ BODY['th'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>ล้างผิวให้สะอาด ปราศจากน้ำมัน และแห้งสนิท</h4><p>ขจัดฝุ่น คราบน้ำมัน คราบมือ และคราบน้ำออกให้หมด ถ้ามีไขมันหรือแว็กซ์เก่าต้องล้างขจัดไขมัน (Degrease) ก่อน — สีที่เพิ่งทาต้องรอให้แห้งและแข็งตัวสมบูรณ์ตามสเปคของสีนั้นก่อนเคลือบ</p></li>
       <li class="fstep"><h4>ทดสอบมุมเล็กก่อนลงจริง</h4><p>ลงบนมุมที่ไม่เด่นของผิวจริง รอแข็งตัว แล้วดูความใส การยึดเกาะ และหยดน้ำทดสอบ — โดยเฉพาะบนผิวมันสีเข้มและสีน้ำผนังที่มีฝุ่นชอล์ก</p></li>
-      <li class="fstep"><h4>ลงเป็นชั้นบางสม่ำเสมอ</h4><p>พ่นด้วยกาพ่น HVLP หัว 1.0–1.2 มม. แรงดัน 0.2 MPa ให้ฟิล์มเรียบและใช้น้ำยาน้อยที่สุด งานผนังและเฟอร์นิเจอร์ใช้ลูกกลิ้งขนสั้นหรือแปรงขนนุ่ม ไล่ทางเดียวไม่ให้ไหลย้อย <b>เปิดกระป๋องแล้วมีแก๊สและกลิ่นคล้ายแอลกอฮอล์เล็กน้อยเป็นเรื่องปกติ</b></p><span class="fchip">กาพ่น HVLP</span><span class="fchip">ลูกกลิ้งขนสั้น</span><span class="fchip">แปรงขนนุ่ม</span></li>
+      <li class="fstep"><h4>ลงเป็นชั้นบางสม่ำเสมอด้วยลูกกลิ้งโฟม 4 นิ้ว</h4><p>ใช้<b>ลูกกลิ้งโฟมขนาด 4 นิ้ว</b> ไล่ทางเดียวเป็นชั้นบางชั้นเดียว ไม่ให้ไหลย้อย ไม่ให้เว้น — บางคือหัวใจ ลงหนาไม่ได้ผลเพิ่มแต่เปลืองและอาจเห็นฟิล์มบนผิวมันสีเข้ม งานโรงงานพื้นที่ใหญ่พ่นด้วยกาพ่น HVLP หัว 1.0–1.2 มม. แรงดัน 0.2 MPa ได้ <b>เปิดกระป๋องแล้วมีแก๊สและกลิ่นคล้ายแอลกอฮอล์เล็กน้อยเป็นเรื่องปกติ</b></p><span class="fchip">ลูกกลิ้งโฟม 4 นิ้ว</span><span class="fchip">ชั้นบางชั้นเดียว</span><span class="fchip">งานโรงงาน: กาพ่น HVLP</span></li>
       <li class="fstep"><h4>ห้ามกลับไปถูซ้ำ — ผิวหน้าเซ็ตตัวทันที</h4><p>ผิวหน้าเริ่มแข็งทันทีที่ลงเสร็จ แห้งผิวใน 20–30 นาที — ลงแล้วปล่อย ไม่กลับไปกลิ้งซ้ำหรือทาซ้ำจุดเดิม ไม่งั้นฟิล์มจะเป็นรอย</p></li>
       <li class="fstep"><h4>กันน้ำโดนจนกว่าฟิล์มจะแข็งตัว</h4><p><b>ถ้าน้ำโดนผิวก่อนฟิล์มแข็งตัว จะเกิดรอยด่าง</b>ที่เช็ดไม่ออก ต้องล้างออกเคลือบใหม่ — ผู้ผลิตให้กันน้ำอย่างน้อย 1 ชั่วโมงแรก งานกลางแจ้งเช็คพยากรณ์ฝนก่อนเสมอ</p><span class="fchip">แห้งผิว 20–30 นาที</span><span class="fchip">แห้งจริง ≤ 4 ชม.</span></li>
       <li class="fstep"><h4>24 ชั่วโมง แข็งตัวสมบูรณ์ — ใช้งานได้</h4><p>ที่อุณหภูมิห้องฟิล์มแข็งตัวเต็มที่ใน 24 ชั่วโมง (งานโรงงานอบ 75°C 1–2 ชั่วโมงแทนได้) หลังจากนั้นเช็ดล้างได้ตามปกติด้วยผ้าชุบน้ำหรือน้ำยาฤทธิ์กลาง</p></li>
@@ -235,7 +238,7 @@ BODY['th'] = r'''<section class="phero">
         <div class="beats">
           <div class="beat"><div class="k">1 · คราบยังต้องเช็ด — แค่เช็ดง่ายขึ้นมาก</div><p>ตัวนี้ไม่ใช่ Self-Cleaning ฝนไม่ได้ล้างแทนคุณ และผิวที่เคลือบแล้วยังเปื้อนได้ — ต่างกันตรงที่<b>คราบเกาะอยู่บนฟิล์ม ไม่ซึมเข้าสี</b> จึงเช็ดออกด้วยผ้าชุบน้ำแทนที่จะขัดหรือทาสีใหม่ ถ้าโจทย์คือแผงกลางแจ้งที่อยากให้ฝนดูแล ไปที่ <a href="/paintcoating" style="color:var(--orange)">Paint Coating</a></p></div>
           <div class="beat"><div class="k">2 · ชั่วโมงแรกคือจุดตาย</div><p>น้ำโดนผิวก่อนฟิล์มแข็งตัว = <b>รอยด่างที่เช็ดไม่ออก</b> ต้องล้างออกทำใหม่ งานกลางแจ้งเช็คพยากรณ์ฝน งานในบ้านกันคนเดินผ่านสาดน้ำและงดถูพื้นใกล้ผนังในชั่วโมงแรก</p></div>
-          <div class="beat"><div class="k">3 · เปลืองกว่ากลุ่ม Self-Cleaning หลายเท่า</div><p>ฟิล์มหนา 8–12 ไมครอนใช้น้ำยา 15–50 มล./ตร.ม. — พื้นที่ต่อกิโลกรัมน้อยกว่า Paint Coating หลายเท่า แลกกับความแข็ง 4H และการทนสารเคมี ถ้าพื้นที่ใหญ่มากให้พ่น HVLP จะใช้น้อยสุด และแจ้งพื้นที่มาให้เราคำนวณก่อน</p></div>
+          <div class="beat"><div class="k">3 · ลงหนา ไม่ได้ทนขึ้น</div><p>พื้นที่ต่อขวดในตารางคิดจาก<b>ชั้นบางชั้นเดียวด้วยลูกกลิ้งโฟม</b> — ลงหนาหรือลงสองรอบไม่ได้เพิ่มการกันคราบ แต่เปลืองน้ำยาและบนผิวมันสีเข้มอาจเห็นฟิล์ม ถ้าลูกกลิ้งเริ่มฝืดแปลว่าน้ำยาหมดหน้าลูกกลิ้ง ให้จุ่มเพิ่ม ไม่ใช่กดแรงขึ้น</p></div>
           <div class="beat"><div class="k">4 · ผิวสีต้องแข็งตัวสมบูรณ์ และทดสอบมุมก่อนเสมอ</div><p>สีที่เพิ่งทา สีที่ยังชอล์ก หรือสีน้ำผนังที่ลอกล่อน — ฟิล์มจะเกาะสีที่หลุด ไม่ได้เกาะผนัง ตัวนี้<b>ปกป้องสีที่ยังดี</b> ไม่ได้ซ่อมสีที่เสียแล้ว บนผิวมันสีเข้ม ลงหนาเกินอาจเห็นฟิล์ม ทดสอบมุมเล็กบนสีจริงก่อนทุกครั้ง</p></div>
           <div class="beat"><div class="k">5 · "ยับยั้งแบคทีเรีย" ไม่ใช่ "ฆ่าเชื้อ"</div><p>ผู้ผลิตระบุคุณสมบัติยับยั้งการเจริญของแบคทีเรียบนผิว ซึ่งมาจากการที่น้ำและคราบอินทรีย์เกาะผิวได้ยาก — <b>ไม่ใช่น้ำยาฆ่าเชื้อ ไม่แทนการทำความสะอาด</b> โรงพยาบาล ครัว และห้องน้ำยังต้องเช็ดล้างตามรอบเดิม แค่เช็ดง่ายขึ้น</p></div>
           <div class="beat"><div class="k">6 · ห้ามลงทับ Paint Coating และห้ามลงทับด้วยแว็กซ์</div><p>ผิวเดียวเลือกได้สายเดียว — ผิวที่เคย Paint Coating หรือแว็กซ์มาก่อน EasyClean จะเกาะไม่ดี และผิวที่เคลือบ EasyClean แล้วก็<b>ลง Paint Coating ทับไม่ได้</b> ดูแลด้วยน้ำเปล่าหรือน้ำยาฤทธิ์กลาง ห้ามขัดด้วยแปรงแข็งหรือฝอยขัด</p></div>
@@ -271,7 +274,7 @@ BODY['th'] = r'''<section class="phero">
     <h2 class="sec-h">สั่งซื้อ <em>EasyClean</em></h2>
     <div class="ordercard">
       <h3>ช่วงเปิดตัว — สั่งผ่านแชทเท่านั้น</h3>
-      <div class="sub">สินค้านำเข้าล็อตแรก ยังไม่ขึ้น Shopee / Lazada ในช่วงเปิดตัว — แจ้งชนิดผิว พื้นที่ (ตร.ม.) และวิธีลงที่สะดวก มาทางแชท ทีมงานเสนอราคาและคำนวณปริมาณให้ฟรีก่อนสั่ง · <b>งานใหญ่มีราคาโครงการ</b></div>
+      <div class="sub">สินค้านำเข้าล็อตแรก ยังไม่ขึ้น Shopee / Lazada ในช่วงเปิดตัว — สั่งตรงผ่านแชทได้ราคาตามตารางด้านบน แจ้งชนิดผิวและพื้นที่ (ตร.ม.) มาได้เลย ทีมงานคำนวณปริมาณให้ฟรีก่อนสั่ง · <b>งานใหญ่มีราคาโครงการ</b></div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
@@ -348,7 +351,7 @@ BODY['en'] = r'''<section class="phero">
           <tr><td>Who cleans</td><td>A person — grime wipes off with a damp cloth</td><td>Rain and sun — rain washes without streaks, sunlight breaks down oil</td></tr>
           <tr><td>Film</td><td>8–12 µm, ≥4H, resists acid, alkali, petrol</td><td>Invisibly thin, with a photocatalytic layer</td></tr>
           <tr><td>Best for</td><td>Surfaces people wipe and that get dirty often — interior walls, doors, furniture, kitchens, restrooms, hospitals, schools, cabinets and machinery, walls that get tagged</td><td>Exterior surfaces the rain reaches and that are hard to wash — ACP cladding, fuel-station signage and canopies, bus and train bodies</td></tr>
-          <tr><td>Consumption</td><td>15–50 ml/m²</td><td>≈ 6 ml/m²</td></tr>
+          <tr><td>Application</td><td>4-inch foam roller, one thin coat</td><td>Short-nap roller / spray / wipe</td></tr>
           <tr><td>Can they be layered?</td><td colspan="2">No — one surface, one family. A hydrophobic film stops Paint Coating from bonding</td></tr>
         </tbody>
       </table>
@@ -397,7 +400,7 @@ BODY['en'] = r'''<section class="phero">
           <tr><td>Acid and alkali resistance</td><td>10% H₂SO₄ and 10% NaOH, 24 h — unchanged</td></tr>
           <tr><td>Outdoor weathering</td><td>3,000 h — film intact, grade 0–1 on aluminium, minimal loss of gloss or colour</td></tr>
           <tr><td>Fire safety</td><td>Passes EN 45545-2, R1 HL3 (rail vehicles)</td></tr>
-          <tr><td>Consumption</td><td>15–50 ml/m² depending on method (spraying uses the least)</td></tr>
+          <tr><td>Consumption</td><td>Thin foam-roller coat ≈ 160 m²/kg · manufacturer quotes 15–50 ml/m² for spray or brush</td></tr>
           <tr><td>Shelf life</td><td>1 year unopened · store at 18–25°C away from sunlight and sparks</td></tr>
         </tbody>
       </table>
@@ -409,14 +412,17 @@ BODY['en'] = r'''<section class="phero">
   <div class="wrap">
     <h2 class="sec-h">Sizes and pricing</h2>
     <div class="pricecard">
-      <table>
+      <table data-calc="1" data-shipping="70">
         <thead><tr><th>Size</th><th>Approximate coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">All sizes<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">launch period</small></td><td>15–50 ml/m² — roughly 20–60 m² per kilogram depending on method and surface porosity</td><td class="pr">Launch pricing — ask us</td></tr>
+          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 m²</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 m²</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 m²</td><td class="pr" data-price="6600">6,600.-</td></tr>
+          <tr data-calc="skip"><td class="sz">Projects<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">buildings / factories / fleets</small></td><td>Large areas</td><td class="pr">Project pricing — ask us</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote">First imported batch — <b>tell us the surface type and area in m² via chat</b> and we'll quote and work out the quantity for free before you order · HVLP spraying uses the least product; rollers and brushes use more · <b>Project pricing for large jobs</b></p>
+    <p class="pricenote">Shipping <b>70 THB</b> · coverage per pack assumes <b>one thin coat with a 4-inch foam roller</b> as in the steps below — thinner is better for both the result and the cost · <b>Project pricing for large jobs</b>: tell us the surface type and area in m² via chat and we'll quote and work out the quantity for free before you order</p>
   </div>
 </section>
 
@@ -427,7 +433,7 @@ BODY['en'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>Clean, degrease and dry the surface completely</h4><p>Remove all dust, oil, hand grease and water marks. If there is old grease or wax, degrease first — fresh paint must be fully dry and cured to its own specification before coating.</p></li>
       <li class="fstep"><h4>Test a small corner first</h4><p>Apply to an inconspicuous corner of the actual surface, let it cure, then check clarity, adhesion and a water-drop test — especially on glossy dark paint and on chalky latex walls.</p></li>
-      <li class="fstep"><h4>Apply one thin, even coat</h4><p>Spray with an HVLP gun, 1.0–1.2 mm tip, 0.2 MPa, for the smoothest film and lowest consumption. On walls and furniture use a short-nap roller or a soft brush, working in one direction without runs. <b>A little gas and a faint alcohol smell on opening the can is normal.</b></p><span class="fchip">HVLP gun</span><span class="fchip">Short-nap roller</span><span class="fchip">Soft brush</span></li>
+      <li class="fstep"><h4>Apply one thin, even coat with a 4-inch foam roller</h4><p>Use a <b>4-inch foam roller</b>, working in one direction, one thin coat, no runs, no gaps — thin is the whole point: a thick coat adds nothing, wastes product and can show on glossy dark paint. For large factory jobs an HVLP gun with a 1.0–1.2 mm tip at 0.2 MPa works too. <b>A little gas and a faint alcohol smell on opening the can is normal.</b></p><span class="fchip">4-inch foam roller</span><span class="fchip">One thin coat</span><span class="fchip">Factory: HVLP gun</span></li>
       <li class="fstep"><h4>Never go back over it — the surface sets immediately</h4><p>The surface starts hardening as soon as it's applied and is touch-dry in 20–30 minutes — apply and leave it. Re-rolling or re-brushing a spot marks the film.</p></li>
       <li class="fstep"><h4>Keep water off until the film has hardened</h4><p><b>Water on the surface before the film hardens leaves marks</b> that won't wipe off — strip and recoat. The manufacturer says keep it dry for at least the first hour; outdoors, check the rain forecast first.</p><span class="fchip">Touch-dry 20–30 min</span><span class="fchip">Hard dry ≤ 4 h</span></li>
       <li class="fstep"><h4>24 hours — fully cured and in service</h4><p>Fully cured in 24 hours at room temperature (factory work can heat-cure at 75°C for 1–2 hours instead). After that, clean as normal with a damp cloth or a neutral cleaner.</p></li>
@@ -447,7 +453,7 @@ BODY['en'] = r'''<section class="phero">
         <div class="beats">
           <div class="beat"><div class="k">1 · You still wipe — it's just much easier</div><p>This is not self-cleaning; the rain won't do it for you, and a coated surface still gets dirty. The difference is that <b>grime sits on the film instead of soaking into the paint</b>, so it wipes off with a damp cloth instead of scrubbing or repainting. If the job is exterior panels you want the rain to look after, go to <a href="/en/paintcoating" style="color:var(--orange)">Paint Coating</a>.</p></div>
           <div class="beat"><div class="k">2 · The first hour is the danger zone</div><p>Water on the surface before the film hardens = <b>marks that won't wipe off</b> — strip and redo. Outdoors, check the rain forecast; indoors, keep splashes away and don't mop near the wall in the first hour.</p></div>
-          <div class="beat"><div class="k">3 · Uses several times more product than the Self-Cleaning range</div><p>An 8–12 µm film takes 15–50 ml/m² — coverage per kilogram is several times lower than Paint Coating, in exchange for 4H hardness and chemical resistance. For large areas, HVLP spraying uses the least; send us the area and we'll calculate first.</p></div>
+          <div class="beat"><div class="k">3 · A thicker coat is not a tougher coat</div><p>The coverage in the table assumes <b>one thin coat with a foam roller</b> — going thick or doing two coats adds no anti-fouling, wastes product and can show on glossy dark paint. If the roller starts to drag, it has run dry: reload it, don't press harder.</p></div>
           <div class="beat"><div class="k">4 · The paint must be fully cured, and always test a corner</div><p>Fresh paint, chalking paint or flaking latex — the film bonds to whatever is loose, not to the wall. This product <b>protects paint that is still good</b>; it doesn't repair paint that has failed. On glossy dark paint an over-thick coat can be visible, so test a small corner on the real colour every time.</p></div>
           <div class="beat"><div class="k">5 · "Inhibits bacteria" is not "kills germs"</div><p>The manufacturer states that the coating inhibits bacterial growth on the surface, which comes from water and organic grime struggling to stick — <b>it is not a disinfectant and doesn't replace cleaning</b>. Hospitals, kitchens and restrooms keep their normal cleaning schedule; it's just easier.</p></div>
           <div class="beat"><div class="k">6 · Don't put it over Paint Coating, and don't wax over it</div><p>One surface, one family — EasyClean won't bond well over a surface that has had Paint Coating or wax, and a surface coated with EasyClean <b>can't take Paint Coating on top</b>. Care with plain water or a neutral cleaner; no stiff brushes or scouring pads.</p></div>
@@ -483,7 +489,7 @@ BODY['en'] = r'''<section class="phero">
     <h2 class="sec-h">Order <em>EasyClean</em></h2>
     <div class="ordercard">
       <h3>Launch period — order via chat only</h3>
-      <div class="sub">First imported batch, not yet on Shopee / Lazada during launch — tell us the surface type, area in m² and how you'd like to apply it, and we'll quote and work out the quantity for free before you order · <b>Project pricing for large jobs</b></div>
+      <div class="sub">First imported batch, not yet on Shopee / Lazada during launch — order directly via chat at the prices in the table above. Tell us the surface type and area in m² and we'll work out the quantity for free before you order · <b>Project pricing for large jobs</b></div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>

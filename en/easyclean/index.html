@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/easyclean">
 <link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/easyclean">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic easy-clean nano coating for painted and metal surfaces — clear 4H film, water contact angle ≥110°, sheds water and oily grime, wipes clean, anti-graffiti, resists acid and alkali, inhibits bacterial growth.","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/en/easyclean"}
+{"@context":"https://schema.org","@type":"Product","name":"EasyClean — Anti-Fouling, Easy-Clean, Antibacterial Coating","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic easy-clean nano coating for painted and metal surfaces — clear 4H film, water contact angle ≥110°, sheds water and oily grime, wipes clean, anti-graffiti, resists acid and alkali, inhibits bacterial growth.","image":"https://www.lucernapro.com/img/easyclean-hero-sq.webp","url":"https://www.lucernapro.com/en/easyclean","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}
 </script>
 <link rel="icon" type="image/png" href="/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -349,6 +349,7 @@ img{height:auto}
 img{height:auto}
 </style>
 <script src="/track.js" defer></script>
+<script src="/calc.js" defer></script>
 <style id="sitesearch-css">
   .mnav-search{margin:12px 0 4px;position:relative}
   .mnav-search input{width:100%;font-family:inherit;font-size:15px;padding:11px 12px 11px 38px;border:1.5px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);outline:none}
@@ -460,7 +461,7 @@ img{height:auto}
           <tr><td>Who cleans</td><td>A person — grime wipes off with a damp cloth</td><td>Rain and sun — rain washes without streaks, sunlight breaks down oil</td></tr>
           <tr><td>Film</td><td>8–12 µm, ≥4H, resists acid, alkali, petrol</td><td>Invisibly thin, with a photocatalytic layer</td></tr>
           <tr><td>Best for</td><td>Surfaces people wipe and that get dirty often — interior walls, doors, furniture, kitchens, restrooms, hospitals, schools, cabinets and machinery, walls that get tagged</td><td>Exterior surfaces the rain reaches and that are hard to wash — ACP cladding, fuel-station signage and canopies, bus and train bodies</td></tr>
-          <tr><td>Consumption</td><td>15–50 ml/m²</td><td>≈ 6 ml/m²</td></tr>
+          <tr><td>Application</td><td>4-inch foam roller, one thin coat</td><td>Short-nap roller / spray / wipe</td></tr>
           <tr><td>Can they be layered?</td><td colspan="2">No — one surface, one family. A hydrophobic film stops Paint Coating from bonding</td></tr>
         </tbody>
       </table>
@@ -509,7 +510,7 @@ img{height:auto}
           <tr><td>Acid and alkali resistance</td><td>10% H₂SO₄ and 10% NaOH, 24 h — unchanged</td></tr>
           <tr><td>Outdoor weathering</td><td>3,000 h — film intact, grade 0–1 on aluminium, minimal loss of gloss or colour</td></tr>
           <tr><td>Fire safety</td><td>Passes EN 45545-2, R1 HL3 (rail vehicles)</td></tr>
-          <tr><td>Consumption</td><td>15–50 ml/m² depending on method (spraying uses the least)</td></tr>
+          <tr><td>Consumption</td><td>Thin foam-roller coat ≈ 160 m²/kg · manufacturer quotes 15–50 ml/m² for spray or brush</td></tr>
           <tr><td>Shelf life</td><td>1 year unopened · store at 18–25°C away from sunlight and sparks</td></tr>
         </tbody>
       </table>
@@ -521,14 +522,17 @@ img{height:auto}
   <div class="wrap">
     <h2 class="sec-h">Sizes and pricing</h2>
     <div class="pricecard">
-      <table>
+      <table data-calc="1" data-shipping="70">
         <thead><tr><th>Size</th><th>Approximate coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz">All sizes<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">launch period</small></td><td>15–50 ml/m² — roughly 20–60 m² per kilogram depending on method and surface porosity</td><td class="pr">Launch pricing — ask us</td></tr>
+          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 m²</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 m²</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 m²</td><td class="pr" data-price="6600">6,600.-</td></tr>
+          <tr data-calc="skip"><td class="sz">Projects<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">buildings / factories / fleets</small></td><td>Large areas</td><td class="pr">Project pricing — ask us</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote">First imported batch — <b>tell us the surface type and area in m² via chat</b> and we'll quote and work out the quantity for free before you order · HVLP spraying uses the least product; rollers and brushes use more · <b>Project pricing for large jobs</b></p>
+    <p class="pricenote">Shipping <b>70 THB</b> · coverage per pack assumes <b>one thin coat with a 4-inch foam roller</b> as in the steps below — thinner is better for both the result and the cost · <b>Project pricing for large jobs</b>: tell us the surface type and area in m² via chat and we'll quote and work out the quantity for free before you order</p>
   </div>
 </section>
 
@@ -539,7 +543,7 @@ img{height:auto}
     <ol class="flow">
       <li class="fstep"><h4>Clean, degrease and dry the surface completely</h4><p>Remove all dust, oil, hand grease and water marks. If there is old grease or wax, degrease first — fresh paint must be fully dry and cured to its own specification before coating.</p></li>
       <li class="fstep"><h4>Test a small corner first</h4><p>Apply to an inconspicuous corner of the actual surface, let it cure, then check clarity, adhesion and a water-drop test — especially on glossy dark paint and on chalky latex walls.</p></li>
-      <li class="fstep"><h4>Apply one thin, even coat</h4><p>Spray with an HVLP gun, 1.0–1.2 mm tip, 0.2 MPa, for the smoothest film and lowest consumption. On walls and furniture use a short-nap roller or a soft brush, working in one direction without runs. <b>A little gas and a faint alcohol smell on opening the can is normal.</b></p><span class="fchip">HVLP gun</span><span class="fchip">Short-nap roller</span><span class="fchip">Soft brush</span></li>
+      <li class="fstep"><h4>Apply one thin, even coat with a 4-inch foam roller</h4><p>Use a <b>4-inch foam roller</b>, working in one direction, one thin coat, no runs, no gaps — thin is the whole point: a thick coat adds nothing, wastes product and can show on glossy dark paint. For large factory jobs an HVLP gun with a 1.0–1.2 mm tip at 0.2 MPa works too. <b>A little gas and a faint alcohol smell on opening the can is normal.</b></p><span class="fchip">4-inch foam roller</span><span class="fchip">One thin coat</span><span class="fchip">Factory: HVLP gun</span></li>
       <li class="fstep"><h4>Never go back over it — the surface sets immediately</h4><p>The surface starts hardening as soon as it's applied and is touch-dry in 20–30 minutes — apply and leave it. Re-rolling or re-brushing a spot marks the film.</p></li>
       <li class="fstep"><h4>Keep water off until the film has hardened</h4><p><b>Water on the surface before the film hardens leaves marks</b> that won't wipe off — strip and recoat. The manufacturer says keep it dry for at least the first hour; outdoors, check the rain forecast first.</p><span class="fchip">Touch-dry 20–30 min</span><span class="fchip">Hard dry ≤ 4 h</span></li>
       <li class="fstep"><h4>24 hours — fully cured and in service</h4><p>Fully cured in 24 hours at room temperature (factory work can heat-cure at 75°C for 1–2 hours instead). After that, clean as normal with a damp cloth or a neutral cleaner.</p></li>
@@ -559,7 +563,7 @@ img{height:auto}
         <div class="beats">
           <div class="beat"><div class="k">1 · You still wipe — it's just much easier</div><p>This is not self-cleaning; the rain won't do it for you, and a coated surface still gets dirty. The difference is that <b>grime sits on the film instead of soaking into the paint</b>, so it wipes off with a damp cloth instead of scrubbing or repainting. If the job is exterior panels you want the rain to look after, go to <a href="/en/paintcoating" style="color:var(--orange)">Paint Coating</a>.</p></div>
           <div class="beat"><div class="k">2 · The first hour is the danger zone</div><p>Water on the surface before the film hardens = <b>marks that won't wipe off</b> — strip and redo. Outdoors, check the rain forecast; indoors, keep splashes away and don't mop near the wall in the first hour.</p></div>
-          <div class="beat"><div class="k">3 · Uses several times more product than the Self-Cleaning range</div><p>An 8–12 µm film takes 15–50 ml/m² — coverage per kilogram is several times lower than Paint Coating, in exchange for 4H hardness and chemical resistance. For large areas, HVLP spraying uses the least; send us the area and we'll calculate first.</p></div>
+          <div class="beat"><div class="k">3 · A thicker coat is not a tougher coat</div><p>The coverage in the table assumes <b>one thin coat with a foam roller</b> — going thick or doing two coats adds no anti-fouling, wastes product and can show on glossy dark paint. If the roller starts to drag, it has run dry: reload it, don't press harder.</p></div>
           <div class="beat"><div class="k">4 · The paint must be fully cured, and always test a corner</div><p>Fresh paint, chalking paint or flaking latex — the film bonds to whatever is loose, not to the wall. This product <b>protects paint that is still good</b>; it doesn't repair paint that has failed. On glossy dark paint an over-thick coat can be visible, so test a small corner on the real colour every time.</p></div>
           <div class="beat"><div class="k">5 · "Inhibits bacteria" is not "kills germs"</div><p>The manufacturer states that the coating inhibits bacterial growth on the surface, which comes from water and organic grime struggling to stick — <b>it is not a disinfectant and doesn't replace cleaning</b>. Hospitals, kitchens and restrooms keep their normal cleaning schedule; it's just easier.</p></div>
           <div class="beat"><div class="k">6 · Don't put it over Paint Coating, and don't wax over it</div><p>One surface, one family — EasyClean won't bond well over a surface that has had Paint Coating or wax, and a surface coated with EasyClean <b>can't take Paint Coating on top</b>. Care with plain water or a neutral cleaner; no stiff brushes or scouring pads.</p></div>
@@ -595,7 +599,7 @@ img{height:auto}
     <h2 class="sec-h">Order <em>EasyClean</em></h2>
     <div class="ordercard">
       <h3>Launch period — order via chat only</h3>
-      <div class="sub">First imported batch, not yet on Shopee / Lazada during launch — tell us the surface type, area in m² and how you'd like to apply it, and we'll quote and work out the quantity for free before you order · <b>Project pricing for large jobs</b></div>
+      <div class="sub">First imported batch, not yet on Shopee / Lazada during launch — order directly via chat at the prices in the table above. Tell us the surface type and area in m² and we'll work out the quantity for free before you order · <b>Project pricing for large jobs</b></div>
       <div class="shoprow">
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
