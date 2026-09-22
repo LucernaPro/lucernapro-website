@@ -131,7 +131,7 @@ BODY['th'] = r'''<section class="phero">
     <p class="sec-sub">ปากกา Permanent ขีดบนกระเบื้องทั้งสองฝั่ง แล้วเช็ดเทียบกัน — ฝั่งที่เคลือบ EasyClean หมึกเกาะอยู่บนฟิล์ม เช็ดออกง่ายกว่ามาก ฝั่งไม่เคลือบหมึกกัดติดผิว</p>
     <div class="vidgrid vert solo">
       <figure>
-        <div class="fbv v916"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F862710706836529%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="ทดสอบปากกา Permanent บนกระเบื้อง ฝั่งเคลือบ EasyClean เทียบฝั่งไม่เคลือบ"></iframe></div>
+        <div class="fbv v916"><iframe src="https://www.youtube.com/embed/htUymbL65MU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ทดสอบปากกา Permanent บนกระเบื้อง ฝั่งเคลือบ EasyClean เทียบฝั่งไม่เคลือบ"></iframe></div>
         <figcaption>ทดสอบปากกา Permanent — ขีดทั้งสองฝั่ง เช็ดเหมือนกัน ดูว่าฝั่งไหนออกก่อน</figcaption>
       </figure>
     </div>
@@ -359,7 +359,7 @@ BODY['en'] = r'''<section class="phero">
     <p class="sec-sub">Permanent marker on both halves of the same tile, then wiped the same way — on the EasyClean half the ink sits on the film and wipes off far more easily; on the bare half it bites into the surface</p>
     <div class="vidgrid vert solo">
       <figure>
-        <div class="fbv v916"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F862710706836529%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="Permanent-marker test on a tile — EasyClean-coated half vs uncoated half"></iframe></div>
+        <div class="fbv v916"><iframe src="https://www.youtube.com/embed/htUymbL65MU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Permanent-marker test on a tile — EasyClean-coated half vs uncoated half"></iframe></div>
         <figcaption>Permanent-marker test — marked on both halves, wiped the same way, see which side comes clean first</figcaption>
       </figure>
     </div>
