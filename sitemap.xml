@@ -345,6 +345,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/masterseal"/>
   </url>
   <url>
+    <loc>https://www.lucernapro.com/en/metalcoating</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/metalcoating"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/metalcoating"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/metalcoating"/>
+  </url>
+  <url>
     <loc>https://www.lucernapro.com/en/modernfiberglass</loc>
     <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/modernfiberglass"/>
@@ -865,6 +871,12 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/masterseal"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/masterseal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/masterseal"/>
+  </url>
+  <url>
+    <loc>https://www.lucernapro.com/metalcoating</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/metalcoating"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/metalcoating"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/metalcoating"/>
   </url>
   <url>
     <loc>https://www.lucernapro.com/modernfiberglass</loc>
