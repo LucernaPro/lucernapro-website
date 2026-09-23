@@ -139,7 +139,7 @@ BODY['th'] = r'''<section class="phero">
     <div class="story-grid">
       <div class="bignum">4H<small>PENCIL HARDNESS · ON METAL</small></div>
       <div class="story-body">
-        <p>ตัวนี้เรา<b>นำเข้าวัตถุดิบหลักจาก Feibo</b> (ฉางชา ประเทศจีน) ผู้พัฒนาวัตถุดิบเดียวกับ <a href="/glasscoating" style="color:var(--orange)">Glass Coating</a> และ <a href="/paintcoating" style="color:var(--orange)">Paint Coating</a> ของเรา แล้วมาบรรจุและควบคุมคุณภาพต่อในประเทศไทย — เป็นฟิล์มกันคราบสาย Hydrophobic <b>ตระกูลเดียวกับ <a href="/easyclean" style="color:var(--orange)">EasyClean</a></b> ที่เราแยกหน้าไว้สำหรับงานโลหะโดยเฉพาะ เพราะโจทย์ของโลหะคือความชื้นกับสนิม ไม่ใช่แค่คราบ</p>
+        <p>ตัวนี้เรา<b>นำเข้าวัตถุดิบหลักจาก Feibo</b> (ฉางชา ประเทศจีน) ผู้พัฒนาวัตถุดิบเดียวกับ <a href="/glasscoating" style="color:var(--orange)">Glass Coating</a> และ <a href="/paintcoating" style="color:var(--orange)">Paint Coating</a> ของเรา แล้วมาบรรจุและควบคุมคุณภาพต่อในประเทศไทย — เป็นฟิล์มปกป้องโลหะสาย Hydrophobic ที่เราคัดมาสำหรับโจทย์ของโลหะโดยเฉพาะ: <b>ความชื้นกับสนิม</b> ไม่ใช่แค่คราบ</p>
         <p>ในจีน สูตรนี้ใช้กับผิวโลหะและผิวสีที่โดนคราบและสารเคมีทำความสะอาดบ่อย — และผ่านมาตรฐานความปลอดภัยด้านไฟสำหรับยานพาหนะระบบราง (EN 45545-2 ระดับ R1 HL3)</p>
         <div class="beats">
           <div class="beat"><div class="k">หลักการ</div><p>ฟิล์มนาโนพอลิซิลอกเซนโครงสร้างแฟรกทัล เติมนาโนทังสเตนไตรออกไซด์และนาโนทินออกไซด์ — ยึดเกาะโลหะเกรด 0 (Cross-cut) และเป็นชั้นกั้นน้ำกับอากาศไม่ให้ถึงเนื้อโลหะ ผู้ผลิตระบุอายุฟิล์ม <b>2–3 ปี</b></p></div>
@@ -242,7 +242,7 @@ BODY['th'] = r'''<section class="phero">
       <a class="altcard" href="/easyclean">
         <div class="k">ผนังสีน้ำ · ประตู · เฟอร์นิเจอร์</div>
         <h4>EasyClean</h4>
-        <p>ตระกูลเดียวกัน แต่หน้านั้นเขียนสำหรับผิวสีทาผนัง สีไม้ และเฟอร์นิเจอร์ที่โจทย์คือคราบและสีสเปรย์ — ถ้างานคือผนังหรือเฟอร์นิเจอร์ ไปหน้านั้นตรงกว่า</p>
+        <p>สำหรับผิวสีทาผนัง สีไม้ และเฟอร์นิเจอร์ที่โจทย์คือคราบและสีสเปรย์ — ถ้างานคือผนังหรือเฟอร์นิเจอร์ ไปหน้านั้นตรงกว่า</p>
         <div class="go">ดูรายละเอียด →</div>
       </a>
       <a class="altcard" href="/schutznano9h">
@@ -366,7 +366,7 @@ BODY['en'] = r'''<section class="phero">
     <div class="story-grid">
       <div class="bignum">4H<small>PENCIL HARDNESS · ON METAL</small></div>
       <div class="story-body">
-        <p>For this product we <b>import the core raw material from Feibo</b> (Changsha, China) — the same developer behind our <a href="/en/glasscoating" style="color:var(--orange)">Glass Coating</a> and <a href="/en/paintcoating" style="color:var(--orange)">Paint Coating</a> — and pack and quality-control it in Thailand. It is a hydrophobic anti-fouling film from <b>the same family as <a href="/en/easyclean" style="color:var(--orange)">EasyClean</a></b>, given its own page for metal work, because on metal the problem is humidity and rust, not just grime.</p>
+        <p>For this product we <b>import the core raw material from Feibo</b> (Changsha, China) — the same developer behind our <a href="/en/glasscoating" style="color:var(--orange)">Glass Coating</a> and <a href="/en/paintcoating" style="color:var(--orange)">Paint Coating</a> — and pack and quality-control it in Thailand. It is a hydrophobic protective film we selected specifically for the problem metal has: <b>humidity and rust</b>, not just grime.</p>
         <p>In China this formulation goes on metal and painted surfaces that get dirty and are cleaned with chemicals often — and it passes the rail-vehicle fire-safety standard (EN 45545-2, R1 HL3).</p>
         <div class="beats">
           <div class="beat"><div class="k">How it works</div><p>A nano polysiloxane film with a fractal structure, doped with nano tungsten trioxide and nano tin oxide — grade 0 cross-cut adhesion on metal, forming a barrier that keeps water and air off the metal itself. The manufacturer rates the film at <b>2–3 years</b>.</p></div>
@@ -469,7 +469,7 @@ BODY['en'] = r'''<section class="phero">
       <a class="altcard" href="/en/easyclean">
         <div class="k">Painted walls · doors · furniture</div>
         <h4>EasyClean</h4>
-        <p>Same family, but that page is written for painted walls, wood finishes and furniture where the problem is grime and spray paint — if the job is a wall or furniture, that page is the better fit.</p>
+        <p>For painted walls, wood finishes and furniture, where the problem is grime and spray paint — if the job is a wall or furniture, that page is the better fit.</p>
         <div class="go">View details →</div>
       </a>
       <a class="altcard" href="/en/schutznano9h">
