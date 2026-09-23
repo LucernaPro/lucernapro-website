@@ -101,11 +101,12 @@ BODY['th'] = r'''<section class="phero">
   <div class="wrap">
     <h2 class="sec-h">ผิวที่เคลือบแล้ว <em>หน้าตาเป็นแบบนี้</em></h2>
     <p class="sec-sub">น้ำเกาะเป็นเม็ดกลมแล้วกลิ้งหนี — ไม่แผ่เป็นแผ่น ไม่แห้งเป็นวงขาว นี่คือสิ่งเดียวที่ต้องดูเวลาเช็คว่าฟิล์มยังทำงานอยู่ (ภาพประกอบ)</p>
-    <div class="ggrid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="ggrid" style="grid-template-columns:repeat(3,1fr)">
       <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-shower.webp" alt="ฝักบัวเรนชาวเวอร์และวาล์วโครเมียมบนผนังหินอ่อน หยดน้ำเกาะเป็นเม็ดบนโลหะ (ภาพประกอบ)" width="1200" height="1200"></div>
       <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-rail.webp" alt="วาล์วโครเมียมของราวแขวนผ้าสแตนเลส หยดน้ำเกาะเป็นเม็ดกลมทั่วผิว (ภาพประกอบ)" width="1200" height="1200"></div>
+      <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-wheel.webp" alt="ล้อหน้าซี่ลวดโครเมียมของมอเตอร์ไซค์ครุยเซอร์ — วงล้อ ซี่ลวด และดุม คือส่วนที่เคลือบ" width="1200" height="1200"></div>
     </div>
-    <p class="pricenote">ฝักบัว วาล์ว และราวแขวนผ้า คือสามจุดที่คราบหินปูนขึ้นเร็วที่สุดในห้องน้ำ เพราะโดนน้ำทุกวันแต่ไม่มีใครเช็ดให้แห้ง — เคลือบทีเดียวแล้วน้ำที่เหลือค้างจะกลิ้งลงเอง ไม่แห้งเป็นคราบ</p>
+    <p class="pricenote">ฝักบัว วาล์ว และราวแขวนผ้า คือสามจุดที่คราบหินปูนขึ้นเร็วที่สุดในห้องน้ำ เพราะโดนน้ำทุกวันแต่ไม่มีใครเช็ดให้แห้ง — เคลือบทีเดียวแล้วน้ำที่เหลือค้างจะกลิ้งลงเอง ไม่แห้งเป็นคราบ · ส่วน<b>ล้อซี่ลวดโครเมียม</b>ของมอเตอร์ไซค์ครุยเซอร์คือของที่โดนทั้งฝน ฝุ่นเบรก และเหงื่อมือคนล้าง แล้วเป็นสนิมจุดตามซี่และดุมก่อนส่วนอื่นของรถ — เคลือบวงล้อ ซี่ลวด และดุม (ปิดเทปจานเบรกกับขอบยางไว้) น้ำกลิ้งออก ฝุ่นเบรกฉีดน้ำหลุด ไม่ต้องขัดโครเมียมทุกอาทิตย์</p>
   </div>
 </section>
 
@@ -127,6 +128,7 @@ BODY['th'] = r'''<section class="phero">
     <div class="pts">
       <div class="pt"><span class="ic">🚿</span><div><h4>สุขภัณฑ์ห้องน้ำ</h4><p>ก๊อกน้ำ ฝักบัวและสายอ่อน ราวแขวนผ้า ตะแกรงวางของ ที่ใส่กระดาษ บานพับและมือจับกระจกกั้นอาบน้ำ — จุดที่โดนน้ำทุกวันแต่ไม่เคยแห้งสนิท คราบหินปูนไม่เกาะ สแตนเลสไม่ขึ้นจุดสนิม เช็ดครั้งเดียวกลับเงา</p></div></div>
       <div class="pt"><span class="ic">🎯</span><div><h4>ผิวนอกของปืนและอุปกรณ์ยิงปืน</h4><p>โครง สไลด์ ลำกล้องด้านนอก และชิ้นส่วนภายนอกที่โดนเหงื่อจากมือทุกครั้งที่จับ — ฟิล์มกันความชื้นและรอยนิ้วมือ ทนน้ำมันปืนและน้ำยาล้าง เล็บขูดไม่ออก <b>ลงเฉพาะผิวนอกเท่านั้น</b> ไม่ลงในลำกล้อง กลไก และผิวสัมผัสที่เลื่อนชนกัน</p></div></div>
+      <div class="pt"><span class="ic">🏍️</span><div><h4>ล้อซี่ลวดโครเมียมมอเตอร์ไซค์</h4><p>วงล้อ ซี่ลวด ดุมล้อ และโช้คโครเมียมของรถครุยเซอร์ — ส่วนที่โดนฝนและฝุ่นเบรกจนสนิมจุดขึ้นตามซี่ก่อนส่วนอื่น สนิมเดิมต้องขัดออกก่อน แล้ว<b>ปิดเทปจานเบรกกับขอบยางที่ยางนั่ง</b> ไม่เคลือบใกล้คาลิเปอร์ ท่อไอเสีย และชิ้นส่วนที่ร้อน ขอบล้อโดนกรวดดีดจึงควรตรวจและเคลือบซ้ำทุกปีถ้าขี่ฝนบ่อย</p></div></div>
       <div class="pt"><span class="ic">🔧</span><div><h4>มีด เครื่องมือ และของโลหะในบ้าน</h4><p>มีดครัวเหล็กคาร์บอน เครื่องมือช่าง ลูกบิด ราวบันได รั้วและประตูเหล็กที่ทาสีแล้ว แผงเครื่องจักร — ปกป้องผิวที่ยังดีให้ดีต่อไปอีกนาน ผู้ผลิตระบุอายุฟิล์ม 2–3 ปี</p></div></div>
     </div>
   </div>
@@ -328,11 +330,12 @@ BODY['en'] = r'''<section class="phero">
   <div class="wrap">
     <h2 class="sec-h">What a coated surface <em>looks like</em></h2>
     <p class="sec-sub">Water beads into spheres and rolls away — it doesn't sheet, and it doesn't dry into white rings. That's the one thing to look for when checking the film is still working (illustration)</p>
-    <div class="ggrid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="ggrid" style="grid-template-columns:repeat(3,1fr)">
       <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-shower.webp" alt="Chrome rain shower head and valve on a marble wall, water beading on the metal (illustration)" width="1200" height="1200"></div>
       <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-rail.webp" alt="Chrome valve on a stainless towel rail, water beading into spheres across the surface (illustration)" width="1200" height="1200"></div>
+      <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-wheel.webp" alt="Chrome spoked front wheel of a cruiser motorcycle — rim, spokes and hub are the parts that get coated" width="1200" height="1200"></div>
     </div>
-    <p class="pricenote">Shower heads, valves and towel rails are the three spots where limescale builds fastest, because they get wet every day and nobody dries them — coat them once and the water that's left rolls off on its own instead of drying into a mark.</p>
+    <p class="pricenote">Shower heads, valves and towel rails are the three spots where limescale builds fastest, because they get wet every day and nobody dries them — coat them once and the water that's left rolls off on its own instead of drying into a mark · A cruiser's <b>chrome spoked wheels</b> take rain, brake dust and sweaty hands at every wash, and pit with rust at the spokes and hub before anything else on the bike — coat the rim, spokes and hub (mask off the brake rotor and the tyre bead), and water rolls off, brake dust rinses away, and the chrome stops needing a polish every week.</p>
   </div>
 </section>
 
@@ -354,6 +357,7 @@ BODY['en'] = r'''<section class="phero">
     <div class="pts">
       <div class="pt"><span class="ic">🚿</span><div><h4>Bathroom fittings</h4><p>Taps, shower heads and hoses, towel rails, shelves, paper holders, hinges and handles on shower screens — the spots that get wet every day and never fully dry. No limescale build-up, no rust specks on stainless, one wipe and it's bright.</p></div></div>
       <div class="pt"><span class="ic">🎯</span><div><h4>Firearm exteriors and shooting gear</h4><p>Frames, slides, barrel exteriors and any outer part that meets sweat every time it's handled — the film keeps moisture and fingerprints off, stands up to gun oil and cleaning solvents, and a fingernail won't mark it. <b>Exterior surfaces only</b> — never inside the bore, the action, or on mating surfaces that slide against each other.</p></div></div>
+      <div class="pt"><span class="ic">🏍️</span><div><h4>Chrome spoked motorcycle wheels</h4><p>Rim, spokes, hub and chrome fork legs on a cruiser — the parts that take rain and brake dust and pit with rust at the spokes before anything else. Remove existing rust first, then <b>mask the brake rotor and the tyre bead seat</b>; keep clear of the caliper, the exhaust and any hot part. Rim edges take stone chips, so check and recoat yearly if you ride in the rain.</p></div></div>
       <div class="pt"><span class="ic">🔧</span><div><h4>Knives, tools and metal around the home</h4><p>Carbon-steel kitchen knives, hand tools, door handles, stair rails, painted steel gates and fences, machine panels — keeps metal that is still good in good condition for years. The manufacturer rates the film at 2–3 years.</p></div></div>
     </div>
   </div>
