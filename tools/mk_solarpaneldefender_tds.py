@@ -174,7 +174,9 @@ kv([
                           'cannot be coated unless first plasma- or corona-treated.'),
     ('Application',       'By hand with a fine-pored sponge (melamine type) or a non-woven / microfibre cloth. '
                           'Pour onto the applicator, never onto the panel; spread thin and even in one pass.'),
-    ('Consumption',       'Approx. 10\u201315 ml/m\u00b2 depending on method and substrate'),
+    ('Consumption',       'Approx. 100 g per 16 m\u00b2 (\u2248 6\u20137 ml/m\u00b2) applied thin in one pass with a squeegee or '
+                          'applicator pad, as found in our own field application. The raw-material manufacturer quotes '
+                          '10\u201315 ml/m\u00b2 for sponge application.'),
     ('Coats',             'One \u2014 a single thin coat; do not go back over the same area repeatedly'),
     ('Tack-free',         'About 5 minutes at room temperature'),
     ('Hardening',         'The surface hardens immediately on application; hardened through in about 1 hour at '
@@ -260,7 +262,8 @@ kv([
                           'เว้นแต่ผ่านการปรับผิวด้วย plasma หรือ corona ก่อน'),
     ('วิธีทา',             'ทาด้วยมือ ใช้ฟองน้ำรูละเอียด (ฟองน้ำเมลามีน) หรือผ้าไม่ถักทอ / ผ้าไมโครไฟเบอร์ '
                           'เทน้ำยาลงบนผ้าหรือฟองน้ำ ห้ามเทหรือฉีดลงแผงตรงๆ แล้วปาดเกลี่ยบางและสม่ำเสมอในรอบเดียว'),
-    ('อัตราการใช้',         'ประมาณ 10–15 มล./ตร.ม. ขึ้นกับวิธีทาและพื้นผิว'),
+    ('อัตราการใช้',         'ประมาณ 100 g ต่อ 16 ตร.ม. (≈ 6–7 มล./ตร.ม.) เมื่อทาบางรอบเดียวด้วยไม้ปาดยางหรือ applicator pad '
+                          'จากการใช้งานจริงของเรา / ผู้ผลิตวัตถุดิบระบุ 10–15 มล./ตร.ม. สำหรับการทาด้วยฟองน้ำ'),
     ('จำนวนรอบ',          '1 รอบ — ทาบางรอบเดียว ห้ามทาซ้ำวนไปวนมาที่เดิม'),
     ('แห้งสัมผัส',         'ประมาณ 5 นาที ที่อุณหภูมิห้อง'),
     ('การแข็งตัว',         'ผิวหน้าแข็งตัวทันทีหลังทา และแข็งตัวทั่วทั้งฟิล์มในราว 1 ชั่วโมงที่อุณหภูมิห้อง — '
