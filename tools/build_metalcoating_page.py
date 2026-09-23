@@ -3,7 +3,7 @@
 """
 build_metalcoating_page.py — สร้าง /metalcoating และ /en/metalcoating
 
-สินค้าตัวเดียวกับ EasyClean (สูตร/สเปค/ราคาเดียวกัน — Pist 23 ก.ย. 2026) แต่แยกหน้าเพื่อโลหะ:
+สินค้าตัวเดียวกับ EasyClean (สูตร/สเปคเดียวกัน — Pist 23 ก.ย. 2026) · ราคา Metal Coating: 100 g 1,290 (Pist 23 ก.ย. 2026, เฉพาะหมวดนี้) / 500 g 3,590 / 1 kg 6,600 ส่ง 70 แต่แยกหน้าเพื่อโลหะ:
 สุขภัณฑ์ห้องน้ำ (ก๊อก ฝักบัว ราวสแตนเลส) และผิวนอกของปืน มีด เครื่องมือ — มีผิวด้านและเงา ราคาเดียวกัน
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome() · ตัวเลขทั้งหมดจาก TDS ผู้ผลิต
 ยกเว้น salt spray 96 ชม. ที่มาจากเอกสารสรุป (Overview) ของผู้ผลิต — Pist อนุมัติให้ใช้ (งานไม่แช่น้ำ)
@@ -56,11 +56,11 @@ OGD = {
     'en': 'Clear hydrophobic 4H film — water beads off, hard-water marks and fingerprints wipe away, delays rust. Matte or gloss, very low odour — taps, showers, stainless rails, firearm exteriors, knives, tools.',
 }
 SCHEMA = {
-    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Metal Coating น้ำยาเคลือบโลหะ ชะลอสนิม กันคราบน้ำ กันรอย","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบโลหะสาย Hydrophobic ฟิล์มใสแข็ง 4H มุมสัมผัสน้ำ ≥110° ชะลอสนิม คราบน้ำกระด้างและรอยนิ้วมือเช็ดออกง่าย ทนกรดด่างและน้ำมัน เลือกผิวด้านหรือเงา สำหรับสุขภัณฑ์ สแตนเลส ผิวนอกปืน มีด เครื่องมือ","image":"https://www.lucernapro.com/img/metalcoating-hero-sq.webp","url":"https://www.lucernapro.com/metalcoating","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
-    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Metal Coating — Rust-Delaying, Anti-Fouling, Scratch-Resistant Coating for Metal","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic nano coating for metal — clear 4H film, water contact angle ≥110°, delays rust, hard-water marks and fingerprints wipe off, resists acid, alkali and oil. Matte or gloss. For bathroom fittings, stainless, firearm exteriors, knives and tools.","image":"https://www.lucernapro.com/img/metalcoating-hero-sq.webp","url":"https://www.lucernapro.com/en/metalcoating","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"830","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Metal Coating น้ำยาเคลือบโลหะ ชะลอสนิม กันคราบน้ำ กันรอย","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบโลหะสาย Hydrophobic ฟิล์มใสแข็ง 4H มุมสัมผัสน้ำ ≥110° ชะลอสนิม คราบน้ำกระด้างและรอยนิ้วมือเช็ดออกง่าย ทนกรดด่างและน้ำมัน เลือกผิวด้านหรือเงา สำหรับสุขภัณฑ์ สแตนเลส ผิวนอกปืน มีด เครื่องมือ","image":"https://www.lucernapro.com/img/metalcoating-hero-sq.webp","url":"https://www.lucernapro.com/metalcoating","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"1290","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Metal Coating — Rust-Delaying, Anti-Fouling, Scratch-Resistant Coating for Metal","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic nano coating for metal — clear 4H film, water contact angle ≥110°, delays rust, hard-water marks and fingerprints wipe off, resists acid, alkali and oil. Matte or gloss. For bathroom fittings, stainless, firearm exteriors, knives and tools.","image":"https://www.lucernapro.com/img/metalcoating-hero-sq.webp","url":"https://www.lucernapro.com/en/metalcoating","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"1290","highPrice":"6600","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
 }
 
-PRICE_ROWS = '''          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 %(sqm)s</td><td class="pr" data-price="830">830.-</td></tr>
+PRICE_ROWS = '''          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 %(sqm)s</td><td class="pr" data-price="1290">1,290.-</td></tr>
           <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 %(sqm)s</td><td class="pr" data-price="3590">3,590.-</td></tr>
           <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 %(sqm)s</td><td class="pr" data-price="6600">6,600.-</td></tr>'''
 
