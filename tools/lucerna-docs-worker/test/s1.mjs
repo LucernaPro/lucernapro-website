@@ -34,7 +34,7 @@ await w.viewDoc('CA-202608-0001'); await sleep(30); dirty(); s=await w.ensureSav
 await w.viewDoc('CA-202609-0001'); await sleep(30); dirty(); s=await w.ensureSaved(); check('S4 CA sep edit ok', s.updated, JSON.stringify(s));
 check('S4 CA getDoc works', (gh.read('docs/2026/CA-202609-0001.json')||{}).type==='CA');
 // ---- S5: convert QT→INV ----
-await w.convertDoc('QT-202609-0002','INV'); await sleep(30); check('S5 convert date today', $('docDate').textContent==='19/09/2026', $('docDate').textContent);
+await w.convertDoc('QT-202609-0002','INV'); await sleep(30); check('S5 convert date today', $('docDate').textContent===w.fmtDate(new Date()), $('docDate').textContent);
 s=await w.ensureSaved(); check('S5 converted number', s.no==='INV-202609-0003', s.no);
 check('S5 QT marked converted', idx().find(r=>r.no==='QT-202609-0002').status.startsWith('แปลงเป็น'), idx().find(r=>r.no==='QT-202609-0002').status);
 // ---- S6: cancel QT no reason ----

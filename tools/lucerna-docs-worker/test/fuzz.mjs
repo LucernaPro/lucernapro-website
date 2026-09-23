@@ -59,7 +59,7 @@ for(let step=0;step<N;step++){
       else { await p; await sleep(30); cancelledEver.add(r.no); ops.cancelled++; }
     } else if(op==='convert'){ const r=pick(idx().filter(x=>x.type==='QT'&&x.status==='ออกแล้ว')); if(!r) continue; await w.convertDoc(r.no,pick(['INV','BL'])); await sleep(5); const s=await w.ensureSaved(); if(s.ok) ops.converted++; else ops.blocked++;
     } else if(op==='reprint'){ const r=pick(idx()); if(!r) continue; await w.viewDoc(r.no); await sleep(5); const before=JSON.stringify(gh.read('docs/2026/'+r.no+'.json')); const s=await w.ensureSaved(); const after=JSON.stringify(gh.read('docs/2026/'+r.no+'.json')); if(before!==after) invariants.push([tag,'REPRINT-MUTATED',r.no]);
-    } else if(op==='stale'){ reset(); $('docDate').textContent='01/09/2026'; w.checkDate(); if($('docDate').textContent!=='19/09/2026') invariants.push([tag,'STALE-DATE']);
+    } else if(op==='stale'){ reset(); $('docDate').textContent='01/09/2026'; w.checkDate(); if($('docDate').textContent!==w.fmtDate(new Date())) invariants.push([tag,'STALE-DATE']);
     } else if(op==='fail'){ reset(); $('pasteArea').value=pasteFor('INV'); w.parsePaste(); gh.injectFail(500); const s=await w.ensureSaved(); if(s.ok) invariants.push([tag,'SAVE OK DESPITE 500']); if(!$('docNo').textContent.includes('XXXX')) invariants.push([tag,'NUMBER SHOWN WITHOUT SAVE']); const s2=await w.ensureSaved(); if(!s2.ok) invariants.push([tag,'RETRY FAILED',s2]); else ops.created++; }
   }catch(e){ ops.errors++; invariants.push([tag,'EXCEPTION',op,e.message]); }
   checkInvariants(tag);

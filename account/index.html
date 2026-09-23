@@ -114,6 +114,10 @@
   .lrow .l1 b{font-weight:600;font-variant-numeric:tabular-nums}
   .lrow .l2{display:flex;justify-content:space-between;font-size:12.5px;color:#A08B72;margin-top:4px}
   .chip{font-size:11.5px;padding:2px 9px;border-radius:20px;background:#3A2B18;color:#C9B294}
+  .lfilter{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;padding-bottom:2px}
+  .lfilter button{font-family:'Sarabun';font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:20px;border:1px solid #6A4E2E;background:transparent;color:#C9B294;white-space:nowrap;cursor:pointer}
+  .lfilter button.on{background:var(--orange);border-color:var(--orange);color:#fff}
+  .lfilter button .n{font-weight:400;opacity:.75;margin-left:4px}
   .chip.ok{color:#8FCB8D}.chip.conv{color:#8FB8E8}.chip.cancel{color:#E08A8A;text-decoration:line-through}
   .sheet-btn{font-family:'Sarabun';font-weight:600;font-size:14.5px;padding:12px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F0D9BC;cursor:pointer;text-align:center}
   .sheet-btn:active{background:#3A2B18}
@@ -408,7 +412,15 @@
 </div></div>
 
 <div id="listView" style="display:none;padding:10px 14px 60px">
-  <input id="listSearch" placeholder="ค้นหา ชื่อลูกค้า / เลขที่ใบ" style="width:100%;font-family:'Sarabun';font-size:14.5px;padding:11px 14px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB;margin-bottom:10px">
+  <div id="listType" class="lfilter">
+    <button data-f="ALL" class="on">ทั้งหมด</button><button data-f="QT">ใบเสนอราคา</button><button data-f="INV">ใบกำกับภาษี</button><button data-f="BL">ใบวางบิล</button><button data-f="CA">อย่างย่อ</button>
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:10px">
+    <input id="listSearch" placeholder="ค้นหา ชื่อลูกค้า / เลขที่ใบ" style="flex:1;font-family:'Sarabun';font-size:14.5px;padding:11px 14px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB">
+    <select id="listMonth" style="font-family:'Sarabun';font-size:14px;padding:0 10px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB"><option value="">ทุกเดือน</option></select>
+    <select id="listStatus" style="font-family:'Sarabun';font-size:14px;padding:0 10px;border-radius:10px;border:1px solid #6A4E2E;background:#1D1509;color:#F6EADB"><option value="">ทุกสถานะ</option><option value="ok">ออกแล้ว</option><option value="cancel">ยกเลิก</option><option value="conv">แปลงแล้ว</option></select>
+  </div>
+  <div id="listCount" style="font-size:12.5px;color:#A08B72;margin:0 2px 8px"></div>
   <div id="listRows"></div>
 </div>
 
@@ -1498,24 +1510,51 @@ async function loadList(){
   const rows = await apiCall('/list');
   if(rows.error){ box.innerHTML = '<div style="color:#E08A8A;font-size:13.5px;padding:20px;text-align:center">'+esc(rows.error)+'</div>'; return; }
   listCache = rows.slice().sort((a,b)=>(b.savedAt||'').localeCompare(a.savedAt||''));
+  fillMonths();
   renderList();
+}
+/* ตัวกรองรายการ: ชนิดใบ (ปุ่ม) + เดือน + สถานะ + คำค้น — จำตัวเลือกไว้ในเครื่อง พนักงานเปิดมาอีกทีได้แบบเดิม */
+let listFilter = (function(){ try{ return localStorage.getItem('lucerna_list_type') || 'ALL'; }catch(e){ return 'ALL'; } })();
+document.querySelectorAll('#listType button').forEach(b=>{
+  b.classList.toggle('on', b.dataset.f === listFilter);
+  b.onclick = ()=>{ listFilter = b.dataset.f; try{ localStorage.setItem('lucerna_list_type', listFilter); }catch(e){}
+    document.querySelectorAll('#listType button').forEach(x=>x.classList.toggle('on', x.dataset.f === listFilter)); renderList(); };
+});
+function statusClass(st){ return st === 'ยกเลิก' ? 'cancel' : (st.startsWith('แปลง') ? 'conv' : 'ok'); }
+function fillMonths(){
+  const sel = document.getElementById('listMonth'); const cur = sel.value;
+  const months = [...new Set(listCache.map(r=>(r.no.match(/-(\d{6})-/)||[])[1]).filter(Boolean))].sort().reverse();
+  const TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  sel.innerHTML = '<option value="">ทุกเดือน</option>' + months.map(m=>'<option value="'+m+'">'+TH[Number(m.slice(4))-1]+' '+(Number(m.slice(0,4))+543)+'</option>').join('');
+  sel.value = months.includes(cur) ? cur : '';
 }
 function renderList(){
   const q = document.getElementById('listSearch').value.trim().toLowerCase();
-  const rows = listCache.filter(r => !q || (r.no+' '+(r.customer||'')).toLowerCase().includes(q));
+  const mon = document.getElementById('listMonth').value, stf = document.getElementById('listStatus').value;
+  const rows = listCache.filter(r => (listFilter === 'ALL' || r.type === listFilter)
+    && (!mon || r.no.includes('-'+mon+'-'))
+    && (!stf || statusClass(r.status || 'ออกแล้ว') === stf)
+    && (!q || (r.no+' '+(r.customer||'')).toLowerCase().includes(q)));
+  /* ตัวเลขบนปุ่มชนิดใบ = จำนวนที่เข้าเงื่อนไขเดือน/สถานะ/คำค้นเดียวกัน */
+  const base = listCache.filter(r => (!mon || r.no.includes('-'+mon+'-')) && (!stf || statusClass(r.status || 'ออกแล้ว') === stf) && (!q || (r.no+' '+(r.customer||'')).toLowerCase().includes(q)));
+  document.querySelectorAll('#listType button').forEach(b=>{ const n = b.dataset.f==='ALL' ? base.length : base.filter(r=>r.type===b.dataset.f).length; b.innerHTML = b.textContent.replace(/\s*\d+$/,'').trim() + '<span class="n">'+n+'</span>'; });
+  const sum = rows.filter(r=>statusClass(r.status||'ออกแล้ว')==='ok').reduce((a,r)=>a+Number(r.grand||0),0);
+  document.getElementById('listCount').textContent = rows.length ? rows.length+' ใบ · ยอดรวม (ไม่นับใบยกเลิก/แปลง) '+sum.toLocaleString('th-TH',{minimumFractionDigits:2}) : '';
   const box = document.getElementById('listRows');
   if(!rows.length){ box.innerHTML = '<div style="color:#A08B72;font-size:13.5px;padding:20px;text-align:center">ไม่พบเอกสาร</div>'; return; }
   box.innerHTML = rows.map(r=>{
     const st = r.status || 'ออกแล้ว';
-    const cls = st === 'ยกเลิก' ? 'cancel' : (st.startsWith('แปลง') ? 'conv' : 'ok');
+    const cls = statusClass(st);
     return '<div class="lrow" data-no="'+r.no+'">'
       + '<div class="l1"><b>'+r.no+'</b><b>'+Number(r.grand||0).toLocaleString('th-TH',{minimumFractionDigits:2})+'</b></div>'
-      + '<div class="l2"><span>'+esc((r.customer||'—').slice(0,32))+'</span><span class="chip '+cls+'">'+esc(st)+'</span></div>'
+      + '<div class="l2"><span>'+esc((r.customer||'—').slice(0,32))+(r.date?' <span style="opacity:.6">· '+esc(r.date)+'</span>':'')+'</span><span class="chip '+cls+'">'+esc(st)+'</span></div>'
       + '</div>';
   }).join('');
   box.querySelectorAll('.lrow').forEach(el=> el.onclick = ()=> openSheet(el.dataset.no));
 }
 document.getElementById('listSearch').addEventListener('input', renderList);
+document.getElementById('listMonth').addEventListener('change', renderList);
+document.getElementById('listStatus').addEventListener('change', renderList);
 
 let sheetNo = null, cancelArmed = 0;
 function openSheet(no){

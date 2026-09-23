@@ -37,7 +37,7 @@ check('J chat paste name', $('custNameText').textContent==='ร้านช่�
 check('J phone', $('fPhone').textContent.includes('0812345678'), $('fPhone').textContent);
 check('J rows+ship', rows().length>=1, JSON.stringify(rows())+' ship='+$('shipInput').value+' grand='+$('grand').textContent);
 // K) date-check: stale tab
-$('btnReset').click(); $('btnReset').click(); $('docDate').textContent='01/09/2026'; w.checkDate(); check('K stale auto date fixed', $('docDate').textContent==='19/09/2026');
+$('btnReset').click(); $('btnReset').click(); $('docDate').textContent='01/09/2026'; w.checkDate(); check('K stale auto date fixed', $('docDate').textContent===w.fmtDate(new Date()));
 // L) list rendering has all rows & statuses
 await w.loadList(); await sleep(30); check('L list count', $('listRows').children.length>=idx().length-1, $('listRows').children.length+' vs '+idx().length);
 console.log(results.map(r=>r.join(' | ')).join('\n')); process.exit(0);
