@@ -9,7 +9,7 @@ chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chro
 ยกเว้น salt spray 96 ชม. ที่มาจากเอกสารสรุป (Overview) ของผู้ผลิต — Pist อนุมัติให้ใช้ (งานไม่แช่น้ำ)
 
 วิธีใช้: python3 tools/build_metalcoating_page.py แล้วรัน tools/build_calculator_page.py (ตารางมี data-calc)
-รูป: hero/การ์ดเป็น placeholder · img/metalcoating-rust-panel.webp = รูปแผ่นทดสอบจริงของ Pist
+รูป: hero/การ์ด = ภาพก๊อกโครเมียม (AI-generated, Pist 23 ก.ย. 2026) · -shower / -rail = ภาพประกอบ AI ในแกลเลอรี · -rust-panel = รูปแผ่นทดสอบจริงของ Pist
 """
 import io, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -79,7 +79,7 @@ BODY['th'] = r'''<section class="phero">
       </div>
     </div>
     <figure class="packshot">
-      <img src="/img/metalcoating-hero-sq.webp" alt="Metal Coating น้ำยาเคลือบโลหะ ชะลอสนิม กันคราบน้ำ กันรอย — ผิวโลหะสาย Hydrophobic หยดน้ำเกาะเป็นเม็ด" width="900" height="900">
+      <img src="/img/metalcoating-hero-sq.webp" alt="ก๊อกโครเมียมที่เคลือบ Metal Coating — หยดน้ำเกาะเป็นเม็ดกลมบนผิวโลหะ ไม่แผ่ ไม่ทิ้งคราบ" width="1200" height="1200">
     </figure>
   </div>
 </section>
@@ -94,6 +94,18 @@ BODY['th'] = r'''<section class="phero">
       <div class="pt"><span class="ic">03</span><div><h4>แข็ง 4H ทนกรด ด่าง น้ำมัน</h4><p>ฟิล์มหนา 8–12 ไมครอน ความแข็งดินสอ ≥4H เล็บขูดไม่ออก แช่กรดซัลฟิวริก 10% และโซดาไฟ 10% 24 ชั่วโมง แช่น้ำมันเบนซิน 24 ชั่วโมง — ความแข็งและการยึดเกาะไม่เปลี่ยน น้ำยาล้างหินปูนและน้ำมันหล่อลื่นทำอะไรฟิล์มไม่ได้</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>กลิ่นน้อยมาก ด้านหรือเงาเลือกได้</h4><p>กลิ่นน้อยกว่าน้ำยาเคลือบโลหะสาย Polysilazane ทั่วไปมาก ลงในห้องน้ำหรือในบ้านได้โดยไม่ต้องอพยพ — เลือกผิวเงาสำหรับโครเมียมและสแตนเลสขัดเงา ผิวด้านสำหรับปืน เครื่องมือ และงานที่ไม่ต้องการแสงสะท้อน</p></div></div>
     </div>
+  </div>
+</section>
+
+<section class="gallery" id="fittings">
+  <div class="wrap">
+    <h2 class="sec-h">ผิวที่เคลือบแล้ว <em>หน้าตาเป็นแบบนี้</em></h2>
+    <p class="sec-sub">น้ำเกาะเป็นเม็ดกลมแล้วกลิ้งหนี — ไม่แผ่เป็นแผ่น ไม่แห้งเป็นวงขาว นี่คือสิ่งเดียวที่ต้องดูเวลาเช็คว่าฟิล์มยังทำงานอยู่ (ภาพประกอบ)</p>
+    <div class="ggrid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-shower.webp" alt="ฝักบัวเรนชาวเวอร์และวาล์วโครเมียมบนผนังหินอ่อน หยดน้ำเกาะเป็นเม็ดบนโลหะ (ภาพประกอบ)" width="1200" height="1200"></div>
+      <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-rail.webp" alt="วาล์วโครเมียมของราวแขวนผ้าสแตนเลส หยดน้ำเกาะเป็นเม็ดกลมทั่วผิว (ภาพประกอบ)" width="1200" height="1200"></div>
+    </div>
+    <p class="pricenote">ฝักบัว วาล์ว และราวแขวนผ้า คือสามจุดที่คราบหินปูนขึ้นเร็วที่สุดในห้องน้ำ เพราะโดนน้ำทุกวันแต่ไม่มีใครเช็ดให้แห้ง — เคลือบทีเดียวแล้วน้ำที่เหลือค้างจะกลิ้งลงเอง ไม่แห้งเป็นคราบ</p>
   </div>
 </section>
 
@@ -294,7 +306,7 @@ BODY['en'] = r'''<section class="phero">
       </div>
     </div>
     <figure class="packshot">
-      <img src="/img/metalcoating-hero-sq.webp" alt="Metal Coating — hydrophobic protective coating for metal, water beading on a coated surface" width="900" height="900">
+      <img src="/img/metalcoating-hero-sq.webp" alt="Chrome tap coated with Metal Coating — water beading into spheres on the metal, no spreading, no marks" width="1200" height="1200">
     </figure>
   </div>
 </section>
@@ -309,6 +321,18 @@ BODY['en'] = r'''<section class="phero">
       <div class="pt"><span class="ic">03</span><div><h4>4H hard — resists acid, alkali and oil</h4><p>An 8–12 µm film at ≥4H pencil hardness; a fingernail won't mark it. 24 hours in 10% sulphuric acid and 10% caustic soda, 24 hours in petrol — hardness and adhesion unchanged, so descalers and lubricants do nothing to the film.</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>Very low odour, matte or gloss</h4><p>Far less odour than typical polysilazane metal coatings — apply in a bathroom or indoors without clearing the house. Choose gloss for chrome and polished stainless, matte for firearms, tools and anything that shouldn't reflect light.</p></div></div>
     </div>
+  </div>
+</section>
+
+<section class="gallery" id="fittings">
+  <div class="wrap">
+    <h2 class="sec-h">What a coated surface <em>looks like</em></h2>
+    <p class="sec-sub">Water beads into spheres and rolls away — it doesn't sheet, and it doesn't dry into white rings. That's the one thing to look for when checking the film is still working (illustration)</p>
+    <div class="ggrid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-shower.webp" alt="Chrome rain shower head and valve on a marble wall, water beading on the metal (illustration)" width="1200" height="1200"></div>
+      <div class="gph"><img loading="lazy" decoding="async" src="/img/metalcoating-rail.webp" alt="Chrome valve on a stainless towel rail, water beading into spheres across the surface (illustration)" width="1200" height="1200"></div>
+    </div>
+    <p class="pricenote">Shower heads, valves and towel rails are the three spots where limescale builds fastest, because they get wet every day and nobody dries them — coat them once and the water that's left rolls off on its own instead of drying into a mark.</p>
   </div>
 </section>
 
