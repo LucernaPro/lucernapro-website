@@ -404,6 +404,17 @@ img{height:auto}
   .echeck ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
   .echeck li{margin-top:4px}
   .echeck li b{color:var(--ink)}
+/* ---------- Customer cards (ภาพชุดลูกค้าแต่ละราย แยกการ์ด) ---------- */
+.custcards{padding:12px 0 12px}
+.custgrid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.custgrid{grid-template-columns:1fr 1fr}}
+.custcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);padding:8px;margin:0}
+.custcard .im2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.custcard .im2 .im{aspect-ratio:4/3;overflow:hidden;border-radius:9px}
+.custcard img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.custcard:hover img{transform:scale(1.03)}
+.custcard figcaption{font-family:var(--disp);font-size:15px;font-weight:600;padding:11px 6px 4px;line-height:1.45}
+.custcard figcaption small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 </style>
 <script src="/track.js" defer></script>
 <script src="/calc.js" defer></script>
@@ -690,6 +701,22 @@ img{height:auto}
     <div class="readall"><a class="btn btn-orange" href="/en/post/fiberglass-pool-tiles-to-poolarmour">Read the full case →</a></div>
   </div>
 </section>
+
+<section class="custcards">
+  <div class="wrap">
+    <h2 class="sec-h">Field <em>Proof</em></h2>
+    <div class="custgrid">
+      <figure class="custcard">
+        <div class="im2">
+          <div class="im"><img loading="lazy" decoding="async" alt="Indoor pool coated in blue PoolArmour throughout, before filling, underwater lights and skimmer already fitted" src="/img/poolarmour-c04-a.webp" width="960" height="720"></div>
+          <div class="im"><img loading="lazy" decoding="async" alt="Same pool with the underwater lights on, smooth blue surface over floor, walls and steps" src="/img/poolarmour-c04-b.webp" width="960" height="720"></div>
+        </div>
+        <figcaption>Indoor pool — blue throughout, before filling<small>A rendered pool under the roof of a house, coated blue as one continuous film over floor, walls and steps; underwater lights and skimmer fitted, waiting for water. This bright under the lights with no water in it yet — filled, it turns the clear resort blue</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 
 <section class="alt">
   <div class="wrap">
