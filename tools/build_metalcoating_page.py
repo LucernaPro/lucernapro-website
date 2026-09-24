@@ -60,7 +60,7 @@ SCHEMA = {
     'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Metal Coating — Rust-Delaying, Anti-Fouling, Scratch-Resistant Coating for Metal","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Hydrophobic nano coating for metal — clear 4H film, water contact angle ≥110°, delays rust, hard-water marks and fingerprints wipe off, resists acid, alkali and oil. Matte or gloss. For bathroom fittings, stainless, firearm exteriors, knives and tools.","image":"https://www.lucernapro.com/img/metalcoating-hero-sq.webp","url":"https://www.lucernapro.com/en/metalcoating","offers":{"@type":"Offer","priceCurrency":"THB","price":"1290","availability":"https://schema.org/InStock"}}\n</script>',
 }
 
-PRICE_ROWS = '''          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 %(sqm)s</td><td class="pr" data-price="1290">1,290.-</td></tr>'''
+PRICE_ROWS = '''          <tr><td class="sz" data-sqm="3.5">100 g</td><td>≈ 3–4 %(sqm)s</td><td class="pr" data-price="1290">1,290.-</td></tr>'''
 
 BODY = {}
 
@@ -173,7 +173,7 @@ BODY['th'] = r'''<section class="phero">
           <tr><td>ทนกรด-ด่าง</td><td>กรดซัลฟิวริก 10% และโซเดียมไฮดรอกไซด์ 10% 24 ชม. — ไม่เปลี่ยน</td></tr>
           <tr><td>ทนสภาพอากาศกลางแจ้ง</td><td>3,000 ชม. — ฟิล์มสมบูรณ์ เกรด 0–1 บนอะลูมิเนียม แทบไม่ด้านไม่เปลี่ยนสี</td></tr>
           <tr><td>ความปลอดภัยด้านไฟ</td><td>ผ่าน EN 45545-2 ระดับ R1 HL3 (ยานพาหนะระบบราง)</td></tr>
-          <tr><td>ปริมาณใช้</td><td>ลูกกลิ้งโฟมชั้นบาง ≈ 160 ตร.ม./กก. · ผู้ผลิตระบุ 15–50 มล./ตร.ม. เมื่อพ่นหรือทาแปรง</td></tr>
+          <tr><td>ปริมาณใช้</td><td>≈ 3–4 ตร.ม. ต่อ 100 g ด้วยลูกกลิ้งโฟมชั้นบาง (≈ 25–35 มล./ตร.ม. — อยู่ในช่วง 15–50 มล./ตร.ม. ของผู้ผลิต)</td></tr>
           <tr><td>อายุการเก็บ</td><td>1 ปี ยังไม่เปิด · เก็บ 18–25°C พ้นแดดและประกายไฟ</td></tr>
         </tbody>
       </table>
@@ -193,7 +193,7 @@ BODY['th'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <p class="pricenote"><b>ขนาดเดียว 100 g — ผิวด้านหรือผิวเงา ราคาเดียวกัน แจ้งตอนสั่ง</b> · ค่าจัดส่ง <b>70 บาท</b> · พื้นที่ต่อขวดคิดจากการลงชั้นบางชั้นเดียวด้วยลูกกลิ้งโฟม 4 นิ้ว — ขวดเดียวเคลือบสุขภัณฑ์ได้หลายห้องน้ำ หรือล้อและโครเมียมมอเตอร์ไซค์ได้ทั้งคัน · สั่งหลายขวดสำหรับโรงแรม อู่ หรือร้าน detailing มี<b>ราคาโครงการ</b> ทักมาทางแชทเพจ</p>
+    <p class="pricenote"><b>ขนาดเดียว 100 g — ผิวด้านหรือผิวเงา ราคาเดียวกัน แจ้งตอนสั่ง</b> · ค่าจัดส่ง <b>70 บาท</b> · พื้นที่ต่อขวดคิดจากการลงชั้นบางชั้นเดียวด้วยลูกกลิ้งโฟม 4 นิ้ว — ขวดเดียวเคลือบก๊อก ฝักบัว ราวแขวน ได้หลายห้องน้ำ หรือล้อและโครเมียมมอเตอร์ไซค์ 1 คัน · สั่งหลายขวดสำหรับโรงแรม อู่ หรือร้าน detailing มี<b>ราคาโครงการ</b> ทักมาทางแชทเพจ</p>
   </div>
 </section>
 
@@ -402,7 +402,7 @@ BODY['en'] = r'''<section class="phero">
           <tr><td>Acid and alkali resistance</td><td>10% H₂SO₄ and 10% NaOH, 24 h — unchanged</td></tr>
           <tr><td>Outdoor weathering</td><td>3,000 h — film intact, grade 0–1 on aluminium, minimal loss of gloss or colour</td></tr>
           <tr><td>Fire safety</td><td>Passes EN 45545-2, R1 HL3 (rail vehicles)</td></tr>
-          <tr><td>Consumption</td><td>Thin foam-roller coat ≈ 160 m²/kg · manufacturer quotes 15–50 ml/m² for spray or brush</td></tr>
+          <tr><td>Consumption</td><td>≈ 3–4 m² per 100 g with a thin foam-roller coat (≈ 25–35 ml/m² — within the manufacturer's 15–50 ml/m²)</td></tr>
           <tr><td>Shelf life</td><td>1 year unopened · store at 18–25°C away from sunlight and sparks</td></tr>
         </tbody>
       </table>
@@ -422,7 +422,7 @@ BODY['en'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <p class="pricenote"><b>One size, 100 g — matte or gloss, same price, tell us which when you order</b> · Shipping <b>70 THB</b> · coverage assumes one thin coat with a 4-inch foam roller — one pack does the fittings of several bathrooms, or the wheels and chrome of a whole motorcycle · Several packs for a hotel, workshop or detailer: <b>project pricing</b>, message us via chat</p>
+    <p class="pricenote"><b>One size, 100 g — matte or gloss, same price, tell us which when you order</b> · Shipping <b>70 THB</b> · coverage assumes one thin coat with a 4-inch foam roller — one pack does the taps, showers and rails of several bathrooms, or the wheels and chrome of one motorcycle · Several packs for a hotel, workshop or detailer: <b>project pricing</b>, message us via chat</p>
   </div>
 </section>
 

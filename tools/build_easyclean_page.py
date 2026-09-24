@@ -8,7 +8,7 @@ build_easyclean_page.py — สร้าง /easyclean และ /en/easyclean �
 
 วิธีใช้:  python3 tools/build_easyclean_page.py   (รันจากรากรีโป)
 สถานะ:   ยังไม่มีรูปสินค้า/คลิป — ใช้ภาพ placeholder img/easyclean-hero-sq.webp ไว้ก่อน
-          ราคา 22 ก.ย. 2026 (Pist): 100 g 830 / 500 g 3,590 / 1 kg 6,600 ส่ง 70 — ลงด้วยลูกกลิ้งโฟม 4 นิ้ว
+          ราคา 22 ก.ย. 2026 (Pist): 100 g 830 / 500 g 3,590 / 1 kg 6,600 ส่ง 70 — ลงด้วยลูกกลิ้งโฟม 4 นิ้ว · พื้นที่ 3–4 ตร.ม./100 g (Pist 24 ก.ย. 2026 หลังทดลองจริง, ตั้งเผื่อ)
           หลัง build ต้องรัน tools/build_calculator_page.py ด้วย (ตารางมี data-calc)
 """
 import io, os, re
@@ -200,7 +200,7 @@ BODY['th'] = r'''<section class="phero">
           <tr><td>ทนกรด-ด่าง</td><td>กรดซัลฟิวริก 10% และโซเดียมไฮดรอกไซด์ 10% 24 ชม. — ไม่เปลี่ยน</td></tr>
           <tr><td>ทนสภาพอากาศกลางแจ้ง</td><td>3,000 ชม. — ฟิล์มสมบูรณ์ เกรด 0–1 บนอะลูมิเนียม แทบไม่ด้านไม่เปลี่ยนสี</td></tr>
           <tr><td>ความปลอดภัยด้านไฟ</td><td>ผ่าน EN 45545-2 ระดับ R1 HL3 (ยานพาหนะระบบราง)</td></tr>
-          <tr><td>ปริมาณใช้</td><td>ลูกกลิ้งโฟมชั้นบาง ≈ 160 ตร.ม./กก. · ผู้ผลิตระบุ 15–50 มล./ตร.ม. เมื่อพ่นหรือทาแปรง</td></tr>
+          <tr><td>ปริมาณใช้</td><td>≈ 3–4 ตร.ม. ต่อ 100 g ด้วยลูกกลิ้งโฟมชั้นบาง (≈ 25–35 มล./ตร.ม. — อยู่ในช่วง 15–50 มล./ตร.ม. ของผู้ผลิต)</td></tr>
           <tr><td>อายุการเก็บ</td><td>1 ปี ยังไม่เปิด · เก็บ 18–25°C พ้นแดดและประกายไฟ</td></tr>
         </tbody>
       </table>
@@ -215,9 +215,9 @@ BODY['th'] = r'''<section class="phero">
       <table data-calc="1" data-shipping="70">
         <thead><tr><th>ขนาด</th><th>พื้นที่ใช้งานโดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 ตร.ม.</td><td class="pr" data-price="830">830.-</td></tr>
-          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 ตร.ม.</td><td class="pr" data-price="3590">3,590.-</td></tr>
-          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 ตร.ม.</td><td class="pr" data-price="6600">6,600.-</td></tr>
+          <tr><td class="sz" data-sqm="3.5">100 g</td><td>≈ 3–4 ตร.ม.</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="17.5">500 g</td><td>≈ 15–20 ตร.ม.</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="35">1 kg</td><td>≈ 30–40 ตร.ม.</td><td class="pr" data-price="6600">6,600.-</td></tr>
           <tr data-calc="skip"><td class="sz">งานโครงการ<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">อาคาร / โรงงาน / ฟลีท</small></td><td>พื้นที่ขนาดใหญ่</td><td class="pr">ราคาโครงการ — สอบถาม</td></tr>
         </tbody>
       </table>
@@ -428,7 +428,7 @@ BODY['en'] = r'''<section class="phero">
           <tr><td>Acid and alkali resistance</td><td>10% H₂SO₄ and 10% NaOH, 24 h — unchanged</td></tr>
           <tr><td>Outdoor weathering</td><td>3,000 h — film intact, grade 0–1 on aluminium, minimal loss of gloss or colour</td></tr>
           <tr><td>Fire safety</td><td>Passes EN 45545-2, R1 HL3 (rail vehicles)</td></tr>
-          <tr><td>Consumption</td><td>Thin foam-roller coat ≈ 160 m²/kg · manufacturer quotes 15–50 ml/m² for spray or brush</td></tr>
+          <tr><td>Consumption</td><td>≈ 3–4 m² per 100 g with a thin foam-roller coat (≈ 25–35 ml/m² — within the manufacturer's 15–50 ml/m²)</td></tr>
           <tr><td>Shelf life</td><td>1 year unopened · store at 18–25°C away from sunlight and sparks</td></tr>
         </tbody>
       </table>
@@ -443,9 +443,9 @@ BODY['en'] = r'''<section class="phero">
       <table data-calc="1" data-shipping="70">
         <thead><tr><th>Size</th><th>Approximate coverage</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz" data-sqm="16">100 g</td><td>≈ 16 m²</td><td class="pr" data-price="830">830.-</td></tr>
-          <tr><td class="sz" data-sqm="80">500 g</td><td>≈ 80 m²</td><td class="pr" data-price="3590">3,590.-</td></tr>
-          <tr><td class="sz" data-sqm="160">1 kg</td><td>≈ 160 m²</td><td class="pr" data-price="6600">6,600.-</td></tr>
+          <tr><td class="sz" data-sqm="3.5">100 g</td><td>≈ 3–4 m²</td><td class="pr" data-price="830">830.-</td></tr>
+          <tr><td class="sz" data-sqm="17.5">500 g</td><td>≈ 15–20 m²</td><td class="pr" data-price="3590">3,590.-</td></tr>
+          <tr><td class="sz" data-sqm="35">1 kg</td><td>≈ 30–40 m²</td><td class="pr" data-price="6600">6,600.-</td></tr>
           <tr data-calc="skip"><td class="sz">Projects<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">buildings / factories / fleets</small></td><td>Large areas</td><td class="pr">Project pricing — ask us</td></tr>
         </tbody>
       </table>
