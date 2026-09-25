@@ -8,7 +8,7 @@ PureBreeze — น้ำยาเคลือบใสระดับนาโ�
 อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต) · Pist 25 ก.ย. 2026 "เอาตามของเขาเลย" + "≥99% (ตามผู้ผลิต) เสล่อ จะเขียนทำไม" → ตัดคำกันตัว "ตามผู้ผลิต/ไม่ได้ทดสอบเอง" ออกทั้งหน้า พูดตัวเลขตรงๆ → ขั้นตอนใช้ตาม Feibo (ล้างลึก → แห้ง → พ่น → เซ็ตตัวที่อุณหภูมิห้อง ไม่มีตัวเลขเวลา/ระยะพ่นที่เราแต่งเอง) · ตารางแบคทีเรีย 1 สัปดาห์–1 ปี และรูปทดสอบ (crop จากสไลด์ของ Feibo ตัดตัวหนังสือจีนออก: img/purebreeze-dust1/3, -petri-coated/-bare) จากหน้าเดียวกัน
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
-hero/การ์ด = ภาพ placeholder ที่ Claude ทำ (img/purebreeze-hero-sq.webp / -card.webp) — Pist ไม่เอารูป Wix เดิม
+hero/การ์ด = ภาพห้องนั่งเล่นที่ Pist generate เอง (Gemini, 25 ก.ย. 2026) img/purebreeze-hero-sq.webp / -card.webp
 วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome()
 วิธีใช้: python3 tools/build_purebreeze_page.py แล้วรัน tools/build_calculator_page.py (ตารางน้ำยามี data-calc)
@@ -77,7 +77,7 @@ BODY['th'] = r'''<section class="phero">
       </div>
     </div>
     <figure class="packshot">
-      <img src="/img/purebreeze-hero-sq.webp" alt="PureBreeze น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์ — ฟินคอยล์ที่ฝุ่นเกาะไม่ติด" width="1200" height="1200">
+      <img src="/img/purebreeze-hero-sq.webp" alt="ห้องนั่งเล่นที่ติดแอร์ผนัง — อากาศสะอาดคือสิ่งที่ PureBreeze ดูแลให้ที่ฟินแอร์" width="1200" height="1200">
     </figure>
   </div>
 </section>
@@ -262,7 +262,7 @@ BODY['en'] = r'''<section class="phero">
       </div>
     </div>
     <figure class="packshot">
-      <img src="/img/purebreeze-hero-sq.webp" alt="PureBreeze dust-repellent nano coating for air-conditioner coil fins" width="1200" height="1200">
+      <img src="/img/purebreeze-hero-sq.webp" alt="Living room with a wall-mounted air conditioner — clean air is what PureBreeze protects at the fins" width="1200" height="1200">
     </figure>
   </div>
 </section>
