@@ -9,6 +9,7 @@ PureBreeze — น้ำยาเคลือบใสระดับนาโ�
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
 hero/การ์ด = ภาพห้องนั่งเล่นที่ Pist generate เอง (Gemini, 25 ก.ย. 2026) img/purebreeze-hero-sq.webp / -card.webp
+รายงานจุลชีพ Gmicro 2020SPS942R01D (E. coli / S. aureus >99%, รา ระดับ 0) — Pist ส่งสไลด์ 25 ก.ย. 2026, crop 3 หน้า upscale 2× = img/purebreeze-report-p1..p3.webp (+ -zoom-* ยังไม่ใช้) section #certs ก่อนราคา
 วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · คลิปแนวตั้งของ Pist (Pure_breeze2.mov, 25 ก.ย. 2026 — พ่นคอยล์ร้อนด้วยกาพ่น + ฟินครึ่งเคลือบ) = YouTube Shorts d4kNlcm259c (Pist: ใช้ลิงก์แทนไฟล์ในเว็บ จะได้ไม่หนัก — ไฟล์ mp4/poster ที่เคย encode ลบออกจาก repo แล้ว) · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome()
 วิธีใช้: python3 tools/build_purebreeze_page.py แล้วรัน tools/build_calculator_page.py (ตารางน้ำยามี data-calc)
@@ -32,7 +33,7 @@ def build(lang):
     head = head.replace('img/paintcoating-hero-sq.webp', 'img/purebreeze-hero-sq.webp')
     head = re.sub(r'<script type="application/ld\+json">.*?</script>', SCHEMA[lang], head, flags=re.S)
     head = head + EXTRA_CSS.replace('id="easyclean-css"', 'id="purebreeze-css"') + '''
-<style id="purebreeze-deal-css">.direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}</style>'''
+<style id="purebreeze-deal-css">#certs .gph .im{aspect-ratio:auto;background:#fff}#certs .gph img{height:auto;object-fit:contain}#certs .gph:hover img{transform:none}.direct-deal{font-size:14.5px;color:var(--ink);border:1px solid rgba(237,106,47,.45);background:rgba(237,106,47,.08);border-radius:9px;padding:10px 14px;margin:14px 0 4px;line-height:1.55}</style>'''
     drawer = drawer.replace('/paintcoating', '/purebreeze')
     tail = tail.replace('/paintcoating', '/purebreeze')
     out = head + '</head>\n' + drawer + '\n\n' + BODY[lang] + '\n' + tail
@@ -161,6 +162,28 @@ BODY['th'] = r'''<section class="phero">
         </div>
         <p style="font-size:13px;color:var(--muted);margin-top:8px">ผลทดสอบในห้องแล็บบนฟินคอยล์เย็นแอร์ที่ไม่ล้างต่อเนื่อง — อัตรายับยั้งยังเกิน 99% หลังใช้ครบ 1 ปี</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="certs">
+  <div class="wrap">
+    <h2 class="sec-h">รายงานทดสอบจุลชีพ <em>จากห้องแล็บที่ได้รับการรับรอง</em></h2>
+    <p class="sec-sub">ตัวเลข "มากกว่า 99%" บนหน้านี้มาจากรายงานฉบับนี้ — Guangdong Detection Center of Microbiology (Gmicro Testing) กว่างโจว แล็บที่ได้รับการรับรอง CMA และ CNAS · รายงานเลขที่ 2020SPS942R01D · เอกสารต้นฉบับเป็นภาษาจีน-อังกฤษ คำอธิบายภาษาไทยอยู่ใต้แต่ละหน้า</p>
+    <div class="speccard" style="margin-top:20px">
+      <table>
+        <thead><tr><th>รายการทดสอบ</th><th>วิธี</th><th>ผล</th></tr></thead>
+        <tbody>
+          <tr><td>ต้านแบคทีเรีย <i>Escherichia coli</i> (เชื้อในลำไส้)</td><td>GB 21551.2-2010 ภาคผนวก A · สัมผัส 24 ชม.</td><td><b>&gt; 99%</b> — จาก 2.4 × 10⁵ เหลือน้อยกว่า 20 cfu</td></tr>
+          <tr><td>ต้านแบคทีเรีย <i>Staphylococcus aureus</i> (สแตฟ ทอง)</td><td>GB 21551.2-2010 ภาคผนวก A · สัมผัส 24 ชม.</td><td><b>&gt; 99%</b> — จาก 3.4 × 10⁵ เหลือน้อยกว่า 20 cfu</td></tr>
+          <tr><td>ต้านเชื้อรา 5 สายพันธุ์มาตรฐาน (<i>Aspergillus niger</i>, <i>Penicillium funiculosum</i>, <i>Chaetomium globosum</i>, <i>Aureobasidium pullulans</i>, <i>Paecilomyces variotii</i>)</td><td>GB 21551.2-2010 ภาคผนวก C</td><td><b>ระดับ 0</b> — ดีที่สุด ไม่มีราขึ้นแม้ดูด้วยกล้องขยาย 50 เท่า</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ggrid" style="margin-top:22px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-report-p1.webp" alt="หน้าปกรายงานวิเคราะห์ทดสอบ Guangdong Detection Center of Microbiology เลขที่ 2020SPS942R01D ตัวอย่าง Self-cleaning antibacterial coating" width="804" height="1364"></div><figcaption><span class="no">01</span><b>หน้าปกรายงาน</b> — ประเภท commissioned test ตัวอย่าง "Self-cleaning antibacterial coating" ผู้ส่งตรวจคือผู้พัฒนาวัตถุดิบของเรา</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-report-p2.webp" alt="หน้าผลทดสอบต้านแบคทีเรีย — E. coli และ Staphylococcus aureus อัตรายับยั้งมากกว่า 99%" width="808" height="1364"></div><figcaption><span class="no">02</span><b>ผลต้านแบคทีเรีย</b> — <i>E. coli</i> และ <i>S. aureus</i> ยับยั้งได้มากกว่า 99% หลังสัมผัส 24 ชั่วโมง เกณฑ์มาตรฐานอยู่ที่ 90%</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-report-p3.webp" alt="หน้าผลทดสอบต้านเชื้อรา — ระดับป้องกันรา 0" width="752" height="1364"></div><figcaption><span class="no">03</span><b>ผลต้านเชื้อรา</b> — ระดับ 0 กับเชื้อรามาตรฐาน 5 สายพันธุ์ คือระดับดีที่สุดของมาตรฐานนี้</figcaption></figure>
     </div>
   </div>
 </section>
@@ -352,6 +375,28 @@ BODY['en'] = r'''<section class="phero">
         </div>
         <p style="font-size:13px;color:var(--muted);margin-top:8px">Lab test on evaporator fins not cleaned in between — the inhibition rate is still above 99% after a full year in use</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="certs">
+  <div class="wrap">
+    <h2 class="sec-h">Microbial test report <em>from an accredited laboratory</em></h2>
+    <p class="sec-sub">The "above 99%" figures on this page come from this report — Guangdong Detection Center of Microbiology (Gmicro Testing), Guangzhou, a CMA- and CNAS-accredited laboratory · report no. 2020SPS942R01D · the original is bilingual Chinese–English; English notes under each page</p>
+    <div class="speccard" style="margin-top:20px">
+      <table>
+        <thead><tr><th>Test</th><th>Method</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Antibacterial — <i>Escherichia coli</i></td><td>GB 21551.2-2010 Appendix A · 24 h contact</td><td><b>&gt; 99%</b> — from 2.4 × 10⁵ to fewer than 20 cfu</td></tr>
+          <tr><td>Antibacterial — <i>Staphylococcus aureus</i></td><td>GB 21551.2-2010 Appendix A · 24 h contact</td><td><b>&gt; 99%</b> — from 3.4 × 10⁵ to fewer than 20 cfu</td></tr>
+          <tr><td>Anti-mould — 5 standard strains (<i>Aspergillus niger</i>, <i>Penicillium funiculosum</i>, <i>Chaetomium globosum</i>, <i>Aureobasidium pullulans</i>, <i>Paecilomyces variotii</i>)</td><td>GB 21551.2-2010 Appendix C</td><td><b>Grade 0</b> — the best grade: no growth even at 50× magnification</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ggrid" style="margin-top:22px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-report-p1.webp" alt="Cover page of the analysis report, Guangdong Detection Center of Microbiology, no. 2020SPS942R01D, sample: self-cleaning antibacterial coating" width="804" height="1364"></div><figcaption><span class="no">01</span><b>Cover page</b> — commissioned test, sample "Self-cleaning antibacterial coating", applicant is the developer of our raw material</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-report-p2.webp" alt="Antibacterial results page — E. coli and Staphylococcus aureus inhibition above 99%" width="808" height="1364"></div><figcaption><span class="no">02</span><b>Antibacterial results</b> — <i>E. coli</i> and <i>S. aureus</i> inhibited above 99% after 24 h contact; the standard's pass mark is 90%</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-report-p3.webp" alt="Anti-mould results page — mould-proof grade 0" width="752" height="1364"></div><figcaption><span class="no">03</span><b>Anti-mould results</b> — grade 0 against 5 standard strains, the best grade in the standard</figcaption></figure>
     </div>
   </div>
 </section>
