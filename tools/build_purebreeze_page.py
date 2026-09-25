@@ -9,7 +9,7 @@ PureBreeze — น้ำยาเคลือบใสระดับนาโ�
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
 hero/การ์ด = ภาพห้องนั่งเล่นที่ Pist generate เอง (Gemini, 25 ก.ย. 2026) img/purebreeze-hero-sq.webp / -card.webp
-วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · คลิปแนวตั้งของ Pist (Pure_breeze2.mov, 25 ก.ย. 2026 — พ่นคอยล์ร้อนด้วยกาพ่น + ฟินครึ่งเคลือบ) = img/purebreeze-v01-spraygun.mp4 (720×1280 H.264 + AAC, 15 MB) + -poster.webp · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
+วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · คลิปแนวตั้งของ Pist (Pure_breeze2.mov, 25 ก.ย. 2026 — พ่นคอยล์ร้อนด้วยกาพ่น + ฟินครึ่งเคลือบ) = YouTube Shorts d4kNlcm259c (Pist: ใช้ลิงก์แทนไฟล์ในเว็บ จะได้ไม่หนัก — ไฟล์ mp4/poster ที่เคย encode ลบออกจาก repo แล้ว) · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome()
 วิธีใช้: python3 tools/build_purebreeze_page.py แล้วรัน tools/build_calculator_page.py (ตารางน้ำยามี data-calc)
 """
@@ -107,7 +107,7 @@ BODY['th'] = r'''<section class="phero">
     </div>
     <div class="vidgrid vert solo" style="margin:18px 0 0">
       <figure style="margin:0">
-        <div class="fbv v916"><video controls playsinline preload="none" poster="/img/purebreeze-v01-spraygun-poster.webp" width="540" height="960"><source src="/img/purebreeze-v01-spraygun.mp4" type="video/mp4"></video></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/d4kNlcm259c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze — พ่นคอยล์ร้อนด้วยกาพ่นสี และฟินที่เคลือบครึ่งเดียว"></iframe></div>
         <figcaption><b>พ่นคอยล์ร้อนด้วยกาพ่นสี</b> — บรรจุน้ำยาลงกาพ่น พ่นเป็นละอองบางทั่วแผงฟินคอนเดนซิ่ง แล้วดูฟินที่เคลือบครึ่งเดียวหลังใช้งานกลางแจ้ง ครึ่งไม่เคลือบฝุ่นเกาะหนา ครึ่งเคลือบยังโล่ง</figcaption>
       </figure>
     </div>
@@ -298,7 +298,7 @@ BODY['en'] = r'''<section class="phero">
     </div>
     <div class="vidgrid vert solo" style="margin:18px 0 0">
       <figure style="margin:0">
-        <div class="fbv v916"><video controls playsinline preload="none" poster="/img/purebreeze-v01-spraygun-poster.webp" width="540" height="960"><source src="/img/purebreeze-v01-spraygun.mp4" type="video/mp4"></video></div>
+        <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/d4kNlcm259c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze — spray-gun application on a condenser coil and half-coated fins"></iframe></div>
         <figcaption><b>Spraying a condenser coil with a spray gun</b> — the liquid loaded into a gravity gun and misted thinly over the condensing-unit fins, then a look at fins coated on one half only after outdoor use: the uncoated half thick with dust, the coated half still clear</figcaption>
       </figure>
     </div>
