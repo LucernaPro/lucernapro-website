@@ -5,7 +5,7 @@ build_purebreeze_page.py — สร้าง /purebreeze และ /en/purebreez
 
 PureBreeze — น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ป้องกันฝุ่นเกาะสะสม
 ย้ายมาจากหน้า Wix เดิม (lekvtwin.wixsite.com/lucerna/purebreeze) — Pist 25 ก.ย. 2026 "ไปเอาข้อมูลมาลงก่อน สร้างหน้าใหม่เลย"
-อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต) · Pist 25 ก.ย. 2026 "เอาตามของเขาเลย" → ขั้นตอนใช้ตาม Feibo (ล้างลึก → แห้ง → พ่น → เซ็ตตัวที่อุณหภูมิห้อง ไม่มีตัวเลขเวลา/ระยะพ่นที่เราแต่งเอง) · ตารางแบคทีเรีย 1 สัปดาห์–1 ปี และรูปทดสอบ (crop จากสไลด์ของ Feibo ตัดตัวหนังสือจีนออก: img/purebreeze-dust1/3, -petri-coated/-bare) จากหน้าเดียวกัน
+อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต) · Pist 25 ก.ย. 2026 "เอาตามของเขาเลย" + "≥99% (ตามผู้ผลิต) เสล่อ จะเขียนทำไม" → ตัดคำกันตัว "ตามผู้ผลิต/ไม่ได้ทดสอบเอง" ออกทั้งหน้า พูดตัวเลขตรงๆ → ขั้นตอนใช้ตาม Feibo (ล้างลึก → แห้ง → พ่น → เซ็ตตัวที่อุณหภูมิห้อง ไม่มีตัวเลขเวลา/ระยะพ่นที่เราแต่งเอง) · ตารางแบคทีเรีย 1 สัปดาห์–1 ปี และรูปทดสอบ (crop จากสไลด์ของ Feibo ตัดตัวหนังสือจีนออก: img/purebreeze-dust1/3, -petri-coated/-bare) จากหน้าเดียวกัน
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
 hero/การ์ด = ภาพ placeholder ที่ Claude ทำ (img/purebreeze-hero-sq.webp / -card.webp) — Pist ไม่เอารูป Wix เดิม
@@ -87,10 +87,10 @@ BODY['th'] = r'''<section class="phero">
     <h2 class="sec-h">แอร์ที่เคลือบแล้ว <em>ต่างจากเดิมตรงไหน</em></h2>
     <p class="sec-sub">ฝุ่นในอากาศไม่ได้ลดลง แต่ผิวฟินที่มันจะเกาะเปลี่ยนไป — ฟิล์มใสสาย <b>Superhydrophilic</b> ทำให้น้ำที่กลั่นตัวบนคอยล์เย็นแผ่เป็นแผ่นบางแล้วพาฝุ่นไหลลงถาดน้ำทิ้ง แอร์จึงล้างฟินให้ตัวเองทุกครั้งที่ทำงาน</p>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>น้ำกลั่นตัวกลายเป็นน้ำล้างฟิน</h4><p>คอยล์เย็นมีน้ำกลั่นตัวบนฟินตลอดเวลาที่แอร์ทำงาน บนฟินเปล่าน้ำเกาะเป็นหยดแล้วหยดลง ฝุ่นอยู่ที่เดิม — ฟิล์ม PureBreeze ลดมุมสัมผัสน้ำบนโลหะลงจนน้ำ<b>แผ่เป็นแผ่นบางคลุมทั้งฟิน</b> แผ่นน้ำนั้นแทรกใต้ฝุ่นแล้วพาไหลลงถาดน้ำทิ้ง — ผู้พัฒนาเรียกว่า self-cleaning ระหว่างทำงาน ฝุ่นที่เหลือเกาะไม่แน่น ล้างครั้งถัดไปหลุดง่าย</p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>น้ำกลั่นตัวกลายเป็นน้ำล้างฟิน</h4><p>คอยล์เย็นมีน้ำกลั่นตัวบนฟินตลอดเวลาที่แอร์ทำงาน บนฟินเปล่าน้ำเกาะเป็นหยดแล้วหยดลง ฝุ่นอยู่ที่เดิม — ฟิล์ม PureBreeze ลดมุมสัมผัสน้ำบนโลหะลงจนน้ำ<b>แผ่เป็นแผ่นบางคลุมทั้งฟิน</b> แผ่นน้ำนั้นแทรกใต้ฝุ่นแล้วพาไหลลงถาดน้ำทิ้ง — คือ self-cleaning ระหว่างทำงาน ฝุ่นที่เหลือเกาะไม่แน่น ล้างครั้งถัดไปหลุดง่าย</p></div></div>
       <div class="pt"><span class="ic">02</span><div><h4>ลมแรง เย็นเร็ว นานกว่าเดิม</h4><p>แอร์อืดหลังล้างไม่กี่เดือนเพราะฟินอุด ไม่ใช่เพราะน้ำยาแอร์หมด — เมื่อฟินโล่งนานขึ้น ลมผ่านคอยล์เย็นได้เต็มที่ คอมเพรสเซอร์ทำงานสั้นลงต่อรอบ อาการ "เปิด 25 แต่ไม่เย็น" มาช้ากว่าเดิมมาก</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>ล้างแอร์ห่างขึ้น ล้างง่ายขึ้น</h4><p>ฝุ่นที่เกาะน้อยและเกาะไม่แน่น ล้างครั้งถัดไปแค่น้ำแรงดันเบาก็หลุด ไม่ต้องขัดฟินจนล้ม — บ้านที่เคยล้างทุก 3–4 เดือนยืดออกไปได้ ร้านล้างแอร์ใช้เป็นบริการเสริมที่ลูกค้าเห็นผลจริงในรอบถัดไป</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>ยับยั้งแบคทีเรียและราบนฟิน ≥ 99% (ตามผู้ผลิต)</h4><p>ฟินคือจุดที่เปียกชื้นตลอดเวลาและไม่มีใครถอดล้าง จึงเป็นที่เพาะเชื้อราและแบคทีเรียที่ปล่อยกลิ่นอับออกมากับลม — ฟิล์มมีชั้นนาโนยับยั้งเชื้อ ผู้ผลิตระบุอัตรายับยั้งแบคทีเรียมากกว่า 99% และลดกลิ่น ตัวเลขนี้เป็นของผู้ผลิต เรายังไม่มีรายงานทดสอบจุลชีพในมือ จึงเขียนไว้ตามนั้น ฟิล์มใสบางระดับนาโน ไม่ขวางการแลกเปลี่ยนความร้อน ไม่เปลี่ยนสีฟิน</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ยับยั้งแบคทีเรียและราบนฟินมากกว่า 99%</h4><p>ฟินคือจุดที่เปียกชื้นตลอดเวลาและไม่มีใครถอดล้าง จึงเป็นที่เพาะเชื้อราและแบคทีเรียที่ปล่อยกลิ่นอับออกมากับลม — ฟิล์มมีชั้นนาโนยับยั้งเชื้อ อัตรายับยั้งแบคทีเรียมากกว่า 99% และยังเกิน 99% หลังใช้ครบ 1 ปี กลิ่นอับจึงลดลง ฟิล์มใสบางระดับนาโน ไม่ขวางการแลกเปลี่ยนความร้อน ไม่เปลี่ยนสีฟิน</p></div></div>
     </div>
   </div>
 </section>
@@ -98,7 +98,7 @@ BODY['th'] = r'''<section class="phero">
 <section class="gallery" id="proof">
   <div class="wrap">
     <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปวิธีใช้และภาพทดสอบ</em></h2>
-    <p class="sec-sub">คลิปพ่นบนแผงฟินคอยล์เย็นจริง และภาพจากห้องทดสอบฝุ่นกับจานเพาะเชื้อของผู้พัฒนา</p>
+    <p class="sec-sub">คลิปพ่นบนแผงฟินคอยล์เย็นจริง และภาพจากห้องทดสอบฝุ่นกับจานเพาะเชื้อ</p>
     <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="วิธีใช้ PureBreeze บนแผงฟินแอร์"></iframe></div>
@@ -111,7 +111,7 @@ BODY['th'] = r'''<section class="phero">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-coated.webp" alt="จานเพาะเชื้อจากฟอยล์อะลูมิเนียมที่เคลือบ มีโคโลนีเล็ก" width="462" height="464"></div><figcaption><span class="no">03</span>เพาะเชื้อจากฟอยล์ที่เคลือบ</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-bare.webp" alt="จานเพาะเชื้อจากฟอยล์อะลูมิเนียมที่ไม่เคลือบ มีเชื้อราขึ้นเป็นกลุ่ม" width="469" height="464"></div><figcaption><span class="no">04</span>เพาะเชื้อจากฟอยล์ที่ไม่เคลือบ</figcaption></figure>
     </div>
-    <p class="pricenote">ภาพทดสอบจากห้องแล็บของผู้พัฒนาวัตถุดิบ — การทดสอบเร่งสภาพในห้องฝุ่น และการเพาะเชื้อจากฟอยล์อะลูมิเนียมที่เคลือบกับไม่เคลือบ</p>
+    <p class="pricenote">การทดสอบเร่งสภาพในห้องฝุ่น และการเพาะเชื้อจากฟอยล์อะลูมิเนียมที่เคลือบกับไม่เคลือบ</p>
   </div>
 </section>
 
@@ -133,15 +133,15 @@ BODY['th'] = r'''<section class="phero">
     <div class="rdtag">SOURCE — วัตถุดิบมาจากไหน</div>
     <h2>เราเลือกนำเข้าวัตถุดิบหลัก<br>จากผู้พัฒนาเทคโนโลยีนี้<b>โดยตรง — Feibo</b></h2>
     <div class="story-grid">
-      <div class="bignum">≥99%<small>ANTIBACTERIAL RATE · MANUFACTURER DATA</small></div>
+      <div class="bignum">≥99%<small>ANTIBACTERIAL RATE · 1 YEAR IN USE</small></div>
       <div class="story-body">
         <p>ตัวนี้เรา<b>นำเข้าวัตถุดิบหลักจาก Feibo</b> (ฉางชา ประเทศจีน) ผู้พัฒนาวัตถุดิบเดียวกับ <a href="/glasscoating" style="color:var(--orange)">Glass Coating</a> และ <a href="/solarpaneldefender" style="color:var(--orange)">Solar Panel Defender</a> ของเรา — เป็นสูตรที่เขาพัฒนาสำหรับฟินและชิ้นส่วนโลหะภายในเครื่องปรับอากาศโดยเฉพาะ ใช้ในอาคารสาธารณะและอาคารพาณิชย์ในจีน แล้วเรามาบรรจุและควบคุมคุณภาพต่อในประเทศไทย</p>
-        <p>เหตุผลที่แอร์ควรได้ฟิล์มนี้ ผู้พัฒนาสรุปจากการสุ่มตรวจในจีน: การล้างแอร์ทั่วไปเน้นแผ่นกรอง แต่ฟินที่ถอดไม่ได้คือที่ที่สิ่งสกปรกซ่อนอยู่มากที่สุด และตัวอย่างฟินกว่า 80% พบแบคทีเรียหรือราสูงกว่าเกณฑ์ — ตัวเลขเป็นของจีน เราไม่มีของไทยเทียบ แต่แอร์ที่ล้างแค่แผ่นกรองก็ทำงานแบบเดียวกันทุกประเทศ</p>
+        <p>เหตุผลที่แอร์ควรได้ฟิล์มนี้: การล้างแอร์ทั่วไปเน้นแผ่นกรอง แต่ฟินที่ถอดไม่ได้คือที่ที่สิ่งสกปรกซ่อนอยู่มากที่สุด — จากการสุ่มตรวจ ตัวอย่างฟินกว่า 80% พบแบคทีเรียหรือราสูงกว่าเกณฑ์</p>
         <div class="beats">
           <div class="beat"><div class="k">หลักการ</div><p>ฟิล์มบางใสจากซิลิกอนออกไซด์อนินทรีย์ + สารยับยั้งเชื้อ + พอลิเมอร์อินทรีย์ — ทำผิวฟินเป็น <b>Superhydrophilic</b> น้ำกลั่นตัวแผ่เป็นแผ่นพาฝุ่นและคราบไหลออก และเป็นชั้นกันคราบน้ำมันกับคราบอินทรีย์เกาะฟิน</p></div>
-          <div class="beat"><div class="k">ยับยั้งเชื้อ</div><p>ชั้นนาโนบนฟินยับยั้งแบคทีเรีย รา และเชื้อก่อโรคทั่วไป ผู้ผลิตระบุอัตราการยับยั้งแบคทีเรียมากกว่า 99% ลดเชื้อที่ฟุ้งไปกับลมและลดกลิ่นอับ — ตามเอกสารผู้ผลิต ไม่ใช่ผลทดสอบของเรา</p></div>
-          <div class="beat"><div class="k">ผลทดสอบฝุ่น</div><p>ในการทดสอบเร่งสภาพในห้องฝุ่นของผู้พัฒนา พื้นที่ที่เคลือบมีฝุ่นเกาะน้อยกว่าพื้นที่ไม่เคลือบอย่างเห็นได้ชัด ประสิทธิภาพเครื่องจึงตกช้าลงและล้างห่างขึ้น</p></div>
-          <div class="beat"><div class="k">ไม่รบกวนเครื่อง</div><p>ฟิล์มบางระดับนาโนและใส ผู้ผลิตระบุว่าไม่มีผลต่อการถ่ายเทความร้อนและการทำงานของเครื่อง — ขั้นตอนของเขา: ล้างลึก → แห้งสนิท → พ่นบางสม่ำเสมอ → ปล่อยให้เซ็ตตัวที่อุณหภูมิห้อง ตรงกับที่เราเขียนไว้ด้านล่าง</p></div>
+          <div class="beat"><div class="k">ยับยั้งเชื้อ</div><p>ชั้นนาโนบนฟินยับยั้งแบคทีเรีย รา และเชื้อก่อโรคทั่วไป อัตราการยับยั้งแบคทีเรียมากกว่า 99% ลดเชื้อที่ฟุ้งไปกับลมและลดกลิ่นอับ</p></div>
+          <div class="beat"><div class="k">ผลทดสอบฝุ่น</div><p>ในการทดสอบเร่งสภาพในห้องฝุ่น พื้นที่ที่เคลือบมีฝุ่นเกาะน้อยกว่าพื้นที่ไม่เคลือบอย่างเห็นได้ชัด ประสิทธิภาพเครื่องจึงตกช้าลงและล้างห่างขึ้น</p></div>
+          <div class="beat"><div class="k">ไม่รบกวนเครื่อง</div><p>ฟิล์มบางระดับนาโนและใส ไม่มีผลต่อการถ่ายเทความร้อนและการทำงานของเครื่อง — ขั้นตอนใช้งาน: ล้างลึก → แห้งสนิท → พ่นบางสม่ำเสมอ → ปล่อยให้เซ็ตตัวที่อุณหภูมิห้อง ตรงกับที่เราเขียนไว้ด้านล่าง</p></div>
         </div>
         <div class="speccard" style="margin-top:14px">
           <table>
@@ -153,7 +153,7 @@ BODY['th'] = r'''<section class="phero">
             </tbody>
           </table>
         </div>
-        <p style="font-size:13px;color:var(--muted);margin-top:8px">ตารางจากรายงานทดสอบในห้องแล็บของผู้พัฒนา (ฟินคอยล์เย็นแอร์ ไม่ล้างต่อเนื่อง) — อัตรายับยั้งยังเกิน 99% หลังใช้ครบ 1 ปี เราคัดลอกตัวเลขมาตามเอกสาร ไม่ได้ทดสอบซ้ำเอง</p>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px">ผลทดสอบในห้องแล็บบนฟินคอยล์เย็นแอร์ที่ไม่ล้างต่อเนื่อง — อัตรายับยั้งยังเกิน 99% หลังใช้ครบ 1 ปี</p>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@ BODY['th'] = r'''<section class="phero">
       <li class="fstep"><h4>ปิดเครื่อง ตัดไฟ แล้วล้างแอร์ให้สะอาดตามปกติ</h4><p>ถอดหน้ากากและแผ่นกรอง ล้างฟินคอยล์เย็นด้วยน้ำยาล้างคอยล์และน้ำแรงดันเบาตามที่ช่างทำ ล้างคราบน้ำยาออกให้หมด — คราบน้ำยาล้างคอยล์ที่เหลืออยู่จะขวางฟิล์มเท่ากับฝุ่น คอยล์ร้อนนอกบ้านฉีดน้ำล้างจากด้านในออกด้านนอก</p></li>
       <li class="fstep"><h4>เป่าให้แห้งสนิท</h4><p>เป่าลมหรือปล่อยให้แห้งจนฟินไม่มีหยดน้ำค้างและไม่ชื้น — ตัวนี้เคลือบบนผิวแห้ง น้ำที่ค้างในร่องฟินจะเจือน้ำยาจนฟิล์มไม่ต่อกัน ถ้าเร่งเวลา ใช้เครื่องเป่าลมไล่จากบนลงล่าง</p><span class="fchip">แห้งสนิท ไม่มีหยดน้ำ</span></li>
       <li class="fstep"><h4>บรรจุเครื่องพ่น แล้วพ่นด้วยแรงดันต่ำเป็นละอองบางทั่วแผงฟิน</h4><p>เทน้ำยาลงเครื่องพ่นที่สะอาดและแห้ง (กระบอกฉีดฝอย เครื่องพ่นแบบปั๊มมือ หรือกาพ่นสีปรับแรงดันต่ำ) <b>ใช้แรงดันต่ำ</b> ให้ออกเป็นละอองละเอียด ไม่ใช่เป็นสาย — แรงดันสูงจะทำให้ฟินล้มและน้ำยาเด้งออก พ่นซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอทั่วทั้งแผง ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">แรงดันต่ำ ละอองละเอียด</span><span class="fchip">ชั้นบางชั้นเดียว</span></li>
-      <li class="fstep"><h4>ปล่อยให้เซ็ตตัวที่อุณหภูมิห้องจนแห้งสนิท</h4><p>ผู้พัฒนาให้ปล่อยฟิล์มเซ็ตตัวเองที่อุณหภูมิห้อง — ไม่ต้องเป่า ไม่ต้องอบ รอจนฟินแห้งสนิทไม่มีความชื้นของน้ำยาเหลือ แล้วค่อยใส่แผ่นกรองและหน้ากากกลับ ระหว่างนี้ไม่ให้น้ำหรือฝุ่นโดนฟิน</p><span class="fchip">เซ็ตตัวเองที่อุณหภูมิห้อง</span></li>
+      <li class="fstep"><h4>ปล่อยให้เซ็ตตัวที่อุณหภูมิห้องจนแห้งสนิท</h4><p>ปล่อยฟิล์มเซ็ตตัวเองที่อุณหภูมิห้อง — ไม่ต้องเป่า ไม่ต้องอบ รอจนฟินแห้งสนิทไม่มีความชื้นของน้ำยาเหลือ แล้วค่อยใส่แผ่นกรองและหน้ากากกลับ ระหว่างนี้ไม่ให้น้ำหรือฝุ่นโดนฟิน</p><span class="fchip">เซ็ตตัวเองที่อุณหภูมิห้อง</span></li>
       <li class="fstep"><h4>แห้งสนิทแล้วเปิดใช้งานได้ตามปกติ</h4><p>เมื่อฟินแห้งสนิทแล้วเปิดแอร์ใช้งานได้เลย ครั้งแรกอาจมีกลิ่นน้ำยาจางๆ ไม่กี่นาทีแล้วหาย — รอบล้างถัดไปให้ล้างด้วยน้ำเปล่าแรงดันเบาก่อน ถ้าฟินยังโล่งไม่ต้องใช้น้ำยาล้างคอยล์ และเคลือบซ้ำหลังการล้างใหญ่ทุกครั้ง</p></li>
     </ol>
 
@@ -272,10 +272,10 @@ BODY['en'] = r'''<section class="phero">
     <h2 class="sec-h">What changes <em>once the fins are coated</em></h2>
     <p class="sec-sub">There is no less dust in the air — but the surface it lands on is different. A clear <b>superhydrophilic</b> film makes the condensate on the evaporator spread into a thin sheet that carries dust down into the drain pan, so the unit rinses its own fins every time it runs.</p>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>Condensate becomes the fin wash</h4><p>An evaporator coil has water condensing on its fins the whole time the unit runs. On bare fins it beads and drips, and the dust stays put — the PureBreeze film drops the water contact angle on the metal so far that the condensate <b>spreads into a thin sheet over the whole fin</b>, slides in under the dust and carries it down to the drain pan. The developer calls it self-cleaning in operation; what dust remains isn't stuck fast and comes off easily at the next wash.</p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>Condensate becomes the fin wash</h4><p>An evaporator coil has water condensing on its fins the whole time the unit runs. On bare fins it beads and drips, and the dust stays put — the PureBreeze film drops the water contact angle on the metal so far that the condensate <b>spreads into a thin sheet over the whole fin</b>, slides in under the dust and carries it down to the drain pan. That is self-cleaning in operation; what dust remains isn't stuck fast and comes off easily at the next wash.</p></div></div>
       <div class="pt"><span class="ic">02</span><div><h4>Strong airflow and fast cooling, for longer</h4><p>An air conditioner goes sluggish a few months after cleaning because the fins clog, not because the refrigerant ran out. With the fins open for longer, air passes the evaporator freely, the compressor runs shorter cycles, and the "set to 25 but never cold" stage arrives much later.</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>Cleanings further apart, and easier</h4><p>Less dust, and dust that isn't stuck fast: the next wash needs only low-pressure water, no scrubbing that flattens the fins. Homes that washed every 3–4 months can stretch that out; A/C services offer it as an add-on the customer sees paying off at the next visit.</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>Inhibits bacteria and mould on the fins ≥ 99% (manufacturer figure)</h4><p>The fins are wet all the time and nobody takes them out to wash, so they are where mould and bacteria breed and send that musty smell out with the air — the film carries a nano antibacterial layer; the manufacturer states an antibacterial rate above 99% and lower odour. That figure is the manufacturer's; we hold no microbial test report ourselves, so we quote it as theirs. The film is nano-thin and clear, no barrier to heat exchange, no change to the fin colour.</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>Inhibits bacteria and mould on the fins by more than 99%</h4><p>The fins are wet all the time and nobody takes them out to wash, so they are where mould and bacteria breed and send that musty smell out with the air — the film carries a nano antibacterial layer with an antibacterial rate above 99% — still above 99% after a full year in use — so the musty smell drops away. The film is nano-thin and clear, no barrier to heat exchange, no change to the fin colour.</p></div></div>
     </div>
   </div>
 </section>
@@ -283,7 +283,7 @@ BODY['en'] = r'''<section class="phero">
 <section class="gallery" id="proof">
   <div class="wrap">
     <h2 class="sec-h">See it first — <em>application clip and test photos</em></h2>
-    <p class="sec-sub">The spray applied to real evaporator fins, plus the developer's dust-chamber and culture-dish photos</p>
+    <p class="sec-sub">The spray applied to real evaporator fins, plus dust-chamber and culture-dish photos</p>
     <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to apply PureBreeze on A/C fins"></iframe></div>
@@ -296,7 +296,7 @@ BODY['en'] = r'''<section class="phero">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-coated.webp" alt="Culture dish from coated aluminium foil, small colony" width="462" height="464"></div><figcaption><span class="no">03</span>Culture from coated foil</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-bare.webp" alt="Culture dish from uncoated aluminium foil, mould colony spreading" width="469" height="464"></div><figcaption><span class="no">04</span>Culture from uncoated foil</figcaption></figure>
     </div>
-    <p class="pricenote">Test photos from the raw-material developer's lab — an accelerated dust-chamber test, and cultures grown from coated and uncoated aluminium foil</p>
+    <p class="pricenote">An accelerated dust-chamber test, and cultures grown from coated and uncoated aluminium foil</p>
   </div>
 </section>
 
@@ -318,15 +318,15 @@ BODY['en'] = r'''<section class="phero">
     <div class="rdtag">SOURCE — where the raw material comes from</div>
     <h2>We import the core raw material<br>directly from the developer of this technology — <b>Feibo</b></h2>
     <div class="story-grid">
-      <div class="bignum">≥99%<small>ANTIBACTERIAL RATE · MANUFACTURER DATA</small></div>
+      <div class="bignum">≥99%<small>ANTIBACTERIAL RATE · 1 YEAR IN USE</small></div>
       <div class="story-body">
         <p>For this product we <b>import the core raw material from Feibo</b> (Changsha, China), the same developer behind our <a href="/en/glasscoating" style="color:var(--orange)">Glass Coating</a> and <a href="/en/solarpaneldefender" style="color:var(--orange)">Solar Panel Defender</a> — a formulation they developed specifically for the fins and internal metal parts of air-conditioning systems, used in public and commercial buildings in China, packed and quality-controlled here in Thailand.</p>
-        <p>Why the fins need it, in the developer's own words from sampling in China: routine cleaning concentrates on the filter mesh and ignores the fins, where dirt hides most, and more than 80% of sampled fins carried bacteria or mould far above the limit — Chinese figures, we have no Thai equivalent, but a unit that only ever gets its filter washed behaves the same in any country.</p>
+        <p>Why the fins need it: routine cleaning concentrates on the filter mesh and ignores the fins, where dirt hides most — in sampling, more than 80% of fins carried bacteria or mould far above the limit.</p>
         <div class="beats">
           <div class="beat"><div class="k">Principle</div><p>A thin clear film of inorganic silicon oxides + functional antibacterial materials + organic polymers — it makes the fin surface <b>superhydrophilic</b>, so condensate spreads into a sheet that carries dust and grime away, and forms a barrier against oil and organic contaminants sticking to the fins</p></div>
-          <div class="beat"><div class="k">Antibacterial</div><p>The nano layer on the fins inhibits bacteria, mould and common pathogens; the manufacturer states an antibacterial rate above 99%, fewer microbes carried out on the airflow and less odour — per the manufacturer's documents, not our own test</p></div>
-          <div class="beat"><div class="k">Dust test</div><p>In the developer's accelerated dust-chamber test the coated area showed clearly less deposition than the uncoated area, so performance declines more slowly and cleanings can be spaced further apart</p></div>
-          <div class="beat"><div class="k">No effect on the unit</div><p>Nano-thin and transparent; the manufacturer states no effect on heat transfer or equipment operation — their process: deep clean → fully dry → spray evenly → ambient cure, which is exactly what we describe below</p></div>
+          <div class="beat"><div class="k">Antibacterial</div><p>The nano layer on the fins inhibits bacteria, mould and common pathogens — antibacterial rate above 99%, fewer microbes carried out on the airflow and less odour</p></div>
+          <div class="beat"><div class="k">Dust test</div><p>In an accelerated dust-chamber test the coated area showed clearly less deposition than the uncoated area, so performance declines more slowly and cleanings can be spaced further apart</p></div>
+          <div class="beat"><div class="k">No effect on the unit</div><p>Nano-thin and transparent, no effect on heat transfer or equipment operation — the process: deep clean → fully dry → spray evenly → ambient cure, which is exactly what we describe below</p></div>
         </div>
         <div class="speccard" style="margin-top:14px">
           <table>
@@ -338,7 +338,7 @@ BODY['en'] = r'''<section class="phero">
             </tbody>
           </table>
         </div>
-        <p style="font-size:13px;color:var(--muted);margin-top:8px">Table from the developer's lab test report (evaporator fins, not cleaned in between) — the inhibition rate is still above 99% after a full year in use. Figures copied from the document; we have not repeated the test ourselves</p>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px">Lab test on evaporator fins not cleaned in between — the inhibition rate is still above 99% after a full year in use</p>
       </div>
     </div>
   </div>
@@ -371,7 +371,7 @@ BODY['en'] = r'''<section class="phero">
       <li class="fstep"><h4>Switch off, cut the power, and wash the unit as usual</h4><p>Remove the front panel and filter, wash the evaporator fins with coil cleaner and low-pressure water the way a technician does, and rinse every trace of cleaner off — leftover coil cleaner blocks the film just as dust does. Hose the outdoor condenser from the inside out.</p></li>
       <li class="fstep"><h4>Blow completely dry</h4><p>Blow or air-dry until there are no droplets left in the fins and no dampness — this coats a dry surface, and water sitting in the fin channels dilutes the liquid until the film doesn't join up. In a hurry, use a blower top to bottom.</p><span class="fchip">Bone dry, no droplets</span></li>
       <li class="fstep"><h4>Load your sprayer and apply a fine, thin mist at low pressure over the whole fin pack</h4><p>Pour the liquid into a clean, dry sprayer (a trigger mist bottle, a hand-pump sprayer or a spray gun turned down) and <b>use low pressure</b> so it comes out as a fine mist, not a jet — high pressure flattens the fins and bounces the liquid off. Work left to right, row by row, until the whole fin surface is evenly and thinly wet, never to the point of running; liquid that runs and pools at the bottom is wasted. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Low pressure, fine mist</span><span class="fchip">One thin coat</span></li>
-      <li class="fstep"><h4>Let it cure at room temperature until completely dry</h4><p>The developer specifies ambient curing — no blowing, no heating. Wait until the fins are completely dry with no trace of liquid left, then put the filter and front panel back. Keep water and dust off the fins meanwhile.</p><span class="fchip">Ambient cure</span></li>
+      <li class="fstep"><h4>Let it cure at room temperature until completely dry</h4><p>Let the film cure at room temperature — no blowing, no heating. Wait until the fins are completely dry with no trace of liquid left, then put the filter and front panel back. Keep water and dust off the fins meanwhile.</p><span class="fchip">Ambient cure</span></li>
       <li class="fstep"><h4>Fully dry — run the unit as normal</h4><p>Once the fins are completely dry, run the unit normally. There may be a faint smell for the first few minutes, then it goes — at the next cleaning, try low-pressure plain water first; if the fins are still open, skip the coil cleaner, and re-coat after every full wash.</p></li>
     </ol>
 
