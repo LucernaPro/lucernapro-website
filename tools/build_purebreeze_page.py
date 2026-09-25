@@ -5,7 +5,7 @@ build_purebreeze_page.py — สร้าง /purebreeze และ /en/purebreez
 
 PureBreeze — น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ป้องกันฝุ่นเกาะสะสม
 ย้ายมาจากหน้า Wix เดิม (lekvtwin.wixsite.com/lucerna/purebreeze) — Pist 25 ก.ย. 2026 "ไปเอาข้อมูลมาลงก่อน สร้างหน้าใหม่เลย"
-อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต)
+อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต) · Pist 25 ก.ย. 2026 "เอาตามของเขาเลย" → ขั้นตอนใช้ตาม Feibo (ล้างลึก → แห้ง → พ่น → เซ็ตตัวที่อุณหภูมิห้อง ไม่มีตัวเลขเวลา/ระยะพ่นที่เราแต่งเอง) · ตารางแบคทีเรีย 1 สัปดาห์–1 ปี และรูปทดสอบ (crop จากสไลด์ของ Feibo ตัดตัวหนังสือจีนออก: img/purebreeze-dust1/3, -petri-coated/-bare) จากหน้าเดียวกัน
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
 hero/การ์ด = ภาพ placeholder ที่ Claude ทำ (img/purebreeze-hero-sq.webp / -card.webp) — Pist ไม่เอารูป Wix เดิม
@@ -97,14 +97,21 @@ BODY['th'] = r'''<section class="phero">
 
 <section class="gallery" id="proof">
   <div class="wrap">
-    <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปวิธีใช้</em></h2>
-    <p class="sec-sub">พ่นบนแผงฟินคอยล์เย็นจริง หลังล้างและเป่าแห้งแล้ว</p>
+    <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปวิธีใช้และภาพทดสอบ</em></h2>
+    <p class="sec-sub">คลิปพ่นบนแผงฟินคอยล์เย็นจริง และภาพจากห้องทดสอบฝุ่นกับจานเพาะเชื้อของผู้พัฒนา</p>
     <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="วิธีใช้ PureBreeze บนแผงฟินแอร์"></iframe></div>
         <figcaption>วิธีใช้ — พ่นบนแผงฟินคอยล์เย็นหลังล้างและเป่าแห้งแล้ว</figcaption>
       </figure>
     </div>
+    <div class="ggrid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:18px">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-dust1.webp" alt="คอยล์เย็นในห้องทดสอบฝุ่น — ครึ่งบนเคลือบยังโล่ง ครึ่งล่างไม่เคลือบมีฝุ่นเกาะหนา" width="407" height="444"></div><figcaption><span class="no">01</span>ห้องทดสอบฝุ่น — ครึ่งบนเคลือบ ครึ่งล่างไม่เคลือบ</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-dust3.webp" alt="แผงฟินในห้องทดสอบฝุ่น — ฝั่งซ้ายไม่เคลือบเป็นสีน้ำตาลจากฝุ่น ฝั่งขวาเคลือบยังเป็นสีโลหะ" width="422" height="480"></div><figcaption><span class="no">02</span>แผงฟินเดียวกัน — ซ้ายไม่เคลือบ ขวาเคลือบ</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-coated.webp" alt="จานเพาะเชื้อจากฟอยล์อะลูมิเนียมที่เคลือบ มีโคโลนีเล็ก" width="462" height="464"></div><figcaption><span class="no">03</span>เพาะเชื้อจากฟอยล์ที่เคลือบ</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-bare.webp" alt="จานเพาะเชื้อจากฟอยล์อะลูมิเนียมที่ไม่เคลือบ มีเชื้อราขึ้นเป็นกลุ่ม" width="469" height="464"></div><figcaption><span class="no">04</span>เพาะเชื้อจากฟอยล์ที่ไม่เคลือบ</figcaption></figure>
+    </div>
+    <p class="pricenote">ภาพทดสอบจากห้องแล็บของผู้พัฒนาวัตถุดิบ — การทดสอบเร่งสภาพในห้องฝุ่น และการเพาะเชื้อจากฟอยล์อะลูมิเนียมที่เคลือบกับไม่เคลือบ</p>
   </div>
 </section>
 
@@ -136,6 +143,17 @@ BODY['th'] = r'''<section class="phero">
           <div class="beat"><div class="k">ผลทดสอบฝุ่น</div><p>ในการทดสอบเร่งสภาพในห้องฝุ่นของผู้พัฒนา พื้นที่ที่เคลือบมีฝุ่นเกาะน้อยกว่าพื้นที่ไม่เคลือบอย่างเห็นได้ชัด ประสิทธิภาพเครื่องจึงตกช้าลงและล้างห่างขึ้น</p></div>
           <div class="beat"><div class="k">ไม่รบกวนเครื่อง</div><p>ฟิล์มบางระดับนาโนและใส ผู้ผลิตระบุว่าไม่มีผลต่อการถ่ายเทความร้อนและการทำงานของเครื่อง — ขั้นตอนของเขา: ล้างลึก → แห้งสนิท → พ่นบางสม่ำเสมอ → ปล่อยให้เซ็ตตัวที่อุณหภูมิห้อง ตรงกับที่เราเขียนไว้ด้านล่าง</p></div>
         </div>
+        <div class="speccard" style="margin-top:14px">
+          <table>
+            <thead><tr><th>จำนวนแบคทีเรียบนฟิน (ต่อ mL)</th><th>ใช้ 1 สัปดาห์</th><th>1 เดือน</th><th>ครึ่งปี</th><th>1 ปี</th></tr></thead>
+            <tbody>
+              <tr><td>ก่อนล้าง</td><td>5.83 × 10⁶</td><td>1.19 × 10⁷</td><td>1.46 × 10⁷</td><td>2.06 × 10⁷</td></tr>
+              <tr><td>30 นาทีหลังล้าง</td><td>381</td><td>1,560</td><td>3,578</td><td>9,360</td></tr>
+              <tr><td>หลังพ่นเคลือบ — อัตรายับยั้ง</td><td>&gt; 99.91%</td><td>&gt; 99.85%</td><td>&gt; 99.52%</td><td>&gt; 99.13%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px">ตารางจากรายงานทดสอบในห้องแล็บของผู้พัฒนา (ฟินคอยล์เย็นแอร์ ไม่ล้างต่อเนื่อง) — อัตรายับยั้งยังเกิน 99% หลังใช้ครบ 1 ปี เราคัดลอกตัวเลขมาตามเอกสาร ไม่ได้ทดสอบซ้ำเอง</p>
       </div>
     </div>
   </div>
@@ -167,9 +185,9 @@ BODY['th'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>ปิดเครื่อง ตัดไฟ แล้วล้างแอร์ให้สะอาดตามปกติ</h4><p>ถอดหน้ากากและแผ่นกรอง ล้างฟินคอยล์เย็นด้วยน้ำยาล้างคอยล์และน้ำแรงดันเบาตามที่ช่างทำ ล้างคราบน้ำยาออกให้หมด — คราบน้ำยาล้างคอยล์ที่เหลืออยู่จะขวางฟิล์มเท่ากับฝุ่น คอยล์ร้อนนอกบ้านฉีดน้ำล้างจากด้านในออกด้านนอก</p></li>
       <li class="fstep"><h4>เป่าให้แห้งสนิท</h4><p>เป่าลมหรือปล่อยให้แห้งจนฟินไม่มีหยดน้ำค้างและไม่ชื้น — ตัวนี้เคลือบบนผิวแห้ง น้ำที่ค้างในร่องฟินจะเจือน้ำยาจนฟิล์มไม่ต่อกัน ถ้าเร่งเวลา ใช้เครื่องเป่าลมไล่จากบนลงล่าง</p><span class="fchip">แห้งสนิท ไม่มีหยดน้ำ</span></li>
-      <li class="fstep"><h4>บรรจุเครื่องพ่น แล้วพ่นด้วยแรงดันต่ำเป็นละอองบางทั่วแผงฟิน</h4><p>เทน้ำยาลงเครื่องพ่นที่สะอาดและแห้ง (กระบอกฉีดฝอย เครื่องพ่นแบบปั๊มมือ หรือกาพ่นสีปรับแรงดันต่ำ) <b>ใช้แรงดันต่ำ</b> ให้ออกเป็นละอองละเอียด ไม่ใช่เป็นสาย — แรงดันสูงจะทำให้ฟินล้มและน้ำยาเด้งออก พ่นห่างราว 15–20 ซม. ซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอ ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">แรงดันต่ำ ละอองละเอียด</span><span class="fchip">ชั้นบางชั้นเดียว</span><span class="fchip">ห่าง 15–20 ซม.</span></li>
-      <li class="fstep"><h4>รอให้ผิวแห้งก่อนประกอบเครื่อง</h4><p>ปล่อยให้ฟิล์มเซ็ตตัวบนฟินอย่างน้อย <b>30 นาที</b> ก่อนใส่แผ่นกรองและหน้ากากกลับ ระหว่างนี้ไม่ให้น้ำหรือฝุ่นโดนฟิน</p><span class="fchip">เซ็ตตัว 30 นาที</span></li>
-      <li class="fstep"><h4>เปิดใช้งานได้หลัง 1 ชั่วโมง</h4><p>หลังฟิล์มแห้งครบ <b>1 ชั่วโมง</b> เปิดแอร์ใช้งานได้ตามปกติ ครั้งแรกอาจมีกลิ่นน้ำยาจางๆ ไม่กี่นาทีแล้วหาย — รอบล้างถัดไปให้ล้างด้วยน้ำเปล่าแรงดันเบาก่อน ถ้าฟินยังโล่งไม่ต้องใช้น้ำยาล้างคอยล์ และเคลือบซ้ำหลังการล้างใหญ่ทุกครั้ง</p></li>
+      <li class="fstep"><h4>บรรจุเครื่องพ่น แล้วพ่นด้วยแรงดันต่ำเป็นละอองบางทั่วแผงฟิน</h4><p>เทน้ำยาลงเครื่องพ่นที่สะอาดและแห้ง (กระบอกฉีดฝอย เครื่องพ่นแบบปั๊มมือ หรือกาพ่นสีปรับแรงดันต่ำ) <b>ใช้แรงดันต่ำ</b> ให้ออกเป็นละอองละเอียด ไม่ใช่เป็นสาย — แรงดันสูงจะทำให้ฟินล้มและน้ำยาเด้งออก พ่นซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอทั่วทั้งแผง ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">แรงดันต่ำ ละอองละเอียด</span><span class="fchip">ชั้นบางชั้นเดียว</span></li>
+      <li class="fstep"><h4>ปล่อยให้เซ็ตตัวที่อุณหภูมิห้องจนแห้งสนิท</h4><p>ผู้พัฒนาให้ปล่อยฟิล์มเซ็ตตัวเองที่อุณหภูมิห้อง — ไม่ต้องเป่า ไม่ต้องอบ รอจนฟินแห้งสนิทไม่มีความชื้นของน้ำยาเหลือ แล้วค่อยใส่แผ่นกรองและหน้ากากกลับ ระหว่างนี้ไม่ให้น้ำหรือฝุ่นโดนฟิน</p><span class="fchip">เซ็ตตัวเองที่อุณหภูมิห้อง</span></li>
+      <li class="fstep"><h4>แห้งสนิทแล้วเปิดใช้งานได้ตามปกติ</h4><p>เมื่อฟินแห้งสนิทแล้วเปิดแอร์ใช้งานได้เลย ครั้งแรกอาจมีกลิ่นน้ำยาจางๆ ไม่กี่นาทีแล้วหาย — รอบล้างถัดไปให้ล้างด้วยน้ำเปล่าแรงดันเบาก่อน ถ้าฟินยังโล่งไม่ต้องใช้น้ำยาล้างคอยล์ และเคลือบซ้ำหลังการล้างใหญ่ทุกครั้ง</p></li>
     </ol>
 
     <div class="warn"><b>⚠ ความปลอดภัย:</b> พ่นในที่อากาศถ่ายเท สวมถุงมือและแว่นครอบตา ปิดเครื่องและตัดไฟก่อนทำงานทุกครั้ง ไม่พ่นเข้าแผงวงจร มอเตอร์พัดลม และเซ็นเซอร์ เก็บขวดพ้นมือเด็กและแสงแดดตรง</div>
@@ -264,14 +282,21 @@ BODY['en'] = r'''<section class="phero">
 
 <section class="gallery" id="proof">
   <div class="wrap">
-    <h2 class="sec-h">See it first — <em>application clip</em></h2>
-    <p class="sec-sub">Sprayed onto real evaporator fins after washing and blow-drying</p>
+    <h2 class="sec-h">See it first — <em>application clip and test photos</em></h2>
+    <p class="sec-sub">The spray applied to real evaporator fins, plus the developer's dust-chamber and culture-dish photos</p>
     <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to apply PureBreeze on A/C fins"></iframe></div>
         <figcaption>Application — sprayed onto the evaporator fins after washing and blow-drying</figcaption>
       </figure>
     </div>
+    <div class="ggrid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:18px">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-dust1.webp" alt="Evaporator coil in a dust chamber — coated upper half still clear, uncoated lower half thick with dust" width="407" height="444"></div><figcaption><span class="no">01</span>Dust chamber — upper half coated, lower half uncoated</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-dust3.webp" alt="Fin block in a dust chamber — uncoated left side browned with dust, coated right side still bare metal" width="422" height="480"></div><figcaption><span class="no">02</span>Same fin block — left uncoated, right coated</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-coated.webp" alt="Culture dish from coated aluminium foil, small colony" width="462" height="464"></div><figcaption><span class="no">03</span>Culture from coated foil</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/purebreeze-petri-bare.webp" alt="Culture dish from uncoated aluminium foil, mould colony spreading" width="469" height="464"></div><figcaption><span class="no">04</span>Culture from uncoated foil</figcaption></figure>
+    </div>
+    <p class="pricenote">Test photos from the raw-material developer's lab — an accelerated dust-chamber test, and cultures grown from coated and uncoated aluminium foil</p>
   </div>
 </section>
 
@@ -303,6 +328,17 @@ BODY['en'] = r'''<section class="phero">
           <div class="beat"><div class="k">Dust test</div><p>In the developer's accelerated dust-chamber test the coated area showed clearly less deposition than the uncoated area, so performance declines more slowly and cleanings can be spaced further apart</p></div>
           <div class="beat"><div class="k">No effect on the unit</div><p>Nano-thin and transparent; the manufacturer states no effect on heat transfer or equipment operation — their process: deep clean → fully dry → spray evenly → ambient cure, which is exactly what we describe below</p></div>
         </div>
+        <div class="speccard" style="margin-top:14px">
+          <table>
+            <thead><tr><th>Bacteria on the fins (per mL)</th><th>1 week in use</th><th>1 month</th><th>6 months</th><th>1 year</th></tr></thead>
+            <tbody>
+              <tr><td>Before cleaning</td><td>5.83 × 10⁶</td><td>1.19 × 10⁷</td><td>1.46 × 10⁷</td><td>2.06 × 10⁷</td></tr>
+              <tr><td>30 min after cleaning</td><td>381</td><td>1,560</td><td>3,578</td><td>9,360</td></tr>
+              <tr><td>After coating — inhibition rate</td><td>&gt; 99.91%</td><td>&gt; 99.85%</td><td>&gt; 99.52%</td><td>&gt; 99.13%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px">Table from the developer's lab test report (evaporator fins, not cleaned in between) — the inhibition rate is still above 99% after a full year in use. Figures copied from the document; we have not repeated the test ourselves</p>
       </div>
     </div>
   </div>
@@ -334,9 +370,9 @@ BODY['en'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>Switch off, cut the power, and wash the unit as usual</h4><p>Remove the front panel and filter, wash the evaporator fins with coil cleaner and low-pressure water the way a technician does, and rinse every trace of cleaner off — leftover coil cleaner blocks the film just as dust does. Hose the outdoor condenser from the inside out.</p></li>
       <li class="fstep"><h4>Blow completely dry</h4><p>Blow or air-dry until there are no droplets left in the fins and no dampness — this coats a dry surface, and water sitting in the fin channels dilutes the liquid until the film doesn't join up. In a hurry, use a blower top to bottom.</p><span class="fchip">Bone dry, no droplets</span></li>
-      <li class="fstep"><h4>Load your sprayer and apply a fine, thin mist at low pressure over the whole fin pack</h4><p>Pour the liquid into a clean, dry sprayer (a trigger mist bottle, a hand-pump sprayer or a spray gun turned down) and <b>use low pressure</b> so it comes out as a fine mist, not a jet — high pressure flattens the fins and bounces the liquid off. Hold about 15–20 cm away, left to right, row by row, until the fin surface is evenly and thinly wet, never to the point of running; liquid that runs and pools at the bottom is wasted. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Low pressure, fine mist</span><span class="fchip">One thin coat</span><span class="fchip">15–20 cm away</span></li>
-      <li class="fstep"><h4>Let it set before reassembling</h4><p>Leave the film to set on the fins for at least <b>30 minutes</b> before the filter and front panel go back. Keep water and dust off the fins meanwhile.</p><span class="fchip">Sets in 30 min</span></li>
-      <li class="fstep"><h4>Switch on after 1 hour</h4><p>Once the film has dried for <b>1 hour</b>, run the unit normally. There may be a faint smell for the first few minutes, then it goes — at the next cleaning, try low-pressure plain water first; if the fins are still open, skip the coil cleaner, and re-coat after every full wash.</p></li>
+      <li class="fstep"><h4>Load your sprayer and apply a fine, thin mist at low pressure over the whole fin pack</h4><p>Pour the liquid into a clean, dry sprayer (a trigger mist bottle, a hand-pump sprayer or a spray gun turned down) and <b>use low pressure</b> so it comes out as a fine mist, not a jet — high pressure flattens the fins and bounces the liquid off. Work left to right, row by row, until the whole fin surface is evenly and thinly wet, never to the point of running; liquid that runs and pools at the bottom is wasted. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Low pressure, fine mist</span><span class="fchip">One thin coat</span></li>
+      <li class="fstep"><h4>Let it cure at room temperature until completely dry</h4><p>The developer specifies ambient curing — no blowing, no heating. Wait until the fins are completely dry with no trace of liquid left, then put the filter and front panel back. Keep water and dust off the fins meanwhile.</p><span class="fchip">Ambient cure</span></li>
+      <li class="fstep"><h4>Fully dry — run the unit as normal</h4><p>Once the fins are completely dry, run the unit normally. There may be a faint smell for the first few minutes, then it goes — at the next cleaning, try low-pressure plain water first; if the fins are still open, skip the coil cleaner, and re-coat after every full wash.</p></li>
     </ol>
 
     <div class="warn"><b>⚠ Safety:</b> Spray in a ventilated space, wear gloves and eye protection, and switch off and isolate the power before every job. Do not spray into the control board, fan motor or sensors. Keep the bottle out of reach of children and direct sun.</div>
