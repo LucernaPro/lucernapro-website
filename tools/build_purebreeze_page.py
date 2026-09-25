@@ -5,7 +5,7 @@ build_purebreeze_page.py — สร้าง /purebreeze และ /en/purebreez
 
 PureBreeze — น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ป้องกันฝุ่นเกาะสะสม
 ย้ายมาจากหน้า Wix เดิม (lekvtwin.wixsite.com/lucerna/purebreeze) — Pist 25 ก.ย. 2026 "ไปเอาข้อมูลมาลงก่อน สร้างหน้าใหม่เลย"
-ราคาตามหน้า Wix: สเปรย์ 100 ml 790 (แอร์ 2–3 ตัว) ส่ง 40 · น้ำยาสำหรับเครื่องพ่น 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80
+ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
 hero/การ์ด = ภาพ placeholder ที่ Claude ทำ (img/purebreeze-hero-sq.webp / -card.webp) — Pist ไม่เอารูป Wix เดิม
 วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
@@ -46,20 +46,20 @@ TITLE = {
     'en': 'PureBreeze — Dust-Repellent Nano Coating for Air-Conditioner Coil Fins (Evaporator & Condenser) | LucernaPro',
 }
 DESC = {
-    'th': 'PureBreeze น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ฟิล์มบางใสทำให้ฝุ่นเกาะสะสมยากขึ้น ลมผ่านฟินได้เต็มที่ ยืดรอบล้างแอร์ให้ห่างขึ้น มีแบบขวดสเปรย์พร้อมใช้และแบบน้ำยาสำหรับเครื่องพ่น สำหรับบ้าน ร้านล้างแอร์ โรงแรม ออฟฟิศ',
-    'en': 'PureBreeze — a clear nano coating for the coil fins of air conditioners (evaporator and condenser). A thin clear film makes dust much harder to settle and build up, keeps air flowing through the fins and stretches the time between cleanings. Ready-to-use spray bottle or bulk liquid for spray guns — homes, A/C cleaning services, hotels and offices.',
+    'th': 'PureBreeze น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ฟิล์มบางใสทำให้ฝุ่นเกาะสะสมยากขึ้น ลมผ่านฟินได้เต็มที่ ยืดรอบล้างแอร์ให้ห่างขึ้น น้ำยาสำหรับบรรจุเครื่องพ่น พ่นแรงดันต่ำ สำหรับบ้าน ร้านล้างแอร์ โรงแรม ออฟฟิศ',
+    'en': 'PureBreeze — a clear nano coating for the coil fins of air conditioners (evaporator and condenser). A thin clear film makes dust much harder to settle and build up, keeps air flowing through the fins and stretches the time between cleanings. A liquid for your own low-pressure sprayer — homes, A/C cleaning services, hotels and offices.',
 }
 OGT = {
     'th': 'PureBreeze น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์ — ล้างแอร์ห่างขึ้น',
     'en': 'PureBreeze — Dust-Repellent Nano Coating for A/C Coil Fins',
 }
 OGD = {
-    'th': 'ฟิล์มใสบางบนฟินคอยล์เย็นและคอยล์ร้อน ฝุ่นเกาะสะสมยากขึ้น ลมผ่านเต็มที่ ยืดรอบล้างแอร์ — สเปรย์ 100 ml ทำแอร์ได้ 2–3 ตัว',
-    'en': 'A thin clear film on evaporator and condenser fins — dust struggles to build up, air flows freely, cleanings get further apart. 100 ml spray does 2–3 units.',
+    'th': 'ฟิล์มใสบางบนฟินคอยล์เย็นและคอยล์ร้อน ฝุ่นเกาะสะสมยากขึ้น ลมผ่านเต็มที่ ยืดรอบล้างแอร์ — บรรจุเครื่องพ่นเอง 100 g ทำแอร์ได้ 2–3 ตัว',
+    'en': 'A thin clear film on evaporator and condenser fins — dust struggles to build up, air flows freely, cleanings get further apart. Load your own sprayer; 100 g does 2–3 units.',
 }
 SCHEMA = {
-    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"PureBreeze น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ฟิล์มบางใสทำให้ฝุ่นเกาะสะสมยากขึ้น ยืดรอบล้างแอร์ให้ห่างขึ้น มีแบบสเปรย์พร้อมใช้และแบบน้ำยาสำหรับเครื่องพ่น","image":"https://www.lucernapro.com/img/purebreeze-hero-sq.webp","url":"https://www.lucernapro.com/purebreeze","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"690","highPrice":"5500","offerCount":"4","availability":"https://schema.org/InStock"}}\n</script>',
-    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"PureBreeze — Dust-Repellent Nano Coating for A/C Coil Fins","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Clear nano coating for evaporator and condenser coil fins of air conditioners. A thin clear film makes dust much harder to build up and stretches the time between cleanings. Ready-to-use spray or bulk liquid for spray guns.","image":"https://www.lucernapro.com/img/purebreeze-hero-sq.webp","url":"https://www.lucernapro.com/en/purebreeze","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"690","highPrice":"5500","offerCount":"4","availability":"https://schema.org/InStock"}}\n</script>',
+    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"PureBreeze น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ฟิล์มบางใสทำให้ฝุ่นเกาะสะสมยากขึ้น ยืดรอบล้างแอร์ให้ห่างขึ้น น้ำยาสำหรับบรรจุเครื่องพ่น พ่นแรงดันต่ำ","image":"https://www.lucernapro.com/img/purebreeze-hero-sq.webp","url":"https://www.lucernapro.com/purebreeze","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"690","highPrice":"5500","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"PureBreeze — Dust-Repellent Nano Coating for A/C Coil Fins","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Clear nano coating for evaporator and condenser coil fins of air conditioners. A thin clear film makes dust much harder to build up and stretches the time between cleanings. A liquid for your own low-pressure sprayer.","image":"https://www.lucernapro.com/img/purebreeze-hero-sq.webp","url":"https://www.lucernapro.com/en/purebreeze","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"690","highPrice":"5500","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
 }
 
 BODY = {}
@@ -69,7 +69,7 @@ BODY['th'] = r'''<section class="phero">
     <div>
       <div class="crumb"><span class="dot"></span>Protection <b>· เคลือบปกป้อง</b></div>
       <h1>Pure<span class="o">Breeze</span><br>น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์</h1>
-      <p class="lede">แอร์ที่เพิ่งล้างเสร็จ ลมแรง เย็นเร็ว — แล้วอีกไม่กี่เดือนก็กลับมาอืดเพราะฝุ่นอุดฟินอีกรอบ PureBreeze คือฟิล์มใสบางระดับนาโนที่เคลือบลงบน<b>ฟินคอยล์เย็นและคอยล์ร้อน</b>หลังล้างเสร็จ ทำให้ฝุ่นเกาะสะสมยากขึ้นมาก ลมผ่านฟินได้เต็มที่นานกว่าเดิม รอบล้างแอร์จึงห่างออกไป — มีทั้ง<b>ขวดสเปรย์พร้อมใช้</b>สำหรับบ้าน และ<b>น้ำยาสำหรับเครื่องพ่น</b>สำหรับร้านล้างแอร์</p>
+      <p class="lede">แอร์ที่เพิ่งล้างเสร็จ ลมแรง เย็นเร็ว — แล้วอีกไม่กี่เดือนก็กลับมาอืดเพราะฝุ่นอุดฟินอีกรอบ PureBreeze คือฟิล์มใสบางระดับนาโนที่เคลือบลงบน<b>ฟินคอยล์เย็นและคอยล์ร้อน</b>หลังล้างเสร็จ ทำให้ฝุ่นเกาะสะสมยากขึ้นมาก ลมผ่านฟินได้เต็มที่นานกว่าเดิม รอบล้างแอร์จึงห่างออกไป — เป็นน้ำยาสำหรับ<b>บรรจุเครื่องพ่นเอง พ่นด้วยแรงดันต่ำ</b> ขวดเล็ก 100 g ทำแอร์บ้านได้ 2–3 ตัว</p>
       <div class="hero-cta">
         <a class="btn btn-orange" href="#price">สั่งซื้อ / ดูราคา</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ปรึกษาหน้างานฟรี</a>
@@ -96,13 +96,9 @@ BODY['th'] = r'''<section class="phero">
 
 <section class="gallery" id="proof">
   <div class="wrap">
-    <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปทดสอบและวิธีใช้</em></h2>
-    <p class="sec-sub">คลิปทดสอบเทียบผิวที่เคลือบกับไม่เคลือบ และคลิปวิธีพ่นบนแผงฟินจริง</p>
-    <div class="ggrid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
-      <figure class="packshot" style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/XZUhhF2gLpY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="ทดสอบ PureBreeze — ผิวเคลือบกับไม่เคลือบ"></iframe></div>
-        <figcaption>การทดสอบ — ผิวที่เคลือบ PureBreeze เทียบผิวที่ไม่เคลือบ เมื่อโดนฝุ่นและน้ำ</figcaption>
-      </figure>
+    <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปวิธีใช้</em></h2>
+    <p class="sec-sub">พ่นบนแผงฟินคอยล์เย็นจริง หลังล้างและเป่าแห้งแล้ว</p>
+    <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="วิธีใช้ PureBreeze บนแผงฟินแอร์"></iframe></div>
         <figcaption>วิธีใช้ — พ่นบนแผงฟินคอยล์เย็นหลังล้างและเป่าแห้งแล้ว</figcaption>
@@ -118,7 +114,7 @@ BODY['th'] = r'''<section class="phero">
     <div class="pts">
       <div class="pt"><span class="ic">❄️</span><div><h4>คอยล์เย็น (ในห้อง)</h4><p>ฟินหลังหน้ากากแอร์ที่ฝุ่นในห้องมาเกาะทุกวัน — จุดที่กำหนดว่าลมจะแรงหรืออืด เคลือบหลังล้างเสร็จรอบใหญ่ แล้วรอบถัดไปจะเห็นเองว่าฟินยังโล่ง</p></div></div>
       <div class="pt"><span class="ic">🌡️</span><div><h4>คอยล์ร้อน (คอนเดนซิ่งนอกบ้าน)</h4><p>ฟินนอกบ้านที่โดนฝุ่นถนน ใบไม้ และละอองฝนจนตัน ระบายความร้อนไม่ทัน กินไฟและคอมเพรสเซอร์ร้อน — เคลือบให้ฝุ่นหลุดตามลมและฝน ฉีดน้ำล้างครั้งถัดไปหลุดง่าย</p></div></div>
-      <div class="pt"><span class="ic">🧰</span><div><h4>ร้านล้างแอร์ · ช่างแอร์</h4><p>ใช้แบบน้ำยาใส่เครื่องพ่นเป็นบริการเสริมต่อจากการล้าง — ลูกค้าจ่ายเพิ่มครั้งเดียวแล้วเห็นผลในรอบล้างถัดไป เป็นเหตุผลให้กลับมาใช้ร้านเดิม 1 กก. ทำแอร์ได้ราว 80 ตร.ม. ของพื้นที่ฟิน</p></div></div>
+      <div class="pt"><span class="ic">🧰</span><div><h4>ร้านล้างแอร์ · ช่างแอร์</h4><p>ใส่เครื่องพ่นของร้านเป็นบริการเสริมต่อจากการล้าง — ลูกค้าจ่ายเพิ่มครั้งเดียวแล้วเห็นผลในรอบล้างถัดไป เป็นเหตุผลให้กลับมาใช้ร้านเดิม 1 กก. ทำแอร์ได้ราว 80 ตร.ม. ของพื้นที่ฟิน</p></div></div>
       <div class="pt"><span class="ic">🏨</span><div><h4>โรงแรม · ออฟฟิศ · ร้านอาหาร</h4><p>แอร์หลายสิบตัวที่ต้องจ้างล้างตามรอบ — เคลือบทั้งอาคารรอบเดียวแล้วยืดรอบล้างออกไป ค่าล้างที่ประหยัดได้ต่อปีมากกว่าค่าน้ำยา สั่งจำนวนมากมีราคาโครงการ</p></div></div>
     </div>
   </div>
@@ -127,10 +123,10 @@ BODY['th'] = r'''<section class="phero">
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
-    <p class="sec-sub">สองแบบ เนื้อเดียวกัน — <b>น้ำยา</b>สำหรับใส่เครื่องพ่นสีสำหรับร้านและงานหลายเครื่อง (กรอกพื้นที่ให้ระบบจัดชุดให้ได้) และ<b>ขวดสเปรย์</b>พร้อมใช้สำหรับบ้าน</p>
+    <p class="sec-sub">น้ำยาสำหรับ<b>บรรจุเครื่องพ่นเอง</b> — กรอกพื้นที่ฟินให้ระบบจัดชุดที่ถูกที่สุดให้ได้</p>
     <div class="pricecard">
       <table data-calc="1" data-shipping="40">
-        <thead><tr><th>แบบน้ำยา สำหรับเครื่องพ่น</th><th>พื้นที่ฟินโดยประมาณ</th><th>ราคา</th></tr></thead>
+        <thead><tr><th>ขนาด</th><th>พื้นที่ฟินโดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
           <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 ตร.ม.</td><td class="pr" data-price="690">690.-</td></tr>
           <tr><td class="sz" data-sqm="40">500 g</td><td>≈ 40 ตร.ม.</td><td class="pr" data-price="2990">2,990.-</td></tr>
@@ -139,16 +135,7 @@ BODY['th'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <div style="height:14px"></div>
-    <div class="pricecard">
-      <table>
-        <thead><tr><th>แบบขวดสเปรย์ พร้อมใช้</th><th>ทำแอร์ได้ประมาณ</th><th>ราคา</th></tr></thead>
-        <tbody>
-          <tr><td class="sz">100 ml</td><td>แอร์บ้าน 2–3 ตัว</td><td class="pr">790.-</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="pricenote">ค่าจัดส่ง <b>40 บาท</b> · แอร์บ้านขนาด 9,000–18,000 BTU หนึ่งตัว คอยล์เย็นกับคอยล์ร้อนรวมกันคือพื้นที่ฟินราว 2–4 ตร.ม. — ขวดสเปรย์ 100 ml จึงทำได้ 2–3 ตัว ส่วนน้ำยา 1 กก. ทำได้ราว 20–30 ตัว · ไม่แน่ใจว่าต้องใช้เท่าไหร่ บอกจำนวนแอร์และขนาด BTU มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
+    <p class="pricenote">ค่าจัดส่ง <b>40 บาท</b> · แอร์บ้านขนาด 9,000–18,000 BTU หนึ่งตัว คอยล์เย็นกับคอยล์ร้อนรวมกันคือพื้นที่ฟินราว 2–4 ตร.ม. — ขวด 100 g จึงทำได้ 2–3 ตัว ส่วน 1 กก. ทำได้ราว 20–30 ตัว · ไม่แน่ใจว่าต้องใช้เท่าไหร่ บอกจำนวนแอร์และขนาด BTU มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
   </div>
 </section>
 
@@ -159,7 +146,7 @@ BODY['th'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>ปิดเครื่อง ตัดไฟ แล้วล้างแอร์ให้สะอาดตามปกติ</h4><p>ถอดหน้ากากและแผ่นกรอง ล้างฟินคอยล์เย็นด้วยน้ำยาล้างคอยล์และน้ำแรงดันเบาตามที่ช่างทำ ล้างคราบน้ำยาออกให้หมด — คราบน้ำยาล้างคอยล์ที่เหลืออยู่จะขวางฟิล์มเท่ากับฝุ่น คอยล์ร้อนนอกบ้านฉีดน้ำล้างจากด้านในออกด้านนอก</p></li>
       <li class="fstep"><h4>เป่าให้แห้งสนิท</h4><p>เป่าลมหรือปล่อยให้แห้งจนฟินไม่มีหยดน้ำค้างและไม่ชื้น — ตัวนี้เคลือบบนผิวแห้ง น้ำที่ค้างในร่องฟินจะเจือน้ำยาจนฟิล์มไม่ต่อกัน ถ้าเร่งเวลา ใช้เครื่องเป่าลมไล่จากบนลงล่าง</p><span class="fchip">แห้งสนิท ไม่มีหยดน้ำ</span></li>
-      <li class="fstep"><h4>พ่นเป็นละอองบางทั่วแผงฟิน ห่างราว 15–20 ซม.</h4><p>ขวดสเปรย์: พ่นซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอ ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า เครื่องพ่นสี: ปรับเป็นละอองละเอียด ลงชั้นบางชั้นเดียวเช่นกัน แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">ละอองบาง ชั้นเดียว</span><span class="fchip">ห่าง 15–20 ซม.</span></li>
+      <li class="fstep"><h4>บรรจุเครื่องพ่น แล้วพ่นด้วยแรงดันต่ำเป็นละอองบางทั่วแผงฟิน</h4><p>เทน้ำยาลงเครื่องพ่นที่สะอาดและแห้ง (กระบอกฉีดฝอย เครื่องพ่นแบบปั๊มมือ หรือกาพ่นสีปรับแรงดันต่ำ) <b>ใช้แรงดันต่ำ</b> ให้ออกเป็นละอองละเอียด ไม่ใช่เป็นสาย — แรงดันสูงจะทำให้ฟินล้มและน้ำยาเด้งออก พ่นห่างราว 15–20 ซม. ซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอ ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">แรงดันต่ำ ละอองละเอียด</span><span class="fchip">ชั้นบางชั้นเดียว</span><span class="fchip">ห่าง 15–20 ซม.</span></li>
       <li class="fstep"><h4>รอให้ผิวแห้งก่อนประกอบเครื่อง</h4><p>ปล่อยให้ฟิล์มเซ็ตตัวบนฟินอย่างน้อย <b>30 นาที</b> ก่อนใส่แผ่นกรองและหน้ากากกลับ ระหว่างนี้ไม่ให้น้ำหรือฝุ่นโดนฟิน</p><span class="fchip">เซ็ตตัว 30 นาที</span></li>
       <li class="fstep"><h4>เปิดใช้งานได้หลัง 1 ชั่วโมง</h4><p>หลังฟิล์มแห้งครบ <b>1 ชั่วโมง</b> เปิดแอร์ใช้งานได้ตามปกติ ครั้งแรกอาจมีกลิ่นน้ำยาจางๆ ไม่กี่นาทีแล้วหาย — รอบล้างถัดไปให้ล้างด้วยน้ำเปล่าแรงดันเบาก่อน ถ้าฟินยังโล่งไม่ต้องใช้น้ำยาล้างคอยล์ และเคลือบซ้ำหลังการล้างใหญ่ทุกครั้ง</p></li>
     </ol>
@@ -212,11 +199,9 @@ BODY['th'] = r'''<section class="phero">
   <div class="wrap">
     <h2 class="sec-h">สั่งซื้อ <em>PureBreeze</em></h2>
     <div class="ordercard">
-      <h3>สั่งผ่าน Shopee หรือแชทตรงกับเรา</h3>
-      <div class="sub">แบบขวดสเปรย์สั่งได้ทาง Shopee · แบบน้ำยาสำหรับเครื่องพ่นและงานหลายเครื่องสั่งตรงผ่านแชท บอกจำนวนแอร์และขนาด BTU มาได้เลย ทีมงานคำนวณปริมาณให้ฟรีก่อนสั่ง · <b>โรงแรม ออฟฟิศ ร้านล้างแอร์ มีราคาโครงการ</b></div>
-      <div class="direct-deal">🏷️ สั่งตรงทาง LINE หรือเพจ ราคาถูกกว่าบนแอปสูงสุด 25% — สินค้าตัวเดียวกัน จัดส่งเร็วเหมือนกัน</div>
+      <h3>สั่งตรงผ่านแชท</h3>
+      <div class="sub">บอกจำนวนแอร์และขนาด BTU มาได้เลย ทีมงานคำนวณปริมาณให้ฟรีก่อนสั่ง · <b>โรงแรม ออฟฟิศ ร้านล้างแอร์ มีราคาโครงการ</b></div>
       <div class="shoprow">
-        <a class="shop" href="https://shopee.co.th/product/392415703/28808079817/" target="_blank" rel="noopener">🛒 Shopee</a>
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> แชทเพจ Facebook</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
         <a class="shop" href="tel:0970799547">📞 097-079-9547</a>
@@ -231,7 +216,7 @@ BODY['en'] = r'''<section class="phero">
     <div>
       <div class="crumb"><span class="dot"></span>Protection <b>· Protective Coatings</b></div>
       <h1>Pure<span class="o">Breeze</span><br>Dust-Repellent Coating for A/C Coil Fins</h1>
-      <p class="lede">A freshly cleaned air conditioner blows hard and cools fast — and a few months later it is sluggish again because dust has choked the fins. PureBreeze is a thin, clear nano film applied to the <b>evaporator and condenser fins</b> right after cleaning. Dust finds it much harder to settle and build up, air keeps flowing through the fins for longer, and cleanings get further apart — as a <b>ready-to-use spray bottle</b> for homes, or <b>bulk liquid for a spray gun</b> for A/C cleaning services.</p>
+      <p class="lede">A freshly cleaned air conditioner blows hard and cools fast — and a few months later it is sluggish again because dust has choked the fins. PureBreeze is a thin, clear nano film applied to the <b>evaporator and condenser fins</b> right after cleaning. Dust finds it much harder to settle and build up, air keeps flowing through the fins for longer, and cleanings get further apart — a liquid you <b>load into your own sprayer and apply at low pressure</b>; the 100 g bottle does 2–3 home units.</p>
       <div class="hero-cta">
         <a class="btn btn-orange" href="#price">Order / Prices</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Free advice on chat</a>
@@ -258,13 +243,9 @@ BODY['en'] = r'''<section class="phero">
 
 <section class="gallery" id="proof">
   <div class="wrap">
-    <h2 class="sec-h">See it first — <em>test clip and application clip</em></h2>
-    <p class="sec-sub">A coated-vs-uncoated comparison test, and the spray applied on a real fin pack</p>
-    <div class="ggrid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
-      <figure class="packshot" style="margin:0">
-        <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/XZUhhF2gLpY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze test — coated vs uncoated surface"></iframe></div>
-        <figcaption>The test — a PureBreeze-coated surface against an uncoated one under dust and water</figcaption>
-      </figure>
+    <h2 class="sec-h">See it first — <em>application clip</em></h2>
+    <p class="sec-sub">Sprayed onto real evaporator fins after washing and blow-drying</p>
+    <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to apply PureBreeze on A/C fins"></iframe></div>
         <figcaption>Application — sprayed onto the evaporator fins after washing and blow-drying</figcaption>
@@ -280,7 +261,7 @@ BODY['en'] = r'''<section class="phero">
     <div class="pts">
       <div class="pt"><span class="ic">❄️</span><div><h4>Evaporator coil (indoor)</h4><p>The fins behind the front panel that room dust lands on every day — the part that decides whether the airflow is strong or weak. Coat it after the next full wash and you will see the fins still open at the wash after that.</p></div></div>
       <div class="pt"><span class="ic">🌡️</span><div><h4>Condenser coil (outdoor unit)</h4><p>Outdoor fins choked by road dust, leaves and rain spray shed heat poorly, burn more electricity and run the compressor hot — coated, the dust is carried off by wind and rain, and the next hose-down clears it easily.</p></div></div>
-      <div class="pt"><span class="ic">🧰</span><div><h4>A/C cleaning services · technicians</h4><p>Use the bulk liquid in a spray gun as an add-on after the wash — the customer pays once and sees the difference at the next visit, which is a reason to call the same shop again. 1 kg covers roughly 80 m² of fin area.</p></div></div>
+      <div class="pt"><span class="ic">🧰</span><div><h4>A/C cleaning services · technicians</h4><p>Load the shop sprayer and offer it as an add-on after the wash — the customer pays once and sees the difference at the next visit, which is a reason to call the same shop again. 1 kg covers roughly 80 m² of fin area.</p></div></div>
       <div class="pt"><span class="ic">🏨</span><div><h4>Hotels · offices · restaurants</h4><p>Dozens of units on a contract cleaning cycle — coat the whole building once and push the cycle out; the cleaning saved per year is worth more than the liquid. Project pricing for volume.</p></div></div>
     </div>
   </div>
@@ -289,10 +270,10 @@ BODY['en'] = r'''<section class="phero">
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">Sizes and prices</h2>
-    <p class="sec-sub">Two formats, same liquid — <b>bulk liquid</b> for a spray gun, for services and multi-unit jobs (enter an area and the calculator picks the set), and a <b>ready-to-use spray bottle</b> for homes</p>
+    <p class="sec-sub">Liquid for <b>your own sprayer</b> — enter the fin area and the calculator picks the cheapest set</p>
     <div class="pricecard">
       <table data-calc="1" data-shipping="40">
-        <thead><tr><th>Bulk liquid, for spray gun</th><th>Approx. fin area</th><th>Price</th></tr></thead>
+        <thead><tr><th>Size</th><th>Approx. fin area</th><th>Price</th></tr></thead>
         <tbody>
           <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 m²</td><td class="pr" data-price="690">690.-</td></tr>
           <tr><td class="sz" data-sqm="40">500 g</td><td>≈ 40 m²</td><td class="pr" data-price="2990">2,990.-</td></tr>
@@ -301,16 +282,7 @@ BODY['en'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <div style="height:14px"></div>
-    <div class="pricecard">
-      <table>
-        <thead><tr><th>Spray bottle, ready to use</th><th>Covers about</th><th>Price</th></tr></thead>
-        <tbody>
-          <tr><td class="sz">100 ml</td><td>2–3 home units</td><td class="pr">790.-</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="pricenote">Shipping <b>40 baht</b> · One 9,000–18,000 BTU home unit, evaporator and condenser together, is roughly 2–4 m² of fin area — so the 100 ml spray does 2–3 units and 1 kg of liquid about 20–30 · Not sure how much you need: send the number of units and their BTU on chat and we work it out for you, free, before you order</p>
+    <p class="pricenote">Shipping <b>40 baht</b> · One 9,000–18,000 BTU home unit, evaporator and condenser together, is roughly 2–4 m² of fin area — so the 100 g bottle does 2–3 units and 1 kg about 20–30 · Not sure how much you need: send the number of units and their BTU on chat and we work it out for you, free, before you order</p>
   </div>
 </section>
 
@@ -321,7 +293,7 @@ BODY['en'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>Switch off, cut the power, and wash the unit as usual</h4><p>Remove the front panel and filter, wash the evaporator fins with coil cleaner and low-pressure water the way a technician does, and rinse every trace of cleaner off — leftover coil cleaner blocks the film just as dust does. Hose the outdoor condenser from the inside out.</p></li>
       <li class="fstep"><h4>Blow completely dry</h4><p>Blow or air-dry until there are no droplets left in the fins and no dampness — this coats a dry surface, and water sitting in the fin channels dilutes the liquid until the film doesn't join up. In a hurry, use a blower top to bottom.</p><span class="fchip">Bone dry, no droplets</span></li>
-      <li class="fstep"><h4>Spray a fine, thin mist over the whole fin pack from about 15–20 cm</h4><p>Spray bottle: left to right, row by row, until the fin surface is evenly and thinly wet — never to the point of running; liquid that runs and pools at the bottom is wasted. Spray gun: set to a fine mist and again one thin coat. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Fine mist, one coat</span><span class="fchip">15–20 cm away</span></li>
+      <li class="fstep"><h4>Load your sprayer and apply a fine, thin mist at low pressure over the whole fin pack</h4><p>Pour the liquid into a clean, dry sprayer (a trigger mist bottle, a hand-pump sprayer or a spray gun turned down) and <b>use low pressure</b> so it comes out as a fine mist, not a jet — high pressure flattens the fins and bounces the liquid off. Hold about 15–20 cm away, left to right, row by row, until the fin surface is evenly and thinly wet, never to the point of running; liquid that runs and pools at the bottom is wasted. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Low pressure, fine mist</span><span class="fchip">One thin coat</span><span class="fchip">15–20 cm away</span></li>
       <li class="fstep"><h4>Let it set before reassembling</h4><p>Leave the film to set on the fins for at least <b>30 minutes</b> before the filter and front panel go back. Keep water and dust off the fins meanwhile.</p><span class="fchip">Sets in 30 min</span></li>
       <li class="fstep"><h4>Switch on after 1 hour</h4><p>Once the film has dried for <b>1 hour</b>, run the unit normally. There may be a faint smell for the first few minutes, then it goes — at the next cleaning, try low-pressure plain water first; if the fins are still open, skip the coil cleaner, and re-coat after every full wash.</p></li>
     </ol>
@@ -374,11 +346,9 @@ BODY['en'] = r'''<section class="phero">
   <div class="wrap">
     <h2 class="sec-h">Order <em>PureBreeze</em></h2>
     <div class="ordercard">
-      <h3>Order on Shopee or chat with us directly</h3>
-      <div class="sub">The spray bottle is on Shopee · Bulk liquid for spray guns and multi-unit jobs is ordered directly on chat — tell us the number of units and their BTU and we work out the quantity for you, free, before you order · <b>Project pricing for hotels, offices and A/C services</b></div>
-      <div class="direct-deal">🏷️ Order direct via LINE or Facebook — up to 25% cheaper than on marketplace apps. Same product, same fast delivery.</div>
+      <h3>Order directly on chat</h3>
+      <div class="sub">Tell us the number of units and their BTU and we work out the quantity for you, free, before you order · <b>Project pricing for hotels, offices and A/C services</b></div>
       <div class="shoprow">
-        <a class="shop" href="https://shopee.co.th/product/392415703/28808079817/" target="_blank" rel="noopener">🛒 Shopee</a>
         <a class="shop" href="https://m.me/lucernapro"><span class="fbadge">f</span> Facebook chat</a>
         <a class="shop shop-line" href="https://lin.ee/LpUR3Ld">💬 Line @lucerna</a>
         <a class="shop" href="tel:0970799547">📞 097-079-9547</a>
