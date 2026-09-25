@@ -5,6 +5,7 @@ build_purebreeze_page.py — สร้าง /purebreeze และ /en/purebreez
 
 PureBreeze — น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ป้องกันฝุ่นเกาะสะสม
 ย้ายมาจากหน้า Wix เดิม (lekvtwin.wixsite.com/lucerna/purebreeze) — Pist 25 ก.ย. 2026 "ไปเอาข้อมูลมาลงก่อน สร้างหน้าใหม่เลย"
+อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต)
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
 hero/การ์ด = ภาพ placeholder ที่ Claude ทำ (img/purebreeze-hero-sq.webp / -card.webp) — Pist ไม่เอารูป Wix เดิม
@@ -54,8 +55,8 @@ OGT = {
     'en': 'PureBreeze — Dust-Repellent Nano Coating for A/C Coil Fins',
 }
 OGD = {
-    'th': 'ฟิล์มใสบางบนฟินคอยล์เย็นและคอยล์ร้อน ฝุ่นเกาะสะสมยากขึ้น ลมผ่านเต็มที่ ยืดรอบล้างแอร์ — บรรจุเครื่องพ่นเอง 100 g ทำแอร์ได้ 2–3 ตัว',
-    'en': 'A thin clear film on evaporator and condenser fins — dust struggles to build up, air flows freely, cleanings get further apart. Load your own sprayer; 100 g does 2–3 units.',
+    'th': 'ฟิล์มใสบางบนฟินคอยล์เย็นและคอยล์ร้อน ฝุ่นเกาะสะสมยากขึ้น ลมผ่านเต็มที่ ยืดรอบล้างแอร์ — บรรจุเครื่องพ่นเอง 100 g ทำแอร์ได้ราว 5 ตัว',
+    'en': 'A thin clear film on evaporator and condenser fins — dust struggles to build up, air flows freely, cleanings get further apart. Load your own sprayer; 100 g does about 5 units.',
 }
 SCHEMA = {
     'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"PureBreeze น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์","brand":{"@type":"Brand","name":"LucernaPro"},"description":"น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ฟิล์มบางใสทำให้ฝุ่นเกาะสะสมยากขึ้น ยืดรอบล้างแอร์ให้ห่างขึ้น น้ำยาสำหรับบรรจุเครื่องพ่น พ่นแรงดันต่ำ","image":"https://www.lucernapro.com/img/purebreeze-hero-sq.webp","url":"https://www.lucernapro.com/purebreeze","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"690","highPrice":"5500","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
@@ -69,7 +70,7 @@ BODY['th'] = r'''<section class="phero">
     <div>
       <div class="crumb"><span class="dot"></span>Protection <b>· เคลือบปกป้อง</b></div>
       <h1>Pure<span class="o">Breeze</span><br>น้ำยาเคลือบกันฝุ่นแผงคอยล์แอร์</h1>
-      <p class="lede">แอร์ที่เพิ่งล้างเสร็จ ลมแรง เย็นเร็ว — แล้วอีกไม่กี่เดือนก็กลับมาอืดเพราะฝุ่นอุดฟินอีกรอบ PureBreeze คือฟิล์มใสบางระดับนาโนที่เคลือบลงบน<b>ฟินคอยล์เย็นและคอยล์ร้อน</b>หลังล้างเสร็จ ทำให้ฝุ่นเกาะสะสมยากขึ้นมาก ลมผ่านฟินได้เต็มที่นานกว่าเดิม รอบล้างแอร์จึงห่างออกไป — เป็นน้ำยาสำหรับ<b>บรรจุเครื่องพ่นเอง พ่นด้วยแรงดันต่ำ</b> ขวดเล็ก 100 g ทำแอร์บ้านได้ 2–3 ตัว</p>
+      <p class="lede">แอร์ที่เพิ่งล้างเสร็จ ลมแรง เย็นเร็ว — แล้วอีกไม่กี่เดือนก็กลับมาอืดเพราะฝุ่นอุดฟินอีกรอบ PureBreeze คือฟิล์มใสบางระดับนาโนที่เคลือบลงบน<b>ฟินคอยล์เย็นและคอยล์ร้อน</b>หลังล้างเสร็จ ทำให้ฝุ่นเกาะสะสมยากขึ้นมาก ลมผ่านฟินได้เต็มที่นานกว่าเดิม รอบล้างแอร์จึงห่างออกไป — เป็นน้ำยาสำหรับ<b>บรรจุเครื่องพ่นเอง พ่นด้วยแรงดันต่ำ</b> ขวดเล็ก 100 g ทำแอร์บ้านได้ราว 5 ตัว (พ่นจริงใช้ราว 20 ml ต่อตัว)</p>
       <div class="hero-cta">
         <a class="btn btn-orange" href="#price">สั่งซื้อ / ดูราคา</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>ปรึกษาหน้างานฟรี</a>
@@ -84,12 +85,12 @@ BODY['th'] = r'''<section class="phero">
 <section class="sellpts">
   <div class="wrap">
     <h2 class="sec-h">แอร์ที่เคลือบแล้ว <em>ต่างจากเดิมตรงไหน</em></h2>
-    <p class="sec-sub">ฝุ่นในอากาศไม่ได้ลดลง แต่ผิวฟินที่มันจะเกาะเปลี่ยนไป — ฟิล์มเรียบใสทำให้ฝุ่นที่ปะทะฟินหลุดตามลมแทนที่จะเกาะแล้วสะสมเป็นชั้น</p>
+    <p class="sec-sub">ฝุ่นในอากาศไม่ได้ลดลง แต่ผิวฟินที่มันจะเกาะเปลี่ยนไป — ฟิล์มใสสาย <b>Superhydrophilic</b> ทำให้น้ำที่กลั่นตัวบนคอยล์เย็นแผ่เป็นแผ่นบางแล้วพาฝุ่นไหลลงถาดน้ำทิ้ง แอร์จึงล้างฟินให้ตัวเองทุกครั้งที่ทำงาน</p>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>ฝุ่นเกาะสะสมยากขึ้น</h4><p>ฟินอะลูมิเนียมเปล่ามีผิวหยาบระดับไมครอนที่ฝุ่นเกาะได้ทันที ฝุ่นชั้นแรกเป็นที่เกาะของชั้นถัดไป จนกลายเป็นแผ่นสักหลาดปิดลม — ฟิล์ม PureBreeze ปิดผิวหยาบนั้นไว้ ฝุ่นที่ปะทะไม่มีที่ยึด ส่วนใหญ่หลุดตามลมไปที่แผ่นกรอง ซึ่งล้างง่ายกว่าฟินหลายเท่า</p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>น้ำกลั่นตัวกลายเป็นน้ำล้างฟิน</h4><p>คอยล์เย็นมีน้ำกลั่นตัวบนฟินตลอดเวลาที่แอร์ทำงาน บนฟินเปล่าน้ำเกาะเป็นหยดแล้วหยดลง ฝุ่นอยู่ที่เดิม — ฟิล์ม PureBreeze ลดมุมสัมผัสน้ำบนโลหะลงจนน้ำ<b>แผ่เป็นแผ่นบางคลุมทั้งฟิน</b> แผ่นน้ำนั้นแทรกใต้ฝุ่นแล้วพาไหลลงถาดน้ำทิ้ง — ผู้พัฒนาเรียกว่า self-cleaning ระหว่างทำงาน ฝุ่นที่เหลือเกาะไม่แน่น ล้างครั้งถัดไปหลุดง่าย</p></div></div>
       <div class="pt"><span class="ic">02</span><div><h4>ลมแรง เย็นเร็ว นานกว่าเดิม</h4><p>แอร์อืดหลังล้างไม่กี่เดือนเพราะฟินอุด ไม่ใช่เพราะน้ำยาแอร์หมด — เมื่อฟินโล่งนานขึ้น ลมผ่านคอยล์เย็นได้เต็มที่ คอมเพรสเซอร์ทำงานสั้นลงต่อรอบ อาการ "เปิด 25 แต่ไม่เย็น" มาช้ากว่าเดิมมาก</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>ล้างแอร์ห่างขึ้น ล้างง่ายขึ้น</h4><p>ฝุ่นที่เกาะน้อยและเกาะไม่แน่น ล้างครั้งถัดไปแค่น้ำแรงดันเบาก็หลุด ไม่ต้องขัดฟินจนล้ม — บ้านที่เคยล้างทุก 3–4 เดือนยืดออกไปได้ ร้านล้างแอร์ใช้เป็นบริการเสริมที่ลูกค้าเห็นผลจริงในรอบถัดไป</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>ใส บาง ไม่ขวางการแลกเปลี่ยนความร้อน</h4><p>ฟิล์มบางระดับนาโน ไม่เปลี่ยนสีฟิน ไม่เพิ่มความหนาจนกันความร้อน คอยล์ร้อนนอกบ้านที่โดนฝุ่นถนนและละอองฝนก็เคลือบได้ — ผู้ผลิตระบุคุณสมบัติยับยั้งแบคทีเรียบนผิวฟิล์มด้วย เราเขียนไว้ตามเอกสารผู้ผลิต ไม่ได้ทดสอบเอง</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ยับยั้งแบคทีเรียและราบนฟิน ≥ 99% (ตามผู้ผลิต)</h4><p>ฟินคือจุดที่เปียกชื้นตลอดเวลาและไม่มีใครถอดล้าง จึงเป็นที่เพาะเชื้อราและแบคทีเรียที่ปล่อยกลิ่นอับออกมากับลม — ฟิล์มมีชั้นนาโนยับยั้งเชื้อ ผู้ผลิตระบุอัตรายับยั้งแบคทีเรียมากกว่า 99% และลดกลิ่น ตัวเลขนี้เป็นของผู้ผลิต เรายังไม่มีรายงานทดสอบจุลชีพในมือ จึงเขียนไว้ตามนั้น ฟิล์มใสบางระดับนาโน ไม่ขวางการแลกเปลี่ยนความร้อน ไม่เปลี่ยนสีฟิน</p></div></div>
     </div>
   </div>
 </section>
@@ -120,6 +121,26 @@ BODY['th'] = r'''<section class="phero">
   </div>
 </section>
 
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">SOURCE — วัตถุดิบมาจากไหน</div>
+    <h2>เราเลือกนำเข้าวัตถุดิบหลัก<br>จากผู้พัฒนาเทคโนโลยีนี้<b>โดยตรง — Feibo</b></h2>
+    <div class="story-grid">
+      <div class="bignum">≥99%<small>ANTIBACTERIAL RATE · MANUFACTURER DATA</small></div>
+      <div class="story-body">
+        <p>ตัวนี้เรา<b>นำเข้าวัตถุดิบหลักจาก Feibo</b> (ฉางชา ประเทศจีน) ผู้พัฒนาวัตถุดิบเดียวกับ <a href="/glasscoating" style="color:var(--orange)">Glass Coating</a> และ <a href="/solarpaneldefender" style="color:var(--orange)">Solar Panel Defender</a> ของเรา — เป็นสูตรที่เขาพัฒนาสำหรับฟินและชิ้นส่วนโลหะภายในเครื่องปรับอากาศโดยเฉพาะ ใช้ในอาคารสาธารณะและอาคารพาณิชย์ในจีน แล้วเรามาบรรจุและควบคุมคุณภาพต่อในประเทศไทย</p>
+        <p>เหตุผลที่แอร์ควรได้ฟิล์มนี้ ผู้พัฒนาสรุปจากการสุ่มตรวจในจีน: การล้างแอร์ทั่วไปเน้นแผ่นกรอง แต่ฟินที่ถอดไม่ได้คือที่ที่สิ่งสกปรกซ่อนอยู่มากที่สุด และตัวอย่างฟินกว่า 80% พบแบคทีเรียหรือราสูงกว่าเกณฑ์ — ตัวเลขเป็นของจีน เราไม่มีของไทยเทียบ แต่แอร์ที่ล้างแค่แผ่นกรองก็ทำงานแบบเดียวกันทุกประเทศ</p>
+        <div class="beats">
+          <div class="beat"><div class="k">หลักการ</div><p>ฟิล์มบางใสจากซิลิกอนออกไซด์อนินทรีย์ + สารยับยั้งเชื้อ + พอลิเมอร์อินทรีย์ — ทำผิวฟินเป็น <b>Superhydrophilic</b> น้ำกลั่นตัวแผ่เป็นแผ่นพาฝุ่นและคราบไหลออก และเป็นชั้นกันคราบน้ำมันกับคราบอินทรีย์เกาะฟิน</p></div>
+          <div class="beat"><div class="k">ยับยั้งเชื้อ</div><p>ชั้นนาโนบนฟินยับยั้งแบคทีเรีย รา และเชื้อก่อโรคทั่วไป ผู้ผลิตระบุอัตราการยับยั้งแบคทีเรียมากกว่า 99% ลดเชื้อที่ฟุ้งไปกับลมและลดกลิ่นอับ — ตามเอกสารผู้ผลิต ไม่ใช่ผลทดสอบของเรา</p></div>
+          <div class="beat"><div class="k">ผลทดสอบฝุ่น</div><p>ในการทดสอบเร่งสภาพในห้องฝุ่นของผู้พัฒนา พื้นที่ที่เคลือบมีฝุ่นเกาะน้อยกว่าพื้นที่ไม่เคลือบอย่างเห็นได้ชัด ประสิทธิภาพเครื่องจึงตกช้าลงและล้างห่างขึ้น</p></div>
+          <div class="beat"><div class="k">ไม่รบกวนเครื่อง</div><p>ฟิล์มบางระดับนาโนและใส ผู้ผลิตระบุว่าไม่มีผลต่อการถ่ายเทความร้อนและการทำงานของเครื่อง — ขั้นตอนของเขา: ล้างลึก → แห้งสนิท → พ่นบางสม่ำเสมอ → ปล่อยให้เซ็ตตัวที่อุณหภูมิห้อง ตรงกับที่เราเขียนไว้ด้านล่าง</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
@@ -128,14 +149,14 @@ BODY['th'] = r'''<section class="phero">
       <table data-calc="1" data-shipping="40">
         <thead><tr><th>ขนาด</th><th>พื้นที่ฟินโดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
-          <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 ตร.ม.</td><td class="pr" data-price="690">690.-</td></tr>
-          <tr><td class="sz" data-sqm="40">500 g</td><td>≈ 40 ตร.ม.</td><td class="pr" data-price="2990">2,990.-</td></tr>
-          <tr><td class="sz" data-sqm="80">1 kg</td><td>≈ 80 ตร.ม.</td><td class="pr" data-price="5500">5,500.-</td></tr>
+          <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 ตร.ม. · แอร์บ้านราว 5 ตัว</td><td class="pr" data-price="690">690.-</td></tr>
+          <tr><td class="sz" data-sqm="40">500 g</td><td>≈ 40 ตร.ม. · ราว 25 ตัว</td><td class="pr" data-price="2990">2,990.-</td></tr>
+          <tr><td class="sz" data-sqm="80">1 kg</td><td>≈ 80 ตร.ม. · ราว 50 ตัว</td><td class="pr" data-price="5500">5,500.-</td></tr>
           <tr data-calc="skip"><td class="sz">จำนวนมาก<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">โรงแรม / ออฟฟิศ / ร้านล้างแอร์</small></td><td>หลายเครื่องต่อรอบ</td><td class="pr">ราคาโครงการ — สอบถาม</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote">ค่าจัดส่ง <b>40 บาท</b> · แอร์บ้านขนาด 9,000–18,000 BTU หนึ่งตัว คอยล์เย็นกับคอยล์ร้อนรวมกันคือพื้นที่ฟินราว 2–4 ตร.ม. — ขวด 100 g จึงทำได้ 2–3 ตัว ส่วน 1 กก. ทำได้ราว 20–30 ตัว · ไม่แน่ใจว่าต้องใช้เท่าไหร่ บอกจำนวนแอร์และขนาด BTU มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
+    <p class="pricenote">ค่าจัดส่ง <b>40 บาท</b> · จากที่เราพ่นจริง แอร์บ้านหนึ่งตัวใช้น้ำยาราว <b>20 ml</b> เมื่อพ่นแรงดันต่ำเป็นละอองบาง — ขวด 100 g จึงทำได้ราว 5 ตัว 1 กก. ราว 50 ตัว ตัวเลขนี้เป็นงานพ่นมือ ถ้าพ่นหนาหรือแอร์ตัวใหญ่ใช้มากกว่านี้ · ไม่แน่ใจว่าต้องใช้เท่าไหร่ บอกจำนวนแอร์และขนาด BTU มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
   </div>
 </section>
 
@@ -216,7 +237,7 @@ BODY['en'] = r'''<section class="phero">
     <div>
       <div class="crumb"><span class="dot"></span>Protection <b>· Protective Coatings</b></div>
       <h1>Pure<span class="o">Breeze</span><br>Dust-Repellent Coating for A/C Coil Fins</h1>
-      <p class="lede">A freshly cleaned air conditioner blows hard and cools fast — and a few months later it is sluggish again because dust has choked the fins. PureBreeze is a thin, clear nano film applied to the <b>evaporator and condenser fins</b> right after cleaning. Dust finds it much harder to settle and build up, air keeps flowing through the fins for longer, and cleanings get further apart — a liquid you <b>load into your own sprayer and apply at low pressure</b>; the 100 g bottle does 2–3 home units.</p>
+      <p class="lede">A freshly cleaned air conditioner blows hard and cools fast — and a few months later it is sluggish again because dust has choked the fins. PureBreeze is a thin, clear nano film applied to the <b>evaporator and condenser fins</b> right after cleaning. Dust finds it much harder to settle and build up, air keeps flowing through the fins for longer, and cleanings get further apart — a liquid you <b>load into your own sprayer and apply at low pressure</b>; the 100 g bottle does about 5 home units (about 20 ml each in our own application).</p>
       <div class="hero-cta">
         <a class="btn btn-orange" href="#price">Order / Prices</a>
         <a class="btn btn-fb" href="https://m.me/lucernapro"><span class="fbadge">f</span>Free advice on chat</a>
@@ -231,12 +252,12 @@ BODY['en'] = r'''<section class="phero">
 <section class="sellpts">
   <div class="wrap">
     <h2 class="sec-h">What changes <em>once the fins are coated</em></h2>
-    <p class="sec-sub">There is no less dust in the air — but the surface it lands on is different. A smooth clear film means dust that hits the fins is carried on by the airflow instead of sticking and stacking up in layers.</p>
+    <p class="sec-sub">There is no less dust in the air — but the surface it lands on is different. A clear <b>superhydrophilic</b> film makes the condensate on the evaporator spread into a thin sheet that carries dust down into the drain pan, so the unit rinses its own fins every time it runs.</p>
     <div class="pts">
-      <div class="pt"><span class="ic">01</span><div><h4>Dust struggles to build up</h4><p>Bare aluminium fins have a micron-rough surface that dust grips instantly; the first layer becomes the anchor for the next until the fins wear a felt blanket that blocks the air. The PureBreeze film seals that rough surface, so incoming dust has nothing to hold — most of it moves on to the filter, which is far easier to wash than the fins.</p></div></div>
+      <div class="pt"><span class="ic">01</span><div><h4>Condensate becomes the fin wash</h4><p>An evaporator coil has water condensing on its fins the whole time the unit runs. On bare fins it beads and drips, and the dust stays put — the PureBreeze film drops the water contact angle on the metal so far that the condensate <b>spreads into a thin sheet over the whole fin</b>, slides in under the dust and carries it down to the drain pan. The developer calls it self-cleaning in operation; what dust remains isn't stuck fast and comes off easily at the next wash.</p></div></div>
       <div class="pt"><span class="ic">02</span><div><h4>Strong airflow and fast cooling, for longer</h4><p>An air conditioner goes sluggish a few months after cleaning because the fins clog, not because the refrigerant ran out. With the fins open for longer, air passes the evaporator freely, the compressor runs shorter cycles, and the "set to 25 but never cold" stage arrives much later.</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>Cleanings further apart, and easier</h4><p>Less dust, and dust that isn't stuck fast: the next wash needs only low-pressure water, no scrubbing that flattens the fins. Homes that washed every 3–4 months can stretch that out; A/C services offer it as an add-on the customer sees paying off at the next visit.</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>Clear, thin, no barrier to heat exchange</h4><p>A nano-thin film that does not change the colour of the fins or add thickness that would insulate them. Outdoor condenser fins that take road dust and rain can be coated too — the manufacturer also states an antibacterial property on the film surface; we quote it from the manufacturer's documents and have not tested it ourselves.</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>Inhibits bacteria and mould on the fins ≥ 99% (manufacturer figure)</h4><p>The fins are wet all the time and nobody takes them out to wash, so they are where mould and bacteria breed and send that musty smell out with the air — the film carries a nano antibacterial layer; the manufacturer states an antibacterial rate above 99% and lower odour. That figure is the manufacturer's; we hold no microbial test report ourselves, so we quote it as theirs. The film is nano-thin and clear, no barrier to heat exchange, no change to the fin colour.</p></div></div>
     </div>
   </div>
 </section>
@@ -267,6 +288,26 @@ BODY['en'] = r'''<section class="phero">
   </div>
 </section>
 
+<section class="story">
+  <div class="wrap">
+    <div class="rdtag">SOURCE — where the raw material comes from</div>
+    <h2>We import the core raw material<br>directly from the developer of this technology — <b>Feibo</b></h2>
+    <div class="story-grid">
+      <div class="bignum">≥99%<small>ANTIBACTERIAL RATE · MANUFACTURER DATA</small></div>
+      <div class="story-body">
+        <p>For this product we <b>import the core raw material from Feibo</b> (Changsha, China), the same developer behind our <a href="/en/glasscoating" style="color:var(--orange)">Glass Coating</a> and <a href="/en/solarpaneldefender" style="color:var(--orange)">Solar Panel Defender</a> — a formulation they developed specifically for the fins and internal metal parts of air-conditioning systems, used in public and commercial buildings in China, packed and quality-controlled here in Thailand.</p>
+        <p>Why the fins need it, in the developer's own words from sampling in China: routine cleaning concentrates on the filter mesh and ignores the fins, where dirt hides most, and more than 80% of sampled fins carried bacteria or mould far above the limit — Chinese figures, we have no Thai equivalent, but a unit that only ever gets its filter washed behaves the same in any country.</p>
+        <div class="beats">
+          <div class="beat"><div class="k">Principle</div><p>A thin clear film of inorganic silicon oxides + functional antibacterial materials + organic polymers — it makes the fin surface <b>superhydrophilic</b>, so condensate spreads into a sheet that carries dust and grime away, and forms a barrier against oil and organic contaminants sticking to the fins</p></div>
+          <div class="beat"><div class="k">Antibacterial</div><p>The nano layer on the fins inhibits bacteria, mould and common pathogens; the manufacturer states an antibacterial rate above 99%, fewer microbes carried out on the airflow and less odour — per the manufacturer's documents, not our own test</p></div>
+          <div class="beat"><div class="k">Dust test</div><p>In the developer's accelerated dust-chamber test the coated area showed clearly less deposition than the uncoated area, so performance declines more slowly and cleanings can be spaced further apart</p></div>
+          <div class="beat"><div class="k">No effect on the unit</div><p>Nano-thin and transparent; the manufacturer states no effect on heat transfer or equipment operation — their process: deep clean → fully dry → spray evenly → ambient cure, which is exactly what we describe below</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">Sizes and prices</h2>
@@ -275,14 +316,14 @@ BODY['en'] = r'''<section class="phero">
       <table data-calc="1" data-shipping="40">
         <thead><tr><th>Size</th><th>Approx. fin area</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 m²</td><td class="pr" data-price="690">690.-</td></tr>
-          <tr><td class="sz" data-sqm="40">500 g</td><td>≈ 40 m²</td><td class="pr" data-price="2990">2,990.-</td></tr>
-          <tr><td class="sz" data-sqm="80">1 kg</td><td>≈ 80 m²</td><td class="pr" data-price="5500">5,500.-</td></tr>
+          <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 m² · about 5 home units</td><td class="pr" data-price="690">690.-</td></tr>
+          <tr><td class="sz" data-sqm="40">500 g</td><td>≈ 40 m² · about 25 units</td><td class="pr" data-price="2990">2,990.-</td></tr>
+          <tr><td class="sz" data-sqm="80">1 kg</td><td>≈ 80 m² · about 50 units</td><td class="pr" data-price="5500">5,500.-</td></tr>
           <tr data-calc="skip"><td class="sz">Volume<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">hotels / offices / A/C services</small></td><td>Many units per round</td><td class="pr">Project pricing — ask</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="pricenote">Shipping <b>40 baht</b> · One 9,000–18,000 BTU home unit, evaporator and condenser together, is roughly 2–4 m² of fin area — so the 100 g bottle does 2–3 units and 1 kg about 20–30 · Not sure how much you need: send the number of units and their BTU on chat and we work it out for you, free, before you order</p>
+    <p class="pricenote">Shipping <b>40 baht</b> · From our own application, one home unit takes about <b>20 ml</b> sprayed as a fine low-pressure mist — so a 100 g bottle does about 5 units and 1 kg about 50. That is hand-spraying; a heavy coat or a large unit uses more · Not sure how much you need: send the number of units and their BTU on chat and we work it out for you, free, before you order</p>
   </div>
 </section>
 
