@@ -13,7 +13,7 @@ Lucerna Anchor — กาวรองหลังกระเบื้อง 2 �
   · คำ "Epoxy" ไม่ใช้บนหน้า (ชื่อสินค้าไม่มีคำนี้) — เรียก "เรซิน 2 ส่วนผสม ประเภท Reaction Resin"
 ราคา (เจ้าของเคาะ 26 ก.ย. 2026 "เล่นราคา อยากให้ช่างใช้" — ทุนถึงมือ 220/kg + package 100/200/50): 1 kg 590 ส่ง 70 · 5 kg 1,990 ส่ง 130 · 20 kg 6,500 ส่งตามจริง · section #cost คิดเงินต่อห้อง/ต่อแผ่นให้ช่าง
 ขาย: แชท + Line + โทร ก่อน (8.6-B) — ยังไม่มี listing Shopee/Lazada
-รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น) · anchor-g03 (ฉาบบนผนัง — วิธี B, Pist ส่ง 26 ก.ย.: "ฉาบบนผนัง แล้วเอากระเบื้องที่ใส่ปูนกาวแล้วมาติดทับ")
+รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น) · anchor-step1/step2 (ภาพ Gemini ที่ Pist gen 26 ก.ย.: ปาด Anchor / โปะปูนกาว wet-on-wet — section #howworks) · anchor-g03 (ฉาบบนผนัง — วิธี B, Pist ส่ง 26 ก.ย.: "ฉาบบนผนัง แล้วเอากระเบื้องที่ใส่ปูนกาวแล้วมาติดทับ")
 คลิป: YouTube Shorts O0LgqwvKovU (แนวตั้ง — บันไดกระเบื้องที่ติดด้วยกาวตัวนี้)
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome() — เปลี่ยน --cat เป็นสีหมวด chem
 วิธีใช้: python3 tools/build_anchor_page.py แล้วรัน tools/build_calculator_page.py (ตารางราคามี data-calc)
@@ -37,7 +37,8 @@ def build(lang):
     head = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="%s">' % OGD[lang], head)
     head = head.replace('img/paintcoating-hero-sq.webp', 'img/anchor-hero-sq.webp')
     head = re.sub(r'<script type="application/ld\+json">.*?</script>', SCHEMA[lang], head, flags=re.S)
-    head = head + EXTRA_CSS.replace('id="easyclean-css"', 'id="anchor-css"')
+    head = head + EXTRA_CSS.replace('id="easyclean-css"', 'id="anchor-css"') + '''
+<style id="anchor-steps-css">#howworks .gph .im{aspect-ratio:auto}#howworks .gph img{height:auto;object-fit:contain}#howworks .gph:hover img{transform:none}#howworks .ggrid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}</style>'''
     drawer = drawer.replace('/paintcoating', '/anchor')
     tail = tail.replace('/paintcoating', '/anchor')
     out = head + '</head>\n' + drawer + '\n\n' + BODY[lang] + '\n' + tail
@@ -99,6 +100,18 @@ BODY['th'] = r'''<section class="phero">
       <div class="pt"><span class="ic">03</span><div><h4>ทนน้ำ ทนร้อน และยืดหยุ่น</h4><p>ผ่านทดสอบต้มในน้ำเดือด 100°C และแช่แข็ง −30°C โดยไม่หลุด ฟิล์ม 1 มม. งอได้ 360° ไม่แตก — กระเบื้องแผ่นใหญ่ตากแดดขยายตัวมากกว่าแผ่นเล็ก ชั้นที่ยืดตามได้คือชั้นที่ไม่ร่อน ใช้ได้ทั้งผนังภายนอก ห้องน้ำ และรอบสระ</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>เวลาทำงาน 2 ชั่วโมง ไม่ต้องรีบ</h4><p>เวลาเปิด 120–150 นาทีที่ 23°C ปาดหลังแผ่นทีละหลายแผ่นแล้วค่อยปูก็ทัน (อากาศร้อนของบ้านเราสั้นลง — ผสมทีละเท่าที่ใช้ทันในหนึ่งชั่วโมง) ไม่มีฝุ่นปูน ไม่มีกลิ่นฟอร์มาลดีไฮด์ ผสมด้วยเกรียงในถังได้เลย</p></div></div>
     </div>
+  </div>
+</section>
+
+<section class="gallery" id="howworks">
+  <div class="wrap">
+    <h2 class="sec-h">ทำงานยังไง — <em>2 ชั้น เปียกชนเปียก</em></h2>
+    <p class="sec-sub">ไม่ต้องรอแห้ง ไม่ต้องรองพื้นก่อน — ปาด Anchor แล้วโปะปูนกาวตามได้ทันที สองชั้นแข็งตัวไปพร้อมกันเป็นชั้นเดียว</p>
+    <div class="ggrid" style="margin-top:20px">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-step1.webp" alt="ขั้นที่ 1 — ปาด Lucerna Anchor สีฟ้าอมเขียวบางๆ ด้วยเกรียงเรียบลงบนหลังกระเบื้องที่มีร่องหวีจากโรงงาน" width="1200" height="633"></div><figcaption><span class="no">01</span><b>ปาด Anchor บาง 1 มม. บนหลังแผ่น</b> — ใช้เกรียงเรียบรีดให้เต็มแผ่นถึงขอบ ชั้นนี้เกาะเป็นเนื้อเดียวกับหลังกระเบื้องที่แน่นและเรียบจนปูนกาวธรรมดาจับไม่อยู่</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-step2.webp" alt="ขั้นที่ 2 — โปะปูนกาวสีเทาลงบนชั้น Lucerna Anchor ที่ยังเปียก ด้วยเกรียงตัก" width="1200" height="900"></div><figcaption><span class="no">02</span><b>โปะปูนกาวตามทันที ขณะ Anchor ยังเปียก</b> — ไม่ต้องรอแห้ง ตักปูนกาวลงไปแล้วเกลี่ยด้วยเกรียงหวีเหมือนปูปกติ แล้วยกไปติดผนัง ปูนกาวฝังตัวลงในชั้น Anchor ที่ยังเปียก ทั้งสองชั้นแข็งตัวไปด้วยกัน</figcaption></figure>
+    </div>
+    <p class="pricenote">ทำไมต้องเปียกชนเปียก: ถ้าปล่อยให้ Anchor แห้งก่อน ผิวจะเรียบเป็นฟิล์ม ปูนกาวจะได้แค่วางทับ — โปะขณะยังเปียก ปูนกาวจึงประสานเข้าไปในเนื้อ Anchor และ Anchor ประสานเข้าไปในหลังแผ่น กระเบื้อง → Anchor → ปูนกาว → ผนัง กลายเป็นชั้นเดียวที่ไม่มีรอยต่อให้ร่อน · ทำสลับด้านได้เหมือนกัน: ฉาบ Anchor บนผนัง แล้วเอาแผ่นที่ปาดปูนกาวมาติดทับ</p>
   </div>
 </section>
 
@@ -217,7 +230,7 @@ BODY['th'] = r'''<section class="phero">
       <li class="fstep"><h4>เตรียมผิว — ผนังแข็งแรง แห้ง หลังแผ่นสะอาด</h4><p>ผนังต้องแน่น ไม่มีฝุ่นหรือชั้นสีร่อน กระเบื้องเดิมที่จะปูทับให้ล้างคราบสบู่และคราบมันออก เคาะหาแผ่นกลวงแล้วซ่อมก่อน หลังแผ่นใหม่ให้เช็ดฝุ่นและคราบผงจากโรงงานออกด้วยผ้าหมาด — อยากให้ทนขั้นสุด ล้างหลังแผ่นแล้วเช็ดแห้งก่อนปาด</p><span class="fchip">หลังแผ่นสะอาด แห้ง</span></li>
       <li class="fstep"><h4>ผสม A : B = 1 : 1 โดยน้ำหนัก จนเป็นสีเขียวเดียวทั่วถัง</h4><p>ตักส่วน A และ B น้ำหนักเท่ากันลงถังเดียว กวนด้วยเกรียงหรือหัวปั่นรอบต่ำจน<b>ไม่เหลือริ้วสีขาวหรือฟ้า</b> ทั้งก้นถังและข้างถัง สีเขียวสม่ำเสมอคือสัญญาณว่าผสมเข้ากันแล้ว — ชุดเล็ก 1 กก. ที่เราชั่งมาให้ เทรวมกันทั้งสองกระปุกได้เลย ผสมทีละเท่าที่ปูทันในราวหนึ่งชั่วโมง</p><span class="fchip">1:1 โดยน้ำหนัก</span><span class="fchip">สีเดียวทั่ว ไม่มีริ้ว</span></li>
       <li class="fstep"><h4>ปาด Anchor บาง 1 มม. — เลือกด้านใดด้านหนึ่ง</h4><p><b>วิธี A · ปาดหลังแผ่น:</b> ใช้เกรียงหวีฟันเล็กหรือเกรียงเรียบ ปาดกาวลงหลังกระเบื้องให้เต็มแผ่นถึงขอบ ความหนาราว 1 มม. ทำทีละหลายแผ่นแล้วพิงไว้รอปูได้ภายในเวลาเปิด — เหมาะกับแผ่นใหญ่ที่หลังแผ่นคือตัวปัญหา<br><b>วิธี B · ฉาบบนผนัง:</b> ฉาบ Anchor ลงบนผนังด้วยเกรียงหวีเป็นผืน เหมือนในภาพที่ 03 — เหมาะกับผนังที่ผิวคือตัวปัญหา เช่น ปูทับกระเบื้องเดิม ผนังกันซึม กระจก โลหะ แผ่นไฟเบอร์ซีเมนต์ ฉาบทีละผืนเท่าที่ปูทันในเวลาเปิด ใช้กาวมากกว่าวิธี A ตามความลึกฟันเกรียง · ทั้งสองวิธี ไม่ต้องหนา หนาไปเปลืองและไม่ได้แข็งแรงขึ้น</p><span class="fchip">1 มม. ถึงขอบ</span><span class="fchip">หลังแผ่น หรือ บนผนัง</span></li>
-      <li class="fstep"><h4>อีกด้านใส่ปูนกาว แล้วประกบกันขณะ Anchor ยังเปียก</h4><p>วิธี A: ปาดปูนกาวชนิดสำหรับแผ่นใหญ่บนผนังด้วยเกรียงหวีตามปกติ แล้วยกแผ่นที่ปาด Anchor ไว้กดลงไป · วิธี B: ปาดปูนกาวที่หลังแผ่น แล้วกดแผ่นลงบนผนังที่ฉาบ Anchor ไว้ · ทั้งสองวิธีต้องประกบ<b>ก่อนที่ชั้น Anchor จะแห้งผิว</b> (ภายใน 120–150 นาทีที่ 23°C — กลางแดดหรืออากาศร้อนจัดให้เผื่อสั้นกว่านั้นมาก) กดและเคาะไล่อากาศเหมือนงานปูทั่วไป ปรับระดับได้ตามเวลาเปิดของปูนกาว</p><span class="fchip">wet-on-wet</span><span class="fchip">ภายในเวลาเปิด</span></li>
+      <li class="fstep"><h4>อีกด้านใส่ปูนกาว แล้วประกบกันขณะ Anchor ยังเปียก</h4><p>วิธี A: ปาดปูนกาวชนิดสำหรับแผ่นใหญ่บนผนังด้วยเกรียงหวีตามปกติ แล้วยกแผ่นที่ปาด Anchor ไว้กดลงไป · วิธี B: ปาดปูนกาวที่หลังแผ่น แล้วกดแผ่นลงบนผนังที่ฉาบ Anchor ไว้ · ไม่ต้องรอ Anchor แห้ง — โปะปูนกาวทับได้ทันที และทั้งสองวิธีต้องประกบ<b>ก่อนที่ชั้น Anchor จะแห้งผิว</b> (ภายใน 120–150 นาทีที่ 23°C — กลางแดดหรืออากาศร้อนจัดให้เผื่อสั้นกว่านั้นมาก) กดและเคาะไล่อากาศเหมือนงานปูทั่วไป ปรับระดับได้ตามเวลาเปิดของปูนกาว</p><span class="fchip">wet-on-wet</span><span class="fchip">ภายในเวลาเปิด</span></li>
       <li class="fstep"><h4>ปล่อยให้แข็งตัวตามรอบปูนกาว แล้วยาแนวตามปกติ</h4><p>เวลารอยาแนวและเปิดใช้งานเป็นไปตามข้อกำหนดของปูนกาวที่ใช้ — ชั้น Anchor แข็งตัวไปพร้อมกันโดยไม่ต้องทำอะไรเพิ่ม กาวที่เลอะหน้าแผ่นเช็ดออกทันทีขณะยังเปียก แข็งแล้วต้องขูด · <b>งานติดของชิ้นเล็กโดยตรง:</b> ทาให้เต็มหน้าสัมผัสทั้งสองด้าน กดยึดแล้วค้ำไว้ ทิ้งข้ามคืนก่อนแขวนของ</p></li>
     </ol>
 
@@ -308,6 +321,18 @@ BODY['en'] = r'''<section class="phero">
       <div class="pt"><span class="ic">03</span><div><h4>Water, heat and movement</h4><p>Survives boiling at 100°C and freezing at −30°C without releasing; a 1 mm film bends 360° without cracking. Large slabs in the sun move more than small tiles, and the layer that moves with them is the layer that doesn't let go — exterior walls, bathrooms, pool surrounds.</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>A 2-hour window — no rush</h4><p>Open time of 120–150 minutes at 23°C, so you can skim several tiles ahead and lay them at your pace (Thai heat shortens it — mix what you can lay within an hour). No cement dust, no formaldehyde, mixes with a trowel in the bucket.</p></div></div>
     </div>
+  </div>
+</section>
+
+<section class="gallery" id="howworks">
+  <div class="wrap">
+    <h2 class="sec-h">How it works — <em>two layers, wet on wet</em></h2>
+    <p class="sec-sub">No waiting, no primer — skim Anchor, then put the cement adhesive straight on top. The two layers cure together as one.</p>
+    <div class="ggrid" style="margin-top:20px">
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-step1.webp" alt="Step 1 — a thin teal layer of Lucerna Anchor skimmed with a flat trowel over the factory-ribbed back of a tile" width="1200" height="633"></div><figcaption><span class="no">01</span><b>Skim 1 mm of Anchor on the tile back</b> — a flat trowel, edge to edge. This layer bonds into a tile back so dense and smooth that ordinary cement adhesive cannot grip it.</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-step2.webp" alt="Step 2 — grey cement adhesive dropped from a margin trowel onto the still-wet Lucerna Anchor layer" width="1200" height="900"></div><figcaption><span class="no">02</span><b>Cement adhesive straight on top, while Anchor is still wet</b> — no drying time. Drop the mortar on, comb it out with a notched trowel as usual and lift the tile onto the wall. The mortar keys into the wet Anchor and the two cure together.</figcaption></figure>
+    </div>
+    <p class="pricenote">Why wet on wet: let Anchor dry first and its surface skins into a smooth film the mortar can only sit on. Applied while wet, the mortar keys into the Anchor and the Anchor keys into the tile — tile → Anchor → mortar → wall becomes one layer with no interface left to let go · Works the other way round too: comb Anchor onto the wall and press on tiles spread with cement adhesive.</p>
   </div>
 </section>
 
@@ -426,7 +451,7 @@ BODY['en'] = r'''<section class="phero">
       <li class="fstep"><h4>Prepare — sound, dry wall; clean tile back</h4><p>The wall must be solid with no dust or flaking paint. Old tiles being tiled over get washed free of soap film and grease; tap for hollow ones and fix them first. Wipe factory dust and powder off the back of every new tile with a damp cloth — for maximum durability, wash the backs and dry them before skimming.</p><span class="fchip">Clean, dry tile back</span></li>
       <li class="fstep"><h4>Mix A : B = 1 : 1 by weight to a single green</h4><p>Put equal weights of A and B in one bucket and stir with a trowel or a slow mixer until <b>no white or blue streaks remain</b>, scraping the bottom and sides. One uniform green means it is mixed. Our 1 kg set is pre-weighed — just pour both tubs together. Mix only what you can lay in about an hour.</p><span class="fchip">1:1 by weight</span><span class="fchip">One colour, no streaks</span></li>
       <li class="fstep"><h4>Apply Anchor 1 mm — on one side or the other</h4><p><b>Method A · tile back:</b> with a fine-notched or flat trowel, spread it over the entire back out to the edges, about 1 mm thick; skim several tiles and lean them ready to lay within the open time — best for large slabs where the tile back is the problem.<br><b>Method B · on the wall:</b> comb Anchor over the wall with a notched trowel in sections, as in photo 03 — best where the wall surface is the problem: tile over tile, waterproofed walls, glass, metal, fibre-cement board. Comb only what you can tile within the open time; it uses more than method A depending on notch depth. Either way, thicker is waste, not strength.</p><span class="fchip">1 mm, edge to edge</span><span class="fchip">Tile back or wall</span></li>
-      <li class="fstep"><h4>Cement adhesive on the other side, then press together while Anchor is wet</h4><p>Method A: comb a large-format cement adhesive onto the wall as normal and press the skimmed tile into it. Method B: spread cement adhesive on the tile back and press the tile onto the Anchor-combed wall. Either way, join them <b>before the Anchor layer skins over</b> (within 120–150 minutes at 23°C — in direct sun or serious heat allow much less). Press and tap out air as with any tiling; adjust within the cement adhesive's own open time.</p><span class="fchip">wet-on-wet</span><span class="fchip">Within open time</span></li>
+      <li class="fstep"><h4>Cement adhesive on the other side, then press together while Anchor is wet</h4><p>Method A: comb a large-format cement adhesive onto the wall as normal and press the skimmed tile into it. Method B: spread cement adhesive on the tile back and press the tile onto the Anchor-combed wall. No need to let Anchor dry — the cement adhesive goes straight on top, and either way, join them <b>before the Anchor layer skins over</b> (within 120–150 minutes at 23°C — in direct sun or serious heat allow much less). Press and tap out air as with any tiling; adjust within the cement adhesive's own open time.</p><span class="fchip">wet-on-wet</span><span class="fchip">Within open time</span></li>
       <li class="fstep"><h4>Let it cure on the cement adhesive's schedule, then grout as usual</h4><p>Grouting and walk-on times follow the cement adhesive you used — the Anchor layer cures along with it, nothing extra to do. Wipe adhesive off the tile face immediately while wet; once hard it has to be scraped. · <b>Bonding small fixtures directly:</b> coat the full contact face on both parts, press together, support in place and leave overnight before hanging anything on it.</p></li>
     </ol>
 
