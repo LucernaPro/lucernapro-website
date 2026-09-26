@@ -10,8 +10,9 @@ gen_feed.py — สร้าง /feed.csv (Meta product catalog) + รูปส�
 - ทุกหน้า <slug>/index.html (TH) ที่ไม่ noindex และมี .pricecard ที่เป็นตารางราคาจริง
   (ทุกแถวมี <td class="pr"> — ราคา = pr ตัวแรกของแถว, ค่าส่งไม่นับ; ขนาด = ข้อความก่อน <br>/<small>) → กล่องแรกที่เข้าเกณฑ์เท่านั้น (กล่องเทียบราคา/รองพื้นแยกไม่เอา)
 - ชื่อสินค้า = <h1> บรรทัดแรก · คำอธิบาย = <meta name="description"> · รูป = og:image (สำรอง img/<slug>-hero.webp)
-- 1 แถวราคา = 1 item   id = <slug>-<ขนาดปกติ>   item_group_id = <slug>   link = https://www.lucernapro.com/<slug>
-  → track.js ยิง ViewContent {content_ids:[slug], content_type:'product_group'} ตรงกับ item_group_id นี้
+- 1 สินค้า = 1 item (ไม่แยกขนาด — 26 ก.ย. 2026 แถบสินค้าใต้แอดโชว์ AquaShell 3 ขนาดเป็น 3 การ์ดรูปเดียวกัน)
+  id = <slug>   price = ราคาต่ำสุด ("เริ่มต้น")   ขนาดทั้งหมดใส่ท้าย description   link = https://www.lucernapro.com/<slug>
+  → track.js ยิง ViewContent {content_ids:[slug], content_type:'product'} ตรงกับ id นี้
 
 รูป: Meta ต้องการอย่างน้อย 500×500 และแนะนำสี่เหลี่ยมจัตุรัส → ครอปกลาง 1000×1000 เป็น JPG ที่ img/feed/<slug>.jpg
      (ทำเฉพาะเมื่อไฟล์ต้นทางใหม่กว่า — รันซ้ำได้ไม่เปลืองเวลา)
@@ -29,7 +30,7 @@ IMG_DIR = "img/feed"
 SKIP_DIRS = {'en', 'post', 'casestudy', 'search', 'finder', 'account', 'ship', 'calculator', 'test',
              'notes', 'files', 'img', 'tools'}
 COLS = ['id', 'title', 'description', 'availability', 'condition', 'price', 'link', 'image_link',
-        'brand', 'item_group_id', 'size', 'quantity_to_sell_on_facebook']
+        'brand', 'quantity_to_sell_on_facebook']
 STOCK = 100  # catalog นี้ผูกกับร้านค้าบนเพจ FB บังคับให้มีคอลัมน์สต็อก — ของเราผลิตเองไม่ขาด ใส่ค่าคงที่
 
 
@@ -93,22 +94,20 @@ def items():
         src = og.group(1).replace(DOMAIN, '') if og else f'/img/{slug}-hero.webp'
         src = src.lstrip('/')
         if not os.path.exists(src): continue
-        seen = set()
+        sizes = []
         for tds in cards[0]:
             sz = strip(re.split(r'<br|<small', tds[0][1])[0])
             pr = price_of(next(td[1] for td in tds if 'class="pr"' in td[0]))
-            if not sz or pr is None: continue
-            key = size_key(sz)
-            n = 2
-            while key in seen:
-                key = f'{size_key(sz)}-{n}'; n += 1
-            seen.add(key)
-            out.append(dict(
-                id=f'{slug}-{key}', title=f'{name} {sz}', description=desc[:4999],
-                availability='in stock', condition='new', price=f'{pr}.00 THB',
-                link=f'{DOMAIN}/{slug}', image_link=f'{DOMAIN}/{IMG_DIR}/{slug}.jpg',
-                brand='LucernaPro', item_group_id=slug, size=sz, quantity_to_sell_on_facebook=STOCK,
-                _src=src, _slug=slug))
+            if sz and pr is not None: sizes.append((sz, pr))
+        if not sizes: continue
+        lo = min(pr for _, pr in sizes)
+        tail = ' · '.join(f'{sz} {pr:,}.-' for sz, pr in sizes)
+        d = (desc[:4000] + f' | ขนาดและราคา: {tail}') if len(sizes) > 1 else desc[:4999]
+        out.append(dict(
+            id=slug, title=name, description=d[:4999],
+            availability='in stock', condition='new', price=f'{lo}.00 THB',
+            link=f'{DOMAIN}/{slug}', image_link=f'{DOMAIN}/{IMG_DIR}/{slug}.jpg',
+            brand='LucernaPro', quantity_to_sell_on_facebook=STOCK, _src=src, _slug=slug))
     return out
 
 
@@ -146,5 +145,4 @@ if __name__ == '__main__':
         sys.stdout.write(csv_text(rows)); sys.exit(0)
     n = make_images(rows)
     open(OUT, 'w', encoding='utf-8', newline='').write(csv_text(rows))
-    groups = len({r['_slug'] for r in rows})
-    print(f'feed.csv: {len(rows)} items / {groups} products · รูปใหม่ {n} ไฟล์ใน {IMG_DIR}/')
+    print(f'feed.csv: {len(rows)} products · รูปใหม่ {n} ไฟล์ใน {IMG_DIR}/')

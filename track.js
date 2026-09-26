@@ -1,8 +1,8 @@
 /* LucernaPro Instrumentation v1.4 (2026-09-26)
  * ไฟล์กลางไฟล์เดียวของระบบวัดผลทั้งเว็บ — แก้ ID 4 ตัวข้างล่างที่นี่ที่เดียว มีผลทุกหน้า
  * v1.3: เพิ่ม Facebook Pixel (base + PageView + mirror channel_click + Contact สำหรับ messenger/line)
- * v1.4: Catalog ads — หน้าสินค้า (มี .pricecard) ยิง ViewContent {content_ids:[slug], content_type:'product_group'}
- *       และ Contact แนบ content_ids เดียวกัน → slug ตรงกับ item_group_id ใน /feed.csv (tools/gen_feed.py)
+ * v1.4: Catalog ads — หน้าสินค้า (มี .pricecard) ยิง ViewContent {content_ids:[slug], content_type:'product'}
+ *       และ Contact แนบ content_ids เดียวกัน → slug ตรงกับ id ใน /feed.csv (tools/gen_feed.py, 1 สินค้า = 1 item)
  *       Facebook จึงรู้ว่าคนนี้ดูสินค้าตัวไหน = retargeting รายสินค้าทำงานได้
  * Event schema:
  *   channel_click  {channel: shopee|lazada|messenger|line, product, lang}  ← conversion หลัก (proxy)
@@ -76,7 +76,7 @@
    * ไม่ยิงบนหน้า home/post/เคส — กัน catalog จับคู่ผิด */
   var isProduct = !!document.querySelector('.pricecard table');
   var h1 = document.querySelector('h1');
-  var fbContent = isProduct ? { content_ids: [slug], content_type: 'product_group',
+  var fbContent = isProduct ? { content_ids: [slug], content_type: 'product',
                                 content_name: h1 ? h1.textContent.replace(/\s+/g, ' ').trim().slice(0, 100) : slug }
                             : null;
   if (hasFB && fbContent) fbq('track', 'ViewContent', fbContent);
