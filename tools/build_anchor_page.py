@@ -13,7 +13,7 @@ Lucerna Anchor — กาวรองหลังกระเบื้อง 2 �
   · คำ "Epoxy" ไม่ใช้บนหน้า (ชื่อสินค้าไม่มีคำนี้) — เรียก "เรซิน 2 ส่วนผสม ประเภท Reaction Resin"
 ราคา (เจ้าของเคาะ 26 ก.ย. 2026 "เล่นราคา อยากให้ช่างใช้" — ทุนถึงมือ 220/kg + package 100/200/50): 1 kg 590 ส่ง 70 · 5 kg 1,990 ส่ง 130 · 20 kg 6,500 ส่งตามจริง · section #cost คิดเงินต่อห้อง/ต่อแผ่นให้ช่าง
 ขาย: แชท + Line + โทร ก่อน (8.6-B) — ยังไม่มี listing Shopee/Lazada
-รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น) · anchor-step1/step2 (ภาพ Gemini ที่ Pist gen 26 ก.ย.: ปาด Anchor / โปะปูนกาว wet-on-wet — section #howworks) · anchor-g03 (ฉาบบนผนัง — วิธี B, Pist ส่ง 26 ก.ย.: "ฉาบบนผนัง แล้วเอากระเบื้องที่ใส่ปูนกาวแล้วมาติดทับ")
+รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น) · anchor-step1/step2 (ภาพ Gemini ที่ Pist gen 26 ก.ย.: ปาด Anchor / โปะปูนกาว wet-on-wet — section #howworks) · anchor-lobby.webp (ภาพ Gemini โถงอาคารติดแผ่น 120×240 ด้วยเครื่องดูด — section #slabs 'ทำไมงานแผ่นใหญ่ต้องมี', 1024×560 ไม่ upscale) · anchor-g03 (ฉาบบนผนัง — วิธี B, Pist ส่ง 26 ก.ย.: "ฉาบบนผนัง แล้วเอากระเบื้องที่ใส่ปูนกาวแล้วมาติดทับ")
 คลิป: YouTube Shorts O0LgqwvKovU (แนวตั้ง — บันไดกระเบื้องที่ติดด้วยกาวตัวนี้)
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome() — เปลี่ยน --cat เป็นสีหมวด chem
 วิธีใช้: python3 tools/build_anchor_page.py แล้วรัน tools/build_calculator_page.py (ตารางราคามี data-calc)
@@ -112,6 +112,29 @@ BODY['th'] = r'''<section class="phero">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-step2.webp" alt="ขั้นที่ 2 — โปะปูนกาวสีเทาลงบนชั้น Lucerna Anchor ที่ยังเปียก ด้วยเกรียงตัก" width="1200" height="630"></div><figcaption><span class="no">02</span><b>โปะปูนกาวตามทันที ขณะ Anchor ยังเปียก</b> — ไม่ต้องรอแห้ง ใช้เกรียงตักปูนกาวโปะลงไปเลย แล้วเกลี่ยให้ทั่วแผ่นเหมือนปูปกติ ก่อนยกไปติดผนัง ปูนกาวฝังตัวลงในชั้น Anchor ที่ยังเปียก ทั้งสองชั้นแข็งตัวไปด้วยกัน</figcaption></figure>
     </div>
     <p class="pricenote">ทำไมต้องเปียกชนเปียก: ถ้าปล่อยให้ Anchor แห้งก่อน ผิวจะเรียบเป็นฟิล์ม ปูนกาวจะได้แค่วางทับ — โปะขณะยังเปียก ปูนกาวจึงประสานเข้าไปในเนื้อ Anchor และ Anchor ประสานเข้าไปในหลังแผ่น กระเบื้อง → Anchor → ปูนกาว → ผนัง กลายเป็นชั้นเดียวที่ไม่มีรอยต่อให้ร่อน · ทำสลับด้านได้เหมือนกัน: ฉาบ Anchor บนผนัง แล้วเอาแผ่นที่ปาดปูนกาวมาติดทับ</p>
+  </div>
+</section>
+
+<section class="story" id="slabs">
+  <div class="wrap">
+    <div class="rdtag">LARGE FORMAT — งานที่ Anchor เกิดมาเพื่อสิ่งนี้</div>
+    <h2>แผ่นละหลายพัน ยกด้วยเครื่องดูด ติดครั้งเดียว —<br><b>งานแบบนี้ไม่มีโอกาสแก้ตัว</b></h2>
+    <figure class="packshot" style="max-width:960px;margin:18px 0 22px">
+      <img loading="lazy" decoding="async" src="/img/anchor-lobby.webp" alt="ช่างสองคนยกแผ่นหินสังเคราะห์ 120×240 ด้วยเครื่องดูดสุญญากาศเข้าติดผนังโถงอาคาร ข้างๆ มีรถ A-frame วางแผ่นที่หลังเคลือบ Anchor สีฟ้าอมเขียวไว้แล้ว" width="1024" height="559">
+      <figcaption>โถงอาคารระหว่างติดตั้งแผ่นหินสังเคราะห์ 120×240 — แผ่นบนรถ A-frame ปาด Anchor ที่หลังแผ่นรอไว้แล้ว ยกด้วยเครื่องดูดสุญญากาศเข้าติดผนังที่ปาดปูนกาว ตัวหนอนสีส้มกำหนดร่องบางตามแบบ</figcaption>
+    </figure>
+    <div class="story-grid">
+      <div class="bignum">2.88<small>ตร.ม. ต่อแผ่น 120 × 240 — ANCHOR ≈ 750 บาท</small></div>
+      <div class="story-body">
+        <p>หินสังเคราะห์และกระเบื้องแผ่นใหญ่ 120×240 คือของที่โครงการคอนโด โรงแรม และหน้าร้านเลือกใช้เพราะร่องน้อย ดูเป็นผืนเดียว — แต่สิ่งที่ทำให้มันสวยคือสิ่งเดียวกับที่ทำให้มันร่อน: <b>หลังแผ่นเผาจนแน่นและเรียบ ดูดซึมน้ำแทบเป็นศูนย์</b> ปูนกาวซีเมนต์ที่เกาะด้วยการซึมเข้าผิว จึงได้แค่วางทับ พอแผ่นขยายตัวจากแดดหรือความร้อน ชั้นปูนกับหลังแผ่นก็แยกกันทีละนิดจนกลวง</p>
+        <div class="beats">
+          <div class="beat"><div class="k">ทำไมงานนี้ต้องมี</div><p>แผ่นหนึ่งหนักหลายสิบกิโล ราคาหลายพันถึงหลักหมื่น ยกด้วยเครื่องดูดสุญญากาศ ติดแล้วยาแนวเสร็จ ถ้าปีถัดไปเคาะแล้วกลวง ทางแก้เดียวคือรื้อ ซื้อแผ่นใหม่ ปูใหม่ และไปอธิบายเจ้าของโครงการ — ค่า Anchor แผ่นละราว 750 บาท เทียบกับตัวเลขนั้นคือเศษเงิน</p></div>
+          <div class="beat"><div class="k">ทำงานกับขั้นตอนเดิม</div><p>ปาด Anchor ที่หลังแผ่นตอนแผ่นพิงอยู่บนรถ A-frame แล้วโปะปูนกาวตามทันที ยกขึ้นติดผนังตามปกติ ไม่ต้องเปลี่ยนปูนกาว ไม่ต้องเปลี่ยนเครื่องมือ เวลาเปิดสองชั่วโมงพอให้ปาดรอไว้ทีละหลายแผ่น</p></div>
+          <div class="beat"><div class="k">ยืดตามแผ่นได้</div><p>แผ่น 240 ซม. ขยายตัวมากกว่ากระเบื้องเล็กหลายเท่า ชั้น Anchor ยืดหยุ่น งอได้ 360° ไม่แตก จึงรับการขยับของแผ่นแทนที่จะแยกออกจากมัน — ผนังภายนอกที่โดนแดดครึ่งวันคือที่ที่ต่างกันชัดที่สุด</p></div>
+          <div class="beat"><div class="k">ผนังที่ปูนกาวไม่ชอบ</div><p>โถงที่ผนังทากันซึมไว้แล้ว ผนังยิปซัมหรือไฟเบอร์ซีเมนต์ ผนังกระเบื้องเดิมของอาคารรีโนเวต — ฉาบ Anchor บนผนังก่อนแล้วปูตามปกติ ผนังแบบนี้กลายเป็นผนังที่ปูนกาวเกาะได้</p></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -333,6 +356,29 @@ BODY['en'] = r'''<section class="phero">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-step2.webp" alt="Step 2 — grey cement adhesive dropped from a margin trowel onto the still-wet Lucerna Anchor layer" width="1200" height="630"></div><figcaption><span class="no">02</span><b>Cement adhesive straight on top, while Anchor is still wet</b> — no drying time. Drop the mortar on with a margin trowel, spread it over the tile as usual and lift the tile onto the wall. The mortar keys into the wet Anchor and the two cure together.</figcaption></figure>
     </div>
     <p class="pricenote">Why wet on wet: let Anchor dry first and its surface skins into a smooth film the mortar can only sit on. Applied while wet, the mortar keys into the Anchor and the Anchor keys into the tile — tile → Anchor → mortar → wall becomes one layer with no interface left to let go · Works the other way round too: comb Anchor onto the wall and press on tiles spread with cement adhesive.</p>
+  </div>
+</section>
+
+<section class="story" id="slabs">
+  <div class="wrap">
+    <div class="rdtag">LARGE FORMAT — the job Anchor exists for</div>
+    <h2>Thousands of baht a slab, lifted by vacuum, set once —<br><b>this job gives you no second chance</b></h2>
+    <figure class="packshot" style="max-width:960px;margin:18px 0 22px">
+      <img loading="lazy" decoding="async" src="/img/anchor-lobby.webp" alt="Two tilers lift a 120×240 sintered stone slab with a vacuum lifter onto a lobby wall; slabs with teal Anchor-coated backs wait on an A-frame cart beside them" width="1024" height="559">
+      <figcaption>A building lobby mid-installation of 120×240 sintered stone — slabs on the A-frame cart already skimmed with Anchor on the back, lifted by vacuum cups onto the wall combed with cement adhesive, orange spacers setting the thin joints</figcaption>
+    </figure>
+    <div class="story-grid">
+      <div class="bignum">2.88<small>M² PER 120 × 240 SLAB — ANCHOR ≈ 750 THB</small></div>
+      <div class="story-body">
+        <p>Sintered stone and 120×240 porcelain slabs are what condominiums, hotels and shopfronts specify for the near-seamless look — but what makes them beautiful is what makes them let go: <b>a back fired so dense and smooth that water absorption is close to zero</b>. Cement adhesive, which holds by soaking into a surface, can only sit against it. As the slab expands in sun or heat, mortar and slab part a little at a time until the wall sounds hollow.</p>
+        <div class="beats">
+          <div class="beat"><div class="k">Why this job needs it</div><p>One slab weighs tens of kilos, costs thousands to tens of thousands of baht, is lifted by vacuum, set and grouted. If it sounds hollow a year later the only fix is rip-out, a new slab, re-laying and a conversation with the project owner — Anchor at about 750 THB per slab is small change against that.</p></div>
+          <div class="beat"><div class="k">Fits the existing workflow</div><p>Skim Anchor on the back while the slab leans on the A-frame cart, put the cement adhesive straight on, lift and set as normal. Same adhesive, same tools; a two-hour open time lets you skim several slabs ahead.</p></div>
+          <div class="beat"><div class="k">Moves with the slab</div><p>A 240 cm slab expands several times more than a small tile. The Anchor layer is flexible — bends 360° without cracking — so it follows the slab's movement instead of separating from it. Exterior walls in half-day sun are where the difference shows most.</p></div>
+          <div class="beat"><div class="k">Walls cement adhesive doesn't like</div><p>Lobbies already waterproofed, gypsum or fibre-cement walls, the old tiled walls of a renovation — comb Anchor over the wall first, then tile as normal, and the wall becomes one cement adhesive can hold.</p></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
