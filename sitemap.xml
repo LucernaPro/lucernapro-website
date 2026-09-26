@@ -296,12 +296,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/flexgrip"/>
   </url>
   <url>
-    <loc>https://www.lucernapro.com/en/floorarmour</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/floorarmour"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/floorarmour"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/floorarmour"/>
-  </url>
-  <url>
     <loc>https://www.lucernapro.com/en/ghostshield</loc>
     <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/ghostshield"/>
@@ -828,7 +822,7 @@
   </url>
   <url>
     <loc>https://www.lucernapro.com/finder</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-26</lastmod>
   </url>
   <url>
     <loc>https://www.lucernapro.com/flakeset</loc>
@@ -843,12 +837,6 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/flexgrip"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/flexgrip"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/flexgrip"/>
-  </url>
-  <url>
-    <loc>https://www.lucernapro.com/floorarmour</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/floorarmour"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/floorarmour"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/floorarmour"/>
   </url>
   <url>
     <loc>https://www.lucernapro.com/ghostshield</loc>

@@ -43,6 +43,8 @@ def build(lang):
     head = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="%s">' % OGD[lang], head)
     head = head.replace('img/tilecoatpoly-hero.webp', 'img/floorarmour-hero.webp')
     head = re.sub(r'<script type="application/ld\+json">.*?</script>', SCHEMA[lang], head, flags=re.S)
+    # HIDDEN 26 ก.ย. 2026 (มติเจ้าของ "ซ่อนจาก public ก่อน เข้าได้เฉพาะคนมี link"): noindex + ถอดการ์ดหน้าแรก/finder/sitemap/search — ลบบรรทัดถัดไปเมื่อจะเปิด public แล้วใส่การ์ด/finder กลับ
+    head = head.replace('<meta name="viewport"', '<meta name="robots" content="noindex,nofollow">\n<meta name="viewport"', 1)
     head += EXTRA_CSS
     drawer = drawer.replace('/tilecoatpoly', '/floorarmour')
     tail = tail.replace('/tilecoatpoly', '/floorarmour')
