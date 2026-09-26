@@ -16,12 +16,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/americaniron"/>
   </url>
   <url>
-    <loc>https://www.lucernapro.com/anchor</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/anchor"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/anchor"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/anchor"/>
-  </url>
-  <url>
     <loc>https://www.lucernapro.com/aquashell</loc>
     <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/aquashell"/>
@@ -139,12 +133,6 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/americaniron"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/americaniron"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/americaniron"/>
-  </url>
-  <url>
-    <loc>https://www.lucernapro.com/en/anchor</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.lucernapro.com/anchor"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lucernapro.com/en/anchor"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lucernapro.com/anchor"/>
   </url>
   <url>
     <loc>https://www.lucernapro.com/en/aquashell</loc>

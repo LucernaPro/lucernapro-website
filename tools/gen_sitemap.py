@@ -77,6 +77,9 @@ def main():
             continue
 
         html = open(os.path.join(dirpath, "index.html"), encoding="utf-8").read()
+        if re.search(r'<meta name="robots" content="noindex[^"]*">', html):
+            skipped.append(rel + "  (noindex)")
+            continue
         cm = CANON_RE.search(html)
         if not cm:
             skipped.append(rel + "  (ไม่มี canonical)")

@@ -32,6 +32,8 @@ def build(lang):
     head = head.replace('/paintcoating', '/anchor')
     head = head.replace('--cat:#8FA6B8; /* สีหมวด coating/PROTECTION ตาม SPEC */', '--cat:#7FBF8E; /* สีหมวด chem/กาว ตาม SPEC */')
     head = re.sub(r'<title>.*?</title>', '<title>%s</title>' % TITLE[lang], head, flags=re.S)
+    # HIDDEN 26 ก.ย. 2026 (มติเจ้าของ "ซ่อนหน้าเว็บนี้ก่อน"): TDS ที่ใช้เป็นของ interface agent (สีฟ้า) แต่ของที่ซื้อคือ tile adhesive (สีเขียว) + MOQ สีฟ้า 1,500 กก. — noindex, ถอดการ์ดหน้าแรก/sitemap/search จนกว่าแผนสินค้าจะนิ่ง
+    head = head.replace('<meta name="viewport"', '<meta name="robots" content="noindex,nofollow">\n<meta name="viewport"', 1)
     head = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % DESC[lang], head)
     head = re.sub(r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="%s">' % OGT[lang], head)
     head = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="%s">' % OGD[lang], head)
