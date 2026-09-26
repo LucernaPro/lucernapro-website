@@ -120,7 +120,7 @@ BODY['th'] = r'''<section class="phero">
       <div class="pt"><span class="ic">01</span><div><h4>น้ำเด้ง คราบไม่ซึมเข้าผิว</h4><p>มุมสัมผัสน้ำ ≥110° และมุมกลิ้ง 5–10° — หยดน้ำเกาะเป็นเม็ดแล้วกลิ้งหนี น้ำชา กาแฟ ซอส หมึก ที่หกใส่ผนังหรือโต๊ะไม่ทิ้งวงด่าง เพราะไม่ทันซึมเข้าสี</p></div></div>
       <div class="pt"><span class="ic">02</span><div><h4>กันคราบน้ำมันและสีสเปรย์</h4><p>คราบไขมันจากมือ ควันครัว ปากกาเคมี และสีสเปรย์ เกาะบนฟิล์มแทนเกาะบนสี — เช็ดออกได้ด้วยผ้าชุบน้ำหรือน้ำยาฤทธิ์กลาง ผู้ผลิตทดสอบคุณสมบัติกันสีย้อมซึม (Anti-Graffiti) ไว้ในสเปค</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>แข็ง 4H ทนกรด ด่าง เบนซิน</h4><p>ฟิล์มหนา 8–12 ไมครอน ความแข็งดินสอ ≥4H แช่กรดซัลฟิวริก 10% และโซดาไฟ 10% 24 ชั่วโมง แช่น้ำมันเบนซิน 24 ชั่วโมง — ความแข็งและการยึดเกาะไม่เปลี่ยน ผิวสีข้างล่างจึงถูกปกป้องจากการล้างบ่อยและสารเคมีทำความสะอาด</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>ลดไฟฟ้าสถิต ยับยั้งแบคทีเรีย</h4><p>ฟิล์มลดประจุสะสมบนผิวสีและพลาสติก ฝุ่นและขุยผ้าเกาะน้อยลง — และเมื่อน้ำกับคราบอินทรีย์เกาะผิวได้ยาก แบคทีเรียก็ขาดที่ยึดและความชื้นที่ต้องใช้ในการเจริญ (คุณสมบัติที่ผู้ผลิตระบุ — ไม่ใช่น้ำยาฆ่าเชื้อ อ่าน STRAIGHT TALK ข้อ 5)</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>ลดไฟฟ้าสถิต ยับยั้งแบคทีเรีย</h4><p>ฟิล์มลดประจุสะสมบนผิวสีและพลาสติก ฝุ่นและขุยผ้าเกาะน้อยลง — และเมื่อน้ำกับคราบอินทรีย์เกาะผิวได้ยาก แบคทีเรียก็ขาดที่ยึดและความชื้นที่ต้องใช้ในการเจริญ (ไม่ใช่น้ำยาฆ่าเชื้อ อ่าน STRAIGHT TALK ข้อ 5)</p></div></div>
     </div>
   </div>
 </section>
@@ -170,7 +170,7 @@ BODY['th'] = r'''<section class="phero">
         <p>ตัวนี้เรา<b>นำเข้าวัตถุดิบหลักจาก Feibo</b> (ฉางชา ประเทศจีน) ผู้พัฒนาวัตถุดิบเดียวกับ <a href="/glasscoating" style="color:var(--orange)">Glass Coating</a> และ <a href="/paintcoating" style="color:var(--orange)">Paint Coating</a> ของเรา แล้วมาบรรจุและควบคุมคุณภาพต่อในประเทศไทย — แต่ตัวนี้เป็น<b>คนละสาย</b>กับกลุ่ม Self-Cleaning: เป็นฟิล์มกันคราบสาย Hydrophobic ที่ออกแบบให้คนเช็ดถึง ไม่ได้รอฝน</p>
         <p>ในจีน สูตรนี้ใช้กับผิวที่โดนคราบและสารเคมีทำความสะอาดบ่อยจนสีเสียก่อนเวลา — และผ่านมาตรฐานความปลอดภัยด้านไฟสำหรับยานพาหนะระบบราง (EN 45545-2 ระดับ R1 HL3) จึงใช้ในตู้โดยสารและงานที่ต้องการวัสดุไม่ลามไฟได้</p>
         <div class="beats">
-          <div class="beat"><div class="k">หลักการ</div><p>ฟิล์มนาโนพอลิซิลอกเซนโครงสร้างแฟรกทัล เติมนาโนทังสเตนไตรออกไซด์และนาโนทินออกไซด์ — พลังงานผิวต่ำ น้ำและน้ำมันไม่แผ่ตัวบนผิว จึงเกาะเป็นเม็ดและเช็ดออกได้ ผู้ผลิตระบุอายุฟิล์ม <b>2–3 ปี</b> โดยคุณสมบัติแทบไม่เปลี่ยน</p></div>
+          <div class="beat"><div class="k">หลักการ</div><p>ฟิล์มนาโนพอลิซิลอกเซนโครงสร้างแฟรกทัล เติมนาโนทังสเตนไตรออกไซด์และนาโนทินออกไซด์ — พลังงานผิวต่ำ น้ำและน้ำมันไม่แผ่ตัวบนผิว จึงเกาะเป็นเม็ดและเช็ดออกได้ อายุฟิล์มจากการทดสอบ <b>2–3 ปี</b> โดยคุณสมบัติแทบไม่เปลี่ยน</p></div>
           <div class="beat"><div class="k">ผิวที่ใช้ได้</div><p>สีน้ำอะคริลิกผนังภายใน สีไม้ สีอบ (Baked Enamel) สีพ่นอุตสาหกรรม ผิวโลหะเปลือยและ Powder Coat — <b>ผิวสีที่แห้งและแข็งตัวสมบูรณ์แล้ว</b> ใช้ได้ทั้งในและนอกอาคาร (ทดสอบสภาพอากาศกลางแจ้ง 3,000 ชั่วโมง)</p></div>
           <div class="beat"><div class="k">ฟิล์มแข็งกว่าที่คิด</div><p>ความหนา 8–12 ไมครอน ความแข็งดินสอ ≥4H บนกระจกและโลหะ ยึดเกาะ Cross-cut เกรด 0 และยังเกรด 0–1 หลังสลับร้อน-เย็น −30°C ↔ 120°C 3 รอบ — เป็น<b>ชั้นปกป้อง</b>ผิวสีจากการขัดถูและน้ำยาล้าง ไม่ใช่แค่ชั้นกันน้ำ</p></div>
           <div class="beat"><div class="k">ลดไฟฟ้าสถิต</div><p>ผิวสีและพลาสติกสะสมประจุแล้วดูดฝุ่นแห้ง — ฟิล์มนี้ลดประจุบนผิว ฝุ่น ขุยผ้า และละอองน้ำมันเกาะน้อยลงตั้งแต่แรก จึงเช็ดน้อยลงด้วย</p></div>
@@ -200,7 +200,7 @@ BODY['th'] = r'''<section class="phero">
           <tr><td>ทนกรด-ด่าง</td><td>กรดซัลฟิวริก 10% และโซเดียมไฮดรอกไซด์ 10% 24 ชม. — ไม่เปลี่ยน</td></tr>
           <tr><td>ทนสภาพอากาศกลางแจ้ง</td><td>3,000 ชม. — ฟิล์มสมบูรณ์ เกรด 0–1 บนอะลูมิเนียม แทบไม่ด้านไม่เปลี่ยนสี</td></tr>
           <tr><td>ความปลอดภัยด้านไฟ</td><td>ผ่าน EN 45545-2 ระดับ R1 HL3 (ยานพาหนะระบบราง)</td></tr>
-          <tr><td>ปริมาณใช้</td><td>≈ 3–4 ตร.ม. ต่อ 100 g ด้วยลูกกลิ้งโฟมชั้นบาง (≈ 25–35 มล./ตร.ม. — อยู่ในช่วง 15–50 มล./ตร.ม. ของผู้ผลิต)</td></tr>
+          <tr><td>ปริมาณใช้</td><td>≈ 3–4 ตร.ม. ต่อ 100 g ด้วยลูกกลิ้งโฟมชั้นบาง (≈ 25–35 มล./ตร.ม. — อยู่ในช่วง 15–50 มล./ตร.ม. ตาม TDS)</td></tr>
           <tr><td>อายุการเก็บ</td><td>1 ปี ยังไม่เปิด · เก็บ 18–25°C พ้นแดดและประกายไฟ</td></tr>
         </tbody>
       </table>
@@ -255,7 +255,7 @@ BODY['th'] = r'''<section class="phero">
           <div class="beat"><div class="k">2 · ชั่วโมงแรกคือจุดตาย</div><p>น้ำโดนผิวก่อนฟิล์มแข็งตัว = <b>รอยด่างที่เช็ดไม่ออก</b> ต้องล้างออกทำใหม่ งานกลางแจ้งเช็คพยากรณ์ฝน งานในบ้านกันคนเดินผ่านสาดน้ำและงดถูพื้นใกล้ผนังในชั่วโมงแรก</p></div>
           <div class="beat"><div class="k">3 · ลงหนา ไม่ได้ทนขึ้น</div><p>พื้นที่ต่อขวดในตารางคิดจาก<b>ชั้นบางชั้นเดียวด้วยลูกกลิ้งโฟม</b> — ลงหนาหรือลงสองรอบไม่ได้เพิ่มการกันคราบ แต่เปลืองน้ำยาและบนผิวมันสีเข้มอาจเห็นฟิล์ม ถ้าลูกกลิ้งเริ่มฝืดแปลว่าน้ำยาหมดหน้าลูกกลิ้ง ให้จุ่มเพิ่ม ไม่ใช่กดแรงขึ้น</p></div>
           <div class="beat"><div class="k">4 · ผิวสีต้องแข็งตัวสมบูรณ์ และทดสอบมุมก่อนเสมอ</div><p>สีที่เพิ่งทา สีที่ยังชอล์ก หรือสีน้ำผนังที่ลอกล่อน — ฟิล์มจะเกาะสีที่หลุด ไม่ได้เกาะผนัง ตัวนี้<b>ปกป้องสีที่ยังดี</b> ไม่ได้ซ่อมสีที่เสียแล้ว บนผิวมันสีเข้ม ลงหนาเกินอาจเห็นฟิล์ม ทดสอบมุมเล็กบนสีจริงก่อนทุกครั้ง</p></div>
-          <div class="beat"><div class="k">5 · "ยับยั้งแบคทีเรีย" ไม่ใช่ "ฆ่าเชื้อ"</div><p>ผู้ผลิตระบุคุณสมบัติยับยั้งการเจริญของแบคทีเรียบนผิว ซึ่งมาจากการที่น้ำและคราบอินทรีย์เกาะผิวได้ยาก — <b>ไม่ใช่น้ำยาฆ่าเชื้อ ไม่แทนการทำความสะอาด</b> โรงพยาบาล ครัว และห้องน้ำยังต้องเช็ดล้างตามรอบเดิม แค่เช็ดง่ายขึ้น</p></div>
+          <div class="beat"><div class="k">5 · "ยับยั้งแบคทีเรีย" ไม่ใช่ "ฆ่าเชื้อ"</div><p>คุณสมบัติที่ทดสอบคือยับยั้งการเจริญของแบคทีเรียบนผิว ซึ่งมาจากการที่น้ำและคราบอินทรีย์เกาะผิวได้ยาก — <b>ไม่ใช่น้ำยาฆ่าเชื้อ ไม่แทนการทำความสะอาด</b> โรงพยาบาล ครัว และห้องน้ำยังต้องเช็ดล้างตามรอบเดิม แค่เช็ดง่ายขึ้น</p></div>
           <div class="beat"><div class="k">6 · ห้ามลงทับ Paint Coating และห้ามลงทับด้วยแว็กซ์</div><p>ผิวเดียวเลือกได้สายเดียว — ผิวที่เคย Paint Coating หรือแว็กซ์มาก่อน EasyClean จะเกาะไม่ดี และผิวที่เคลือบ EasyClean แล้วก็<b>ลง Paint Coating ทับไม่ได้</b> ดูแลด้วยน้ำเปล่าหรือน้ำยาฤทธิ์กลาง ห้ามขัดด้วยแปรงแข็งหรือฝอยขัด</p></div>
         </div>
       </div>
@@ -348,7 +348,7 @@ BODY['en'] = r'''<section class="phero">
       <div class="pt"><span class="ic">01</span><div><h4>Water beads off — stains don't soak in</h4><p>Water contact angle ≥110° and sliding angle 5–10° — droplets bead up and roll away. Tea, coffee, sauce or ink spilled on a wall or table leaves no ring, because it never gets into the paint.</p></div></div>
       <div class="pt"><span class="ic">02</span><div><h4>Resists oily grime and spray paint</h4><p>Hand grease, kitchen fumes, marker pen and spray paint sit on the film instead of the paint — wipe them off with a damp cloth or a neutral cleaner. The manufacturer tests dye-penetration resistance (anti-graffiti) as part of the specification.</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>4H hard — resists acid, alkali and petrol</h4><p>An 8–12 µm film with ≥4H pencil hardness. 24 hours in 10% sulphuric acid and 10% caustic soda, 24 hours in petrol — hardness and adhesion unchanged, so the paint underneath is protected from frequent washing and cleaning chemicals.</p></div></div>
-      <div class="pt"><span class="ic">04</span><div><h4>Less static, inhibits bacteria</h4><p>The film reduces the charge that builds up on paint and plastics, so dust and lint settle less — and when water and organic grime can't get a grip, bacteria lose the foothold and moisture they need to grow (a manufacturer-stated property — not a disinfectant, see Straight Talk no. 5).</p></div></div>
+      <div class="pt"><span class="ic">04</span><div><h4>Less static, inhibits bacteria</h4><p>The film reduces the charge that builds up on paint and plastics, so dust and lint settle less — and when water and organic grime can't get a grip, bacteria lose the foothold and moisture they need to grow (not a disinfectant, see Straight Talk no. 5).</p></div></div>
     </div>
   </div>
 </section>
@@ -483,7 +483,7 @@ BODY['en'] = r'''<section class="phero">
           <div class="beat"><div class="k">2 · The first hour is the danger zone</div><p>Water on the surface before the film hardens = <b>marks that won't wipe off</b> — strip and redo. Outdoors, check the rain forecast; indoors, keep splashes away and don't mop near the wall in the first hour.</p></div>
           <div class="beat"><div class="k">3 · A thicker coat is not a tougher coat</div><p>The coverage in the table assumes <b>one thin coat with a foam roller</b> — going thick or doing two coats adds no anti-fouling, wastes product and can show on glossy dark paint. If the roller starts to drag, it has run dry: reload it, don't press harder.</p></div>
           <div class="beat"><div class="k">4 · The paint must be fully cured, and always test a corner</div><p>Fresh paint, chalking paint or flaking latex — the film bonds to whatever is loose, not to the wall. This product <b>protects paint that is still good</b>; it doesn't repair paint that has failed. On glossy dark paint an over-thick coat can be visible, so test a small corner on the real colour every time.</p></div>
-          <div class="beat"><div class="k">5 · "Inhibits bacteria" is not "kills germs"</div><p>The manufacturer states that the coating inhibits bacterial growth on the surface, which comes from water and organic grime struggling to stick — <b>it is not a disinfectant and doesn't replace cleaning</b>. Hospitals, kitchens and restrooms keep their normal cleaning schedule; it's just easier.</p></div>
+          <div class="beat"><div class="k">5 · "Inhibits bacteria" is not "kills germs"</div><p>The tested property is that the coating inhibits bacterial growth on the surface, which comes from water and organic grime struggling to stick — <b>it is not a disinfectant and doesn't replace cleaning</b>. Hospitals, kitchens and restrooms keep their normal cleaning schedule; it's just easier.</p></div>
           <div class="beat"><div class="k">6 · Don't put it over Paint Coating, and don't wax over it</div><p>One surface, one family — EasyClean won't bond well over a surface that has had Paint Coating or wax, and a surface coated with EasyClean <b>can't take Paint Coating on top</b>. Care with plain water or a neutral cleaner; no stiff brushes or scouring pads.</p></div>
         </div>
       </div>
