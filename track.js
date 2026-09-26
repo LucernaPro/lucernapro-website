@@ -72,7 +72,7 @@
 
   /* ---- หน้าสินค้า → ViewContent (v1.4) ----
    * เกณฑ์ "หน้าสินค้า" = มีตารางราคา .pricecard (script โหลดแบบ defer จึง query DOM ได้ทันที)
-   * content_ids = [slug] + content_type 'product_group' ตรงกับ item_group_id ใน feed.csv
+   * content_ids = [slug] + content_type 'product' ตรงกับ id ใน feed.csv (1 สินค้า = 1 item)
    * ไม่ยิงบนหน้า home/post/เคส — กัน catalog จับคู่ผิด */
   var isProduct = !!document.querySelector('.pricecard table');
   var h1 = document.querySelector('h1');
