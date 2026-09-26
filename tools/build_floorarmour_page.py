@@ -10,7 +10,7 @@ Pist 26 ก.ย. 2026: "ประโยชน์ทุกอย่างเห�
   ทา 2 รอบ ห่าง ~6 ชม., 1 kg ≈ 5 ตร.ม. (2 รอบ), Full cure 2–3 วัน, ทาบนผิวชื้น/หมาดได้ (ห้ามน้ำขัง)
 🔴 Pist: "ห้ามเขียนโยงเด็ดขาด" — ห้ามเอ่ยชื่อสินค้าตัวอื่นที่ใช้เคมีเดียวกัน ห้ามพูดถึงบ่อปลา ห้ามคำ Epoxy ทั้งหน้า
 ขนาด/ราคา: 1 kg 990 บาท ขนาดเดียว · ค่าส่ง 130 · สีเทากลางสีเดียว (ไม่ทำหลายสี)
-ชื่อเก่า: FloorArmour เคยขาย 990 ตอนบริษัทเพิ่งเปิด ขายดีมาก แล้วหยุดไป — หน้านี้เล่าเป็น origin story ("ชื่อเก่าที่กลับมา")
+🔴 ห้ามเล่าประวัติชื่อเก่า/รุ่นแรก (Pist 26 ก.ย. 2026 "ใส่มาทำไมเนี่ย") — section story ถูกตัดออกทั้ง TH/EN
 รูป: hero/card เป็น placeholder ที่ Claude ทำ (แผ่นสีเทา+เม็ดกันลื่น) รอรูปจริงจาก Pist · ยังไม่มีแกลเลอรี/คลิป
 ช่องทางสั่งซื้อ: แชทเพจ + Line + โทร (ยังไม่มี listing Shopee/Lazada — ทวง Pist)
 chrome ยกจาก /tilecoatpoly (golden master) — CSS ครบทุก class ที่ใช้
@@ -124,25 +124,6 @@ BODY['th'] = '''<section class="phero">
       <div class="pt"><span class="ic">02</span><div><h4>ทนชื้น ทาบนผิวหมาดได้</h4><p>ระบบบ่มตัวทนความชื้นสูง — ห้องน้ำที่ล้างแล้วผิวยังหมาดๆ ทาต่อได้เลยไม่ต้องรอแห้งสนิท ขอแค่ไม่มีน้ำขังเป็นแอ่ง และหลังเซ็ตตัวแล้วเจอความชื้นตลอดวันแบบห้องน้ำเปียกได้สบาย</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>ยึดเกาะกระเบื้องเคลือบ — ใช้จริงมาหลายปี</h4><p>Polymer ตัวนี้เราทาทับกระเบื้องมาหลายปีก่อนจะเอามาทำ FloorArmour ไม่ใช่สูตรใหม่ที่เพิ่งออกจากแล็บ — เกาะผิวเคลือบมันวาวได้จริงโดยไม่ต้องมีรองพื้นแยก</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>กันซึมในตัว จบที่ 990</h4><p>ไม่ใช่แค่เปลี่ยนสีกระเบื้อง แต่ได้ชั้นกันซึมต่อเนื่องปิดทั้งหน้ากระเบื้องและร่องยาแนวไปพร้อมกัน — ห้องน้ำขนาดทั่วไป 1 กก. เดียวเอาอยู่</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="story">
-  <div class="wrap">
-    <div class="rdtag">R&amp;D LOG — ชื่อเก่าที่กลับมา</div>
-    <h2>FloorArmour คือสีทากระเบื้อง 990 บาท<br>ที่เคย<b>ขายดีที่สุด</b>ตอนบริษัทเพิ่งเปิด</h2>
-    <div class="story-grid">
-      <div class="bignum">990<small>บาท — ราคาเดิม ไม่ขึ้น</small></div>
-      <div class="story-body">
-        <p>ตอน LucernaPro เพิ่งเปิด สีทากระเบื้องห้องน้ำ 990 บาทตัวนี้คือของที่ขายดีที่สุดของร้าน — คนอยากซ่อมห้องน้ำรั่วเองโดยไม่ต้องรื้อ และไม่อยากจ่ายเป็นพัน มีเยอะกว่าที่คิดมาก</p>
-        <p>แต่เราถอดมันออกจากชั้นเอง เพราะรุ่นแรกยังไม่ทนอย่างที่เราพอใจ — วันนี้ FloorArmour กลับมาบนระบบ Polymer 2 ส่วนผสมที่เราใช้ทับกระเบื้องมาหลายปีแล้ว ทนชื้น เกาะกระเบื้องเคลือบ กันซึมในตัว และยังขาย <b>990 บาทเท่าเดิม</b> ด้วยการทำสีเดียว ขนาดเดียว ไม่แถมของที่ไม่จำเป็น</p>
-        <div class="beats">
-          <div class="beat"><div class="k">โจทย์</div><p>คนซ่อมห้องน้ำเองส่วนใหญ่<b>ไม่ได้ต้องการ 6 สี</b> ต้องการแค่กันซึมที่ทน ในงบไม่ถึงพัน</p></div>
-          <div class="beat"><div class="k">เส้นทาง</div><p>เอา Polymer ที่ทาทับกระเบื้องมา<b>หลายปี</b>มาเติมเม็ดกันลื่น ตัดรองพื้น ตัดสีเหลือเทากลางสีเดียว</p></div>
-          <div class="beat"><div class="k">ผลลัพธ์</div><p>สีทากระเบื้องห้องน้ำ<b>กันซึมในตัว</b> ทนห้องน้ำเปียก ในราคาเดิมที่เคยขายถล่มทลาย</p></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -325,25 +306,6 @@ BODY['en'] = '''<section class="phero">
       <div class="pt"><span class="ic">02</span><div><h4>Moisture-tolerant — applies on a damp surface</h4><p>A curing system built for high humidity — wash the bathroom, let it drain, and coat while the surface is still damp. Just no standing puddles. Once set, an all-day-wet bathroom is nothing to it.</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>Bonds to glazed tile — proven over years</h4><p>We had been coating tile with this polymer for years before it became FloorArmour. Not a fresh lab formula — it grips glossy glazed tile for real, with no separate primer.</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>Waterproof in itself, done at 990</h4><p>More than a colour change: one continuous waterproof film over the tile faces and the grout lines together — a typical bathroom floor is covered by a single 1 kg pack.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="story">
-  <div class="wrap">
-    <div class="rdtag">R&amp;D LOG — AN OLD NAME RETURNS</div>
-    <h2>FloorArmour was the 990-baht tile coating<br>that <b>outsold everything</b> when we opened</h2>
-    <div class="story-grid">
-      <div class="bignum">990<small>THB — SAME PRICE AS DAY ONE</small></div>
-      <div class="story-body">
-        <p>When LucernaPro first opened, this 990-baht bathroom tile coating was the best-selling thing in the shop. Far more people than you would think want to fix a leaking bathroom themselves, without demolition and without paying thousands.</p>
-        <p>We pulled it off the shelf ourselves, because that first version did not last the way we wanted. Today FloorArmour is back, built on the two-part polymer we have used over tile for years — moisture-tolerant, bonds to glazed tile, waterproof in itself — and still <b>990 THB</b>, by keeping it to one colour, one size and nothing you don't need in the box.</p>
-        <div class="beats">
-          <div class="beat"><div class="k">Problem</div><p>Most people fixing their own bathroom <b>don't need six colours</b> — they need waterproofing that lasts, for under a thousand baht.</p></div>
-          <div class="beat"><div class="k">Path</div><p>Take the polymer we have coated tile with for <b>years</b>, add anti-slip grit, drop the primer, keep one mid grey.</p></div>
-          <div class="beat"><div class="k">Result</div><p>A bathroom tile coating that is <b>waterproof in itself</b>, lives happily in a wet room, at the price that once sold out.</p></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
