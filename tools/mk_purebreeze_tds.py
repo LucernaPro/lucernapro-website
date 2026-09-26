@@ -180,9 +180,9 @@ kv([
                           'corona-treated. Degrease oily surfaces before application.'),
     ('Application',       'Spray. HVLP gun, 1.0\u20131.2 mm nozzle, about 0.2 MPa air pressure; or any sprayer that '
                           'gives a fine mist at low pressure. High pressure flattens fins and bounces the liquid off.'),
-    ('Consumption',       'About 30\u201350 ml/m\u00b2 depending on spray method and substrate (manufacturer figure). '
-                          'The indoor coil of a 12,000 BTU wall split takes about 20 ml as a thin low-pressure '
-                          'mist in our own measured application (indoor unit only).'),
+    ('Consumption',       'About 20 ml per indoor coil of a 12,000 BTU wall split, applied as a thin low-pressure mist '
+                          '(indoor unit only; measured in our own application) \u2014 100 g does about 5 coils. '
+                          'Larger coils and condenser coils use proportionally more.'),
     ('Coats',             'One \u2014 a single thin, even coat; do not spray to the point of running'),
     ('Tack-free',         'About 5 minutes at room temperature'),
     ('Hardening',         'The surface hardens immediately on application; hardened through in about 1 hour at '
@@ -269,8 +269,8 @@ kv([
                           'ผิวที่ไม่รับแอลกอฮอล์เคลือบไม่ได้ เว้นแต่ปรับผิวด้วย plasma หรือ corona ก่อน / ผิวที่มีคราบน้ำมันต้องล้างไขมันออกก่อน'),
     ('วิธีทา',             'พ่น — กาพ่นสี HVLP หัว 1.0–1.2 มม. แรงดันลมราว 0.2 MPa หรือเครื่องพ่นใดก็ได้ที่ให้ละอองละเอียดที่แรงดันต่ำ '
                           'แรงดันสูงทำให้ฟินล้มและน้ำยาเด้งออก'),
-    ('อัตราการใช้',         'ประมาณ 30–50 มล./ตร.ม. ขึ้นกับวิธีพ่นและพื้นผิว (ค่าของผู้ผลิตวัตถุดิบ) / คอยล์เย็นแอร์ผนัง 12,000 BTU หนึ่งตัว (เฉพาะตัวในห้อง) '
-                          'จากการพ่นและชั่งจริงของเราใช้ราว 20 มล. เมื่อพ่นละอองบางแรงดันต่ำ'),
+    ('อัตราการใช้',         'ราว 20 มล. ต่อคอยล์เย็นแอร์ผนัง 12,000 BTU หนึ่งตัว (เฉพาะตัวในห้อง) เมื่อพ่นละอองบางแรงดันต่ำ จากการพ่นและชั่งจริงของเรา '
+                          '— 100 g ทำได้ราว 5 ตัว / คอยล์ใหญ่กว่าหรือคอยล์ร้อนใช้มากกว่าตามส่วน'),
     ('จำนวนรอบ',          '1 รอบ — พ่นบางสม่ำเสมอรอบเดียว ไม่พ่นจนไหลย้อย'),
     ('แห้งสัมผัส',         'ประมาณ 5 นาที ที่อุณหภูมิห้อง'),
     ('การแข็งตัว',         'ผิวหน้าแข็งตัวทันทีหลังพ่น และแข็งตัวทั่วทั้งฟิล์มในราว 1 ชั่วโมงที่อุณหภูมิห้อง — หรือเร่งด้วยความร้อน 50°C ≈ 2 นาที / '

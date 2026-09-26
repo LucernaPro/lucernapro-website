@@ -6,7 +6,7 @@ build_purebreeze_page.py — สร้าง /purebreeze และ /en/purebreez
 PureBreeze — น้ำยาเคลือบใสระดับนาโนสำหรับแผงฟินคอยล์เย็นและคอยล์ร้อนของเครื่องปรับอากาศ ป้องกันฝุ่นเกาะสะสม
 ย้ายมาจากหน้า Wix เดิม (lekvtwin.wixsite.com/lucerna/purebreeze) — Pist 25 ก.ย. 2026 "ไปเอาข้อมูลมาลงก่อน สร้างหน้าใหม่เลย"
 อัตราใช้จริง (Pist พ่น+ชั่งเอง 25–26 ก.ย. 2026): ~20 ml ต่อคอยล์เย็นแอร์ผนัง 12,000 BTU 1 ตัว (ตัวในห้อง ไม่รวมคอยล์ร้อน) → 100 g ≈ 5 ตัว · Pist: "ให้เอาตามฉัน" — ตัวเลขนี้เป็นหลัก ไม่ใช่ 30–50 ml/m² ของ TDS · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต) · Pist 25 ก.ย. 2026 "เอาตามของเขาเลย" + "≥99% (ตามผู้ผลิต) เสล่อ จะเขียนทำไม" → ตัดคำกันตัว "ตามผู้ผลิต/ไม่ได้ทดสอบเอง" ออกทั้งหน้า พูดตัวเลขตรงๆ → ขั้นตอนใช้ตาม Feibo (ล้างลึก → แห้ง → พ่น → เซ็ตตัวที่อุณหภูมิห้อง ไม่มีตัวเลขเวลา/ระยะพ่นที่เราแต่งเอง) · ตารางแบคทีเรีย 1 สัปดาห์–1 ปี และรูปทดสอบ (crop จากสไลด์ของ Feibo ตัดตัวหนังสือจีนออก: img/purebreeze-dust1/3, -petri-coated/-bare) จากหน้าเดียวกัน
-ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
+ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 · ค่าส่ง 40 บน Wix → 70 ตามมาตรฐานเว็บ (26 ก.ย. 2026) · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
 TDS (Feibo KT01/FBq301, จีน — Pist ส่ง 26 ก.ย. 2026) → ตารางสเปค #spec + files/purebreeze-tds.pdf (tools/mk_purebreeze_tds.py, EN+TH) · MSDS SNTEK202401061-3 (ม.ค. 2024, KT01) = files/purebreeze-sds.pdf ตามต้นฉบับ · เวลาแห้งในขั้นตอนใช้งานเป็นค่า TDS (แห้งสัมผัส 5 นาที / แข็งตัว ~1 ชม. / เซ็ตตัวเต็ม 6–20 ชม.) · ข้อขัดกัน: TDS 30–50 ml/m² แต่ตารางราคาระบุ 8 ตร.ม./100 g (จาก Wix) — รอ Pist ตัดสิน
 hero/การ์ด = ภาพห้องนั่งเล่นที่ Pist generate เอง (Gemini, 25 ก.ย. 2026) img/purebreeze-hero-sq.webp / -card.webp
 รายงานจุลชีพ Gmicro 2020SPS942R01D (E. coli / S. aureus >99%, รา ระดับ 0) — Pist ส่งสไลด์ 25 ก.ย. 2026, crop 3 หน้า upscale 2× = img/purebreeze-report-p1..p3.webp (+ -zoom-* ยังไม่ใช้) section #certs ก่อนราคา
@@ -191,7 +191,7 @@ BODY['th'] = r'''<section class="phero">
           <tr><td>ทนกรด</td><td>ไม่พบรอยแตกหรือฟองพอง</td><td></td></tr>
           <tr><td>ยับยั้งแบคทีเรีย / รา</td><td>&gt; 99% · ระดับ 0</td><td>GB 21551.2-2010 — ดูรายงานด้านล่าง</td></tr>
           <tr><td>วิธีพ่น</td><td>HVLP หัว 1.0–1.2 มม. แรงดันลม ~0.2 MPa</td><td>หรือเครื่องพ่นละอองละเอียดแรงดันต่ำ</td></tr>
-          <tr><td>อัตราการใช้</td><td>30–50 มล./ตร.ม.</td><td>คอยล์เย็นแอร์ 12,000 BTU 1 ตัว ≈ 20 มล. จากการพ่นจริงของเรา</td></tr>
+          <tr><td>อัตราการใช้</td><td>≈ 20 มล. ต่อคอยล์เย็นแอร์ 12,000 BTU</td><td>จากการพ่นและชั่งจริง พ่นละอองบางแรงดันต่ำ · 100 g ≈ 5 ตัว</td></tr>
           <tr><td>แห้งสัมผัส / แข็งตัว</td><td>5 นาที / ~1 ชั่วโมง</td><td>เร่งด้วยความร้อน 50°C ≈ 2 นาที · 70°C ≈ 1 นาที</td></tr>
           <tr><td>เซ็ตตัวเต็มที่</td><td>6 ชม. (อากาศร้อน) – 20 ชม. (อากาศเย็น)</td><td>ห้ามให้ฟิล์มโดนน้ำก่อนแข็งตัว</td></tr>
           <tr><td>การเก็บ / อายุ</td><td>−10 ถึง 45°C · 12 เดือนไม่เปิด</td><td>เปิดแล้วใช้ให้หมดโดยเร็ว</td></tr>
@@ -208,7 +208,7 @@ BODY['th'] = r'''<section class="phero">
 <section class="gallery" id="certs">
   <div class="wrap">
     <h2 class="sec-h">รายงานทดสอบจุลชีพ <em>จากห้องแล็บที่ได้รับการรับรอง</em></h2>
-    <p class="sec-sub">ตัวเลข "มากกว่า 99%" บนหน้านี้มาจากรายงานฉบับนี้ — Guangdong Detection Center of Microbiology (Gmicro Testing) กว่างโจว แล็บที่ได้รับการรับรอง CMA และ CNAS · รายงานเลขที่ 2020SPS942R01D · เอกสารต้นฉบับเป็นภาษาจีน-อังกฤษ คำอธิบายภาษาไทยอยู่ใต้แต่ละหน้า</p>
+    <p class="sec-sub">ตัวเลข "มากกว่า 99%" บนหน้านี้มาจากรายงานฉบับนี้ — Guangdong Detection Center of Microbiology (Gmicro Testing) กว่างโจว แล็บที่ได้รับการรับรอง CMA และ CNAS · รายงานเลขที่ 2020SPS942R01D · ตัวอย่างที่ทดสอบคือวัตถุดิบตัวเดียวกับที่เรานำเข้ามาบรรจุ · เอกสารต้นฉบับเป็นภาษาจีน-อังกฤษ คำอธิบายภาษาไทยอยู่ใต้แต่ละหน้า</p>
     <div class="speccard" style="margin-top:20px">
       <table>
         <thead><tr><th>รายการทดสอบ</th><th>วิธี</th><th>ผล</th></tr></thead>
@@ -232,7 +232,7 @@ BODY['th'] = r'''<section class="phero">
     <h2 class="sec-h">ขนาดและราคา</h2>
     <p class="sec-sub">น้ำยาสำหรับ<b>บรรจุเครื่องพ่นเอง</b> — กรอกพื้นที่ฟินให้ระบบจัดชุดที่ถูกที่สุดให้ได้</p>
     <div class="pricecard">
-      <table data-calc="1" data-shipping="40">
+      <table data-calc="1" data-shipping="70">
         <thead><tr><th>ขนาด</th><th>พื้นที่ฟินโดยประมาณ</th><th>ราคา</th></tr></thead>
         <tbody>
           <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 ตร.ม. · คอยล์เย็น 12,000 BTU ราว 5 ตัว</td><td class="pr" data-price="690">690.-</td></tr>
@@ -242,7 +242,7 @@ BODY['th'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <p class="pricenote">ค่าจัดส่ง <b>40 บาท</b> · จากที่เราพ่นและชั่งจริง <b>คอยล์เย็นแอร์ผนัง 12,000 BTU หนึ่งตัวใช้ราว 20 ml</b> เมื่อพ่นแรงดันต่ำเป็นละอองบาง (เฉพาะตัวในห้อง ไม่รวมคอยล์ร้อนนอกบ้าน) — ขวด 100 g จึงทำได้ราว 5 ตัว 1 กก. ราว 50 ตัว แอร์ตัวใหญ่กว่า หรือทำคอยล์ร้อนด้วย ใช้มากกว่านี้ตามส่วน · ไม่แน่ใจว่าต้องใช้เท่าไหร่ บอกจำนวนแอร์และขนาด BTU มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
+    <p class="pricenote">ค่าจัดส่ง <b>70 บาท</b> · จากที่เราพ่นและชั่งจริง <b>คอยล์เย็นแอร์ผนัง 12,000 BTU หนึ่งตัวใช้ราว 20 ml</b> เมื่อพ่นแรงดันต่ำเป็นละอองบาง (เฉพาะตัวในห้อง ไม่รวมคอยล์ร้อนนอกบ้าน) — ขวด 100 g จึงทำได้ราว 5 ตัว 1 กก. ราว 50 ตัว แอร์ตัวใหญ่กว่า หรือทำคอยล์ร้อนด้วย ใช้มากกว่านี้ตามส่วน · ไม่แน่ใจว่าต้องใช้เท่าไหร่ บอกจำนวนแอร์และขนาด BTU มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
   </div>
 </section>
 
@@ -443,7 +443,7 @@ BODY['en'] = r'''<section class="phero">
           <tr><td>Acid resistance</td><td>No visible cracking or blistering</td><td></td></tr>
           <tr><td>Antibacterial / anti-mould</td><td>&gt; 99% · grade 0</td><td>GB 21551.2-2010 — see the report below</td></tr>
           <tr><td>Spraying</td><td>HVLP, 1.0–1.2 mm nozzle, ~0.2 MPa</td><td>or any fine-mist sprayer at low pressure</td></tr>
-          <tr><td>Consumption</td><td>30–50 ml/m²</td><td>indoor coil of a 12,000 BTU split ≈ 20 ml in our own application</td></tr>
+          <tr><td>Consumption</td><td>≈ 20 ml per indoor coil of a 12,000 BTU split</td><td>measured in our own application, fine low-pressure mist · 100 g ≈ 5 units</td></tr>
           <tr><td>Tack-free / hardened</td><td>5 min / ~1 hour</td><td>heat: 50°C ≈ 2 min · 70°C ≈ 1 min</td></tr>
           <tr><td>Full cure</td><td>6 h (warm) – 20 h (cool)</td><td>keep water off the film until hardened</td></tr>
           <tr><td>Storage / shelf life</td><td>−10 to 45°C · 12 months unopened</td><td>use up soon after opening</td></tr>
@@ -460,7 +460,7 @@ BODY['en'] = r'''<section class="phero">
 <section class="gallery" id="certs">
   <div class="wrap">
     <h2 class="sec-h">Microbial test report <em>from an accredited laboratory</em></h2>
-    <p class="sec-sub">The "above 99%" figures on this page come from this report — Guangdong Detection Center of Microbiology (Gmicro Testing), Guangzhou, a CMA- and CNAS-accredited laboratory · report no. 2020SPS942R01D · the original is bilingual Chinese–English; English notes under each page</p>
+    <p class="sec-sub">The "above 99%" figures on this page come from this report — Guangdong Detection Center of Microbiology (Gmicro Testing), Guangzhou, a CMA- and CNAS-accredited laboratory · report no. 2020SPS942R01D · the sample tested is the same coating material we import and pack · the original is bilingual Chinese–English; English notes under each page</p>
     <div class="speccard" style="margin-top:20px">
       <table>
         <thead><tr><th>Test</th><th>Method</th><th>Result</th></tr></thead>
@@ -484,7 +484,7 @@ BODY['en'] = r'''<section class="phero">
     <h2 class="sec-h">Sizes and prices</h2>
     <p class="sec-sub">Liquid for <b>your own sprayer</b> — enter the fin area and the calculator picks the cheapest set</p>
     <div class="pricecard">
-      <table data-calc="1" data-shipping="40">
+      <table data-calc="1" data-shipping="70">
         <thead><tr><th>Size</th><th>Approx. fin area</th><th>Price</th></tr></thead>
         <tbody>
           <tr><td class="sz" data-sqm="8">100 g</td><td>≈ 8 m² · about 5 indoor coils (12,000 BTU)</td><td class="pr" data-price="690">690.-</td></tr>
@@ -494,7 +494,7 @@ BODY['en'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <p class="pricenote">Shipping <b>40 baht</b> · Measured in our own application: <b>the indoor coil of a 12,000 BTU wall split takes about 20 ml</b> as a fine low-pressure mist (indoor unit only, condenser not included) — so a 100 g bottle does about 5 and 1 kg about 50. Larger units, or doing the condenser too, use proportionally more · Not sure how much you need: send the number of units and their BTU on chat and we work it out for you, free, before you order</p>
+    <p class="pricenote">Shipping <b>70 baht</b> · Measured in our own application: <b>the indoor coil of a 12,000 BTU wall split takes about 20 ml</b> as a fine low-pressure mist (indoor unit only, condenser not included) — so a 100 g bottle does about 5 and 1 kg about 50. Larger units, or doing the condenser too, use proportionally more · Not sure how much you need: send the number of units and their BTU on chat and we work it out for you, free, before you order</p>
   </div>
 </section>
 

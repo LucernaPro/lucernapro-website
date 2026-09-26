@@ -183,6 +183,8 @@ kv([
                           'room temperature \u2014 or by heat, 50\u00b0C \u2248 2 min / 70\u00b0C \u2248 1 min'),
     ('Full cure',         'About 6 hours in warm weather, up to 20 hours in cool conditions. Keep the film dry '
                           'until then.'),
+    ('Service life',      'About 5 years outdoors on a panel kept clean as described, on our field experience \u2014 '
+                          'supported by 600 h SGS accelerated (Xenon) weathering with no cracking, peeling or chalking'),
     ('Storage',           '\u221210 to 45\u00b0C, container tightly closed, in a cool shaded place out of direct '
                           'sunlight and away from sparks and flame. Keep out of reach of children.'),
     ('Shelf life',        '12 months from the date of manufacture unopened. Use up soon after opening; beyond '
@@ -269,6 +271,8 @@ kv([
     ('การแข็งตัว',         'ผิวหน้าแข็งตัวทันทีหลังทา และแข็งตัวทั่วทั้งฟิล์มในราว 1 ชั่วโมงที่อุณหภูมิห้อง — '
                           'หรือเร่งด้วยความร้อน 50°C ≈ 2 นาที / 70°C ≈ 1 นาที'),
     ('เซ็ตตัวเต็มที่',       'ประมาณ 6 ชั่วโมงในอากาศร้อน และนานถึง 20 ชั่วโมงในอากาศเย็น — ห้ามให้ฟิล์มโดนน้ำจนกว่าจะครบ'),
+    ('อายุใช้งาน',          'ราว 5 ปีกลางแจ้งบนแผงที่ดูแลตามคำแนะนำ จากประสบการณ์หน้างานของเรา — สอดคล้องกับผลทดสอบเร่งสภาวะ Xenon 600 ชม. ของ SGS '
+                          'ที่ฟิล์มไม่แตก ไม่ลอก ไม่เป็นฝุ่นชอล์ก'),
     ('การเก็บรักษา',        '−10 ถึง 45°C ปิดฝาให้สนิท เก็บในที่เย็น ร่ม ไม่โดนแดดโดยตรง ห่างประกายไฟและเปลวไฟ เก็บพ้นมือเด็ก'),
     ('อายุผลิตภัณฑ์',       '12 เดือนนับจากวันผลิตเมื่อยังไม่เปิด เปิดแล้วควรใช้ให้หมดโดยเร็ว หากเกิน 12 เดือน '
                           'ให้ทดสอบประสิทธิภาพก่อนใช้'),
