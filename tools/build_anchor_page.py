@@ -55,20 +55,20 @@ TITLE = {
     'en': 'Lucerna Anchor — Two-Part Sand-Filled Resin Adhesive, Waterproof — Bonds Stone, Tile, Glass, Metal, Concrete Without Drilling | LucernaPro',
 }
 DESC = {
-    'th': 'Lucerna Anchor กาวเรซิน 2 ส่วนผสม เนื้อครีมข้นมีทราย ติดผิวเงาที่กาวทั่วไปจับไม่อยู่ กระเบื้อง กระจก หิน โลหะ คอนกรีต ติดของบนกระเบื้องไม่ต้องเจาะ ซ่อมกระเบื้องร่อน ติดหินในบ่อและน้ำตก อุดช่องว่างพร้อมติด กันน้ำในตัว ใช้กลางแจ้งได้ 1 กก. 590',
-    'en': 'Lucerna Anchor — a two-part sand-filled resin adhesive with real body. Bonds glossy surfaces ordinary glue cannot hold: tile, glass, stone, metal, concrete. Mount fixtures on tile without drilling, re-fix loose tiles, bond rocks in ponds and waterfalls, fill and bond in one go. Waterproof, usable outdoors. 1 kg 590.',
+    'th': 'Lucerna Anchor กาวเรซิน 2 ส่วนผสม เนื้อครีมข้นมีทราย ติดผิวเงาที่กาวทั่วไปจับไม่อยู่ กระเบื้อง กระจก หิน โลหะ คอนกรีต ติดของบนกระเบื้องไม่ต้องเจาะ ซ่อมกระเบื้องร่อน ติดหินในบ่อและน้ำตก อุดช่องว่างพร้อมติด กันน้ำในตัว ใช้กลางแจ้งได้ 250 g 350 · 1 กก. 590',
+    'en': 'Lucerna Anchor — a two-part sand-filled resin adhesive with real body. Bonds glossy surfaces ordinary glue cannot hold: tile, glass, stone, metal, concrete. Mount fixtures on tile without drilling, re-fix loose tiles, bond rocks in ponds and waterfalls, fill and bond in one go. Waterproof, usable outdoors. 250 g 350 · 1 kg 590.',
 }
 OGT = {
     'th': 'Lucerna Anchor กาวเรซินมีเนื้อ ติดหิน กระเบื้อง กระจก โลหะ กันน้ำ',
     'en': 'Lucerna Anchor — Sand-Filled Resin Adhesive for Stone, Tile, Glass, Metal',
 }
 OGD = {
-    'th': 'ติดผิวเงาที่กาวทั่วไปจับไม่อยู่ ติดของบนกระเบื้องไม่ต้องเจาะ ซ่อมกระเบื้องร่อน ติดหินในน้ำ กันน้ำในตัว ใช้กลางแจ้ง 1 กก. 590',
-    'en': 'Bonds glossy surfaces ordinary glue cannot hold. Fixtures on tile without drilling, loose-tile repairs, rocks under water. Waterproof, outdoor-safe. 1 kg 590.',
+    'th': 'ติดผิวเงาที่กาวทั่วไปจับไม่อยู่ ติดของบนกระเบื้องไม่ต้องเจาะ ซ่อมกระเบื้องร่อน ติดหินในน้ำ กันน้ำในตัว ใช้กลางแจ้ง 250 g 350 · 1 กก. 590',
+    'en': 'Bonds glossy surfaces ordinary glue cannot hold. Fixtures on tile without drilling, loose-tile repairs, rocks under water. Waterproof, outdoor-safe. 250 g 350 · 1 kg 590.',
 }
 SCHEMA = {
-    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor กาวเรซิน 2 ส่วนผสม มีเนื้อ กันน้ำ","brand":{"@type":"Brand","name":"LucernaPro"},"description":"กาวเรซิน 2 ส่วนผสมมีทราย ติดกระเบื้อง กระจก หิน โลหะ คอนกรีต ติดของบนกระเบื้องไม่ต้องเจาะ ซ่อมกระเบื้องร่อน กันน้ำในตัว ใช้กลางแจ้ง","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"590","highPrice":"1990","offerCount":"2","availability":"https://schema.org/InStock"}}\n</script>',
-    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor — Two-Part Sand-Filled Resin Adhesive","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Two-part sand-filled resin adhesive that bonds tile, glass, stone, metal and concrete; mounts fixtures on tile without drilling, re-fixes loose tiles; waterproof, outdoor-safe.","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/en/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"590","highPrice":"1990","offerCount":"2","availability":"https://schema.org/InStock"}}\n</script>',
+    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor กาวเรซิน 2 ส่วนผสม มีเนื้อ กันน้ำ","brand":{"@type":"Brand","name":"LucernaPro"},"description":"กาวเรซิน 2 ส่วนผสมมีทราย ติดกระเบื้อง กระจก หิน โลหะ คอนกรีต ติดของบนกระเบื้องไม่ต้องเจาะ ซ่อมกระเบื้องร่อน กันน้ำในตัว ใช้กลางแจ้ง","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"350","highPrice":"1990","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor — Two-Part Sand-Filled Resin Adhesive","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Two-part sand-filled resin adhesive that bonds tile, glass, stone, metal and concrete; mounts fixtures on tile without drilling, re-fixes loose tiles; waterproof, outdoor-safe.","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/en/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"350","highPrice":"1990","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
 }
 
 YT = 'O0LgqwvKovU'
@@ -144,13 +144,13 @@ BODY['th'] = r'''<section class="phero">
         <thead><tr><th>รายการ</th><th>ค่า</th><th>หมายเหตุ</th></tr></thead>
         <tbody>
           <tr><td>ชนิด</td><td>กาวเรซิน 2 ส่วนผสม แข็งตัวด้วยปฏิกิริยา</td><td>ไม่ใช่กาวแห้งด้วยอากาศ ไม่ต้องใช้ความชื้น</td></tr>
-          <tr><td>อัตราส่วนผสม</td><td>A : B = 1 : 1 โดยน้ำหนัก</td><td>ชุดเราชั่งมาให้แล้ว</td></tr>
+          <tr><td>อัตราส่วนผสม</td><td>A : B = 1 : 1</td><td>ตักเท่ากันด้วยสายตาได้ เพี้ยนเล็กน้อยไม่มีผล</td></tr>
           <tr><td>ลักษณะ</td><td>ครีมข้นมีทรายละเอียด ผสมแล้วสีเขียว</td><td>โปะได้ ไม่ไหลย้อย</td></tr>
           <tr><td>ผิวที่ติดได้</td><td>กระเบื้องเคลือบ พอร์ซเลน กระจก หิน คอนกรีต ปูนฉาบ อิฐ เหล็ก สแตนเลส อลูมิเนียม</td><td>ไม่เหมาะกับพลาสติกอ่อน PE/PP ยาง</td></tr>
           <tr><td>ความหนาที่ใช้</td><td>1–3 มม. ตามงาน</td><td>หนากว่านี้ทำเป็นชั้นๆ</td></tr>
           <tr><td>ปริมาณการใช้</td><td>1 กก. ≈ 0.7 ตร.ม. ที่ 1 มม.</td><td>ฐานตะขอ 5×5 ซม. ≈ 5 กรัม</td></tr>
           <tr><td>กันน้ำ</td><td>แช่น้ำถาวรได้หลังแข็งตัวเต็มที่</td><td>ตู้ปลา บ่อ น้ำตก</td></tr>
-          <tr><td>บรรจุ</td><td>1 กก. (A 500 g + B 500 g) · 5 กก. (A 2.5 + B 2.5)</td><td>จำนวนมากทักแชท</td></tr>
+          <tr><td>บรรจุ</td><td>250 g (A 125 + B 125) · 1 กก. (A 500 + B 500) · 5 กก. (A 2.5 + B 2.5 kg)</td><td>จำนวนมากทักแชท</td></tr>
         </tbody>
       </table>
     </div>
@@ -160,12 +160,13 @@ BODY['th'] = r'''<section class="phero">
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">ขนาดและราคา</h2>
-    <p class="sec-sub">ชุด A + B ชั่งมาให้ตรง 1:1 แล้ว ผสมทีละเท่าที่ใช้</p>
+    <p class="sec-sub">ทุกชุดมี A และ B เท่ากัน ตักผสมทีละเท่าที่ใช้</p>
     <div class="pricecard">
       <table>
         <thead><tr><th>ขนาด</th><th>เหมาะกับ</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>ติดของทั่วบ้าน ซ่อมกระเบื้อง 5–10 แผ่น ตะขอเป็นร้อยตัว</td><td class="pr">590.-</td><td class="pr">70.-</td></tr>
+          <tr><td class="sz">250 g<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 125 g + B 125 g</small></td><td>ตะขอ ที่แขวน ป้าย ซ่อมกระเบื้อง 1–2 แผ่น</td><td class="pr">350.-</td><td class="pr">70.-</td></tr>
+          <tr><td class="sz">1 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>ติดของทั่วบ้าน ซ่อมกระเบื้อง 5–10 แผ่น ตะขอเป็นร้อยตัว — คุ้มกว่า 250 g สี่เท่าในราคาไม่ถึงสองเท่า</td><td class="pr">590.-</td><td class="pr">70.-</td></tr>
           <tr><td class="sz">5 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 2.5 kg + B 2.5 kg</small></td><td>ช่างบ่อ ช่างสระ งานหิน งานซ่อมทั้งห้อง</td><td class="pr">1,990.-</td><td class="pr">130.-</td></tr>
         </tbody>
       </table>
@@ -180,7 +181,7 @@ BODY['th'] = r'''<section class="phero">
     <p class="sec-sub">ผสม โปะ กด รอ — สี่ขั้น ไม่ต้องมีเครื่องมือพิเศษ</p>
     <ol class="flow">
       <li class="fstep"><h4>ผิวสะอาด แห้ง แน่น</h4><p>เช็ดฝุ่น คราบสบู่ คราบมัน ออกจากทั้งสองผิว กระเบื้องห้องน้ำล้างแล้วเช็ดแห้ง หินและปูนเก่าปัดฝุ่นและเศษร่วนออกให้หมด ผิวเงามากเช็ดด้วยแอลกอฮอล์อีกรอบ — กาวเกาะสิ่งที่อยู่บนผิว ถ้าผิวมีฝุ่นมันเกาะฝุ่น</p><span class="fchip">สะอาด แห้ง</span></li>
-      <li class="fstep"><h4>ผสม A : B = 1 : 1 จนเป็นสีเขียวเดียวทั่ว</h4><p>ตัก A และ B น้ำหนักเท่ากันลงภาชนะเดียว คนด้วยเกรียงหรือไม้จน<b>ไม่เหลือริ้วขาวหรือฟ้า</b> ขูดก้นและข้างภาชนะด้วย สีเขียวสม่ำเสมอ = ผสมเข้ากันแล้ว ผสมทีละเท่าที่ใช้หมดในรอบเดียว กาวที่ผสมแล้วเก็บไม่ได้</p><span class="fchip">1:1 โดยน้ำหนัก</span><span class="fchip">สีเดียว ไม่มีริ้ว</span></li>
+      <li class="fstep"><h4>ผสม A : B = 1 : 1 จนเป็นสีเขียวเดียวทั่ว</h4><p>ตัก A และ B เท่ากันลงภาชนะเดียว (ตักเท่ากันด้วยสายตาพอ เพี้ยนนิดหน่อยไม่มีผล) คนด้วยเกรียงหรือไม้จน<b>ไม่เหลือริ้วขาวหรือฟ้า</b> ขูดก้นและข้างภาชนะด้วย สีเขียวสม่ำเสมอ = ผสมเข้ากันแล้ว ผสมทีละเท่าที่ใช้หมดในรอบเดียว กาวที่ผสมแล้วเก็บไม่ได้</p><span class="fchip">1:1 ตักเท่ากัน</span><span class="fchip">สีเดียว ไม่มีริ้ว</span></li>
       <li class="fstep"><h4>โปะให้เต็มหน้าสัมผัส แล้วกดยึด</h4><p>ทากาวลงบนหน้าสัมผัสให้เต็มถึงขอบ หนา 1–3 มม. ตามความไม่เรียบของผิว กดชิ้นงานลงจนกาวปลิ้นออกรอบขอบเล็กน้อย = เต็มหน้าแล้ว ขยับปรับตำแหน่งได้ในช่วงที่กาวยังนิ่ม เช็ดส่วนที่ปลิ้นออกทันทีขณะเปียก แข็งแล้วต้องขูดหรือขัด ของที่จะไหลหรือเลื่อนให้ใช้เทปกาวหรือค้ำไว้</p><span class="fchip">เต็มหน้า ถึงขอบ</span><span class="fchip">ค้ำไว้</span></li>
       <li class="fstep"><h4>ทิ้งไว้ให้แข็งตัว ก่อนแขวนของหรือโดนน้ำ</h4><p>ค้ำหรือเทปไว้จนกาวแข็ง อากาศร้อนแข็งเร็วขึ้น อากาศเย็นช้าลง ทิ้งข้ามคืนก่อนแขวนของหรือปล่อยน้ำ งานในน้ำ (บ่อ ตู้ปลา) รอให้แข็งเต็มที่ก่อนเติมน้ำ</p><span class="fchip">ทิ้งข้ามคืน</span></li>
     </ol>
@@ -314,13 +315,13 @@ BODY['en'] = r'''<section class="phero">
         <thead><tr><th>Item</th><th>Value</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Type</td><td>Two-part reaction-curing resin adhesive</td><td>Not air-drying, needs no moisture to cure</td></tr>
-          <tr><td>Mixing ratio</td><td>A : B = 1 : 1 by weight</td><td>Our sets come pre-weighed</td></tr>
+          <tr><td>Mixing ratio</td><td>A : B = 1 : 1</td><td>Equal scoops by eye are fine; a little off makes no difference</td></tr>
           <tr><td>Consistency</td><td>Thick cream with fine sand, mixes to green</td><td>Stays put, no sag</td></tr>
           <tr><td>Bonds to</td><td>Glazed tile, porcelain, glass, stone, concrete, render, brick, steel, stainless, aluminium</td><td>Not for soft plastics (PE/PP) or rubber</td></tr>
           <tr><td>Applied thickness</td><td>1–3 mm depending on the job</td><td>Build thicker in layers</td></tr>
           <tr><td>Consumption</td><td>1 kg ≈ 0.7 m² at 1 mm</td><td>A 5×5 cm hook base ≈ 5 g</td></tr>
           <tr><td>Water</td><td>Permanent immersion once fully cured</td><td>Aquariums, ponds, waterfalls</td></tr>
-          <tr><td>Packaging</td><td>1 kg (A 500 g + B 500 g) · 5 kg (A 2.5 + B 2.5)</td><td>Bulk on chat</td></tr>
+          <tr><td>Packaging</td><td>250 g (A 125 + B 125) · 1 kg (A 500 + B 500) · 5 kg (A 2.5 + B 2.5 kg)</td><td>Bulk on chat</td></tr>
         </tbody>
       </table>
     </div>
@@ -330,12 +331,13 @@ BODY['en'] = r'''<section class="phero">
 <section class="buybox" id="price">
   <div class="wrap">
     <h2 class="sec-h">Sizes and prices</h2>
-    <p class="sec-sub">A + B come pre-weighed 1:1 — mix only what you'll use</p>
+    <p class="sec-sub">Every set has equal A and B — mix only what you'll use</p>
     <div class="pricecard">
       <table>
         <thead><tr><th>Size</th><th>Good for</th><th>Price</th><th>Shipping</th></tr></thead>
         <tbody>
-          <tr><td class="sz">1 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>Fixtures around the house, 5–10 loose tiles, hooks by the hundred</td><td class="pr">590.-</td><td class="pr">70.-</td></tr>
+          <tr><td class="sz">250 g<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 125 g + B 125 g</small></td><td>Hooks, holders, signs, 1–2 loose tiles</td><td class="pr">350.-</td><td class="pr">70.-</td></tr>
+          <tr><td class="sz">1 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>Fixtures around the house, 5–10 loose tiles, hooks by the hundred — four times the 250 g for less than twice the price</td><td class="pr">590.-</td><td class="pr">70.-</td></tr>
           <tr><td class="sz">5 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 2.5 kg + B 2.5 kg</small></td><td>Pond and pool trades, stonework, whole-room repairs</td><td class="pr">1,990.-</td><td class="pr">130.-</td></tr>
         </tbody>
       </table>
@@ -350,7 +352,7 @@ BODY['en'] = r'''<section class="phero">
     <p class="sec-sub">Mix, dab, press, wait — four steps, no special tools</p>
     <ol class="flow">
       <li class="fstep"><h4>Clean, dry, sound surfaces</h4><p>Wipe dust, soap film and grease off both faces. Wash bathroom tile and dry it; brush loose grit off stone and old render. Wipe very glossy surfaces once more with alcohol — the adhesive bonds to whatever is on the surface, and if that's dust, it bonds to dust.</p><span class="fchip">Clean and dry</span></li>
-      <li class="fstep"><h4>Mix A : B = 1 : 1 to a single green</h4><p>Put equal weights of A and B in one container and stir with a trowel or stick until <b>no white or blue streaks remain</b>, scraping the bottom and sides. One even green means it's mixed. Mix only what you'll use in one go — mixed adhesive can't be kept.</p><span class="fchip">1:1 by weight</span><span class="fchip">One colour, no streaks</span></li>
+      <li class="fstep"><h4>Mix A : B = 1 : 1 to a single green</h4><p>Put equal amounts of A and B in one container (equal scoops by eye are fine; a little off makes no difference) and stir with a trowel or stick until <b>no white or blue streaks remain</b>, scraping the bottom and sides. One even green means it's mixed. Mix only what you'll use in one go — mixed adhesive can't be kept.</p><span class="fchip">1:1, equal scoops</span><span class="fchip">One colour, no streaks</span></li>
       <li class="fstep"><h4>Coat the full contact face, then press</h4><p>Spread it over the whole contact face out to the edges, 1–3 mm thick depending on how uneven the surfaces are. Press the part on until a little squeezes out all round — that means full contact. Reposition while it's still soft. Wipe squeeze-out at once while wet; once hard it has to be scraped or ground. Tape or prop anything that could slide or sag.</p><span class="fchip">Full face, to the edges</span><span class="fchip">Prop it</span></li>
       <li class="fstep"><h4>Leave it to harden before loading or wetting</h4><p>Keep it propped or taped until hard — faster in heat, slower in cold. Leave overnight before hanging anything on it or letting water at it. For work under water (ponds, aquariums), wait for a full cure before filling.</p><span class="fchip">Overnight</span></li>
     </ol>
