@@ -10,7 +10,7 @@ PureBreeze — น้ำยาเคลือบใสระดับนาโ�
 TDS (Feibo KT01/FBq301, จีน — Pist ส่ง 26 ก.ย. 2026) → ตารางสเปค #spec + files/purebreeze-tds.pdf (tools/mk_purebreeze_tds.py, EN+TH) · MSDS SNTEK202401061-3 (ม.ค. 2024, KT01) = files/purebreeze-sds.pdf ตามต้นฉบับ · เวลาแห้งในขั้นตอนใช้งานเป็นค่า TDS (แห้งสัมผัส 5 นาที / แข็งตัว ~1 ชม. / เซ็ตตัวเต็ม 6–20 ชม.) · ข้อขัดกัน: TDS 30–50 ml/m² แต่ตารางราคาระบุ 8 ตร.ม./100 g (จาก Wix) — รอ Pist ตัดสิน
 hero/การ์ด = ภาพห้องนั่งเล่นที่ Pist generate เอง (Gemini, 25 ก.ย. 2026) img/purebreeze-hero-sq.webp / -card.webp
 รายงานจุลชีพ Gmicro 2020SPS942R01D (E. coli / S. aureus >99%, รา ระดับ 0) — Pist ส่งสไลด์ 25 ก.ย. 2026, crop 3 หน้า upscale 2× = img/purebreeze-report-p1..p3.webp (+ -zoom-* ยังไม่ใช้) section #certs ก่อนราคา
-วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · คลิปแนวตั้งของ Pist (Pure_breeze2.mov, 25 ก.ย. 2026 — พ่นคอยล์ร้อนด้วยกาพ่น + ฟินครึ่งเคลือบ) = YouTube Shorts d4kNlcm259c (Pist: ใช้ลิงก์แทนไฟล์ในเว็บ จะได้ไม่หนัก — ไฟล์ mp4/poster ที่เคย encode ลบออกจาก repo แล้ว) · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
+วิดีโอ: วิธีใช้ rAH-kRWLcZg · ตู้ทดสอบฝุ่น txEii1zoYcY (แนวนอน, 26 ก.ย. 2026) · คลิปแนวตั้งของ Pist (Pure_breeze2.mov, 25 ก.ย. 2026 — พ่นคอยล์ร้อนด้วยกาพ่น + ฟินครึ่งเคลือบ) = YouTube Shorts d4kNlcm259c (Pist: ใช้ลิงก์แทนไฟล์ในเว็บ จะได้ไม่หนัก — ไฟล์ mp4/poster ที่เคย encode ลบออกจาก repo แล้ว) · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome()
 วิธีใช้: python3 tools/build_purebreeze_page.py แล้วรัน tools/build_calculator_page.py (ตารางน้ำยามี data-calc)
 """
@@ -99,13 +99,17 @@ BODY['th'] = r'''<section class="phero">
 <section class="gallery" id="proof">
   <div class="wrap">
     <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปวิธีใช้และภาพทดสอบ</em></h2>
-    <p class="sec-sub">คลิปพ่นคอยล์เย็นและคอยล์ร้อนจริง และภาพจากห้องทดสอบฝุ่นกับจานเพาะเชื้อ</p>
+    <p class="sec-sub">คลิปพ่นคอยล์เย็นและคอยล์ร้อนจริง คลิปตู้ทดสอบฝุ่น และภาพจานเพาะเชื้อ</p>
     <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="วิธีใช้ PureBreeze บนแผงฟินแอร์"></iframe></div>
         <figcaption>วิธีใช้ — พ่นบนแผงฟินคอยล์เย็นหลังล้างและเป่าแห้งแล้ว</figcaption>
       </figure>
     </div>
+    <figure class="packshot" style="margin:18px 0 0;max-width:880px">
+      <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/txEii1zoYcY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze — พ่นคอยล์เย็นครึ่งเดียว แล้วโรยฝุ่นในตู้ทดสอบ"></iframe></div>
+      <figcaption><b>ตู้ทดสอบฝุ่น</b> — คอยล์เย็นชุดเดียวกัน คลุมไว้ครึ่งหนึ่งแล้วพ่น PureBreeze เฉพาะอีกครึ่ง เอาทั้งชุดเข้าตู้แล้วพ่นฝุ่นใส่ ครึ่งที่ไม่ได้เคลือบฝุ่นเกาะเป็นชั้น ครึ่งที่เคลือบยังเห็นเนื้อฟินชัด</figcaption>
+    </figure>
     <div class="vidgrid vert solo" style="margin:18px 0 0">
       <figure style="margin:0">
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/d4kNlcm259c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze — พ่นคอยล์ร้อนด้วยกาพ่นสี และฟินที่เคลือบครึ่งเดียว"></iframe></div>
@@ -347,13 +351,17 @@ BODY['en'] = r'''<section class="phero">
 <section class="gallery" id="proof">
   <div class="wrap">
     <h2 class="sec-h">See it first — <em>application clip and test photos</em></h2>
-    <p class="sec-sub">Real evaporator and condenser coils being sprayed, plus dust-chamber and culture-dish photos</p>
+    <p class="sec-sub">Real evaporator and condenser coils being sprayed, the dust-chamber clip, plus culture-dish photos</p>
     <div class="ggrid" style="grid-template-columns:1fr;max-width:880px">
       <figure class="packshot" style="margin:0">
         <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/rAH-kRWLcZg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="How to apply PureBreeze on A/C fins"></iframe></div>
         <figcaption>Application — sprayed onto the evaporator fins after washing and blow-drying</figcaption>
       </figure>
     </div>
+    <figure class="packshot" style="margin:18px 0 0;max-width:880px">
+      <div class="fbv"><iframe loading="lazy" src="https://www.youtube.com/embed/txEii1zoYcY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze — half-coated evaporator coil in a dust chamber"></iframe></div>
+      <figcaption><b>Dust chamber</b> — one evaporator coil, half masked, PureBreeze sprayed on the other half only, then the whole coil placed in the chamber and dusted: the uncoated half wears a layer of dust, the coated half still shows bare fins</figcaption>
+    </figure>
     <div class="vidgrid vert solo" style="margin:18px 0 0">
       <figure style="margin:0">
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/d4kNlcm259c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="PureBreeze — spray-gun application on a condenser coil and half-coated fins"></iframe></div>
