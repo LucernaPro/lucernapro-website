@@ -13,7 +13,7 @@ Lucerna Anchor — กาวรองหลังกระเบื้อง 2 �
   · คำ "Epoxy" ไม่ใช้บนหน้า (ชื่อสินค้าไม่มีคำนี้) — เรียก "เรซิน 2 ส่วนผสม ประเภท Reaction Resin"
 ราคา (เจ้าของเคาะ 26 ก.ย. 2026 "เล่นราคา อยากให้ช่างใช้" — ทุนถึงมือ 220/kg + package 100/200/50): 1 kg 590 ส่ง 70 · 5 kg 1,990 ส่ง 130 · 20 kg 6,500 ส่งตามจริง · section #cost คิดเงินต่อห้อง/ต่อแผ่นให้ช่าง
 ขาย: แชท + Line + โทร ก่อน (8.6-B) — ยังไม่มี listing Shopee/Lazada
-รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น)
+รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น) · anchor-g03 (ฉาบบนผนัง — วิธี B, Pist ส่ง 26 ก.ย.: "ฉาบบนผนัง แล้วเอากระเบื้องที่ใส่ปูนกาวแล้วมาติดทับ")
 คลิป: YouTube Shorts O0LgqwvKovU (แนวตั้ง — บันไดกระเบื้องที่ติดด้วยกาวตัวนี้)
 chrome ยกมาจาก paintcoating ผ่าน build_easyclean_page.chrome() — เปลี่ยน --cat เป็นสีหมวด chem
 วิธีใช้: python3 tools/build_anchor_page.py แล้วรัน tools/build_calculator_page.py (ตารางราคามี data-calc)
@@ -95,7 +95,7 @@ BODY['th'] = r'''<section class="phero">
     <p class="sec-sub">ปูนกาวเกาะด้วยการซึมเข้าผิว — หลังแผ่นใหญ่รุ่นใหม่ทำมาแน่นและเรียบจนปูนซึมไม่ได้ Anchor เกาะด้วยปฏิกิริยาเคมีกับผิวโดยตรง ไม่ต้องอาศัยรูพรุน</p>
     <div class="pts">
       <div class="pt"><span class="ic">01</span><div><h4>จับผิวที่ปูนกาวจับไม่อยู่</h4><p>หลัง sintered stone หลังกระเบื้องพอร์ซเลนดูดซึมน้ำต่ำ กระจก โลหะ แผ่นไฟเบอร์ซีเมนต์ OSB และผนังที่ทากันซึมไว้แล้ว — ผิวที่ปูนกาวได้แค่ "วางทับ" Anchor เกาะเป็นเนื้อเดียวกับผิว แล้วปูนกาวเกาะ Anchor อีกที</p></div></div>
-      <div class="pt"><span class="ic">02</span><div><h4>บางแค่ 1 มม. ไม่เปลี่ยนวิธีปู</h4><p>ไม่ใช่กาวปูเต็มแผ่น ปาดหลังแผ่นบางๆ แล้วปูด้วยปูนกาวและเกรียงหวีเหมือนเดิม ช่างไม่ต้องเรียนวิธีใหม่ 1 กก. ทำได้ราว 1.2 ตร.ม. ต้นทุนเพิ่มต่อตารางเมตรถูกกว่าค่ารื้อกระเบื้องที่ร่อนหลายเท่า</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>บางแค่ 1 มม. ไม่เปลี่ยนวิธีปู</h4><p>ไม่ใช่กาวปูเต็มแผ่น ปาดหลังแผ่นบางๆ (หรือฉาบบนผนังแทน แล้วเอาแผ่นที่ปาดปูนกาวแล้วมาติดทับ) ที่เหลือคือปูนกาวและเกรียงหวีเหมือนเดิม ช่างไม่ต้องเรียนวิธีใหม่ 1 กก. ทำได้ราว 1.2 ตร.ม. ต้นทุนเพิ่มต่อตารางเมตรถูกกว่าค่ารื้อกระเบื้องที่ร่อนหลายเท่า</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>ทนน้ำ ทนร้อน และยืดหยุ่น</h4><p>ผ่านทดสอบต้มในน้ำเดือด 100°C และแช่แข็ง −30°C โดยไม่หลุด ฟิล์ม 1 มม. งอได้ 360° ไม่แตก — กระเบื้องแผ่นใหญ่ตากแดดขยายตัวมากกว่าแผ่นเล็ก ชั้นที่ยืดตามได้คือชั้นที่ไม่ร่อน ใช้ได้ทั้งผนังภายนอก ห้องน้ำ และรอบสระ</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>เวลาทำงาน 2 ชั่วโมง ไม่ต้องรีบ</h4><p>เวลาเปิด 120–150 นาทีที่ 23°C ปาดหลังแผ่นทีละหลายแผ่นแล้วค่อยปูก็ทัน (อากาศร้อนของบ้านเราสั้นลง — ผสมทีละเท่าที่ใช้ทันในหนึ่งชั่วโมง) ไม่มีฝุ่นปูน ไม่มีกลิ่นฟอร์มาลดีไฮด์ ผสมด้วยเกรียงในถังได้เลย</p></div></div>
     </div>
@@ -105,7 +105,7 @@ BODY['th'] = r'''<section class="phero">
 <section class="gallery" id="proof">
   <div class="wrap">
     <h2 class="sec-h">ดูของจริงก่อน — <em>คลิปและภาพ</em></h2>
-    <p class="sec-sub">บันไดกระเบื้องที่ยึดกันด้วยกาวตัวนี้ล้วนๆ และเนื้อกาวหลังผสม</p>
+    <p class="sec-sub">บันไดกระเบื้องที่ยึดกันด้วยกาวตัวนี้ล้วนๆ เนื้อกาวหลังผสม และวิธีใช้ทั้งสองแบบ</p>
     <div class="vidgrid vert solo">
       <figure style="margin:0">
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/''' + YT + r'''" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Lucerna Anchor — บันไดกระเบื้องที่ยึดด้วยกาวตัวนี้ รับน้ำหนักคนเดินขึ้น"></iframe></div>
@@ -115,6 +115,7 @@ BODY['th'] = r'''<section class="phero">
     <div class="ggrid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-g01.webp" alt="เนื้อกาว Lucerna Anchor บนเกรียง — เนื้อครีมข้นสีเขียวมีเม็ดทรายละเอียด ไม่ไหลย้อย" width="720" height="720"></div><figcaption><span class="no">01</span>เนื้อกาวหลังผสม — ครีมข้นมีทรายละเอียด เกาะเกรียงไม่ไหล</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-g02.webp" alt="ปาด Lucerna Anchor บนหลังกระเบื้องด้วยเกรียงหวี เห็นร่องกาวเรียบสม่ำเสมอ" width="720" height="720"></div><figcaption><span class="no">02</span>ปาดหลังแผ่นด้วยเกรียงหวี — ชั้นบางสม่ำเสมอ ไม่ต้องหนา</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-g03.webp" alt="ฉาบ Lucerna Anchor ด้วยเกรียงหวีลงบนผนังข้างกระเบื้องเดิม ก่อนนำกระเบื้องที่ปาดปูนกาวแล้วมาติดทับ" width="720" height="720"></div><figcaption><span class="no">03</span>อีกวิธี — ฉาบบนผนังแทน แล้วเอาแผ่นที่ปาดปูนกาวแล้วมาติดทับ</figcaption></figure>
     </div>
   </div>
 </section>
@@ -126,7 +127,7 @@ BODY['th'] = r'''<section class="phero">
     <div class="pts">
       <div class="pt"><span class="ic">🧱</span><div><h4>กระเบื้องแผ่นใหญ่ · sintered stone บนผนัง</h4><p>แผ่น 60×120 ขึ้นไปจนถึง 120×240 ที่น้ำหนักมากและหลังแผ่นแน่น — ชั้น Anchor หลังแผ่นทำให้ปูนกาวจับแผ่นได้เต็มหน้า ลดจุดกลวงและการร่อนในปีต่อๆ ไป ใช้ร่วมกับปูนกาวชนิดสำหรับแผ่นใหญ่ตามปกติ</p></div></div>
       <div class="pt"><span class="ic">🔁</span><div><h4>ปูทับกระเบื้องเดิม ไม่ต้องรื้อ</h4><p>ห้องน้ำ ห้องครัว ที่อยากเปลี่ยนหน้าใหม่แต่ไม่อยากทุบ — ปาด Anchor บนหลังแผ่นใหม่ แล้วปูลงบนกระเบื้องเดิมที่ล้างสะอาดด้วยปูนกาว ผิวเงาของกระเบื้องเก่าไม่ใช่ปัญหาอีก</p></div></div>
-      <div class="pt"><span class="ic">🪟</span><div><h4>ผิวยาก — กระจก โลหะ ไฟเบอร์ซีเมนต์ ผนังกันซึม</h4><p>ผนังที่ทากันซึมไว้แล้ว แผ่นไฟเบอร์ซีเมนต์ OSB แผ่นเหล็ก กระจก — ผิวที่ช่างส่วนใหญ่ต้องหาทางออกด้วยตะแกรงหรือรองพื้นหลายชั้น ตัวนี้ปาดชั้นเดียวจบ</p></div></div>
+      <div class="pt"><span class="ic">🪟</span><div><h4>ผิวยาก — กระจก โลหะ ไฟเบอร์ซีเมนต์ ผนังกันซึม</h4><p>ผนังที่ทากันซึมไว้แล้ว แผ่นไฟเบอร์ซีเมนต์ OSB แผ่นเหล็ก กระจก — ผิวที่ช่างส่วนใหญ่ต้องหาทางออกด้วยตะแกรงหรือรองพื้นหลายชั้น ตัวนี้ปาดชั้นเดียวจบ — ผนังแบบนี้สะดวกกว่าถ้าฉาบ Anchor ลงบนผนังทั้งผืนแล้วค่อยปูแผ่นที่ปาดปูนกาวทับ</p></div></div>
       <div class="pt"><span class="ic">🪝</span><div><h4>ติดของชิ้นเล็กบนกระเบื้องโดยไม่เจาะ</h4><p>ตะขอ ที่จับ ป้าย ชั้นวางของเบา บนกระเบื้องผิวเงาที่เจาะแล้วเสี่ยงแตก — ทาทั้งหน้าสัมผัสแล้วกดยึด <b>งานรับน้ำหนักจริงยังต้องยึดด้วยพุกหรือสกรู</b> อ่านข้อจำกัดด้านล่างก่อนใช้</p></div></div>
     </div>
     <div class="warn"><b>⚠ อย่าใช้ยึดของหนัก:</b> ชั้นวางที่จะวางของหนัก ราวจับที่คนโหน ของที่แขวนเหนือหัวคนหรือเหนือเตียง ต้องยึดด้วยพุกหรือสกรูเชิงกลเสมอ กาวเป็นตัวเสริม ไม่ใช่ตัวรับน้ำหนักหลัก — ตราบใดที่ยังไม่มีตัวเลขรับน้ำหนักที่เราวัดเองบนหน้านี้ ให้ถือว่ารับน้ำหนักไม่ได้ไว้ก่อน งานที่ไม่แน่ใจ ทักมาถามพร้อมรูปหน้างาน</div>
@@ -204,19 +205,19 @@ BODY['th'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <p class="pricenote">แผ่น 60×120 บวกไปแผ่นละไม่ถึง 200 บาท แผ่นใหญ่ 120×240 ราว 750 — เทียบกับค่าแผ่นและค่าแรงปูแผ่นนั้น และค่ารื้อทำใหม่ถ้าแผ่นร่อน ตัวเลขนี้คือประกันที่ถูกที่สุดในงาน · หลังแผ่นที่มีร่องลึกหรือลายนูนใช้มากกว่านี้ เผื่อไว้ 10–20%</p>
+    <p class="pricenote">แผ่น 60×120 บวกไปแผ่นละไม่ถึง 200 บาท แผ่นใหญ่ 120×240 ราว 750 — เทียบกับค่าแผ่นและค่าแรงปูแผ่นนั้น และค่ารื้อทำใหม่ถ้าแผ่นร่อน ตัวเลขนี้คือประกันที่ถูกที่สุดในงาน · หลังแผ่นที่มีร่องลึกหรือลายนูนใช้มากกว่านี้ เผื่อไว้ 10–20% · วิธีฉาบบนผนังใช้มากกว่าปาดหลังแผ่นตามความลึกฟันเกรียง ส่งขนาดงานมาทางแชท เราคิดปริมาณให้</p>
   </div>
 </section>
 
 <section class="howto">
   <div class="wrap">
     <h2 class="sec-h">วิธีใช้งาน — <em>จบบนหน้านี้</em></h2>
-    <p class="sec-sub">ขั้นตอนเดียวที่เพิ่มจากการปูปกติคือ "ปาดหลังแผ่น" — ที่เหลือคือปูนกาวและเกรียงหวีเหมือนเดิม</p>
+    <p class="sec-sub">ขั้นตอนเดียวที่เพิ่มจากการปูปกติคือชั้น Anchor บางๆ ระหว่างแผ่นกับปูนกาว — จะปาดไว้ที่หลังแผ่น หรือฉาบไว้บนผนังก็ได้ ที่เหลือคือปูนกาวและเกรียงหวีเหมือนเดิม</p>
     <ol class="flow">
       <li class="fstep"><h4>เตรียมผิว — ผนังแข็งแรง แห้ง หลังแผ่นสะอาด</h4><p>ผนังต้องแน่น ไม่มีฝุ่นหรือชั้นสีร่อน กระเบื้องเดิมที่จะปูทับให้ล้างคราบสบู่และคราบมันออก เคาะหาแผ่นกลวงแล้วซ่อมก่อน หลังแผ่นใหม่ให้เช็ดฝุ่นและคราบผงจากโรงงานออกด้วยผ้าหมาด — อยากให้ทนขั้นสุด ล้างหลังแผ่นแล้วเช็ดแห้งก่อนปาด</p><span class="fchip">หลังแผ่นสะอาด แห้ง</span></li>
       <li class="fstep"><h4>ผสม A : B = 1 : 1 โดยน้ำหนัก จนเป็นสีเขียวเดียวทั่วถัง</h4><p>ตักส่วน A และ B น้ำหนักเท่ากันลงถังเดียว กวนด้วยเกรียงหรือหัวปั่นรอบต่ำจน<b>ไม่เหลือริ้วสีขาวหรือฟ้า</b> ทั้งก้นถังและข้างถัง สีเขียวสม่ำเสมอคือสัญญาณว่าผสมเข้ากันแล้ว — ชุดเล็ก 1 กก. ที่เราชั่งมาให้ เทรวมกันทั้งสองกระปุกได้เลย ผสมทีละเท่าที่ปูทันในราวหนึ่งชั่วโมง</p><span class="fchip">1:1 โดยน้ำหนัก</span><span class="fchip">สีเดียวทั่ว ไม่มีริ้ว</span></li>
-      <li class="fstep"><h4>ปาดหลังแผ่นบาง 1 มม. ให้ทั่ว</h4><p>ใช้เกรียงหวีฟันเล็กหรือเกรียงเรียบ ปาดกาวลงหลังกระเบื้องให้เต็มแผ่นถึงขอบ ความหนาราว 1 มม. — ไม่ต้องหนา หนาไปเปลืองและไม่ได้แข็งแรงขึ้น ทำทีละหลายแผ่นแล้วพิงไว้รอปูได้ภายในเวลาเปิด</p><span class="fchip">1 มม. ถึงขอบแผ่น</span></li>
-      <li class="fstep"><h4>ปาดปูนกาวบนผนัง แล้วกดแผ่นลงขณะกาวยังเปียก</h4><p>ปาดปูนกาวชนิดสำหรับแผ่นใหญ่บนผนังด้วยเกรียงหวีตามปกติ แล้วยกแผ่นที่ปาด Anchor ไว้กดลงไป<b>ก่อนที่ชั้น Anchor จะแห้งผิว</b> (ภายใน 120–150 นาทีที่ 23°C — กลางแดดหรืออากาศร้อนจัดให้เผื่อสั้นกว่านั้นมาก) กดและเคาะไล่อากาศเหมือนงานปูทั่วไป ปรับระดับได้ตามเวลาเปิดของปูนกาว</p><span class="fchip">wet-on-wet</span><span class="fchip">ภายในเวลาเปิด</span></li>
+      <li class="fstep"><h4>ปาด Anchor บาง 1 มม. — เลือกด้านใดด้านหนึ่ง</h4><p><b>วิธี A · ปาดหลังแผ่น:</b> ใช้เกรียงหวีฟันเล็กหรือเกรียงเรียบ ปาดกาวลงหลังกระเบื้องให้เต็มแผ่นถึงขอบ ความหนาราว 1 มม. ทำทีละหลายแผ่นแล้วพิงไว้รอปูได้ภายในเวลาเปิด — เหมาะกับแผ่นใหญ่ที่หลังแผ่นคือตัวปัญหา<br><b>วิธี B · ฉาบบนผนัง:</b> ฉาบ Anchor ลงบนผนังด้วยเกรียงหวีเป็นผืน เหมือนในภาพที่ 03 — เหมาะกับผนังที่ผิวคือตัวปัญหา เช่น ปูทับกระเบื้องเดิม ผนังกันซึม กระจก โลหะ แผ่นไฟเบอร์ซีเมนต์ ฉาบทีละผืนเท่าที่ปูทันในเวลาเปิด ใช้กาวมากกว่าวิธี A ตามความลึกฟันเกรียง · ทั้งสองวิธี ไม่ต้องหนา หนาไปเปลืองและไม่ได้แข็งแรงขึ้น</p><span class="fchip">1 มม. ถึงขอบ</span><span class="fchip">หลังแผ่น หรือ บนผนัง</span></li>
+      <li class="fstep"><h4>อีกด้านใส่ปูนกาว แล้วประกบกันขณะ Anchor ยังเปียก</h4><p>วิธี A: ปาดปูนกาวชนิดสำหรับแผ่นใหญ่บนผนังด้วยเกรียงหวีตามปกติ แล้วยกแผ่นที่ปาด Anchor ไว้กดลงไป · วิธี B: ปาดปูนกาวที่หลังแผ่น แล้วกดแผ่นลงบนผนังที่ฉาบ Anchor ไว้ · ทั้งสองวิธีต้องประกบ<b>ก่อนที่ชั้น Anchor จะแห้งผิว</b> (ภายใน 120–150 นาทีที่ 23°C — กลางแดดหรืออากาศร้อนจัดให้เผื่อสั้นกว่านั้นมาก) กดและเคาะไล่อากาศเหมือนงานปูทั่วไป ปรับระดับได้ตามเวลาเปิดของปูนกาว</p><span class="fchip">wet-on-wet</span><span class="fchip">ภายในเวลาเปิด</span></li>
       <li class="fstep"><h4>ปล่อยให้แข็งตัวตามรอบปูนกาว แล้วยาแนวตามปกติ</h4><p>เวลารอยาแนวและเปิดใช้งานเป็นไปตามข้อกำหนดของปูนกาวที่ใช้ — ชั้น Anchor แข็งตัวไปพร้อมกันโดยไม่ต้องทำอะไรเพิ่ม กาวที่เลอะหน้าแผ่นเช็ดออกทันทีขณะยังเปียก แข็งแล้วต้องขูด · <b>งานติดของชิ้นเล็กโดยตรง:</b> ทาให้เต็มหน้าสัมผัสทั้งสองด้าน กดยึดแล้วค้ำไว้ ทิ้งข้ามคืนก่อนแขวนของ</p></li>
     </ol>
 
@@ -303,7 +304,7 @@ BODY['en'] = r'''<section class="phero">
     <p class="sec-sub">Cement adhesive holds by soaking into the surface. The backs of modern large-format tiles are so dense and smooth that there is nothing for it to soak into. Anchor bonds to the surface chemically — no pores needed.</p>
     <div class="pts">
       <div class="pt"><span class="ic">01</span><div><h4>Grips what cement cannot</h4><p>Sintered stone, low-absorption porcelain backs, glass, metal, fibre-cement board, OSB and walls already coated with waterproofing — surfaces cement adhesive merely sits against. Anchor bonds to the surface itself, and the cement adhesive bonds to Anchor.</p></div></div>
-      <div class="pt"><span class="ic">02</span><div><h4>1 mm thick — nothing else changes</h4><p>Not a full-bed adhesive. Skim the back of the tile, then lay it with cement adhesive and a notched trowel as usual; the tiler learns nothing new. 1 kg covers about 1.2 m², and the extra cost per square metre is a fraction of ripping out tiles that let go.</p></div></div>
+      <div class="pt"><span class="ic">02</span><div><h4>1 mm thick — nothing else changes</h4><p>Not a full-bed adhesive. Skim the back of the tile (or comb it onto the wall instead and press tiles spread with cement adhesive onto it); the rest is cement adhesive and a notched trowel as usual, and the tiler learns nothing new. 1 kg covers about 1.2 m², and the extra cost per square metre is a fraction of ripping out tiles that let go.</p></div></div>
       <div class="pt"><span class="ic">03</span><div><h4>Water, heat and movement</h4><p>Survives boiling at 100°C and freezing at −30°C without releasing; a 1 mm film bends 360° without cracking. Large slabs in the sun move more than small tiles, and the layer that moves with them is the layer that doesn't let go — exterior walls, bathrooms, pool surrounds.</p></div></div>
       <div class="pt"><span class="ic">04</span><div><h4>A 2-hour window — no rush</h4><p>Open time of 120–150 minutes at 23°C, so you can skim several tiles ahead and lay them at your pace (Thai heat shortens it — mix what you can lay within an hour). No cement dust, no formaldehyde, mixes with a trowel in the bucket.</p></div></div>
     </div>
@@ -313,7 +314,7 @@ BODY['en'] = r'''<section class="phero">
 <section class="gallery" id="proof">
   <div class="wrap">
     <h2 class="sec-h">See it first — <em>clip and photos</em></h2>
-    <p class="sec-sub">A tile staircase held together by nothing but this adhesive, and the mixed material itself</p>
+    <p class="sec-sub">A tile staircase held together by nothing but this adhesive, the mixed material itself, and both ways of applying it</p>
     <div class="vidgrid vert solo">
       <figure style="margin:0">
         <div class="fbv v916"><iframe loading="lazy" src="https://www.youtube.com/embed/''' + YT + r'''" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Lucerna Anchor — a tile staircase held by this adhesive, taking a person's weight"></iframe></div>
@@ -323,6 +324,7 @@ BODY['en'] = r'''<section class="phero">
     <div class="ggrid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px">
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-g01.webp" alt="Lucerna Anchor on a trowel — a thick green cream with fine sand that holds its shape" width="720" height="720"></div><figcaption><span class="no">01</span>The mixed adhesive — a thick cream with fine sand, holds on the trowel without sagging</figcaption></figure>
       <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-g02.webp" alt="Lucerna Anchor combed onto the back of a tile with a notched trowel in even ridges" width="720" height="720"></div><figcaption><span class="no">02</span>Combed onto the back of the tile — a thin, even layer is all it takes</figcaption></figure>
+      <figure class="gph"><div class="im"><img loading="lazy" decoding="async" src="/img/anchor-g03.webp" alt="Lucerna Anchor combed onto a wall next to existing tiles, before tiles spread with cement adhesive are pressed on" width="720" height="720"></div><figcaption><span class="no">03</span>The other way round — combed onto the wall, then tiles with cement adhesive on the back are pressed on</figcaption></figure>
     </div>
   </div>
 </section>
@@ -334,7 +336,7 @@ BODY['en'] = r'''<section class="phero">
     <div class="pts">
       <div class="pt"><span class="ic">🧱</span><div><h4>Large-format tiles · sintered stone on walls</h4><p>60×120 up to 120×240 slabs that are heavy and dense on the back — a skim of Anchor lets the cement adhesive hold the whole face, cutting hollow spots and the delamination that shows up years later. Used together with a large-format cement adhesive as normal.</p></div></div>
       <div class="pt"><span class="ic">🔁</span><div><h4>Tile over tile, no demolition</h4><p>A bathroom or kitchen that needs a new face without the noise and rubble — skim Anchor on the new tile and bed it with cement adhesive onto the old, well-cleaned tiles. The glossy old surface stops being a problem.</p></div></div>
-      <div class="pt"><span class="ic">🪟</span><div><h4>Difficult substrates — glass, metal, fibre cement, waterproofed walls</h4><p>Walls already coated with waterproofing, fibre-cement board, OSB, steel plate, glass — the surfaces most tilers have to work around with mesh or several primer coats. One skim.</p></div></div>
+      <div class="pt"><span class="ic">🪟</span><div><h4>Difficult substrates — glass, metal, fibre cement, waterproofed walls</h4><p>Walls already coated with waterproofing, fibre-cement board, OSB, steel plate, glass — the surfaces most tilers have to work around with mesh or several primer coats. One skim — on walls like these it is easier to comb Anchor over the whole wall and then lay tiles with cement adhesive on their backs.</p></div></div>
       <div class="pt"><span class="ic">🪝</span><div><h4>Small fixtures on tile without drilling</h4><p>Hooks, handles, signs, light shelves on glossy tile where drilling risks a crack — coat the full contact face and press on. <b>Anything that genuinely carries load still needs anchors or screws</b>; read the limit below before you use it this way.</p></div></div>
     </div>
     <div class="warn"><b>⚠ Do not use it to hold heavy things:</b> shelves that will carry weight, grab rails people pull on, anything hanging above heads or beds must be fixed with wall anchors or screws — adhesive is a helper, not the primary load path. Until this page shows a load figure we have measured ourselves, treat it as not load-bearing. If you are not sure, message us with a photo of the job.</div>
@@ -412,19 +414,19 @@ BODY['en'] = r'''<section class="phero">
         </tbody>
       </table>
     </div>
-    <p class="pricenote">Under 200 THB added per 60×120 tile, about 750 per 120×240 slab — set against the cost of the slab, the labour to lay it, and the rip-out if it lets go, this is the cheapest insurance on the job · Deeply ribbed or textured backs use more; allow 10–20% extra</p>
+    <p class="pricenote">Under 200 THB added per 60×120 tile, about 750 per 120×240 slab — set against the cost of the slab, the labour to lay it, and the rip-out if it lets go, this is the cheapest insurance on the job · Deeply ribbed or textured backs use more; allow 10–20% extra · Combing onto the wall uses more than skimming the tile back, depending on notch depth — send the job size on chat and we work out the quantity</p>
   </div>
 </section>
 
 <section class="howto">
   <div class="wrap">
     <h2 class="sec-h">How to use — <em>all on this page</em></h2>
-    <p class="sec-sub">The only step added to a normal tiling job is "skim the back of the tile" — the rest is cement adhesive and a notched trowel as always</p>
+    <p class="sec-sub">The only step added to a normal tiling job is a thin Anchor layer between tile and cement adhesive — skimmed on the tile back or combed onto the wall, your choice; the rest is cement adhesive and a notched trowel as always</p>
     <ol class="flow">
       <li class="fstep"><h4>Prepare — sound, dry wall; clean tile back</h4><p>The wall must be solid with no dust or flaking paint. Old tiles being tiled over get washed free of soap film and grease; tap for hollow ones and fix them first. Wipe factory dust and powder off the back of every new tile with a damp cloth — for maximum durability, wash the backs and dry them before skimming.</p><span class="fchip">Clean, dry tile back</span></li>
       <li class="fstep"><h4>Mix A : B = 1 : 1 by weight to a single green</h4><p>Put equal weights of A and B in one bucket and stir with a trowel or a slow mixer until <b>no white or blue streaks remain</b>, scraping the bottom and sides. One uniform green means it is mixed. Our 1 kg set is pre-weighed — just pour both tubs together. Mix only what you can lay in about an hour.</p><span class="fchip">1:1 by weight</span><span class="fchip">One colour, no streaks</span></li>
-      <li class="fstep"><h4>Skim 1 mm over the whole back of the tile</h4><p>With a fine-notched or flat trowel, spread the adhesive over the entire back out to the edges, about 1 mm thick — thicker is waste, not strength. Skim several tiles and lean them ready to lay within the open time.</p><span class="fchip">1 mm, edge to edge</span></li>
-      <li class="fstep"><h4>Trowel cement adhesive on the wall and press the tile in while wet</h4><p>Comb a large-format cement adhesive onto the wall with a notched trowel as normal, then press the skimmed tile into it <b>before the Anchor layer skins over</b> (within 120–150 minutes at 23°C — in direct sun or serious heat allow much less). Press and tap out air as with any tiling; adjust within the cement adhesive's own open time.</p><span class="fchip">wet-on-wet</span><span class="fchip">Within open time</span></li>
+      <li class="fstep"><h4>Apply Anchor 1 mm — on one side or the other</h4><p><b>Method A · tile back:</b> with a fine-notched or flat trowel, spread it over the entire back out to the edges, about 1 mm thick; skim several tiles and lean them ready to lay within the open time — best for large slabs where the tile back is the problem.<br><b>Method B · on the wall:</b> comb Anchor over the wall with a notched trowel in sections, as in photo 03 — best where the wall surface is the problem: tile over tile, waterproofed walls, glass, metal, fibre-cement board. Comb only what you can tile within the open time; it uses more than method A depending on notch depth. Either way, thicker is waste, not strength.</p><span class="fchip">1 mm, edge to edge</span><span class="fchip">Tile back or wall</span></li>
+      <li class="fstep"><h4>Cement adhesive on the other side, then press together while Anchor is wet</h4><p>Method A: comb a large-format cement adhesive onto the wall as normal and press the skimmed tile into it. Method B: spread cement adhesive on the tile back and press the tile onto the Anchor-combed wall. Either way, join them <b>before the Anchor layer skins over</b> (within 120–150 minutes at 23°C — in direct sun or serious heat allow much less). Press and tap out air as with any tiling; adjust within the cement adhesive's own open time.</p><span class="fchip">wet-on-wet</span><span class="fchip">Within open time</span></li>
       <li class="fstep"><h4>Let it cure on the cement adhesive's schedule, then grout as usual</h4><p>Grouting and walk-on times follow the cement adhesive you used — the Anchor layer cures along with it, nothing extra to do. Wipe adhesive off the tile face immediately while wet; once hard it has to be scraped. · <b>Bonding small fixtures directly:</b> coat the full contact face on both parts, press together, support in place and leave overnight before hanging anything on it.</p></li>
     </ol>
 
