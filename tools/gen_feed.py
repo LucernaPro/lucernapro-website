@@ -29,7 +29,8 @@ IMG_DIR = "img/feed"
 SKIP_DIRS = {'en', 'post', 'casestudy', 'search', 'finder', 'account', 'ship', 'calculator', 'test',
              'notes', 'files', 'img', 'tools'}
 COLS = ['id', 'title', 'description', 'availability', 'condition', 'price', 'link', 'image_link',
-        'brand', 'item_group_id', 'size']
+        'brand', 'item_group_id', 'size', 'quantity_to_sell_on_facebook']
+STOCK = 100  # catalog นี้ผูกกับร้านค้าบนเพจ FB บังคับให้มีคอลัมน์สต็อก — ของเราผลิตเองไม่ขาด ใส่ค่าคงที่
 
 
 def strip(s):
@@ -106,7 +107,8 @@ def items():
                 id=f'{slug}-{key}', title=f'{name} {sz}', description=desc[:4999],
                 availability='in stock', condition='new', price=f'{pr}.00 THB',
                 link=f'{DOMAIN}/{slug}', image_link=f'{DOMAIN}/{IMG_DIR}/{slug}.jpg',
-                brand='LucernaPro', item_group_id=slug, size=sz, _src=src, _slug=slug))
+                brand='LucernaPro', item_group_id=slug, size=sz, quantity_to_sell_on_facebook=STOCK,
+                _src=src, _slug=slug))
     return out
 
 
