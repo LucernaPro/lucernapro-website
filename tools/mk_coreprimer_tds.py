@@ -146,7 +146,7 @@ header('CorePrimer',
 y = 67.0
 
 section('PRODUCT DESCRIPTION', gap=4.0)
-para('LucernaPro CorePrimer is a single-component, solvent-free, moisture-curing polyurethane primer for concrete, '
+para('LucernaPro CorePrimer is a single-component, solvent-free, moisture-curing polymer-modified penetrating primer for concrete, '
      'cement render and other absorbent cementitious surfaces, developed as the primer coat of the PoolArmour pool '
      'coating system. The liquid soaks into the pores of the concrete and cures inside them, binding dusty, friable or '
      'highly absorbent render into a firm, consolidated base. Applied while the primer is still fresh, the first coat of '
@@ -156,13 +156,13 @@ para('LucernaPro CorePrimer is a single-component, solvent-free, moisture-curing
 
 section('KEY DATA')
 kv([
-    ('Type',              'Single-component (1K) moisture-curing polyurethane penetrating primer, 100 % solvent-free, '
+    ('Type',              'Single-component (1K) moisture-curing polymer-modified penetrating primer, 100 % solvent-free, '
                           'supplied ready to use \u2014 do not dilute'),
     ('Appearance',        'Clear, low-viscosity liquid; dries to a thin, slightly glossy film on the surface once the '
                           'substrate is saturated'),
     ('Cure mechanism',    'Reacts with atmospheric and substrate moisture. Tolerates a damp surface; standing water or a '
                           'wet, shiny surface causes foaming and stops penetration.'),
-    ('Cured binder',      'Tough, elastic polyurethane \u2014 tensile strength about 33 MPa, elongation at break about 460 % '
+    ('Cured binder',      'Tough, elastic polymer film \u2014 tensile strength about 33 MPa, elongation at break about 460 % '
                           '(free film of the binder resin)'),
     ('Substrates',        'Concrete, cement render, cementitious plaster and other porous mineral surfaces, cured at least '
                           '4 weeks. Not for glazed tile, polished stone or any non-absorbent surface \u2014 with nowhere to '
@@ -213,7 +213,7 @@ bullet('Fill the pool only after the coating has cured for its full stated time;
 
 section('HEALTH AND SAFETY')
 para('Solvent-free and non-flammable, so there is no thinner smell and no fire risk \u2014 but it is a reactive '
-     'polyurethane resin. Wear gloves and eye protection; avoid skin contact and wipe off any splash before it cures, '
+     'resin. Wear gloves and eye protection; avoid skin contact and wipe off any splash before it cures, '
      'then wash with soap and water. Work with normal ventilation. Keep the container closed and away from moisture, '
      'sunlight and heat. Refer to the Safety Data Sheet before use.')
 
@@ -234,7 +234,7 @@ header('CorePrimer',
 y = 67.0
 
 section('ข้อมูลผลิตภัณฑ์', gap=4.0)
-para('CorePrimer ของ LucernaPro เป็นรองพื้นโพลียูรีเทนชนิดบ่มตัวด้วยความชื้น ส่วนผสมเดียว ไม่มีตัวทำละลาย สำหรับคอนกรีต ปูนฉาบ '
+para('CorePrimer ของ LucernaPro เป็นรองพื้นซึมลึกสูตร polymer-modified ชนิดบ่มตัวด้วยความชื้น ส่วนผสมเดียว ไม่มีตัวทำละลาย สำหรับคอนกรีต ปูนฉาบ '
      'และผิวซีเมนต์ที่ดูดซึมได้ พัฒนาเป็นชั้นรองพื้นของระบบสีทาสระ PoolArmour / เนื้อน้ำยาซึมลงในรูพรุนของคอนกรีตแล้วบ่มตัวอยู่ในนั้น '
      'ประสานผิวปูนที่เป็นฝุ่น ร่วน หรือดูดน้ำจัดให้กลายเป็นฐานแข็งชิ้นเดียว / ทา PoolArmour รอบแรกทับตอนรองพื้นยังสด สองชั้นจะประสานกัน '
      'ด้วยปฏิกิริยาเคมี ไม่ใช่วางซ้อนกันเฉยๆ ปูน รองพื้น และสีจึงบ่มตัวเป็นระบบเดียว / ไม่มีตัวทำละลายเลย ทาลงไปเท่าไหร่ฝังอยู่ในปูนเท่านั้น '
@@ -242,10 +242,10 @@ para('CorePrimer ของ LucernaPro เป็นรองพื้นโพล
 
 section('ข้อมูลสำคัญ')
 kv([
-    ('ชนิด',              'รองพื้นซึมลึกโพลียูรีเทนบ่มตัวด้วยความชื้น ส่วนผสมเดียว (1K) ไม่มีตัวทำละลาย 100 % พร้อมใช้ — ห้ามเจือจาง'),
+    ('ชนิด',              'รองพื้นซึมลึกสูตร polymer-modified บ่มตัวด้วยความชื้น ส่วนผสมเดียว (1K) ไม่มีตัวทำละลาย 100 % พร้อมใช้ — ห้ามเจือจาง'),
     ('ลักษณะ',            'ของเหลวใส ความหนืดต่ำ เมื่อปูนอิ่มตัวแล้วจะทิ้งฟิล์มบางกึ่งเงาไว้บนผิว'),
     ('กลไกบ่มตัว',         'ทำปฏิกิริยากับความชื้นในอากาศและในเนื้อปูน รับผิวชื้นหมาดได้ แต่น้ำขังหรือผิวเปียกเงาจะทำให้ฟิล์มเป็นฟองและซึมไม่ลง'),
-    ('ฟิล์มหลังบ่มตัว',     'โพลียูรีเทนเหนียวและยืดหยุ่น — แรงดึงราว 33 MPa ยืดตัวได้ราว 460 % (ค่าฟิล์มอิสระของเรซินตัวประสาน)'),
+    ('ฟิล์มหลังบ่มตัว',     'ฟิล์มพอลิเมอร์เหนียวและยืดหยุ่น — แรงดึงราว 33 MPa ยืดตัวได้ราว 460 % (ค่าฟิล์มอิสระของเรซินตัวประสาน)'),
     ('พื้นผิวที่ใช้ได้',      'คอนกรีต ปูนฉาบ ปูนซีเมนต์ และผิวแร่ที่มีรูพรุน บ่มตัวมาแล้วอย่างน้อย 4 สัปดาห์ / ไม่ใช้กับกระเบื้องเคลือบ หินขัดมัน '
                           'หรือผิวที่ไม่ดูดซึม — ไม่มีที่ให้ซึมจึงไม่ได้เปรียบอะไร'),
     ('สภาพผิวก่อนทา',      'สะอาด ไม่มีตะไคร่ คราบน้ำมัน คราบเคมีสระ และสีเก่าที่พองหรือลอก ขัดออกให้ถึงเนื้อปูน / ซ่อมรอยร้าวและหลุมให้จบก่อน (PatchPro) / '
@@ -277,7 +277,7 @@ bullet('ห้ามทาบนน้ำขัง — ชื้นได้ เ
 bullet('เติมน้ำเมื่อสีบ่มตัวครบตามกำหนดของสีเท่านั้น — รองพื้นไม่ได้เพิ่มข้อจำกัดเวลาของตัวเอง')
 
 section('ความปลอดภัย')
-para('ไม่มีตัวทำละลายและไม่ติดไฟ จึงไม่มีกลิ่นทินเนอร์และไม่มีความเสี่ยงเรื่องไฟ — แต่เป็นเรซินโพลียูรีเทนที่ทำปฏิกิริยาได้ '
+para('ไม่มีตัวทำละลายและไม่ติดไฟ จึงไม่มีกลิ่นทินเนอร์และไม่มีความเสี่ยงเรื่องไฟ — แต่เป็นเรซินที่ทำปฏิกิริยาได้ '
      'สวมถุงมือและแว่นตาป้องกันทุกครั้ง เลี่ยงไม่ให้โดนผิวหนัง โดนแล้วเช็ดออกก่อนบ่มตัวแล้วล้างด้วยสบู่และน้ำ ทำงานในที่อากาศถ่ายเทตามปกติ / '
      'ปิดฝาให้สนิท เก็บห่างความชื้น แสงแดด และความร้อน / อ่านเอกสารข้อมูลความปลอดภัย (SDS) ก่อนใช้งาน')
 
