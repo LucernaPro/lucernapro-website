@@ -83,6 +83,16 @@ def main():
             problems['calculator/index.html'].append('ไม่พบ JSON ตารางราคา (lcData)')
         elif mm.group(1) != bcp.data_json():
             problems['calculator/index.html'].append('ตารางราคาที่ฝังไว้ไม่ตรงกับหน้าสินค้า — รัน python3 tools/build_calculator_page.py')
+    # ยาม /feed.csv (Meta catalog): รายการ/ราคาใน feed ต้องตรงกับหน้าสินค้าปัจจุบัน (Facebook ดึงไฟล์นี้ไปโชว์ราคาให้ลูกค้า)
+    if os.path.exists('feed.csv'):
+        import sys; sys.path.insert(0, 'tools')
+        import gen_feed
+        if io.open('feed.csv', encoding='utf-8').read() != gen_feed.csv_text(gen_feed.items()):
+            problems['feed.csv'].append('feed ไม่ตรงกับหน้าสินค้า — รัน python3 tools/gen_feed.py')
+        for r in gen_feed.items():
+            if not os.path.exists(f"img/feed/{r['_slug']}.jpg"):
+                problems['feed.csv'].append(f"ไม่มีรูป img/feed/{r['_slug']}.jpg — รัน python3 tools/gen_feed.py")
+                break
     # ยามแอปบัญชี: หน้า /account ต้องต่อสาย API เสมอ (กัน deploy ทับแล้วสายหลุด)
     if os.path.exists('account/index.html'):
         acc = io.open('account/index.html', encoding='utf-8').read()

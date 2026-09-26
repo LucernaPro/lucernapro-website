@@ -1,6 +1,9 @@
-/* LucernaPro Instrumentation v1.3 (2026-08-11)
+/* LucernaPro Instrumentation v1.4 (2026-09-26)
  * ไฟล์กลางไฟล์เดียวของระบบวัดผลทั้งเว็บ — แก้ ID 4 ตัวข้างล่างที่นี่ที่เดียว มีผลทุกหน้า
  * v1.3: เพิ่ม Facebook Pixel (base + PageView + mirror channel_click + Contact สำหรับ messenger/line)
+ * v1.4: Catalog ads — หน้าสินค้า (มี .pricecard) ยิง ViewContent {content_ids:[slug], content_type:'product_group'}
+ *       และ Contact แนบ content_ids เดียวกัน → slug ตรงกับ item_group_id ใน /feed.csv (tools/gen_feed.py)
+ *       Facebook จึงรู้ว่าคนนี้ดูสินค้าตัวไหน = retargeting รายสินค้าทำงานได้
  * Event schema:
  *   channel_click  {channel: shopee|lazada|messenger|line, product, lang}  ← conversion หลัก (proxy)
  *   phone_click    {product, lang, number}
@@ -67,6 +70,17 @@
   else if (p.indexOf('post/') === 0) slug = 'post:' + p.slice(5).replace(/\/index\.html$/, '');
   else slug = p.split('/')[0];
 
+  /* ---- หน้าสินค้า → ViewContent (v1.4) ----
+   * เกณฑ์ "หน้าสินค้า" = มีตารางราคา .pricecard (script โหลดแบบ defer จึง query DOM ได้ทันที)
+   * content_ids = [slug] + content_type 'product_group' ตรงกับ item_group_id ใน feed.csv
+   * ไม่ยิงบนหน้า home/post/เคส — กัน catalog จับคู่ผิด */
+  var isProduct = !!document.querySelector('.pricecard table');
+  var h1 = document.querySelector('h1');
+  var fbContent = isProduct ? { content_ids: [slug], content_type: 'product_group',
+                                content_name: h1 ? h1.textContent.replace(/\s+/g, ' ').trim().slice(0, 100) : slug }
+                            : null;
+  if (hasFB && fbContent) fbq('track', 'ViewContent', fbContent);
+
   /* ---- ตัวจำแนกช่องทางจาก href (delegated, capture phase — ยิงก่อน navigate) ---- */
   document.addEventListener('click', function (e) {
     var el = e.target;
@@ -100,7 +114,7 @@
     }
     if (hasFB) {
       fbq('trackCustom', 'channel_click', { channel: base.channel, product: base.product, lang: base.lang });
-      if (base.channel === 'messenger' || base.channel === 'line') fbq('track', 'Contact');
+      if (base.channel === 'messenger' || base.channel === 'line') fbq('track', 'Contact', fbContent || {});
     }
   }
 })();
