@@ -271,7 +271,7 @@ BODY['th'] = r'''<section class="phero">
       <a class="altcard" href="/flexgrip">
         <div class="k">ซ่อมของ · ติดวัสดุต่างชนิด</div>
         <h4>กาวบ้าพลัง FlexGrip</h4>
-        <p>งานติดชิ้นเล็กทั่วบ้านที่ต้องการกาวหลอดเดียวไม่ต้องผสม ยืดหยุ่น ติดได้แทบทุกวัสดุ</p>
+        <p>งานติดชิ้นเล็กทั่วบ้านที่ต้องการกาวขวดเดียวไม่ต้องผสม ยืดหยุ่น ติดได้แทบทุกวัสดุ</p>
         <div class="go">ดูรายละเอียด →</div>
       </a>
     </div>
@@ -492,7 +492,7 @@ BODY['en'] = r'''<section class="phero">
       <a class="altcard" href="/en/flexgrip">
         <div class="k">Repairs · bonding mixed materials</div>
         <h4>FlexGrip</h4>
-        <p>Small jobs around the house that want a single-tube glue with no mixing — flexible, bonds almost any material.</p>
+        <p>Small jobs around the house that want a one-bottle glue with no mixing — flexible, bonds almost any material.</p>
         <div class="go">View details →</div>
       </a>
     </div>
