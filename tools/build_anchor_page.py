@@ -11,7 +11,7 @@ Lucerna Anchor — กาวรองหลังกระเบื้อง 2 �
   · เคลม "ไม่ต้องล้าง mold release agent" ของผู้ผลิต — Pist สั่งทดสอบเองก่อน ห้ามใช้บนหน้า ("อันนี้บรรลัย")
   · D7 (SPEC): ห้ามพิมพ์ตัวเลขแรงยึดเกาะ (≥2.0 MPa ในเอกสารผู้ผลิตจึงไม่ลงหน้า — ลงแค่ class Type R) + ต้องมีข้อห้าม "อย่าใช้ยึดของหนักโดยไม่มีพุก/สกรู"
   · คำ "Epoxy" ไม่ใช้บนหน้า (ชื่อสินค้าไม่มีคำนี้) — เรียก "เรซิน 2 ส่วนผสม ประเภท Reaction Resin"
-ราคา (เสนอ Claude 26 ก.ย. 2026 — ทุนถึงมือ 220/kg + package 100/200/50): 1 kg 890 ส่ง 70 · 5 kg 2,990 ส่ง 130 · 20 kg 9,900 ส่งตามจริง
+ราคา (เจ้าของเคาะ 26 ก.ย. 2026 "เล่นราคา อยากให้ช่างใช้" — ทุนถึงมือ 220/kg + package 100/200/50): 1 kg 590 ส่ง 70 · 5 kg 1,990 ส่ง 130 · 20 kg 6,500 ส่งตามจริง · section #cost คิดเงินต่อห้อง/ต่อแผ่นให้ช่าง
 ขาย: แชท + Line + โทร ก่อน (8.6-B) — ยังไม่มี listing Shopee/Lazada
 รูป: img/anchor-hero-sq.webp (ถังกาวผสมแล้ว ถ่ายโดย Pist) · anchor-card.webp · anchor-g01 (ตักด้วยเกรียง) · anchor-g02 (ปาดเกรียงหวีบนหลังแผ่น)
 คลิป: YouTube Shorts O0LgqwvKovU (แนวตั้ง — บันไดกระเบื้องที่ติดด้วยกาวตัวนี้)
@@ -64,8 +64,8 @@ OGD = {
     'en': 'Skim 1 mm on the back of the tile, then bed it in cement adhesive as usual — large slabs, sintered stone, glossy backs, tile-over-tile. Water and heat resistant, flexible. 1 kg does about 1.2 m².',
 }
 SCHEMA = {
-    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor กาวรองหลังกระเบื้อง 2 ส่วนผสม","brand":{"@type":"Brand","name":"LucernaPro"},"description":"กาวเรซิน 2 ส่วนผสม ประเภท Reaction Resin สำหรับปาดหลังกระเบื้องแผ่นใหญ่ sintered stone และผิวเงา ก่อนปูด้วยปูนกาว — ทนน้ำ ทนร้อน ยืดหยุ่น","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"890","highPrice":"9900","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
-    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor — Two-Part Reaction-Resin Tile Back Adhesive","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Two-part reaction-resin tile back adhesive for large-format slabs, sintered stone and glossy tile backs, applied 1 mm on the tile before bedding in cement adhesive — water and heat resistant, flexible.","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/en/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"890","highPrice":"9900","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'th': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor กาวรองหลังกระเบื้อง 2 ส่วนผสม","brand":{"@type":"Brand","name":"LucernaPro"},"description":"กาวเรซิน 2 ส่วนผสม ประเภท Reaction Resin สำหรับปาดหลังกระเบื้องแผ่นใหญ่ sintered stone และผิวเงา ก่อนปูด้วยปูนกาว — ทนน้ำ ทนร้อน ยืดหยุ่น","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"590","highPrice":"6500","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
+    'en': '<script type="application/ld+json">\n{"@context":"https://schema.org","@type":"Product","name":"Lucerna Anchor — Two-Part Reaction-Resin Tile Back Adhesive","brand":{"@type":"Brand","name":"LucernaPro"},"description":"Two-part reaction-resin tile back adhesive for large-format slabs, sintered stone and glossy tile backs, applied 1 mm on the tile before bedding in cement adhesive — water and heat resistant, flexible.","image":"https://www.lucernapro.com/img/anchor-hero-sq.webp","url":"https://www.lucernapro.com/en/anchor","offers":{"@type":"AggregateOffer","priceCurrency":"THB","lowPrice":"590","highPrice":"6500","offerCount":"3","availability":"https://schema.org/InStock"}}\n</script>',
 }
 
 YT = 'O0LgqwvKovU'
@@ -168,13 +168,43 @@ BODY['th'] = r'''<section class="phero">
       <table data-calc="1" data-shipping="70">
         <thead><tr><th>ขนาด</th><th>พื้นที่ปูโดยประมาณ</th><th>ราคา</th><th>ค่าส่ง</th></tr></thead>
         <tbody>
-          <tr><td class="sz" data-sqm="1.25" data-ship="70">1 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>≈ 1.2 ตร.ม. · ซ่อมแผ่นร่อน ติดของชิ้นเล็ก</td><td class="pr" data-price="890">890.-</td><td class="pr">70.-</td></tr>
-          <tr><td class="sz" data-sqm="6.25" data-ship="130">5 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 2.5 kg + B 2.5 kg</small></td><td>≈ 6 ตร.ม. · ห้องน้ำหนึ่งห้อง</td><td class="pr" data-price="2990">2,990.-</td><td class="pr">130.-</td></tr>
-          <tr data-calc="skip"><td class="sz">ชุด 20 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 10 kg + B 10 kg</small></td><td>≈ 25 ตร.ม. · งานผู้รับเหมา</td><td class="pr">9,900.-</td><td class="pr">ตามจริง — สอบถาม</td></tr>
+          <tr><td class="sz" data-sqm="1.25" data-ship="70">1 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>≈ 1.2 ตร.ม. · ซ่อมแผ่นร่อน ติดของชิ้นเล็ก</td><td class="pr" data-price="590">590.-</td><td class="pr">70.-</td></tr>
+          <tr><td class="sz" data-sqm="6.25" data-ship="130">5 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 2.5 kg + B 2.5 kg</small></td><td>≈ 6 ตร.ม. · ห้องน้ำหนึ่งห้อง</td><td class="pr" data-price="1990">1,990.-</td><td class="pr">130.-</td></tr>
+          <tr data-calc="skip"><td class="sz">ชุด 20 กก.<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 10 kg + B 10 kg</small></td><td>≈ 25 ตร.ม. · งานผู้รับเหมา</td><td class="pr">6,500.-</td><td class="pr">ตามจริง — สอบถาม</td></tr>
         </tbody>
       </table>
     </div>
     <p class="pricenote">ราคารวม VAT · พื้นที่คิดจากการปาดหลังแผ่น 1 มม. ตามผู้ผลิต (ชุด 20 กก. ≈ 25–30 ตร.ม. เราคิดด้านต่ำไว้ก่อน) · ผิวหลังแผ่นที่มีร่องลึกใช้มากกว่านี้ · <b>สั่งจำนวนมากมีราคาผู้รับเหมา</b> ส่งขนาดแผ่นและพื้นที่มาทางแชท เราคำนวณให้ฟรีก่อนสั่ง</p>
+  </div>
+</section>
+
+<section class="buybox" id="cost">
+  <div class="wrap">
+    <h2 class="sec-h">คิดเงินให้เห็นก่อน — <em>งานนี้เพิ่มเท่าไหร่</em></h2>
+    <p class="sec-sub">สำหรับช่างที่ต้องบวกลงใบเสนอราคา — ตัวเลขคิดจากปาดหลังแผ่น 1 มม. ที่ 1.2 ตร.ม./กก. (ด้านต่ำ) ราคารวม VAT ยังไม่รวมค่าส่ง</p>
+    <div class="speccard" style="margin-top:20px">
+      <table>
+        <thead><tr><th>งาน</th><th>พื้นที่</th><th>ใช้ Anchor</th><th>เป็นเงิน</th><th>ตกตร.ม.ละ</th></tr></thead>
+        <tbody>
+          <tr><td>ซ่อมแผ่นร่อน / ติดของชิ้นเล็ก</td><td>ไม่เกิน 1 ตร.ม.</td><td>1 กก.</td><td><b>590</b></td><td>—</td></tr>
+          <tr><td>ห้องน้ำ 1 ห้อง (ผนัง)</td><td>≈ 6 ตร.ม.</td><td>5 กก.</td><td><b>1,990</b></td><td>≈ 330</td></tr>
+          <tr><td>ผนังครัว + ห้องน้ำ</td><td>≈ 12 ตร.ม.</td><td>5 กก. × 2</td><td><b>3,980</b></td><td>≈ 330</td></tr>
+          <tr><td>ผนังโถง / หน้าร้าน แผ่นใหญ่</td><td>≈ 25 ตร.ม.</td><td>ชุด 20 กก.</td><td><b>6,500</b></td><td>≈ 260</td></tr>
+          <tr><td>อาคาร / โครงการ</td><td>≈ 50 ตร.ม.</td><td>ชุด 20 กก. × 2</td><td><b>13,000</b></td><td>≈ 260</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="speccard" style="margin-top:14px">
+      <table>
+        <thead><tr><th>คิดเป็นต่อแผ่น (ที่ราคาชุด 20 กก.)</th><th>พื้นที่แผ่น</th><th>Anchor ต่อแผ่น</th><th>เป็นเงินต่อแผ่น</th></tr></thead>
+        <tbody>
+          <tr><td>กระเบื้อง 60 × 120 ซม.</td><td>0.72 ตร.ม.</td><td>≈ 0.6 กก.</td><td><b>≈ 190 บาท</b></td></tr>
+          <tr><td>กระเบื้อง 80 × 160 ซม.</td><td>1.28 ตร.ม.</td><td>≈ 1.0 กก.</td><td><b>≈ 330 บาท</b></td></tr>
+          <tr><td>sintered stone 120 × 240 ซม.</td><td>2.88 ตร.ม.</td><td>≈ 2.3 กก.</td><td><b>≈ 750 บาท</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">แผ่น 60×120 บวกไปแผ่นละไม่ถึง 200 บาท แผ่นใหญ่ 120×240 ราว 750 — เทียบกับค่าแผ่นและค่าแรงปูแผ่นนั้น และค่ารื้อทำใหม่ถ้าแผ่นร่อน ตัวเลขนี้คือประกันที่ถูกที่สุดในงาน · หลังแผ่นที่มีร่องลึกหรือลายนูนใช้มากกว่านี้ เผื่อไว้ 10–20%</p>
   </div>
 </section>
 
@@ -346,13 +376,43 @@ BODY['en'] = r'''<section class="phero">
       <table data-calc="1" data-shipping="70">
         <thead><tr><th>Size</th><th>Approx. coverage</th><th>Price</th><th>Shipping</th></tr></thead>
         <tbody>
-          <tr><td class="sz" data-sqm="1.25" data-ship="70">1 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>≈ 1.2 m² · loose-tile repairs, small fixtures</td><td class="pr" data-price="890">890.-</td><td class="pr">70.-</td></tr>
-          <tr><td class="sz" data-sqm="6.25" data-ship="130">5 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 2.5 kg + B 2.5 kg</small></td><td>≈ 6 m² · one bathroom</td><td class="pr" data-price="2990">2,990.-</td><td class="pr">130.-</td></tr>
-          <tr data-calc="skip"><td class="sz">20 kg set<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 10 kg + B 10 kg</small></td><td>≈ 25 m² · contractor jobs</td><td class="pr">9,900.-</td><td class="pr">Actual cost — ask</td></tr>
+          <tr><td class="sz" data-sqm="1.25" data-ship="70">1 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 500 g + B 500 g</small></td><td>≈ 1.2 m² · loose-tile repairs, small fixtures</td><td class="pr" data-price="590">590.-</td><td class="pr">70.-</td></tr>
+          <tr><td class="sz" data-sqm="6.25" data-ship="130">5 kg<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 2.5 kg + B 2.5 kg</small></td><td>≈ 6 m² · one bathroom</td><td class="pr" data-price="1990">1,990.-</td><td class="pr">130.-</td></tr>
+          <tr data-calc="skip"><td class="sz">20 kg set<br><small style="font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)">A 10 kg + B 10 kg</small></td><td>≈ 25 m² · contractor jobs</td><td class="pr">6,500.-</td><td class="pr">Actual cost — ask</td></tr>
         </tbody>
       </table>
     </div>
     <p class="pricenote">Prices include VAT · Coverage is based on the manufacturer's 1 mm skim on the tile back (20 kg ≈ 25–30 m²; we quote the low end) · Deeply ribbed tile backs use more · <b>Volume pricing for contractors</b> — send tile size and area on chat and we work out the quantity for you before you order</p>
+  </div>
+</section>
+
+<section class="buybox" id="cost">
+  <div class="wrap">
+    <h2 class="sec-h">The money first — <em>what this adds to the job</em></h2>
+    <p class="sec-sub">For tilers pricing a quote — figures based on a 1 mm skim at 1.2 m²/kg (low end), prices incl. VAT, shipping not included</p>
+    <div class="speccard" style="margin-top:20px">
+      <table>
+        <thead><tr><th>Job</th><th>Area</th><th>Anchor needed</th><th>Cost</th><th>Per m²</th></tr></thead>
+        <tbody>
+          <tr><td>Loose-tile repair / small fixtures</td><td>up to 1 m²</td><td>1 kg</td><td><b>590</b></td><td>—</td></tr>
+          <tr><td>One bathroom (walls)</td><td>≈ 6 m²</td><td>5 kg</td><td><b>1,990</b></td><td>≈ 330</td></tr>
+          <tr><td>Kitchen + bathroom walls</td><td>≈ 12 m²</td><td>5 kg × 2</td><td><b>3,980</b></td><td>≈ 330</td></tr>
+          <tr><td>Lobby / shopfront in large slabs</td><td>≈ 25 m²</td><td>20 kg set</td><td><b>6,500</b></td><td>≈ 260</td></tr>
+          <tr><td>Building / project</td><td>≈ 50 m²</td><td>20 kg set × 2</td><td><b>13,000</b></td><td>≈ 260</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="speccard" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Per tile (at 20 kg set pricing)</th><th>Tile area</th><th>Anchor per tile</th><th>Cost per tile</th></tr></thead>
+        <tbody>
+          <tr><td>60 × 120 cm tile</td><td>0.72 m²</td><td>≈ 0.6 kg</td><td><b>≈ 190 THB</b></td></tr>
+          <tr><td>80 × 160 cm tile</td><td>1.28 m²</td><td>≈ 1.0 kg</td><td><b>≈ 330 THB</b></td></tr>
+          <tr><td>120 × 240 cm sintered stone</td><td>2.88 m²</td><td>≈ 2.3 kg</td><td><b>≈ 750 THB</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">Under 200 THB added per 60×120 tile, about 750 per 120×240 slab — set against the cost of the slab, the labour to lay it, and the rip-out if it lets go, this is the cheapest insurance on the job · Deeply ribbed or textured backs use more; allow 10–20% extra</p>
   </div>
 </section>
 
