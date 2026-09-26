@@ -7,7 +7,7 @@ PureBreeze — น้ำยาเคลือบใสระดับนาโ�
 ย้ายมาจากหน้า Wix เดิม (lekvtwin.wixsite.com/lucerna/purebreeze) — Pist 25 ก.ย. 2026 "ไปเอาข้อมูลมาลงก่อน สร้างหน้าใหม่เลย"
 อัตราใช้จริง (Pist พ่นจริง 25 ก.ย. 2026): ~20 ml ต่อแอร์บ้าน 1 ตัว → 100 g ≈ 5 ตัว · เนื้อหาหลักการ/ยับยั้งเชื้อ ≥99%/ทดสอบฝุ่น จาก feibotech.com/en/airconditioner (ระบุเป็นข้อมูลผู้ผลิต) · Pist 25 ก.ย. 2026 "เอาตามของเขาเลย" + "≥99% (ตามผู้ผลิต) เสล่อ จะเขียนทำไม" → ตัดคำกันตัว "ตามผู้ผลิต/ไม่ได้ทดสอบเอง" ออกทั้งหน้า พูดตัวเลขตรงๆ → ขั้นตอนใช้ตาม Feibo (ล้างลึก → แห้ง → พ่น → เซ็ตตัวที่อุณหภูมิห้อง ไม่มีตัวเลขเวลา/ระยะพ่นที่เราแต่งเอง) · ตารางแบคทีเรีย 1 สัปดาห์–1 ปี และรูปทดสอบ (crop จากสไลด์ของ Feibo ตัดตัวหนังสือจีนออก: img/purebreeze-dust1/3, -petri-coated/-bare) จากหน้าเดียวกัน
 ราคาตามหน้า Wix: น้ำยา 100 g 690 / 8 ตร.ม., 500 g 2,990 / 40, 1 kg 5,500 / 80 ส่ง 40 · (สเปรย์ 100 ml 790 เลิกขาย — Pist 25 ก.ย. 2026 "จะไม่มีสเปรย์อีกแล้ว จะเป็นแบบไปบรรจุเครื่องพ่นเอง พ่นด้วยแรงต่ำ"; คลิปทดสอบ XZUhhF2gLpY เป็นของ solar เอาออก)
-ไม่มี TDS ในมือ → ไม่มีตารางสเปค · เวลาแห้งในขั้นตอนใช้งานเป็นตัวเลขรอ Pist ยืนยัน (ดูหมายเหตุใน BODY)
+TDS (Feibo KT01/FBq301, จีน — Pist ส่ง 26 ก.ย. 2026) → ตารางสเปค #spec + files/purebreeze-tds.pdf (tools/mk_purebreeze_tds.py, EN+TH) · MSDS SNTEK202401061-3 (ม.ค. 2024, KT01) = files/purebreeze-sds.pdf ตามต้นฉบับ · เวลาแห้งในขั้นตอนใช้งานเป็นค่า TDS (แห้งสัมผัส 5 นาที / แข็งตัว ~1 ชม. / เซ็ตตัวเต็ม 6–20 ชม.) · ข้อขัดกัน: TDS 30–50 ml/m² แต่ตารางราคาระบุ 8 ตร.ม./100 g (จาก Wix) — รอ Pist ตัดสิน
 hero/การ์ด = ภาพห้องนั่งเล่นที่ Pist generate เอง (Gemini, 25 ก.ย. 2026) img/purebreeze-hero-sq.webp / -card.webp
 รายงานจุลชีพ Gmicro 2020SPS942R01D (E. coli / S. aureus >99%, รา ระดับ 0) — Pist ส่งสไลด์ 25 ก.ย. 2026, crop 3 หน้า upscale 2× = img/purebreeze-report-p1..p3.webp (+ -zoom-* ยังไม่ใช้) section #certs ก่อนราคา
 วิดีโอจาก Wix: วิธีใช้ rAH-kRWLcZg · คลิปแนวตั้งของ Pist (Pure_breeze2.mov, 25 ก.ย. 2026 — พ่นคอยล์ร้อนด้วยกาพ่น + ฟินครึ่งเคลือบ) = YouTube Shorts d4kNlcm259c (Pist: ใช้ลิงก์แทนไฟล์ในเว็บ จะได้ไม่หนัก — ไฟล์ mp4/poster ที่เคย encode ลบออกจาก repo แล้ว) · การทดสอบ XZUhhF2gLpY (YouTube) · Shopee: 392415703/28808079817
@@ -166,6 +166,41 @@ BODY['th'] = r'''<section class="phero">
   </div>
 </section>
 
+<section class="buybox" id="spec">
+  <div class="wrap">
+    <h2 class="sec-h">สเปคทางเทคนิค <em>ตัวเลขจาก TDS</em></h2>
+    <p class="sec-sub">ค่าทั่วไปของน้ำยาและฟิล์มหลังเซ็ตตัว — ฉบับเต็มดาวน์โหลดได้ด้านล่าง พร้อมเอกสารข้อมูลความปลอดภัย</p>
+    <div class="speccard" style="margin-top:20px">
+      <table>
+        <thead><tr><th>รายการ</th><th>ค่า</th><th>วิธีทดสอบ / หมายเหตุ</th></tr></thead>
+        <tbody>
+          <tr><td>ชนิด</td><td>นาโนเคลือบส่วนผสมเดียว สูตรแอลกอฮอล์ผสมน้ำ พร้อมใช้</td><td>ห้ามเจือจาง</td></tr>
+          <tr><td>ลักษณะ</td><td>ของเหลวกึ่งใส ฟ้าอ่อนถึงขาวอ่อน</td><td>กลิ่นเอทานอลเล็กน้อย</td></tr>
+          <tr><td>เนื้อสาร (solids)</td><td>10 ± 2 % โดยน้ำหนัก</td><td>DIN EN ISO 3251</td></tr>
+          <tr><td>ความหนาแน่น (20°C)</td><td>0.88–0.92 g/cm³</td><td>DIN EN ISO 2811-2</td></tr>
+          <tr><td>pH</td><td>4.0–6.0</td><td>DIN ISO 976</td></tr>
+          <tr><td>จุดวาบไฟ</td><td>26.5°C</td><td>ISO 13736 — ของเหลวไวไฟ</td></tr>
+          <tr><td>มุมสัมผัสน้ำ (ฟิล์ม)</td><td>≤ 7°</td><td>Superhydrophilic — น้ำแผ่เป็นแผ่น</td></tr>
+          <tr><td>ความต้านทานผิว</td><td>10⁹ Ω</td><td>กันไฟฟ้าสถิต ฝุ่นไม่ถูกดูดเกาะ</td></tr>
+          <tr><td>ความแข็งดินสอ</td><td>6H</td><td></td></tr>
+          <tr><td>การยึดเกาะ (cross-cut)</td><td>เกรด 0</td><td>GB/T 9286-1998, GB/T 31815-2015</td></tr>
+          <tr><td>ทนกรด</td><td>ไม่พบรอยแตกหรือฟองพอง</td><td></td></tr>
+          <tr><td>ยับยั้งแบคทีเรีย / รา</td><td>&gt; 99% · ระดับ 0</td><td>GB 21551.2-2010 — ดูรายงานด้านล่าง</td></tr>
+          <tr><td>วิธีพ่น</td><td>HVLP หัว 1.0–1.2 มม. แรงดันลม ~0.2 MPa</td><td>หรือเครื่องพ่นละอองละเอียดแรงดันต่ำ</td></tr>
+          <tr><td>อัตราการใช้</td><td>30–50 มล./ตร.ม.</td><td>แอร์บ้าน 1 ตัว ≈ 20 มล. จากการพ่นจริงของเรา</td></tr>
+          <tr><td>แห้งสัมผัส / แข็งตัว</td><td>5 นาที / ~1 ชั่วโมง</td><td>เร่งด้วยความร้อน 50°C ≈ 2 นาที · 70°C ≈ 1 นาที</td></tr>
+          <tr><td>เซ็ตตัวเต็มที่</td><td>6 ชม. (อากาศร้อน) – 20 ชม. (อากาศเย็น)</td><td>ห้ามให้ฟิล์มโดนน้ำก่อนแข็งตัว</td></tr>
+          <tr><td>การเก็บ / อายุ</td><td>−10 ถึง 45°C · 12 เดือนไม่เปิด</td><td>เปิดแล้วใช้ให้หมดโดยเร็ว</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-ghost" href="/files/purebreeze-tds.pdf" target="_blank" rel="noopener">📑 TDS ข้อมูลเทคนิค</a>
+      <a class="btn btn-ghost" href="/files/purebreeze-sds.pdf" target="_blank" rel="noopener">📄 เอกสารข้อมูลความปลอดภัย (MSDS)</a>
+    </div>
+  </div>
+</section>
+
 <section class="gallery" id="certs">
   <div class="wrap">
     <h2 class="sec-h">รายงานทดสอบจุลชีพ <em>จากห้องแล็บที่ได้รับการรับรอง</em></h2>
@@ -214,12 +249,12 @@ BODY['th'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>ปิดเครื่อง ตัดไฟ แล้วล้างแอร์ให้สะอาดตามปกติ</h4><p>ถอดหน้ากากและแผ่นกรอง ล้างฟินคอยล์เย็นด้วยน้ำยาล้างคอยล์และน้ำแรงดันเบาตามที่ช่างทำ ล้างคราบน้ำยาออกให้หมด — คราบน้ำยาล้างคอยล์ที่เหลืออยู่จะขวางฟิล์มเท่ากับฝุ่น คอยล์ร้อนนอกบ้านฉีดน้ำล้างจากด้านในออกด้านนอก</p></li>
       <li class="fstep"><h4>เป่าให้แห้งสนิท</h4><p>เป่าลมหรือปล่อยให้แห้งจนฟินไม่มีหยดน้ำค้างและไม่ชื้น — ตัวนี้เคลือบบนผิวแห้ง น้ำที่ค้างในร่องฟินจะเจือน้ำยาจนฟิล์มไม่ต่อกัน ถ้าเร่งเวลา ใช้เครื่องเป่าลมไล่จากบนลงล่าง</p><span class="fchip">แห้งสนิท ไม่มีหยดน้ำ</span></li>
-      <li class="fstep"><h4>บรรจุเครื่องพ่น แล้วพ่นด้วยแรงดันต่ำเป็นละอองบางทั่วแผงฟิน</h4><p>เทน้ำยาลงเครื่องพ่นที่สะอาดและแห้ง (กระบอกฉีดฝอย เครื่องพ่นแบบปั๊มมือ หรือกาพ่นสีปรับแรงดันต่ำ) <b>ใช้แรงดันต่ำ</b> ให้ออกเป็นละอองละเอียด ไม่ใช่เป็นสาย — แรงดันสูงจะทำให้ฟินล้มและน้ำยาเด้งออก พ่นซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอทั่วทั้งแผง ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">แรงดันต่ำ ละอองละเอียด</span><span class="fchip">ชั้นบางชั้นเดียว</span></li>
-      <li class="fstep"><h4>ปล่อยให้เซ็ตตัวที่อุณหภูมิห้องจนแห้งสนิท</h4><p>ปล่อยฟิล์มเซ็ตตัวเองที่อุณหภูมิห้อง — ไม่ต้องเป่า ไม่ต้องอบ รอจนฟินแห้งสนิทไม่มีความชื้นของน้ำยาเหลือ แล้วค่อยใส่แผ่นกรองและหน้ากากกลับ ระหว่างนี้ไม่ให้น้ำหรือฝุ่นโดนฟิน</p><span class="fchip">เซ็ตตัวเองที่อุณหภูมิห้อง</span></li>
-      <li class="fstep"><h4>แห้งสนิทแล้วเปิดใช้งานได้ตามปกติ</h4><p>เมื่อฟินแห้งสนิทแล้วเปิดแอร์ใช้งานได้เลย ครั้งแรกอาจมีกลิ่นน้ำยาจางๆ ไม่กี่นาทีแล้วหาย — รอบล้างถัดไปให้ล้างด้วยน้ำเปล่าแรงดันเบาก่อน ถ้าฟินยังโล่งไม่ต้องใช้น้ำยาล้างคอยล์ และเคลือบซ้ำหลังการล้างใหญ่ทุกครั้ง</p></li>
+      <li class="fstep"><h4>บรรจุเครื่องพ่น แล้วพ่นด้วยแรงดันต่ำเป็นละอองบางทั่วแผงฟิน</h4><p>เทน้ำยาลงเครื่องพ่นที่สะอาดและแห้ง — ดีที่สุดคือกาพ่นสี HVLP หัว 1.0–1.2 มม. แรงดันลมราว 0.2 MPa หรือเครื่องพ่นใดก็ได้ที่ให้ละอองละเอียด <b>ใช้แรงดันต่ำ</b> ให้ออกเป็นละอองละเอียด ไม่ใช่เป็นสาย — แรงดันสูงจะทำให้ฟินล้มและน้ำยาเด้งออก พ่นซ้ายไปขวาทีละแถวให้ผิวฟินเปียกบางสม่ำเสมอทั่วทั้งแผง ไม่พ่นจนไหลย้อย เนื้อยาที่ไหลรวมกันที่ด้านล่างคือของที่เสียเปล่า แอร์บ้านหนึ่งตัวใช้เวลาไม่ถึง 2 นาที ทำทั้งคอยล์เย็นและคอยล์ร้อน</p><span class="fchip">แรงดันต่ำ ละอองละเอียด</span><span class="fchip">ชั้นบางชั้นเดียว</span></li>
+      <li class="fstep"><h4>ปล่อยให้แข็งตัวที่อุณหภูมิห้องราว 1 ชั่วโมง</h4><p>ผิวฟิล์มแห้งสัมผัสใน 5 นาที และแข็งตัวทั่วทั้งฟิล์มในราว 1 ชั่วโมงที่อุณหภูมิห้อง ไม่ต้องเป่า ไม่ต้องอบ ระหว่างนี้<b>ห้ามให้น้ำโดนฟิน</b> — น้ำบนฟิล์มที่ยังไม่แข็งจะทิ้งรอยคราบถาวร แล้วค่อยใส่แผ่นกรองและหน้ากากกลับ</p><span class="fchip">แห้งสัมผัส 5 นาที</span><span class="fchip">แข็งตัว ~1 ชม.</span></li>
+      <li class="fstep"><h4>ครบ 1 ชั่วโมงแล้วเปิดใช้งานได้ตามปกติ</h4><p>เปิดแอร์ใช้งานได้หลังฟิล์มแข็งตัว (ฟิล์มเซ็ตตัวเต็มที่ใน 6 ชั่วโมงในอากาศร้อน ถึง 20 ชั่วโมงในอากาศเย็น แต่ไม่ต้องรอถึงตอนนั้น) ครั้งแรกอาจมีกลิ่นน้ำยาจางๆ ไม่กี่นาทีแล้วหาย — รอบล้างถัดไปให้ล้างด้วยน้ำเปล่าแรงดันเบาก่อน ถ้าฟินยังโล่งไม่ต้องใช้น้ำยาล้างคอยล์ ถ้าต้องใช้ให้เลือกสูตรกลางหรือกรดอ่อน — <b>น้ำยาล้างคอยล์ที่เป็นด่าง pH 11 ขึ้นไปทำลายฟิล์ม</b> และเคลือบซ้ำหลังการล้างใหญ่ทุกครั้ง</p></li>
     </ol>
 
-    <div class="warn"><b>⚠ ความปลอดภัย:</b> พ่นในที่อากาศถ่ายเท สวมถุงมือและแว่นครอบตา ปิดเครื่องและตัดไฟก่อนทำงานทุกครั้ง ไม่พ่นเข้าแผงวงจร มอเตอร์พัดลม และเซ็นเซอร์ เก็บขวดพ้นมือเด็กและแสงแดดตรง</div>
+    <div class="warn"><b>⚠ ความปลอดภัย:</b> เป็นของเหลวไวไฟ (จุดวาบไฟ 26.5°C) มีแอลกอฮอล์หลายชนิดรวมถึงเมทานอล — ปิดเครื่องและตัดไฟก่อนพ่นทุกครั้ง ห่างประกายไฟและบุหรี่ พ่นในที่อากาศถ่ายเท <b>สวมหน้ากากกรองไอสารอินทรีย์</b> แว่นครอบตา และถุงมือ เข้าตาให้ล้างน้ำต่อเนื่องหลายนาทีแล้วพบแพทย์ ไม่พ่นเข้าแผงวงจร มอเตอร์พัดลม และเซ็นเซอร์ เก็บขวดปิดสนิทพ้นมือเด็กและแสงแดดตรง รายละเอียดใน MSDS ด้านบน</div>
   </div>
 </section>
 
@@ -379,6 +414,41 @@ BODY['en'] = r'''<section class="phero">
   </div>
 </section>
 
+<section class="buybox" id="spec">
+  <div class="wrap">
+    <h2 class="sec-h">Technical specification <em>figures from the TDS</em></h2>
+    <p class="sec-sub">Typical values for the liquid and the cured film — the full sheet and the Safety Data Sheet are below</p>
+    <div class="speccard" style="margin-top:20px">
+      <table>
+        <thead><tr><th>Item</th><th>Value</th><th>Method / note</th></tr></thead>
+        <tbody>
+          <tr><td>Type</td><td>Single-component nano coating, alcohol- and water-borne, ready to use</td><td>Do not dilute</td></tr>
+          <tr><td>Appearance</td><td>Pale blue to pale white translucent liquid</td><td>Slight ethanol odour</td></tr>
+          <tr><td>Solids</td><td>10 ± 2 % by weight</td><td>DIN EN ISO 3251</td></tr>
+          <tr><td>Density (20°C)</td><td>0.88–0.92 g/cm³</td><td>DIN EN ISO 2811-2</td></tr>
+          <tr><td>pH</td><td>4.0–6.0</td><td>DIN ISO 976</td></tr>
+          <tr><td>Flash point</td><td>26.5°C</td><td>ISO 13736 — flammable liquid</td></tr>
+          <tr><td>Water contact angle (film)</td><td>≤ 7°</td><td>Superhydrophilic — water spreads into a sheet</td></tr>
+          <tr><td>Surface resistance</td><td>10⁹ Ω</td><td>Anti-static — dust is not attracted</td></tr>
+          <tr><td>Pencil hardness</td><td>6H</td><td></td></tr>
+          <tr><td>Adhesion (cross-cut)</td><td>Grade 0</td><td>GB/T 9286-1998, GB/T 31815-2015</td></tr>
+          <tr><td>Acid resistance</td><td>No visible cracking or blistering</td><td></td></tr>
+          <tr><td>Antibacterial / anti-mould</td><td>&gt; 99% · grade 0</td><td>GB 21551.2-2010 — see the report below</td></tr>
+          <tr><td>Spraying</td><td>HVLP, 1.0–1.2 mm nozzle, ~0.2 MPa</td><td>or any fine-mist sprayer at low pressure</td></tr>
+          <tr><td>Consumption</td><td>30–50 ml/m²</td><td>one home unit ≈ 20 ml in our own application</td></tr>
+          <tr><td>Tack-free / hardened</td><td>5 min / ~1 hour</td><td>heat: 50°C ≈ 2 min · 70°C ≈ 1 min</td></tr>
+          <tr><td>Full cure</td><td>6 h (warm) – 20 h (cool)</td><td>keep water off the film until hardened</td></tr>
+          <tr><td>Storage / shelf life</td><td>−10 to 45°C · 12 months unopened</td><td>use up soon after opening</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-ghost" href="/files/purebreeze-tds.pdf" target="_blank" rel="noopener">📑 Technical Data Sheet (TDS)</a>
+      <a class="btn btn-ghost" href="/files/purebreeze-sds.pdf" target="_blank" rel="noopener">📄 Safety Data Sheet (MSDS)</a>
+    </div>
+  </div>
+</section>
+
 <section class="gallery" id="certs">
   <div class="wrap">
     <h2 class="sec-h">Microbial test report <em>from an accredited laboratory</em></h2>
@@ -427,12 +497,12 @@ BODY['en'] = r'''<section class="phero">
     <ol class="flow">
       <li class="fstep"><h4>Switch off, cut the power, and wash the unit as usual</h4><p>Remove the front panel and filter, wash the evaporator fins with coil cleaner and low-pressure water the way a technician does, and rinse every trace of cleaner off — leftover coil cleaner blocks the film just as dust does. Hose the outdoor condenser from the inside out.</p></li>
       <li class="fstep"><h4>Blow completely dry</h4><p>Blow or air-dry until there are no droplets left in the fins and no dampness — this coats a dry surface, and water sitting in the fin channels dilutes the liquid until the film doesn't join up. In a hurry, use a blower top to bottom.</p><span class="fchip">Bone dry, no droplets</span></li>
-      <li class="fstep"><h4>Load your sprayer and apply a fine, thin mist at low pressure over the whole fin pack</h4><p>Pour the liquid into a clean, dry sprayer (a trigger mist bottle, a hand-pump sprayer or a spray gun turned down) and <b>use low pressure</b> so it comes out as a fine mist, not a jet — high pressure flattens the fins and bounces the liquid off. Work left to right, row by row, until the whole fin surface is evenly and thinly wet, never to the point of running; liquid that runs and pools at the bottom is wasted. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Low pressure, fine mist</span><span class="fchip">One thin coat</span></li>
-      <li class="fstep"><h4>Let it cure at room temperature until completely dry</h4><p>Let the film cure at room temperature — no blowing, no heating. Wait until the fins are completely dry with no trace of liquid left, then put the filter and front panel back. Keep water and dust off the fins meanwhile.</p><span class="fchip">Ambient cure</span></li>
-      <li class="fstep"><h4>Fully dry — run the unit as normal</h4><p>Once the fins are completely dry, run the unit normally. There may be a faint smell for the first few minutes, then it goes — at the next cleaning, try low-pressure plain water first; if the fins are still open, skip the coil cleaner, and re-coat after every full wash.</p></li>
+      <li class="fstep"><h4>Load your sprayer and apply a fine, thin mist at low pressure over the whole fin pack</h4><p>Pour the liquid into a clean, dry sprayer — ideally an HVLP gun with a 1.0–1.2 mm nozzle at about 0.2 MPa, or any sprayer that gives a fine mist — and <b>use low pressure</b> so it comes out as a fine mist, not a jet — high pressure flattens the fins and bounces the liquid off. Work left to right, row by row, until the whole fin surface is evenly and thinly wet, never to the point of running; liquid that runs and pools at the bottom is wasted. One home unit takes under 2 minutes, both coils.</p><span class="fchip">Low pressure, fine mist</span><span class="fchip">One thin coat</span></li>
+      <li class="fstep"><h4>Let it harden at room temperature, about 1 hour</h4><p>The film is tack-free in 5 minutes and hardened through in about 1 hour at room temperature — no blowing, no heating. <b>Keep water off the fins meanwhile</b>: water on an unhardened film leaves permanent marks. Then put the filter and front panel back.</p><span class="fchip">Tack-free 5 min</span><span class="fchip">Hardened ~1 h</span></li>
+      <li class="fstep"><h4>After 1 hour, run the unit as normal</h4><p>Run the unit once the film has hardened (it reaches full cure in 6 hours in warm weather to 20 hours in cool conditions, but you need not wait for that). There may be a faint smell for the first few minutes, then it goes — at the next cleaning, try low-pressure plain water first; if the fins are still open, skip the coil cleaner, and if you need one choose neutral or mildly acidic — <b>alkaline coil cleaners of pH 11 and above destroy the film</b>. Re-coat after every full wash.</p></li>
     </ol>
 
-    <div class="warn"><b>⚠ Safety:</b> Spray in a ventilated space, wear gloves and eye protection, and switch off and isolate the power before every job. Do not spray into the control board, fan motor or sensors. Keep the bottle out of reach of children and direct sun.</div>
+    <div class="warn"><b>⚠ Safety:</b> Flammable liquid (flash point 26.5°C) containing several alcohols including methanol — switch off and isolate the power before every job, keep away from sparks and cigarettes, spray in a ventilated space and wear <b>an organic-vapour respirator</b>, eye protection and gloves. If in eyes, rinse with water for several minutes and seek medical attention. Do not spray into the control board, fan motor or sensors. Keep the bottle tightly closed, out of reach of children and direct sun. Details in the MSDS above.</div>
   </div>
 </section>
 
